@@ -61,6 +61,32 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.15 · 2026-10-16 · Coleção com a paginação e a ordenação do zip
+
+**Pedido da cliente:** "a pagina de coleção tem que seguir a do template que
+enviei pode ajustar". Na v0.1.14 o layout do zip tinha sido seguido em tudo menos
+na paginação, porque o dossiê pedia o catálogo inteiro em uma grade só. O pedido
+de agora revê essa decisão.
+
+| O que mudou | Onde |
+|---|---|
+| Linha da coleção logo abaixo do fio do cabeçalho, como no zip: faixa de peças visíveis, recado de tamanhos (do P ao GG) e atalho do guia de medidas | `02-loja.html`, `style.css` |
+| Paginação no rodapé da grade, com o desenho do zip: nove peças por página, quadrados de 44px, página atual com fio de tinta e setas que desligam nas pontas | `02-loja.html`, `comercio.css`, `filtros.js` |
+| Faixa "Mostrando 1–9 de 12 peças" acompanha filtros e página, e a grade volta ao topo ao trocar de página | `filtros.js` |
+| Cinco formas de ordenar, as mesmas do zip e do WooCommerce: mais recentes, mais populares, menor preço, maior preço e melhor avaliados | `02-loja.html`, `filtros.js` |
+| A ordenação por nome saiu: não existe no zip | `02-loja.html` |
+| Nota e número de avaliações entraram nos cartões (`data-nota`, `data-avaliacoes`) para alimentar as duas ordenações novas | `build.py` |
+| O recado de tamanhos saiu da barra de ferramentas (subiu para a linha da coleção) e o aviso interno sobre paginação saiu da página | `02-loja.html`, `pages.css`, `comercio.css` |
+| O aviso do Diário sobre a loja não ter paginação foi corrigido | `10-blog.html` |
+
+**Resultado das verificações:** `build.py` e `check.py` com as 22 páginas certas;
+`test.js` com 938 verificações e zero falhas (a seção 22 é nova e cobre a
+paginação e as cinco ordenações); `pente-fino.py` com as 12 seções zeradas.
+
+**Decisão revista:** a loja passa a paginar de 9 em 9, como o zip (52 peças em 6
+páginas). Se a cliente preferir o catálogo inteiro em uma grade só, é uma linha
+em `filtros.js` (`POR_PAGINA`).
+
 ### v0.1.14 · 2026-10-16 · Resumo fixo na sacola, coleção no layout do zip e artigo novo
 
 **Pedido da cliente:** corrigir o alinhamento de dentro do card "Resumo" da sacola
@@ -90,8 +116,9 @@ retirada no ateliê, boleto, prazos de reembolso, tecidos e autoria do diário.
 `test.js` com 907 verificações e zero falhas (a seção 21 é nova); `pente-fino.py`
 com as 12 seções zeradas.
 
-**Decisão que continua valendo:** a loja segue sem paginação, como o dossiê pede,
-mesmo com o zip mostrando paginação na listagem.
+**Decisão revista na v0.1.15:** a loja chegou a ficar sem paginação, como o
+dossiê pedia, mesmo com o zip mostrando paginação na listagem. A pedido da
+cliente, a v0.1.15 passou a seguir a paginação do zip.
 
 ### v0.1.13 · 2026-10-16 · Cartões de envio e pagamento no checkout e as regras de negócio fechadas
 

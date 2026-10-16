@@ -41,6 +41,20 @@ Depois abra `http://localhost:8080` no navegador.
 | Institucional | `sobre.html`, `contato.html`, `faq.html`, `guia-medidas.html` |
 | Políticas | `trocas.html`, `envio.html`, `privacidade.html`, `termos.html`, `cookies.html` |
 
+### Novidades da v0.1.15 (coleção com a paginação e a ordenação do zip)
+
+| Peça | Como ficou |
+|---|---|
+| Linha da coleção | Abaixo do fio do cabeçalho: faixa de peças visíveis, recado de tamanhos (do P ao GG) e atalho do guia de medidas |
+| Paginação | No rodapé da grade, com o desenho do zip: nove peças por página, quadrados de 44px, página atual com fio de tinta e setas desligadas nas pontas |
+| Faixa | "Mostrando 1–9 de 12 peças" acompanha os filtros e a página; ao trocar de página a grade volta ao topo |
+| Ordenação | Cinco formas, as do zip e do WooCommerce: mais recentes, mais populares, menor preço, maior preço e melhor avaliados |
+| Sem JavaScript | A grade mostra as 12 peças e a barra de paginação não aparece |
+
+**A paginação entrou a pedido da cliente**, que pediu a coleção igual à do
+template de referência. O zip usa nove peças por página (52 peças em 6 páginas);
+com as 12 do protótipo ficam duas páginas, de 9 e de 3.
+
 ### Novidades da v0.1.14 (resumo preso na sacola, coleção do zip e artigo novo)
 
 | Peça | Como ficou |
@@ -56,8 +70,8 @@ Depois abra `http://localhost:8080` no navegador.
 | Tecidos e origem | Linho, algodão egípcio e viscose de alta gramatura; modelagem, corte e confecção 100% autorais no Brasil, em Cerquilho - SP |
 | Diário | Textos assinados por Iara Costa e Equipe de Criação |
 
-**A loja continua sem paginação**, como o dossiê pede: o layout do zip foi seguido
-em tudo o mais (coluna de filtros, ações no fim, contagem e grade).
+**A loja continuava sem paginação** nessa rodada, como o dossiê pedia; a v0.1.15
+passou a seguir a paginação do zip, a pedido da cliente.
 
 ### Novidades da v0.1.13 (cartões de envio e pagamento e regras de negócio fechadas)
 

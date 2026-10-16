@@ -1,5 +1,61 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Coleção com a paginação e a ordenação do zip (v0.1.15)
+
+### Pedido da cliente
+"a pagina de coleção tem que seguir a do template que enviei pode ajustar". Na
+rodada anterior eu tinha avisado que o layout do zip estava seguido em tudo menos
+na paginação, porque o dossiê pedia o catálogo inteiro em uma grade só. O pedido
+de agora revê aquela decisão a favor do zip.
+
+### O que foi feito (IMPLEMENTADO)
+- **Linha da coleção**, como no zip: logo abaixo do fio do cabeçalho, a faixa de
+  peças visíveis ("Mostrando 1–9 de 12 peças"), o recado de tamanhos (vestuário
+  feminino do P ao GG) e o atalho do guia de medidas. O recado de tamanhos saiu
+  da barra de ferramentas, que ficou com o que é do zip: o botão Filtros, a
+  contagem e a ordenação.
+- **Paginação**, com o desenho do zip: quadrados de 44px centrados no rodapé da
+  grade, a página atual com fio de tinta, setas que desligam no começo e no fim.
+  Nove peças por página, que é a conta do zip (52 peças em 6 páginas). Com o
+  catálogo de 12 peças, ficam duas páginas: 9 e 3. Quando um filtro deixa o
+  resultado em uma página só, a barra desaparece.
+- **A faixa acompanha** os filtros e a página ("Mostrando 10–12 de 12 peças" na
+  segunda página), e ao trocar de página a grade volta ao topo, descontando o
+  cabeçalho fixo. O filtro novo sempre recomeça da primeira página, então ninguém
+  fica preso numa página que deixou de existir.
+- **Cinco formas de ordenar**, as do zip e do WooCommerce: mais recentes, mais
+  populares, menor preço, maior preço e melhor avaliados. As duas últimas usam a
+  nota e o número de avaliações que já apareciam no cartão. A ordenação por nome
+  saiu, porque não existe no zip.
+- **Acessibilidade:** a paginação é um `nav` com rótulo, a página atual é um
+  texto marcado com `aria-current` (não se clica no que já está aberto), as setas
+  desligadas são botões desabilitados e o foco acompanha a troca de página, para
+  o leitor de tela anunciar a nova página.
+- **Avisos corrigidos:** saiu da página o recado interno "sem paginação, conforme
+  o dossiê" e o Diário deixou de dizer que a loja não pagina.
+- **Verificações:** `build.py` e `check.py` com as 22 páginas certas; `test.js`
+  com 938 verificações e zero falhas (a seção 22 cobre a paginação, a faixa e as
+  cinco ordenações); `pente-fino.py` com as 12 seções zeradas; `data-nome` saiu do
+  cartão porque nenhum JavaScript o lia mais.
+
+### Decisões tomadas
+- **Nove peças por página.** É o número que a própria paginação do zip revela (52
+  peças em 6 páginas). Se a cliente preferir o catálogo inteiro em uma grade só,
+  volta com uma linha em `filtros.js`.
+- **A lista de categorias, as cores e a faixa de preço continuam os do catálogo
+  real** (sete categorias, cinco cores, R$ 149 a R$ 789), e não os do zip, que
+  descrevem uma loja de 52 peças com oito categorias. O desenho segue o zip; os
+  números são os nossos.
+- **Sem JavaScript a coleção continua inteira:** a grade traz as 12 peças no
+  HTML, a faixa diz "Mostrando 1–12 de 12 peças" e a barra de paginação não
+  aparece.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Conferência no navegador: a paginação, a rolagem até o topo da grade e o
+  comportamento das setas precisam de uma tela de verdade; o jsdom não rola.
+- Composição exata por peça (percentual de fibra) e tabela de medidas real.
+- História da marca para a página Sobre, analytics e pixels para a privacidade.
+
 ## [2026-10-16] - Resumo fixo na sacola, coleção no layout do zip e artigo novo (v0.1.14)
 
 ### Pedido da cliente
@@ -67,7 +123,8 @@ Negócio" atualizada, que respondeu o que faltava.
 - **A loja continua sem paginação.** O zip mostra paginação na listagem, mas o
   dossiê do projeto é explícito: o catálogo aparece inteiro, sem paginação. O
   layout do zip foi seguido em tudo o mais. Quando o catálogo passar de 30 peças,
-  o assunto volta à mesa.
+  o assunto volta à mesa. *(Revisto na v0.1.15: a cliente pediu a paginação do
+  zip e a loja passou a paginar de 9 em 9.)*
 - **O convite "Adicionar à sacola" continua sempre visível.** O CSS do zip tem um
   convite que só aparece no hover, mas o próprio HTML do zip usa um link comum, e
   esconder uma ação de compra atrás do mouse prejudica o celular. O CSS morto
