@@ -45,6 +45,15 @@ Depois abra `http://localhost:8080` no navegador.
 
 O dossiê pede que todos os estados de tela estejam representados. Onde procurar:
 
+### Novidades da v0.1.5 (ajustes pedidos pela cliente)
+
+| Ajuste | Como ficou |
+|---|---|
+| Faixa antes do rodapé | Todas as 22 páginas fecham com uma faixa sálvia de largura total: o fundo ocupa a tela inteira e o texto fica na largura do header |
+| Seção de newsletter | Saiu a faixa compacta de lista de espera que ficava no meio da home (v0.1.4); a newsletter do rodapé continua, como na referência |
+| Largura do template | Todas as páginas passam a usar a mesma largura do header (1688px); nas páginas de leitura a linha do texto corrido fica em 72 caracteres |
+| Revisão de CSS | Amostra de cor "carvão" corrigida, passos do pedido com estilo, caixa `.promo` substituída pela faixa e limpeza das regras sem uso |
+
 ### Novidades da v0.1.4 (ajustes pedidos pela cliente)
 
 | Ajuste | Como ficou |
