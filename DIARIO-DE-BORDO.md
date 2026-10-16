@@ -1,5 +1,89 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Bloco B, parte 1: cores, fontes, cabeçalho e rodapé (v0.2.0)
+
+### Pedido da cliente
+"Pode continuar com o Bloco B". O Bloco A estava fechado e congelado na v0.1.20,
+com a conferência do navegador pendente, e o próximo entregável do escopo eram os
+templates do Elementor.
+
+### Como esta parte foi construída
+Antes de escrever qualquer arquivo, o formato foi conferido **no código-fonte do
+Elementor** (o projeto tem acesso ao GitHub), e não em um site:
+
+| O que foi conferido | Onde | O que valeu |
+|---|---|---|
+| Envelope do arquivo de importação | `includes/template-library/sources/local.php` | `content`, `page_settings`, `version`, `title`, `type` |
+| Versão do formato | `includes/db.php` | `version: "0.4"` |
+| Referência de cor e de fonte | `core/files/css/base.php` | `globals/colors?id=...` e `globals/typography?id=...` |
+| Configurações de container | `includes/elements/container.php` | `content_width`, `boxed_width`, `flex_*`, `_flex_basis` |
+| Forma real dos ajustes | `tests/elements-regression/tests/templates/*.json` | arquivos de teste do próprio plugin, com o formato verdadeiro |
+| Criação de global na importação | `includes/template-library/manager.php` | cor global **não** é criada sozinha: por isso existe o script de ids |
+
+### O que foi feito (IMPLEMENTADO)
+- **`bloco-b/globais/cores-e-fontes.json`**: as 15 cores (4 do sistema mais 11
+  personalizadas) e as 10 fontes (4 do sistema mais 6 personalizadas), todas com
+  nome, valor e uso. Cada valor saiu do protótipo: nada foi inventado.
+- **`bloco-b/json/01-cabecalho.json`** (tipo `header`): faixa verde do topo com os
+  três recados, marca, menu principal e os quatro ícones (busca, conta, desejos,
+  sacola). 7 containers e 7 widgets.
+- **`bloco-b/json/02-rodape.json`** (tipo `footer`): newsletter, quatro colunas
+  (marca, institucional, categorias, atendimento), faixa de segurança com quatro
+  itens, formas de pagamento, selos e a base com copyright, CNPJ e endereço.
+  33 containers e 39 widgets.
+- **`bloco-b/GUIA-IMPORTACAO.md`**: o documento que a equipe segue, com a ordem de
+  trabalho, as tabelas de cor e de fonte, o passo a passo da importação, as
+  condições de exibição no Theme Builder, o que ajustar no editor, a tabela das 22
+  páginas e a lista do que não foi verificado.
+- **`bloco-b/LEIA-ME.txt`**: resumo de uma página.
+- **`tools/blocob_gera.py`**: gera os JSONs a partir de definições legíveis (o
+  mesmo princípio do `tools/build.py`), com id de elemento determinístico.
+- **`tools/blocob_confere.py`**: confere o envelope, os tipos, os widgets
+  permitidos (nada de HTML, shortcode ou widgets Atomics), o nome dos containers,
+  a unicidade dos ids e se toda referência de cor e de fonte existe nas globais.
+- **`tools/ajusta-ids.py`**: lê o arquivo de configurações exportado do site, casa
+  cor por cor pelo título e reescreve as referências nos templates. Testado com um
+  arquivo de exemplo com ids sorteados: as 11 cores e as 6 fontes foram casadas e
+  os dois templates reescritos.
+
+### Decisões tomadas
+- **Container nomeado em tudo.** Todo container leva `_title`, o nome que aparece
+  no navegador de estrutura, para quem abrir o template entender a montagem.
+- **Ajustes de widget Pro ficam para o editor.** O Elementor Pro não é aberto, e
+  um nome de ajuste desconhecido é ignorado na importação em vez de quebrar. O
+  guia lista, widget por widget, o que escolher no editor (menu, logo, busca,
+  sacola, newsletter, redes sociais).
+- **Número de arquivos:** a conta página por página dá 24 arquivos (cabeçalho,
+  rodapé e as 22 páginas), e não os 21 do dossiê. Não juntei páginas diferentes em
+  um arquivo só; a alternativa (uma página de documento para as três políticas)
+  ficou registrada no guia, à espera da palavra da equipe.
+- **A versão sobe para 0.2.0** no começo do bloco. As partes seguintes seguem a
+  série 0.2.x, como combinado no plano do histórico.
+
+### O que foi verificado aqui
+- `python3 tools/blocob_gera.py`: gera os três arquivos.
+- `python3 tools/blocob_confere.py`: 2 templates, 15 cores, 10 fontes,
+  "resultado: tudo certo".
+- `python3 tools/ajusta-ids.py --simular`: 11 cores e 6 fontes casadas por título.
+- `python3 tools/check.py` e `tools/pente-fino.py`: as 22 páginas do protótipo
+  continuam em "tudo certo"; `node tools/test.js` segue com 1.043 verificações sem
+  falha. O Bloco B não tocou em nada do Bloco A.
+
+### O que não foi verificado
+- **Nenhuma importação.** Sem acesso ao WordPress, ao painel ou ao banco de dados.
+- **Nenhuma renderização** do que o Elementor desenha depois de importar.
+- **Versões do staging** (WordPress, PHP, Elementor, Elementor Pro, WooCommerce)
+  seguem por informar: é o primeiro item do guia.
+- **Nenhuma medida de desempenho**, que é do Bloco C, com site montado.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- A conferência da cliente no navegador do protótipo: acordeão do FAQ, formulário
+  de contato e seletor de cor da página de produto.
+- Destino do formulário da newsletter e endereços das redes sociais.
+- O número final de arquivos (24 ou 21, juntando as páginas legais).
+- Plugin de lista de desejos: sem aprovação, a página de desejos fica para depois.
+- As 78 pendências de conteúdo e de decisão listadas em `PENDENCIAS.md`.
+
 ## [2026-10-16] - Bloco A fechado e congelado (v0.1.20)
 
 ### Pedido da cliente

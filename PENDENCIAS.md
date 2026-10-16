@@ -119,6 +119,18 @@ estiverem habilitadas na conta do Mercado Pago.
 
 ---
 
+## 6. Itens que nasceram com o Bloco B (templates do Elementor)
+
+| O que falta | Onde aparece | Observação |
+|---|---|---|
+| Versões do staging (WordPress, PHP, Elementor, Elementor Pro, WooCommerce) | `bloco-b/GUIA-IMPORTACAO.md`, seção 2 | é o primeiro item da instalação: sem elas não dá para confirmar o que o site suporta |
+| Destino do formulário da newsletter | rodapé, campo do formulário | está como `[PREENCHER]` até a ferramenta de newsletter ser escolhida |
+| Endereço do Instagram e do Pinterest | rodapé, coluna Atendimento | hoje os dois links estão como `[PREENCHER]` |
+| Nome do menu principal | cabeçalho, widget Menu | o template aponta para o menu de slug `principal` |
+| Logo do site | cabeçalho, widget Site Logo | entra em Aparência > Personalizar > Identidade do site |
+| Plugin de lista de desejos | página de desejos e ícone do coração | sem aprovação, a página fica para depois |
+| Número final de arquivos do Bloco B (24 ou 21) | `bloco-b/GUIA-IMPORTACAO.md`, seção 5.2 | a conta página por página dá 24; juntar as três páginas políticas levaria a 21 |
+
 ## Como usar este documento
 
 - **Nada aqui foi inventado para preencher espaço.** Onde não havia informação

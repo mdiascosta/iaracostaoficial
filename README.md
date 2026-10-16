@@ -10,6 +10,11 @@ antes de qualquer coisa ir para o WordPress. Ele fica congelado em
 `template-v0.1.20/`, e o que ainda depende de informacao da empresa esta em
 `PENDENCIAS.md`.
 
+O **Bloco B esta em andamento (versao 0.2.0)**: sao os templates do Elementor em
+`bloco-b/`, entregues em partes. A primeira parte traz as cores e as fontes
+globais do site, o cabecalho e o rodape. O guia de importacao esta em
+`bloco-b/GUIA-IMPORTACAO.md`.
+
 ---
 
 ## Como o repositorio esta organizado
@@ -20,6 +25,7 @@ antes de qualquer coisa ir para o WordPress. Ele fica congelado em
 | `template-v0.1.20/` | Copia congelada da versao em que o Bloco A fechou (0.1.20), para conferencia |
 | `template-v0.1.18/` | Copia congelada da versao 0.1.18, guardada tambem. Uma pasta por versao fechada |
 | `PENDENCIAS.md` | O que ainda depende de informacao da empresa, por assunto |
+| `bloco-b/` | Templates do Elementor (Bloco B): os `.json` de importacao e o guia |
 | `tools/` | Gerador das paginas e as verificacoes (Python e Node) |
 | `VERSION` | Numero da versao atual do template |
 | `HISTORICO-DE-VERSOES.md` | O que mudou em cada versao, com a data e o pedido que originou |
