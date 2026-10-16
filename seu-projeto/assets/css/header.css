@@ -410,14 +410,8 @@ body.is-locked { overflow: hidden; }
 }
 
 /* Última linha da coluna de atendimento, sem a lista completa */
-.site-footer__list--last { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
 
-.site-footer__legal {
-  padding-block: clamp(20px, 3vw, 28px);
-  border-bottom: 1px solid var(--iara-hairline);
-}
 
-.site-footer__legal .site-footer__copy + .site-footer__copy { margin-top: 6px; }
 
 @media (min-width: 721px) { .site-footer__columns { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1021px) { .site-footer__columns { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; } }
@@ -453,7 +447,6 @@ body.is-locked { overflow: hidden; }
 
 .site-footer__list li { margin-bottom: 10px; font-size: var(--fs-small); color: var(--iara-ink-soft); }
 
-.site-footer__list--tight { margin-top: -6px; }
 
 .site-footer__list a { color: var(--iara-ink-soft); text-decoration: none; }
 .site-footer__list a:hover { color: var(--iara-accent-dark); text-decoration: underline; }
@@ -544,4 +537,143 @@ body.is-locked { overflow: hidden; }
 @media (max-width: 720px) {
   .whats-float__label { display: none; }
   .whats-float { padding: 14px; }
+}
+
+/* ============================================================================
+   11. RODAPÉ v0.1.3 — estrutura da referência enviada pela cliente
+
+   Ordem: newsletter em uma linha · quatro colunas · faixa de segurança e
+   pagamento · base com identificação da empresa e links.
+
+   A newsletter voltou para o rodapé porque a referência mostra ela ali. O
+   convite é outro: aqui o assunto é o conteúdo do ateliê (cartas, guia de
+   medidas), enquanto a faixa verde sálvia da home é a lista de espera dos
+   lançamentos.
+   ========================================================================= */
+
+.newsletter {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: center;
+  padding-bottom: clamp(24px, 3vw, 36px);
+  border-bottom: 1px solid var(--iara-hairline);
+}
+
+@media (min-width: 721px) {
+  .newsletter { grid-template-columns: 1fr minmax(280px, 480px); gap: 40px; }
+}
+
+.newsletter__lead {
+  margin: 6px 0 0;
+  font-size: var(--fs-body);
+  color: var(--iara-ink-soft);
+  max-width: 48ch;
+}
+
+.newsletter__form { display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch; }
+.newsletter__form .field__input { flex: 1 1 220px; }
+.newsletter__form .btn { margin-top: 0; }
+
+.newsletter__note {
+  margin: 14px 0 0;
+  font-size: var(--fs-micro);
+  color: var(--iara-ink-soft);
+  max-width: 76ch;
+}
+
+/* ------------------------------------------- 11.1 SEGURANÇA E PAGAMENTO */
+.security {
+  padding-block: clamp(28px, 3.4vw, 40px);
+  border-bottom: 1px solid var(--iara-hairline);
+}
+
+.security__list {
+  list-style: none;
+  display: grid;
+  gap: 22px var(--iara-gap);
+  grid-template-columns: 1fr;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 721px)  { .security__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1021px) { .security__list { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; } }
+
+.security__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+@media (min-width: 1021px) {
+  .security__item { padding-inline: clamp(18px, 2vw, 30px); }
+  .security__item:first-child { padding-left: 0; }
+  .security__item:last-child { padding-right: 0; }
+  .security__item + .security__item { position: relative; }
+
+  .security__item + .security__item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    bottom: 2px;
+    width: 1px;
+    background: var(--iara-line);
+  }
+}
+
+.security__item svg { color: var(--iara-accent); margin-top: 2px; }
+
+.security__item strong {
+  display: block;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--iara-ink);
+}
+
+.security__item span span {
+  display: block;
+  margin-top: 6px;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+}
+
+.security__note {
+  margin: 24px 0 0;
+  font-size: var(--fs-micro);
+  color: var(--iara-ink-soft);
+  max-width: 96ch;
+}
+
+/* ------------------------------------------------- 11.2 COLUNAS E BASE ---
+   A base do rodapé segue a referência: copyright e dados da empresa à
+   esquerda, links de política à direita, na mesma linha em tela larga. */
+.site-footer__columns {
+  padding-top: clamp(28px, 3.4vw, 44px);
+}
+
+.social__link { transition: color var(--iara-transition), border-color var(--iara-transition); }
+.social__icon { display: block; }
+
+.social__link:hover { color: var(--iara-accent-dark); border-color: var(--iara-accent-soft); }
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 40px;
+  padding-top: clamp(20px, 2.6vw, 28px);
+}
+
+
+/* Identificação da empresa em duas linhas curtas: a segunda respira um pouco */
+.site-footer__bottom .site-footer__copy + .site-footer__copy { margin-top: 6px; }
+
+@media (max-width: 720px) {
+  .site-footer__bottom { flex-direction: column; align-items: flex-start; }
 }

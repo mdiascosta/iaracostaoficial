@@ -414,10 +414,16 @@ body.page-about { --iara-container: 1180px; }
 }
 
 /* ------------------------------------------------ 7. BREADCRUMBS E TÍTULOS */
+/* Migalha de pão (breadcrumb) no padrão de site de moda: caixa alta miúda,
+   com muito espaço em branco em volta, para ela desaparecer quando o olho
+   procura o título. Referências olhadas: COS, Massimo Dutti e Aritzia, que
+   usam a trilha discreta acima do nome da seção. */
 .breadcrumbs {
-  font-size: var(--fs-small);
-  color: var(--iara-ink-soft);
-  padding-block: 16px;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--iara-muted);
+  padding-block: clamp(18px, 2.6vw, 30px) 0;
 }
 
 .breadcrumbs ol {
@@ -434,18 +440,47 @@ body.page-about { --iara-container: 1180px; }
   margin-right: 6px;
 }
 
-.breadcrumbs a { color: var(--iara-ink-soft); text-decoration: none; }
+.breadcrumbs a { color: var(--iara-muted); text-decoration: none; }
 .breadcrumbs a:hover { color: var(--iara-accent-dark); text-decoration: underline; }
 .breadcrumbs [aria-current="page"] { color: var(--iara-ink); }
 
+/* Cabeçalho de página (todas as páginas internas).
+   Antes era um título colado na borda de cima, sem respiro. Agora segue o
+   padrão de vitrine de moda: muito espaço em branco, título grande em serifa,
+   texto de apoio curto e estreito, e um fio fino fechando o bloco.
+   A coluna da direita (.page-head__meta) recebe a contagem de peças na loja. */
 .page-head {
-  padding-block: clamp(16px, 3vw, 32px);
+  padding-block: clamp(22px, 3.4vw, 40px) clamp(26px, 4vw, 44px);
   border-bottom: 1px solid var(--iara-hairline);
 }
 
-.page-head__inner { max-width: 62ch; }
-.page-head h1 { margin-bottom: 8px; }
-.page-head .lead { margin: 0; }
+.page-head__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px 48px;
+}
+
+.page-head__text { max-width: 62ch; }
+
+.page-head h1 {
+  font-size: clamp(32px, 4.2vw, 54px);
+  line-height: 1.04;
+  margin: 0 0 14px;
+  text-wrap: balance;
+}
+
+.page-head .lead { margin: 0; max-width: 56ch; }
+
+.page-head__meta {
+  margin: 0 0 8px;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+  white-space: nowrap;
+}
 
 /* ------------------------------------------------------ 8. CARDS DE PRODUTO */
 .product-grid {
