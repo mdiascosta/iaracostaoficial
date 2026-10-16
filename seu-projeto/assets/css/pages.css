@@ -493,24 +493,8 @@
 .account-content > section { margin-bottom: clamp(32px, 5vw, 56px); }
 .account-content > section:last-child { margin-bottom: 0; }
 
-.account-cards { display: grid; gap: var(--iara-gap); margin-top: 20px; }
-
-@media (min-width: 721px) { .account-cards { grid-template-columns: repeat(3, 1fr); } }
-
-.account-card {
-  display: block;
-  border: 1px solid var(--iara-line);
-  border-radius: var(--iara-radius);
-  background: var(--iara-white);
-  padding: 20px;
-  text-decoration: none;
-}
-
-.account-card:hover { border-color: var(--iara-accent); background: var(--iara-hover-soft); }
-
-.account-card__title { display: block; font-size: var(--fs-body); color: var(--iara-ink); margin-bottom: 4px; }
-
-.account-card__text { display: block; font-size: var(--fs-small); color: var(--iara-ink-soft); }
+/* v0.1.9 — os cartões de atalho da conta saíram: os pedidos viraram tabela,
+   como na imagem de referência, e o resto ficou na navegação lateral. */
 
 .order-card {
   border: 1px solid var(--iara-line);
@@ -518,15 +502,6 @@
   background: var(--iara-white);
   padding: 18px 20px;
   margin-bottom: 14px;
-}
-
-.order-card__head {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 8px;
 }
 
 .order-card__number { margin: 0; font-size: var(--fs-body); font-weight: 600; }
@@ -802,27 +777,6 @@ mark {
 .doc-body > section > h2:first-child { margin-top: 0; }
 
 /* ------------------------------------------------------ 03. PÁGINA SOBRE */
-.about-gallery { display: grid; gap: 22px; margin-bottom: clamp(32px, 4vw, 52px); }
-
-@media (min-width: 721px) {
-  .about-gallery { grid-template-columns: 1.4fr 1fr; align-items: start; }
-  /* Foto de apoio desce um pouco: dá o desencontro editorial do template. */
-  .about-gallery__side { margin-top: clamp(28px, 5vw, 72px); }
-}
-
-.about-gallery figure { margin: 0; }
-
-.about-gallery img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border: 1px solid var(--iara-line);
-  border-radius: var(--iara-radius);
-  background: var(--iara-hover-soft);
-}
-
-.about-gallery figcaption { font-size: var(--fs-small); color: var(--iara-ink-soft); margin-top: 10px; }
-
 /* Faixa de números. A linha de cima e a de baixo separam a faixa do texto
    sem precisar de fundo colorido. */
 .facts {
@@ -929,3 +883,249 @@ mark {
    depois do estado vazio na Busca. */
 form + h3,
 .state + h3 { margin-top: clamp(24px, 3vw, 32px); }
+
+/* =====================================================================
+   PARTE 5/5 · CONTA, ATENDIMENTO E SOBRE (v0.1.9)
+   Pedido da cliente: adaptar a Minha conta às imagens 1 e 2, adaptar o
+   Contato às imagens 3, 4 e 5 (com bordas na coluna da direita, como os
+   depoimentos da home, e conferindo o fundo de cada seção) e ajustar a
+   página Sobre, com o primeiro bloco em texto à esquerda e imagem à
+   direita, mais uma seção de missão, visão e compromisso.
+
+   Regra que não muda: dado da empresa (endereço, telefone, e-mail, prazo)
+   continua marcado como [PREENCHER]/[A DEFINIR]. Nada foi inventado.
+   ===================================================================== */
+
+/* ------------------------------------------- 01. ENTRAR OU CRIAR CONTA */
+.auth-grid { display: grid; gap: var(--iara-gap); }
+
+@media (min-width: 1021px) {
+  .auth-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.auth-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-paper);
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.auth-card__title {
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-h2);
+  margin: 8px 0 8px;
+}
+
+.auth-card__note { font-size: var(--fs-small); color: var(--iara-ink-soft); margin: 0 0 22px; }
+.auth-card__note a { color: var(--iara-accent-dark); }
+
+/* O formulário ocupa o que sobra do cartão, então os dois botões ficam na
+   mesma linha de base mesmo quando um formulário tem mais campos. */
+.auth-form { display: grid; gap: 16px; margin-top: auto; }
+.auth-form .field__hint { margin-top: 6px; }
+.auth-form .checkbox { margin: 0; }
+
+/* ----------------------------------------------- 02. TABELA DE PEDIDOS */
+/* A tabela rola na horizontal em tela estreita em vez de espremer as colunas
+   (é o mesmo recurso usado nas tabelas das páginas legais). */
+.orders-table { min-width: 620px; }
+
+.orders-table th[scope="row"] { font-weight: 600; }
+.orders-table td,
+.orders-table tbody th { vertical-align: middle; }
+.orders-table .pill { white-space: nowrap; }
+
+.orders-table__actions { margin: 18px 0 0; }
+
+/* ------------------------------------------------- 03. ATELIÊ NO MAPA */
+.map-figure { margin: clamp(24px, 3vw, 36px) 0 0; }
+
+.map-figure__frame {
+  display: grid;
+  place-items: center;
+  gap: 14px;
+  aspect-ratio: 16 / 9;
+  padding: 24px;
+  border: 1px dashed var(--iara-line);
+  border-radius: var(--iara-radius);
+  text-align: center;
+  /* Fundo de grade: lembra um mapa sem fingir ser um. O mapa real do Google
+     entra aqui quando o endereço da empresa for confirmado. */
+  background:
+    linear-gradient(var(--iara-hairline) 1px, transparent 1px) 0 0 / 100% 46px,
+    linear-gradient(90deg, var(--iara-hairline) 1px, transparent 1px) 0 0 / 46px 100%,
+    var(--iara-hover-soft);
+}
+
+.map-figure__pin { width: 34px; height: 34px; color: var(--iara-accent-dark); }
+.map-figure__note { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); max-width: 40ch; }
+
+.map-figure figcaption {
+  margin-top: 12px;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+  max-width: 72ch;
+}
+
+/* -------------------------------------------------- 04. DÚVIDAS RÁPIDAS */
+/* Coluna estreita e centralizada, como na referência: pergunta e resposta
+   separadas por um fio, sem acordeão. */
+.container--narrow { max-width: 760px; }
+
+.qa-list { margin: 0; }
+
+.qa-list dt {
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-heading);
+  color: var(--iara-ink);
+  padding-top: 24px;
+}
+
+.qa-list dt:first-child { padding-top: 0; }
+
+.qa-list dd {
+  margin: 8px 0 0;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--iara-hairline);
+  color: var(--iara-ink-soft);
+}
+
+.qa-list dd a { color: var(--iara-accent-dark); }
+
+.qa-list__more { margin: 26px 0 0; }
+
+/* ------------------------------------------------------- 05. PÁGINA SOBRE */
+/* Primeiro bloco: texto à esquerda, imagem à direita. */
+.story { display: grid; gap: clamp(24px, 4vw, 48px); }
+
+@media (min-width: 1021px) {
+  .story { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); align-items: start; }
+}
+
+.story__text { min-width: 0; }
+
+.story__figure { margin: 0; }
+
+.story__figure img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+}
+
+.story__figure figcaption { font-size: var(--fs-small); color: var(--iara-ink-soft); margin-top: 10px; }
+
+/* Missão, visão e compromisso */
+.value-grid { display: grid; gap: var(--iara-gap); margin-top: clamp(24px, 3vw, 36px); }
+
+@media (min-width: 1021px) { .value-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.value-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-paper);
+  padding: clamp(22px, 3vw, 30px);
+}
+
+.value-card__label {
+  margin: 0;
+  /* O rótulo é um h3 no HTML, então a fonte e o peso vêm declarados aqui para
+     ele ficar igual às outras linhas de olho do site (Jost, em maiúsculas). */
+  font-family: var(--iara-font-ui);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--iara-accent-dark);
+}
+
+.value-card__text { margin: 0; color: var(--iara-ink); }
+
+/* O selo [PROPOSTA] fica sempre no pé do cartão, para ninguém publicar o
+   texto sem revisar. */
+.value-card__tag {
+  margin: auto 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--iara-hairline);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+}
+
+/* Faixa de fotos do ateliê */
+.gallery-strip {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 721px) { .gallery-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.gallery-strip figure { margin: 0; }
+
+.gallery-strip img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+}
+
+.gallery-strip figcaption { font-size: var(--fs-small); color: var(--iara-ink-soft); margin-top: 8px; }
+
+/* --------------------------------------------- 06. CABEÇALHO DA LOJA */
+/* Linha de apoio do cabeçalho da coleção: do P ao GG e o atalho para o guia
+   de medidas, como na referência. */
+.page-head__aside { display: grid; gap: 6px; justify-items: end; text-align: right; }
+
+.page-head__note { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
+.page-head__note a { color: var(--iara-accent-dark); }
+
+@media (max-width: 720px) {
+  .page-head__aside { justify-items: start; text-align: left; }
+}
+
+/* ------------------------------------------ 07. ATENDIMENTO (CONTATO) */
+/* O formulário virou um quadro de papel, como os cartões de depoimento, e os
+   canais da direita também. A seção por trás é Hover Soft, então o papel
+   aparece: era isso que faltava para a coluna da direita não parecer texto
+   solto na página. */
+.contact-card {
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-paper);
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.contact-card h2 { margin-top: 0; }
+
+.form-required-note {
+  margin: 0 0 20px;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+}
+
+/* Os canais de atendimento continuam com borda, agora sobre papel. */
+.info-box { background: var(--iara-paper); margin-bottom: 16px; }
+.info-box:last-child { margin-bottom: 0; }
+.info-box h2 { margin-top: 0; }
+
+.info-box__links { margin: 10px 0 0; padding-left: 20px; font-size: var(--fs-small); }
+.info-box__links a { color: var(--iara-accent-dark); }
+
+/* Na faixa de frase o respiro vem da própria seção: a margem do bloco de
+   citação criaria um vão duplo. */
+.section--soft .pull { margin-block: 0; }
+
+/* A faixa de frase centralizada, quando o texto é curto (página Sobre). */
+.pull p { font-size: clamp(22px, 3vw, 34px); max-width: 34ch; }

@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&amp;family=Playfair+Display:wght@400&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css?v=cb9c51bc">
   <link rel="stylesheet" href="assets/css/header.css?v=6a0c8f8c">
-  <link rel="stylesheet" href="assets/css/pages.css?v=1f5475a8">
+  <link rel="stylesheet" href="assets/css/pages.css?v=2de3147b">
   <link rel="stylesheet" href="assets/css/comercio.css?v=d30df938">
 </head>
 <body class="page-account">
@@ -159,7 +159,7 @@
   </div>
 
   <main id="conteudo" tabindex="-1">
-    <div class="container page-head">
+<div class="container page-head">
       <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
@@ -168,7 +168,7 @@
       </nav>
 
       <span class="page-head__rule" aria-hidden="true"></span>
-      <p class="page-head__eyebrow">Sua área</p>
+      <p class="page-head__eyebrow">Área da cliente</p>
 
       <div class="page-head__inner">
         <div class="page-head__text">
@@ -178,93 +178,178 @@
       </div>
     </div>
 
-    <div class="container section--tight">
-      <div class="account-layout">
+    <!-- ====================================================================
+         ENTRAR OU CRIAR CONTA (v0.1.9)
+         Estrutura trazida do template de referência: dois cartões lado a lado,
+         um para entrar e um para criar conta.
 
-        <!-- NAVEGAÇÃO LATERAL -->
+         Segurança: são formulários de demonstração, nada é enviado e o
+         protótipo nunca pede senha de verdade. No site publicado, login,
+         cadastro e recuperação de senha são do WooCommerce.
+         ==================================================================== -->
+    <div class="container section--tight">
+      <h2 class="visually-hidden" id="acesso-titulo">Entrar ou criar conta</h2>
+
+      <div class="auth-grid">
+        <div class="auth-card">
+          <p class="eyebrow eyebrow--muted">Já sou cliente</p>
+          <h3 class="auth-card__title">Entrar</h3>
+          <p class="auth-card__note">Pedidos, rastreio e checkout em um clique.</p>
+
+          <form class="auth-form" action="#" method="post" novalidate>
+            <div class="field">
+              <label class="field__label" for="login-email">E-mail <span aria-hidden="true">*</span></label>
+              <input class="field__input" id="login-email" name="email" type="email"
+                     autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="login-senha">Senha <span aria-hidden="true">*</span></label>
+              <input class="field__input" id="login-senha" name="senha" type="password"
+                     autocomplete="current-password" required>
+            </div>
+            <div class="checkbox">
+              <input class="checkbox__input" id="login-lembrar" name="lembrar" type="checkbox">
+              <label class="checkbox__label" for="login-lembrar">Manter conectada</label>
+            </div>
+            <button class="btn btn--primary btn--block" type="submit">Entrar</button>
+            <p class="auth-card__note">
+              <a href="#login-email">Esqueci minha senha</a>
+            </p>
+          </form>
+        </div>
+
+        <div class="auth-card">
+          <p class="eyebrow eyebrow--muted">Primeira compra</p>
+          <h3 class="auth-card__title">Criar conta</h3>
+          <p class="auth-card__note">
+            Cadastro em um minuto. 10% na primeira compra com <strong>BEMVINDO10</strong>.
+          </p>
+
+          <form class="auth-form" action="#" method="post" novalidate>
+            <div class="field">
+              <label class="field__label" for="cad-nome">Nome completo <span aria-hidden="true">*</span></label>
+              <input class="field__input" id="cad-nome" name="nome" type="text"
+                     autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="cad-email">E-mail <span aria-hidden="true">*</span></label>
+              <input class="field__input" id="cad-email" name="email" type="email"
+                     autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="cad-senha">Criar senha <span aria-hidden="true">*</span></label>
+              <input class="field__input" id="cad-senha" name="senha" type="password"
+                     autocomplete="new-password" aria-describedby="cad-senha-hint" required>
+              <p class="field__hint" id="cad-senha-hint">Mínimo de 8 caracteres.</p>
+            </div>
+            <div class="checkbox">
+              <input class="checkbox__input" id="cad-termos" name="termos" type="checkbox" required>
+              <label class="checkbox__label" for="cad-termos">
+                Aceito os <a href="termos.html">Termos de uso</a> e a
+                <a href="privacidade.html">Política de Privacidade</a>.
+              </label>
+            </div>
+            <button class="btn btn--primary btn--block" type="submit">Criar minha conta</button>
+          </form>
+        </div>
+      </div>
+
+      <p class="muted-note">
+        Protótipo: estes formulários não enviam nada, então não digite senha de
+        verdade. No site publicado, entrar e criar conta são do WooCommerce, e a
+        recuperação de senha chega por e-mail.
+        <span class="placeholder">[CONFERIR: cadastro de teste desligado antes de publicar]</span>
+      </p>
+    </div>
+
+    <!-- ====================================================================
+         PAINEL DA CLIENTE (v0.1.9) — como a página fica depois do login.
+         Os cartões soltos de pedido viraram tabela, seguindo a imagem de
+         referência. Os pedidos são de exemplo: o histórico real vem do
+         WooCommerce, e os prazos de rastreio dependem da transportadora
+         ([A DEFINIR]).
+         ==================================================================== -->
+    <div class="container section--tight">
+      <p class="eyebrow">Visão da cliente logada</p>
+      <h2 id="painel-titulo">Painel da conta</h2>
+
+      <div class="account-layout">
         <nav class="account-nav" aria-label="Seções da conta">
           <ul>
-            <li><a href="#painel" aria-current="true">Visão geral</a></li>
+            <li><a href="#painel" aria-current="true">Painel</a></li>
             <li><a href="#pedidos">Meus pedidos</a></li>
-            <li><a href="#dados">Dados da conta</a></li>
-            <li><a href="#enderecos">Endereços</a></li>
             <li><a href="desejos.html">Lista de desejos</a></li>
+            <li><a href="#enderecos">Endereços</a></li>
+            <li><a href="#tamanhos">Meus tamanhos</a></li>
+            <li><a href="#dados">Dados da conta</a></li>
             <li><a href="index.html">Sair</a></li>
           </ul>
         </nav>
 
         <div class="account-content">
-
-          <section id="painel" aria-labelledby="painel-titulo">
-            <h2 id="painel-titulo">Olá, <span class="placeholder">[nome do cliente]</span></h2>
+          <section id="painel" aria-labelledby="saudacao-titulo">
+            <h3 id="saudacao-titulo">Olá, [nome do cliente]</h3>
             <p class="lead">
-              Daqui você acompanha o envio das peças e resolve trocas sem
-              precisar falar com o atendimento.
+              Aqui você acompanha entregas, repete um pedido favorito e resolve
+              trocas sem precisar falar com ninguém.
             </p>
-            <div class="account-cards">
-              <a class="account-card" href="#pedidos">
-                <span class="account-card__title">Meus pedidos</span>
-                <span class="account-card__text">Histórico, rastreio e nota fiscal.</span>
-              </a>
-              <a class="account-card" href="#enderecos">
-                <span class="account-card__title">Endereços</span>
-                <span class="account-card__text">Alterar ou adicionar endereço de entrega.</span>
-              </a>
-              <a class="account-card" href="#dados">
-                <span class="account-card__title">Dados da conta</span>
-                <span class="account-card__text">E-mail, telefone e senha.</span>
-              </a>
-            </div>
           </section>
 
           <section id="pedidos" aria-labelledby="pedidos-titulo">
-            <h2 id="pedidos-titulo">Meus pedidos</h2>
+            <h3 id="pedidos-titulo">Meus pedidos</h3>
 
-            <div class="order-card">
-              <div class="order-card__head">
-                <p class="order-card__number">Pedido #0000</p>
-                <p class="pill pill--accent">Aguardando pagamento</p>
-              </div>
-              <p class="order-card__meta">15/10/2026 · 2 itens · R$ 510,30 · Pix</p>
-              <div class="order-card__actions">
-                <a class="btn btn--outline" href="pedido-recebido.html">Ver detalhes</a>
-                <button class="btn btn--quiet" type="button">Pagar agora</button>
-              </div>
+            <div class="table-scroll">
+              <table class="orders-table">
+                <caption>Últimos pedidos desta conta. Números e valores de exemplo.</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Pedido</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Peças</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">#0000</th>
+                    <td>15/10/2026</td>
+                    <td>2 peças</td>
+                    <td>R$ 510,30</td>
+                    <td><span class="pill pill--accent">Aguardando pagamento</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">#0001</th>
+                    <td>02/10/2026</td>
+                    <td>1 peça</td>
+                    <td>R$ 389,00</td>
+                    <td><span class="pill pill--sage">Enviado</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">#0002</th>
+                    <td>20/09/2026</td>
+                    <td>1 peça</td>
+                    <td>R$ 279,00</td>
+                    <td><span class="pill">Cancelado</span></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
 
-            <div class="order-card">
-              <div class="order-card__head">
-                <p class="order-card__number">Pedido #0001</p>
-                <p class="pill pill--sage">Enviado</p>
-              </div>
-              <p class="order-card__meta">02/10/2026 · 1 item · R$ 389,00 · Cartão</p>
-              <p class="order-card__meta">Rastreio: <span class="placeholder">[código]</span> · Transportadora <span class="placeholder">[A DEFINIR]</span></p>
-              <div class="order-card__actions">
-                <a class="btn btn--outline" href="#pedidos">Acompanhar entrega</a>
-                <button class="btn btn--quiet" type="button">Solicitar troca</button>
-              </div>
-            </div>
-
-            <div class="order-card">
-              <div class="order-card__head">
-                <p class="order-card__number">Pedido #0002</p>
-                <p class="pill">Cancelado</p>
-              </div>
-              <p class="order-card__meta">20/09/2026 · 1 item · R$ 279,00 · Boleto</p>
-              <p class="order-card__meta">Pagamento não identificado no prazo. O estoque foi devolvido ao catálogo.</p>
-              <div class="order-card__actions">
-                <button class="btn btn--quiet" type="button">Comprar novamente</button>
-              </div>
-            </div>
+            <p class="orders-table__actions">
+              <a class="btn btn--primary" href="trocas.html">Solicitar troca</a>
+            </p>
 
             <p class="muted-note">
-              Estados demonstrados: aguardando pagamento, enviado e cancelado.
+              Estados demonstrados: aguardando pagamento, enviado e cancelado. No
+              pedido enviado entra o código de rastreio, que só existe depois que
+              a conta de frete for contratada (<span class="placeholder">[A DEFINIR]</span>).
               O fluxo completo de status está no GUIA-INSTALACAO.md (Etapa E3).
             </p>
           </section>
 
           <section id="dados" aria-labelledby="dados-titulo">
-            <h2 id="dados-titulo">Dados da conta</h2>
+            <h3 id="dados-titulo">Dados da conta</h3>
 
             <form action="#" method="post" novalidate>
               <div class="form-row form-row--2">
@@ -305,7 +390,7 @@
           </section>
 
           <section id="enderecos" aria-labelledby="enderecos-titulo">
-            <h2 id="enderecos-titulo">Endereços</h2>
+            <h3 id="enderecos-titulo">Endereços</h3>
 
             <div class="order-card">
               <p class="order-card__number">Endereço principal</p>
@@ -326,6 +411,48 @@
             </p>
           </section>
 
+          <!-- MEUS TAMANHOS (v0.1.9) — entrou na navegação da conta. Só faz
+               sentido se a loja guardar as medidas da cliente: se não guardar,
+               esta seção sai e o item da navegação também. -->
+          <section id="tamanhos" aria-labelledby="tamanhos-titulo">
+            <h3 id="tamanhos-titulo">Meus tamanhos</h3>
+            <p>
+              As medidas que você salvar ficam aqui e ajudam a sugerir tamanho
+              nas próximas compras, sem você medir tudo de novo.
+            </p>
+
+            <div class="table-scroll">
+              <table>
+                <caption>Medidas de exemplo. O site real mostra as medidas que a cliente salvou.</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Peça</th>
+                    <th scope="col">Medida informada</th>
+                    <th scope="col">Tamanho sugerido</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Vestidos e blusas</th>
+                    <td>Busto 92 cm</td>
+                    <td>M</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Saias e calças</th>
+                    <td>Cintura 74 cm</td>
+                    <td>M</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p class="muted-note">
+              <span class="placeholder">[A DEFINIR]</span> Guardar medida da cliente
+              é decisão da empresa e precisa entrar na Política de Privacidade.
+              Enquanto isso não for decidido, esta seção fica fora do ar. O passo a
+              passo para medir está no <a href="guia-medidas.html">guia de medidas</a>.
+            </p>
+          </section>
         </div>
       </div>
     </div>

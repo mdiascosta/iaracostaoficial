@@ -45,6 +45,15 @@ Depois abra `http://localhost:8080` no navegador.
 
 O dossiê pede que todos os estados de tela estejam representados. Onde procurar:
 
+### Novidades da v0.1.9 (Minha conta, Contato e Sobre)
+
+| Página | Como ficou |
+|---|---|
+| Minha conta | Dois cartões no topo: Entrar e Criar conta. Abaixo, o painel da cliente com navegação lateral (inclui Meus tamanhos), pedidos em tabela com selo de status e atalho para solicitar troca |
+| Contato | Formulário em quadro de papel sobre fundo suave; canais de atendimento na coluna da direita, cada um em quadro com borda; seção do mapa com quadro de exemplo (o endereço entra depois); bloco de dúvidas rápidas com quatro respostas |
+| Sobre | Primeiro bloco com texto à esquerda e imagem à direita; seção de missão, visão e compromisso em três cartões; faixa de frase com fundo suave; faixa com três fotos do processo |
+| Coleção | Cabeçalho com "Vestuário feminino do P ao GG" e atalho para o guia de medidas, como no template de referência |
+
 ### Novidades da v0.1.8 (rodapé, cabeçalho de página e internas)
 
 | Peça | Como ficou |

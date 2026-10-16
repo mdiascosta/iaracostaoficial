@@ -1,4 +1,4 @@
-    <div class="container page-head">
+<div class="container page-head">
       <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
@@ -20,20 +20,31 @@
       </div>
     </div>
 
-    <div class="container section--tight">
-      <div class="contact-layout">
+    <!-- ====================================================================
+         ATENDIMENTO (v0.1.9)
+         Estrutura do template de referência: formulário à esquerda e canais de
+         atendimento à direita. A seção usa o fundo Hover Soft e os quadros são
+         de papel com borda, a mesma linguagem dos depoimentos da home.
 
-        <div>
-          <h2>Enviar mensagem</h2>
+         Dados da empresa seguem como [PREENCHER]: telefone, e-mail, prazo de
+         resposta e endereço são informação da cliente, não do protótipo.
+         ==================================================================== -->
+    <section class="section section--soft" aria-labelledby="contato-form-titulo">
+      <div class="container">
+        <div class="contact-layout">
+
+          <div class="contact-card">
+            <h2 id="contato-form-titulo">Envie uma mensagem</h2>
+            <p class="form-required-note">Campos com <span aria-hidden="true">*</span> são obrigatórios.</p>
 
           <form action="#" method="post" novalidate>
             <div class="form-row form-row--2">
               <div class="field">
-                <label class="field__label" for="ct-nome">Seu nome</label>
+                <label class="field__label" for="ct-nome">Seu nome <span aria-hidden="true">*</span></label>
                 <input class="field__input" id="ct-nome" name="nome" type="text" autocomplete="name" required>
               </div>
               <div class="field">
-                <label class="field__label" for="ct-email">Seu e-mail</label>
+                <label class="field__label" for="ct-email">Seu e-mail <span aria-hidden="true">*</span></label>
                 <input class="field__input" id="ct-email" name="email" type="email" autocomplete="email"
                        aria-describedby="ct-email-hint" required>
                 <p class="field__hint" id="ct-email-hint">Respondemos para este e-mail.</p>
@@ -56,7 +67,7 @@
             </div>
 
             <div class="field">
-              <label class="field__label" for="ct-assunto">Assunto</label>
+              <label class="field__label" for="ct-assunto">Assunto <span aria-hidden="true">*</span></label>
               <select class="field__select" id="ct-assunto" name="assunto" required>
                 <option value="">Escolha o assunto</option>
                 <option>Dúvida sobre tamanho ou caimento</option>
@@ -70,7 +81,7 @@
             </div>
 
             <div class="field">
-              <label class="field__label" for="ct-msg">Mensagem</label>
+              <label class="field__label" for="ct-msg">Mensagem <span aria-hidden="true">*</span></label>
               <textarea class="field__textarea" id="ct-msg" name="mensagem" rows="6"
                         placeholder="Conte o que está acontecendo. Se for dúvida de tamanho, mande as suas medidas de busto, cintura e quadril."
                         required></textarea>
@@ -91,7 +102,7 @@
               </label>
             </div>
 
-            <p class="muted-note" style="margin-bottom:16px">
+            <p class="muted-note">
               Este formulário terá proteção anti-robô (CAPTCHA) e proteção contra
               envio repetido. [CONFERIR no Bloco B] Testar o CAPTCHA junto com o
               gateway de pagamento, porque alguns fluxos interferem entre si.
@@ -99,18 +110,7 @@
 
             <button class="btn btn--primary" type="submit">Enviar mensagem</button>
           </form>
-
-          <!-- ESTADO DE UI: mensagem enviada -->
-          <section class="section" aria-labelledby="contato-ok">
-            <h2 class="state-label" id="contato-ok">Referência de estado: mensagem enviada</h2>
-            <div class="notice" role="status">
-              <strong>Recebemos a sua mensagem.</strong>
-              A resposta chega no e-mail informado em até
-              <span class="placeholder">[PREENCHER: prazo]</span>. Se o assunto for
-              urgente, use o WhatsApp.
-            </div>
-          </section>
-        </div>
+          </div>
 
         <aside aria-labelledby="canais-titulo">
           <h2 id="canais-titulo">Outros canais</h2>
@@ -177,9 +177,112 @@
             </p>
           </div>
         </aside>
-
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- ESTADO DE UI: mensagem enviada.
+         Fica na página só para a equipe ver como o aviso aparece depois de
+         enviar. No site publicado, este bloco é do formulário de contato. -->
+    <section class="section" aria-labelledby="contato-ok">
+      <div class="container">
+        <h2 class="state-label" id="contato-ok">Referência de estado: mensagem enviada</h2>
+        <div class="notice" role="status">
+          <strong>Recebemos a sua mensagem.</strong>
+          A resposta chega no e-mail informado em até
+          <span class="placeholder">[PREENCHER: prazo]</span>. Se o assunto for
+          urgente, use o WhatsApp.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         COMO CHEGAR (v0.1.9) — o template de referência mostra um mapa do
+         Google. Como o endereço do ateliê ainda não foi informado pela
+         empresa, em vez de inventar um ponto no mapa fica aqui um quadro de
+         exemplo com a instrução de onde o mapa real entra. Endereço é dado da
+         empresa: [PREENCHER].
+         ==================================================================== -->
+    <section class="section section--soft" aria-labelledby="mapa-titulo">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Como chegar</p>
+            <h2 id="mapa-titulo">O ateliê no mapa</h2>
+          </div>
+        </div>
+
+        <figure class="map-figure">
+          <div class="map-figure__frame" role="img"
+               aria-label="Espaço reservado para o mapa do ateliê">
+            <svg class="map-figure__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.4" aria-hidden="true" focusable="false">
+              <path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"></path>
+              <circle cx="12" cy="10" r="2.6"></circle>
+            </svg>
+            <p class="map-figure__note">
+              Espaço do mapa. O endereço confirmado pela empresa entra aqui.
+            </p>
+          </div>
+          <figcaption>
+            <span class="placeholder">[PREENCHER: endereço completo do ateliê]</span>.
+            Visitas com agendamento prévio, se a empresa receber no local.
+            No site publicado, este quadro vira o mapa do Google apontando para o
+            endereço da Iara Costa.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         DÚVIDAS RÁPIDAS (v0.1.9) — quatro perguntas curtas antes do rodapé.
+         As respostas são as mesmas da página de Perguntas frequentes, sem
+         inventar nada novo.
+         ==================================================================== -->
+    <section class="section" aria-labelledby="duvidas-titulo">
+      <div class="container container--narrow">
+        <div class="section__head section__head--center">
+          <div>
+            <p class="eyebrow">Dúvidas rápidas</p>
+            <h2 id="duvidas-titulo">Perguntas frequentes</h2>
+          </div>
+        </div>
+
+        <dl class="qa-list">
+          <dt>Preciso criar conta para comprar?</dt>
+          <dd>
+            Não. Você pode comprar como visitante. Criar conta ajuda a acompanhar
+            pedidos e guardar endereços, mas é opcional e não muda o preço nem o
+            prazo.
+          </dd>
+
+          <dt>Vocês entregam em todo o Brasil?</dt>
+          <dd>
+            Sim, enviamos para todo o território nacional. Antes de finalizar,
+            confira o prazo calculado para o seu CEP.
+          </dd>
+
+          <dt>A peça não serviu. Posso trocar?</dt>
+          <dd>
+            Sim. Você tem 7 dias corridos, contando do recebimento, para desistir
+            da compra sem precisar justificar, conforme o Art. 49 do Código de
+            Defesa do Consumidor. Para troca de tamanho, os prazos e as condições
+            estão em <a href="trocas.html">Trocas e devoluções</a>.
+          </dd>
+
+          <dt>Como uso o cupom de primeira compra?</dt>
+          <dd>
+            Digite BEMVINDO10 no campo de cupom, na sacola, e clique em Aplicar. O
+            desconto aparece no resumo antes de você finalizar. As regras em
+            definição estão na página de <a href="faq.html">perguntas frequentes</a>.
+          </dd>
+        </dl>
+
+        <p class="qa-list__more">
+          <a class="action-link" href="faq.html">Ver todas as perguntas <span aria-hidden="true">→</span></a>
+        </p>
+      </div>
+    </section>
 
     <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
          Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o

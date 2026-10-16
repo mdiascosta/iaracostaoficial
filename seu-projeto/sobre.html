@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&amp;family=Playfair+Display:wght@400&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css?v=cb9c51bc">
   <link rel="stylesheet" href="assets/css/header.css?v=6a0c8f8c">
-  <link rel="stylesheet" href="assets/css/pages.css?v=1f5475a8">
+  <link rel="stylesheet" href="assets/css/pages.css?v=2de3147b">
   <link rel="stylesheet" href="assets/css/comercio.css?v=d30df938">
 </head>
 <body class="page-about">
@@ -159,7 +159,7 @@
   </div>
 
   <main id="conteudo" tabindex="-1">
-    <div class="container page-head">
+<div class="container page-head">
       <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
@@ -181,88 +181,137 @@
       </div>
     </div>
 
+    <!-- ====================================================================
+         COMO COMEÇOU (v0.1.9) — primeiro bloco com texto à esquerda e imagem à
+         direita, como pedido. A história da marca continua por preencher: o
+         dossiê proíbe escrever a trajetória da empresa no lugar dela.
+         ==================================================================== -->
     <div class="container section--tight">
-      <!-- GALERIA DE ABERTURA (v0.1.8)
-           Renovação pedida pela cliente. As duas fotos são as previstas para
-           esta página na SPECS-DE-IMAGEM (§8): a bancada do ateliê e a cerâmica
-           secando. Nenhuma imagem nova foi inventada. -->
-      <div class="about-gallery">
-        <figure>
+      <div class="story">
+        <div class="story__text prose">
+          <h2>Como começou</h2>
+          <p>
+            <span class="placeholder">[PREENCHER: história real da marca, em dois ou três parágrafos. De onde veio a ideia, quando começou, quem está à frente do negócio.]</span>
+          </p>
+          <p>
+            Enquanto a história não está escrita, o que dá para dizer com
+            segurança é o que está nesta página: como as peças são escolhidas, o
+            que a loja promete e o que ela não faz.
+          </p>
+          <p class="muted-note">
+            Este bloco é seu. Texto genérico de marca não convence ninguém, e o
+            dossiê proíbe inventar a história da empresa. Escreva com as suas
+            palavras, mesmo que fique simples.
+          </p>
+        </div>
+
+        <figure class="story__figure">
           <img src="assets/img/atelie-bancada.jpg"
                alt="Ambiente de trabalho com peças da coleção sobre a mesa"
                width="1408" height="768">
           <figcaption>Imagem de exemplo. Substituir por foto própria da marca ou da equipe.</figcaption>
         </figure>
-        <figure class="about-gallery__side">
-          <img src="assets/img/ceramica-seca.jpg"
-               alt="Peças de cerâmica secando ao ar livre"
-               width="1408" height="768">
-          <figcaption>Imagem de exemplo. Substituir por foto do processo real.</figcaption>
-        </figure>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         MISSÃO, VISÃO E COMPROMISSO (v0.1.9) — seção nova, pedida pela
+         cliente. Os três textos são [PROPOSTA]: saíram do que já está escrito
+         no site, e cada cartão tem o selo para ninguém publicar sem passar o
+         olho. Missão e visão são a voz da marca, não do fornecedor.
+         ==================================================================== -->
+    <div class="container section--tight">
+      <div class="section__head">
+        <div>
+          <p class="eyebrow">No que a gente acredita</p>
+          <h2 id="valores-titulo">Missão, visão e compromisso</h2>
+        </div>
       </div>
 
-      <div class="prose">
-        <h2>Como começou</h2>
-        <p>
-          <span class="placeholder">[PREENCHER: história real da marca, em dois ou três parágrafos. De onde veio a ideia, quando começou, quem está à frente do negócio.]</span>
-        </p>
-        <p class="muted-note">
-          Este bloco é seu. Texto genérico de marca não convence ninguém, e o
-          dossiê proíbe inventar a história da empresa. Escreva com as suas
-          palavras, mesmo que fique simples.
-        </p>
+      <div class="value-grid">
+        <article class="value-card">
+          <h3 class="value-card__label">Missão</h3>
+          <p class="value-card__text">
+            Vestir o dia a dia com poucas peças, bem feitas e bem explicadas:
+            medida em centímetros, composição do tecido e cuidado de lavagem
+            antes da compra, para você acertar sem provar.
+          </p>
+          <p class="value-card__tag"><span class="placeholder">[PROPOSTA]</span> ajustar com as palavras da marca</p>
+        </article>
 
-        <!-- NÚMEROS DA LOJA (v0.1.8). Todos saem de decisões já tomadas ou de
-             copy que já está no site: 12 peças no catálogo, frete grátis acima
-             de R$ 299, 6x sem juros e 7 dias de arrependimento (CDC Art. 49).
-             Nada foi medido nem inventado: se algum número mudar, atualize aqui. -->
-        <ul class="facts" aria-label="Números da loja">
-          <li class="fact">
-            <span class="fact__num">12</span>
-            <span class="fact__label">peças na coleção, escolhidas uma a uma</span>
-          </li>
-          <li class="fact">
-            <span class="fact__num">R$ 299</span>
-            <span class="fact__label">frete grátis a partir deste valor</span>
-          </li>
-          <li class="fact">
-            <span class="fact__num">6x</span>
-            <span class="fact__label">sem juros no cartão de crédito</span>
-          </li>
-          <li class="fact">
-            <span class="fact__num">7</span>
-            <span class="fact__label">dias para desistir da compra</span>
-          </li>
-        </ul>
+        <article class="value-card">
+          <h3 class="value-card__label">Visão</h3>
+          <p class="value-card__text">
+            Ser a loja de moda em que a cliente confia sem ver a peça de perto,
+            porque a informação está toda na página e quem responde é gente.
+          </p>
+          <p class="value-card__tag"><span class="placeholder">[PROPOSTA]</span> ajustar com as palavras da marca</p>
+        </article>
 
+        <article class="value-card">
+          <h3 class="value-card__label">Compromisso</h3>
+          <p class="value-card__text">
+            Informação antes da venda, curadoria pequena de propósito e nenhuma
+            pressa artificial. Sem contador de escassez, sem pop-up na sua cara,
+            sem "últimas unidades" que nunca acabam. Dúvida de tamanho é
+            resolvida antes da compra, não depois.
+          </p>
+          <p class="value-card__tag"><span class="placeholder">[PROPOSTA]</span> ajustar com as palavras da marca</p>
+        </article>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         FAIXA DE FRASE (v0.1.9) — a frase de posicionamento saiu de dentro do
+         texto corrido e virou faixa com fundo suave, separando os blocos. O
+         texto é o mesmo que já estava na página.
+         ==================================================================== -->
+    <section class="section section--soft" aria-labelledby="crenca-titulo">
+      <div class="container">
+        <h2 class="visually-hidden" id="crenca-titulo">Nossa crença</h2>
         <figure class="pull">
           <blockquote>
             <p>Doze peças bem escolhidas valem mais que cem peças iguais.</p>
           </blockquote>
         </figure>
+      </div>
+    </section>
 
-        <h2>O que a gente defende</h2>
-        <ul class="list-check">
-          <li>
-            <strong>Informação antes da venda.</strong> Medida da peça em
-            centímetros, composição do tecido, cuidados de lavagem. Você compra
-            sabendo o que vai receber.
-          </li>
-          <li>
-            <strong>Curadoria pequena de propósito.</strong> Doze peças bem
-            escolhidas valem mais que cem peças iguais. Toda peça do catálogo
-            passa pela mão de alguém antes de entrar no ar.
-          </li>
-          <li>
-            <strong>Nada de pressa artificial.</strong> Sem contador de escassez,
-            sem pop-up na sua cara, sem "últimas unidades" que nunca acabam.
-          </li>
-          <li>
-            <strong>Atendimento que responde.</strong> Dúvida de tamanho é
-            resolvida antes da compra, não depois.
-          </li>
-        </ul>
+    <!-- FAIXA DE FOTOS DO ATELIÊ (v0.1.9). As três imagens são as previstas
+         para esta página na SPECS-DE-IMAGEM: costura, tingimento e cerâmica. -->
+    <div class="container section--tight">
+      <h2 class="visually-hidden" id="atelie-titulo">O ateliê e o processo</h2>
+      <ul class="gallery-strip" aria-labelledby="atelie-titulo">
+        <li>
+          <figure>
+            <img src="assets/img/costura.jpg" alt="Máquina de costura com tecido claro em acabamento"
+                 loading="lazy" width="1408" height="768">
+            <figcaption>Costura em pequenos lotes.</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <img src="assets/img/tingimento.jpg" alt="Tingimento de tecido à mão em tina"
+                 loading="lazy" width="768" height="1376">
+            <figcaption>Tingimento em pequenas quantidades.</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <img src="assets/img/ceramica-seca.jpg" alt="Peças de cerâmica secando ao ar livre"
+                 loading="lazy" width="1408" height="768">
+            <figcaption>Peças secando ao ar livre.</figcaption>
+          </figure>
+        </li>
+      </ul>
+      <p class="muted-note">
+        Imagens de exemplo do processo. Substituir pelas fotos reais do ateliê
+        quando a produção das fotos estiver feita (SPECS-DE-IMAGEM.md).
+      </p>
+    </div>
 
+    <div class="container section--tight">
+      <div class="prose">
         <h2>Como escolhemos as peças</h2>
         <p>
           Cada peça entra no catálogo depois de conferir tecido, costura,
@@ -272,21 +321,36 @@
         <p>
           <span class="placeholder">[PREENCHER: detalhe real do processo de compra. Quantas peças são testadas por coleção? Quem aprova?]</span>
         </p>
+      </div>
 
-        <h2>Compromissos com o cliente</h2>
-        <ul class="list-check">
-          <li>Sete dias corridos para desistir da compra, conforme o <a href="trocas.html">Código de Defesa do Consumidor</a>.</li>
-          <li>Preço, prazo e frete informados antes de você confirmar o pedido.</li>
-          <li>Dados pessoais tratados conforme a <a href="privacidade.html">Política de Privacidade</a>.</li>
-          <li>Nota fiscal em todos os pedidos.</li>
-          <li>Contato direto com quem resolve, sem robô de triagem.</li>
-        </ul>
+      <!-- NÚMEROS DA LOJA. Todos saem de decisões já tomadas ou de copy que já
+           está no site: 12 peças no catálogo, frete grátis acima de R$ 299,
+           6x sem juros e 7 dias de arrependimento (CDC Art. 49). Nada foi
+           medido nem inventado: se algum número mudar, atualize aqui. -->
+      <ul class="facts" aria-label="Números da loja">
+        <li class="fact">
+          <span class="fact__num">12</span>
+          <span class="fact__label">peças na coleção, escolhidas uma a uma</span>
+        </li>
+        <li class="fact">
+          <span class="fact__num">R$ 299</span>
+          <span class="fact__label">frete grátis a partir deste valor</span>
+        </li>
+        <li class="fact">
+          <span class="fact__num">6x</span>
+          <span class="fact__label">sem juros no cartão de crédito</span>
+        </li>
+        <li class="fact">
+          <span class="fact__num">7</span>
+          <span class="fact__label">dias para desistir da compra</span>
+        </li>
+      </ul>
 
-        <h2>Ainda com dúvida?</h2>
+      <div class="prose">
+
+
         <p>
-          Se ficou alguma pergunta sobre a marca, o produto ou o processo, o
-          caminho mais rápido é a página de <a href="contato.html">Contato</a>.
-          A gente responde de verdade.
+          <a class="action-link" href="contato.html">Falar com o atendimento <span aria-hidden="true">→</span></a>
         </p>
       </div>
     </div>
