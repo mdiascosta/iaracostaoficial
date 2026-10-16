@@ -5,7 +5,7 @@
     "nav": "inicio",
     "body_class": "page-home",
     "title": "Iara Costa | Moda feminina e acessórios",
-    "desc": "Vestuário feminino autoral em linho, algodão egípcio e viscose: vestidos, blusas, saias e acessórios do P ao GG. Frete grátis acima de R$ 299 para todo o Brasil.",
+    "desc": "Vestuário feminino autoral em linho, algodão egípcio e viscose: vestidos, blusas, saias e acessórios do P ao GG. Frete grátis acima de R$ 299 no PAC.",
     "content": "01-home.html",
     "extra_js": [
       "swatches.js"
@@ -17,7 +17,7 @@
     "nav": "loja",
     "body_class": "page-shop",
     "title": "Loja | Iara Costa",
-    "desc": "Todas as peças da coleção Iara Costa em uma única grade, com filtros por categoria e ordenação.",
+    "desc": "Todas as peças da coleção em uma grade com filtros de categoria, cor, tamanho e preço, ordenação e paginação. Vestuário feminino do P ao GG.",
     "content": "02-loja.html",
     "extra_js": [
       "filtros.js"
@@ -29,7 +29,7 @@
     "nav": "loja",
     "body_class": "page-product",
     "title": "Vestido Midi Sálvia | Iara Costa",
-    "desc": "Vestido midi em linho na cor sálvia, com modelagem fluida e forro. Disponível em P, M, G e GG.",
+    "desc": "Vestido midi em linho na cor sálvia, de modelagem fluida e forro. Do P ao GG, com 6x sem juros no cartão e 5% de desconto no Pix.",
     "content": "03-produto.html",
     "extra_js": [
       "swatches.js"
@@ -41,7 +41,7 @@
     "nav": "loja",
     "body_class": "page-cart",
     "title": "Sacola | Iara Costa",
-    "desc": "Revise as peças da sua sacola, aplique o cupom e veja o frete antes de finalizar.",
+    "desc": "Revise as peças da sua sacola, aplique o cupom de desconto e calcule o frete pelo CEP antes de finalizar a compra.",
     "content": "04-carrinho.html"
   },
   {
@@ -50,7 +50,7 @@
     "nav": "loja",
     "body_class": "page-checkout",
     "title": "Finalizar compra | Iara Costa",
-    "desc": "Finalize sua compra com segurança. Compra como visitante disponível.",
+    "desc": "Finalize sua compra em poucos passos, com compra como visitante e pagamento por Pix, cartão de crédito ou boleto.",
     "content": "05-checkout.html"
   },
   {
@@ -59,7 +59,7 @@
     "nav": "",
     "body_class": "page-thankyou",
     "title": "Pedido recebido | Iara Costa",
-    "desc": "Confirmação do seu pedido na Iara Costa.",
+    "desc": "Confirmação do seu pedido na Iara Costa, com o resumo das peças, a forma de pagamento e o prazo de postagem em até 2 dias úteis.",
     "content": "06-pedido-recebido.html"
   },
   {
@@ -68,7 +68,7 @@
     "nav": "",
     "body_class": "page-account",
     "title": "Minha conta | Iara Costa",
-    "desc": "Acompanhe pedidos, endereços e dados da sua conta.",
+    "desc": "Acompanhe seus pedidos, confira o status de cada entrega e atualize seus endereços e dados na sua conta Iara Costa.",
     "content": "07-conta.html"
   },
   {
@@ -77,7 +77,7 @@
     "nav": "",
     "body_class": "page-wishlist",
     "title": "Lista de desejos | Iara Costa",
-    "desc": "As peças que você salvou para depois.",
+    "desc": "As peças que você salvou para depois, em um só lugar: volte quando quiser, confira o preço atualizado e adicione à sacola.",
     "content": "08-desejos.html"
   },
   {
@@ -86,7 +86,7 @@
     "nav": "",
     "body_class": "page-search",
     "title": "Busca | Iara Costa",
-    "desc": "Resultados de busca na loja Iara Costa.",
+    "desc": "Resultados de busca na loja Iara Costa. Encontre vestidos, blusas, saias, acessórios e calçados pelo nome ou pela categoria.",
     "content": "09-busca.html"
   },
   {
@@ -95,7 +95,7 @@
     "nav": "blog",
     "body_class": "page-blog",
     "title": "Diário | Iara Costa",
-    "desc": "Conteúdo sobre estilo, tecidos, caimento e cuidados com as peças.",
+    "desc": "Conteúdo sobre estilo, tecidos, caimento, tamanhos e cuidados com as peças. Textos de Iara Costa e Equipe de Criação.",
     "content": "10-blog.html"
   },
   {
@@ -104,7 +104,7 @@
     "nav": "blog",
     "body_class": "page-post",
     "title": "Como escolher o caimento certo sem provar | Iara Costa",
-    "desc": "Guia prático para acertar no tamanho e no caimento comprando online.",
+    "desc": "Guia prático para acertar no tamanho e no caimento comprando online: como medir o corpo em casa e o que fazer se a peça não servir.",
     "content": "11-post.html",
     "extra_js": [
       "artigo.js"
@@ -116,7 +116,7 @@
     "nav": "",
     "body_class": "page-404",
     "title": "Página não encontrada | Iara Costa",
-    "desc": "A página que você procurava não está aqui. Use a busca ou vá para a loja.",
+    "desc": "A página que você procurava não está aqui. Use a busca ou vá para a loja e veja as peças da coleção Iara Costa.",
     "content": "12-404.html"
   },
   {
@@ -125,7 +125,7 @@
     "nav": "sobre",
     "body_class": "page-about",
     "title": "Sobre | Iara Costa",
-    "desc": "Conheça a história e os valores da Iara Costa.",
+    "desc": "Conheça a história do ateliê Iara Costa, em Cerquilho (SP), e os valores da marca: modelagem autoral e produção no Brasil.",
     "content": "13-sobre.html"
   },
   {
@@ -134,7 +134,7 @@
     "nav": "contato",
     "body_class": "page-contact",
     "title": "Contato | Iara Costa",
-    "desc": "Fale com o atendimento da Iara Costa por e-mail ou WhatsApp.",
+    "desc": "Fale com o atendimento da Iara Costa por e-mail ou WhatsApp, de segunda a sexta, das 9h às 18h. Respondemos em até 24 horas úteis.",
     "content": "14-contato.html",
     "extra_js": [
       "contato.js"
@@ -146,7 +146,7 @@
     "nav": "",
     "body_class": "page-faq",
     "title": "Perguntas frequentes | Iara Costa",
-    "desc": "Dúvidas sobre prazos, trocas, tamanhos, pagamento e cuidados com as peças.",
+    "desc": "Dúvidas sobre prazos, trocas, tamanhos, pagamento, frete e cuidados com as peças. As respostas do atendimento da Iara Costa.",
     "content": "15-faq.html",
     "extra_js": [
       "swatches.js"
@@ -158,7 +158,7 @@
     "nav": "guia",
     "body_class": "page-size-guide",
     "title": "Guia de medidas | Iara Costa",
-    "desc": "Tabela de medidas e instruções para medir o corpo em casa.",
+    "desc": "Tabela de medidas do P ao GG e instruções para medir o corpo em casa, para escolher o tamanho certo já na primeira compra.",
     "content": "16-guia-medidas.html",
     "extra_js": [
       "swatches.js"
@@ -170,7 +170,7 @@
     "nav": "lookbook",
     "body_class": "page-lookbook",
     "title": "Coleção Terra & Linho | Iara Costa",
-    "desc": "Combinações da coleção Iara Costa com links diretos para as peças.",
+    "desc": "Combinações da coleção Terra & Linho em três capítulos, com links diretos para cada peça e ideias de como usar.",
     "content": "17-lookbook.html"
   },
   {
@@ -179,7 +179,7 @@
     "nav": "",
     "body_class": "page-returns",
     "title": "Trocas e devoluções | Iara Costa",
-    "desc": "Como solicitar troca ou devolução, prazos e reembolso.",
+    "desc": "Como solicitar troca ou devolução: 30 dias para trocar de tamanho, 7 dias de arrependimento e como funciona o reembolso.",
     "content": "18-trocas.html"
   },
   {
@@ -188,7 +188,7 @@
     "nav": "",
     "body_class": "page-shipping",
     "title": "Envio e entrega | Iara Costa",
-    "desc": "Prazos, formas de envio, frete grátis e rastreio.",
+    "desc": "Prazos de postagem, formas de envio, frete grátis acima de R$ 299 no PAC, rastreio para todo o Brasil e retirada no ateliê.",
     "content": "19-envio.html",
     "extra_js": [
       "swatches.js"
@@ -200,7 +200,7 @@
     "nav": "",
     "body_class": "page-legal",
     "title": "Política de privacidade | Iara Costa",
-    "desc": "Como tratamos seus dados pessoais, conforme a LGPD.",
+    "desc": "Como tratamos seus dados pessoais, conforme a LGPD: quais dados coletamos, para que servem e como pedir a exclusão.",
     "content": "20-privacidade.html"
   },
   {
@@ -209,7 +209,7 @@
     "nav": "",
     "body_class": "page-legal",
     "title": "Termos de uso | Iara Costa",
-    "desc": "Condições de uso do site e de compra na loja Iara Costa.",
+    "desc": "Condições de uso do site e de compra na loja Iara Costa, com informações de pagamento, entrega, troca e atendimento.",
     "content": "21-termos.html"
   },
   {
@@ -218,7 +218,7 @@
     "nav": "",
     "body_class": "page-legal",
     "title": "Política de cookies | Iara Costa",
-    "desc": "Quais cookies usamos e como você pode gerenciar as preferências.",
+    "desc": "Quais cookies usamos, para que servem e como você pode gerenciar ou recusar cada categoria no aviso de privacidade.",
     "content": "22-cookies.html"
   }
 ]

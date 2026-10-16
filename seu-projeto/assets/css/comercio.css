@@ -216,7 +216,16 @@
 
 /* O convite para a sacola fica sempre visível, como no zip: esconder uma ação
    atrás do hover deixaria a compra sem saída no celular e no teclado. */
+/* v0.1.20: o convite da sacola media 109x14 nos cartões. A WCAG 2.2 (2.5.8)
+   pede 24x24 para alvo de toque, então ele ganhou altura mínima de 24px, sem
+   mexer no tamanho do texto. */
 .card__add { margin: 0; font-size: var(--fs-small); }
+
+.card__add a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
 
 .badge--promo { background: var(--iara-accent); border-color: var(--iara-accent); color: var(--iara-paper); }
 
