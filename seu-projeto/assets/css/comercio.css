@@ -1,0 +1,461 @@
+/* ============================================================================
+   IARA COSTA · BLOCO A (Etapa E1) · comercio.css
+   Componentes de loja: faixa de benefícios, categorias numeradas, card de
+   produto completo, vitrine por ocasião, faixas editoriais, mini-sacola e
+   aviso rápido. Todos os valores saem dos tokens --iara-* do style.css.
+   ========================================================================= */
+
+/* ------------------------------------------------------------- UTILITÁRIOS */
+.grid { display: grid; gap: var(--iara-gap); }
+
+@media (min-width: 721px) {
+  .grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1021px) {
+  .grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.section__head--center { justify-content: center; text-align: center; }
+.section__head--center > div { max-width: 62ch; }
+
+.eyebrow--muted { color: var(--iara-muted); font-weight: 400; }
+
+/* Link de ação com seta: "Ver tudo →" */
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--iara-ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.action-link:hover { color: var(--iara-accent-dark); }
+.action-link span { color: var(--iara-accent-dark); }
+
+.link-underline { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ------------------------------------------- 01. FAIXA DE BENEFÍCIOS (4x) */
+.benefits {
+  border-block: 1px solid var(--iara-hairline);
+  background: var(--iara-paper);
+}
+
+/* Ajuste pedido pela cliente em 16/10: os quatro itens ficam centralizados no
+   meio da faixa, e não esticados de ponta a ponta. O grupo tem largura máxima
+   menor que o container e é centralizado com margin-inline: auto; dentro de
+   cada coluna o item também fica centrado, com o ícone à esquerda do texto. */
+.benefits__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px var(--iara-gap);
+  padding-block: 26px;
+  max-width: 1080px;
+  margin-inline: auto;
+  justify-content: center;
+}
+
+@media (min-width: 721px)  { .benefits__inner { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+@media (min-width: 1021px) {
+  .benefits__inner {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0 clamp(24px, 3vw, 56px);
+  }
+
+  /* Fio de separação entre os itens: ajuda a ler quatro blocos distintos
+     em vez de um parágrafo corrido. O primeiro não recebe fio. */
+  .benefit + .benefit { position: relative; }
+
+  .benefit + .benefit::before {
+    content: "";
+    position: absolute;
+    left: calc(clamp(24px, 3vw, 56px) / -2);
+    top: 2px;
+    bottom: 2px;
+    width: 1px;
+    background: var(--iara-hairline);
+  }
+}
+
+.benefit {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+  justify-self: center;
+  max-width: 300px;
+}
+
+.benefit svg {
+  width: 20px;
+  height: 20px;
+  color: var(--iara-accent);
+  margin-top: 2px;
+  flex: 0 0 auto;
+}
+
+.benefit strong {
+  display: block;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--iara-ink);
+}
+
+.benefit span { font-size: var(--fs-small); color: var(--iara-ink-soft); }
+
+/* --------------------------------------- 02. CATEGORIAS COM NUMERAL 01/02/03 */
+.cat { display: flex; flex-direction: column; gap: 12px; }
+
+.cat__media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--iara-hover-soft);
+  border: 1px solid var(--iara-hairline);
+  aspect-ratio: 4 / 5;
+}
+
+.cat__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
+.cat:hover .cat__media img { transform: scale(1.02); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cat:hover .cat__media img,
+  .occasion:hover .occasion__media img,
+  .card__media:hover .card__img { transform: none; }
+}
+
+.cat__index {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--iara-paper);
+  color: var(--iara-index);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.15em;
+  padding: 4px 8px;
+}
+
+.cat__name { font-family: var(--iara-font-display); font-size: var(--fs-heading); margin: 0; }
+.cat__name a { color: var(--iara-ink); text-decoration: none; }
+.cat__name a:hover { color: var(--iara-accent-dark); }
+.cat__desc { font-size: var(--fs-small); color: var(--iara-ink-soft); margin: 0; }
+
+/* -------------------------------------- 03. CARD DE PRODUTO (completo) */
+.card { position: relative; }
+
+/* O coração fica por cima da foto, no canto superior direito */
+.card__wish {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: var(--iara-paper);
+  border: 1px solid var(--iara-line);
+  color: var(--iara-ink-soft);
+  cursor: pointer;
+  transition: color var(--iara-transition), border-color var(--iara-transition), background var(--iara-transition);
+}
+
+.card__wish:hover,
+.card__wish:focus-visible {
+  color: var(--iara-accent-dark);
+  border-color: var(--iara-accent-soft);
+  background: var(--iara-hover-soft);
+}
+
+.card__wish[aria-pressed="true"] { color: var(--iara-accent-dark); border-color: var(--iara-accent); }
+.card__wish[aria-pressed="true"] svg { fill: var(--iara-accent); }
+
+.card__cat {
+  margin: 0 0 4px;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+}
+
+.card__rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 0;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+}
+
+.card__rating .stars { color: var(--iara-accent); letter-spacing: 1px; }
+
+.card__price { margin: 8px 0 0; font-size: var(--fs-price); color: var(--iara-ink); }
+
+.card__price--promo { color: var(--iara-accent-dark); font-weight: 600; }
+.card__price--promo del { color: var(--iara-ink-soft); font-weight: 400; margin-right: 8px; }
+
+.card__sizes {
+  margin: 6px 0 0;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.06em;
+  color: var(--iara-ink-soft);
+}
+
+.card__add { margin: 10px 0 0; font-size: var(--fs-small); }
+
+.badge--promo { background: var(--iara-accent); border-color: var(--iara-accent); color: var(--iara-paper); }
+
+/* --------------------------------------------- 04. VITRINE POR OCASIÃO */
+.occasion { position: relative; }
+
+.occasion__media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--iara-hover-soft);
+  border: 1px solid var(--iara-hairline);
+  aspect-ratio: 4 / 5;
+}
+
+.occasion__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
+.occasion:hover .occasion__media img { transform: scale(1.02); }
+
+.occasion__label {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: var(--iara-paper);
+  border: 1px solid var(--iara-line);
+  padding: 12px 16px;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--iara-ink);
+}
+
+.occasion__label span:last-child { color: var(--iara-accent-dark); }
+
+/* ------------------------------------- 05. FAIXAS EDITORIAIS (imagem+texto) */
+.duo,
+.editorial {
+  display: grid;
+  gap: var(--iara-gap);
+  align-items: center;
+}
+
+@media (min-width: 1021px) {
+  .duo,
+  .editorial { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+.duo__media,
+.editorial__media {
+  border: 1px solid var(--iara-hairline);
+  background: var(--iara-hover-soft);
+  overflow: hidden;
+}
+
+.duo__media img,
+.editorial__media img { width: 100%; height: auto; }
+
+.duo__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+
+.editorial__list { display: flex; flex-direction: column; gap: 20px; margin-top: 24px; }
+
+.editorial__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--iara-hairline);
+}
+
+.editorial__item h3 { font-family: var(--iara-font-display); font-size: var(--fs-heading); margin: 0 0 6px; }
+.editorial__item p { font-size: var(--fs-body); color: var(--iara-ink-soft); margin: 0; }
+
+/* --------------------------------------------------------- 06. DEPOIMENTOS */
+.quote { display: flex; flex-direction: column; gap: 16px; margin: 0; }
+
+.quote blockquote {
+  margin: 0;
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-heading);
+  line-height: 1.5;
+  color: var(--iara-ink);
+}
+
+.quote figcaption { display: flex; flex-direction: column; gap: 4px; }
+.quote__name { font-size: var(--fs-micro); letter-spacing: 0.15em; text-transform: uppercase; color: var(--iara-ink); }
+.quote__role { font-size: var(--fs-small); color: var(--iara-ink-soft); }
+
+/* ------------------------------------------- 07. FAIXA VERDE SÁLVIA (CTA) */
+.band { background: var(--iara-sage); color: var(--iara-paper); }
+
+.band__inner {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+  padding-block: 56px;
+}
+
+@media (min-width: 1021px) { .band__inner { grid-template-columns: 1.2fr auto; gap: 40px; } }
+
+/* Paper sobre Sálvia = 5,9:1 (AA) */
+.band h2, .band .lead, .band p { color: var(--iara-paper); }
+/* Eyebrow sobre Sálvia usa Announcement Ink: Accent Soft reprovaria em AA */
+.band .eyebrow { color: var(--iara-announcement-ink); }
+.band .lead { opacity: 0.94; max-width: 52ch; }
+
+.band__form { display: flex; flex-wrap: wrap; gap: 12px; }
+.band__form .field__input { flex: 1 1 220px; background: var(--iara-white); }
+.band__form .btn--paper { background: var(--iara-paper); color: var(--iara-accent-dark); }
+.band__form .btn--paper:hover { background: var(--iara-accent-soft); color: var(--iara-ink); }
+
+/* --------------------------------------------------------- 08. MINI-SACOLA */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  background: rgba(45, 41, 37, 0.42);
+}
+
+.drawer-backdrop[hidden] { display: none; }
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1002;
+  width: min(420px, 100%);
+  display: flex;
+  flex-direction: column;
+  background: var(--iara-paper);
+  border-left: 1px solid var(--iara-line);
+  box-shadow: -12px 0 32px rgba(45, 41, 37, 0.12);
+}
+
+.drawer[hidden] { display: none; }
+
+.drawer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--iara-hairline);
+}
+
+.drawer__title { font-family: var(--iara-font-display); font-size: var(--fs-heading); margin: 0; }
+
+.drawer__body { flex: 1 1 auto; overflow-y: auto; padding: 8px 20px; }
+
+.drawer__item {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 14px;
+  padding-block: 16px;
+  border-bottom: 1px solid var(--iara-hairline);
+}
+
+.drawer__item img { width: 72px; height: 90px; object-fit: cover; border: 1px solid var(--iara-line); }
+
+.drawer__item-name { margin: 0 0 4px; font-size: var(--fs-body); }
+.drawer__item-meta { margin: 0 0 6px; font-size: var(--fs-small); color: var(--iara-ink-soft); }
+.drawer__item-price { margin: 0; font-size: var(--fs-body); }
+
+.drawer__empty { padding: 32px 0; text-align: center; color: var(--iara-ink-soft); font-size: var(--fs-small); }
+
+.drawer__foot {
+  padding: 18px 20px 22px;
+  border-top: 1px solid var(--iara-line);
+  background: var(--iara-paper);
+}
+
+.drawer__foot .btn { margin-top: 10px; }
+
+.drawer__total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  font-size: var(--fs-body);
+}
+
+.drawer__note { margin: 14px 0 0; font-size: var(--fs-micro); color: var(--iara-ink-soft); }
+
+/* Barra de progresso do frete grátis */
+.ship-progress { margin-bottom: 4px; }
+
+.ship-progress__text { margin: 0 0 8px; font-size: var(--fs-small); color: var(--iara-ink); }
+
+.ship-progress__bar { height: 4px; background: var(--iara-hairline); border-radius: 999px; overflow: hidden; }
+.ship-progress__fill { display: block; height: 100%; background: var(--iara-accent); transition: width 300ms ease; }
+
+/* ------------------------------------------------------ 09. AVISO RÁPIDO */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(12px);
+  z-index: 1003;
+  margin: 0;
+  max-width: min(420px, calc(100vw - 32px));
+  padding: 12px 20px;
+  background: var(--iara-ink);
+  color: var(--iara-paper);
+  font-size: var(--fs-small);
+  border-radius: var(--iara-radius);
+  box-shadow: 0 8px 24px rgba(45, 41, 37, 0.22);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.toast.is-visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* --------------------------------------------- 10. CONTADOR NOS ÍCONES */
+.icon-count {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--iara-accent);
+  color: var(--iara-paper);
+  font-family: var(--iara-font-ui);
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.icon-btn--hidden-count[data-empty="true"] .icon-count { display: none; }
+
+/* --------------------------------------------- 11. BOTÃO DE LARGURA TOTAL */
+.btn--block {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}

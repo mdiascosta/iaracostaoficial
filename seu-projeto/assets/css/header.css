@@ -17,18 +17,34 @@
    em 2.7 (nada abaixo de 11px).                                                */
 .announcement {
   background: var(--iara-sage);
-  padding: 7px 0;
+  padding: 9px 0;
 }
 
-.announcement__inner { text-align: center; }
+/* O texto fica centralizado na barra larga. Como .header-shell é flex,
+   centralizar exige justify-content: com text-align sozinho o parágrafo
+   encosta à esquerda e o anúncio parece desalinhado. */
+.announcement__inner {
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0 8px;
+}
 
 .announcement__text {
   margin: 0;
   color: var(--iara-announcement-ink);
   font-size: var(--fs-caption);
   letter-spacing: 0.15em;
-  line-height: 1.25;
+  line-height: 1.4;
   text-transform: uppercase;
+}
+
+.announcement__text a { color: inherit; text-decoration: none; }
+.announcement__text a:hover { color: var(--iara-accent-soft); text-decoration: underline; }
+
+/* No celular o anúncio vira duas linhas: separadores viram quebra visual */
+@media (max-width: 720px) {
+  .announcement__inner { gap: 2px 6px; }
+  .announcement__text { font-size: 11px; letter-spacing: 0.1em; }
 }
 
 .announcement__dot { color: var(--iara-accent-soft); margin: 0 6px; }
@@ -318,12 +334,12 @@
   margin-bottom: 20px;
 }
 
-.mobile-panel__title {
-  font-size: var(--fs-micro);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--iara-ink-soft);
-}
+.mobile-panel__brand { display: flex; flex-direction: column; }
+
+.mobile-panel__brand .brand__name { font-size: 18px; text-align: left; }
+.mobile-panel__brand .brand__tagline { text-align: left; }
+
+.mobile-nav__link .index-number { margin-right: 12px; font-size: 11px; }
 
 .mobile-panel__close {
   min-height: 44px;
@@ -392,7 +408,18 @@ body.is-locked { overflow: hidden; }
 .newsletter__title { font-size: var(--fs-h3); font-family: var(--iara-font-display); margin-bottom: 6px; }
 .newsletter__lead { color: var(--iara-ink-soft); max-width: 46ch; margin: 0; }
 
-.newsletter__form .btn { margin-top: 4px; }
+.newsletter__form { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; }
+.newsletter__form .field__input { flex: 1 1 220px; }
+.newsletter__form .btn { margin-top: 0; }
+
+.newsletter__note {
+  margin: -20px 0 clamp(28px, 4vw, 44px);
+  padding-bottom: clamp(28px, 4vw, 44px);
+  border-bottom: 1px solid var(--iara-hairline);
+  font-size: var(--fs-micro);
+  color: var(--iara-ink-soft);
+  max-width: 74ch;
+}
 
 .site-footer__columns {
   display: grid;
@@ -408,6 +435,14 @@ body.is-locked { overflow: hidden; }
   font-size: var(--fs-display);
   letter-spacing: 0.105em;
   margin: 0 0 12px;
+}
+
+.site-footer__tagline {
+  font-size: var(--fs-tagline);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+  margin: -8px 0 12px;
 }
 
 .site-footer__about { color: var(--iara-ink-soft); font-size: var(--fs-small); max-width: 34ch; }
@@ -522,6 +557,27 @@ body.is-locked { overflow: hidden; }
 
 /* 11px: usa Ink Soft. Muted abaixo de 14px é proibido pela regra 10.2. */
 .site-footer__copy { font-size: var(--fs-micro); color: var(--iara-ink-soft); margin: 0; }
+
+.site-footer__meta {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer__meta li { position: relative; font-size: var(--fs-micro); color: var(--iara-ink-soft); }
+
+.site-footer__meta li + li::before {
+  content: "·";
+  position: absolute;
+  left: -9px;
+  color: var(--iara-accent-soft);
+}
+
+.site-footer__meta a { color: var(--iara-ink-soft); text-decoration: none; }
+.site-footer__meta a:hover { color: var(--iara-accent-dark); text-decoration: underline; }
 
 /* -------------------------------------------------- 13. WHATSAPP FLUTUANTE */
 .whats-float {

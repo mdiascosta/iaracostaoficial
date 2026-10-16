@@ -451,7 +451,7 @@ strong { font-weight: 600; }
 .card__media {
   position: relative;
   display: block;
-  aspect-ratio: 1 / 1;               /* corte quadrado (seção 5) */
+  aspect-ratio: 4 / 5;               /* retrato, como no template aprovado */
   overflow: hidden;
   background: var(--iara-hover-soft);
   border: 1px solid var(--iara-hairline);
