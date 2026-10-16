@@ -1,5 +1,47 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Hero com a foto inteira e a descrição sobre a imagem (v0.1.17)
+
+### Pedido da cliente
+"tem que acertar a imagem e essa breve descricao em cima da imagem que nao foi
+feito tb", junto com o print do hero do template. Na nossa página a foto estava
+numa moldura retrato (com corte) e a legenda ficava embaixo da imagem, alinhada
+à esquerda. No template a foto aparece com um quadrinho branco por cima, no
+canto inferior direito, com o numeral "01" em uma linha e a descrição em duas.
+
+### Duas respostas que fecharam a dúvida
+1. **Enquadramento:** a foto aparece inteira, sem corte (a opção "como no print",
+   com moldura 4:5, foi descartada pela cliente).
+2. **Legenda:** texto do template, "Blusa de Linho Terracota, tingida com argila
+   do Vale do Paraíba". Com essa escolha, a cliente confirmou que o tingimento
+   com argila é real, e o texto voltou ao site (ele tinha saído na v0.1.16 por
+   falta de confirmação).
+
+### O que foi feito (IMPLEMENTADO)
+- **Foto inteira:** a moldura retrato (6:7 e 5:6) e o recorte saíram. A foto usa
+  a proporção original (768×1376) e ocupa a largura da coluna, como no zip.
+- **Selo sobre a foto:** caixa de fundo papel, borda fina, recuos de 20px,
+  largura máxima de 220px (os mesmos números do template), numeral "01" em linha
+  própria e a descrição em duas ou três linhas.
+- **Celular:** abaixo de 721px o selo desce para baixo da foto, para não cobrir
+  a modelo (mesma decisão do template).
+- **Verificações:** `build.py` e `check.py` com as 22 páginas certas; 993
+  verificações automáticas e zero falhas (a seção 24 é nova e cobre a foto sem
+  recorte, o selo em cima da foto e o texto confirmado); `pente-fino.py` com as
+  12 seções zeradas.
+
+### Continua aguardando confirmação (fora do site)
+"Tingimento natural" (argila, casca de cebola e folhas de eucalipto), "costura
+em pequenos lotes" (30 a 60 peças por edição, remuneração justa) e "fornecedores
+certificados" seguem fora do protótipo: a confirmação desta rodada foi só sobre
+o tingimento com argila do Vale do Paraíba, que é o texto do selo.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Conferência no navegador: com a foto inteira, o hero fica bem alto em tela
+  grande (a foto é 9:16). Se ficar exagerado, o caminho é limitar a largura da
+  coluna da foto ou voltar a uma moldura, e isso é uma linha de CSS.
+- Composição exata por peça, tabela de medidas real e história da marca.
+
 ## [2026-10-16] - Coleção em capítulos, como o zip (v0.1.16)
 
 ### Pedido da cliente

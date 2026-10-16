@@ -61,6 +61,33 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.17 · 2026-10-16 · Foto do hero inteira e a descrição por cima da imagem
+
+**Pedido da cliente:** "tem que acertar a imagem e essa breve descricao em cima
+da imagem que nao foi feito tb", com o print do hero do template: a foto com um
+quadrinho branco no canto inferior direito, com o numeral "01" e a descrição da
+peça.
+
+**Duas decisões da cliente (respondidas em 16/10/2026):** a foto aparece
+inteira, sem corte; e a legenda usa o texto do template, o que confirma que o
+tingimento com argila do Vale do Paraíba é real.
+
+| O que mudou | Onde |
+|---|---|
+| A foto saiu da moldura retrato (6:7 abaixo de 1021px, 5:6 acima) e do recorte: entra inteira, na proporção original (768×1376), ocupando a largura da coluna | `pages.css` |
+| O selo virou caixa sobre a foto, no canto inferior direito: fundo de papel, borda fina, numeral 01 em linha própria, no máximo 220px de largura e 20px de recuo | `pages.css` |
+| No celular o selo desce para baixo da foto, para não cobrir a modelo | `pages.css` |
+| A legenda voltou ao texto do template: "Blusa de Linho Terracota, tingida com argila do Vale do Paraíba" | `01-home.html` |
+| Verificação nova (seção 24) cobrindo a foto sem recorte, o selo sobre a foto e o texto confirmado | `tools/test.js` |
+
+**Resultado das verificações:** `build.py` e `check.py` com as 22 páginas
+certas; 993 verificações automáticas e zero falhas; `pente-fino.py` com as 12
+seções zeradas.
+
+**Continua fora do site, aguardando confirmação:** "tingimento natural" com
+casca de cebola e folhas de eucalipto, "costura em pequenos lotes" (30 a 60
+peças por edição, remuneração justa) e "fornecedores certificados".
+
 ### v0.1.16 · 2026-10-16 · Página da coleção em capítulos, como o zip
 
 **Pedido da cliente:** "veja na imagem a pagina de coleção do template enviado

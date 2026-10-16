@@ -41,6 +41,15 @@ Depois abra `http://localhost:8080` no navegador.
 | Institucional | `sobre.html`, `contato.html`, `faq.html`, `guia-medidas.html` |
 | Políticas | `trocas.html`, `envio.html`, `privacidade.html`, `termos.html`, `cookies.html` |
 
+### Novidades da v0.1.17 (hero com a foto inteira e a descrição sobre a imagem)
+
+| Peça | Como ficou |
+|---|---|
+| Foto do hero | Entra inteira, na proporção original (768×1376), sem moldura retrato e sem recorte |
+| Descrição | Caixa de papel sobre a foto, no canto inferior direito, com o numeral 01 em linha própria (220px de largura máxima) |
+| Celular | Abaixo de 721px o selo desce para baixo da foto |
+| Texto | "Blusa de Linho Terracota, tingida com argila do Vale do Paraíba" (confirmado pela cliente em 16/10/2026) |
+
 ### Novidades da v0.1.16 (coleção em capítulos, como o zip)
 
 | Peça | Como ficou |
