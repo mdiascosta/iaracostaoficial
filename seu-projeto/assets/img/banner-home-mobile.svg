@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Imagem de exemplo: BANNER PRINCIPAL · CELULAR">
-  <rect width="800" height="1000" fill="#eee9e1"/>
-  <rect x="1" y="1" width="798" height="998" fill="none" stroke="#ded8ce" stroke-width="2"/>
-  <circle cx="400.0" cy="396" r="44" fill="none" stroke="#e4cbb5" stroke-width="2"/>
-  <path d="M372 420 l56 0 l0 44 l-56 0 z" fill="none" stroke="#e4cbb5" stroke-width="2"/>
-  <text x="50%" y="516" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="36" letter-spacing="2" fill="#625a52">BANNER PRINCIPAL · CELULAR</text>
-  <text x="50%" y="560" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#81786e">Versão vertical do mesmo banner</text>
-  <text x="50%" y="592" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" letter-spacing="3" fill="#a45f43">SUBSTITUIR POR FOTO REAL · 800x1000</text>
-</svg>
