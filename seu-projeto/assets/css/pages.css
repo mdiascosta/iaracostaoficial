@@ -372,6 +372,119 @@
 
 .shipping-options li { display: flex; justify-content: space-between; gap: 12px; font-size: var(--fs-small); color: var(--iara-ink-soft); }
 
+/* --------------------------------------------- CARTÕES DE OPÇÃO (v0.1.13)
+   Padrão pedido pela cliente a partir do template: cada forma de envio e cada
+   forma de pagamento vira um cartão com rádio, título, linha de apoio e valor à
+   direita. A opção escolhida ganha fundo Hover Soft e borda Terracota.
+
+   A marcação é um <label> em volta do rádio, então clicar em qualquer ponto do
+   cartão escolhe a opção: alvo de toque grande, como pede o requisito 7.6.
+   A escolha nunca depende só da cor: o rádio continua marcado e o valor muda de
+   texto conforme a forma de pagamento. */
+
+.choice-list {
+  list-style: none;
+  margin: 0 0 var(--iara-space-4);
+  padding: 0;
+  display: grid;
+  gap: var(--iara-space-3);
+}
+
+.choice {
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  gap: var(--iara-space-4);
+  align-items: start;
+  padding: 16px 18px;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-white);
+  cursor: pointer;
+}
+
+.choice:has(.choice__input:checked),
+.choice.is-selected { background: var(--iara-hover-soft); border-color: var(--iara-accent); }
+
+.choice__input {
+  width: 20px;
+  height: 20px;
+  margin: 2px 0 0;
+  accent-color: var(--iara-accent);
+  flex: 0 0 auto;
+}
+
+.choice__body { min-width: 0; }
+
+.choice__title {
+  display: block;
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--iara-ink);
+}
+
+.choice__meta {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--iara-ink-soft);
+}
+
+.choice__price {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* Etiqueta do desconto no Pix (5% off), como no template. */
+.choice__tag {
+  display: inline-block;
+  margin-left: var(--iara-space-2);
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--iara-accent-soft);
+  color: var(--iara-accent-dark);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+/* No celular o valor desce para a linha de baixo, alinhado ao título. */
+@media (max-width: 720px) {
+  .choice { grid-template-columns: 20px 1fr; gap: var(--iara-space-3); }
+  .choice__price { grid-column: 2; text-align: left; }
+}
+
+/* ----------------------------------------- DADOS DO CARTÃO (v0.1.13)
+   Bloco que aparece embaixo dos cartões de pagamento só quando o cartão de
+   crédito é a forma escolhida, como no template.
+
+   Decisão do projeto: o protótipo NÃO coleta dado de cartão. Os campos abaixo
+   são demonstração visual, não têm atributo name (nada é enviado no envio do
+   formulário) e não são gravados em lugar nenhum. No site publicado quem
+   desenha estes campos é o Mercado Pago, na página segura dele. */
+
+.card-fields {
+  margin: var(--iara-space-3) 0 var(--iara-space-4);
+  padding: 18px;
+  border: 1px solid var(--iara-hairline);
+  border-radius: var(--iara-radius);
+  background: var(--iara-paper);
+}
+
+.card-fields[hidden] { display: none; }
+
+.card-fields__title {
+  font-family: var(--iara-font-ui);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 var(--iara-space-2);
+}
+
 /* ======================================================== BLOG E CONTEÚDO */
 .post-header { padding-block: clamp(24px, 4vw, 48px); max-width: 72ch; }
 

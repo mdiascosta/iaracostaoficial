@@ -407,11 +407,9 @@ body.page-returns        .notice, body.page-returns        .legal-draft { max-wi
 .field--invalid .field__input,
 .field--invalid .field__select { border-color: var(--iara-accent); }
 
-.checkbox,
-.radio { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 14px; }
+.checkbox { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 14px; }
 
-.checkbox__input,
-.radio__input {
+.checkbox__input {
   width: 20px;
   height: 20px;
   margin: 2px 0 0;
@@ -419,8 +417,7 @@ body.page-returns        .notice, body.page-returns        .legal-draft { max-wi
   flex: 0 0 auto;
 }
 
-.checkbox__label,
-.radio__label {
+.checkbox__label {
   font-size: var(--fs-small);
   color: var(--iara-ink-soft);
   line-height: 1.5;

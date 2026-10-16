@@ -24,10 +24,9 @@
       <div class="notice">
         <strong>Como o frete é calculado nesta loja.</strong>
         Os Correios calculam PAC e SEDEX a partir do CEP de entrega. No Sudeste, o
-        frete fica em R$ 15,00; nas demais regiões, o valor calculado aparece na
-        sacola e no checkout. Acima de R$ 299,00 o frete é grátis.
-        <span class="placeholder">[A DEFINIR: se o valor fixo de R$ 15,00 no
-        Sudeste vale para o PAC e o SEDEX ou só para o PAC]</span>
+        PAC fica em R$ 15,00; nas demais regiões e no SEDEX, o valor calculado
+        aparece na sacola e no checkout. Acima de R$ 299,00, no valor dos produtos
+        depois do cupom, o PAC é grátis.
       </div>
 
 
@@ -60,7 +59,7 @@
                 <tr>
                   <th scope="row">PAC (Correios)</th>
                   <td>Definido pelos Correios no cálculo pelo CEP</td>
-                  <td>R$ 15,00 no Sudeste · demais regiões pelo CEP</td>
+                  <td>R$ 15,00 em SP, RJ, MG e ES · demais regiões pelo CEP · grátis acima de R$ 299</td>
                 </tr>
                 <tr>
                   <th scope="row">SEDEX (Correios)</th>
@@ -68,17 +67,24 @@
                   <td>Calculado pelo CEP, em todas as regiões</td>
                 </tr>
                 <tr>
-                  <th scope="row">Retirada no local</th>
-                  <td><span class="placeholder">[A DEFINIR]</span></td>
+                  <th scope="row">Retirada no ateliê</th>
+                  <td><span class="placeholder">[A DEFINIR: dias e horários de retirada]</span></td>
                   <td>Grátis</td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <p>
+            <strong>Prazo de postagem:</strong> peças de pronta entrega saem em até
+            <strong>2 dias úteis</strong> depois da confirmação do pagamento e da
+            emissão da nota fiscal. Peças sob encomenda ou sob medida levam de
+            <strong>5 a 7 dias úteis</strong> de confecção no ateliê antes da
+            postagem, e o prazo aparece no produto antes da compra.
+          </p>
           <p class="muted-note">
-            O prazo começa a contar depois da confirmação do pagamento e da
-            emissão da nota fiscal, não no momento da compra. Sábados, domingos e
-            feriados não entram na contagem de dias úteis.
+            O prazo dos Correios começa a contar depois da postagem, não no momento
+            da compra. Sábados, domingos e feriados não entram na contagem de dias
+            úteis.
           </p>
         </section>
 
@@ -87,18 +93,17 @@
           <ul>
             <li>Vale para todo o Brasil, na modalidade econômica.</li>
             <li>
-              O limite considera o valor
-              <span class="placeholder">[A DEFINIR: subtotal antes ou depois do cupom]</span>.
-              Recomendação: definir antes de publicar, porque a diferença aparece
-              justamente para quem usou o cupom BEMVINDO10.
+              O limite de R$ 299 considera o <strong>valor líquido dos
+              produtos</strong>: o que sobra depois de aplicar cupom ou o desconto
+              do Pix. Se o valor cair abaixo de R$ 299, o frete volta a ser
+              cobrado, e o aviso aparece na sacola antes de finalizar.
             </li>
             <li>
               Se o valor cair abaixo de R$ 299 depois de você remover um item, o
               frete volta a ser cobrado. O aviso aparece na sacola antes de
               finalizar.
             </li>
-            <li>O frete grátis é a condição final de frete da compra: ele não se acumula com outras promoções de frete.
-              <span class="placeholder">[A DEFINIR: confirmar esta redação com a empresa]</span></li>
+            <li>O frete grátis vale para o PAC e é a condição final de frete da compra: ele não se acumula com outras promoções de frete ou cupons de frete.</li>
           </ul>
         </section>
 
@@ -205,10 +210,12 @@
           <h2>Resumo para a equipe (não publicar)</h2>
           <ul class="list-check">
             <li>Ativar a conta dos Correios no WooCommerce e remover qualquer taxa fixa deixada para teste.</li>
-            <li>Definir se o frete grátis considera o subtotal antes ou depois do cupom.</li>
-            <li>Definir se o valor fixo de R$ 15,00 no Sudeste vale para o PAC e o SEDEX ou só para o PAC.</li>
+            <li>Configurar o frete grátis sobre o valor líquido (depois do cupom e do desconto do Pix), como a empresa definiu.</li>
+            <li>Configurar a regra de R$ 15,00 do PAC só para SP, RJ, MG e ES, nas faixas de CEP 01000-000 a 39999-999.</li>
             <li>Cadastrar origem do envio, embalagem, peso e dimensões de cada produto no cadastro do WooCommerce.</li>
             <li>Conferir se os prazos exibidos pelo plugin dos Correios são os mesmos desta página, para não haver contradição.</li>
+            <li>Confirmar se a retirada no ateliê está disponível, com dias e horários, e cadastrar a opção no checkout.</li>
+            <li>Cadastrar os prazos de produção (2 dias úteis de pronta entrega e 5 a 7 dias úteis sob encomenda).</li>
             <li>Testar: CEP válido, CEP inválido, carrinho acima de R$ 299 e abaixo de R$ 299, com e sem cupom.</li>
           </ul>
         </section>

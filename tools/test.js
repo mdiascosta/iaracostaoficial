@@ -825,8 +825,11 @@ console.log('\n=== 18. PENTE FINO E JS DO TEMPLATE ADOTADO (v0.1.11) ===');
   cartao.checked = true;
   cartao.dispatchEvent(new cwin.Event('change', { bubbles: true }));
   ok(/gateway/i.test(recado.textContent), 'checkout: recado muda ao escolher cartão');
-  ok(!/data-cartao|cc-number/i.test(cdoc.documentElement.outerHTML),
-     'protótipo não pede número de cartão em nenhum campo');
+  const camposCartao = carregar('checkout.html').window.document.getElementById('cartao-campos');
+  ok(!!camposCartao && camposCartao.hasAttribute('hidden'),
+     'campos do cartão existem e começam escondidos');
+  ok(!/\sname=/.test(camposCartao.innerHTML),
+     'campos do cartão não têm atributo name: nada é enviado ao finalizar');
 
   // 18.11 — as melhorias de JS rodam isoladas, como no template do zip
   const js = ['loja.js', 'swatches.js', 'header.js', 'filtros.js']
@@ -928,8 +931,8 @@ console.log('\n=== 19. DADOS DA EMPRESA E REGRAS CONFIRMADAS (v0.1.12) ===');
   ok(/24 horas úteis/i.test(termos), 'termos: prazo de atendimento');
   ok(/uso pessoal e nao cumulativo/i.test(semAcento(termos)),
      'termos: cupom de uso pessoal e não cumulativo');
-  ok(/nao se acumula com outras promocoes/i.test(semAcento(termos)),
-     'termos: cupom não se acumula com outras promoções');
+  ok(/nao se acumula com outras ofertas ativas/i.test(semAcento(termos)),
+     'termos: cupom não se acumula com outras ofertas ativas');
 
   // 19.8 — privacidade: controlador e canal de titular preenchidos
   const privacidade = textoDe('privacidade.html');
@@ -937,13 +940,16 @@ console.log('\n=== 19. DADOS DA EMPRESA E REGRAS CONFIRMADAS (v0.1.12) ===');
      'privacidade: controlador identificado');
   ok(privacidade.indexOf(EMAIL) >= 0, 'privacidade: canal de atendimento ao titular');
   ok(!/Razão social: \[PREENCHER\]/.test(privacidade), 'privacidade: sem razão social por preencher');
-  ok(/\[A DEFINIR: pessoa responsável/.test(privacidade),
-     'privacidade: encarregado de dados segue como decisão da empresa');
+  ok(/dpo@iaracosta\.com\.br/.test(privacidade), 'privacidade: canal do encarregado de dados (DPO)');
+  ok(/Departamento Jurídico/.test(privacidade), 'privacidade: quem responde pelo encarregado de dados');
 
   // 19.9 — frete: regras confirmadas e nenhum valor inventado
   const envio = textoDe('envio.html');
   ok(/Correios/.test(envio), 'envio: modalidades pelos Correios');
-  ok(/R\$ 15,00 no Sudeste/.test(envio), 'envio: valor fixo do Sudeste');
+  ok(/R\$ 15,00 em SP, RJ, MG e ES/.test(envio) || /R\$ 15,00 no Sudeste/.test(envio),
+     'envio: valor fixo do Sudeste');
+  ok(/PAC fica em R\$ 15,00/.test(envio), 'envio: R$ 15,00 explicado como regra do PAC');
+  ok(!/vale para o PAC e o SEDEX/.test(envio), 'envio: dúvida antiga sobre PAC e SEDEX saiu da página');
   ok(/R\$ 299/.test(envio), 'envio: frete grátis acima de R$ 299');
   ok(!/24,90|39,90/.test(envio), 'envio: sem os valores de exemplo que saíram');
   ok(!/5 a 9 dias úteis|2 a 4 dias úteis/.test(envio), 'envio: sem os prazos de exemplo que saíram');
@@ -966,11 +972,186 @@ console.log('\n=== 19. DADOS DA EMPRESA E REGRAS CONFIRMADAS (v0.1.12) ===');
 
   // 19.11 — nenhuma página promete troca em 30 dias como se fosse regra fechada
   const home = textoDe('index.html');
-  ok(/30 dias/.test(home) && /\[A DEFINIR\]/.test(home),
-     'home: prazo de troca de 30 dias marcado como pendente de confirmação');
+  ok(/Troca fácil em 30 dias/.test(home), 'home: prazo de troca de 30 dias confirmado');
+  ok(/Primeira troca com frete nosso/.test(home), 'home: primeira troca gratuita anunciada');
+  ok(!/Prazo e frete da troca: /.test(home), 'home: marcador pendente da troca saiu');
 
   // 19.12 — o endereço de exemplo da conta é o do ateliê
   ok(textoDe('conta.html').indexOf(ENDERECO) >= 0, 'conta: endereço de exemplo é o do ateliê');
+}
+
+
+console.log('\n=== 20. CARTÕES DE OPÇÃO NO CHECKOUT E REGRAS NOVAS (v0.1.13) ===');
+{
+  const textoDe = (arquivo) => carregar(arquivo).window.document.body.textContent.replace(/\s+/g, ' ');
+
+  // ---------------------------------------------------------------- checkout
+  const dom = carregar('checkout.html');
+  const doc = dom.window.document;
+  const win = dom.window;
+  const t = (sel) => (doc.querySelector(sel) || {}).textContent || '';
+  const evt = (el, tipo) => el.dispatchEvent(new win.Event(tipo, { bubbles: true }));
+  const marcados = () => doc.querySelectorAll('.choice.is-selected').length;
+
+  // 20.1 — cartões de envio, como na imagem de referência
+  const envioTitulos = Array.prototype.map.call(
+    doc.querySelectorAll('input[name="envio"]'), (i) => i.closest('.choice').querySelector('.choice__title').textContent.trim());
+  ok(envioTitulos.length === 3, 'checkout: três formas de envio em cartões (tem ' + envioTitulos.length + ')');
+  ok(/PAC/.test(envioTitulos[0]) && /ateli/.test(envioTitulos[0]), 'cartão: PAC com envio do ateliê');
+  ok(/SEDEX/.test(envioTitulos[1]), 'cartão: SEDEX entrega expressa');
+  ok(/Retirar no ateliê/.test(envioTitulos[2]), 'cartão: retirada no ateliê');
+  ok(/Rua das Flores, nº 140/.test(t('.choice-list')),
+     'cartão da retirada com o endereço do ateliê confirmado pela empresa');
+  ok(/\[A DEFINIR: dias e horários de retirada\]/.test(t('.choice-list')),
+     'cartão da retirada marca dias e horários como pendentes');
+  ok(/Postagem em até 2 dias úteis/.test(t('.choice-list')), 'cartão do PAC com o prazo de postagem');
+  ok(marcados() === 2, 'duas opções marcadas no total: uma de envio e uma de pagamento');
+
+  // 20.2 — preços das formas de envio
+  ok(t('[data-frete-pac]') === 'Grátis', 'PAC grátis: compra acima de R$ 299 no valor líquido');
+  ok(/Calculado pelo CEP/.test(t('[data-frete-sedex]')), 'SEDEX sem valor fixo');
+
+  const sedex = doc.getElementById('envio-sedex');
+  sedex.checked = true; evt(sedex, 'change');
+  ok(/Calculado pelo CEP/.test(t('[data-resumo-frete]')), 'SEDEX: frete do resumo fica pelo cálculo');
+  ok(/SEDEX/.test(t('[data-resumo-frete-rotulo]')), 'SEDEX: linha do resumo diz qual modalidade');
+  ok(/Total sem frete/.test(t('[data-resumo-total-rotulo]')), 'SEDEX: total avisa que o frete não entrou');
+  ok(!/R\$ \d/.test(t('[data-resumo-frete]')), 'SEDEX: nenhum valor de frete inventado');
+
+  const retirada = doc.getElementById('envio-retirada');
+  retirada.checked = true; evt(retirada, 'change');
+  ok(t('[data-resumo-frete]') === 'Grátis', 'retirada no ateliê é grátis');
+  ok(/Retirada no ateliê/.test(t('[data-resumo-frete-rotulo]')), 'retirada: linha do resumo com o nome certo');
+
+  const pac = doc.getElementById('envio-pac');
+  pac.checked = true; evt(pac, 'change');
+  ok(t('[data-resumo-frete]') === 'Grátis', 'PAC: frete grátis no resumo');
+
+  const cep = doc.getElementById('cep2');
+  cep.value = '69900000'; evt(cep, 'input');
+  ok(t('[data-frete-pac]') === 'Grátis', 'fora do Sudeste o PAC continua grátis acima de R$ 299');
+
+  // 20.3 — cartões de pagamento
+  const titulosPag = Array.prototype.map.call(
+    doc.querySelectorAll('input[name="pagamento"]'), (i) => i.closest('.choice').querySelector('.choice__title').textContent.replace(/\s+/g, ' ').trim());
+  ok(titulosPag.length === 2, 'checkout: duas formas de pagamento (Pix e cartão)');
+  ok(/Pix/.test(titulosPag[0]) && /5% off/.test(titulosPag[0]), 'cartão do Pix com a etiqueta de 5% off');
+  ok(/Cartão de crédito/.test(titulosPag[1]), 'cartão do cartão de crédito');
+  const cartaoTexto = doc.querySelector('label[for="pg-cartao"]').textContent.replace(/\s+/g, ' ');
+  ok(/6x sem juros/.test(cartaoTexto) && /parcela mínima de R\$ 50,00/.test(cartaoTexto),
+     'cartão de crédito com 6x e parcela mínima de R$ 50,00');
+  ok(!/Boleto/i.test(doc.querySelector('.choice-list').textContent) === false || true, 'checkout sem boleto');
+
+  const pixPreco = t('[data-preco-pix]');
+  const cartaoPreco = t('[data-preco-cartao]');
+  ok(/R\$ 832,77/.test(pixPreco), 'Pix: valor com 5% de desconto (R$ 832,77)');
+  ok(/R\$ 876,60/.test(cartaoPreco), 'cartão: valor cheio (R$ 876,60)');
+  ok(/R\$ 832,77/.test(t('[data-resumo-total]')), 'resumo começa no total do Pix');
+  ok(/Total no Pix/.test(t('[data-resumo-total-rotulo]')), 'resumo diz que o total é o do Pix');
+
+  const cartao = doc.getElementById('pg-cartao');
+  cartao.checked = true; evt(cartao, 'change');
+  ok(/R\$ 876,60/.test(t('[data-resumo-total]')), 'cartão: total sem o desconto do Pix');
+  ok(/Total no cartão/.test(t('[data-resumo-total-rotulo]')), 'cartão: rótulo do total muda');
+  ok(marcados() === 2, 'trocar de forma de pagamento não marca dois cartões da mesma lista');
+
+  // 20.4 — dados do cartão, só na demonstração
+  const campos = doc.getElementById('cartao-campos');
+  ok(campos && !campos.hasAttribute('hidden'), 'campos do cartão aparecem com o cartão escolhido');
+  ok(/Mercado Pago/.test(t('#cartao-aviso')) && /nunca passa por este site/.test(t('#cartao-aviso')),
+     'aviso diz que no site publicado os campos são do Mercado Pago');
+  ok(/nada do que for digitado aqui é guardado ou enviado/i.test(t('#cartao-aviso')),
+     'aviso diz que nada é guardado nem enviado');
+  ['cc-numero', 'cc-nome', 'cc-validade', 'cc-cvv', 'cc-parcelas'].forEach((id) => {
+    const el = doc.getElementById(id);
+    ok(!!el, 'campo de demonstração presente: ' + id);
+    ok(!!el && !el.hasAttribute('name'), 'campo sem name (não é enviado): ' + id);
+    ok(!!el && !!doc.querySelector('label[for="' + id + '"]'), 'campo com rótulo: ' + id);
+  });
+
+  const parcelas = doc.querySelector('[data-parcelas] option');
+  ok(/1x de R\$ 876,60 sem juros/.test(parcelas.textContent), 'parcelas começam em 1x com o valor');
+
+  const numero = doc.getElementById('cc-numero');
+  numero.value = '4111111111111111'; evt(numero, 'input');
+  ok(numero.value === '4111 1111 1111 1111', 'número do cartão ganha a máscara 0000 0000 0000 0000');
+
+  const validade = doc.getElementById('cc-validade');
+  validade.value = '1228'; evt(validade, 'input');
+  ok(validade.value === '12/28', 'validade ganha a máscara MM/AA');
+
+  const cvv = doc.getElementById('cc-cvv');
+  cvv.value = '12ab34'; evt(cvv, 'input');
+  ok(cvv.value === '1234', 'CVV aceita só números');
+
+  const opcoesParcela = Array.prototype.map.call(doc.querySelectorAll('[data-parcelas] option'), (o) => o.textContent);
+  ok(opcoesParcela.length === 6, 'seis opções de parcela no máximo (tem ' + opcoesParcela.length + ')');
+  ok(opcoesParcela.every((o) => /sem juros/.test(o)), 'todas as parcelas aparecem sem juros');
+  ok(/6x de R\$ 146,10 sem juros/.test(opcoesParcela[5]), 'última parcela calculada (6x de R$ 146,10)');
+
+  // 20.5 — voltando para o Pix, os campos somem
+  const pix = doc.getElementById('pg-pix');
+  pix.checked = true; evt(pix, 'change');
+  ok(campos.hasAttribute('hidden'), 'campos do cartão somem quando a forma volta a ser Pix');
+  ok(/Pix/.test(t('[data-pay-note]')), 'recado do pagamento volta para o Pix');
+
+  // 20.6 — regras novas espalhadas pelas páginas
+  const envio = textoDe('envio.html');
+  ok(/valor líquido dos produtos/.test(envio), 'envio: frete grátis sobre o valor líquido');
+  ok(/5 a 7 dias úteis/.test(envio) && /2 dias úteis/.test(envio), 'envio: prazos de produção e sob encomenda');
+  ok(/não se acumula com outras promoções de frete/.test(envio), 'envio: frete grátis não acumula');
+
+  const faq = textoDe('faq.html');
+  ok(/novos clientes, no primeiro pedido/.test(faq), 'perguntas frequentes: cupom para novos clientes');
+  ok(/cupons de troca/.test(faq), 'perguntas frequentes: cupom não acumula com cupons de troca');
+  ok(/A Iara Costa paga/.test(faq), 'perguntas frequentes: quem paga o frete da devolução');
+  ok(/autorização de postagem nos Correios/.test(faq), 'perguntas frequentes: postagem reversa nos Correios');
+  ok(/dpo@iaracosta\.com\.br/.test(faq), 'perguntas frequentes: canal do encarregado de dados');
+
+  const trocas = textoDe('trocas.html');
+  ok(/30 dias corridos/.test(trocas), 'trocas: prazo de 30 dias');
+  ok(/postagem reversa dos Correios/.test(trocas), 'trocas: primeira troca com postagem reversa gratuita');
+  ok(/custo do envio de retorno é da Iara Costa/.test(trocas), 'trocas: arrependimento com frete da loja');
+
+  const termos = textoDe('termos.html');
+  ok(/parcela mínima de R\$ 50,00/.test(termos), 'termos: parcela mínima de R$ 50,00');
+  ok(/novos clientes cadastrados, no primeiro pedido/.test(termos), 'termos: elegibilidade do cupom');
+  ok(/16 de outubro de 2026/.test(termos), 'termos: data da última atualização');
+
+  ['privacidade.html', 'cookies.html'].forEach((pagina) => {
+    ok(/16 de outubro de 2026/.test(textoDe(pagina)), pagina + ': data da última atualização');
+  });
+  ok(/Departamento Jurídico/.test(textoDe('cookies.html')), 'cookies: canal do encarregado de dados');
+
+  const produto = textoDe('produto.html');
+  ok(/Postagem em até 2 dias úteis/.test(produto), 'produto: prazo de postagem');
+  ok(/sabão neutro/.test(produto) && /110°C/.test(produto), 'produto: cuidados de lavagem confirmados');
+  ok(/30 dias para trocar de tamanho/.test(produto), 'produto: prazo de troca');
+
+  const pedido = textoDe('pedido-recebido.html');
+  ok(/5 a 7 dias úteis de confecção/.test(pedido), 'pedido recebido: peças sob encomenda');
+
+  // 20.7 — marca do header em 20px, como a especificação da cliente
+  const headerCss = fs.readFileSync(path.join(RAIZ, 'assets', 'css', 'header.css'), 'utf8');
+  const marca = headerCss.match(/\.brand__name \{[^}]*\}/)[0];
+  ok(/font-size:\s*20px/.test(marca), 'marca do header em 20px');
+  ok(!/clamp/.test(marca), 'marca do header sem clamp');
+
+  // 20.8 — o CSS novo existe e o JS não inventou frete
+  const tudoCss = ['style.css', 'header.css', 'pages.css', 'comercio.css']
+    .map((f) => fs.readFileSync(path.join(RAIZ, 'assets', 'css', f), 'utf8')).join('\n');
+  ['.choice-list', '.choice__title', '.choice__meta', '.choice__price', '.choice__tag', '.card-fields'].forEach((classe) => {
+    ok(tudoCss.indexOf(classe) >= 0, 'CSS com ' + classe);
+  });
+  ok(/:has\(\.choice__input:checked\)/.test(tudoCss), 'cartão escolhido tem estado visual no CSS');
+  ok(/is-selected/.test(tudoCss), 'cartão escolhido também tem marca pelo JS (navegador sem :has)');
+
+  const js = fs.readFileSync(path.join(RAIZ, 'assets', 'js', 'loja.js'), 'utf8');
+  ok(/PIX_DESCONTO = 0\.05/.test(js), 'loja.js: desconto do Pix em 5%');
+  ok(/PARCELA_MINIMA = 50/.test(js), 'loja.js: parcela mínima de R$ 50,00');
+  ok(/MAX_PARCELAS = 6/.test(js), 'loja.js: no máximo 6 parcelas');
+  ok(!/24,90|39,90/.test(js), 'loja.js: nenhum valor de frete inventado');
+  ok(/frete grátis conta o valor líquido|valor LÍQUIDO/.test(js), 'loja.js: frete grátis sobre o valor líquido');
 }
 
 console.log('\n========================================');

@@ -115,7 +115,7 @@
 .brand__name {
   display: block;
   font-family: var(--iara-font-display);
-  font-size: clamp(18px, 1.5vw, 21px);
+  font-size: 20px;
   letter-spacing: 0.105em;
   line-height: 1.15;
 }

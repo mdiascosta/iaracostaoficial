@@ -12,9 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- PRODUÇÃO: hospedar as fontes localmente (ver assets/fonts/LEIA-ME.md) -->
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&amp;family=Playfair+Display:wght@400&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=2313b6d9">
-  <link rel="stylesheet" href="assets/css/header.css?v=5865ce6f">
-  <link rel="stylesheet" href="assets/css/pages.css?v=d266e9ec">
+  <link rel="stylesheet" href="assets/css/style.css?v=1b4095e3">
+  <link rel="stylesheet" href="assets/css/header.css?v=13cb981f">
+  <link rel="stylesheet" href="assets/css/pages.css?v=a2e5359e">
   <link rel="stylesheet" href="assets/css/comercio.css?v=f958a274">
 </head>
 <body class="page-checkout">
@@ -289,34 +289,49 @@
               </div>
             </fieldset>
 
-            <fieldset class="fieldset">
+                        <fieldset class="fieldset">
               <legend class="fieldset__legend">Formas de envio</legend>
 
-              <ul class="shipping-options">
-                <li><span>PAC · Correios</span><span>R$ 15,00 no Sudeste</span></li>
-                <li><span>SEDEX · Correios</span><span>valor calculado pelo CEP</span></li>
+              <ul class="choice-list" aria-describedby="envio-hint">
+                <li>
+                  <label class="choice" for="envio-pac">
+                    <input class="choice__input" id="envio-pac" name="envio" type="radio" value="PAC" checked>
+                    <span class="choice__body">
+                      <span class="choice__title">PAC · Envio do ateliê</span>
+                      <span class="choice__meta">Postagem em até 2 dias úteis · rastreio incluso</span>
+                    </span>
+                    <span class="choice__price" data-frete-pac>Grátis</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="choice" for="envio-sedex">
+                    <input class="choice__input" id="envio-sedex" name="envio" type="radio" value="SEDEX">
+                    <span class="choice__body">
+                      <span class="choice__title">SEDEX · Entrega expressa</span>
+                      <span class="choice__meta">Valor e prazo calculados pelos Correios pelo seu CEP</span>
+                    </span>
+                    <span class="choice__price" data-frete-sedex>Calculado pelo CEP</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="choice" for="envio-retirada">
+                    <input class="choice__input" id="envio-retirada" name="envio" type="radio" value="Retirada">
+                    <span class="choice__body">
+                      <span class="choice__title">Retirar no ateliê</span>
+                      <span class="choice__meta">Rua das Flores, nº 140, Sala 02 · Centro, Cerquilho - SP ·
+                        <span class="placeholder">[A DEFINIR: dias e horários de retirada]</span></span>
+                    </span>
+                    <span class="choice__price">Grátis</span>
+                  </label>
+                </li>
               </ul>
 
-              <div class="radio">
-                <input class="radio__input" id="envio-gratis" name="envio" type="radio" checked>
-                <label class="radio__label" for="envio-gratis">
-                  <strong>Frete grátis</strong> (pedido acima de R$ 299) · primeira
-                  opção dos Correios
-                </label>
-              </div>
-              <div class="radio">
-                <input class="radio__input" id="envio-sedex" name="envio" type="radio">
-                <label class="radio__label" for="envio-sedex">
-                  SEDEX · valor e prazo calculados pelo CEP
-                </label>
-              </div>
-              <p class="field__hint">
-                Os Correios calculam valor e prazo de PAC e SEDEX a partir do CEP
-                de entrega. No Sudeste, o PAC fica em R$ 15,00; nas demais
-                regiões, o valor calculado aparece aqui antes de finalizar.
-                <span class="placeholder">[A DEFINIR: se o valor fixo do Sudeste
-                vale para o PAC e o SEDEX ou só para o PAC]</span>
+              <p class="field__hint" id="envio-hint">
+                Os Correios calculam valor e prazo de PAC e SEDEX a partir do CEP de
+                entrega. No Sudeste o PAC fica em R$ 15,00 e, acima de R$ 299 no
+                valor líquido (depois do cupom), o PAC sai grátis.
               </p>
+              <p class="field__hint" data-envio-msg role="status"></p>
             </fieldset>
 
             <fieldset class="fieldset">
@@ -329,29 +344,93 @@
                 teste.
               </p>
 
-              <div class="radio">
-                <input class="radio__input" id="pg-pix" name="pagamento" type="radio" checked>
-                <label class="radio__label" for="pg-pix">
-                  <strong>Pix</strong> · 5% de desconto · aprovação na hora.
-                </label>
-              </div>
-              <div class="radio">
-                <input class="radio__input" id="pg-cartao" name="pagamento" type="radio">
-                <label class="radio__label" for="pg-cartao">
-                  <strong>Cartão de crédito</strong> · em até 6x sem juros.
-                </label>
-              </div>
-              <!-- Boleto e transferência saíram do protótipo em 16/10/2026: a
-                   empresa confirmou Pix e cartão de crédito. Se as outras duas
-                   entrarem na conta do gateway, voltam para cá. -->
+              <ul class="choice-list" aria-describedby="pagamento-hint">
+                <li>
+                  <label class="choice" for="pg-pix">
+                    <input class="choice__input" id="pg-pix" name="pagamento" type="radio" value="pix" checked>
+                    <span class="choice__body">
+                      <span class="choice__title">Pix <span class="choice__tag">5% off</span></span>
+                      <span class="choice__meta">Aprovação na hora · QR Code depois de confirmar o pedido</span>
+                    </span>
+                    <span class="choice__price" data-preco-pix>R$ 832,77</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="choice" for="pg-cartao">
+                    <input class="choice__input" id="pg-cartao" name="pagamento" type="radio" value="cartao">
+                    <span class="choice__body">
+                      <span class="choice__title">Cartão de crédito</span>
+                      <span class="choice__meta">Em até 6x sem juros · parcela mínima de R$ 50,00</span>
+                    </span>
+                    <span class="choice__price" data-preco-cartao>R$ 876,60</span>
+                  </label>
+                </li>
+                <!-- Boleto e transferência ficaram fora do protótipo em 16/10/2026:
+                     a empresa confirmou Pix e cartão de crédito pelo Mercado Pago.
+                     Se entrarem na conta do gateway, voltam para cá. -->
+              </ul>
 
-              <!-- Recado que muda conforme o meio escolhido. Saiu do loja.js do
-                   template do zip, com uma diferença de propósito: o protótipo
-                   não pede número de cartão em lugar nenhum. -->
+              <p class="field__hint" id="pagamento-hint">
+                O desconto do Pix é aplicado sobre o valor dos produtos. O frete
+                entra no total conforme a forma de envio escolhida.
+              </p>
               <p class="field__hint" data-pay-note role="status"></p>
+
+              <!-- DADOS DO CARTÃO (v0.1.13) — aparecem só quando o cartão de
+                   crédito é a forma escolhida, como no template de referência.
+
+                   Decisão do projeto, que não muda: o protótipo NÃO coleta dado
+                   de cartão. Os campos abaixo não têm atributo name (nada é
+                   enviado ao finalizar), não são gravados em nenhum lugar e
+                   servem só para mostrar o desenho da tela. No site publicado
+                   quem desenha estes campos é o Mercado Pago, na página segura
+                   dele. -->
+              <div class="card-fields" id="cartao-campos" hidden role="group" aria-labelledby="cartao-titulo">
+                <p class="card-fields__title" id="cartao-titulo">Dados do cartão</p>
+
+                <p class="field__hint" id="cartao-aviso">
+                  Demonstração visual. No site publicado estes campos são gerados
+                  pelo Mercado Pago e o número do cartão nunca passa por este site.
+                  Nada do que for digitado aqui é guardado ou enviado.
+                </p>
+
+                <div class="field">
+                  <label class="field__label" for="cc-numero">Número do cartão <span aria-hidden="true">*</span></label>
+                  <input class="field__input" id="cc-numero" type="text" inputmode="numeric"
+                         autocomplete="off" placeholder="0000 0000 0000 0000"
+                         aria-describedby="cartao-aviso">
+                </div>
+
+                <div class="form-row form-row--2">
+                  <div class="field">
+                    <label class="field__label" for="cc-nome">Nome impresso <span aria-hidden="true">*</span></label>
+                    <input class="field__input" id="cc-nome" type="text" autocomplete="off"
+                           placeholder="Como está no cartão">
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="cc-validade">Validade <span aria-hidden="true">*</span></label>
+                    <input class="field__input" id="cc-validade" type="text" inputmode="numeric"
+                           autocomplete="off" placeholder="MM/AA" maxlength="5">
+                  </div>
+                </div>
+
+                <div class="form-row form-row--2">
+                  <div class="field">
+                    <label class="field__label" for="cc-cvv">CVV <span aria-hidden="true">*</span></label>
+                    <input class="field__input" id="cc-cvv" type="text" inputmode="numeric"
+                           autocomplete="off" placeholder="123" maxlength="4">
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="cc-parcelas">Parcelas <span aria-hidden="true">*</span></label>
+                    <select class="field__select" id="cc-parcelas" data-parcelas>
+                      <option>1x de R$ 876,60 sem juros</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
             </fieldset>
 
-            <fieldset class="fieldset">
+<fieldset class="fieldset">
               <legend class="fieldset__legend">Antes de finalizar</legend>
 
               <div class="checkbox">
@@ -408,16 +487,18 @@
           </div>
 
           <div class="summary__row">
-            <span>Subtotal</span><span>R$ 974,00</span>
+            <span>Subtotal</span><span data-resumo-produtos>R$ 974,00</span>
           </div>
           <div class="summary__row">
-            <span>Cupom BEMVINDO10</span><span>− R$ 97,40</span>
+            <span>Cupom BEMVINDO10</span><span data-resumo-cupom>− R$ 97,40</span>
           </div>
           <div class="summary__row">
-            <span>Frete</span><span>Grátis</span>
+            <span data-resumo-frete-rotulo>Frete no PAC</span>
+            <span data-resumo-frete>Grátis</span>
           </div>
           <div class="summary__row summary__row--total">
-            <span>Total</span><span>R$ 876,60</span>
+            <span data-resumo-total-rotulo>Total no Pix</span>
+            <span data-resumo-total>R$ 832,77</span>
           </div>
 
           <p class="summary__note">
@@ -792,6 +873,6 @@
   <p class="toast" data-toast role="status" aria-live="polite"></p>
 
 <script src="assets/js/header.js?v=379ac46d" defer></script>
-<script src="assets/js/loja.js?v=f53bd54c" defer></script>
+<script src="assets/js/loja.js?v=f2ac80c8" defer></script>
 </body>
 </html>

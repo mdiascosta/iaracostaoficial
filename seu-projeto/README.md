@@ -41,6 +41,25 @@ Depois abra `http://localhost:8080` no navegador.
 | Institucional | `sobre.html`, `contato.html`, `faq.html`, `guia-medidas.html` |
 | Políticas | `trocas.html`, `envio.html`, `privacidade.html`, `termos.html`, `cookies.html` |
 
+### Novidades da v0.1.13 (cartões de envio e pagamento e regras de negócio fechadas)
+
+| Peça | Como ficou |
+|---|---|
+| Checkout | Formas de envio e de pagamento em cartões clicáveis no padrão da imagem enviada: rádio, título, linha de apoio e valor |
+| Envio | PAC, SEDEX e Retirar no ateliê, cada um com prazo e valor, e o endereço do ateliê no cartão da retirada |
+| Pagamento | Pix com a etiqueta "5% off" e cartão de crédito com "6x sem juros" e parcela mínima de R$ 50,00 |
+| Campos do cartão | Aparecem quando o cartão é escolhido, com máscaras de número, validade e CVV. São demonstração: sem `name`, nada é enviado nem guardado, e o aviso explica que no site publicado os campos são do Mercado Pago |
+| Frete grátis | Passa a contar o valor líquido, depois do cupom e do desconto do Pix, em todas as páginas |
+| R$ 15,00 | Confirmado como regra do PAC em SP, RJ, MG e ES; o SEDEX e as demais regiões saem pelo cálculo dos Correios |
+| Prazos | 2 dias úteis para pronta entrega e de 5 a 7 dias úteis para peças sob encomenda |
+| Trocas | 30 dias corridos para trocar de tamanho, primeira troca gratuita, e 7 dias de arrependimento com frete de retorno por conta da loja |
+| Cuidados | Lavagem à mão ou ciclo delicado com sabão neutro, sem alvejante à base de cloro, secagem à sombra na horizontal e passar até 110°C |
+| Privacidade | Encarregado de dados com o e-mail `dpo@iaracosta.com.br` e data das páginas legais em 16 de outubro de 2026 |
+| Cabeçalho | Marca em 20px, sem `clamp()`, como a especificação da empresa pede |
+
+**Valores conferidos na cesta de exemplo:** produtos R$ 974,00, cupom R$ 97,40,
+Pix R$ 832,77, cartão R$ 876,60 e 6x de R$ 146,10 sem juros.
+
 ### Novidades da v0.1.12 (dados reais da empresa e regras de venda confirmadas)
 
 | Peça | Como ficou |

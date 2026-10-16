@@ -225,6 +225,9 @@
     var barraFrete = document.querySelector('[data-ship-fill]');
 
     var subtotal = carrinho.reduce(function (soma, item) { return soma + item.preco * item.qtd; }, 0);
+    /* Mesma regra da sacola: o frete grátis conta o valor líquido, com o cupom
+       já aplicado, para a gaveta não prometer o que o resumo não cumpre. */
+    var liquido = subtotal - (cupomAtivo ? subtotal * CUPONS[cupomAtivo] : 0);
 
     if (corpo) {
       if (!carrinho.length) {
@@ -247,12 +250,12 @@
     if (totalEl) { totalEl.textContent = dinheiro(subtotal); }
 
     if (textoFrete && barraFrete) {
-      if (subtotal >= FRETE_GRATIS) {
+      if (liquido >= FRETE_GRATIS) {
         textoFrete.textContent = 'Frete grátis liberado para este pedido.';
         barraFrete.style.width = '100%';
       } else {
-        textoFrete.textContent = 'Faltam ' + dinheiro(FRETE_GRATIS - subtotal) + ' para o frete grátis.';
-        barraFrete.style.width = Math.min(100, (subtotal / FRETE_GRATIS) * 100).toFixed(1) + '%';
+        textoFrete.textContent = 'Faltam ' + dinheiro(FRETE_GRATIS - liquido) + ' para o frete grátis.';
+        barraFrete.style.width = Math.min(100, (liquido / FRETE_GRATIS) * 100).toFixed(1) + '%';
       }
     }
   }
@@ -322,6 +325,15 @@
   var CUPONS = { BEMVINDO10: 0.1 };
   var cupomAtivo = null;
 
+  /* Regras confirmadas pela empresa em 16/10/2026 (Mercado Pago):
+     - Pix com 5% de desconto, aplicado sobre o valor dos produtos;
+     - cartão de crédito em até 6x sem juros, com parcela mínima de R$ 50,00;
+     - frete grátis acima de R$ 299 no valor LÍQUIDO, ou seja, depois do cupom;
+     - R$ 15,00 no Sudeste vale só para o PAC (SP, RJ, MG e ES). */
+  var PIX_DESCONTO = 0.05;
+  var PARCELA_MINIMA = 50;
+  var MAX_PARCELAS = 6;
+
   function itensDaSacola() {
     return Array.prototype.slice.call(document.querySelectorAll('[data-item]'));
   }
@@ -352,7 +364,8 @@
     var resumo = resumoDaSacola();
     var desconto = cupomAtivo ? resumo.subtotal * CUPONS[cupomAtivo] : 0;
     var total = resumo.subtotal - desconto;
-    var freteGratis = resumo.subtotal >= FRETE_GRATIS;
+    /* O frete grátis olha o valor depois do cupom, como a empresa definiu. */
+    var freteGratis = total >= FRETE_GRATIS;
 
     var descontoEl = document.querySelector('[data-desconto]');
     var descontoRotulo = document.querySelector('[data-desconto-rotulo]');
@@ -456,20 +469,176 @@
     pintarResumo();
   }
 
-  /* --------------------------------------------------- CHECKOUT (máscaras) */
-  /* Veio do loja.js do template. O protótipo NÃO pede número de cartão: os
-     dados do cartão são digitados na página segura do gateway, que ainda não
-     foi contratado. Por isso aqui só entram CEP, telefone e o recado que muda
-     conforme o meio de pagamento escolhido. */
+  /* ==========================================================================
+     CHECKOUT: cartões de opção, totais, máscaras e dados do cartão (v0.1.13)
+
+     O padrão visual veio do template enviado pela cliente (cartões com rádio,
+     título, linha de apoio e valor à direita). As decisões são do dossiê:
+
+     1. Nada de valor de frete inventado. A resposta sai das regras confirmadas:
+        PAC grátis a partir de R$ 299 no valor líquido; abaixo disso, R$ 15,00 no
+        Sudeste e cálculo pelos Correios nas outras regiões; SEDEX sempre
+        calculado; retirada no ateliê grátis.
+     2. O protótipo NÃO coleta dado de cartão. Os campos do cartão existem para
+        mostrar o desenho da tela: não têm atributo name (nada é enviado), não
+        são gravados em lugar nenhum e o aviso na tela diz isso. No site
+        publicado quem desenha esses campos é o Mercado Pago.
+     ========================================================================== */
+
+  function textoDo(seletor) {
+    var el = document.querySelector(seletor);
+    return el ? el.textContent.trim() : '';
+  }
+
+  function numeroDo(seletor) { return numero(textoDo(seletor)); }
+
+  function escolhido(nome) {
+    var campo = document.querySelector('input[name="' + nome + '"]:checked');
+    return campo ? campo.value : '';
+  }
+
+  function marcarCartoesEscolhidos() {
+    document.querySelectorAll('.choice').forEach(function (cartao) {
+      var campo = cartao.querySelector('.choice__input');
+      cartao.classList.toggle('is-selected', !!(campo && campo.checked));
+    });
+  }
+
+  var TEXTO_ENVIO = {
+    PAC: 'PAC: postagem em até 2 dias úteis, com rastreio. O prazo de entrega sai do cálculo dos Correios pelo CEP.',
+    SEDEX: 'SEDEX: valor e prazo aparecem depois do cálculo dos Correios pelo CEP.',
+    Retirada: 'Retirada no ateliê: dia e horário [A DEFINIR: combinar com o atendimento].'
+  };
+
+  var TEXTO_PAGAMENTO = {
+    pix: 'No Pix a confirmação é na hora, com 5% de desconto. O QR Code é gerado pelo Mercado Pago depois de confirmar o pedido.',
+    cartao: 'Cartão em até 6x sem juros, parcela mínima de R$ 50,00, processado pelo Mercado Pago. No site publicado os campos do cartão são os do gateway.'
+  };
+
+  /* Faixa do CEP digitado no checkout; sem CEP completo, não dá para dizer qual. */
+  function regiaoDoCheckout() {
+    var cep = document.getElementById('cep2');
+    if (!cep || cep.value.replace(/\D/g, '').length !== 8) { return 'sem-cep'; }
+    return regiaoDoCep(cep.value);
+  }
+
+  /* Quanto custa o frete escolhido. null = depende do cálculo dos Correios. */
+  function valorDoFrete() {
+    var forma = escolhido('envio');
+    var liquido = numeroDo('[data-resumo-produtos]') - numeroDo('[data-resumo-cupom]');
+
+    if (forma === 'Retirada') { return 0; }
+    if (forma === 'SEDEX') { return null; }
+    if (liquido >= FRETE_GRATIS) { return 0; }
+    return regiaoDoCheckout() === 'sudeste' ? 15 : null;
+  }
+
+  function pintarCheckout() {
+    var totalEl = document.querySelector('[data-resumo-total]');
+    if (!totalEl) { return; }
+
+    var produtos = numeroDo('[data-resumo-produtos]');
+    var desconto = numeroDo('[data-resumo-cupom]');
+    var liquido = Math.max(0, produtos - desconto);
+    var forma = escolhido('envio');
+    var pix = escolhido('pagamento') === 'pix';
+    var frete = valorDoFrete();
+    var freteSomado = frete === null ? 0 : frete;
+
+    /* Preço das duas formas de pagamento. Quando o frete depende do cálculo, o
+       cartão mostra só os produtos e o total do resumo sai sem frete. */
+    var precoPix = document.querySelector('[data-preco-pix]');
+    var precoCartao = document.querySelector('[data-preco-cartao]');
+    if (precoPix) { precoPix.textContent = dinheiro(liquido * (1 - PIX_DESCONTO) + freteSomado); }
+    if (precoCartao) { precoCartao.textContent = dinheiro(liquido + freteSomado); }
+
+    /* Preço do PAC no cartão de envio. */
+    var pacEl = document.querySelector('[data-frete-pac]');
+    if (pacEl) {
+      if (liquido >= FRETE_GRATIS) { pacEl.textContent = 'Grátis'; }
+      else if (regiaoDoCheckout() === 'sudeste') { pacEl.textContent = dinheiro(15); }
+      else { pacEl.textContent = 'Calculado pelo CEP'; }
+    }
+
+    /* O SEDEX nunca tem valor fixo: a conta é sempre dos Correios, pelo CEP. */
+    var sedexEl = document.querySelector('[data-frete-sedex]');
+    if (sedexEl) { sedexEl.textContent = 'Calculado pelo CEP'; }
+
+    /* Linha do frete e total do resumo. */
+    var freteEl = document.querySelector('[data-resumo-frete]');
+    var freteRotulo = document.querySelector('[data-resumo-frete-rotulo]');
+    var totalRotulo = document.querySelector('[data-resumo-total-rotulo]');
+
+    if (freteRotulo) {
+      freteRotulo.textContent = forma === 'Retirada'
+        ? 'Retirada no ateliê'
+        : 'Frete no ' + (forma === 'SEDEX' ? 'SEDEX' : 'PAC');
+    }
+    if (freteEl) {
+      if (frete === null) { freteEl.textContent = 'Calculado pelo CEP'; }
+      else { freteEl.textContent = frete === 0 ? 'Grátis' : dinheiro(frete); }
+    }
+
+    var base = pix ? liquido * (1 - PIX_DESCONTO) : liquido;
+    if (frete === null) {
+      totalEl.textContent = dinheiro(base);
+      if (totalRotulo) { totalRotulo.textContent = 'Total sem frete'; }
+    } else {
+      totalEl.textContent = dinheiro(base + frete);
+      if (totalRotulo) { totalRotulo.textContent = pix ? 'Total no Pix' : 'Total no cartão'; }
+    }
+
+    /* Parcelas, respeitando a parcela mínima de R$ 50,00 confirmada pela empresa. */
+    var parcelas = document.querySelector('[data-parcelas]');
+    if (parcelas) {
+      var totalCartao = liquido + freteSomado;
+      var escolhida = parcelas.value;
+      var opcoes = [];
+
+      for (var n = 1; n <= MAX_PARCELAS; n++) {
+        var valorParcela = totalCartao / n;
+        if (n > 1 && valorParcela < PARCELA_MINIMA) { break; }
+        opcoes.push('<option value="' + n + '"' +
+                    (String(n) === String(escolhida) ? ' selected' : '') + '>' +
+                    n + 'x de ' + dinheiro(valorParcela) + ' sem juros</option>');
+      }
+      parcelas.innerHTML = opcoes.join('');
+    }
+  }
+
+  function sincronizarCheckout() {
+    marcarCartoesEscolhidos();
+
+    /* Campos do cartão só aparecem quando o cartão é a forma escolhida. */
+    var camposCartao = document.getElementById('cartao-campos');
+    if (camposCartao) {
+      if (escolhido('pagamento') === 'cartao') { camposCartao.removeAttribute('hidden'); }
+      else { camposCartao.setAttribute('hidden', ''); }
+    }
+
+    var recadoEnvio = document.querySelector('[data-envio-msg]');
+    if (recadoEnvio) { recadoEnvio.textContent = TEXTO_ENVIO[escolhido('envio')] || ''; }
+
+    var recadoPagamento = document.querySelector('[data-pay-note]');
+    if (recadoPagamento) { recadoPagamento.textContent = TEXTO_PAGAMENTO[escolhido('pagamento')] || ''; }
+
+    pintarCheckout();
+  }
+
+  function mascararCampo(campo, formatar) {
+    if (!campo) { return; }
+    campo.addEventListener('input', function () { campo.value = formatar(campo.value); });
+  }
+
   function initCheckout() {
     var cepCheckout = document.getElementById('cep2');
     var telefone = document.getElementById('telefone');
-    var recado = document.querySelector('[data-pay-note]');
 
     if (cepCheckout) {
       cepCheckout.addEventListener('input', function () {
         var digitos = cepCheckout.value.replace(/\D/g, '').slice(0, 8);
         cepCheckout.value = digitos.length > 5 ? digitos.slice(0, 5) + '-' + digitos.slice(5) : digitos;
+        sincronizarCheckout();
       });
     }
 
@@ -483,24 +652,24 @@
       });
     }
 
-    if (recado) {
-      var RECADOS = {
-        'pg-pix': 'No Pix a confirmação é na hora, com 5% de desconto. O QR Code é gerado pelo Mercado Pago no fim do pedido.',
-        'pg-cartao': 'Cartão em até 6x sem juros, processado pelo Mercado Pago. Os dados do cartão são digitados na página segura do gateway: este protótipo não pede número de cartão.'
-      };
+    /* Máscaras dos campos de demonstração do cartão. Elas só arrumam o que
+       aparece na tela: nada é validado, guardado ou enviado. */
+    mascararCampo(document.getElementById('cc-numero'), function (valor) {
+      return valor.replace(/\D/g, '').slice(0, 16).replace(/(\d{4})(?=\d)/g, '$1 ');
+    });
+    mascararCampo(document.getElementById('cc-validade'), function (valor) {
+      var d = valor.replace(/\D/g, '').slice(0, 4);
+      return d.length > 2 ? d.slice(0, 2) + '/' + d.slice(2) : d;
+    });
+    mascararCampo(document.getElementById('cc-cvv'), function (valor) {
+      return valor.replace(/\D/g, '').slice(0, 4);
+    });
 
-      var opcoes = document.querySelectorAll('input[name="pagamento"]');
+    document.querySelectorAll('input[name="envio"], input[name="pagamento"]').forEach(function (opcao) {
+      opcao.addEventListener('change', sincronizarCheckout);
+    });
 
-      var sincronizar = function () {
-        var escolhido = document.querySelector('input[name="pagamento"]:checked');
-        recado.textContent = escolhido ? (RECADOS[escolhido.id] || '') : '';
-      };
-
-      Array.prototype.forEach.call(opcoes, function (opcao) {
-        opcao.addEventListener('change', sincronizar);
-      });
-      sincronizar();
-    }
+    sincronizarCheckout();
   }
 
   /* Botões +/- e Remover da página da sacola. */
@@ -549,7 +718,6 @@
 
   seguro('contadores', atualizarContadores);
   seguro('desejos', pintarCoracoes);
-  seguro('mini-sacola', pintarSacola);
   seguro('carrinho', function () {
     initCarrinho();
 
@@ -558,5 +726,8 @@
       if (evento.target.closest('.qty__input')) { pintarResumo(); }
     });
   });
+  /* A gaveta vem depois do carrinho: ela usa o cupom que o carrinho acabou de
+     ler da tela, para o frete grátis contar o mesmo valor líquido nas duas. */
+  seguro('mini-sacola', pintarSacola);
   seguro('checkout', initCheckout);
 })();
