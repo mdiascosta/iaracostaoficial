@@ -41,6 +41,24 @@ Depois abra `http://localhost:8080` no navegador.
 | Institucional | `sobre.html`, `contato.html`, `faq.html`, `guia-medidas.html` |
 | Políticas | `trocas.html`, `envio.html`, `privacidade.html`, `termos.html`, `cookies.html` |
 
+### Novidades da v0.1.14 (resumo preso na sacola, coleção do zip e artigo novo)
+
+| Peça | Como ficou |
+|---|---|
+| Resumo da sacola | Campo e botão alinhados pela base (o botão "Calcular" ficava 25px abaixo do campo do CEP) e valores numa coluna de número com largura fixa |
+| Resumo ao rolar | Fica preso abaixo do cabeçalho enquanto a página rola. O `position: sticky` estava desligado pelo `overflow-x: hidden` do body, trocado por `overflow-x: clip` |
+| Coleção | Coluna de filtros que acompanha a rolagem, começa em Categorias e fecha com "Aplicar filtros" e "Limpar filtros"; contagem "12 peças nesta seleção"; cartão em coluna com 12px entre as partes e o espaçamento de grade do zip |
+| Artigo do diário | Capa em duas colunas, índice "Neste texto" que acompanha a leitura, barra de progresso, citação, chamada do guia de medidas, etiquetas, compartilhar e autoria |
+| Retirada no ateliê | Segunda a sexta, das 10h às 17h, depois do aviso de "Pronto para Retirada" |
+| Boleto | Habilitado pelo Mercado Pago: vence em 2 dias úteis e libera o pedido depois da compensação, com valor cheio |
+| Reembolso | Pix em 2 dias úteis; cartão em 3 dias úteis (lançamento depende da operadora); boleto em 3 dias úteis |
+| Liquidação e bazar | Troca pelo mesmo modelo em outro tamanho; o cupom de troca vale o valor pago |
+| Tecidos e origem | Linho, algodão egípcio e viscose de alta gramatura; modelagem, corte e confecção 100% autorais no Brasil, em Cerquilho - SP |
+| Diário | Textos assinados por Iara Costa e Equipe de Criação |
+
+**A loja continua sem paginação**, como o dossiê pede: o layout do zip foi seguido
+em tudo o mais (coluna de filtros, ações no fim, contagem e grade).
+
 ### Novidades da v0.1.13 (cartões de envio e pagamento e regras de negócio fechadas)
 
 | Peça | Como ficou |

@@ -1,5 +1,89 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Resumo fixo na sacola, coleção no layout do zip e artigo novo (v0.1.14)
+
+### Pedido da cliente
+Três pedidos numa mensagem. No primeiro, a cliente mandou a captura do card
+"Resumo" da sacola: o alinhamento de dentro estava errado e, ao rolar a página,
+o resumo deveria ficar preso na tela. No segundo, pediu um layout novo e mais
+moderno para o `post.html`. No terceiro, pediu que a página de coleção siga o
+layout do zip de referência. Junto veio a "Especificação da Marca e Regras de
+Negócio" atualizada, que respondeu o que faltava.
+
+### O que foi feito (IMPLEMENTADO)
+- **Alinhamento do resumo.** O campo e o botão das duas linhas (cupom e cálculo
+  do frete) estavam presos por uma margem calculada à mão de 26px: ela acertava o
+  botão do cupom por sorte e empurrava o "Calcular" 25px abaixo do campo do CEP.
+  Agora a linha é uma grade de duas colunas alinhadas pela base: campo e botão
+  terminam exatamente na mesma altura, com a mesma altura de toque de 44px.
+  Os valores do resumo ficaram numa coluna de número com largura fixa, então
+  R$ 974,00 e R$ 15,00 terminam na mesma linha vertical.
+- **Resumo preso ao rolar.** O `position: sticky` já estava escrito, mas não
+  funcionava, e a causa não era ele: o `body` tinha `overflow-x: hidden`, que
+  transforma o body numa caixa de rolagem e desliga o `position: sticky` de tudo
+  que está dentro dele. Trocado por `overflow-x: clip`, que corta o excesso sem
+  criar caixa de rolagem, com o `hidden` guardado para navegador antigo. O resumo
+  e o cabeçalho do site voltaram a acompanhar a rolagem. O resumo ganhou teto de
+  altura: se ele for mais alto que a janela, rola por dentro em vez de esconder o
+  botão de finalizar.
+- **Página de coleção no layout do zip.** A coluna de filtros acompanha a rolagem
+  e começa direto em Categorias (o título "Filtros" ficou só para leitor de tela e
+  para a gaveta do celular), fechando com as ações no fim: botão "Aplicar filtros"
+  e link "Limpar filtros". A contagem passou a dizer "12 peças nesta seleção",
+  como no zip. O cartão de produto virou uma coluna com 12px entre as partes e a
+  grade ganhou o espaçamento do zip, com mais ar entre as linhas do que entre as
+  colunas.
+- **Layout novo do artigo.** A página do diário deixou o cabeçalho centralizado com
+  a foto embaixo e passou a ter capa em duas colunas (texto à esquerda, foto à
+  direita), índice "Neste texto" que acompanha a leitura e marca a seção atual,
+  barra fina de progresso, uma citação de respiro, uma chamada para o guia de
+  medidas e o fecho com etiquetas de assunto, compartilhar e autoria. O JavaScript
+  novo (`artigo.js`) cuida da barra, do índice e do botão de copiar o link, e
+  falha em silêncio se algo não estiver disponível.
+- **Retirada no ateliê confirmada:** segunda a sexta, das 10h às 17h, depois do
+  aviso de "Pronto para Retirada" por e-mail. Entrou no checkout, no Envio e no
+  Contato, e saiu o marcador que pedia essa informação.
+- **Boleto bancário habilitado**, pelo Mercado Pago: vence em 2 dias úteis e o
+  pedido é liberado depois da compensação bancária, com o valor cheio (sem o
+  desconto do Pix). Virou o terceiro cartão de pagamento no checkout e entrou no
+  rodapé, nos Termos, nas Perguntas frequentes, na página de Produto e na Home.
+- **Reembolso com prazo:** Pix em 2 dias úteis depois da conferência da peça,
+  cartão com estorno solicitado em 3 dias úteis (o lançamento depende da data de
+  fechamento da operadora) e boleto com depósito ou Pix em 3 dias úteis.
+- **Peças de liquidação e bazar:** troca pelo mesmo modelo em outro tamanho,
+  conforme o estoque; se não houver o tamanho, o cupom de troca vale o valor
+  efetivamente pago na compra.
+- **Tecidos e origem:** as peças usam linho, algodão egípcio e viscose de alta
+  gramatura, com modelagem, corte e confecção 100% autorais, feitos no Brasil, no
+  ateliê de Cerquilho - SP.
+- **Autoria do diário:** os textos passam a ser assinados por Iara Costa e Equipe
+  de Criação, como a empresa definiu.
+- **Verificações:** `build.py` e `check.py` com as 22 páginas certas; `test.js` com
+  907 verificações e zero falhas (a seção 21 cobre o resumo, o boleto, a retirada,
+  a coleção e o artigo novo); `pente-fino.py` com as 12 seções zeradas; as quatro
+  páginas mexidas carregadas em jsdom sem nenhum aviso de JavaScript.
+
+### Decisões tomadas
+- **A loja continua sem paginação.** O zip mostra paginação na listagem, mas o
+  dossiê do projeto é explícito: o catálogo aparece inteiro, sem paginação. O
+  layout do zip foi seguido em tudo o mais. Quando o catálogo passar de 30 peças,
+  o assunto volta à mesa.
+- **O convite "Adicionar à sacola" continua sempre visível.** O CSS do zip tem um
+  convite que só aparece no hover, mas o próprio HTML do zip usa um link comum, e
+  esconder uma ação de compra atrás do mouse prejudica o celular. O CSS morto
+  daquele hover não foi trazido.
+- **O cabeçalho da página de coleção ficou como a cliente aprovou na v0.1.10**
+  (trilha e nome da página, sem fundo), com a contagem e o guia de medidas na
+  barra de ordenação, e não dentro do cabeçalho como no zip.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Composição exata de cada peça (percentual de cada fibra) e a tabela de medidas
+  real de cada produto.
+- História da marca, em dois ou três parágrafos, para a página Sobre.
+- Itens de privacidade que dependem das ferramentas escolhidas: analytics,
+  pixels, retenção e transferência internacional.
+- Ordem de serviço e conferência das peças devolvidas (procedimento interno).
+
 ## [2026-10-16] - Cartões de envio e pagamento no checkout e as regras de negócio fechadas (v0.1.13)
 
 ### Pedido da cliente

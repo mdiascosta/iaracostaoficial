@@ -61,6 +61,38 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.14 · 2026-10-16 · Resumo fixo na sacola, coleção no layout do zip e artigo novo
+
+**Pedido da cliente:** corrigir o alinhamento de dentro do card "Resumo" da sacola
+e fazer com que ele fique preso na tela ao rolar; um layout novo e mais moderno
+para a página do artigo; a página de coleção seguindo o layout do zip de
+referência; e a "Especificação da Marca e Regras de Negócio" atualizada, agora com
+retirada no ateliê, boleto, prazos de reembolso, tecidos e autoria do diário.
+
+| O que mudou | Onde |
+|---|---|
+| Campo e botão do resumo alinhados pela base: o deslocamento de 26px que empurrava o botão "Calcular" para baixo do campo do CEP saiu do CSS | `pages.css` |
+| Resumo da sacola preso abaixo do cabeçalho enquanto a página rola, com teto de altura para nunca esconder o botão de finalizar | `pages.css` |
+| Causa do problema encontrada: `overflow-x: hidden` no `body` transformava o body numa caixa de rolagem e desligava todo `position: sticky` da página, inclusive o do cabeçalho. Trocado por `overflow-x: clip`, com reserva para navegador antigo | `style.css` |
+| Valores do resumo em coluna, com número de largura fixa | `pages.css` |
+| Página de coleção no layout do zip: a coluna de filtros acompanha a rolagem, começa direto em Categorias e fecha com as ações (Aplicar filtros e Limpar filtros) | `comercio.css`, `02-loja.html` |
+| Contagem da listagem com o texto do zip: "12 peças nesta seleção" | `02-loja.html`, `filtros.js` |
+| Cartão de produto em coluna, com 12px entre as partes, e grade com o espaçamento do zip (mais ar entre as linhas do que entre as colunas) | `style.css` |
+| Layout novo do artigo: capa em duas colunas, índice que acompanha a leitura, barra fina de progresso, citação de respiro, chamada do guia de medidas, etiquetas de assunto, compartilhar e cartão de autoria | `11-post.html`, `pages.css`, `artigo.js` |
+| Retirada no ateliê confirmada: segunda a sexta, das 10h às 17h, depois do aviso de "Pronto para Retirada" | checkout, Envio e Contato |
+| Boleto bancário habilitado pelo Mercado Pago: vence em 2 dias úteis e o pedido é liberado depois da compensação. Valor cheio, sem o desconto do Pix | checkout, rodapé, Termos, Perguntas frequentes, Produto e Home |
+| Prazos de reembolso: Pix em 2 dias úteis, cartão em 3 dias úteis (o lançamento depende da operadora) e boleto em 3 dias úteis | `18-trocas.html` |
+| Peças de liquidação e bazar: troca pelo mesmo modelo em outro tamanho, e o cupom de troca vale o valor efetivamente pago | `18-trocas.html` |
+| Tecidos e origem: linho, algodão egípcio e viscose de alta gramatura, modelagem, corte e confecção 100% autorais, feitos no Brasil, em Cerquilho - SP | `13-sobre.html`, `03-produto.html` |
+| Autoria dos textos do diário confirmada: Iara Costa e Equipe de Criação | `10-blog.html`, `11-post.html` |
+
+**Resultado das verificações:** `build.py` e `check.py` com as 22 páginas certas;
+`test.js` com 907 verificações e zero falhas (a seção 21 é nova); `pente-fino.py`
+com as 12 seções zeradas.
+
+**Decisão que continua valendo:** a loja segue sem paginação, como o dossiê pede,
+mesmo com o zip mostrando paginação na listagem.
+
 ### v0.1.13 · 2026-10-16 · Cartões de envio e pagamento no checkout e as regras de negócio fechadas
 
 **Pedido da cliente:** duas imagens de referência do fechamento de compra (cartões
