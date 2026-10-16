@@ -37,7 +37,10 @@
             <h2 id="contato-form-titulo">Envie uma mensagem</h2>
             <p class="form-required-note">Campos com <span aria-hidden="true">*</span> são obrigatórios.</p>
 
-          <form action="#" method="post" novalidate>
+          <!-- v0.1.19: o formulario ganhou o gancho do script de validacao
+               (assets/js/contato.js) e um lugar para o recado de envio. Antes,
+               clicar em "Enviar mensagem" nao mostrava nada. -->
+          <form action="#" method="post" novalidate data-form-contato>
             <div class="form-row form-row--2">
               <div class="field">
                 <label class="field__label" for="ct-nome">Seu nome <span aria-hidden="true">*</span></label>
@@ -107,6 +110,8 @@
               envio repetido. [CONFERIR no Bloco B] Testar o CAPTCHA junto com o
               gateway de pagamento, porque alguns fluxos interferem entre si.
             </p>
+
+            <p class="field__hint" data-contato-msg role="status"></p>
 
             <button class="btn btn--primary" type="submit">Enviar mensagem</button>
           </form>

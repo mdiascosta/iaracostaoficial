@@ -61,32 +61,25 @@
           Pix com 5% de desconto · cartão em até 6x sem juros · boleto em 2 dias úteis
         </p>
 
+        <!-- v0.1.19: o grupo de cor abria com "Terracota" marcado numa peça que
+             é sálvia (nome, foto e ficha dizem sálvia) e ainda oferecia
+             "Off-white" e "Preto", que não são nomes da paleta da marca. Agora
+             o grupo mostra a cor real da peça, conforme o catálogo: sálvia. O
+             estado de variação esgotada é demonstrado no tamanho GG, abaixo. -->
         <div class="option-group" data-option-group data-option-label="Cor">
           <div class="option-group__head">
             <p class="option-group__label" id="cor-rotulo">Cor</p>
-            <p class="option-group__value" data-option-output data-live aria-live="polite">Cor selecionada: Terracota</p>
+            <p class="option-group__value" data-option-output data-live aria-live="polite">Cor selecionada: Sálvia</p>
           </div>
           <ul class="swatch-list" aria-labelledby="cor-rotulo">
             <li>
-              <button class="swatch swatch--color" type="button" data-value="Terracota" aria-pressed="true">
-                <span class="swatch__dot sw-terracota" aria-hidden="true"></span>
-                Terracota
-              </button>
-            </li>
-            <li>
-              <button class="swatch swatch--color" type="button" data-value="Off-white" aria-pressed="false">
-                <span class="swatch__dot sw-offwhite" aria-hidden="true"></span>
-                Off-white
-              </button>
-            </li>
-            <li>
-              <button class="swatch swatch--color" type="button" data-value="Preto" aria-pressed="false">
-                <span class="swatch__dot sw-preto" aria-hidden="true"></span>
-                Preto
+              <button class="swatch swatch--color" type="button" data-value="Sálvia" aria-pressed="true">
+                <span class="swatch__dot sw-salvia" aria-hidden="true"></span>
+                Sálvia
               </button>
             </li>
           </ul>
-          <input type="hidden" name="cor" value="Terracota">
+          <input type="hidden" name="cor" value="Sálvia">
         </div>
 
         <div class="option-group" data-option-group data-option-label="Tamanho">

@@ -29,7 +29,7 @@
     "nav": "loja",
     "body_class": "page-product",
     "title": "Vestido Midi Sálvia | Iara Costa",
-    "desc": "Vestido midi em linho na cor terracota, com modelagem fluida e forro. Disponível em P, M, G e GG.",
+    "desc": "Vestido midi em linho na cor sálvia, com modelagem fluida e forro. Disponível em P, M, G e GG.",
     "content": "03-produto.html",
     "extra_js": [
       "swatches.js"
@@ -135,7 +135,10 @@
     "body_class": "page-contact",
     "title": "Contato | Iara Costa",
     "desc": "Fale com o atendimento da Iara Costa por e-mail ou WhatsApp.",
-    "content": "14-contato.html"
+    "content": "14-contato.html",
+    "extra_js": [
+      "contato.js"
+    ]
   },
   {
     "file": "faq.html",
@@ -144,7 +147,10 @@
     "body_class": "page-faq",
     "title": "Perguntas frequentes | Iara Costa",
     "desc": "Dúvidas sobre prazos, trocas, tamanhos, pagamento e cuidados com as peças.",
-    "content": "15-faq.html"
+    "content": "15-faq.html",
+    "extra_js": [
+      "swatches.js"
+    ]
   },
   {
     "file": "guia-medidas.html",
@@ -153,7 +159,10 @@
     "body_class": "page-size-guide",
     "title": "Guia de medidas | Iara Costa",
     "desc": "Tabela de medidas e instruções para medir o corpo em casa.",
-    "content": "16-guia-medidas.html"
+    "content": "16-guia-medidas.html",
+    "extra_js": [
+      "swatches.js"
+    ]
   },
   {
     "file": "lookbook.html",
@@ -180,7 +189,10 @@
     "body_class": "page-shipping",
     "title": "Envio e entrega | Iara Costa",
     "desc": "Prazos, formas de envio, frete grátis e rastreio.",
-    "content": "19-envio.html"
+    "content": "19-envio.html",
+    "extra_js": [
+      "swatches.js"
+    ]
   },
   {
     "file": "privacidade.html",

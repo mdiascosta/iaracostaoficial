@@ -501,6 +501,25 @@ body.is-locked { overflow: hidden; }
   text-transform: uppercase;
 }
 
+/* v0.1.19: parado no topo da página, o balão cobria o que a pessoa precisa ver
+   primeiro: o valor do Pix no checkout (R$ 832,77), o botão "Criar minha conta"
+   na página da conta e o botão "Calcular" do frete na sacola no celular. Agora
+   ele entra depois que a pessoa rola a página. Sem JavaScript, o balão aparece
+   sempre, como antes: a consulta @media (scripting) só liga o controle quando
+   o navegador sabe que o JavaScript está disponível. */
+@media (scripting: enabled) {
+  .whats-float {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 200ms ease, visibility 200ms ease;
+  }
+  .whats-float.is-visivel { opacity: 1; visibility: visible; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whats-float { transition: none; }
+}
+
 @media (max-width: 720px) {
   .whats-float__label { display: none; }
   .whats-float { padding: 14px; }

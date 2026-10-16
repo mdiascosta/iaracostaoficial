@@ -61,6 +61,48 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.19 · 2026-10-16 · Pente fino no navegador: o que estava quebrado no celular
+
+**De onde veio:** continuação dos ajustes no protótipo depois do merge. Desta
+vez as páginas foram abertas em um navegador de verdade (Chromium sem interface)
+nas larguras de 390, 768 e 1440 pixels, com teste de interação, teclado e
+contraste. Até aqui tudo era conferido por leitura de código, então esta é a
+primeira vez que o protótipo é medido como uma pessoa vê.
+
+**O que estava quebrado e foi consertado**
+
+| Problema | O que acontecia | Conserto |
+|---|---|---|
+| Marcador de pendência estourava a tela | Os textos `[PREENCHER: ...]`, que são longos, tinham `white-space: nowrap`: em 390px a página ficava 1.057px de largura e a pessoa precisava rolar de lado. Atingia Sobre, Contato, Trocas, Privacidade, Termos e Cookies | o marcador agora quebra linha como texto normal |
+| Tabela com rolagem empurrava a coluna | Na Conta e no artigo, a grade deixava a tabela de medidas ditar a largura da coluna: a página inteira estourava (641px e 451px em uma tela de 390px) | `min-width: 0` nas duas grades, o que prende a tabela dentro da caixa com rolagem |
+| Balão do WhatsApp cobria o que importa | Parado no topo, o balão tapava o valor no Pix do checkout (R$ 832,77), o botão "Criar minha conta" e o botão "Calcular" do frete no celular | o balão entra depois que a pessoa rola 160px (e o resumo preso no topo reserva 96px para ele). Sem JavaScript, aparece desde o início, como antes |
+| Acordeão morto em três páginas | FAQ, Envio e Guia de Medidas têm acordeão, mas não carregavam o script que o abre: clicar não fazia nada. O da home funcionava, o que mascarava o problema | o script passou a ser carregado nas três páginas |
+| Formulário de contato sem resposta | Com `novalidate` e campos obrigatórios, clicar em "Enviar mensagem" não mostrava nada: a pessoa achava que o site tinha travado | script de validação novo (`contato.js`): marca o campo, escreve a mensagem embaixo, liga a mensagem ao campo e leva o foco ao primeiro problema |
+| Cor errada na página de produto | A peça é o Vestido Midi Sálvia (nome, foto e ficha), mas o grupo de cor abria com "Terracota" marcado e oferecia "Off-white" e "Preto", que não existem no catálogo nem na paleta | o grupo mostra a cor real (Sálvia); as duas cores inventadas saíram do CSS; a descrição da busca também foi corrigida |
+| Botões da lista de desejos sem ação | "Adicionar à sacola" e "Remover" eram botões sem nenhum comportamento | os dois funcionam: adicionar abre a sacola lateral, remover tira a peça, atualiza o contador e avisa |
+
+**Contraste (WCAG 2.2 AA, medido no navegador)**
+
+| O que | Antes | Agora |
+|---|---|---|
+| Rótulo de seção em 11px (roxo acinzentado da paleta) | 4,27:1, abaixo do mínimo de 4,5:1 | tom ajustado para 4,92:1 no papel, 4,56:1 no hover soft e 5,00:1 no branco |
+
+Os outros pontos que apareceram na varredura são decorativos e ficam como estão,
+com nota no histórico: o ponto separador do aviso e o ponto da faixa da listagem
+(ambos `aria-hidden`, redundantes com o texto ao lado), o numeral dos capítulos
+(11px, 3,17:1) e a estrela da avaliação (ícone, com o texto "4,9 de 5" ao lado
+para leitor de tela). As setas desligadas da paginação ficam em 1,39:1 de
+propósito, para parecer o que são: fora de alcance.
+
+**Verificação automática:** a seção 25 do `test.js` cobre cada conserto acima
+(24 verificações novas). Também foi rodada uma varredura de página inteira em
+22 páginas por 3 larguras: nenhuma página estoura a largura, nenhuma imagem
+quebrada, nenhuma imagem sem texto alternativo e nenhum erro de JavaScript.
+
+**Resultado das verificações:** `build.py` e `check.py` com as 22 páginas
+certas; 1.032 verificações automáticas e zero falhas; `pente-fino.py` com as 12
+seções zeradas.
+
 ### v0.1.18 · 2026-10-16 · Foto do hero quadrada, com corte centralizado
 
 **Pedido da cliente:** "Pode reduzir a imagem para nao esticar muito deixe
