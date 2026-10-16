@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="assets/css/style.css?v=e326ff97">
   <link rel="stylesheet" href="assets/css/header.css?v=cf9ada3f">
   <link rel="stylesheet" href="assets/css/pages.css?v=d0561138">
-  <link rel="stylesheet" href="assets/css/comercio.css?v=b72c51b2">
+  <link rel="stylesheet" href="assets/css/comercio.css?v=f78ae307">
 </head>
 <body class="page-home">
 <div class="proto-banner" role="note">PROTÓTIPO · DADOS E TEXTOS DE EXEMPLO · NÃO PUBLICAR</div>
@@ -396,6 +396,31 @@
       </div>
     </section>
 
+    <!-- LISTA DE ESPERA (faixa sálvia compacta, no meio da home)
+         O convite é o mesmo da faixa antiga, mas curto e no meio da página.
+         Antes ele ficava colado no rodapé, que já pede e-mail na newsletter:
+         dois pedidos iguais em sequência. -->
+    <section class="band band--compact" aria-labelledby="lista-espera-titulo">
+      <div class="container band__inner">
+        <div>
+          <p class="eyebrow">Lista de espera</p>
+          <h2 id="lista-espera-titulo">Cada coleção nasce uma vez</h2>
+        </div>
+        <form class="band__form" action="#" method="post">
+          <label class="visually-hidden" for="espera-email">Seu e-mail</label>
+          <input class="field__input" id="espera-email" name="email" type="email"
+                 placeholder="seu@email.com" autocomplete="email" required>
+          <button class="btn btn--paper" type="submit">Assinar</button>
+        </form>
+      </div>
+      <div class="container">
+        <p class="band__note">
+          Avisamos você dois dias antes do lançamento das próximas edições.
+          Um e-mail por mês, no máximo.
+        </p>
+      </div>
+    </section>
+
     <!-- COMPRE POR OCASIÃO -->
     <section class="section" aria-labelledby="ocasiao-titulo">
       <div class="container">
@@ -593,23 +618,110 @@
       </div>
     </section>
 
-    <!-- LISTA DE ESPERA (faixa verde sálvia) -->
-    <section class="band" aria-labelledby="lista-espera-titulo">
+    <!-- PERGUNTAS FREQUENTES (faixa sálvia antes do rodapé)
+         Cinco perguntas que mais chegam no atendimento, com as mesmas respostas
+         da página Perguntas frequentes. A faixa encosta no rodapé e passa a ser
+         o separador verde entre o conteúdo e o rodapé. -->
+    <section class="band band--faq" aria-labelledby="faq-home-titulo">
       <div class="container band__inner">
         <div>
-          <p class="eyebrow">Lista de espera</p>
-          <h2 id="lista-espera-titulo">Cada coleção nasce uma vez</h2>
+          <p class="eyebrow">Perguntas frequentes</p>
+          <h2 id="faq-home-titulo">Dúvidas antes de escolher</h2>
           <p class="lead">
-            Avisamos você dois dias antes do lançamento das próximas edições.
-            Sem excesso de e-mails, no máximo um por mês.
+            As perguntas que mais chegam no ateliê, respondidas direto ao ponto.
           </p>
+          <a class="action-link action-link--paper" href="faq.html">
+            Ver todas as perguntas <span aria-hidden="true">→</span>
+          </a>
         </div>
-        <form class="band__form" action="#" method="post">
-          <label class="visually-hidden" for="espera-email">Seu e-mail</label>
-          <input class="field__input" id="espera-email" name="email" type="email"
-                 placeholder="seu@email.com" autocomplete="email" required>
-          <button class="btn btn--paper" type="submit">Assinar</button>
-        </form>
+
+        <div class="accordion" data-accordion>
+
+          <div class="accordion__item">
+            <h3 class="mb-0">
+              <button class="accordion__button" type="button" aria-expanded="true" aria-controls="hf1">
+                Preciso criar conta para comprar?
+                <span class="accordion__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="hf1">
+              <p>
+                Não. Você pode comprar como visitante. Criar conta ajuda a
+                acompanhar pedidos e guardar endereços, mas é opcional e não muda
+                o preço nem o prazo.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <h3 class="mb-0">
+              <button class="accordion__button" type="button" aria-expanded="false" aria-controls="hf2">
+                As peças vêm com a tabela de medidas?
+                <span class="accordion__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="hf2" hidden>
+              <p>
+                Sim, cada página de produto traz a tabela daquela peça. Meça uma
+                peça que já veste bem e compare com a tabela. O passo a passo
+                está no <a href="guia-medidas.html">Guia de Medidas</a>.
+              </p>
+              <p>
+                Na dúvida entre dois tamanhos, fale com o atendimento: a gente diz
+                qual costuma ficar melhor naquela peça específica.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <h3 class="mb-0">
+              <button class="accordion__button" type="button" aria-expanded="false" aria-controls="hf3">
+                A peça não serviu. Posso trocar?
+                <span class="accordion__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="hf3" hidden>
+              <p>
+                Sim. Você tem 7 dias corridos, contando do recebimento, para
+                desistir da compra sem precisar justificar, conforme o Art. 49 do
+                Código de Defesa do Consumidor. Os prazos e as condições de troca
+                estão em <a href="trocas.html">Trocas e devoluções</a>.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <h3 class="mb-0">
+              <button class="accordion__button" type="button" aria-expanded="false" aria-controls="hf4">
+                Vocês entregam em todo o Brasil?
+                <span class="accordion__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="hf4" hidden>
+              <p>
+                Sim, enviamos para todo o território nacional. Antes de finalizar,
+                confira o prazo calculado para o seu CEP.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <h3 class="mb-0">
+              <button class="accordion__button" type="button" aria-expanded="false" aria-controls="hf5">
+                Como vocês tratam os meus dados?
+                <span class="accordion__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="accordion__panel" id="hf5" hidden>
+              <p>
+                Usamos os seus dados para entregar o pedido, emitir nota fiscal e
+                responder ao seu contato. O detalhamento está na
+                <a href="privacidade.html">Política de Privacidade</a>.
+              </p>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
