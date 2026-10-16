@@ -1,5 +1,36 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - PR #6 mergeado na main (registro)
+
+### O que aconteceu
+- O **PR #6** (branch de trabalho -> `main`) foi **mergeado** em 16/10/2026, às
+  17h58 (horário de Brasília), por Matheus Costa (`mdiascosta`).
+- **Commit de merge: `5407407`.** Entraram os dois commits da v0.2.0: a primeira
+  parte do Bloco B (as 15 cores e as 10 fontes globais do site, o cabeçalho e o
+  rodapé do Elementor, o guia de importação e as três ferramentas de apoio) e a
+  subida de versão de 0.1.20 para 0.2.0.
+- A `main` está com o `VERSION` em 0.2.0, com a pasta `bloco-b/` dentro e com a
+  etiqueta `v0.2.0` apontando para o mesmo conteúdo que entrou.
+- Ao conferir o espelho local, o `.git` do ambiente estava no ponto de partida da
+  branch (antes dos dois commits), com os arquivos novos presentes e idênticos ao
+  remoto. Foi feito o realinhamento com o remoto e conferido arquivo por arquivo
+  por hash: nada se perdeu, nenhum arquivo ficou diferente.
+
+### Decisões tomadas
+- **Registro sem mudança de versão**, igual aos merges anteriores: é anotação de
+  documentação sobre algo que já estava entregue. A versão continua 0.2.0.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Conferência da cliente no navegador do protótipo: acordeão do FAQ, formulário
+  de contato e seletor de cor da página de produto.
+- Versões do staging (WordPress, PHP, Elementor, Elementor Pro, WooCommerce): sem
+  elas não dá para confirmar o que o site suporta.
+- Decisão sobre o número final de arquivos do Bloco B: 24 (página por página) ou
+  21, juntando as três páginas de política em um modelo único.
+- Destino do formulário da newsletter, endereços das redes sociais e o plugin de
+  lista de desejos.
+- Nenhuma importação foi testada (sem acesso ao WordPress, ao painel ou ao banco).
+
 ## [2026-10-16] - Bloco B, parte 1: cores, fontes, cabeçalho e rodapé (v0.2.0)
 
 ### Pedido da cliente
