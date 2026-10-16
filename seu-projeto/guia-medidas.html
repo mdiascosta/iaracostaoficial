@@ -12,10 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- PRODUÇÃO: hospedar as fontes localmente (ver assets/fonts/LEIA-ME.md) -->
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&amp;family=Playfair+Display:wght@400&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=0175cbc2">
-  <link rel="stylesheet" href="assets/css/header.css?v=4106db95">
-  <link rel="stylesheet" href="assets/css/pages.css?v=8faba131">
-  <link rel="stylesheet" href="assets/css/comercio.css?v=db61b579">
+  <link rel="stylesheet" href="assets/css/style.css?v=e326ff97">
+  <link rel="stylesheet" href="assets/css/header.css?v=b6f9d597">
+  <link rel="stylesheet" href="assets/css/pages.css?v=ebdba4ff">
+  <link rel="stylesheet" href="assets/css/comercio.css?v=b72c51b2">
 </head>
 <body class="page-size-guide">
 <div class="proto-banner" role="note">PROTÓTIPO · DADOS E TEXTOS DE EXEMPLO · NÃO PUBLICAR</div>
@@ -170,11 +170,13 @@
 
     <div class="container page-head">
       <div class="page-head__inner">
-        <h1>Guia de medidas</h1>
-        <p class="lead">
-          Comprar sem provar dá certo quando você compara medidas, e não
-          tamanhos. O caminho mais confiável é medir uma peça que já veste bem.
-        </p>
+        <div class="page-head__text">
+          <h1>Guia de medidas</h1>
+          <p class="lead">
+            Comprar sem provar dá certo quando você compara medidas, e não
+            tamanhos. O caminho mais confiável é medir uma peça que já veste bem.
+          </p>
+        </div>
       </div>
     </div>
 
@@ -411,20 +413,38 @@
     <div class="container">
 
       <!-- ==================================================================
-           RODAPÉ ENXUTO (v0.1.2)
+           RODAPÉ (v0.1.3) · estrutura da referência enviada pela cliente
 
-           A versão anterior tinha quatro blocos empilhados (newsletter, selos
-           de pagamento, identificação da empresa e links), o que deixava o
-           rodapé pesado. Agora ele tem três partes e nada mais:
+             1. newsletter, em uma linha (texto à esquerda, formulário à direita)
+             2. quatro colunas: marca · institucional · categorias · atendimento
+             3. faixa de segurança e formas de pagamento
+             4. base: copyright, identificação da empresa e links de política
 
-             1. quatro colunas curtas;
-             2. nota de privacidade recolhida em uma linha;
-             3. identificação da empresa e links, na base.
-
-           A newsletter saiu daqui: ela já aparece na faixa verde sálvia da
-           home ("Cada coleção nasce uma vez"). Pedir o mesmo e-mail duas vezes
-           na mesma página era o principal motivo da poluição.
+           A newsletter voltou para cá seguindo a referência. Ela conversa com o
+           ateliê (conteúdo), enquanto a faixa verde sálvia da home é a lista de
+           espera dos lançamentos: são dois convites diferentes, não repetição.
            ================================================================== -->
+
+      <div class="newsletter">
+        <div>
+          <p class="eyebrow eyebrow--muted">Newsletter</p>
+          <p class="newsletter__lead">
+            Cartas do ateliê: lançamentos, guia de medidas e cuidados com o linho.
+          </p>
+        </div>
+
+        <form class="newsletter__form" action="#" method="post">
+          <label class="visually-hidden" for="news-email">Seu e-mail</label>
+          <input class="field__input" id="news-email" name="email" type="email"
+                 placeholder="seu@email.com" autocomplete="email" required>
+          <button class="btn btn--primary" type="submit">Assinar</button>
+        </form>
+      </div>
+      <p class="newsletter__note">
+        Um e-mail por mês, no máximo. Ao assinar, você confirma que leu a
+        <a href="privacidade.html">Política de Privacidade</a> e pode cancelar
+        quando quiser, em um clique.
+      </p>
 
       <div class="site-footer__columns">
 
@@ -432,36 +452,9 @@
           <p class="site-footer__brand">IARA COSTA</p>
           <p class="site-footer__tagline">Moda &amp; Acessórios</p>
           <p class="site-footer__about">
-            Vestuário feminino em linho e fibras naturais, feito em pequenos
-            lotes no Brasil.
+            Vestuário feminino autoral em linho e fibras naturais. Peças em
+            pequenos lotes, feitas para durar mais de uma estação.
           </p>
-          <ul class="social" aria-label="Redes sociais da marca">
-            <li>
-              <a class="social__link" href="#" aria-label="Instagram (endereço a preencher)">
-                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-                  <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.25"></rect>
-                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.25"></circle>
-                  <circle cx="17" cy="7" r="0.9" fill="currentColor"></circle>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a class="social__link" href="#" aria-label="Pinterest (endereço a preencher)">
-                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-                  <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.25"></circle>
-                  <path d="M10.5 18.5c.6-1.5 1.6-4.3 2-6.2M9.6 10.9c0-1.9 1.3-3.4 3.1-3.4 1.8 0 2.9 1.2 2.9 2.8 0 2-1.1 3.6-2.6 3.6-.9 0-1.6-.7-1.4-1.6" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"></path>
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a class="social__link" href="#" aria-label="WhatsApp (número a preencher)">
-                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-                  <path d="M20 11.7a8 8 0 0 1-11.8 7.1L4 20l1.3-4.1A8 8 0 1 1 20 11.7Z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"></path>
-                  <path d="M9.3 9.4c.3 2 2.1 3.8 4.2 4.2l.9-1.1 1.5.8c-.4 1.1-1.6 1.6-2.8 1.3-1.9-.5-3.6-2.3-4-4.2-.2-1.1.3-2.2 1.4-2.6l.8 1.5-1 .8Z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"></path>
-                </svg>
-              </a>
-            </li>
-          </ul>
         </div>
 
         <nav class="site-footer__col" aria-labelledby="footer-institucional">
@@ -492,33 +485,123 @@
             <li><span class="placeholder">[PREENCHER: e-mail]</span></li>
             <li><span class="placeholder">[PREENCHER: WhatsApp]</span></li>
             <li><span class="placeholder">[PREENCHER: horário de atendimento]</span></li>
+            <li>
+              <a href="conta.html">Minha conta</a> ·
+              <a href="desejos.html">Desejos</a> ·
+              <a href="carrinho.html">Sacola</a>
+            </li>
           </ul>
-          <p class="site-footer__list site-footer__list--last">
-            <a href="trocas.html">Trocas e devoluções</a>
-          </p>
+
+          <ul class="social" aria-label="Redes sociais da marca">
+            <li>
+              <a class="social__link" href="#" aria-label="Instagram (endereço a preencher)">
+                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.25"></rect>
+                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.25"></circle>
+                  <circle cx="17" cy="7" r="0.9" fill="currentColor"></circle>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="social__link" href="#" aria-label="Pinterest (endereço a preencher)">
+                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.25"></circle>
+                  <path d="M10.5 18.5c.6-1.5 1.6-4.3 2-6.2M9.6 10.9c0-1.9 1.3-3.4 3.1-3.4 1.8 0 2.9 1.2 2.9 2.8 0 2-1.1 3.6-2.6 3.6-.9 0-1.6-.7-1.4-1.6" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="social__link" href="#" aria-label="WhatsApp (número a preencher)">
+                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <path d="M20 11.7a8 8 0 0 1-11.8 7.1L4 20l1.3-4.1A8 8 0 1 1 20 11.7Z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"></path>
+                  <path d="M9.3 9.4c.3 2 2.1 3.8 4.2 4.2l.9-1.1 1.5.8c-.4 1.1-1.6 1.6-2.8 1.3-1.9-.5-3.6-2.3-4-4.2-.2-1.1.3-2.2 1.4-2.6l.8 1.5-1 .8Z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"></path>
+                </svg>
+              </a>
+            </li>
+          </ul>
         </div>
 
       </div>
 
-      <!-- Identificação da empresa: obrigatória no ar (Decreto 7.962/2013).
-           Enquanto os dados não chegarem, fica como [PREENCHER]. -->
-      <div class="site-footer__legal">
-        <p class="site-footer__copy">
-          <span class="placeholder">[PREENCHER: razão social]</span> ·
-          CNPJ <span class="placeholder">[PREENCHER]</span> ·
-          <span class="placeholder">[PREENCHER: endereço completo]</span>
+      <!-- ==================================================================
+           SEGURANÇA E PAGAMENTO (pedido da cliente)
+
+           Quatro informações curtas, com ícone, em uma faixa fina. Nada de
+           bandeira de cartão nem selo de loja: enquanto o gateway e o
+           certificado não estiverem contratados, mostrá-los seria prometer o
+           que ainda não existe. Os selos entram aqui no go-live.
+           ================================================================== -->
+      <section class="security" aria-labelledby="seguranca-titulo">
+        <h2 class="visually-hidden" id="seguranca-titulo">Segurança e formas de pagamento</h2>
+
+        <ul class="security__list">
+          <li class="security__item">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false">
+              <rect x="3.5" y="6" width="17" height="12" rx="1.5"></rect>
+              <path d="M3.5 10h17M7 15h4"></path>
+            </svg>
+            <span>
+              <strong>Pix, cartão e boleto</strong>
+              <span>Pix com desconto e cartão em até 6x sem juros.</span>
+            </span>
+          </li>
+          <li class="security__item">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false">
+              <path d="M12 3.5 5 6.5v6c0 4 3 7 7 8.5 4-1.5 7-4.5 7-8.5v-6l-7-3Z"></path>
+              <path d="M9 12l2.2 2.2L15.5 10"></path>
+            </svg>
+            <span>
+              <strong>Ambiente protegido</strong>
+              <span>Seus dados trafegam criptografados e não são compartilhados.</span>
+            </span>
+          </li>
+          <li class="security__item">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false">
+              <path d="M3.5 7.5h11v9h-11zM14.5 10.5h3.5l2.5 3v3h-6z"></path>
+              <circle cx="7" cy="18" r="1.6"></circle>
+              <circle cx="17.5" cy="18" r="1.6"></circle>
+            </svg>
+            <span>
+              <strong>Pedido rastreado</strong>
+              <span>Código de rastreio por e-mail assim que a peça é postada.</span>
+            </span>
+          </li>
+          <li class="security__item">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false">
+              <path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9Z"></path>
+            </svg>
+            <span>
+              <strong>7 dias para desistir</strong>
+              <span>Direito de arrependimento previsto no
+                <a href="trocas.html">CDC, Art. 49</a>.</span>
+            </span>
+          </li>
+        </ul>
+
+        <p class="security__note">
+          Durante o protótipo, esta faixa é demonstrativa. Selos, bandeiras e
+          certificados só entram no ar quando o gateway de pagamento e o
+          certificado de segurança estiverem contratados
+          <span class="placeholder">[CONFIRMAR COM A EMPRESA]</span>.
         </p>
-        <p class="site-footer__copy">
-          Preços com impostos incluídos. Frete grátis acima de R$ 299 para todo o Brasil.
-        </p>
-      </div>
+      </section>
 
       <div class="site-footer__bottom">
-        <p class="site-footer__copy">© 2026 Iara Costa. Todos os direitos reservados.</p>
+        <div>
+          <p class="site-footer__copy">
+            © 2026 Iara Costa. Todos os direitos reservados.
+          </p>
+          <p class="site-footer__copy">
+            <span class="placeholder">[PREENCHER: razão social]</span> ·
+            CNPJ <span class="placeholder">[PREENCHER]</span> ·
+            <span class="placeholder">[PREENCHER: endereço completo]</span>
+          </p>
+        </div>
+
         <ul class="site-footer__meta">
-          <li><a href="privacidade.html">Privacidade</a></li>
+          <li><a href="privacidade.html">Política de privacidade</a></li>
           <li><a href="termos.html">Termos de uso</a></li>
-          <li><a href="trocas.html">Desistência em 7 dias (CDC Art. 49)</a></li>
+          <li><a href="trocas.html">Trocas e devoluções</a></li>
           <li><a href="cookies.html">Cookies</a></li>
         </ul>
       </div>
