@@ -196,4 +196,24 @@
       console.warn('[iara-header] melhoria não inicializada:', erro);
     }
   }
+
+  /* ------------------------------------------------- WHATSAPP FLUTUANTE
+     v0.1.19: o balão fica escondido no topo da página e entra quando a pessoa
+     rola. Parado, ele cobria o valor do Pix no checkout, o botão de criar conta
+     e o botão de calcular frete. Sem JavaScript o balão aparece desde o início,
+     como antes (o CSS usa @media (scripting: enabled)).
+     ========================================================================== */
+  (function balaoDoWhats() {
+    var balao = document.querySelector('.whats-float');
+    if (!balao) { return; }
+
+    var LIMITE = 160;
+
+    function ajustar() {
+      balao.classList.toggle('is-visivel', window.scrollY > LIMITE);
+    }
+
+    ajustar();
+    window.addEventListener('scroll', ajustar, { passive: true });
+  })();
 })();

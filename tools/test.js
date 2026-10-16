@@ -1519,6 +1519,94 @@ console.log('\n=== 24. HERO DA HOME COM A FOTO INTEIRA E O SELO EM CIMA (v0.1.17
      'no celular o selo desce para baixo da foto, para nao cobrir a modelo');
 }
 
+console.log('\n=== 25. AJUSTES DE NAVEGADOR DA v0.1.19 ===');
+{
+  const semComentario = (texto) => texto.replace(/\/\*[\s\S]*?\*\//g, '');
+  const styleCss = semComentario(fs.readFileSync(path.join(RAIZ, 'assets/css/style.css'), 'utf8'));
+  const pagesCss = semComentario(fs.readFileSync(path.join(RAIZ, 'assets/css/pages.css'), 'utf8'));
+  const headerCss = semComentario(fs.readFileSync(path.join(RAIZ, 'assets/css/header.css'), 'utf8'));
+  const headerJs = fs.readFileSync(path.join(RAIZ, 'assets/js/header.js'), 'utf8');
+  const lojaJs = fs.readFileSync(path.join(RAIZ, 'assets/js/loja.js'), 'utf8');
+
+  // 25.1 — marcador de pendencia quebrava a largura no celular
+  const marcador = styleCss.match(/\.placeholder \{[^}]*\}/)[0];
+  ok(!/white-space:\s*nowrap/.test(marcador), 'marcador [PREENCHER] quebra linha (nao estoura no celular)');
+  ok(/overflow-wrap:\s*break-word/.test(marcador), 'marcador longo quebra dentro da coluna');
+
+  // 25.2 — grades protegidas do conteudo largo
+  ok(/\.account-layout > \* \{ min-width: 0; \}/.test(pagesCss),
+     'grade da conta protegida (tabela com rolagem nao empurra a coluna)');
+  ok(/\.post-body > \* \{ min-width: 0; \}/.test(pagesCss),
+     'grade do artigo protegida pelo mesmo motivo');
+
+  // 25.3 — balao do WhatsApp nao cobre mais o que a pessoa precisa ver
+  ok(/@media \(scripting: enabled\)/.test(headerCss),
+     'balao do WhatsApp so esconde se o navegador souber rodar JavaScript');
+  ok(/\.whats-float\.is-visivel \{ opacity: 1; visibility: visible; \}/.test(headerCss),
+     'balao volta ao rolar a pagina');
+  ok(/is-visivel/.test(headerJs) && /addEventListener\('scroll'/.test(headerJs),
+     'o JavaScript liga e desliga o balao conforme a rolagem');
+  ok(/max-height: calc\(100dvh - var\(--iara-sticky-top\) - 96px\)/.test(pagesCss),
+     'resumo que gruda reserva o canto do balao (96px)');
+
+  // 25.4 — o grupo de cor da pagina de produto bate com o catalogo
+  const catalogo = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'tools', 'produtos.json'), 'utf8'));
+  const peca = catalogo.filter((p) => p.slug === 'vestido-midi-salvia')[0];
+  ok(!!peca && peca.cores.join(',') === 'salvia', 'catalogo: o vestido midi tem uma cor so, salvia');
+
+  const produto = carregar('produto.html').window.document;
+  const grupoCor = produto.querySelector('[data-option-group][data-option-label="Cor"]');
+  ok(!!grupoCor, 'pagina de produto com grupo de cor');
+  const coresNaTela = Array.prototype.map.call(grupoCor.querySelectorAll('.swatch'),
+    (b) => b.getAttribute('data-value'));
+  ok(coresNaTela.length === peca.cores.length && coresNaTela.join(',') === 'Sálvia',
+     'a cor da tela e a cor do catalogo ("' + coresNaTela.join(',') + '")');
+  ok(/Cor selecionada: Sálvia/.test(grupoCor.textContent), 'o texto ao vivo diz a cor certa');
+  ok(grupoCor.querySelector('input[name="cor"]').value === 'Sálvia', 'o campo escondido manda a cor certa');
+  ok(!/Terracota|Off-white|Preto/.test(grupoCor.textContent),
+     'as cores inventadas (Terracota, Off-white, Preto) sairam da peca salvia');
+  ok(!/\.sw-offwhite|\.sw-preto/.test(pagesCss), 'sobraram no CSS? nao: as duas sairam junto');
+  ok(grupoCor.querySelector('.sw-salvia'), 'a bolinha da cor usa o tom da paleta');
+
+  const meta = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'tools', 'pages.json'), 'utf8'))
+    .filter((p) => p.file === 'produto.html')[0];
+  ok(/sálvia/.test(meta.desc) && !/terracota/i.test(meta.desc),
+     'a descricao da busca fala da cor certa');
+
+  // 25.5 — formulario de contato responde
+  const contato = carregar('contato.html').window.document;
+  ok(!!contato.querySelector('[data-form-contato]'), 'contato: formulario com gancho de validacao');
+  ok(!!contato.querySelector('[data-contato-msg]'), 'contato: lugar do recado de envio');
+  ok(/assets\/js\/contato\.js/.test(contato.documentElement.outerHTML), 'contato: script de validacao carregado');
+  const contatoJs = fs.readFileSync(path.join(RAIZ, 'assets/js/contato.js'), 'utf8');
+  ['ct-nome', 'ct-email', 'ct-assunto', 'ct-msg', 'ct-consent'].forEach((id) => {
+    ok(contatoJs.indexOf(id) >= 0, 'contato: o script cuida do campo ' + id);
+  });
+  ok(/aria-invalid/.test(contatoJs) && /aria-describedby/.test(contatoJs),
+     'contato: erro ligado ao campo para leitor de tela');
+
+  // 25.6 — o acordeao funciona em todas as paginas que o usam
+  ['faq.html', 'envio.html', 'guia-medidas.html', 'index.html'].forEach((pagina) => {
+    const doc = carregar(pagina).window.document;
+    const temAcordeao = doc.querySelectorAll('[data-accordion]').length > 0;
+    const carregaJs = /assets\/js\/swatches\.js/.test(doc.documentElement.outerHTML);
+    ok(temAcordeao && carregaJs, pagina + ': acordeao com o script que o abre');
+  });
+
+  // 25.7 — lista de desejos com botoes que funcionam
+  const desejos = carregar('desejos.html').window.document;
+  ok(desejos.querySelectorAll('[data-add]').length === 2,
+     'desejos: duas pecas com botao de adicionar a sacola (a esgotada nao entra)');
+  ok(desejos.querySelectorAll('[data-desejo-remover]').length === 3, 'desejos: tres botoes de remover');
+  ok(/data-desejo-remover/.test(lojaJs) && /Peça removida da lista de desejos\./.test(lojaJs),
+     'desejos: o script tira a peca da lista e avisa');
+  const indisponivel = desejos.querySelector('.wish-actions button[disabled]');
+  ok(!!indisponivel && /Indisponível/.test(indisponivel.textContent),
+     'desejos: peca esgotada com botao desabilitado de verdade');
+  ok(!desejos.querySelector('button[aria-disabled="true"]'),
+     'desejos: o aviso de indisponivel virou atributo real (disabled)');
+}
+
 console.log(falhas === 0 ? 'RESULTADO: TUDO CERTO' : 'RESULTADO: ' + falhas + ' FALHA(S)');
 console.log('========================================\n');
 process.exit(falhas === 0 ? 0 : 1);

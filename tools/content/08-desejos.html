@@ -25,7 +25,8 @@
       <p class="notice notice--attention">
         Esta página depende de um plugin de lista de desejos aprovado (item 13 da
         lista de plugins). Sem essa aprovação, o coração sai do header e esta
-        página não vai ao ar. Aqui, o terceiro item está esgotado, para demonstrar
+        página não vai ao ar. No protótipo os botões já funcionam: "Adicionar à
+        sacola" abre a sacola lateral e "Remover" tira a peça da lista. Aqui, o terceiro item está esgotado, para demonstrar
         como fica: botão desabilitado e aviso em texto.
       </p>
 
@@ -39,8 +40,8 @@
             <p class="card__meta">Vestidos · P, M, G, GG</p>
             <p class="card__price">R$ 684,00</p>
             <div class="wish-actions">
-              <button class="btn btn--primary" type="button">Adicionar à sacola</button>
-              <button class="btn btn--quiet" type="button" aria-label="Remover Vestido Longo Cerrado da lista de desejos">Remover</button>
+              <button class="btn btn--primary" type="button" data-add="vestido-longo-cerrado">Adicionar à sacola</button>
+              <button class="btn btn--quiet" type="button" data-desejo-remover="vestido-longo-cerrado" aria-label="Remover Vestido Longo Cerrado da lista de desejos">Remover</button>
             </div>
           </div>
         </li>
@@ -54,8 +55,8 @@
             <p class="card__meta">Saias &amp; Calças · P, M, G</p>
             <p class="card__price">R$ 459,00</p>
             <div class="wish-actions">
-              <button class="btn btn--primary" type="button">Adicionar à sacola</button>
-              <button class="btn btn--quiet" type="button" aria-label="Remover Calça Pantalona Sálvia da lista de desejos">Remover</button>
+              <button class="btn btn--primary" type="button" data-add="calca-pantalona-salvia">Adicionar à sacola</button>
+              <button class="btn btn--quiet" type="button" data-desejo-remover="calca-pantalona-salvia" aria-label="Remover Calça Pantalona Sálvia da lista de desejos">Remover</button>
             </div>
           </div>
         </li>
@@ -71,8 +72,8 @@
             <p class="card__price">R$ 312,00</p>
             <p class="card__meta">Esgotado. O botão de compra fica desabilitado e o aviso aparece em texto.</p>
             <div class="wish-actions">
-              <button class="btn btn--outline" type="button" aria-disabled="true">Indisponível</button>
-              <button class="btn btn--quiet" type="button" aria-label="Remover Saia Midi de Linho Cru da lista de desejos">Remover</button>
+              <button class="btn btn--outline" type="button" disabled>Indisponível</button>
+              <button class="btn btn--quiet" type="button" data-desejo-remover="saia-linho-cru" aria-label="Remover Saia Midi de Linho Cru da lista de desejos">Remover</button>
             </div>
           </div>
         </li>

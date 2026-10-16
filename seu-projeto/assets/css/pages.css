@@ -383,9 +383,11 @@
   /* Fica preso logo abaixo do cabeçalho fixo enquanto a sacola rola. */
   top: var(--iara-sticky-top);
   /* Se o resumo for mais alto que a janela, ele rola por dentro em vez de
-     esconder o botão de finalizar. */
-  max-height: calc(100vh - var(--iara-sticky-top) - var(--iara-space-4));
-  max-height: calc(100dvh - var(--iara-sticky-top) - var(--iara-space-4));
+     esconder o botão de finalizar.
+     v0.1.19: sobram 96px embaixo para o balão do WhatsApp, que fica fixo no
+     canto direito e cobria o fim do resumo quando ele estava preso no topo. */
+  max-height: calc(100vh - var(--iara-sticky-top) - 96px);
+  max-height: calc(100dvh - var(--iara-sticky-top) - 96px);
   overflow: auto;
   overscroll-behavior: contain;
 }
@@ -586,6 +588,10 @@
 
 /* 3. CORPO: índice à esquerda, texto à direita */
 .post-body { display: grid; gap: clamp(24px, 3vw, 48px); }
+
+/* v0.1.19: mesma protecao do grid da conta: o conteudo do artigo nao pode
+   ditar a largura da coluna. */
+.post-body > * { min-width: 0; }
 
 @media (min-width: 1021px) {
   .post-body { grid-template-columns: 220px minmax(0, 1fr); align-items: start; }
@@ -935,8 +941,8 @@
 
 /* Cores das amostras de produto (não são cores da marca: são as cores das peças) */
 .sw-terracota { background: #a45f43; }
-.sw-offwhite  { background: #fffdf9; }
-.sw-preto     { background: #2d2925; }
+/* v0.1.19: .sw-offwhite e .sw-preto saíram. Eram as cores inventadas da página
+   de produto e não existem no catálogo nem na paleta da marca. */
 .sw-salvia    { background: #546858; }
 .sw-areia     { background: #e4cbb5; }
 .sw-carvao    { background: #9c8d7e; }
@@ -963,6 +969,10 @@
 
 /* -------------------------------------------------------------- MINHA CONTA */
 .account-layout { display: grid; gap: clamp(24px, 4vw, 44px); }
+
+/* v0.1.19: sem isto, a tabela de medidas com rolagem interna empurrava a
+   coluna (min-width: auto) e a pagina inteira estourava no celular. */
+.account-layout > * { min-width: 0; }
 
 @media (min-width: 1021px) { .account-layout { grid-template-columns: 240px 1fr; align-items: start; } }
 

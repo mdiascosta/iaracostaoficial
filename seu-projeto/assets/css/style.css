@@ -24,7 +24,10 @@
   /* Cores customizadas (Elementor Custom Colors) */
   --iara-paper:         #fffdf9;
   --iara-ink-soft:      #625a52;
-  --iara-muted:         #81786e; /* só em texto >= 18px ou decorativo (10.2) */
+  /* v0.1.19: era #81786e, que dava 4,27:1 no papel e não passava em AA para
+     texto de 11px (o rótulo .eyebrow--muted é 11px). O tom abaixo dá 4,92:1 no
+     papel, 4,56:1 no hover soft e 5,00:1 no branco. */
+  --iara-muted:         #776e64;
   --iara-line:          #ded8ce;
   --iara-hover-soft:    #f7f4ef;
   --iara-hairline:      #eee9e1;
@@ -241,7 +244,10 @@ strong { font-weight: 600; }
 .placeholder {
   color: var(--iara-accent-dark);
   border-bottom: 1px dashed var(--iara-accent);
-  white-space: nowrap;
+  /* v0.1.19: o marcador quebrava linha nunca (white-space: nowrap) e os textos
+     de instrucao, que sao longos, estouravam a largura da tela no celular e no
+     tablet. Agora quebram como texto normal. */
+  overflow-wrap: break-word;
 }
 
 .proto-banner {

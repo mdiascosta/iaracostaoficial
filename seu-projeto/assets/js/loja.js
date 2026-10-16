@@ -285,6 +285,26 @@
       evento.preventDefault();
       abrirSacola();
     }
+
+    /* "Remover" da lista de desejos (v0.1.19). Antes o botão não fazia nada:
+       a peça continuava na lista. Agora sai da lista, o contador do header
+       acompanha e o aviso confirma. */
+    var tirar = evento.target.closest('[data-desejo-remover]');
+    if (tirar) {
+      var slug = tirar.getAttribute('data-desejo-remover');
+      var posicao = desejos.indexOf(slug);
+      var cartao = tirar.closest('.card') || tirar.closest('li');
+
+      if (posicao !== -1) {
+        desejos.splice(posicao, 1);
+        salvarDesejos();
+      }
+
+      if (cartao) { cartao.setAttribute('hidden', ''); }
+
+      atualizarContadores();
+      mostrarAviso('Peça removida da lista de desejos.');
+    }
   });
 
   document.addEventListener('keydown', function (evento) {
