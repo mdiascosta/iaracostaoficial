@@ -156,6 +156,63 @@ def cart_markup(header: str, count: int) -> str:
     )
 
 
+
+# ---------------------------------------------------------------- imagens
+# O atributo width/height de cada <img> precisa bater com o arquivo real: é ele
+# que reserva o espaço da imagem antes dela carregar. Quando não bate, o
+# navegador reserva a altura errada, o conteúdo é empurrado quando a foto
+# chega e o layout parece "invadido" pela seção seguinte (foi o que aconteceu
+# com os cartões do diário). Aqui a medida vem sempre do arquivo, então basta
+# trocar a foto para o HTML continuar correto.
+_DIMENSOES: dict = {}
+
+
+def dimensoes_jpg(caminho: pathlib.Path):
+    """Lê largura e altura de um JPEG pelo cabeçalho, sem dependência externa."""
+    if caminho in _DIMENSOES:
+        return _DIMENSOES[caminho]
+    medida = None
+    if caminho.exists():
+        dados = caminho.read_bytes()
+        if dados[:2] == b"\xff\xd8":
+            i = 2
+            while i < len(dados) - 9:
+                if dados[i] != 0xFF:
+                    i += 1
+                    continue
+                marca = dados[i + 1]
+                if marca in (0xC0, 0xC1, 0xC2, 0xC3):
+                    altura = int.from_bytes(dados[i + 5:i + 7], "big")
+                    largura = int.from_bytes(dados[i + 7:i + 9], "big")
+                    medida = (largura, altura)
+                    break
+                if marca in (0xD8, 0xD9) or 0xD0 <= marca <= 0xD7:
+                    i += 2
+                    continue
+                i += 2 + int.from_bytes(dados[i + 2:i + 4], "big")
+    _DIMENSOES[caminho] = medida
+    return medida
+
+
+def corrigir_dimensoes(html: str) -> str:
+    import re
+
+    def troca(match):
+        tag = match.group(0)
+        src = re.search(r'src="assets/img/([^"?]+)', tag)
+        if not src:
+            return tag
+        medida = dimensoes_jpg(PROJECT / "assets" / "img" / src.group(1))
+        if not medida:
+            return tag
+        largura, altura = medida
+        tag = re.sub(r'width="\d+"', f'width="{largura}"', tag, count=1)
+        tag = re.sub(r'height="\d+"', f'height="{altura}"', tag, count=1)
+        return tag
+
+    return re.sub(r"<img\b[^>]*>", troca, html)
+
+
 def asset_version(path: pathlib.Path) -> str:
     """Versão curta (hash do conteúdo) para forçar o navegador a baixar o arquivo
     quando ele muda. Sem isso, o navegador pode servir CSS/JS antigos e o site
@@ -242,6 +299,7 @@ def main() -> int:
             content,
             drawer_tpl,
         )
+        html = corrigir_dimensoes(html)
         if not args.check:
             out = PROJECT / meta["file"]
             out.parent.mkdir(parents=True, exist_ok=True)
