@@ -1,333 +1,362 @@
     <!-- =====================================================================
-         HOME · ordem das seções conforme F5
-         Todos os textos de marca, preços e produtos são EXEMPLO (autorizado na
-         E0, decisão D5). Substituir antes de publicar.
+         HOME · ordem das seções: hero · benefícios · categorias · destaque ·
+         ocasiões · editorial · coleção · depoimentos · diário · lista de espera
+         Dados e textos de referência, autorizados na fase E0 (decisão D5).
          ================================================================== -->
 
-    <section class="container hero" aria-labelledby="hero-titulo">
-      <div class="hero__content">
-        <p class="eyebrow">Coleção atual</p>
-        <h1 class="hero__title" id="hero-titulo">Peças que acompanham o seu dia, do café ao fim da tarde</h1>
-        <p class="hero__lead">
-          Curadoria de moda feminina com tecidos confortáveis, modelagem pensada
-          no corpo real e acabamento que dura. Escolha com calma, receba em casa
-          e troque sem complicação.
-        </p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="loja.html">Ver a coleção</a>
-          <a class="btn btn--outline" href="guia-medidas.html">Consulta de medidas</a>
-        </div>
-        <p class="hero__note">Frete grátis acima de R$ 199 para todo o Brasil.</p>
-      </div>
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="container hero__inner">
 
-      <div class="hero__media">
-        <img src="assets/img/banner-home-desktop.svg"
-             alt="Composição com peças da coleção em tons terracota e areia"
-             width="1920" height="800">
+        <div class="hero__copy">
+          <p class="eyebrow">Coleção Terra &amp; Linho</p>
+          <h1 class="hero__title" id="hero-titulo">
+            Vestir o barro,<br><em>habitar a natureza</em>
+          </h1>
+          <p class="hero__lead">
+            Vestuário feminino autoral em linho e fibras naturais, tingido com
+            argila e costurado em pequenos lotes no Brasil. Do P ao GG, cada
+            peça carrega a irregularidade de quem faz à mão.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="loja.html">Ver a coleção</a>
+            <a class="btn btn--outline" href="sobre.html">Nossa história</a>
+          </div>
+
+          <ul class="hero__meta">
+            <li>Vestidos · blusas · saias</li>
+            <li>Do P ao GG</li>
+            <li>Troca fácil em 30 dias</li>
+          </ul>
+        </div>
+
+        <figure class="hero__media">
+          <img src="assets/img/hero-editorial.jpg"
+               alt="Modelo vestindo blusa de linho terracota diante de parede de cerâmica crua"
+               width="1200" height="1400" fetchpriority="high" decoding="async">
+          <figcaption class="hero__stamp">
+            <span class="index-number" aria-hidden="true">01</span>
+            <span>Blusa de Linho Terracota, tingida com argila do Vale do Paraíba</span>
+          </figcaption>
+        </figure>
+
       </div>
     </section>
 
-    <section class="services" aria-label="Vantagens de comprar na Iara Costa">
+    <!-- FAIXA DE BENEFÍCIOS -->
+    <section class="benefits" aria-label="Vantagens de comprar na Iara Costa">
+      <div class="container benefits__inner">
+
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false"><path d="M3.5 7.5h11v9h-11zM14.5 10.5h3.5l2.5 3v3h-6z"></path><circle cx="7" cy="18" r="1.6"></circle><circle cx="17.5" cy="18" r="1.6"></circle></svg>
+          <div>
+            <strong>Frete grátis +R$ 299</strong>
+            <span>Para todo o Brasil, com rastreio.</span>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false"><path d="M12 3.5 5 6.5v6c0 4 3 7 7 8.5 4-1.5 7-4.5 7-8.5v-6l-7-3Z"></path><path d="M9 12l2.2 2.2L15.5 10"></path></svg>
+          <div>
+            <strong>Troca fácil em 30 dias</strong>
+            <span>Primeira troca com frete nosso.</span>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false"><rect x="3.5" y="6" width="17" height="12" rx="1.5"></rect><path d="M3.5 10h17M7 15h4"></path></svg>
+          <div>
+            <strong>5% off no Pix · 6x sem juros</strong>
+            <span>No cartão, em até 6x.</span>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false"><path d="M4 17 17 4l3 3L7 20l-4 1 1-4Z"></path><path d="M14.5 6.5 17.5 9.5"></path></svg>
+          <div>
+            <strong>Do P ao GG</strong>
+            <span><a class="link-underline" href="guia-medidas.html">Guia de medidas</a> por peça.</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CATEGORIAS -->
+    <section class="section" aria-labelledby="categorias-titulo">
       <div class="container">
-        <ul class="services__list">
-          <li class="services__item">
-            <svg class="services__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
-              <path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z" fill="none" stroke="currentColor" stroke-width="1.5"></path>
-              <circle cx="7" cy="18.5" r="1.6" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
-              <circle cx="17" cy="18.5" r="1.6" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
-            </svg>
-            <div>
-              <p class="services__title">Frete grátis</p>
-              <p class="services__text">Acima de R$ 199, para todo o Brasil.</p>
+        <div class="section__head">
+          <div>
+            <p class="eyebrow eyebrow--muted">Navegue por</p>
+            <h2 id="categorias-titulo">Categorias</h2>
+          </div>
+          <a class="action-link" href="loja.html">Ver tudo <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="grid grid--4">
+          <article class="cat">
+            <a class="cat__media" href="loja.html" aria-label="Ver categoria Vestidos">
+              <span class="cat__index" aria-hidden="true">01</span>
+              <img src="assets/img/cat-vestidos.jpg" alt="Vestido midi feminino de linho em tom terracota" width="800" height="1000" loading="lazy" decoding="async">
+            </a>
+            <h3 class="cat__name"><a href="loja.html">Vestidos</a></h3>
+            <p class="cat__desc">Midi, longos e curtos · do P ao GG.</p>
+          </article>
+
+          <article class="cat">
+            <a class="cat__media" href="loja.html" aria-label="Ver categoria Blusas e Camisas">
+              <span class="cat__index" aria-hidden="true">02</span>
+              <img src="assets/img/cat-blusas.jpg" alt="Blusa feminina de linho lavado com caimento fluido" width="800" height="1000" loading="lazy" decoding="async">
+            </a>
+            <h3 class="cat__name"><a href="loja.html">Blusas &amp; Camisas</a></h3>
+            <p class="cat__desc">Linho lavado, cropped e tricot de algodão.</p>
+          </article>
+
+          <article class="cat">
+            <a class="cat__media" href="loja.html" aria-label="Ver categoria Saias e Calças">
+              <span class="cat__index" aria-hidden="true">03</span>
+              <img src="assets/img/cat-saias-calcas.jpg" alt="Saia midi crua e calça ampla de linho" width="800" height="1000" loading="lazy" decoding="async">
+            </a>
+            <h3 class="cat__name"><a href="loja.html">Saias &amp; Calças</a></h3>
+            <p class="cat__desc">Cintura alta, pregas e alfaiataria leve.</p>
+          </article>
+
+          <article class="cat">
+            <a class="cat__media" href="loja.html" aria-label="Ver categoria Acessórios">
+              <span class="cat__index" aria-hidden="true">04</span>
+              <img src="assets/img/oc-acessorios.jpg" alt="Acessórios artesanais: colar de cerâmica, brincos e bolsa de palha" width="800" height="1000" loading="lazy" decoding="async">
+            </a>
+            <h3 class="cat__name"><a href="loja.html">Acessórios</a></h3>
+            <p class="cat__desc">Cerâmica, argila e fibras naturais.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EM DESTAQUE -->
+    <section class="section" aria-labelledby="destaques-titulo">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow eyebrow--muted">Seleção da semana</p>
+            <h2 id="destaques-titulo">Em destaque</h2>
+          </div>
+          <a class="action-link" href="loja.html">Ver a loja <span aria-hidden="true">→</span></a>
+        </div>
+
+        <ul class="product-grid product-grid--four">
+        <!--CARDS:blusa-linho-terracota,vestido-midi-salvia,calca-pantalona-salvia,colar-ceramica-->
+        </ul>
+      </div>
+    </section>
+
+    <!-- COMPRE POR OCASIÃO -->
+    <section class="section" aria-labelledby="ocasiao-titulo">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow eyebrow--muted">Para cada momento</p>
+            <h2 id="ocasiao-titulo">Compre por ocasião</h2>
+          </div>
+          <a class="action-link" href="loja.html">Ver tudo <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="grid grid--4">
+          <article class="occasion">
+            <a class="occasion__media" href="loja.html" aria-label="Ver looks para o dia a dia">
+              <img src="assets/img/oc-diadia.jpg" alt="Look feminino casual de linho para o dia a dia" width="800" height="1000" loading="lazy" decoding="async">
+              <span class="occasion__label"><span>Dia a dia</span><span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+          <article class="occasion">
+            <a class="occasion__media" href="loja.html" aria-label="Ver looks para o trabalho">
+              <img src="assets/img/oc-trabalho.jpg" alt="Look feminino de alfaiataria leve para o trabalho" width="800" height="1000" loading="lazy" decoding="async">
+              <span class="occasion__label"><span>Trabalho</span><span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+          <article class="occasion">
+            <a class="occasion__media" href="loja.html" aria-label="Ver looks para festa">
+              <img src="assets/img/oc-festa.jpg" alt="Look feminino de festa com vestido estampado" width="800" height="1000" loading="lazy" decoding="async">
+              <span class="occasion__label"><span>Festa</span><span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+          <article class="occasion">
+            <a class="occasion__media" href="loja.html" aria-label="Ver acessórios">
+              <img src="assets/img/oc-acessorios.jpg" alt="Acessórios artesanais em cerâmica e fibra natural" width="800" height="1000" loading="lazy" decoding="async">
+              <span class="occasion__label"><span>Acessórios</span><span aria-hidden="true">→</span></span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDITORIAL -->
+    <section class="section" aria-labelledby="editorial-titulo">
+      <div class="container">
+        <div class="editorial">
+          <figure class="editorial__media">
+            <img src="assets/img/tingimento.jpg"
+                 alt="Tingimento de tecido em tina de barro no ateliê"
+                 width="1100" height="1300" loading="lazy" decoding="async">
+          </figure>
+
+          <div>
+            <p class="eyebrow">Da terra à peça</p>
+            <h2 id="editorial-titulo">Um ateliê, três gestos</h2>
+            <p class="lead">
+              Trabalhamos com o que a estação oferece. Por isso as cores variam
+              de lote para lote, e é exatamente essa variação que assina cada peça.
+            </p>
+
+            <div class="editorial__list">
+              <article class="editorial__item">
+                <span class="index-number" aria-hidden="true">01</span>
+                <div>
+                  <h3>Tingimento natural</h3>
+                  <p>Argila, casca de cebola e folhas de eucalipto fixam a cor sem metais pesados.</p>
+                </div>
+              </article>
+              <article class="editorial__item">
+                <span class="index-number" aria-hidden="true">02</span>
+                <div>
+                  <h3>Costura em pequenos lotes</h3>
+                  <p>De 30 a 60 peças por edição, com remuneração justa para costureiras parceiras.</p>
+                </div>
+              </article>
+              <article class="editorial__item">
+                <span class="index-number" aria-hidden="true">03</span>
+                <div>
+                  <h3>Rastreio da fibra</h3>
+                  <p>Linho e algodão de fornecedores certificados, com origem declarada na etiqueta.</p>
+                </div>
+              </article>
             </div>
+
+            <p><a class="action-link" href="sobre.html">Conhecer o ateliê <span aria-hidden="true">→</span></a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLEÇÃO (editorial duplo) -->
+    <section class="section section--alt" aria-labelledby="colecao-titulo">
+      <div class="container">
+        <div class="duo">
+          <figure class="duo__media">
+            <img src="assets/img/cap-terracota.jpg"
+                 alt="Editorial feminino da coleção Terra e Linho com vestido terracota"
+                 width="1100" height="1300" loading="lazy" decoding="async">
+          </figure>
+          <div>
+            <p class="eyebrow">Outono · Inverno 2026</p>
+            <h2 id="colecao-titulo">Coleção Terra &amp; Linho</h2>
+            <p class="lead">
+              Três capítulos em 18 peças: terracota do barro, sálvia da mata, cru
+              do linho. Veja o editorial completo e monte seus looks com as peças
+              à venda.
+            </p>
+            <p class="duo__actions">
+              <a class="btn btn--primary" href="lookbook.html">Ver o editorial</a>
+              <a class="btn btn--outline" href="loja.html">Comprar a coleção</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="section" aria-labelledby="depoimentos-titulo">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <div>
+            <p class="eyebrow eyebrow--muted">Quem veste</p>
+            <h2 id="depoimentos-titulo">Palavras de quem usa</h2>
+            <p class="muted-note">Depoimentos de exemplo no protótipo. Publicar apenas os reais.</p>
+          </div>
+        </div>
+
+        <div class="grid grid--3">
+          <figure class="quote">
+            <blockquote>“A blusa de linho é a peça que mais uso. O terracota não desbotou depois de um ano de lavagens.”</blockquote>
+            <figcaption>
+              <span class="quote__name">Exemplo · substituir</span>
+              <span class="quote__role">São Paulo, SP</span>
+            </figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>“Comprei o vestido midi sálvia pelo guia de medidas e acertou. Caiu como se fosse feito para mim.”</blockquote>
+            <figcaption>
+              <span class="quote__name">Exemplo · substituir</span>
+              <span class="quote__role">Belo Horizonte, MG</span>
+            </figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>“Gosto de saber de onde vem o tecido. A etiqueta diz a origem da fibra, e isso faz diferença para mim.”</blockquote>
+            <figcaption>
+              <span class="quote__name">Exemplo · substituir</span>
+              <span class="quote__role">Curitiba, PR</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- DO DIÁRIO -->
+    <section class="section section--alt" aria-labelledby="diario-titulo">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow eyebrow--muted">Do diário</p>
+            <h2 id="diario-titulo">Cartas do ateliê</h2>
+          </div>
+          <a class="action-link" href="blog.html">Ver todos os textos <span aria-hidden="true">→</span></a>
+        </div>
+
+        <ul class="post-grid">
+          <li class="post-card">
+            <a class="post-card__media" href="post.html">
+              <img src="assets/img/costura.jpg" alt="Costura de peça de linho em máquina de costura" loading="lazy" width="1100" height="1300">
+            </a>
+            <p class="post-card__eyebrow">Tecidos e cuidados</p>
+            <h3 class="post-card__title"><a href="post.html">Como lavar linho sem perder o caimento</a></h3>
+            <p class="post-card__excerpt">Água fria, pouca centrifugação e secagem na sombra resolvem quase tudo.</p>
           </li>
-          <li class="services__item">
-            <svg class="services__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
-              <path d="M4 9a8 8 0 0 1 14-3M20 15a8 8 0 0 1-14 3" fill="none" stroke="currentColor" stroke-width="1.5"></path>
-              <path d="M18 3v3h-3M6 21v-3h3" fill="none" stroke="currentColor" stroke-width="1.5"></path>
-            </svg>
-            <div>
-              <p class="services__title">Trocas em 7 dias</p>
-              <p class="services__text">Arrependimento garantido pelo Código de Defesa do Consumidor.</p>
-            </div>
+          <li class="post-card">
+            <a class="post-card__media" href="post.html">
+              <img src="assets/img/atelie-bancada.jpg" alt="Bancada do ateliê com tecidos e ferramentas de trabalho" loading="lazy" width="1100" height="1300">
+            </a>
+            <p class="post-card__eyebrow">Tamanhos e caimento</p>
+            <h3 class="post-card__title"><a href="post.html">Como escolher o caimento certo sem provar</a></h3>
+            <p class="post-card__excerpt">Três medições resolvem a dúvida entre dois tamanhos.</p>
           </li>
-          <li class="services__item">
-            <svg class="services__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
-              <path d="M4 6h16v10H8l-4 4z" fill="none" stroke="currentColor" stroke-width="1.5"></path>
-            </svg>
-            <div>
-              <p class="services__title">Atendimento próximo</p>
-              <p class="services__text">Dúvida de tamanho? Fale com a gente antes de comprar.</p>
-            </div>
+          <li class="post-card">
+            <a class="post-card__media" href="post.html">
+              <img src="assets/img/detalhe-botoes.jpg" alt="Detalhe de botões de madeira em peça de linho" loading="lazy" width="1100" height="1300">
+            </a>
+            <p class="post-card__eyebrow">Estilo</p>
+            <h3 class="post-card__title"><a href="post.html">Uma peça, três combinações: alfaiataria</a></h3>
+            <p class="post-card__excerpt">Do trabalho ao jantar, mudando só o sapato e o acessório.</p>
           </li>
         </ul>
       </div>
     </section>
 
-    <section class="section container" aria-labelledby="categorias-titulo">
-      <div class="section__head">
+    <!-- LISTA DE ESPERA (faixa verde sálvia) -->
+    <section class="band" aria-labelledby="lista-espera-titulo">
+      <div class="container band__inner">
         <div>
-          <p class="index-number">01</p>
-          <h2 id="categorias-titulo">Comece por aqui</h2>
-        </div>
-        <p class="muted-note">Quatro caminhos para chegar mais rápido ao que você procura.</p>
-      </div>
-
-      <ul class="category-grid">
-        <li>
-          <a class="category-card" href="loja.html">
-            <span class="category-card__media">
-              <img src="assets/img/categoria-vestidos.svg" alt="Vestidos da coleção Iara Costa" loading="lazy" width="800" height="1000">
-            </span>
-            <span class="category-card__label">Vestidos</span>
-            <span class="category-card__count">3 peças</span>
-          </a>
-        </li>
-        <li>
-          <a class="category-card" href="loja.html">
-            <span class="category-card__media">
-              <img src="assets/img/categoria-blusas.svg" alt="Blusas e camisas da coleção Iara Costa" loading="lazy" width="800" height="1000">
-            </span>
-            <span class="category-card__label">Blusas e camisas</span>
-            <span class="category-card__count">2 peças</span>
-          </a>
-        </li>
-        <li>
-          <a class="category-card" href="loja.html">
-            <span class="category-card__media">
-              <img src="assets/img/categoria-calcas.svg" alt="Calças e saias da coleção Iara Costa" loading="lazy" width="800" height="1000">
-            </span>
-            <span class="category-card__label">Calças e saias</span>
-            <span class="category-card__count">3 peças</span>
-          </a>
-        </li>
-        <li>
-          <a class="category-card" href="loja.html">
-            <span class="category-card__media">
-              <img src="assets/img/categoria-acessorios.svg" alt="Acessórios da coleção Iara Costa" loading="lazy" width="800" height="1000">
-            </span>
-            <span class="category-card__label">Acessórios</span>
-            <span class="category-card__count">2 peças</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <section class="section container" aria-labelledby="destaques-titulo">
-      <div class="section__head">
-        <div>
-          <p class="index-number">02</p>
-          <h2 id="destaques-titulo">Mais desejadas</h2>
-          <p class="lead">As peças que mais saem e que a gente repõe toda semana.</p>
-        </div>
-        <a class="btn btn--quiet" href="loja.html">Ver todas as peças</a>
-      </div>
-
-      <ul class="product-grid">
-        <li class="card">
-          <a class="card__media" href="produto.html">
-            <img class="card__img" src="assets/img/produto-01-a.svg" alt="Vestido midi em linho terracota, frente" loading="lazy" width="1600" height="1600">
-          </a>
-          <div class="card__body">
-            <h3 class="card__name"><a href="produto.html">Vestido Midi Linho Terracota</a></h3>
-            <p class="card__meta">Vestidos · P, M, G, GG</p>
-            <p class="card__price">R$ 389,00</p>
-            <ul class="card__swatches" aria-hidden="true">
-              <li class="card__swatch sw-terracota"></li>
-              <li class="card__swatch sw-offwhite"></li>
-              <li class="card__swatch sw-preto"></li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="card">
-          <span class="badge">Novo</span>
-          <a class="card__media" href="produto.html">
-            <img class="card__img" src="assets/img/produto-02-a.svg" alt="Vestido longo fluido off-white, frente" loading="lazy" width="1600" height="1600">
-          </a>
-          <div class="card__body">
-            <h3 class="card__name"><a href="produto.html">Vestido Longo Fluido Off-White</a></h3>
-            <p class="card__meta">Vestidos · P, M, G</p>
-            <p class="card__price">R$ 429,00</p>
-            <ul class="card__swatches" aria-hidden="true">
-              <li class="card__swatch sw-offwhite"></li>
-              <li class="card__swatch sw-salvia"></li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="card">
-          <a class="card__media" href="produto.html">
-            <img class="card__img" src="assets/img/produto-03-a.svg" alt="Vestido chemise com botões, frente" loading="lazy" width="1600" height="1600">
-          </a>
-          <div class="card__body">
-            <h3 class="card__name"><a href="produto.html">Vestido Chemise Botões</a></h3>
-            <p class="card__meta">Vestidos · P, M, G, GG</p>
-            <p class="card__price">R$ 359,00</p>
-            <ul class="card__swatches" aria-hidden="true">
-              <li class="card__swatch sw-areia"></li>
-              <li class="card__swatch sw-preto"></li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="card">
-          <a class="card__media" href="produto.html">
-            <img class="card__img" src="assets/img/produto-06-a.svg" alt="Calça wide leg de alfaiataria, frente" loading="lazy" width="1600" height="1600">
-          </a>
-          <div class="card__body">
-            <h3 class="card__name"><a href="produto.html">Calça Wide Leg Alfaiataria</a></h3>
-            <p class="card__meta">Calças · 36, 38, 40, 42</p>
-            <p class="card__price">R$ 319,00</p>
-            <ul class="card__swatches" aria-hidden="true">
-              <li class="card__swatch sw-preto"></li>
-              <li class="card__swatch sw-carvalho"></li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="card">
-          <span class="badge badge--out">Esgotado</span>
-          <a class="card__media" href="produto.html">
-            <img class="card__img" src="assets/img/produto-08-a.svg" alt="Saia midi plissada caramelo, frente" loading="lazy" width="1600" height="1600">
-          </a>
-          <div class="card__body">
-            <h3 class="card__name"><a href="produto.html">Saia Midi Plissada</a></h3>
-            <p class="card__meta">Saias · P, M, G</p>
-            <p class="card__price">R$ 229,00</p>
-            <p class="card__meta">Avise-me quando chegar</p>
-          </div>
-        </li>
-
-        <li class="card">
-          <a class="card__media" href="produto.html">
-            <img class="card__img" src="assets/img/produto-09-a.svg" alt="Bolsa tote de couro vegano caramelo, frente" loading="lazy" width="1600" height="1600">
-          </a>
-          <div class="card__body">
-            <h3 class="card__name"><a href="produto.html">Bolsa Tote Couro Vegano</a></h3>
-            <p class="card__meta">Acessórios · Caramelo, Preto</p>
-            <p class="card__price">R$ 289,00</p>
-            <ul class="card__swatches" aria-hidden="true">
-              <li class="card__swatch sw-terracota"></li>
-              <li class="card__swatch sw-preto"></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <section class="section section--alt" aria-labelledby="escolher-titulo">
-      <div class="container editorial">
-        <div class="editorial__media">
-          <img src="assets/img/editorial-atelie.svg"
-               alt="Detalhe de tecido e acabamento de uma peça da coleção"
-               loading="lazy" width="1200" height="1200">
-        </div>
-        <div>
-          <p class="index-number">03</p>
-          <h2 id="escolher-titulo">Como escolher sem provar</h2>
+          <p class="eyebrow">Lista de espera</p>
+          <h2 id="lista-espera-titulo">Cada coleção nasce uma vez</h2>
           <p class="lead">
-            Comprar roupa online dá certo quando a informação é clara. Por isso
-            cada produto mostra composição, medidas da peça e como ela veste.
+            Avisamos você dois dias antes do lançamento das próximas edições.
+            Sem excesso de e-mails, no máximo um por mês.
           </p>
-          <ol class="steps">
-            <li class="steps__item">
-              <span class="steps__num" aria-hidden="true">01</span>
-              <div>
-                <p class="steps__title">Meça uma peça que já veste bem</p>
-                <p class="steps__text">Deite a roupa na cama e meça a largura do busto, da cintura e do quadril. Comparar com uma peça sua é mais confiável do que comparar com o corpo.</p>
-              </div>
-            </li>
-            <li class="steps__item">
-              <span class="steps__num" aria-hidden="true">02</span>
-              <div>
-                <p class="steps__title">Confira a tabela do produto</p>
-                <p class="steps__text">As medidas da peça estão na aba Informações adicionais, na página de cada produto. O Guia de Medidas mostra como fazer a medição.</p>
-              </div>
-            </li>
-            <li class="steps__item">
-              <span class="steps__num" aria-hidden="true">03</span>
-              <div>
-                <p class="steps__title">Na dúvida, pergunte</p>
-                <p class="steps__text">O atendimento ajuda a decidir entre dois tamanhos antes da compra. Se não servir, a troca é simples e você tem 7 dias para desistir.</p>
-              </div>
-            </li>
-          </ol>
-          <p><a class="btn btn--outline" href="guia-medidas.html">Abrir o Guia de Medidas</a></p>
         </div>
+        <form class="band__form" action="#" method="post">
+          <label class="visually-hidden" for="espera-email">Seu e-mail</label>
+          <input class="field__input" id="espera-email" name="email" type="email"
+                 placeholder="seu@email.com" autocomplete="email" required>
+          <button class="btn btn--paper" type="submit">Assinar</button>
+        </form>
       </div>
-    </section>
-
-    <section class="section container" aria-labelledby="lookbook-titulo">
-      <div class="promo">
-        <p class="eyebrow">Lookbook</p>
-        <h2 id="lookbook-titulo">Combinações prontas para o seu dia</h2>
-        <p>
-          Montagens com as peças da coleção, do trabalho ao fim de semana, com
-          link direto para cada item.
-        </p>
-        <a class="btn btn--primary" href="lookbook.html">Ver o lookbook</a>
-      </div>
-    </section>
-
-    <section class="section container" aria-labelledby="depoimentos-titulo">
-      <div class="section__head">
-        <div>
-          <p class="index-number">04</p>
-          <h2 id="depoimentos-titulo">Quem já comprou</h2>
-        </div>
-        <p class="muted-note">Depoimentos de exemplo no protótipo. Só publicar os reais (F5).</p>
-      </div>
-
-      <ul class="quotes">
-        <li class="quote">
-          <p class="quote__text">“Pedi o M pelo guia de medidas e acertou. O linho é leve e não amassou no dia inteiro.”</p>
-          <p class="quote__author">Exemplo de depoimento · substituir por avaliação real</p>
-        </li>
-        <li class="quote">
-          <p class="quote__text">“Chegou em três dias, embalado com cuidado. A troca de tamanho foi resolvida no mesmo dia.”</p>
-          <p class="quote__author">Exemplo de depoimento · substituir por avaliação real</p>
-        </li>
-        <li class="quote">
-          <p class="quote__text">“A calça de alfaiataria virou a peça que mais uso. Caimento reto e cintura no lugar.”</p>
-          <p class="quote__author">Exemplo de depoimento · substituir por avaliação real</p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="section container" aria-labelledby="diario-titulo">
-      <div class="section__head">
-        <div>
-          <p class="index-number">05</p>
-          <h2 id="diario-titulo">Do diário</h2>
-        </div>
-        <a class="btn btn--quiet" href="blog.html">Ver todos os textos</a>
-      </div>
-
-      <ul class="post-grid">
-        <li class="post-card">
-          <a class="post-card__media" href="post.html">
-            <img src="assets/img/blog-destaque-01.svg" alt="Peças dobradas sobre a mesa" loading="lazy" width="1600" height="900">
-          </a>
-          <p class="post-card__eyebrow">Cuidados</p>
-          <h3 class="post-card__title"><a href="post.html">Como lavar linho sem perder o caimento</a></h3>
-          <p class="post-card__excerpt">Água fria, pouca centrifugação e secagem na sombra resolvem quase tudo.</p>
-        </li>
-        <li class="post-card">
-          <a class="post-card__media" href="post.html">
-            <img src="assets/img/blog-destaque-02.svg" alt="Guia de medidas sobre a mesa" loading="lazy" width="1600" height="900">
-          </a>
-          <p class="post-card__eyebrow">Tamanhos</p>
-          <h3 class="post-card__title"><a href="post.html">Como escolher o caimento certo sem provar</a></h3>
-          <p class="post-card__excerpt">Três medições resolvem a dúvida entre dois tamanhos.</p>
-        </li>
-        <li class="post-card">
-          <a class="post-card__media" href="post.html">
-            <img src="assets/img/blog-destaque-03.svg" alt="Looks montados em cabides" loading="lazy" width="1600" height="900">
-          </a>
-          <p class="post-card__eyebrow">Estilo</p>
-          <h3 class="post-card__title"><a href="post.html">Uma peça, três combinações: alfaiataria</a></h3>
-          <p class="post-card__excerpt">Do trabalho ao jantar, mudando só o sapato e o acessório.</p>
-        </li>
-      </ul>
     </section>
