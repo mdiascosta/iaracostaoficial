@@ -61,6 +61,45 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.2 · 2026-10-16 · Ajustes de layout pedidos pela cliente
+
+**O que mudou em relação à v0.1.1:**
+
+- **Largura única no site.** A grade de conteúdo passou de 1280px para 1688px,
+  a mesma medida da barra do header, para logo, menu e produtos ficarem
+  alinhados na mesma margem. Páginas de leitura (legais, FAQ, guias) continuam
+  estreitas, em 1180px, porque linha de texto muito longa cansa a vista.
+- **Cores das seções da home.** Ritmo novo, sem inventar cor: a paleta do
+  dossiê passa a marcar o ritmo da página com três fundos.
+  - *Hover Soft* (areia claríssimo) na faixa de benefícios, em "Em destaque" e
+    nos depoimentos;
+  - *Accent Soft* (terracota claro) no editorial "Um ateliê, três gestos";
+  - *Sálvia* na faixa de lista de espera, como já era.
+  Contraste conferido em AA antes de aplicar: Ink sobre Accent Soft dá 9,3:1 e
+  Accent Dark sobre Accent Soft dá 5,0:1. Dois pares que reprovavam por pouco
+  foram corrigidos (Accent sobre Hover Soft e Ink Soft sobre Accent Soft).
+- **Loja com filtro à esquerda**, como no template de referência: coluna de
+  240px com categorias, faixa de preço, cor e tamanho, mais a grade de 3
+  colunas à direita e a barra de contagem e ordenação. No celular e no tablet a
+  coluna vira uma gaveta aberta pelo botão Filtros.
+- **Rodapé enxuto.** Saíram a newsletter e a faixa de selos de pagamento. Ficou
+  o essencial: quatro colunas curtas, a identificação da empresa (exigida pelo
+  Decreto 7.962/2013) e a base com os links de política, incluindo a
+  desistência em 7 dias (CDC Art. 49).
+- **Newsletter em um só lugar.** A captura de e-mail ficou apenas na faixa
+  verde sálvia da home ("Cada coleção nasce uma vez"). Pedir o mesmo e-mail
+  duas vezes na mesma página era o principal motivo da poluição do rodapé.
+
+**Verificado nesta versão:** 22 páginas sem erro de estrutura, 1.118 links
+internos e imagens conferidos, 53 testes automatizados passando (mini-sacola,
+desejos, busca, menu mobile, filtros da loja, gaveta de filtros, rodapé, 1 H1
+por página, alt em imagens, contraste dos pares de cor usados).
+
+**Ainda não verificado:** conferência visual em navegador (é o próximo passo,
+com a cliente).
+
+---
+
 ### v0.1.1 · 2026-10-16 · Super layout com fotos e faixa de benefícios centralizada
 
 **O que mudou em relação à v0.1.0:**
@@ -139,7 +178,7 @@ páginas legais.
 
 | Versão | Conteúdo esperado |
 |---|---|
-| v0.1.2 | Ajustes finos no super layout a partir da conferência visual da cliente |
+| v0.1.3 | Ajustes finos a partir da conferência visual da cliente |
 | v0.2.0 | Bloco B: JSONs de templates para Elementor |
 | v0.3.0 | Bloco C: kit ZIP, produtos.csv, posts.csv e guias de instalação |
 | v1.0.0 | Go-live: site publicado com dados reais e revisão jurídica concluída |

@@ -1,5 +1,56 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Ajustes de layout: largura, cores, filtro da loja e rodapé
+
+### Pedido da cliente
+Quatro ajustes depois de olhar a v0.1.1: (1) as seções da home precisam seguir o
+container do header; (2) as cores das seções precisam de mais sofisticação, com
+fundos diferentes, mas dentro da paleta da marca; (3) a loja precisa do filtro à
+esquerda, como no template de referência; (4) o rodapé ficou poluído e a
+newsletter deveria sair ou ficar mais sofisticada.
+
+### O que foi feito (IMPLEMENTADO)
+- **Largura única.** A grade de conteúdo saiu de 1280px e passou a usar a mesma
+  medida da barra do header, 1688px. Páginas de leitura (legais, FAQ, guias de
+  medidas e envio, contato, sobre) ficaram em 1180px: linha de 1688px é longa
+  demais para ler.
+- **Cores das seções.** Três fundos, todos tirados do dossiê, sem cor nova:
+  Hover Soft na faixa de benefícios, em "Em destaque" e nos depoimentos;
+  Accent Soft no editorial "Um ateliê, três gestos"; Sálvia na faixa de lista de
+  espera. O contraste de cada combinação foi calculado antes de aplicar: Ink
+  sobre Accent Soft 9,3:1, Accent Dark sobre Accent Soft 5,0:1. Dois pares que
+  reprovavam por pouco foram trocados (Accent sobre Hover Soft e Ink Soft sobre
+  Accent Soft).
+- **Loja com filtro à esquerda.** Coluna de 240px com categorias (com contagem),
+  faixa de preço, cor (amostras redondas) e tamanho, seguindo o template. A
+  grade de 3 colunas ficou à direita, com contagem e ordenação acima. No celular
+  e no tablet a coluna vira uma gaveta aberta pelo botão "Filtros". O filtro
+  funciona na hora, sem recarregar a página.
+- **Rodapé enxuto.** Saíram a newsletter e a faixa de selos de pagamento.
+  Ficaram quatro colunas curtas, a identificação da empresa (Decreto
+  7.962/2013) e a base com privacidade, termos, desistência em 7 dias (CDC
+  Art. 49) e cookies.
+- **Newsletter em um só lugar.** A captura de e-mail ficou apenas na faixa verde
+  sálvia da home. Era ela que duplicava o pedido de e-mail na mesma página.
+- Frase de frete grátis no rodapé acompanha a regra em uso (R$ 299), que segue
+  pendente de confirmação com a empresa.
+
+### Verificado (arquivos)
+- `tools/check.py`: 22 páginas, "tudo certo".
+- 53 testes automatizados passando, incluindo os novos: filtro por categoria,
+  por tamanho, por faixa de preço e por cor, estado de "nenhuma peça", limpar
+  filtros, ordenação por preço, gaveta de filtros no celular e as mudanças do
+  rodapé. 1.118 links internos conferidos.
+- 22 páginas respondendo HTTP 200 no servidor local.
+
+### Ainda não verificado
+- Conferência visual em navegador, feita pela cliente (é o próximo passo).
+- Contraste calculado no papel; a conferência com ferramenta de acessibilidade
+  (axe, WAVE) continua pendente e é exigência do dossiê para o go-live.
+- Direitos das 31 fotos do template.
+
+---
+
 ## [2026-10-16] - Super layout: fotos reais, blocos do template e v0.1.1
 
 ### Pedido da cliente
