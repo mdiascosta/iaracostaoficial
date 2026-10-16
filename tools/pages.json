@@ -1,0 +1,205 @@
+[
+  {
+    "file": "index.html",
+    "part": 1,
+    "nav": "inicio",
+    "body_class": "page-home",
+    "title": "Iara Costa | Moda feminina e acessórios",
+    "desc": "Roupas e acessórios femininos com curadoria: peças casuais, alinhadas e de tendência. Frete grátis acima de R$ 199 para todo o Brasil.",
+    "content": "01-home.html",
+    "extra_js": ["swatches.js"]
+  },
+  {
+    "file": "loja.html",
+    "part": 1,
+    "nav": "loja",
+    "body_class": "page-shop",
+    "title": "Loja | Iara Costa",
+    "desc": "Todas as peças da coleção Iara Costa em uma única grade, com filtros por categoria e ordenação.",
+    "content": "02-loja.html",
+    "extra_js": ["filtros.js"]
+  },
+  {
+    "file": "produto.html",
+    "part": 1,
+    "nav": "loja",
+    "body_class": "page-product",
+    "title": "Vestido Midi Linho Terracota | Iara Costa",
+    "desc": "Vestido midi em linho na cor terracota, com modelagem fluida e forro. Disponível em P, M, G e GG.",
+    "content": "03-produto.html",
+    "extra_js": ["swatches.js"]
+  },
+
+  {
+    "file": "carrinho.html",
+    "part": 2,
+    "nav": "loja",
+    "body_class": "page-cart",
+    "title": "Sacola | Iara Costa",
+    "desc": "Revise as peças da sua sacola, aplique o cupom e veja o frete antes de finalizar.",
+    "content": "04-carrinho.html"
+  },
+  {
+    "file": "checkout.html",
+    "part": 2,
+    "nav": "loja",
+    "body_class": "page-checkout",
+    "title": "Finalizar compra | Iara Costa",
+    "desc": "Finalize sua compra com segurança. Compra como visitante disponível.",
+    "content": "05-checkout.html"
+  },
+  {
+    "file": "pedido-recebido.html",
+    "part": 2,
+    "nav": "",
+    "body_class": "page-thankyou",
+    "title": "Pedido recebido | Iara Costa",
+    "desc": "Confirmação do seu pedido na Iara Costa.",
+    "content": "06-pedido-recebido.html"
+  },
+  {
+    "file": "conta.html",
+    "part": 2,
+    "nav": "",
+    "body_class": "page-account",
+    "title": "Minha conta | Iara Costa",
+    "desc": "Acompanhe pedidos, endereços e dados da sua conta.",
+    "content": "07-conta.html"
+  },
+  {
+    "file": "desejos.html",
+    "part": 2,
+    "nav": "",
+    "body_class": "page-wishlist",
+    "title": "Lista de desejos | Iara Costa",
+    "desc": "As peças que você salvou para depois.",
+    "content": "08-desejos.html"
+  },
+  {
+    "file": "busca.html",
+    "part": 2,
+    "nav": "",
+    "body_class": "page-search",
+    "title": "Busca | Iara Costa",
+    "desc": "Resultados de busca na loja Iara Costa.",
+    "content": "09-busca.html"
+  },
+  {
+    "file": "blog.html",
+    "part": 2,
+    "nav": "blog",
+    "body_class": "page-blog",
+    "title": "Diário | Iara Costa",
+    "desc": "Conteúdo sobre estilo, tecidos, caimento e cuidados com as peças.",
+    "content": "10-blog.html"
+  },
+  {
+    "file": "post.html",
+    "part": 2,
+    "nav": "blog",
+    "body_class": "page-post",
+    "title": "Como escolher o caimento certo sem provar | Iara Costa",
+    "desc": "Guia prático para acertar no tamanho e no caimento comprando online.",
+    "content": "11-post.html"
+  },
+  {
+    "file": "404.html",
+    "part": 2,
+    "nav": "",
+    "body_class": "page-404",
+    "title": "Página não encontrada | Iara Costa",
+    "desc": "A página que você procurava não está aqui. Use a busca ou vá para a loja.",
+    "content": "12-404.html"
+  },
+
+  {
+    "file": "sobre.html",
+    "part": 3,
+    "nav": "sobre",
+    "body_class": "page-about",
+    "title": "Sobre | Iara Costa",
+    "desc": "Conheça a história e os valores da Iara Costa.",
+    "content": "13-sobre.html"
+  },
+  {
+    "file": "contato.html",
+    "part": 3,
+    "nav": "contato",
+    "body_class": "page-contact",
+    "title": "Contato | Iara Costa",
+    "desc": "Fale com o atendimento da Iara Costa por e-mail ou WhatsApp.",
+    "content": "14-contato.html"
+  },
+  {
+    "file": "faq.html",
+    "part": 3,
+    "nav": "",
+    "body_class": "page-faq",
+    "title": "Perguntas frequentes | Iara Costa",
+    "desc": "Dúvidas sobre prazos, trocas, tamanhos, pagamento e cuidados com as peças.",
+    "content": "15-faq.html"
+  },
+  {
+    "file": "guia-medidas.html",
+    "part": 3,
+    "nav": "guia",
+    "body_class": "page-size-guide",
+    "title": "Guia de medidas | Iara Costa",
+    "desc": "Tabela de medidas e instruções para medir o corpo em casa.",
+    "content": "16-guia-medidas.html"
+  },
+  {
+    "file": "lookbook.html",
+    "part": 3,
+    "nav": "lookbook",
+    "body_class": "page-lookbook",
+    "title": "Lookbook | Iara Costa",
+    "desc": "Combinações da coleção Iara Costa com links diretos para as peças.",
+    "content": "17-lookbook.html"
+  },
+  {
+    "file": "trocas.html",
+    "part": 3,
+    "nav": "",
+    "body_class": "page-returns",
+    "title": "Trocas e devoluções | Iara Costa",
+    "desc": "Como solicitar troca ou devolução, prazos e reembolso.",
+    "content": "18-trocas.html"
+  },
+  {
+    "file": "envio.html",
+    "part": 3,
+    "nav": "",
+    "body_class": "page-shipping",
+    "title": "Envio e entrega | Iara Costa",
+    "desc": "Prazos, formas de envio, frete grátis e rastreio.",
+    "content": "19-envio.html"
+  },
+  {
+    "file": "privacidade.html",
+    "part": 3,
+    "nav": "",
+    "body_class": "page-legal",
+    "title": "Política de privacidade | Iara Costa",
+    "desc": "Como tratamos seus dados pessoais, conforme a LGPD.",
+    "content": "20-privacidade.html"
+  },
+  {
+    "file": "termos.html",
+    "part": 3,
+    "nav": "",
+    "body_class": "page-legal",
+    "title": "Termos de uso | Iara Costa",
+    "desc": "Condições de uso do site e de compra na loja Iara Costa.",
+    "content": "21-termos.html"
+  },
+  {
+    "file": "cookies.html",
+    "part": 3,
+    "nav": "",
+    "body_class": "page-legal",
+    "title": "Política de cookies | Iara Costa",
+    "desc": "Quais cookies usamos e como você pode gerenciar as preferências.",
+    "content": "22-cookies.html"
+  }
+]
