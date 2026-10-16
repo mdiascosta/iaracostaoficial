@@ -61,6 +61,23 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.18 · 2026-10-16 · Foto do hero quadrada, com corte centralizado
+
+**Pedido da cliente:** "Pode reduzir a imagem para nao esticar muito deixe
+quadrada ne fica melhor veja ai para nao ficar quebrado".
+
+| O que mudou | Onde |
+|---|---|
+| A foto do hero passou a 1:1: entra quadrada, com corte centralizado (`object-position: center 50%`) | `pages.css` |
+| Em tela grande (1021px ou mais) a foto fica com no máximo 560px de largura e alinhada à direita, para o hero não crescer em altura | `pages.css` |
+| Enquadramento conferido na foto real, recorte por recorte: o corte central é o único que mantém o rosto, o cabelo e a blusa no quadro (o corte pelo topo corta o cabelo e o corte pelo pé corta a cabeça) | conferência |
+| A spec da foto do hero passou de 1200×1400 para 1200×1200 (1:1) | `SPECS-DE-IMAGEM.md` |
+| Verificação da seção 24 atualizada: quadrado, `cover`, corte central, nenhuma moldura retrato antiga e o limite de 560px | `tools/test.js` |
+
+**Resultado das verificações:** `build.py` e `check.py` com as 22 páginas
+certas; 997 verificações automáticas e zero falhas; `pente-fino.py` com as 12
+seções zeradas.
+
 ### v0.1.17 · 2026-10-16 · Foto do hero inteira e a descrição por cima da imagem
 
 **Pedido da cliente:** "tem que acertar a imagem e essa breve descricao em cima

@@ -1,5 +1,40 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Foto do hero quadrada (v0.1.18)
+
+### Pedido da cliente
+"Pode reduzir a imagem para nao esticar muito deixe quadrada ne fica melhor veja
+ai para nao ficar quebrado". Depois de ver a foto inteira (v0.1.17), o hero
+ficou alto demais em tela grande, porque a foto é 9:16. A cliente pediu para
+reduzir e deixar quadrada.
+
+### O que foi feito (IMPLEMENTADO)
+- **Foto em 1:1**, com corte centralizado. O hero deixa de esticar: no desktop a
+  imagem fica com no máximo 560px, alinhada à direita.
+- **Enquadramento conferido na foto real**, com três recortes quadrados lado a
+  lado: pelo topo (corta a parte de cima do cabelo), pelo centro e pelo pé (corta
+  a cabeça). O central é o único que mantém o rosto, o cabelo e a blusa de linho
+  no quadro, então é o que o CSS usa (`object-position: center 50%`).
+- **Quando a foto definitiva chegar em 1:1**, não haverá corte nenhum, porque a
+  proporção do arquivo passa a bater com a da moldura. Documentado em
+  `SPECS-DE-IMAGEM.md`, que agora pede a foto do hero em 1200×1200.
+- **Verificações:** 22 páginas geradas sem erro; 997 verificações automáticas e
+  zero falhas; pente fino de HTML/CSS/JS com as 12 seções zeradas.
+
+### Decisões tomadas
+- O corte é feito só pelo CSS, sem mexer no arquivo da imagem: o JPG original
+  continua intacto, o que preserva o uso dele em outras telas e a checagem de
+  direitos.
+- O limite de 560px vale só a partir de 1021px; no celular a foto continua
+  ocupando a largura toda, agora quadrada.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Conferência da cliente no navegador: se quiser a foto ainda menor no desktop, o
+  limite de 560px é o número a mexer (uma linha).
+- "Tingimento natural" (casca de cebola e eucalipto), "costura em pequenos lotes"
+  e "fornecedores certificados" seguem fora do site, aguardando confirmação.
+- Composição exata por peça, tabela de medidas real e história da marca.
+
 ## [2026-10-16] - Hero com a foto inteira e a descrição sobre a imagem (v0.1.17)
 
 ### Pedido da cliente

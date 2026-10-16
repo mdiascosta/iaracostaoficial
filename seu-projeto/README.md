@@ -41,6 +41,15 @@ Depois abra `http://localhost:8080` no navegador.
 | Institucional | `sobre.html`, `contato.html`, `faq.html`, `guia-medidas.html` |
 | Políticas | `trocas.html`, `envio.html`, `privacidade.html`, `termos.html`, `cookies.html` |
 
+### Novidades da v0.1.18 (foto do hero quadrada)
+
+| Peça | Como ficou |
+|---|---|
+| Foto do hero | 1:1, quadrada, com corte centralizado (mantém rosto, cabelo e blusa no quadro) |
+| Desktop | No máximo 560px de largura, alinhada à direita, para o hero não esticar |
+| Celular | Foto quadrada ocupando a largura toda; o selo desce para baixo dela |
+| Foto definitiva | A spec agora pede a imagem do hero em 1200×1200 (1:1), sem necessidade de corte |
+
 ### Novidades da v0.1.17 (hero com a foto inteira e a descrição sobre a imagem)
 
 | Peça | Como ficou |
