@@ -55,7 +55,9 @@ for (const pagina of paginas) {
 
   doc.querySelectorAll('a[href]').forEach((a) => {
     const href = a.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto')) { return; }
+    if (!href || href.startsWith('#') || href.startsWith('http')) { return; }
+    // mailto:, tel: e sms: são contatos, não arquivos.
+    if (/^(mailto|tel|sms):/.test(href)) { return; }
     linksTotais++;
     const alvo = path.join(RAIZ, href.split('?')[0].split('#')[0]);
     if (!fs.existsSync(alvo)) { console.log('  FAIL  ' + pagina + ' -> ' + href); falhas++; }
@@ -431,12 +433,15 @@ console.log('\n=== 15. RODAPE, CABECALHO DE PAGINA E RENOVACAO DAS INTERNAS (v0.
   ok(!!bands, 'rodapé tem a faixa de pagamento e segurança');
 
   const chips = d.querySelectorAll('.pay .pay__chip');
-  ok(chips.length === 8, 'oito formas de pagamento listadas (tem ' + chips.length + ')');
+  // A empresa confirmou o gateway e os dois meios ativos em 16/10/2026.
+  // Bandeira de cartão entra aqui quando estiver habilitada na conta do gateway.
+  ok(chips.length === 3, 'três formas de pagamento listadas (tem ' + chips.length + ')');
   const nomes = Array.prototype.map.call(chips, (c) => c.textContent.trim());
-  ['Pix', 'Boleto', 'Visa', 'Mastercard', 'American Express', 'Diners Club',
-   'Mercado Pago', 'PayPal'].forEach((n) => {
-    ok(nomes.indexOf(n) >= 0, 'forma de pagamento: ' + n);
+  ['Mercado Pago', 'Pix', 'Cartão de crédito'].forEach((n) => {
+    ok(nomes.indexOf(n) >= 0, 'forma de pagamento confirmada: ' + n);
   });
+  ok(!/Boleto|PayPal|Visa|Mastercard|American Express|Diners/.test(d.querySelector('.pay').textContent),
+     'rodapé sem forma de pagamento que a empresa não confirmou');
 
   const selos = d.querySelectorAll('.seals .seal');
   ok(selos.length === 2, 'dois selos desenhados na faixa de segurança');
@@ -834,6 +839,138 @@ console.log('\n=== 18. PENTE FINO E JS DO TEMPLATE ADOTADO (v0.1.11) ===');
   ok(/FRETE_GRATIS\s*=\s*299/.test(loja), 'loja.js: frete grátis confirmado em R$ 299');
   ok(/CUPONS\s*=\s*\{\s*BEMVINDO10/.test(loja), 'loja.js: só o cupom documentado no dossiê');
   ok(!/4[0-9]{2},\s*90|24,90|39,90/.test(loja), 'loja.js: nenhum valor de frete inventado');
+}
+
+
+console.log('\n=== 19. DADOS DA EMPRESA E REGRAS CONFIRMADAS (v0.1.12) ===');
+{
+  const RAZAO = 'Iara Costa Moda Feminina LTDA';
+  const CNPJ = '12.345.678/0001-90';
+  const ENDERECO = 'Rua das Flores, nº 140';
+  const CEP_ATELIE = '18520-000';
+  const EMAIL = 'contato@iaracosta.com.br';
+  const FONE = '(15) 99123-4567';
+
+  const textoDe = (arquivo) => carregar(arquivo).window.document.body.textContent.replace(/\s+/g, ' ');
+  const semAcento = (t) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+  // 19.1 — identificação da empresa no rodapé de todas as páginas
+  ok(paginas.length === 22, 'as 22 páginas do protótipo foram conferidas');
+  ['index.html', 'loja.html', 'produto.html', 'carrinho.html', 'checkout.html',
+   'pedido-recebido.html', 'conta.html', 'desejos.html', 'sobre.html', 'contato.html',
+   'trocas.html', 'envio.html', 'privacidade.html', 'termos.html', 'cookies.html',
+   'faq.html', 'guia-medidas.html', 'lookbook.html', 'blog.html', 'post.html',
+   'busca.html', '404.html'].forEach((pagina) => {
+    const rodape = carregar(pagina).window.document.querySelector('.site-footer__bottom');
+    const t = rodape ? rodape.textContent.replace(/\s+/g, ' ') : '';
+    ok(t.indexOf(RAZAO) >= 0 && t.indexOf(CNPJ) >= 0 && t.indexOf(ENDERECO) >= 0,
+       pagina + ': razão social, CNPJ e endereço no rodapé');
+  });
+
+  // 19.2 — atendimento no rodapé
+  const rodape = carregar('index.html').window.document.querySelector('.site-footer');
+  const atendimento = rodape.textContent.replace(/\s+/g, ' ');
+  ok(atendimento.indexOf(EMAIL) >= 0, 'rodapé com o e-mail de atendimento');
+  ok(atendimento.indexOf(FONE) >= 0, 'rodapé com o telefone');
+  ok(/segunda a sexta/i.test(atendimento), 'rodapé com o horário de atendimento');
+  ok(!!rodape.querySelector('a[href="mailto:' + EMAIL + '"]'), 'e-mail do rodapé é um link mailto');
+  ok(!!rodape.querySelector('a[href="tel:+5515991234567"]'), 'telefone do rodapé é um link de ligação');
+
+  // 19.3 — o marcador de dado da empresa não sobrou no rodapé
+  const marcadoresRodape = rodape.querySelectorAll('.placeholder');
+  ok(marcadoresRodape.length === 1 && /go-live/i.test(marcadoresRodape[0].textContent),
+     'rodapé só mantém o aviso de selos do go-live, sem [PREENCHER] de dado da empresa');
+
+  // 19.4 — formas de pagamento: só as confirmadas, em todas as páginas
+  ['Pix', 'boleto', 'Boleto', 'PayPal', 'transferência bancária'].forEach(() => {});
+  const paginasComTexto = ['index.html', 'carrinho.html', 'checkout.html', 'faq.html',
+    'produto.html', 'termos.html', 'trocas.html', 'privacidade.html', 'cookies.html',
+    'envio.html', 'pedido-recebido.html', 'contato.html'];
+  let comBoleto = [];
+  paginasComTexto.forEach((pagina) => {
+    const t = textoDe(pagina);
+    if (/boleto/i.test(t) || /PayPal/.test(t) || /transfer[eê]ncia banc[aá]ria/i.test(t)) {
+      comBoleto.push(pagina);
+    }
+  });
+  ok(comBoleto.length === 0,
+     'nenhuma página oferece boleto, PayPal ou transferência bancária (achados: ' + (comBoleto.join(', ') || 'nenhum') + ')');
+
+  const checkoutTexto = textoDe('checkout.html');
+  ok(/5% de desconto/.test(checkoutTexto), 'checkout: Pix com 5% de desconto');
+  ok(/6x sem juros/.test(checkoutTexto), 'checkout: cartão em até 6x sem juros');
+  ok(/Mercado Pago/.test(checkoutTexto), 'checkout: gateway Mercado Pago nomeado');
+  ok(!/pg-boleto|pg-transferencia/.test(carregar('checkout.html').window.document.documentElement.outerHTML),
+     'checkout sem os campos de boleto e transferência');
+
+  // 19.5 — Pix e cartão nas páginas de venda
+  ok(/5% de desconto/.test(textoDe('produto.html')), 'produto: Pix com 5% de desconto');
+  ok(/6x sem juros/.test(textoDe('produto.html')), 'produto: cartão em 6x sem juros');
+  ok(/5% off no Pix/i.test(textoDe('index.html')), 'home: faixa de benefícios com o desconto do Pix');
+  ok(/Mercado Pago/.test(textoDe('faq.html')), 'perguntas frequentes: gateway confirmado');
+
+  // 19.6 — contato: canais e prazo
+  const contato = textoDe('contato.html');
+  ok(contato.indexOf(EMAIL) >= 0, 'contato: e-mail de atendimento');
+  ok(contato.indexOf(FONE) >= 0, 'contato: telefone e WhatsApp');
+  ok(/24 horas úteis/i.test(contato), 'contato: prazo de resposta de 24 horas úteis');
+  ok(/segunda a sexta, das 9h às 18h/i.test(contato), 'contato: horário de atendimento');
+  ok(contato.indexOf(ENDERECO) >= 0 && contato.indexOf(CEP_ATELIE) >= 0,
+     'contato: endereço do ateliê com CEP');
+  ok(contato.indexOf(CNPJ) >= 0, 'contato: CNPJ');
+  ok(/123\.456\.789\.110/.test(contato), 'contato: inscrição estadual');
+
+  // 19.7 — termos: identificação completa e regras confirmadas
+  const termos = textoDe('termos.html');
+  [RAZAO, 'Iara Costa', CNPJ, '123.456.789.110', ENDERECO, EMAIL, FONE].forEach((dado) => {
+    ok(termos.indexOf(dado) >= 0, 'termos: identificação com ' + dado);
+  });
+  ok(/24 horas úteis/i.test(termos), 'termos: prazo de atendimento');
+  ok(/uso pessoal e nao cumulativo/i.test(semAcento(termos)),
+     'termos: cupom de uso pessoal e não cumulativo');
+  ok(/nao se acumula com outras promocoes/i.test(semAcento(termos)),
+     'termos: cupom não se acumula com outras promoções');
+
+  // 19.8 — privacidade: controlador e canal de titular preenchidos
+  const privacidade = textoDe('privacidade.html');
+  ok(privacidade.indexOf(RAZAO) >= 0 && privacidade.indexOf(CNPJ) >= 0,
+     'privacidade: controlador identificado');
+  ok(privacidade.indexOf(EMAIL) >= 0, 'privacidade: canal de atendimento ao titular');
+  ok(!/Razão social: \[PREENCHER\]/.test(privacidade), 'privacidade: sem razão social por preencher');
+  ok(/\[A DEFINIR: pessoa responsável/.test(privacidade),
+     'privacidade: encarregado de dados segue como decisão da empresa');
+
+  // 19.9 — frete: regras confirmadas e nenhum valor inventado
+  const envio = textoDe('envio.html');
+  ok(/Correios/.test(envio), 'envio: modalidades pelos Correios');
+  ok(/R\$ 15,00 no Sudeste/.test(envio), 'envio: valor fixo do Sudeste');
+  ok(/R\$ 299/.test(envio), 'envio: frete grátis acima de R$ 299');
+  ok(!/24,90|39,90/.test(envio), 'envio: sem os valores de exemplo que saíram');
+  ok(!/5 a 9 dias úteis|2 a 4 dias úteis/.test(envio), 'envio: sem os prazos de exemplo que saíram');
+  ok(/24 horas úteis/.test(envio), 'envio: resposta do atendimento em 24 horas úteis');
+
+  const carrinhoTexto = textoDe('carrinho.html');
+  ok(/R\$ 15,00 no Sudeste/.test(carrinhoTexto), 'sacola: valor fixo do Sudeste informado');
+  ok(!/24,90|39,90/.test(carrinhoTexto), 'sacola: sem os valores de exemplo que saíram');
+
+  // 19.10 — loja.js: regra do Sudeste e recados confirmados
+  const js = fs.readFileSync(path.join(RAIZ, 'assets', 'js', 'loja.js'), 'utf8');
+  ok(/function regiaoDoCep/.test(js), 'loja.js: faixa de CEP do Sudeste implementada');
+  ok(/1000000, 19999999/.test(js) && /30000000, 39999999/.test(js),
+     'loja.js: faixas de São Paulo e do Rio até Minas no Sudeste');
+  ok(/sudeste/.test(js) && /PAC por R\$ 15,00/.test(js), 'loja.js: recado do Sudeste com R$ 15,00');
+  ok(/o PAC e o SEDEX são calculados pelos Correios/i.test(js),
+     'loja.js: nas outras regiões o recado aponta o cálculo dos Correios');
+  ok(!/boleto|transferência bancária/i.test(js), 'loja.js: sem forma de pagamento que a empresa não confirmou');
+  ok(/5% de desconto/.test(js), 'loja.js: recado do Pix com 5% de desconto');
+
+  // 19.11 — nenhuma página promete troca em 30 dias como se fosse regra fechada
+  const home = textoDe('index.html');
+  ok(/30 dias/.test(home) && /\[A DEFINIR\]/.test(home),
+     'home: prazo de troca de 30 dias marcado como pendente de confirmação');
+
+  // 19.12 — o endereço de exemplo da conta é o do ateliê
+  ok(textoDe('conta.html').indexOf(ENDERECO) >= 0, 'conta: endereço de exemplo é o do ateliê');
 }
 
 console.log('\n========================================');

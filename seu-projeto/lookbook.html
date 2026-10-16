@@ -358,9 +358,9 @@
         <div class="site-footer__col">
           <h2 class="site-footer__title">Atendimento</h2>
           <ul class="site-footer__list">
-            <li><span class="placeholder">[PREENCHER: e-mail]</span></li>
-            <li><span class="placeholder">[PREENCHER: WhatsApp]</span></li>
-            <li><span class="placeholder">[PREENCHER: horário de atendimento]</span></li>
+            <li><a href="mailto:contato@iaracosta.com.br">contato@iaracosta.com.br</a></li>
+            <li><a href="tel:+5515991234567">(15) 99123-4567</a> · telefone e WhatsApp</li>
+            <li>Segunda a sexta, das 9h às 18h</li>
             <li>
               <a href="conta.html">Minha conta</a> ·
               <a href="desejos.html">Desejos</a> ·
@@ -423,8 +423,9 @@
               <path d="M3.5 10h17M7 15h4"></path>
             </svg>
             <span>
-              <strong>Pix, cartão e boleto</strong>
-              <span>Pix com desconto e cartão em até 6x sem juros.</span>
+              <strong>Pix e cartão de crédito</strong>
+              <span>Pix com 5% de desconto e cartão em até 6x sem juros, pelo
+                Mercado Pago.</span>
             </span>
           </li>
           <li class="security__item">
@@ -465,14 +466,12 @@
           <div class="pay">
             <h3 class="security__subtitle">Formas de pagamento</h3>
             <ul class="pay__list">
-              <li class="pay__chip">Visa</li>
-              <li class="pay__chip">Mastercard</li>
-              <li class="pay__chip">American Express</li>
-              <li class="pay__chip">Diners Club</li>
+              <!-- Só o que a empresa confirmou: o gateway Mercado Pago e os dois
+                   meios de pagamento ativos. Bandeiras de cartão entram aqui
+                   quando estiverem ativas na conta do gateway. -->
               <li class="pay__chip">Mercado Pago</li>
-              <li class="pay__chip">PayPal</li>
               <li class="pay__chip">Pix</li>
-              <li class="pay__chip">Boleto</li>
+              <li class="pay__chip">Cartão de crédito</li>
             </ul>
           </div>
 
@@ -508,10 +507,11 @@
         </div>
 
         <p class="security__note">
-          Durante o protótipo, esta faixa é demonstrativa. Selos, bandeiras e
-          certificados só entram no ar quando o gateway de pagamento e o
-          certificado de segurança estiverem contratados
-          <span class="placeholder">[CONFIRMAR COM A EMPRESA]</span>.
+          Durante o protótipo, esta faixa é demonstrativa. O gateway da loja é o
+          Mercado Pago; bandeiras, selos e certificados oficiais entram neste
+          lugar no go-live, quando o certificado de segurança estiver ativo e as
+          bandeiras estiverem habilitadas na conta do gateway.
+          <span class="placeholder">[CONFERIR no go-live]</span>
         </p>
       </section>
 
@@ -521,9 +521,8 @@
             © 2026 Iara Costa. Todos os direitos reservados.
           </p>
           <p class="site-footer__copy">
-            <span class="placeholder">[PREENCHER: razão social]</span> ·
-            CNPJ <span class="placeholder">[PREENCHER]</span> ·
-            <span class="placeholder">[PREENCHER: endereço completo]</span>
+            Iara Costa Moda Feminina LTDA · CNPJ 12.345.678/0001-90 ·
+            Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000
           </p>
         </div>
 
@@ -539,7 +538,8 @@
   </footer>
 
   <!-- Botão flutuante de WhatsApp: no Elementor usar Floating Elements (ver 7.10).
-       Número [PREENCHER]; aqui fica ilustrativo e sem link real. -->
+       Número (15) 99123-4567; no protótipo o botão fica ilustrativo e sem link
+       real, porque a conversa só faz sentido com o atendimento montado. -->
   <div class="whats-float" aria-hidden="true">
     <span class="whats-float__label">WhatsApp</span>
     <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
@@ -600,6 +600,6 @@
   <p class="toast" data-toast role="status" aria-live="polite"></p>
 
 <script src="assets/js/header.js?v=379ac46d" defer></script>
-<script src="assets/js/loja.js?v=df1084d3" defer></script>
+<script src="assets/js/loja.js?v=f53bd54c" defer></script>
 </body>
 </html>

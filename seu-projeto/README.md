@@ -41,6 +41,23 @@ Depois abra `http://localhost:8080` no navegador.
 | Institucional | `sobre.html`, `contato.html`, `faq.html`, `guia-medidas.html` |
 | Políticas | `trocas.html`, `envio.html`, `privacidade.html`, `termos.html`, `cookies.html` |
 
+### Novidades da v0.1.12 (dados reais da empresa e regras de venda confirmadas)
+
+| Peça | Como ficou |
+|---|---|
+| Identificação da empresa | Razão social, nome fantasia, CNPJ, inscrição estadual e endereço do ateliê no rodapé de todas as páginas, no Contato e nos Termos de uso (o Decreto 7.962/2013 exige que fiquem visíveis) |
+| Atendimento | E-mail, telefone/WhatsApp e horário no rodapé e no Contato, com prazo de resposta de 24 horas úteis |
+| Formas de pagamento | Pix com 5% de desconto e cartão em até 6x sem juros, pelo Mercado Pago. Boleto, transferência, PayPal e as bandeiras que não foram confirmadas saíram do site |
+| Frete | Correios (PAC e SEDEX por CEP), R$ 15,00 no Sudeste e frete grátis acima de R$ 299. Os valores de exemplo de PAC e SEDEX saíram de todas as páginas |
+| Cupom BEMVINDO10 | Regra fechada: 10% na primeira compra, para clientes novos, sem acúmulo com outras promoções nem com peças em liquidação |
+| Página de Envio | Reescrita com as regras confirmadas, incluindo o que os Correios calculam e o que ainda depende da empresa |
+
+**Dois pontos ficaram abertos de propósito:** o valor fixo de R$ 15,00 no Sudeste
+está escrito como PAC, e a página pergunta se ele vale também para o SEDEX; e a
+promessa de "troca fácil em 30 dias" que existia na home ficou marcada como
+`[A DEFINIR]`, porque prazo e frete de troca são decisão da empresa, não número
+que a gente possa inventar.
+
 ### Novidades da v0.1.11 (pente fino no HTML e no CSS e o JavaScript do template)
 
 | Peça | Como ficou |
@@ -272,8 +289,10 @@ no lugar dos 9px e 8px do template, por causa da regra de contraste abaixo.
 Importante para não gerar expectativa errada:
 
 - **Não há banco de dados.** Nada é salvo. Recarregue a página e tudo volta.
-- **Não há cálculo automático.** Preços, fretes e totais são textos escritos no
-  HTML. Quem calcula de verdade é o WooCommerce.
+- **Não há cálculo automático de verdade.** Preços e totais saem de contas
+  simples feitas no navegador, para a tela reagir ao que você clica. O frete real
+  é dos Correios e quem calcula é o WooCommerce: no protótipo, o recado mostra só
+  a regra confirmada (R$ 15,00 no Sudeste e grátis acima de R$ 299).
 - **Não há pagamento.** Nenhum gateway está conectado. Nenhuma cobrança acontece.
 - **Não há envio de formulário.** Os formulários validam no navegador e param aí.
 - **Não há login.** A página de conta mostra dados de exemplo.
@@ -290,8 +309,15 @@ Importante para não gerar expectativa errada:
 - Depoimentos são fictícios e estão marcados como tal na página.
 - Imagens são **fotos de exemplo vindas do template de referência** enviado pela
   cliente. Direitos e origem: `[CONFERIR]` antes de publicar.
-- Prazos, fretes e valores de pagamento são ilustrativos.
-- Razão social, CNPJ, endereço e contatos estão como `[PREENCHER]`.
+- **Os dados da empresa são reais** (informados em 16/10/2026) e estão no rodapé,
+  no Contato e nos Termos: razão social, nome fantasia, CNPJ, inscrição estadual,
+  endereço do ateliê, e-mail, telefone e horário de atendimento.
+- **As regras de venda confirmadas** também são reais: Pix com 5% de desconto,
+  cartão em até 6x sem juros pelo Mercado Pago, Correios com R$ 15,00 no Sudeste,
+  frete grátis acima de R$ 299 e a regra do cupom BEMVINDO10.
+- O que continua marcado: prazo de produção e de troca, valores e prazos por
+  região fora do Sudeste, encarregado de dados (DPO), composição e cuidados das
+  peças, autoria dos textos do diário e a data de aprovação das páginas legais.
 
 Faixa de aviso no topo de todas as páginas: **PROTÓTIPO · DADOS E TEXTOS DE
 EXEMPLO · NÃO PUBLICAR**. Remover essa faixa é um dos passos do go-live, e só
@@ -392,17 +418,29 @@ Nada nesta lista impede a conferência visual do protótipo. Tudo aqui impede o
 go-live:
 
 - [ ] Fotos reais de produto, categoria, banner e logo.
-- [ ] Razão social, CNPJ e endereço (exigência do Decreto 7.962/2013).
-- [ ] E-mail e WhatsApp de atendimento, com horário.
-- [ ] Gateway de pagamento e solução de frete contratados.
-- [ ] Regras de parcelamento e desconto no Pix definidas.
+- [x] **Razão social, CNPJ e endereço** informados em 16/10/2026 e já no rodapé,
+      no Contato e nos Termos (exigência do Decreto 7.962/2013).
+- [x] **E-mail e WhatsApp de atendimento, com horário**, informados em 16/10/2026
+      (24 horas úteis, segunda a sexta, das 9h às 18h).
+- [x] **Gateway definido: Mercado Pago** (16/10/2026). Falta ligar a conta e testar
+      em ambiente de teste antes do go-live.
+- [x] **Regras de pagamento definidas:** Pix com 5% de desconto e cartão em até 6x
+      sem juros (16/10/2026).
+- [x] **Frete definido:** Correios com cálculo por CEP, R$ 15,00 no Sudeste e
+      grátis acima de R$ 299 (16/10/2026).
 - [x] **Frete grátis definido: acima de R$ 299** (confirmado pela empresa em
       16/10/2026; o dossiê previa R$ 199). O protótipo já estava todo em 299.
 - [x] **Catálogo definido: 12 peças visíveis** (confirmado em 16/10/2026, igual
       ao template). Textos que ainda diziam 10 peças foram corrigidos.
 - [x] **Newsletter do rodapé mantida** (confirmado em 16/10/2026).
 - [ ] **Direitos das 31 fotos** vindas do template de referência.
-- [ ] Regras finas do cupom BEMVINDO10 e do frete grátis definidas.
+- [x] **Regras do cupom BEMVINDO10 definidas** (16/10/2026): 10% na primeira
+      compra, para clientes novos, sem acúmulo com outras promoções nem com peças
+      em liquidação.
+- [ ] Duas dúvidas de frete: se o valor fixo de R$ 15,00 no Sudeste vale também
+      para o SEDEX e se o frete grátis conta o subtotal antes ou depois do cupom.
+- [ ] Prazo e frete da troca por tamanho (a home anunciava 30 dias sem confirmar).
+- [ ] Encarregado de dados (DPO), para a Política de Privacidade.
 - [ ] Regime tributário e emissão de nota fiscal definidos com o contador.
 - [ ] Revisão jurídica das três páginas legais e de trocas.
 - [ ] Plugin de lista de desejos aprovado, ou o coração sai do header.

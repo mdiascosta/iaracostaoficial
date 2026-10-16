@@ -370,6 +370,20 @@
     if (totalRotulo) { totalRotulo.textContent = freteGratis ? 'Total' : 'Total sem frete'; }
   }
 
+  /* Faixa de CEP do Sudeste (SP, RJ, ES e MG), a região do valor fixo de
+     R$ 15,00 confirmada pela empresa. Serve só para escolher o texto do recado:
+     o valor de verdade vem do cálculo dos Correios. */
+  function regiaoDoCep(valor) {
+    var faixas = [[1000000, 19999999], [20000000, 28999999],
+                  [29000000, 29999999], [30000000, 39999999]];
+    var numero = parseInt(String(valor).replace(/\D/g, ''), 10) || 0;
+
+    for (var i = 0; i < faixas.length; i++) {
+      if (numero >= faixas[i][0] && numero <= faixas[i][1]) { return 'sudeste'; }
+    }
+    return 'outra';
+  }
+
   function recadoDoCupom(texto) {
     var alvo = document.querySelector('[data-cupom-msg]');
     if (alvo) { alvo.textContent = texto; }
@@ -426,9 +440,16 @@
         }
 
         var subtotal = resumoDaSacola().subtotal;
-        recado.textContent = subtotal >= FRETE_GRATIS
-          ? 'Para o CEP ' + cep.value + ': frete grátis nesta compra.'
-          : 'Para o CEP ' + cep.value + ': o valor e o prazo por transportadora entram quando a conta de frete estiver contratada. [A DEFINIR]';
+        var regiao = regiaoDoCep(cep.value);
+
+        if (subtotal >= FRETE_GRATIS) {
+          recado.textContent = 'Para o CEP ' + cep.value + ': frete grátis nesta compra.';
+          return;
+        }
+
+        recado.textContent = regiao === 'sudeste'
+          ? 'Para o CEP ' + cep.value + ' (Sudeste): PAC por R$ 15,00. O SEDEX sai pelo cálculo dos Correios.'
+          : 'Para o CEP ' + cep.value + ': o PAC e o SEDEX são calculados pelos Correios a partir deste CEP.';
       });
     }
 
@@ -464,10 +485,8 @@
 
     if (recado) {
       var RECADOS = {
-        'pg-pix': 'No Pix a confirmação é na hora. A chave e o desconto entram quando o gateway estiver contratado. [A DEFINIR]',
-        'pg-cartao': 'Os dados do cartão são digitados na página segura do gateway. Este protótipo não pede número de cartão.',
-        'pg-boleto': 'O boleto é gerado no fim do pedido. Prazo de compensação e vencimento ficam [A DEFINIR] até a conta estar ativa.',
-        'pg-transferencia': 'Transferência bancária: dados da conta e forma de comprovante ficam [A DEFINIR]. Opção em avaliação.'
+        'pg-pix': 'No Pix a confirmação é na hora, com 5% de desconto. O QR Code é gerado pelo Mercado Pago no fim do pedido.',
+        'pg-cartao': 'Cartão em até 6x sem juros, processado pelo Mercado Pago. Os dados do cartão são digitados na página segura do gateway: este protótipo não pede número de cartão.'
       };
 
       var opcoes = document.querySelectorAll('input[name="pagamento"]');

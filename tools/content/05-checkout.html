@@ -132,25 +132,29 @@
               <legend class="fieldset__legend">Formas de envio</legend>
 
               <ul class="shipping-options">
-                <li><span>PAC · 5 a 9 dias úteis</span><span>R$ 24,90</span></li>
-                <li><span>SEDEX · 2 a 4 dias úteis</span><span>R$ 39,90</span></li>
+                <li><span>PAC · Correios</span><span>R$ 15,00 no Sudeste</span></li>
+                <li><span>SEDEX · Correios</span><span>valor calculado pelo CEP</span></li>
               </ul>
 
               <div class="radio">
                 <input class="radio__input" id="envio-gratis" name="envio" type="radio" checked>
                 <label class="radio__label" for="envio-gratis">
-                  <strong>Frete grátis</strong> (pedido acima de R$ 299) · PAC, 5 a 9 dias úteis
+                  <strong>Frete grátis</strong> (pedido acima de R$ 299) · primeira
+                  opção dos Correios
                 </label>
               </div>
               <div class="radio">
                 <input class="radio__input" id="envio-sedex" name="envio" type="radio">
                 <label class="radio__label" for="envio-sedex">
-                  SEDEX · 2 a 4 dias úteis · R$ 39,90
+                  SEDEX · valor e prazo calculados pelo CEP
                 </label>
               </div>
               <p class="field__hint">
-                Prazos e valores de exemplo: serão substituídos pelos dados da
-                conta de frete da empresa.
+                Os Correios calculam valor e prazo de PAC e SEDEX a partir do CEP
+                de entrega. No Sudeste, o PAC fica em R$ 15,00; nas demais
+                regiões, o valor calculado aparece aqui antes de finalizar.
+                <span class="placeholder">[A DEFINIR: se o valor fixo do Sudeste
+                vale para o PAC e o SEDEX ou só para o PAC]</span>
               </p>
             </fieldset>
 
@@ -158,38 +162,27 @@
               <legend class="fieldset__legend">Pagamento</legend>
 
               <p class="notice notice--attention">
-                Nenhum gateway está conectado ainda. As opções abaixo são
-                ilustrativas e servem para validar o fluxo visual. Pagamento real
-                só depois de contratar o gateway e testar em ambiente de teste.
+                O gateway da loja é o Mercado Pago. No protótipo nenhuma conta está
+                conectada: as opções abaixo validam o fluxo visual e o pagamento
+                real só acontece depois de ligar a conta e testar em ambiente de
+                teste.
               </p>
 
               <div class="radio">
                 <input class="radio__input" id="pg-pix" name="pagamento" type="radio" checked>
                 <label class="radio__label" for="pg-pix">
-                  <strong>Pix</strong> · aprovação na hora.
-                  <span class="placeholder">[A DEFINIR: desconto no Pix]</span>
+                  <strong>Pix</strong> · 5% de desconto · aprovação na hora.
                 </label>
               </div>
               <div class="radio">
                 <input class="radio__input" id="pg-cartao" name="pagamento" type="radio">
                 <label class="radio__label" for="pg-cartao">
-                  <strong>Cartão de crédito</strong> ·
-                  <span class="placeholder">[A DEFINIR: parcelamento]</span>
+                  <strong>Cartão de crédito</strong> · em até 6x sem juros.
                 </label>
               </div>
-              <div class="radio">
-                <input class="radio__input" id="pg-boleto" name="pagamento" type="radio">
-                <label class="radio__label" for="pg-boleto">
-                  <strong>Boleto</strong> · compensação em 1 a 2 dias úteis.
-                </label>
-              </div>
-              <div class="radio">
-                <input class="radio__input" id="pg-transferencia" name="pagamento" type="radio">
-                <label class="radio__label" for="pg-transferencia">
-                  <strong>Transferência bancária</strong> ·
-                  <span class="placeholder">[CONFERIR: ativar somente para teste e desativar antes de publicar]</span>
-                </label>
-              </div>
+              <!-- Boleto e transferência saíram do protótipo em 16/10/2026: a
+                   empresa confirmou Pix e cartão de crédito. Se as outras duas
+                   entrarem na conta do gateway, voltam para cá. -->
 
               <!-- Recado que muda conforme o meio escolhido. Saiu do loja.js do
                    template do zip, com uma diferença de propósito: o protótipo

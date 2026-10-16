@@ -194,9 +194,9 @@
           Este documento foi escrito para dar estrutura e cobrir os pontos
           obrigatórios da LGPD. Ele <strong>precisa</strong> de revisão do jurídico
           da Iara Costa antes de ir ao ar. Todos os campos
-          <span class="placeholder">[PREENCHER]</span> são dados da empresa que
-          ainda não foram informados e <span class="placeholder">[A DEFINIR]</span>
-          são decisões internas.
+          <span class="placeholder">[PREENCHER]</span> são dados que ainda
+          dependem da empresa (data da versão aprovada) e
+          <span class="placeholder">[A DEFINIR]</span> são decisões internas.
         </p>
         <p>
           Importante: a lista de operadores (quem mais trata os dados) só pode ser
@@ -228,11 +228,15 @@
             O controlador, ou seja, quem decide como os seus dados são tratados, é:
           </p>
           <ul>
-            <li>Razão social: <span class="placeholder">[PREENCHER]</span></li>
-            <li>CNPJ: <span class="placeholder">[PREENCHER]</span></li>
-            <li>Endereço: <span class="placeholder">[PREENCHER]</span></li>
-            <li>Canal de atendimento ao titular: <span class="placeholder">[PREENCHER]</span></li>
-            <li>Encarregado de dados (DPO): <span class="placeholder">[PREENCHER: nome e e-mail]</span></li>
+            <li>Razão social: Iara Costa Moda Feminina LTDA</li>
+            <li>CNPJ: 12.345.678/0001-90</li>
+            <li>Endereço: Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000</li>
+            <li>Canal de atendimento ao titular:
+              <a href="mailto:contato@iaracosta.com.br">contato@iaracosta.com.br</a>,
+              com o assunto "Privacidade"</li>
+            <li>Encarregado de dados (DPO):
+              <span class="placeholder">[A DEFINIR: pessoa responsável e e-mail
+              direto, se a empresa criar um separado]</span></li>
           </ul>
           <p class="muted-note">
             O encarregado de dados é a pessoa responsável por receber pedidos
@@ -405,8 +409,9 @@
           </ul>
           <p>
             Para exercer esses direitos, escreva para
-            <span class="placeholder">[PREENCHER: e-mail do encarregado]</span>.
-            Respondemos em até <span class="placeholder">[A DEFINIR]</span>. Podemos
+            <a href="mailto:contato@iaracosta.com.br">contato@iaracosta.com.br</a>,
+            com o assunto "Privacidade". Respondemos em até 24 horas úteis, de
+            segunda a sexta. Podemos
             pedir uma confirmação de identidade para evitar que alguém acesse os
             seus dados no seu lugar.
           </p>
@@ -466,7 +471,8 @@
       <div class="notice">
         <strong>Checklist para a equipe antes de publicar esta página</strong>
         <ul>
-          <li>Preencher todos os campos [PREENCHER] com dados reais da empresa.</li>
+          <li>Confirmar a data da versão aprovada e quem será o encarregado de
+            dados (a pessoa responsável por receber pedidos de titulares).</li>
           <li>Fechar a lista de operadores depois das contratações.</li>
           <li>Confirmar prazos de retenção com o contador.</li>
           <li>Revisão final pelo jurídico.</li>
@@ -562,9 +568,9 @@
         <div class="site-footer__col">
           <h2 class="site-footer__title">Atendimento</h2>
           <ul class="site-footer__list">
-            <li><span class="placeholder">[PREENCHER: e-mail]</span></li>
-            <li><span class="placeholder">[PREENCHER: WhatsApp]</span></li>
-            <li><span class="placeholder">[PREENCHER: horário de atendimento]</span></li>
+            <li><a href="mailto:contato@iaracosta.com.br">contato@iaracosta.com.br</a></li>
+            <li><a href="tel:+5515991234567">(15) 99123-4567</a> · telefone e WhatsApp</li>
+            <li>Segunda a sexta, das 9h às 18h</li>
             <li>
               <a href="conta.html">Minha conta</a> ·
               <a href="desejos.html">Desejos</a> ·
@@ -627,8 +633,9 @@
               <path d="M3.5 10h17M7 15h4"></path>
             </svg>
             <span>
-              <strong>Pix, cartão e boleto</strong>
-              <span>Pix com desconto e cartão em até 6x sem juros.</span>
+              <strong>Pix e cartão de crédito</strong>
+              <span>Pix com 5% de desconto e cartão em até 6x sem juros, pelo
+                Mercado Pago.</span>
             </span>
           </li>
           <li class="security__item">
@@ -669,14 +676,12 @@
           <div class="pay">
             <h3 class="security__subtitle">Formas de pagamento</h3>
             <ul class="pay__list">
-              <li class="pay__chip">Visa</li>
-              <li class="pay__chip">Mastercard</li>
-              <li class="pay__chip">American Express</li>
-              <li class="pay__chip">Diners Club</li>
+              <!-- Só o que a empresa confirmou: o gateway Mercado Pago e os dois
+                   meios de pagamento ativos. Bandeiras de cartão entram aqui
+                   quando estiverem ativas na conta do gateway. -->
               <li class="pay__chip">Mercado Pago</li>
-              <li class="pay__chip">PayPal</li>
               <li class="pay__chip">Pix</li>
-              <li class="pay__chip">Boleto</li>
+              <li class="pay__chip">Cartão de crédito</li>
             </ul>
           </div>
 
@@ -712,10 +717,11 @@
         </div>
 
         <p class="security__note">
-          Durante o protótipo, esta faixa é demonstrativa. Selos, bandeiras e
-          certificados só entram no ar quando o gateway de pagamento e o
-          certificado de segurança estiverem contratados
-          <span class="placeholder">[CONFIRMAR COM A EMPRESA]</span>.
+          Durante o protótipo, esta faixa é demonstrativa. O gateway da loja é o
+          Mercado Pago; bandeiras, selos e certificados oficiais entram neste
+          lugar no go-live, quando o certificado de segurança estiver ativo e as
+          bandeiras estiverem habilitadas na conta do gateway.
+          <span class="placeholder">[CONFERIR no go-live]</span>
         </p>
       </section>
 
@@ -725,9 +731,8 @@
             © 2026 Iara Costa. Todos os direitos reservados.
           </p>
           <p class="site-footer__copy">
-            <span class="placeholder">[PREENCHER: razão social]</span> ·
-            CNPJ <span class="placeholder">[PREENCHER]</span> ·
-            <span class="placeholder">[PREENCHER: endereço completo]</span>
+            Iara Costa Moda Feminina LTDA · CNPJ 12.345.678/0001-90 ·
+            Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000
           </p>
         </div>
 
@@ -743,7 +748,8 @@
   </footer>
 
   <!-- Botão flutuante de WhatsApp: no Elementor usar Floating Elements (ver 7.10).
-       Número [PREENCHER]; aqui fica ilustrativo e sem link real. -->
+       Número (15) 99123-4567; no protótipo o botão fica ilustrativo e sem link
+       real, porque a conversa só faz sentido com o atendimento montado. -->
   <div class="whats-float" aria-hidden="true">
     <span class="whats-float__label">WhatsApp</span>
     <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
@@ -804,6 +810,6 @@
   <p class="toast" data-toast role="status" aria-live="polite"></p>
 
 <script src="assets/js/header.js?v=379ac46d" defer></script>
-<script src="assets/js/loja.js?v=df1084d3" defer></script>
+<script src="assets/js/loja.js?v=f53bd54c" defer></script>
 </body>
 </html>

@@ -21,11 +21,13 @@
 
     <div class="container section--tight">
 
-      <div class="notice notice--attention">
-        <strong>Prazos e valores desta página são de EXEMPLO.</strong>
-        Eles serão substituídos pelos dados da transportadora depois que a conta
-        de frete for contratada. <span class="placeholder">[A DEFINIR]</span>
-        Enquanto isso, o site usa uma taxa fixa provisória para testes.
+      <div class="notice">
+        <strong>Como o frete é calculado nesta loja.</strong>
+        Os Correios calculam PAC e SEDEX a partir do CEP de entrega. No Sudeste, o
+        frete fica em R$ 15,00; nas demais regiões, o valor calculado aparece na
+        sacola e no checkout. Acima de R$ 299,00 o frete é grátis.
+        <span class="placeholder">[A DEFINIR: se o valor fixo de R$ 15,00 no
+        Sudeste vale para o PAC e o SEDEX ou só para o PAC]</span>
       </div>
 
 
@@ -46,7 +48,7 @@
           <h2>Prazos e valores</h2>
           <div class="table-scroll">
             <table>
-              <caption>Exemplo de tabela para o estado de São Paulo. O prazo real depende da sua região e da transportadora.</caption>
+              <caption>Como funciona cada modalidade. Valor e prazo saem do cálculo dos Correios pelo seu CEP.</caption>
               <thead>
                 <tr>
                   <th scope="col">Modalidade</th>
@@ -56,14 +58,14 @@
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">PAC</th>
-                  <td>5 a 9 dias úteis</td>
-                  <td>R$ 24,90</td>
+                  <th scope="row">PAC (Correios)</th>
+                  <td>Definido pelos Correios no cálculo pelo CEP</td>
+                  <td>R$ 15,00 no Sudeste · demais regiões pelo CEP</td>
                 </tr>
                 <tr>
-                  <th scope="row">SEDEX</th>
-                  <td>2 a 4 dias úteis</td>
-                  <td>R$ 39,90</td>
+                  <th scope="row">SEDEX (Correios)</th>
+                  <td>Definido pelos Correios no cálculo pelo CEP</td>
+                  <td>Calculado pelo CEP, em todas as regiões</td>
                 </tr>
                 <tr>
                   <th scope="row">Retirada no local</th>
@@ -95,7 +97,8 @@
               frete volta a ser cobrado. O aviso aparece na sacola antes de
               finalizar.
             </li>
-            <li>Frete grátis não se acumula automaticamente com outras promoções de frete. <span class="placeholder">[CONFIRMAR COM A EMPRESA]</span></li>
+            <li>O frete grátis é a condição final de frete da compra: ele não se acumula com outras promoções de frete.
+              <span class="placeholder">[A DEFINIR: confirmar esta redação com a empresa]</span></li>
           </ul>
         </section>
 
@@ -107,8 +110,7 @@
             <a href="conta.html">Minha conta</a>, na seção Meus pedidos.
           </p>
           <p>
-            A transportadora responsável é
-            <span class="placeholder">[A DEFINIR]</span>. Se o rastreio não
+            As entregas saem pelos <strong>Correios</strong>. Se o rastreio não
             atualizar em 3 dias úteis depois do despacho, fale com o atendimento:
             a gente consulta direto com a transportadora.
           </p>
@@ -120,7 +122,7 @@
             <li>É preciso ter alguém no endereço para receber. O entregador não deixa encomenda com terceiros sem autorização.</li>
             <li>Confira o endereço no checkout antes de finalizar. Endereço errado atrasa a entrega.</li>
             <li>Em caso de ausência, a transportadora costuma fazer até 3 tentativas, conforme a política dela.</li>
-            <li>O prazo de armazenagem no centro de distribuição é definido pela transportadora <span class="placeholder">[CONFERIR]</span>.</li>
+            <li>O prazo de armazenagem nos Correios é definido pela própria empresa <span class="placeholder">[CONFERIR no Bloco B]</span>.</li>
           </ul>
         </section>
 
@@ -170,8 +172,8 @@
               <div class="accordion__panel" id="ev3" hidden>
                 <p>
                   Fale com o atendimento informando o número do pedido. A gente
-                  consulta a transportadora e te dá uma posição em até
-                  <span class="placeholder">[A DEFINIR]</span>.
+                  consulta os Correios e te dá uma posição em até 24 horas úteis,
+                  de segunda a sexta.
                 </p>
                 <p>
                   Se a transportadora não localizar o pedido, a loja reenvia ou
@@ -202,10 +204,11 @@
         <section id="resumo-para-a-equipe-nao-publicar">
           <h2>Resumo para a equipe (não publicar)</h2>
           <ul class="list-check">
-            <li>Contratar a solução de frete e remover a taxa fixa provisória antes do go-live.</li>
+            <li>Ativar a conta dos Correios no WooCommerce e remover qualquer taxa fixa deixada para teste.</li>
             <li>Definir se o frete grátis considera o subtotal antes ou depois do cupom.</li>
+            <li>Definir se o valor fixo de R$ 15,00 no Sudeste vale para o PAC e o SEDEX ou só para o PAC.</li>
             <li>Cadastrar origem do envio, embalagem, peso e dimensões de cada produto no cadastro do WooCommerce.</li>
-            <li>Conferir se os prazos exibidos pelo plugin de frete são os mesmos desta página, para não haver contradição.</li>
+            <li>Conferir se os prazos exibidos pelo plugin dos Correios são os mesmos desta página, para não haver contradição.</li>
             <li>Testar: CEP válido, CEP inválido, carrinho acima de R$ 299 e abaixo de R$ 299, com e sem cupom.</li>
           </ul>
         </section>

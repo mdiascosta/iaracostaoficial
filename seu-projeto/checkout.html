@@ -293,25 +293,29 @@
               <legend class="fieldset__legend">Formas de envio</legend>
 
               <ul class="shipping-options">
-                <li><span>PAC · 5 a 9 dias úteis</span><span>R$ 24,90</span></li>
-                <li><span>SEDEX · 2 a 4 dias úteis</span><span>R$ 39,90</span></li>
+                <li><span>PAC · Correios</span><span>R$ 15,00 no Sudeste</span></li>
+                <li><span>SEDEX · Correios</span><span>valor calculado pelo CEP</span></li>
               </ul>
 
               <div class="radio">
                 <input class="radio__input" id="envio-gratis" name="envio" type="radio" checked>
                 <label class="radio__label" for="envio-gratis">
-                  <strong>Frete grátis</strong> (pedido acima de R$ 299) · PAC, 5 a 9 dias úteis
+                  <strong>Frete grátis</strong> (pedido acima de R$ 299) · primeira
+                  opção dos Correios
                 </label>
               </div>
               <div class="radio">
                 <input class="radio__input" id="envio-sedex" name="envio" type="radio">
                 <label class="radio__label" for="envio-sedex">
-                  SEDEX · 2 a 4 dias úteis · R$ 39,90
+                  SEDEX · valor e prazo calculados pelo CEP
                 </label>
               </div>
               <p class="field__hint">
-                Prazos e valores de exemplo: serão substituídos pelos dados da
-                conta de frete da empresa.
+                Os Correios calculam valor e prazo de PAC e SEDEX a partir do CEP
+                de entrega. No Sudeste, o PAC fica em R$ 15,00; nas demais
+                regiões, o valor calculado aparece aqui antes de finalizar.
+                <span class="placeholder">[A DEFINIR: se o valor fixo do Sudeste
+                vale para o PAC e o SEDEX ou só para o PAC]</span>
               </p>
             </fieldset>
 
@@ -319,38 +323,27 @@
               <legend class="fieldset__legend">Pagamento</legend>
 
               <p class="notice notice--attention">
-                Nenhum gateway está conectado ainda. As opções abaixo são
-                ilustrativas e servem para validar o fluxo visual. Pagamento real
-                só depois de contratar o gateway e testar em ambiente de teste.
+                O gateway da loja é o Mercado Pago. No protótipo nenhuma conta está
+                conectada: as opções abaixo validam o fluxo visual e o pagamento
+                real só acontece depois de ligar a conta e testar em ambiente de
+                teste.
               </p>
 
               <div class="radio">
                 <input class="radio__input" id="pg-pix" name="pagamento" type="radio" checked>
                 <label class="radio__label" for="pg-pix">
-                  <strong>Pix</strong> · aprovação na hora.
-                  <span class="placeholder">[A DEFINIR: desconto no Pix]</span>
+                  <strong>Pix</strong> · 5% de desconto · aprovação na hora.
                 </label>
               </div>
               <div class="radio">
                 <input class="radio__input" id="pg-cartao" name="pagamento" type="radio">
                 <label class="radio__label" for="pg-cartao">
-                  <strong>Cartão de crédito</strong> ·
-                  <span class="placeholder">[A DEFINIR: parcelamento]</span>
+                  <strong>Cartão de crédito</strong> · em até 6x sem juros.
                 </label>
               </div>
-              <div class="radio">
-                <input class="radio__input" id="pg-boleto" name="pagamento" type="radio">
-                <label class="radio__label" for="pg-boleto">
-                  <strong>Boleto</strong> · compensação em 1 a 2 dias úteis.
-                </label>
-              </div>
-              <div class="radio">
-                <input class="radio__input" id="pg-transferencia" name="pagamento" type="radio">
-                <label class="radio__label" for="pg-transferencia">
-                  <strong>Transferência bancária</strong> ·
-                  <span class="placeholder">[CONFERIR: ativar somente para teste e desativar antes de publicar]</span>
-                </label>
-              </div>
+              <!-- Boleto e transferência saíram do protótipo em 16/10/2026: a
+                   empresa confirmou Pix e cartão de crédito. Se as outras duas
+                   entrarem na conta do gateway, voltam para cá. -->
 
               <!-- Recado que muda conforme o meio escolhido. Saiu do loja.js do
                    template do zip, com uma diferença de propósito: o protótipo
@@ -557,9 +550,9 @@
         <div class="site-footer__col">
           <h2 class="site-footer__title">Atendimento</h2>
           <ul class="site-footer__list">
-            <li><span class="placeholder">[PREENCHER: e-mail]</span></li>
-            <li><span class="placeholder">[PREENCHER: WhatsApp]</span></li>
-            <li><span class="placeholder">[PREENCHER: horário de atendimento]</span></li>
+            <li><a href="mailto:contato@iaracosta.com.br">contato@iaracosta.com.br</a></li>
+            <li><a href="tel:+5515991234567">(15) 99123-4567</a> · telefone e WhatsApp</li>
+            <li>Segunda a sexta, das 9h às 18h</li>
             <li>
               <a href="conta.html">Minha conta</a> ·
               <a href="desejos.html">Desejos</a> ·
@@ -622,8 +615,9 @@
               <path d="M3.5 10h17M7 15h4"></path>
             </svg>
             <span>
-              <strong>Pix, cartão e boleto</strong>
-              <span>Pix com desconto e cartão em até 6x sem juros.</span>
+              <strong>Pix e cartão de crédito</strong>
+              <span>Pix com 5% de desconto e cartão em até 6x sem juros, pelo
+                Mercado Pago.</span>
             </span>
           </li>
           <li class="security__item">
@@ -664,14 +658,12 @@
           <div class="pay">
             <h3 class="security__subtitle">Formas de pagamento</h3>
             <ul class="pay__list">
-              <li class="pay__chip">Visa</li>
-              <li class="pay__chip">Mastercard</li>
-              <li class="pay__chip">American Express</li>
-              <li class="pay__chip">Diners Club</li>
+              <!-- Só o que a empresa confirmou: o gateway Mercado Pago e os dois
+                   meios de pagamento ativos. Bandeiras de cartão entram aqui
+                   quando estiverem ativas na conta do gateway. -->
               <li class="pay__chip">Mercado Pago</li>
-              <li class="pay__chip">PayPal</li>
               <li class="pay__chip">Pix</li>
-              <li class="pay__chip">Boleto</li>
+              <li class="pay__chip">Cartão de crédito</li>
             </ul>
           </div>
 
@@ -707,10 +699,11 @@
         </div>
 
         <p class="security__note">
-          Durante o protótipo, esta faixa é demonstrativa. Selos, bandeiras e
-          certificados só entram no ar quando o gateway de pagamento e o
-          certificado de segurança estiverem contratados
-          <span class="placeholder">[CONFIRMAR COM A EMPRESA]</span>.
+          Durante o protótipo, esta faixa é demonstrativa. O gateway da loja é o
+          Mercado Pago; bandeiras, selos e certificados oficiais entram neste
+          lugar no go-live, quando o certificado de segurança estiver ativo e as
+          bandeiras estiverem habilitadas na conta do gateway.
+          <span class="placeholder">[CONFERIR no go-live]</span>
         </p>
       </section>
 
@@ -720,9 +713,8 @@
             © 2026 Iara Costa. Todos os direitos reservados.
           </p>
           <p class="site-footer__copy">
-            <span class="placeholder">[PREENCHER: razão social]</span> ·
-            CNPJ <span class="placeholder">[PREENCHER]</span> ·
-            <span class="placeholder">[PREENCHER: endereço completo]</span>
+            Iara Costa Moda Feminina LTDA · CNPJ 12.345.678/0001-90 ·
+            Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000
           </p>
         </div>
 
@@ -738,7 +730,8 @@
   </footer>
 
   <!-- Botão flutuante de WhatsApp: no Elementor usar Floating Elements (ver 7.10).
-       Número [PREENCHER]; aqui fica ilustrativo e sem link real. -->
+       Número (15) 99123-4567; no protótipo o botão fica ilustrativo e sem link
+       real, porque a conversa só faz sentido com o atendimento montado. -->
   <div class="whats-float" aria-hidden="true">
     <span class="whats-float__label">WhatsApp</span>
     <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
@@ -799,6 +792,6 @@
   <p class="toast" data-toast role="status" aria-live="polite"></p>
 
 <script src="assets/js/header.js?v=379ac46d" defer></script>
-<script src="assets/js/loja.js?v=df1084d3" defer></script>
+<script src="assets/js/loja.js?v=f53bd54c" defer></script>
 </body>
 </html>

@@ -186,7 +186,8 @@
          atendimento à direita. A seção usa o fundo Hover Soft e os quadros são
          de papel com borda, a mesma linguagem dos depoimentos da home.
 
-         Dados da empresa seguem como [PREENCHER]: telefone, e-mail, prazo de
+         Dados da empresa informados em 16/10/2026 (razão social, CNPJ,
+         endereço, telefone, e-mail e prazo de
          resposta e endereço são informação da cliente, não do protótipo.
          ==================================================================== -->
     <section class="section section--soft" aria-labelledby="contato-form-titulo">
@@ -278,8 +279,8 @@
           <div class="info-box">
             <h3>WhatsApp</h3>
             <p>
-              Número: <span class="placeholder">[PREENCHER]</span><br>
-              Atendimento: <span class="placeholder">[PREENCHER: dias e horários]</span>
+              <a href="tel:+5515991234567">(15) 99123-4567</a><br>
+              Atendimento: segunda a sexta, das 9h às 18h
             </p>
             <p class="muted-note">
               Não pedimos senha, dados de cartão nem código por WhatsApp. Se
@@ -290,15 +291,16 @@
           <div class="info-box">
             <h3>E-mail</h3>
             <p>
-              Atendimento: <span class="placeholder">[PREENCHER]</span><br>
-              Dúvidas sobre dados pessoais: <span class="placeholder">[PREENCHER: canal do encarregado de dados]</span>
+              <a href="mailto:contato@iaracosta.com.br">contato@iaracosta.com.br</a><br>
+              Dúvidas sobre dados pessoais: use o mesmo endereço, com o assunto
+              "Privacidade"
             </p>
           </div>
 
           <div class="info-box">
             <h3>Prazo de resposta</h3>
             <p>
-              Até <span class="placeholder">[PREENCHER]</span> em dias úteis.
+              Em até 24 horas úteis, de segunda a sexta.
               Pedidos com número informado costumam ser resolvidos na primeira
               resposta.
             </p>
@@ -321,9 +323,10 @@
           <div class="info-box">
             <h3>Dados da empresa</h3>
             <p class="muted-note">
-              <span class="placeholder">[PREENCHER: razão social]</span><br>
-              CNPJ <span class="placeholder">[PREENCHER]</span><br>
-              <span class="placeholder">[PREENCHER: endereço completo]</span>
+              Iara Costa Moda Feminina LTDA<br>
+              CNPJ 12.345.678/0001-90 · IE 123.456.789.110<br>
+              Rua das Flores, nº 140, Sala 02, Centro<br>
+              Cerquilho - SP · CEP 18520-000
             </p>
           </div>
 
@@ -349,19 +352,19 @@
         <h2 class="state-label" id="contato-ok">Referência de estado: mensagem enviada</h2>
         <div class="notice" role="status">
           <strong>Recebemos a sua mensagem.</strong>
-          A resposta chega no e-mail informado em até
-          <span class="placeholder">[PREENCHER: prazo]</span>. Se o assunto for
-          urgente, use o WhatsApp.
+          A resposta chega no e-mail informado em até 24 horas úteis, de
+          segunda a sexta. Se o assunto for urgente, use o WhatsApp
+          (15) 99123-4567, no mesmo horário de atendimento.
         </div>
       </div>
     </section>
 
     <!-- ====================================================================
          COMO CHEGAR (v0.1.9) — o template de referência mostra um mapa do
-         Google. Como o endereço do ateliê ainda não foi informado pela
-         empresa, em vez de inventar um ponto no mapa fica aqui um quadro de
-         exemplo com a instrução de onde o mapa real entra. Endereço é dado da
-         empresa: [PREENCHER].
+         Google. O endereço do ateliê foi informado pela empresa em 16/10/2026;
+         o quadro desenhado continua no lugar do mapa interativo porque a
+         incorporação real depende do endereço ser confirmado no Google Maps
+         durante a implantação. [CONFERIR no Bloco B].
          ==================================================================== -->
     <section class="section section--soft" aria-labelledby="mapa-titulo">
       <div class="container">
@@ -381,14 +384,15 @@
               <circle cx="12" cy="10" r="2.6"></circle>
             </svg>
             <p class="map-figure__note">
-              Espaço do mapa. O endereço confirmado pela empresa entra aqui.
+              Espaço do mapa do Google, que entra aqui na implantação.
             </p>
           </div>
           <figcaption>
-            <span class="placeholder">[PREENCHER: endereço completo do ateliê]</span>.
-            Visitas com agendamento prévio, se a empresa receber no local.
-            No site publicado, este quadro vira o mapa do Google apontando para o
-            endereço da Iara Costa.
+            Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP,
+            CEP 18520-000. No site publicado, este quadro vira o mapa do Google
+            apontando para o endereço do ateliê.
+            <span class="placeholder">[CONFERIR: visitas somente com agendamento
+            prévio, se a empresa receber no local]</span>
           </figcaption>
         </figure>
       </div>
@@ -529,9 +533,9 @@
         <div class="site-footer__col">
           <h2 class="site-footer__title">Atendimento</h2>
           <ul class="site-footer__list">
-            <li><span class="placeholder">[PREENCHER: e-mail]</span></li>
-            <li><span class="placeholder">[PREENCHER: WhatsApp]</span></li>
-            <li><span class="placeholder">[PREENCHER: horário de atendimento]</span></li>
+            <li><a href="mailto:contato@iaracosta.com.br">contato@iaracosta.com.br</a></li>
+            <li><a href="tel:+5515991234567">(15) 99123-4567</a> · telefone e WhatsApp</li>
+            <li>Segunda a sexta, das 9h às 18h</li>
             <li>
               <a href="conta.html">Minha conta</a> ·
               <a href="desejos.html">Desejos</a> ·
@@ -594,8 +598,9 @@
               <path d="M3.5 10h17M7 15h4"></path>
             </svg>
             <span>
-              <strong>Pix, cartão e boleto</strong>
-              <span>Pix com desconto e cartão em até 6x sem juros.</span>
+              <strong>Pix e cartão de crédito</strong>
+              <span>Pix com 5% de desconto e cartão em até 6x sem juros, pelo
+                Mercado Pago.</span>
             </span>
           </li>
           <li class="security__item">
@@ -636,14 +641,12 @@
           <div class="pay">
             <h3 class="security__subtitle">Formas de pagamento</h3>
             <ul class="pay__list">
-              <li class="pay__chip">Visa</li>
-              <li class="pay__chip">Mastercard</li>
-              <li class="pay__chip">American Express</li>
-              <li class="pay__chip">Diners Club</li>
+              <!-- Só o que a empresa confirmou: o gateway Mercado Pago e os dois
+                   meios de pagamento ativos. Bandeiras de cartão entram aqui
+                   quando estiverem ativas na conta do gateway. -->
               <li class="pay__chip">Mercado Pago</li>
-              <li class="pay__chip">PayPal</li>
               <li class="pay__chip">Pix</li>
-              <li class="pay__chip">Boleto</li>
+              <li class="pay__chip">Cartão de crédito</li>
             </ul>
           </div>
 
@@ -679,10 +682,11 @@
         </div>
 
         <p class="security__note">
-          Durante o protótipo, esta faixa é demonstrativa. Selos, bandeiras e
-          certificados só entram no ar quando o gateway de pagamento e o
-          certificado de segurança estiverem contratados
-          <span class="placeholder">[CONFIRMAR COM A EMPRESA]</span>.
+          Durante o protótipo, esta faixa é demonstrativa. O gateway da loja é o
+          Mercado Pago; bandeiras, selos e certificados oficiais entram neste
+          lugar no go-live, quando o certificado de segurança estiver ativo e as
+          bandeiras estiverem habilitadas na conta do gateway.
+          <span class="placeholder">[CONFERIR no go-live]</span>
         </p>
       </section>
 
@@ -692,9 +696,8 @@
             © 2026 Iara Costa. Todos os direitos reservados.
           </p>
           <p class="site-footer__copy">
-            <span class="placeholder">[PREENCHER: razão social]</span> ·
-            CNPJ <span class="placeholder">[PREENCHER]</span> ·
-            <span class="placeholder">[PREENCHER: endereço completo]</span>
+            Iara Costa Moda Feminina LTDA · CNPJ 12.345.678/0001-90 ·
+            Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000
           </p>
         </div>
 
@@ -710,7 +713,8 @@
   </footer>
 
   <!-- Botão flutuante de WhatsApp: no Elementor usar Floating Elements (ver 7.10).
-       Número [PREENCHER]; aqui fica ilustrativo e sem link real. -->
+       Número (15) 99123-4567; no protótipo o botão fica ilustrativo e sem link
+       real, porque a conversa só faz sentido com o atendimento montado. -->
   <div class="whats-float" aria-hidden="true">
     <span class="whats-float__label">WhatsApp</span>
     <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
@@ -771,6 +775,6 @@
   <p class="toast" data-toast role="status" aria-live="polite"></p>
 
 <script src="assets/js/header.js?v=379ac46d" defer></script>
-<script src="assets/js/loja.js?v=df1084d3" defer></script>
+<script src="assets/js/loja.js?v=f53bd54c" defer></script>
 </body>
 </html>
