@@ -118,6 +118,23 @@ marca a caixa.
 descrições, a ausência de travessão e a chegada da descrição longa no HTML da
 home. Total do arquivo: 1.043 verificações, todas passando.
 
+**Fechamento do Bloco A (mesma data, sem mudança no template).** Com a v0.1.20
+aprovada, o Bloco A (protótipo HTML estático de 22 páginas) foi dado como
+**concluído** e congelado:
+
+| O que | Onde |
+|---|---|
+| Cópia integral do protótipo, idêntica a `seu-projeto/` (75 arquivos, 6,2 MB), com `LEIA-ME.txt` explicando a pasta | `template-v0.1.20/` |
+| Tudo o que ainda depende de informação da empresa, em um documento só: 78 marcações nas 22 páginas, separadas por assunto e por quem resolve | `PENDENCIAS.md` |
+| `README.md` da raiz reescrito para dizer que o Bloco A fechou, com a organização do repositório atualizada | `README.md` |
+
+A cópia foi conferida com `diff -r`: é idêntica a `seu-projeto/`, fora o
+`LEIA-ME.txt` da própria pasta. O `seu-projeto/` também foi conferido contra a
+etiqueta `v0.1.20` (`git diff`): nada mudou desde a auditoria que originou a
+versão. As verificações seguem em 1.043, sem falha, com `check.py` e o pente
+fino em "tudo certo" nas 22 páginas. A pasta `template-v0.1.18/` fica guardada
+como registro da versão anterior.
+
 ### v0.1.19 · 2026-10-16 · Pente fino no navegador: o que estava quebrado no celular
 
 **De onde veio:** continuação dos ajustes no protótipo depois do merge. Desta

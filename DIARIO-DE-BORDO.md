@@ -1,5 +1,78 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Bloco A fechado e congelado (v0.1.20)
+
+### Pedido da cliente
+"Em relação ao template vamos finalizar". Na abertura da rodada, a cliente
+escolheu fechar o Bloco A **como ele está**, com as pendências de conteúdo
+registradas, e criar a **pasta congelada da versão 0.1.20**, mantendo a
+`template-v0.1.18/` intacta.
+
+### O que foi feito (IMPLEMENTADO)
+- **Pasta `template-v0.1.20/`** na raiz: cópia integral do protótipo (75
+  arquivos, 6,2 MB), com `LEIA-ME.txt` próprio explicando o que é a pasta, o que
+  tem dentro, como abrir e onde fica a versão mais nova. Conferida com `diff -r`
+  contra `seu-projeto/`: idêntica, fora o `LEIA-ME.txt`.
+- **`PENDENCIAS.md`** novo na raiz: as 78 marcações que existem dentro das 22
+  páginas, reunidas por assunto (conteúdo que só a empresa pode escrever,
+  decisões de negócio e operação, confirmações pontuais, textos propostos e
+  conferências de instalação), com a coluna de onde cada uma aparece. Fecha com
+  a ordem sugerida para resolver: primeiro conteúdo e decisões, depois as
+  conferências de instalação.
+- **`README.md` da raiz** atualizado: o Bloco A aparece como fechado na versão
+  0.1.20, a tabela de organização ganhou a pasta nova e o `PENDENCIAS.md`, o
+  exemplo de servidor local aponta para a pasta congelada, o intervalo de
+  etiquetas vai até `v0.1.20` e a contagem de verificações passou de 997 para
+  1.043.
+
+### Conferências desta rodada
+- `seu-projeto/` contra a etiqueta `v0.1.20` (`git diff --stat`): nenhuma
+  diferença. É exatamente o conteúdo auditado e taggeado que foi congelado.
+- `template-v0.1.20/` contra `seu-projeto/` (`diff -r`): idênticos, fora o
+  `LEIA-ME.txt` da pasta.
+- `build.py` e `check.py`: 22 páginas geradas e "tudo certo".
+- `node tools/test.js`: 1.043 verificações, nenhuma falha.
+- `pente-fino.py`: as 12 seções em "nenhum".
+- Contagem das marcações por tipo, feita por script sobre os 22 arquivos:
+  9 `[PREENCHER]`, 22 `[A DEFINIR]`, 2 `[CONFIRMAR COM A EMPRESA]`, 4
+  `[PROPOSTA]` e 41 `[CONFERIR]`, 78 no total.
+
+### Decisões tomadas
+- **Registro sem mudança de versão:** o fechamento não altera nenhum arquivo do
+  protótipo, então a versão continua 0.1.20 e a pasta congelada leva esse número.
+- **A `template-v0.1.18/` fica guardada**, mantendo as duas pastas: abre-se mão
+  de ter uma cópia só para preservar o que foi aprovado em cada momento.
+- **As pendências ganharam documento próprio** em vez de ficarem apenas dentro
+  das páginas: quem for escrever o conteúdo ou contratar as ferramentas trabalha
+  por ele, sem precisar caçar marcador no HTML.
+- **Os títulos de página não mudam nesta rodada:** qualquer ajuste de texto de
+  conteúdo entra na próxima versão, quando as informações chegarem.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Conferência da cliente no navegador: acordeão do FAQ, formulário de contato e
+  seletor de cor da página de produto (pendência trazida da v0.1.19).
+- As 78 pendências de `PENDENCIAS.md`, que passa a ser o documento de referência
+  para conteúdo, decisões e conferências.
+- Contraste dos ornamentos (`--iara-index` 3,17:1 e estrela da avaliação
+  4,46:1): segue como estava, à espera de decisão.
+
+## [2026-10-16] - PR #4 mergeado na main (registro)
+
+### O que aconteceu
+- O **PR #4** (branch de trabalho -> `main`) foi **mergeado** em 16/10/2026, às
+  16h37 (horário de Brasília), por Matheus Costa (`mdiascosta`).
+- **Commit de merge: `20112f2`.** Entraram os dois commits da v0.1.20: as 22
+  descrições de busca reescritas e os cinco alvos de toque ampliados, mais a
+  subida de versão de 0.1.19 para 0.1.20.
+- A `main` ficou com o `VERSION` em 0.1.20 e a etiqueta `v0.1.20` aponta para o
+  mesmo conteúdo que entrou; o histórico de etiquetas vai de `v0.1.0` a `v0.1.20`.
+- Antes do merge, o protótipo foi liberado para a cliente abrir no navegador pela
+  prévia do ambiente de trabalho.
+
+### Decisões tomadas
+- **Registro sem mudança de versão**, igual aos merges anteriores: é anotação de
+  documentação sobre algo que já estava entregue.
+
 ## [2026-10-16] - Segundo pente fino: descrições de busca e alvos de toque (v0.1.20)
 
 ### Como esta rodada funcionou
