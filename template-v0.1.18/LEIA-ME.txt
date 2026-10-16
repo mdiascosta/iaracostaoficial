@@ -1,0 +1,60 @@
+TEMPLATE IARA COSTA · VERSAO 0.1.18 · 16/10/2026
+
+
+O QUE E ESTA PASTA
+
+Esta e a copia congelada da versao 0.1.18 do template (o prototipo HTML da loja).
+Ela nao recebe mais mudancas: serve para conferir, a qualquer momento, o que foi
+aprovado nesta versao. O conteudo e identico ao de seu-projeto/ no momento do
+fechamento da versao.
+
+
+O QUE TEM AQUI DENTRO
+
+  index.html          pagina inicial, comece por ela
+  loja.html           listagem com filtros, ordenacao e paginacao de 9
+  produto.html        pagina da peca (a Blusa de Linho Terracota como exemplo)
+  lookbook.html       a colecao Terra & Linho em tres capitulos
+  carrinho.html       sacola com cupom, frete e resumo
+  checkout.html       finalizacao em tres passos, com Pix, cartao e boleto
+  pedido-recebido.html  confirmacao do pedido
+  conta.html          minha conta, pedidos e enderecos
+  desejos.html        lista de desejos
+  sobre.html          historia, atelie e valores
+  contato.html        formulario e informacoes de atendimento
+  blog.html           diario, com os posts
+  post.html           artigo (guia de medidas como exemplo)
+  busca.html          resultados da busca
+  404.html            pagina nao encontrada
+  faq.html            perguntas frequentes
+  guia-medidas.html   como tirar as medidas
+  envio.html          prazos, frete e rastreio
+  trocas.html         trocas, devolucoes e arrependimento
+  privacidade.html    politica de privacidade (rascunho)
+  termos.html         termos de uso (rascunho)
+  cookies.html        politica de cookies (rascunho)
+  README.md           o que mudou em cada rodada do prototipo
+  SPECS-DE-IMAGEM.md  tamanho e conteudo de cada foto
+  assets/             CSS, JavaScript, fontes e imagens
+
+
+COMO ABRIR
+
+  Do jeito mais simples: de dois cliques em index.html.
+
+  Com servidor local (recomendado):
+
+      python3 -m http.server 8080
+
+  Depois abra http://localhost:8080 no navegador.
+
+
+ONDE FICA A VERSAO MAIS NOVA
+
+  A versao em desenvolvimento fica em seu-projeto/, na raiz do repositorio.
+  Quando uma versao fecha, ela ganha uma pasta como esta, com o numero no nome.
+
+  O historico completo esta em HISTORICO-DE-VERSOES.md (o que mudou em cada
+  versao) e DIARIO-DE-BORDO.md (o registro de cada rodada), na raiz. Cada versao
+  tambem tem uma etiqueta no Git (v0.1.0 ate v0.1.18), que guarda os arquivos
+  como estavam naquele dia.
