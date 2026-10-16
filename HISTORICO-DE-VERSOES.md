@@ -61,6 +61,37 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.4 · 2026-10-16 · Perguntas frequentes na home e faixas verdes
+
+**O que mudou em relação à v0.1.3:**
+
+- **Perguntas frequentes na home (pedido da cliente).** Nova faixa sálvia antes
+  do rodapé com cinco perguntas do atendimento, em acordeão: conta, tabela de
+  medidas, troca, entrega e tratamento de dados. As respostas são as mesmas da
+  página Perguntas frequentes, e há um link para ela no fim da faixa.
+- **Lista de espera em faixa compacta.** O conteúdo da faixa antiga ("Cada
+  coleção nasce uma vez", que a cliente achou que não estava no lugar certo)
+  virou uma faixa curta no meio da home, entre os destaques e a vitrine por
+  ocasião: título à esquerda e formulário em uma linha à direita. A faixa
+  colorida da cor sálvia continua, agora com menos altura.
+- **Rodapé resolvido.** A faixa de perguntas encosta no rodapé e passa a ser o
+  separador verde entre o conteúdo e o fim da página. Antes havia um vão branco
+  grande e dois pedidos de e-mail seguidos (lista de espera e newsletter do
+  rodapé); agora a faixa perto do rodapé é conteúdo, não captura de e-mail.
+- **Formulário que não quebrava bem.** Na faixa compacta, campo e botão ficam
+  na mesma linha a partir de 721px; abaixo disso continuam empilhados.
+
+**Verificado nesta versão:** 22 páginas sem erro de estrutura; 81 verificações
+automatizadas passando (incluindo as novas: as duas faixas, as cinco perguntas,
+o acordeão abrindo e fechando no clique e a ordem das seções); contraste
+conferido nos pares novos (papel sobre sálvia 5,9:1; resposta do acordeão
+5,45:1; Accent Soft sobre sálvia foi descartado, 3,86:1).
+
+**Ainda não verificado:** conferência visual em navegador e contraste medido
+por ferramenta (axe/WAVE).
+
+---
+
 ### v0.1.3 · 2026-10-16 · Refinamento de rodapé, cabeçalhos e cartões
 
 **O que mudou em relação à v0.1.2:**
@@ -229,7 +260,7 @@ páginas legais.
 
 | Versão | Conteúdo esperado |
 |---|---|
-| v0.1.4 | Ajustes finos a partir da conferência visual da cliente |
+| v0.1.5 | Ajustes finos a partir da conferência visual da cliente |
 | v0.2.0 | Bloco B: JSONs de templates para Elementor |
 | v0.3.0 | Bloco C: kit ZIP, produtos.csv, posts.csv e guias de instalação |
 | v1.0.0 | Go-live: site publicado com dados reais e revisão jurídica concluída |

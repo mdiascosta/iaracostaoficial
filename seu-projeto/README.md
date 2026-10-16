@@ -45,6 +45,15 @@ Depois abra `http://localhost:8080` no navegador.
 
 O dossiê pede que todos os estados de tela estejam representados. Onde procurar:
 
+### Novidades da v0.1.4 (ajustes pedidos pela cliente)
+
+| Ajuste | Como ficou |
+|---|---|
+| Perguntas frequentes | Faixa sálvia antes do rodapé com cinco perguntas em acordeão, com as mesmas respostas da página Perguntas frequentes e link para ela |
+| Lista de espera | Virou faixa compacta no meio da home, entre os destaques e a vitrine por ocasião, com o formulário em uma linha |
+| Rodapé | A faixa de perguntas encosta no rodapé e passa a ser o separador verde, sem o vão branco e sem dois pedidos de e-mail em sequência |
+| Cor sálvia | Continua sendo a única cor de faixa do site: uma pequena no meio e uma antes do rodapé |
+
 ### Novidades da v0.1.3 (ajustes pedidos pela cliente)
 
 | Ajuste | Como ficou |

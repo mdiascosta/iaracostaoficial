@@ -1,5 +1,53 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Perguntas frequentes na home e uso da cor sálvia
+
+### Pedido da cliente
+Com a captura da faixa verde em mãos: adicionar uma seção de perguntas e
+respostas na home; a cor da faixa verde está ótima, mas o conteúdo não ficou no
+lugar certo; criar uma seção antes do rodapé com essa cor para separar o
+rodapé, com outro conteúdo; usar a mesma cor numa seção pequena no meio da
+home; e resolver o rodapé.
+
+### O que foi feito (IMPLEMENTADO)
+- **Perguntas frequentes na home.** Faixa sálvia antes do rodapé com cinco
+  perguntas que mais chegam no atendimento, em acordeão: criar conta, tabela de
+  medidas, troca e devolução, entrega e tratamento de dados. As respostas são
+  as mesmas da página Perguntas frequentes, para não existir duas versões da
+  mesma resposta no site. A faixa termina com o link "Ver todas as perguntas".
+- **Lista de espera compacta no meio da home.** O conteúdo da faixa antiga
+  virou uma faixa curta entre os destaques e a vitrine por ocasião: título à
+  esquerda, formulário em uma linha à direita e a nota de uma linha embaixo.
+  Era o conteúdo que estava colado no rodapé, onde repetia o pedido de e-mail
+  que a newsletter já faz.
+- **Rodapé resolvido.** A faixa de perguntas encosta no rodapé, então o verde
+  passa a ser o separador entre o conteúdo e o fim da página. Isso tirou o vão
+  branco grande que aparecia na captura e acabou com os dois pedidos de e-mail
+  em sequência.
+- **Formulário em uma linha.** Na faixa compacta, campo e botão ficam lado a
+  lado a partir de 721px (na captura o botão caía para baixo do campo). Abaixo
+  disso, continuam empilhados, que é o certo no celular.
+
+### O que foi verificado
+- Geração das 22 páginas sem erro de estrutura.
+- 81 verificações automatizadas passando, entre elas as novas: as duas faixas
+  na home, as cinco perguntas, o acordeão abrindo e fechando no clique, a ordem
+  das seções e o rodapé logo depois do conteúdo.
+- Contraste calculado nos pares novos: papel sobre sálvia 5,9:1 (AA), resposta
+  do acordeão 5,45:1 (AA). Accent Soft sobre sálvia ficou em 3,86:1 e por isso
+  não foi usado em texto pequeno, só em elemento gráfico.
+
+### O que ainda não foi verificado
+- Conferência visual em navegador e medição de contraste por ferramenta
+  (axe ou WAVE).
+
+### Próximo passo sugerido
+Conferir a home no navegador, principalmente as duas faixas verdes. Se a lista
+de espera ficar melhor em outro ponto, ou se preferirem outro conteúdo na faixa
+pequena, é uma linha de mudança.
+
+---
+
 ## [2026-10-16] - Rodapé, cabeçalhos de página, benefícios, depoimentos e diário
 
 ### Pedido da cliente
