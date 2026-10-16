@@ -736,3 +736,69 @@
 
   .shop__toggle { display: inline-flex; }
 }
+
+/* ============================================================================
+   14. FAIXAS SÁLVIA DA HOME (v0.1.4)
+
+   A mesma cor sálvia aparece duas vezes na home: uma faixa compacta no meio da
+   página, com a lista de espera, e a faixa de perguntas frequentes antes do
+   rodapé. A segunda encosta no rodapé e passa a ser o separador verde entre o
+   conteúdo e o fim da página, sem o vão branco que existia antes.
+   ========================================================================= */
+
+.band--compact .band__inner {
+  align-items: center;
+  gap: 18px 40px;
+  padding-block: clamp(24px, 3vw, 34px);
+}
+
+.band--compact h2 { margin: 0; font-size: clamp(22px, 2.4vw, 32px); }
+
+@media (min-width: 721px) {
+  .band--compact .band__inner { grid-template-columns: minmax(0, 1fr) minmax(280px, 400px); }
+  .band--compact .band__form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; }
+  .band--compact .band__form .field__input { min-width: 0; }
+}
+
+.band__note {
+  margin: 12px 0 0;
+  font-size: var(--fs-small);
+  color: var(--iara-paper);
+  opacity: 0.9;
+  max-width: 84ch;
+}
+
+.band--faq .band__inner {
+  align-items: start;
+  gap: 28px 56px;
+  padding-block: clamp(44px, 5vw, 64px);
+}
+
+@media (min-width: 1021px) {
+  .band--faq .band__inner { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
+}
+
+.band--faq h2 { font-size: clamp(26px, 3vw, 38px); }
+.band--faq .lead { margin-bottom: 18px; }
+
+.band--faq .action-link { margin-top: 6px; }
+
+/* Acordeão sobre o sálvia. O hover só sublinha: Accent Soft sobre sálvia fica
+   em 3,86:1 e não serve para texto pequeno. Papel sobre sálvia fica em 5,9:1. */
+.band .accordion { border-top-color: rgba(255, 253, 249, 0.28); }
+.band .accordion__item { border-bottom-color: rgba(255, 253, 249, 0.28); }
+.band .accordion__button { color: var(--iara-paper); }
+.band .accordion__button:hover { color: var(--iara-paper); text-decoration: underline; text-underline-offset: 3px; }
+.band .accordion__panel { color: var(--iara-paper); opacity: 0.94; max-width: 62ch; }
+.band .accordion__panel a { color: var(--iara-paper); }
+
+.action-link--paper { color: var(--iara-paper); }
+.action-link--paper span { color: var(--iara-paper); }
+.action-link--paper:hover { color: var(--iara-paper); opacity: 0.88; }
+
+/* A faixa de perguntas encosta no rodapé: o verde vira o separador. */
+main:has(> .band--faq) + .site-footer {
+  margin-top: 0;
+  border-top: 0;
+  padding-top: clamp(32px, 4vw, 52px);
+}
