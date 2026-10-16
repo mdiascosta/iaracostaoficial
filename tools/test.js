@@ -1481,6 +1481,37 @@ console.log('\n=== 23. COLECAO EM CAPITULOS, COMO NO ZIP (v0.1.16) ===');
   const heroCss = css.match(/\.look-hero \{[^}]*\}/)[0];
   ok(/text-align:\s*center/.test(heroCss), 'capa centralizada, como no zip');
 }
+console.log('\n=== 24. HERO DA HOME COM A FOTO INTEIRA E O SELO EM CIMA (v0.1.17) ===');
+{
+  const doc = carregar('index.html').window.document;
+  const css = fs.readFileSync(path.join(RAIZ, 'assets/css/pages.css'), 'utf8');
+
+  const selo = doc.querySelector('.hero__media .hero__stamp');
+  ok(!!selo, 'a foto do hero tem o selo com a descricao');
+  ok(!!selo && /Blusa de Linho Terracota/.test(selo.textContent), 'o selo nomeia a peca da foto');
+  ok(!!selo && /argila do Vale do Paraíba/.test(selo.textContent),
+     'o selo cita o tingimento com argila, confirmado pela cliente em 16/10/2026');
+  ok(!!selo && !/\u2014/.test(selo.textContent), 'sem travessao no selo (regra de copy)');
+  ok(!!selo && !!selo.querySelector('.index-number'), 'selo numerado 01, como no zip');
+
+  const mediaCss = css.match(/\.hero__media img \{[^}]*\}/)[0];
+  ok(/width: 100%/.test(mediaCss) && /height: auto/.test(mediaCss), 'a foto ocupa a coluna inteira');
+  ok(!/aspect-ratio|object-fit/.test(mediaCss),
+     'a foto entra inteira, sem moldura retrato e sem recorte (pedido da cliente)');
+
+  const seloCss = css.match(/\.hero__stamp \{[^}]*\}/)[0];
+  ok(/position: absolute/.test(seloCss), 'o selo fica em cima da foto');
+  ok(/right: var\(--iara-space-4\)/.test(seloCss) && /bottom: var\(--iara-space-4\)/.test(seloCss),
+     'selo no canto inferior direito, como no zip');
+  ok(/max-width: 220px/.test(seloCss), 'largura maxima do selo igual a do template (220px)');
+  ok(/background: var\(--iara-paper\)/.test(seloCss) && /border: 1px solid var\(--iara-line\)/.test(seloCss),
+     'selo com fundo de papel e borda fina, como no zip');
+  ok(/\.hero__stamp \.index-number \{ display: block; margin-bottom: 2px; \}/.test(css),
+     'numeral 01 em linha propria, como no zip');
+  ok(/@media \(max-width: 720px\) \{\s*\.hero__stamp \{ position: static/.test(css),
+     'no celular o selo desce para baixo da foto, para nao cobrir a modelo');
+}
+
 console.log(falhas === 0 ? 'RESULTADO: TUDO CERTO' : 'RESULTADO: ' + falhas + ' FALHA(S)');
 console.log('========================================\n');
 process.exit(falhas === 0 ? 0 : 1);

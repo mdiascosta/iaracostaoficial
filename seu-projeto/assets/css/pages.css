@@ -53,25 +53,39 @@
   color: var(--iara-accent-soft);
 }
 
+/* Hero (v0.1.17). A foto entra inteira, na proporcao original (768x1376),
+   como no zip: sem moldura retrato e sem recorte. A moldura 4:5 e o corte
+   que existiam aqui sairam a pedido da cliente em 16/10/2026. */
 .hero__media { margin: 0; position: relative; }
 
 .hero__media img {
+  display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 6 / 7;
-  object-fit: cover;
   border: 1px solid var(--iara-hairline);
 }
 
-@media (min-width: 1021px) { .hero__media img { aspect-ratio: 5 / 6; } }
-
+/* Selo sobre a foto, no canto inferior direito, como no zip: fundo de papel,
+   borda fina, numeral 01 em linha propria e a descricao em duas ou tres
+   linhas (max-width 220px, igual ao template aprovado). */
 .hero__stamp {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  padding-top: 12px;
+  position: absolute;
+  right: var(--iara-space-4);
+  bottom: var(--iara-space-4);
+  max-width: 220px;
+  padding: var(--iara-space-3) var(--iara-space-4);
+  background: var(--iara-paper);
+  border: 1px solid var(--iara-line);
   font-size: var(--fs-small);
+  line-height: 1.5;
   color: var(--iara-ink-soft);
+}
+
+.hero__stamp .index-number { display: block; margin-bottom: 2px; }
+
+/* No celular o selo desce para baixo da foto, para nao cobrir a modelo. */
+@media (max-width: 720px) {
+  .hero__stamp { position: static; max-width: none; margin-top: var(--iara-space-3); }
 }
 
 /* Faixa de destaque (banner + CTA) */
