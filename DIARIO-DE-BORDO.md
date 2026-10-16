@@ -1,5 +1,47 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Versionamento: v0.1.0 gravada e enviada ao GitHub
+
+### O que foi feito (IMPLEMENTADO)
+- Todo o trabalho até aqui estava apenas no workspace, sem histórico. Agora está
+  versionado em 7 commits temáticos e enviado ao GitHub.
+- Criado esquema de versionamento para preservar as versões anteriores:
+  - `VERSION` (0.1.0) e `HISTORICO-DE-VERSOES.md` com a convenção
+    `vMAJOR.MINOR.PATCH` e o passo a passo de como voltar a uma versão antiga.
+  - Etiqueta (tag) anotada `v0.1.0` = primeiro entregável do projeto.
+  - `.gitignore` para manter fora do repositório o que não é entregável.
+- Branch `arena/557fb81d-iaracostaoficial` e a etiqueta `v0.1.0` enviadas para
+  `origin` (github.com/mdiascosta/iaracostaoficial).
+
+### Commits criados (na ordem)
+1. `docs:` diário de bordo, histórico de versões e gitignore
+2. `feat:` gerador do protótipo com header e footer compartilhados
+3. `feat:` sistema visual do Bloco A (CSS, JS e tokens)
+4. `chore:` imagens de exemplo (47 SVGs) e guia de fontes locais
+5. `feat:` as 22 páginas do protótipo HTML
+6. `chore:` conteúdo-fonte das 22 páginas em tools/content
+7. `docs:` README do protótipo e lista das imagens a produzir
+
+### Verificado
+- `git status`: árvore limpa, nada pendente.
+- `tools/check.py` rodado depois do commit: 22 páginas, tudo certo.
+- Remoto confirmado: branch e etiqueta presentes no GitHub.
+- 111 arquivos versionados. Tamanho do `.git`: 937 KB.
+
+### Decisão tomada
+- D24: versionamento com etiqueta anotada a cada entrega aprovada, em vez de
+  pastas numeradas. Motivo: o Git guarda o histórico completo e permite abrir
+  qualquer versão anterior sem duplicar arquivos. Impacto: a cada mudança
+  aprovada sobe uma etiqueta nova (`v0.1.1` para ajustes, `v0.2.0` para o
+  Bloco B, `v1.0.0` no go-live), e o `HISTORICO-DE-VERSOES.md` registra o que
+  mudou.
+
+### Próximo passo
+- Conferência visual da equipe no protótipo. Depois: ajustes (v0.1.1) ou
+  Bloco B (v0.2.0), conforme a escolha.
+
+---
+
 ## [2026-10-15] - E1 - Bloco A, Parte 3/3 (institucional, guias, legais) - BLOCO A CONCLUÍDO
 
 ### O que foi feito (IMPLEMENTADO)
