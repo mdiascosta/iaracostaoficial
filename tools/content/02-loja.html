@@ -11,56 +11,179 @@
       <div class="page-head__inner">
         <h1>Todas as peças</h1>
         <p class="lead">
-          O catálogo inteiro em uma única grade, sem paginação e sem esconder
+          O catálogo inteiro em uma grade única, sem paginação e sem esconder
           nada. Cada foto é da peça, na proporção original.
         </p>
       </div>
     </div>
 
     <div class="container">
-      <div class="shop-toolbar">
-        <div>
-          <p class="field__label" id="filtro-rotulo">Filtrar por categoria</p>
-          <ul class="filter-list" aria-labelledby="filtro-rotulo">
-            <li><button class="filter-chip" type="button" data-filter="todas" aria-pressed="true">Todas (12)</button></li>
-            <li><button class="filter-chip" type="button" data-filter="vestidos" aria-pressed="false">Vestidos (2)</button></li>
-            <li><button class="filter-chip" type="button" data-filter="blusas" aria-pressed="false">Blusas &amp; Camisas (3)</button></li>
-            <li><button class="filter-chip" type="button" data-filter="saias-calcas" aria-pressed="false">Saias &amp; Calças (2)</button></li>
-            <li><button class="filter-chip" type="button" data-filter="terceiras-pecas" aria-pressed="false">Terceiras peças (1)</button></li>
-            <li><button class="filter-chip" type="button" data-filter="acessorios" aria-pressed="false">Acessórios (2)</button></li>
-            <li><button class="filter-chip" type="button" data-filter="bolsas" aria-pressed="false">Bolsas (1)</button></li>
-            <li><button class="filter-chip" type="button" data-filter="calcados" aria-pressed="false">Calçados (1)</button></li>
+      <div class="shop">
+
+        <!-- ==================================================================
+             FILTROS LATERAIS
+             Segue o template de referência: coluna de 240px à esquerda, com
+             categorias, faixa de preço, cor e tamanho.
+
+             O filtro funciona na hora, sem recarregar a página (é um protótipo
+             estático). No Bloco B, quem faz este trabalho é o widget de
+             filtragem do WooCommerce, com os mesmos campos.
+
+             Acessibilidade: cada opção é uma linha clicável de 44px, o grupo
+             usa fieldset e legend de verdade, e a contagem de resultados é
+             anunciada por leitor de tela (aria-live).
+             ================================================================== -->
+        <aside class="filters" id="filtros-loja" aria-label="Filtros de produtos">
+          <div class="filters__head">
+            <h2 class="filters__heading">Filtros</h2>
+            <button class="filters__clear" type="button" data-filters-clear>Limpar</button>
+          </div>
+
+          <fieldset class="filters__group">
+            <legend class="filters__title">Categorias</legend>
+            <label class="filters__opt" for="f-cat-vestidos">
+              <input type="checkbox" id="f-cat-vestidos" name="categoria" value="vestidos" data-facet="categoria">
+              Vestidos <span class="filters__count">2</span>
+            </label>
+            <label class="filters__opt" for="f-cat-blusas">
+              <input type="checkbox" id="f-cat-blusas" name="categoria" value="blusas" data-facet="categoria">
+              Blusas &amp; Camisas <span class="filters__count">3</span>
+            </label>
+            <label class="filters__opt" for="f-cat-saias-calcas">
+              <input type="checkbox" id="f-cat-saias-calcas" name="categoria" value="saias-calcas" data-facet="categoria">
+              Saias &amp; Calças <span class="filters__count">2</span>
+            </label>
+            <label class="filters__opt" for="f-cat-terceiras">
+              <input type="checkbox" id="f-cat-terceiras" name="categoria" value="terceiras-pecas" data-facet="categoria">
+              Terceiras Peças <span class="filters__count">1</span>
+            </label>
+            <label class="filters__opt" for="f-cat-acessorios">
+              <input type="checkbox" id="f-cat-acessorios" name="categoria" value="acessorios" data-facet="categoria">
+              Acessórios <span class="filters__count">2</span>
+            </label>
+            <label class="filters__opt" for="f-cat-bolsas">
+              <input type="checkbox" id="f-cat-bolsas" name="categoria" value="bolsas" data-facet="categoria">
+              Bolsas <span class="filters__count">1</span>
+            </label>
+            <label class="filters__opt" for="f-cat-calcados">
+              <input type="checkbox" id="f-cat-calcados" name="categoria" value="calcados" data-facet="categoria">
+              Calçados <span class="filters__count">1</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="filters__group">
+            <legend class="filters__title">Faixa de preço</legend>
+            <div class="filters__price">
+              <label class="visually-hidden" for="f-preco-min">Preço mínimo, em reais</label>
+              <input class="field__input" id="f-preco-min" name="preco_min" type="number"
+                     min="0" step="10" inputmode="numeric" placeholder="mín."
+                     value="149" data-facet="preco-min">
+              <span aria-hidden="true">até</span>
+              <label class="visually-hidden" for="f-preco-max">Preço máximo, em reais</label>
+              <input class="field__input" id="f-preco-max" name="preco_max" type="number"
+                     min="0" step="10" inputmode="numeric" placeholder="máx."
+                     value="789" data-facet="preco-max">
+            </div>
+            <p class="filters__hint">Peças de R$ 149 a R$ 789.</p>
+          </fieldset>
+
+          <fieldset class="filters__group">
+            <legend class="filters__title">Cor</legend>
+            <div class="filters__swatches">
+              <label class="filters__swatch" for="f-cor-terracota">
+                <input type="checkbox" id="f-cor-terracota" name="cor" value="terracota" data-facet="cor">
+                <span class="swatch__dot sw-terracota" aria-hidden="true"></span>
+                Terracota <span class="filters__count">5</span>
+              </label>
+              <label class="filters__swatch" for="f-cor-salvia">
+                <input type="checkbox" id="f-cor-salvia" name="cor" value="salvia" data-facet="cor">
+                <span class="swatch__dot sw-salvia" aria-hidden="true"></span>
+                Sálvia <span class="filters__count">2</span>
+              </label>
+              <label class="filters__swatch" for="f-cor-areia">
+                <input type="checkbox" id="f-cor-areia" name="cor" value="areia" data-facet="cor">
+                <span class="swatch__dot sw-areia" aria-hidden="true"></span>
+                Areia <span class="filters__count">5</span>
+              </label>
+              <label class="filters__swatch" for="f-cor-cru">
+                <input type="checkbox" id="f-cor-cru" name="cor" value="cru" data-facet="cor">
+                <span class="swatch__dot sw-cru" aria-hidden="true"></span>
+                Cru <span class="filters__count">3</span>
+              </label>
+              <label class="filters__swatch" for="f-cor-carvao">
+                <input type="checkbox" id="f-cor-carvao" name="cor" value="carvao" data-facet="cor">
+                <span class="swatch__dot sw-carvao" aria-hidden="true"></span>
+                Carvão <span class="filters__count">4</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="filters__group">
+            <legend class="filters__title">Tamanho</legend>
+            <label class="filters__opt" for="f-tam-p">
+              <input type="checkbox" id="f-tam-p" name="tamanho" value="p" data-facet="tamanho">
+              P <span class="filters__count">8</span>
+            </label>
+            <label class="filters__opt" for="f-tam-m">
+              <input type="checkbox" id="f-tam-m" name="tamanho" value="m" data-facet="tamanho">
+              M <span class="filters__count">8</span>
+            </label>
+            <label class="filters__opt" for="f-tam-g">
+              <input type="checkbox" id="f-tam-g" name="tamanho" value="g" data-facet="tamanho">
+              G <span class="filters__count">8</span>
+            </label>
+            <label class="filters__opt" for="f-tam-gg">
+              <input type="checkbox" id="f-tam-gg" name="tamanho" value="gg" data-facet="tamanho">
+              GG <span class="filters__count">8</span>
+            </label>
+            <label class="filters__opt" for="f-tam-unico">
+              <input type="checkbox" id="f-tam-unico" name="tamanho" value="unico" data-facet="tamanho">
+              Único <span class="filters__count">4</span>
+            </label>
+          </fieldset>
+        </aside>
+
+        <!-- ==================================================================
+             GRADE DE PRODUTOS
+             ================================================================== -->
+        <div class="shop__main">
+          <div class="shop__toolbar">
+            <button class="btn btn--outline shop__toggle" type="button"
+                    data-filters-toggle aria-expanded="false" aria-controls="filtros-loja">
+              Filtros <span data-filters-badge hidden></span>
+            </button>
+
+            <p class="shop__count" data-count role="status" aria-live="polite">12 peças encontradas</p>
+
+            <div class="shop__sort">
+              <label for="ordenar">Ordenar por</label>
+              <select id="ordenar" data-sort>
+                <option value="destaque">Destaques</option>
+                <option value="preco-asc">Menor preço</option>
+                <option value="preco-desc">Maior preço</option>
+                <option value="nome">Nome, de A a Z</option>
+              </select>
+            </div>
+          </div>
+
+          <ul class="product-grid" data-shop-grid>
+            <!--CARDS:blusa-linho-terracota,vestido-midi-salvia,camisa-linho-branca,vestido-longo-cerrado,cropped-tricot-areia,saia-linho-cru,calca-pantalona-salvia,blazer-linho-areia,colar-ceramica,brinco-argila,bolsa-palha,sandalia-couro-->
           </ul>
+
+          <!-- Estado: nenhum produto com os filtros escolhidos -->
+          <div class="state" data-shop-empty hidden>
+            <p class="state__title">Nenhuma peça com esses filtros</p>
+            <p class="state__text">Tente tirar um filtro ou ver o catálogo completo.</p>
+            <div class="state__actions">
+              <button class="btn btn--outline" type="button" data-filters-clear>Ver todas as peças</button>
+            </div>
+          </div>
+
+          <p class="muted-note shop__note">
+            Sem paginação, conforme o dossiê: o catálogo visível de uma vez.
+            Quando passar de 30 peças, o layout precisa ser revisto.
+          </p>
         </div>
 
-        <div class="shop-sort">
-          <label for="ordenar">Ordenar por</label>
-          <select id="ordenar" data-sort>
-            <option value="destaque">Destaques</option>
-            <option value="preco-asc">Menor preço</option>
-            <option value="preco-desc">Maior preço</option>
-            <option value="nome">Nome, de A a Z</option>
-          </select>
-        </div>
       </div>
-
-      <p class="shop-count" data-count role="status" aria-live="polite">12 peças encontradas</p>
-
-      <ul class="product-grid" data-shop-grid>
-        <!--CARDS:blusa-linho-terracota,vestido-midi-salvia,camisa-linho-branca,vestido-longo-cerrado,cropped-tricot-areia,saia-linho-cru,calca-pantalona-salvia,blazer-linho-areia,colar-ceramica,brinco-argila,bolsa-palha,sandalia-couro-->
-      </ul>
-
-      <!-- Estado: nenhum produto na categoria escolhida -->
-      <div class="state" data-shop-empty hidden>
-        <p class="state__title">Nenhuma peça nesta categoria</p>
-        <p class="state__text">Tente outra categoria ou veja o catálogo completo.</p>
-        <div class="state__actions">
-          <button class="btn btn--outline" type="button" data-filter="todas">Ver todas as peças</button>
-        </div>
-      </div>
-
-      <p class="muted-note shop-note">
-        Sem paginação, conforme o dossiê: o catálogo visível de uma vez.
-        Quando passar de 30 peças, o layout precisa ser revisto.
-      </p>
     </div>

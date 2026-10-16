@@ -79,7 +79,10 @@ def render_card(slug: str, produto: dict, nivel: str = "h3") -> str:
 
     preco_num = produto["preco"].replace("R$ ", "").replace(".", "").replace(",", ".")
 
-    return f"""<li class="card" data-categoria="{produto['categoria_slug']}" data-preco="{preco_num}" data-nome="{produto['nome']}" data-ordem="{produto.get('ordem', 0)}">
+    cores = " ".join(produto.get("cores", []))
+    tamanhos = " ".join(produto.get("tamanhos_slug", []))
+
+    return f"""<li class="card" data-categoria="{produto['categoria_slug']}" data-cores="{cores}" data-tamanhos="{tamanhos}" data-preco="{preco_num}" data-nome="{produto['nome']}" data-ordem="{produto.get('ordem', 0)}">
           <a class="card__media" href="produto.html" aria-label="Ver {produto['nome']}">{badge}
             <img class="card__img" src="assets/img/{produto['img']}" alt="{produto['alt']}"
                  width="800" height="1000" loading="lazy" decoding="async">

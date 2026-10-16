@@ -11,7 +11,16 @@
     "alt": "Blusa feminina de linho terracota com botões de madeira",
     "badge": "Novo",
     "avaliacoes": "4,9 · 32 avaliações",
-    "estrelas": 5
+    "estrelas": 5,
+    "cores": [
+      "terracota"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
   },
   {
     "slug": "vestido-midi-salvia",
@@ -25,7 +34,16 @@
     "alt": "Vestido midi feminino verde sálvia com mangas amplas",
     "badge": "Mais vendida",
     "avaliacoes": "5,0 · 48 avaliações",
-    "estrelas": 5
+    "estrelas": 5,
+    "cores": [
+      "salvia"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
   },
   {
     "slug": "camisa-linho-branca",
@@ -39,7 +57,17 @@
     "alt": "Camisa branca feminina de linho lavado com bolso frontal",
     "badge": "",
     "avaliacoes": "4,8 · 19 avaliações",
-    "estrelas": 5
+    "estrelas": 5,
+    "cores": [
+      "cru",
+      "carvao"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
   },
   {
     "slug": "vestido-longo-cerrado",
@@ -53,7 +81,17 @@
     "alt": "Vestido longo feminino estampado em tom natural",
     "badge": "",
     "avaliacoes": "4,9 · 15 avaliações",
-    "estrelas": 5
+    "estrelas": 5,
+    "cores": [
+      "terracota",
+      "carvao"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
   },
   {
     "slug": "cropped-tricot-areia",
@@ -67,7 +105,17 @@
     "alt": "Cropped feminino de tricot areia com manga curta",
     "badge": "Oferta",
     "avaliacoes": "4,7 · 26 avaliações",
-    "estrelas": 5
+    "estrelas": 5,
+    "cores": [
+      "areia",
+      "carvao"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
   },
   {
     "slug": "saia-linho-cru",
@@ -81,7 +129,17 @@
     "alt": "Saia midi feminina de linho cru com pregas",
     "badge": "",
     "avaliacoes": "4,8 · 12 avaliações",
-    "estrelas": 5
+    "estrelas": 5,
+    "cores": [
+      "cru",
+      "areia"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
   },
   {
     "slug": "calca-pantalona-salvia",
@@ -95,7 +153,16 @@
     "alt": "Calça pantalona feminina verde sálvia em linho",
     "badge": "",
     "avaliacoes": "4,7 · 21 avaliações",
-    "estrelas": 5
+    "estrelas": 5,
+    "cores": [
+      "salvia"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
   },
   {
     "slug": "blazer-linho-areia",
@@ -109,7 +176,17 @@
     "alt": "Blazer feminino de linho areia com modelagem solta",
     "badge": "Novo",
     "avaliacoes": "5,0 · 8 avaliações",
-    "estrelas": 5
+    "estrelas": 5,
+    "cores": [
+      "areia",
+      "cru"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
   },
   {
     "slug": "colar-ceramica",
@@ -123,7 +200,13 @@
     "alt": "Colar feminino de contas de cerâmica esmaltadas em tom areia",
     "badge": "",
     "avaliacoes": "4,8 · 27 avaliações",
-    "estrelas": 5
+    "estrelas": 5,
+    "cores": [
+      "terracota"
+    ],
+    "tamanhos_slug": [
+      "unico"
+    ]
   },
   {
     "slug": "brinco-argila",
@@ -137,7 +220,14 @@
     "alt": "Brinco feminino de argila torneada em tom terracota",
     "badge": "",
     "avaliacoes": "4,9 · 18 avaliações",
-    "estrelas": 5
+    "estrelas": 5,
+    "cores": [
+      "terracota",
+      "areia"
+    ],
+    "tamanhos_slug": [
+      "unico"
+    ]
   },
   {
     "slug": "bolsa-palha",
@@ -151,7 +241,13 @@
     "alt": "Bolsa feminina artesanal trançada em palha natural",
     "badge": "",
     "avaliacoes": "4,8 · 22 avaliações",
-    "estrelas": 5
+    "estrelas": 5,
+    "cores": [
+      "areia"
+    ],
+    "tamanhos_slug": [
+      "unico"
+    ]
   },
   {
     "slug": "sandalia-couro",
@@ -165,6 +261,13 @@
     "alt": "Sandália feminina de couro natural com tiras finas",
     "badge": "",
     "avaliacoes": "4,7 · 14 avaliações",
-    "estrelas": 5
+    "estrelas": 5,
+    "cores": [
+      "carvao",
+      "terracota"
+    ],
+    "tamanhos_slug": [
+      "unico"
+    ]
   }
 ]
