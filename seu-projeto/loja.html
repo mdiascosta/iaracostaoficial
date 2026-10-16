@@ -12,10 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- PRODUÇÃO: hospedar as fontes localmente (ver assets/fonts/LEIA-ME.md) -->
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&amp;family=Playfair+Display:wght@400&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=cb9c51bc">
-  <link rel="stylesheet" href="assets/css/header.css?v=6a0c8f8c">
-  <link rel="stylesheet" href="assets/css/pages.css?v=2de3147b">
-  <link rel="stylesheet" href="assets/css/comercio.css?v=d30df938">
+  <link rel="stylesheet" href="assets/css/style.css?v=a5649d91">
+  <link rel="stylesheet" href="assets/css/header.css?v=04715345">
+  <link rel="stylesheet" href="assets/css/pages.css?v=c653cf04">
+  <link rel="stylesheet" href="assets/css/comercio.css?v=d5a9d7a9">
 </head>
 <body class="page-shop">
 <div class="proto-banner" role="note">PROTÓTIPO · DADOS E TEXTOS DE EXEMPLO · NÃO PUBLICAR</div>
@@ -167,26 +167,18 @@
         </ol>
       </nav>
 
-      <span class="page-head__rule" aria-hidden="true"></span>
-      <p class="page-head__eyebrow">Coleção Terra & Linho</p>
-
-      <div class="page-head__inner">
-        <div class="page-head__text">
-          <h1>Todas as peças</h1>
-          <p class="lead">
-            O catálogo inteiro em uma grade única, sem paginação e sem esconder
-            nada. Cada foto é da peça, na proporção original.
-          </p>
-        </div>
-        <div class="page-head__aside">
-          <p class="page-head__meta" data-count role="status" aria-live="polite">12 peças encontradas</p>
-          <p class="page-head__note">
-            Vestuário feminino do P ao GG ·
-            <a href="guia-medidas.html">Guia de medidas</a>
-          </p>
-        </div>
-      </div>
+      <h1>Todas as peças</h1>
     </div>
+
+    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
+         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <div class="container">
+      <p class="lead page-intro">
+        O catálogo inteiro em uma grade única, sem paginação e sem esconder nada.
+        Cada foto é da peça, na proporção original.
+      </p>
+    </div>
+
 
     <div class="container">
       <div class="shop">
@@ -323,6 +315,18 @@
                     data-filters-toggle aria-expanded="false" aria-controls="filtros-loja">
               Filtros <span data-filters-badge hidden></span>
             </button>
+
+            <!-- Contagem e recado de tamanho. Saíram do cabeçalho na v0.1.10,
+                 quando o cabeçalho ficou só com a trilha e o nome da página: é
+                 aqui que a contagem pertence, junto da ordenação. -->
+            <div class="shop__meta">
+              <!-- [CONFERIR] no WooCommerce a contagem vem do próprio tema -->
+              <p class="shop__count" data-count role="status" aria-live="polite">12 peças encontradas</p>
+              <p class="shop__sizes">
+                Vestuário feminino do P ao GG ·
+                <a href="guia-medidas.html">Guia de medidas</a>
+              </p>
+            </div>
 
             <div class="shop__sort">
               <label for="ordenar">Ordenar por</label>

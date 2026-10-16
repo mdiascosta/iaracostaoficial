@@ -54,10 +54,14 @@
 
   /* Escala derivada [PROPOSTA] para o que o dossiê não cobre.
      Aguarda aprovação: títulos de página, seções e texto de blog. */
-  --fs-h1: clamp(30px, 5.2vw, 40px);
-  --fs-h2: clamp(22px, 3.4vw, 28px);
-  --fs-h3: 20px;
-  --fs-price: 18px;
+  /* v0.1.10 — os títulos desceram para a tabela do template do zip:
+     Display 24px (título de página, título de produto, hero e faixas) e
+     Heading 18px (títulos de seção e de card). Antes o h1 chegava a 40px e o
+     h2 a 28px, e a cliente pediu para não ficar grande. */
+  --fs-h1: var(--fs-display);
+  --fs-h2: var(--fs-heading);
+  --fs-h3: var(--fs-heading);
+  --fs-price: var(--fs-heading);
 
   /* Layout */
   /* Largura única do site: a grade de conteúdo acompanha a barra do topo, para
@@ -167,7 +171,10 @@ h1, h2, h3, h4 {
   line-height: 1.2;
 }
 
-h1 { font-family: var(--iara-font-display); font-size: var(--fs-h1); letter-spacing: 0.02em; }
+/* h1 é o Display do template do zip: Playfair 400, 24px, entrelinha 1.1 e
+   entreletra 0.105em (o mesmo tratamento do título de página, do hero e do
+   título de produto no zip). */
+h1 { font-family: var(--iara-font-display); font-size: var(--fs-h1); line-height: 1.1; letter-spacing: 0.105em; }
 h2 { font-family: var(--iara-font-display); font-size: var(--fs-h2); letter-spacing: 0.02em; }
 h3 { font-family: var(--iara-font-ui); font-size: var(--fs-h3); letter-spacing: 0.01em; }
 h4 { font-family: var(--iara-font-ui); font-size: var(--fs-heading); }
@@ -458,67 +465,37 @@ body.page-returns        .notice, body.page-returns        .legal-draft { max-wi
 .breadcrumbs a:hover { color: var(--iara-accent-dark); text-decoration: underline; text-underline-offset: 3px; }
 .breadcrumbs [aria-current="page"] { color: var(--iara-ink); }
 
-/* Dentro do cabeçalho de página a trilha não precisa do respiro de cima. */
-.page-head .breadcrumbs { padding-block: 0; margin-bottom: clamp(18px, 2.4vw, 28px); }
-
 /* Cabeçalho de página (todas as páginas internas).
-   v0.1.7 — título menor, respiro mais curto e contagem alinhada pela base.
-   v0.1.8 — a cliente achou o bloco simples demais. Ele ganhou uma faixa suave
-   de fundo (Hover Soft), um fio curto em Terracota e uma linha de olho acima
-   do título, no mesmo tom do fio. A trilha de navegação passou para dentro do
-   bloco, então tudo que identifica a página fica junto. */
+   v0.1.8 — faixa de fundo, fio curto e linha de olho.
+   v0.1.10 — pedido da cliente: o cabeçalho ficou limpo. Saiu o fundo, saíram a
+   linha de olho e o fio curto: sobraram a trilha de navegação, o nome da página
+   e um fio embaixo. O texto de apoio passou a abrir o conteúdo, logo abaixo do
+   fio (.page-intro), e o título segue a tabela do template do zip: 24px, o
+   mesmo tamanho do título de produto e do hero. */
 .page-head {
-  background: var(--iara-hover-soft);
   border-bottom: 1px solid var(--iara-line);
-  padding-block: clamp(20px, 2.6vw, 32px) clamp(24px, 3.2vw, 40px);
+  padding-block: clamp(20px, 2.4vw, 32px) clamp(22px, 2.8vw, 36px);
 }
 
-.page-head__rule {
-  display: block;
-  width: 48px;
-  height: 2px;
-  background: var(--iara-accent);
-  margin-bottom: 16px;
-}
-
-.page-head__eyebrow {
-  font-size: var(--fs-micro);
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--iara-accent-dark);
-  margin: 0 0 10px;
-}
-
-.page-head__inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 14px 48px;
-}
-
-.page-head__text { max-width: 62ch; }
+.page-head .breadcrumbs { padding-block: 0; margin-bottom: clamp(14px, 1.8vw, 20px); }
 
 .page-head h1 {
-  font-size: clamp(32px, 4vw, 52px);
-  line-height: 1.06;
-  letter-spacing: -0.005em;
-  margin: 0 0 12px;
+  font-size: var(--fs-display);
+  line-height: 1.1;
+  letter-spacing: 0.105em;
+  margin: 0;
   text-wrap: balance;
 }
 
-.page-head .lead { margin: 0; max-width: 56ch; }
-
-.page-head__meta {
-  margin: 0 0 4px;
-  font-size: var(--fs-micro);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--iara-ink-soft);
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
+/* Texto de apoio da página: abre o conteúdo, abaixo do fio do cabeçalho. */
+.page-intro {
+  margin: clamp(18px, 2.4vw, 26px) 0 0;
+  max-width: 62ch;
 }
+
+/* A linha "Última atualização" das páginas legais acompanha o texto de apoio. */
+.page-intro + .muted-note { margin: 10px 0 0; }
+
 
 /* ------------------------------------------------------ 8. CARDS DE PRODUTO */
 .product-grid {

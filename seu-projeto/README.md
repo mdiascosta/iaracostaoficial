@@ -45,6 +45,22 @@ Depois abra `http://localhost:8080` no navegador.
 
 O dossiê pede que todos os estados de tela estejam representados. Onde procurar:
 
+### Novidades da v0.1.10 (fontes na escala do template e cabeçalho limpo)
+
+| Peça | Como ficou |
+|---|---|
+| Fontes | Tudo desceu para a escala do template: Display 24px (nome da página, título de produto, hero e faixas) e Heading 18px (títulos de seção e de card). Antes o nome da página chegava a 52px |
+| Nome da página | Playfair Display 400, 24px, entrelinha 1.1 e entreletra 0.105em, o mesmo tratamento do título do template |
+| Cabeçalho de página | Sem fundo e sem enfeites: só a trilha de navegação, o nome da página e um fio embaixo |
+| Texto de apoio | Saiu de dentro do cabeçalho e abre o conteúdo, logo abaixo do fio |
+| Loja | A contagem de peças e o recado "do P ao GG" passaram para a barra da coleção, ao lado de "Ordenar por" |
+| Contador da sacola | 11px, o mínimo permitido pela regra de contraste |
+
+**Uma observação sobre o template:** o zip usa Caption 9px e Tagline 8px. Aqui esses
+dois continuam em 11px, porque a decisão E0 do dossiê e a regra de contraste do
+próprio projeto não permitem texto tão pequeno em fundo claro. Se a cliente quiser
+os 9px e 8px do template, precisa ser uma decisão dela.
+
 ### Novidades da v0.1.9 (Minha conta, Contato e Sobre)
 
 | Página | Como ficou |
@@ -211,6 +227,10 @@ porque o contraste fica abaixo do mínimo exigido pela WCAG AA. Nesses casos use
 
 Fontes: **Jost** (400 e 600) para interface, **Playfair Display** (400) para
 títulos e logo. Ver `assets/fonts/LEIA-ME.md`.
+
+**Escala de tamanhos** (tabela do template, aplicada na v0.1.10): Display 24px,
+Heading 18px, Body 15px, Small 12px, Micro 11px. Caption e Tagline ficam em 11px
+no lugar dos 9px e 8px do template, por causa da regra de contraste abaixo.
 
 ---
 

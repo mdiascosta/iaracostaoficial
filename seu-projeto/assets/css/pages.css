@@ -20,8 +20,8 @@
 }
 
 .hero__title {
-  font-size: clamp(32px, 6vw, 60px);
-  line-height: 1.06;
+  font-size: var(--fs-display);
+  line-height: 1.1;
   margin-bottom: 20px;
 }
 
@@ -796,7 +796,7 @@ mark {
 
 .fact__num {
   font-family: var(--iara-font-display);
-  font-size: clamp(30px, 3.4vw, 42px);
+  font-size: var(--fs-display);
   line-height: 1;
   color: var(--iara-ink);
 }
@@ -815,7 +815,7 @@ mark {
 
 .pull p {
   font-family: var(--iara-font-display);
-  font-size: clamp(21px, 2.4vw, 27px);
+  font-size: var(--fs-heading);
   line-height: 1.45;
   color: var(--iara-ink);
   margin: 0;
@@ -1083,17 +1083,21 @@ form + h3,
 
 .gallery-strip figcaption { font-size: var(--fs-small); color: var(--iara-ink-soft); margin-top: 8px; }
 
-/* --------------------------------------------- 06. CABEÇALHO DA LOJA */
-/* Linha de apoio do cabeçalho da coleção: do P ao GG e o atalho para o guia
-   de medidas, como na referência. */
-.page-head__aside { display: grid; gap: 6px; justify-items: end; text-align: right; }
+/* --------------------------------- 06. BARRA DA COLEÇÃO (CONTAGEM E RECADO) */
+/* v0.1.10 — a contagem de peças e o recado de tamanhos saíram do cabeçalho
+   (que ficou só com a trilha e o nome da página) e passaram para a barra de
+   ferramentas da loja, ao lado da ordenação. */
+.shop__meta { min-width: 0; }
 
-.page-head__note { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
-.page-head__note a { color: var(--iara-accent-dark); }
-
-@media (max-width: 720px) {
-  .page-head__aside { justify-items: start; text-align: left; }
+.shop__count {
+  margin: 0;
+  font-size: var(--fs-small);
+  color: var(--iara-ink);
+  font-variant-numeric: tabular-nums;
 }
+
+.shop__sizes { margin: 4px 0 0; font-size: var(--fs-micro); color: var(--iara-ink-soft); }
+.shop__sizes a { color: var(--iara-accent-dark); }
 
 /* ------------------------------------------ 07. ATENDIMENTO (CONTATO) */
 /* O formulário virou um quadro de papel, como os cartões de depoimento, e os
@@ -1127,5 +1131,5 @@ form + h3,
    citação criaria um vão duplo. */
 .section--soft .pull { margin-block: 0; }
 
-/* A faixa de frase centralizada, quando o texto é curto (página Sobre). */
-.pull p { font-size: clamp(22px, 3vw, 34px); max-width: 34ch; }
+/* A frase é curta, então o texto para antes da medida cheia. */
+.pull p { max-width: 42ch; }

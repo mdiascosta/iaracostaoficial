@@ -6,26 +6,18 @@
         </ol>
       </nav>
 
-      <span class="page-head__rule" aria-hidden="true"></span>
-      <p class="page-head__eyebrow">Coleção Terra & Linho</p>
-
-      <div class="page-head__inner">
-        <div class="page-head__text">
-          <h1>Todas as peças</h1>
-          <p class="lead">
-            O catálogo inteiro em uma grade única, sem paginação e sem esconder
-            nada. Cada foto é da peça, na proporção original.
-          </p>
-        </div>
-        <div class="page-head__aside">
-          <p class="page-head__meta" data-count role="status" aria-live="polite">12 peças encontradas</p>
-          <p class="page-head__note">
-            Vestuário feminino do P ao GG ·
-            <a href="guia-medidas.html">Guia de medidas</a>
-          </p>
-        </div>
-      </div>
+      <h1>Todas as peças</h1>
     </div>
+
+    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
+         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <div class="container">
+      <p class="lead page-intro">
+        O catálogo inteiro em uma grade única, sem paginação e sem esconder nada.
+        Cada foto é da peça, na proporção original.
+      </p>
+    </div>
+
 
     <div class="container">
       <div class="shop">
@@ -162,6 +154,18 @@
                     data-filters-toggle aria-expanded="false" aria-controls="filtros-loja">
               Filtros <span data-filters-badge hidden></span>
             </button>
+
+            <!-- Contagem e recado de tamanho. Saíram do cabeçalho na v0.1.10,
+                 quando o cabeçalho ficou só com a trilha e o nome da página: é
+                 aqui que a contagem pertence, junto da ordenação. -->
+            <div class="shop__meta">
+              <!-- [CONFERIR] no WooCommerce a contagem vem do próprio tema -->
+              <p class="shop__count" data-count role="status" aria-live="polite">12 peças encontradas</p>
+              <p class="shop__sizes">
+                Vestuário feminino do P ao GG ·
+                <a href="guia-medidas.html">Guia de medidas</a>
+              </p>
+            </div>
 
             <div class="shop__sort">
               <label for="ordenar">Ordenar por</label>

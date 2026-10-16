@@ -479,7 +479,7 @@
   background: var(--iara-accent);
   color: var(--iara-paper);
   font-family: var(--iara-font-ui);
-  font-size: 10px;
+  font-size: 11px;
   line-height: 16px;
   text-align: center;
 }
@@ -748,7 +748,8 @@
   .band--faq .band__inner { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
 }
 
-.band--faq h2 { font-size: clamp(26px, 3vw, 38px); }
+/* O título da faixa é Display, como no template. */
+.band--faq h2 { font-size: var(--fs-display); line-height: 1.15; letter-spacing: 0.105em; }
 .band--faq .lead { margin-bottom: 18px; }
 
 .band--faq .action-link { margin-top: 6px; }
@@ -778,7 +779,9 @@
 }
 
 .band--rodape h2 {
-  font-size: clamp(24px, 2.8vw, 34px);
+  font-size: var(--fs-display);
+  line-height: 1.15;
+  letter-spacing: 0.105em;
   margin: 0 0 8px;
 }
 
@@ -866,4 +869,12 @@ main:has(> .band:last-child) + .site-footer {
 @media (max-width: 720px) {
   .shop__sort { flex: 1 1 100%; justify-content: space-between; }
   .shop__sort select { flex: 1 1 auto; min-width: 0; }
+}
+
+/* A contagem e o recado de tamanhos (v0.1.10). No desktop ficam empilhados na
+   coluna da esquerda; abaixo de 1021px descem para uma linha própria, alinhados
+   pelo fio, porque o botão Filtros e o seletor já ocupam a primeira linha. */
+@media (max-width: 1020px) {
+  .shop__meta { flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; }
+  .shop__sizes { margin-top: 0; }
 }

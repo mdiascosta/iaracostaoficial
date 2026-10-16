@@ -12,10 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- PRODUÇÃO: hospedar as fontes localmente (ver assets/fonts/LEIA-ME.md) -->
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&amp;family=Playfair+Display:wght@400&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=cb9c51bc">
-  <link rel="stylesheet" href="assets/css/header.css?v=6a0c8f8c">
-  <link rel="stylesheet" href="assets/css/pages.css?v=2de3147b">
-  <link rel="stylesheet" href="assets/css/comercio.css?v=d30df938">
+  <link rel="stylesheet" href="assets/css/style.css?v=a5649d91">
+  <link rel="stylesheet" href="assets/css/header.css?v=04715345">
+  <link rel="stylesheet" href="assets/css/pages.css?v=c653cf04">
+  <link rel="stylesheet" href="assets/css/comercio.css?v=d5a9d7a9">
 </head>
 <body class="page-blog">
 <div class="proto-banner" role="note">PROTÓTIPO · DADOS E TEXTOS DE EXEMPLO · NÃO PUBLICAR</div>
@@ -159,7 +159,7 @@
   </div>
 
   <main id="conteudo" tabindex="-1">
-    <div class="container page-head">
+        <div class="container page-head">
       <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
@@ -167,19 +167,18 @@
         </ol>
       </nav>
 
-      <span class="page-head__rule" aria-hidden="true"></span>
-      <p class="page-head__eyebrow">Textos do ateliê</p>
-
-      <div class="page-head__inner">
-        <div class="page-head__text">
-          <h1>Diário</h1>
-          <p class="lead">
-            Conteúdo para comprar melhor e cuidar das peças: caimento, tecidos,
-            medidas e combinações. Sem promessa de milagre.
-          </p>
-        </div>
-      </div>
+      <h1>Diário</h1>
     </div>
+
+    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
+         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <div class="container">
+      <p class="lead page-intro">
+        Conteúdo para comprar melhor e cuidar das peças: caimento, tecidos, medidas
+        e combinações. Sem promessa de milagre.
+      </p>
+    </div>
+
 
     <div class="container section--tight">
       <ul class="filter-list" aria-label="Filtrar o diário por tema">
