@@ -61,6 +61,63 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.20 · 2026-10-16 · Descrições de busca e área de toque dos botões
+
+**De onde veio:** segunda rodada de pente fino no navegador de verdade. A v0.1.19
+olhou o que estava quebrado; esta olha o que estava difícil de usar: o texto que
+aparece no resultado do Google e o tamanho dos alvos de clique e toque. O método
+foi o mesmo: abrir as 22 páginas em Chromium sem interface, medir cada elemento
+clicável com o JavaScript do navegador e conferir com as diretrizes de
+acessibilidade WCAG 2.2 (nível AA).
+
+**Problema 1: as descrições de busca eram curtas demais**
+
+Todo resultado no Google mostra duas ou três linhas de texto abaixo do título,
+retiradas de uma descrição que fica no cabeçalho da página. Das 22 páginas do
+protótipo, 11 tinham descrição com menos de 60 caracteres: o buscador preenchia o
+espaço com pedaços aleatórios da página, e o resultado aparecia sem sentido. As
+outras foram reescritas por qualidade, não por tamanho.
+
+| Situação | Antes | Agora |
+|---|---|---|
+| Menor descrição do site | 37 caracteres | 111 caracteres |
+| Maior descrição do site | 161 caracteres | 149 caracteres |
+| Quantidade abaixo do mínimo recomendado | 11 páginas | nenhuma |
+| Média | 96 caracteres | 122 caracteres |
+
+As 22 descrições foram reescritas à mão, página por página, cada uma citando o
+que existe de verdade naquela página, sem promessa que o site não faz e sem
+palavra repetida em série. O padrão usado foi entre 110 e 155 caracteres, que é
+onde o Google costuma mostrar o texto inteiro sem cortar.
+
+**Problema 2: alvos de toque pequenos demais para o dedo**
+
+A WCAG 2.2 criou um critério novo, o 2.5.8, que pede área de pelo menos 24 por 24
+pixels para qualquer coisa clicável ou tocável. A varredura mediu cada elemento
+interativo e encontrou cinco que ficavam abaixo disso:
+
+| O que | Antes | Agora | Como |
+|---|---|---|---|
+| Botões de menos e mais da quantidade | 44 x 23 px | 44 x 44 px | altura mínima de 44px no conjunto |
+| Links das colunas do rodapé | 21 px de altura | 31 px | espaço interno de 6px acima e abaixo |
+| Links da faixa de texto miúdo do rodapé | 13 px | 24 px | caixa flexível com altura mínima |
+| Convite "Adicionar à sacola" no cartão | 109 x 14 px | 24 px de altura | caixa flexível com altura mínima |
+| Links da faixa de aviso no topo | 141 x 13 px | ~29 px | área ampliada com camada invisível, sem engrossar a faixa (que continua com 84px e o cabeçalho com 71px) |
+
+**O que ficou de fora, com motivo:** os links que ficam dentro de um parágrafo ou
+de um título (nome do produto no cartão, "Guia de medidas", aviso da newsletter)
+medem apenas o texto, porque são texto no meio da frase. A própria WCAG 2.2 abre
+exceção para esse caso, o que se chama de "texto em linha": ampliar esses links
+mudaria a quebra de linha e o desenho do parágrafo. Ficam como estão e a decisão
+está registrada. As caixas de seleção do checkout e da conta (20 x 20 px) estão
+dentro do rótulo, que é a área de toque real: clicar no texto ao lado também
+marca a caixa.
+
+**Verificação automática:** a seção 26 do `test.js` cobre cada conserto acima
+(11 verificações novas): as cinco áreas de toque, os limites de tamanho das 22
+descrições, a ausência de travessão e a chegada da descrição longa no HTML da
+home. Total do arquivo: 1.043 verificações, todas passando.
+
 ### v0.1.19 · 2026-10-16 · Pente fino no navegador: o que estava quebrado no celular
 
 **De onde veio:** continuação dos ajustes no protótipo depois do merge. Desta
