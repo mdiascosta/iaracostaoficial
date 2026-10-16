@@ -61,6 +61,44 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.7 · 2026-10-16 · Cabeçalho da loja, ordenação e trilha de navegação
+
+**O que mudou em relação à v0.1.6:**
+
+- **Trilha de navegação visível (pedido da cliente).** O separador entre as
+  migalhas era um ponto em Accent Soft, que sobre o papel fica em 1,5:1 e
+  praticamente desaparecia: "Início Loja" parecia duas palavras soltas. Agora o
+  separador é uma barra em Muted (4,3:1), com mais respiro entre os itens e a
+  página atual em Ink. O rótulo da trilha passou a ser o padrão da língua
+  ("Trilha de navegação", no lugar de "Você está aqui"). A trilha foi criada
+  nas duas páginas que ainda não tinham: Pedido recebido e a página de erro.
+- **Cabeçalho de página mais justo.** O título caiu de 54px para 46px no
+  tamanho máximo (não briga mais com a grade), o respiro em cima e embaixo
+  ficou mais curto e a contagem de peças ficou alinhada pela base do texto de
+  apoio, sem flutuar no canto. Mudança aplicada às 21 páginas internas, não só
+  à loja.
+- **Linha de filtros e ordenação alinhada.** Na captura original, "Filtros /
+  Limpar" (coluna da esquerda) e "Ordenar por" (coluna da direita) apareciam em
+  alturas diferentes, com dois fios desencontrados. Agora as duas colunas abrem
+  na mesma linha, com a mesma altura e o mesmo fio embaixo.
+- **Seletor de ordenação com a cara do site.** Era o campo nativo do navegador,
+  com a seta do sistema. Agora usa a classe de campo do projeto, com altura de
+  46px, borda de linha, seta desenhada em SVG e foco visível. No celular o
+  seletor ocupa a linha inteira.
+- **Verificação em todas as páginas.** As 22 páginas foram conferidas para
+  cabeçalho, trilha e espaçamentos; a varredura de estilos inline mostrou 69
+  usos de margem direta no HTML, que ficam anotados como limpeza opcional.
+
+**Verificado nesta versão:** 22 páginas sem erro de estrutura; 272 verificações
+automatizadas passando, incluindo as novas (trilha em todas as páginas internas
+e ausente só na home, cabeçalho da loja com título, texto de apoio e contagem,
+seletor de ordenação com a classe de campo e as quatro opções).
+
+**Ainda não verificado:** conferência visual em navegador e contraste medido por
+ferramenta (axe ou WAVE).
+
+---
+
 ### v0.1.6 · 2026-10-16 · Decisões da cliente confirmadas
 
 **O que mudou em relação à v0.1.5:**

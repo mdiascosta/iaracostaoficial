@@ -1,5 +1,66 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Cabeçalho da loja, ordenação e trilha de navegação
+
+### Pedido da cliente
+Com a captura da loja em mãos: o cabeçalho de página está com problema, o
+filtro "Ordenar por" também, criar a trilha de navegação (breadcrumb) e
+conferir em todas as telas.
+
+### O que foi feito (IMPLEMENTADO)
+- **Trilha de navegação.** O separador era um ponto em Accent Soft, que sobre o
+  papel fica em 1,5:1 e quase não aparece; por isso a trilha parecia duas
+  palavras soltas. Agora o separador é uma barra em Muted (4,3:1), o espaçamento
+  entre os itens aumentou e a página atual fica em Ink. O rótulo passou a ser
+  "Trilha de navegação". A trilha foi criada nas duas páginas que não tinham:
+  Pedido recebido ("Início / Pedido recebido") e a página de erro
+  ("Início / Página não encontrada"). Agora são 21 páginas com trilha; só a home
+  não tem, que é o certo.
+- **Cabeçalho de página.** Título de 46px no máximo (era 54px), respiro de cima
+  e de baixo mais curto, fio embaixo mantido e a contagem de peças alinhada pela
+  base do texto de apoio. Vale para todas as páginas internas.
+- **Linha de filtros e ordenação.** "Filtros / Limpar" e "Ordenar por" estavam
+  em alturas diferentes, cada um com seu fio, o que dava a impressão de duas
+  linhas quebradas. Agora as duas colunas têm a mesma altura (46px), o mesmo
+  respiro e o mesmo fio embaixo, então abrem alinhadas.
+- **Seletor de ordenação.** Era o campo nativo do navegador, com a seta do
+  sistema. Passou a usar a classe de campo do site, com 46px de altura, borda de
+  linha, seta desenhada em SVG no tom da marca, foco visível e, no celular, a
+  linha inteira.
+
+### Decisões e observações
+- A contagem de peças continua sendo a única informação da direita do cabeçalho
+  e só aparece na loja e na busca, que é onde faz sentido.
+- O HTML ainda tem 69 margens escritas direto no elemento (por exemplo
+  `style="margin-top:32px"`). Funciona, mas o lugar certo é o CSS. Fica anotado
+  como limpeza opcional, sem pressa e sem risco para o layout atual.
+
+### O que foi verificado
+- Geração das 22 páginas sem erro de estrutura.
+- 272 verificações automatizadas passando, entre elas as novas: trilha presente
+  nas 21 páginas internas e ausente na home, trilha com rótulo e página atual
+  marcada, cabeçalho da loja com título, texto de apoio e contagem, seletor de
+  ordenação com a classe de campo e as quatro opções.
+- Conferência página a página: todas as páginas com cabeçalho têm título e texto
+  de apoio.
+
+### O que ainda não foi verificado
+- Conferência visual em navegador, em telas pequenas e grandes, e contraste
+  medido por ferramenta (axe ou WAVE).
+
+### Pendências que continuam abertas
+- Fotos reais, dados legais da empresa, atendimento, gateway, frete contratado,
+  revisão jurídica e contador (bloqueadores do go-live, já listados no README).
+- Direitos das 31 fotos do template.
+- Limpeza opcional das margens escritas direto no HTML.
+
+### Próximo passo sugerido
+Abrir a loja no navegador e conferir a faixa de cima: trilha, título, contagem e
+a linha de filtros e ordenação alinhadas. Se estiver do jeito que você quer,
+sigo para o Bloco B (JSONs do Elementor e guia de importação).
+
+---
+
 ## [2026-10-16] - Decisões da cliente confirmadas
 
 ### Pedido da cliente
