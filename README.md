@@ -4,9 +4,11 @@ Loja de moda feminina e acessorios da Iara Costa (Cerquilho, SP). O site e
 construido em **modo manual**: arquivos autocontidos, guias e verificacoes
 automaticas, sem acesso ao painel do WordPress e sem automacao externa.
 
-A entrega acontece em blocos. O Bloco A, que e o que existe hoje, e o
-**prototipo HTML estatico**: ele valida visual, conteudo e acessibilidade antes
-de qualquer coisa ir para o WordPress.
+A entrega acontece em blocos. O **Bloco A esta fechado na versao 0.1.20**: e o
+prototipo HTML estatico completo, que valida visual, conteudo e acessibilidade
+antes de qualquer coisa ir para o WordPress. Ele fica congelado em
+`template-v0.1.20/`, e o que ainda depende de informacao da empresa esta em
+`PENDENCIAS.md`.
 
 ---
 
@@ -15,7 +17,9 @@ de qualquer coisa ir para o WordPress.
 | Pasta ou arquivo | O que e |
 |---|---|
 | `seu-projeto/` | A versao em desenvolvimento do template. E daqui que sai o site |
-| `template-v0.1.18/` | Copia congelada da versao 0.1.18, para conferencia. Uma pasta por versao fechada |
+| `template-v0.1.20/` | Copia congelada da versao em que o Bloco A fechou (0.1.20), para conferencia |
+| `template-v0.1.18/` | Copia congelada da versao 0.1.18, guardada tambem. Uma pasta por versao fechada |
+| `PENDENCIAS.md` | O que ainda depende de informacao da empresa, por assunto |
 | `tools/` | Gerador das paginas e as verificacoes (Python e Node) |
 | `VERSION` | Numero da versao atual do template |
 | `HISTORICO-DE-VERSOES.md` | O que mudou em cada versao, com a data e o pedido que originou |
@@ -23,7 +27,7 @@ de qualquer coisa ir para o WordPress.
 | `package.json` | Dependencias das verificacoes (jsdom). O site nao depende disto |
 
 Cada versao fechada tambem tem uma etiqueta (tag) no Git, de `v0.1.0` ate
-`v0.1.18`, que guarda os arquivos exatamente como estavam naquele dia.
+`v0.1.20`, que guarda os arquivos exatamente como estavam naquele dia.
 
 ---
 
@@ -42,7 +46,7 @@ Depois abra `http://localhost:8080`.
 Para abrir a versao congelada, troque a pasta:
 
 ```bash
-python3 -m http.server 8080 --directory template-v0.1.18
+python3 -m http.server 8080 --directory template-v0.1.20
 ```
 
 ---
@@ -52,7 +56,7 @@ python3 -m http.server 8080 --directory template-v0.1.18
 ```bash
 python3 tools/build.py      # gera as 22 paginas em seu-projeto/
 python3 tools/check.py      # confere o que foi gerado
-node tools/test.js          # 997 verificacoes automaticas
+node tools/test.js          # 1043 verificacoes automaticas
 python3 tools/pente-fino.py # varredura de HTML, CSS e JavaScript
 ```
 
