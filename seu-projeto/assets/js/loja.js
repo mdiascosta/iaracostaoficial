@@ -17,7 +17,7 @@
   'use strict';
 
   /* ------------------------------------------------------------------ DADOS */
-  var FRETE_GRATIS = 299; // [CONFIRMAR COM A EMPRESA] dossiê previa R$ 199
+  var FRETE_GRATIS = 299; // confirmado pela empresa em 16/10/2026 (o dossiê previa R$ 199)
 
   var CHAVE_CARRINHO = 'iara-carrinho-demo';
   var CHAVE_DESEJOS = 'iara-desejos-demo';

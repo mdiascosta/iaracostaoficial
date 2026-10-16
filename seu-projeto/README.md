@@ -45,6 +45,14 @@ Depois abra `http://localhost:8080` no navegador.
 
 O dossiê pede que todos os estados de tela estejam representados. Onde procurar:
 
+### Novidades da v0.1.6 (decisões da cliente)
+
+| Decisão | Como ficou |
+|---|---|
+| Frete grátis | Acima de R$ 299, confirmado. O protótipo já estava em 299 do começo ao fim; o comentário do código e a lista de pendências foram atualizados |
+| Catálogo | 12 peças visíveis, confirmado. A página 404 e a página Sobre, que ainda diziam 10 peças, foram corrigidas |
+| Newsletter do rodapé | Fica, confirmado. A home continua com uma única faixa sálvia antes do rodapé |
+
 ### Novidades da v0.1.5 (ajustes pedidos pela cliente)
 
 | Ajuste | Como ficou |
@@ -297,9 +305,11 @@ go-live:
 - [ ] E-mail e WhatsApp de atendimento, com horário.
 - [ ] Gateway de pagamento e solução de frete contratados.
 - [ ] Regras de parcelamento e desconto no Pix definidas.
-- [ ] **Frete grátis: R$ 199 ou R$ 299?** O dossiê dizia R$ 199 e o header
-      aprovado diz R$ 299. O protótipo está todo em R$ 299.
-- [ ] **Catálogo de 10 ou 12 peças?** O protótipo está com 12, como o template.
+- [x] **Frete grátis definido: acima de R$ 299** (confirmado pela empresa em
+      16/10/2026; o dossiê previa R$ 199). O protótipo já estava todo em 299.
+- [x] **Catálogo definido: 12 peças visíveis** (confirmado em 16/10/2026, igual
+      ao template). Textos que ainda diziam 10 peças foram corrigidos.
+- [x] **Newsletter do rodapé mantida** (confirmado em 16/10/2026).
 - [ ] **Direitos das 31 fotos** vindas do template de referência.
 - [ ] Regras finas do cupom BEMVINDO10 e do frete grátis definidas.
 - [ ] Regime tributário e emissão de nota fiscal definidos com o contador.
