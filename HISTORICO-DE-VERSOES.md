@@ -78,6 +78,12 @@ quadrada ne fica melhor veja ai para nao ficar quebrado".
 certas; 997 verificações automáticas e zero falhas; `pente-fino.py` com as 12
 seções zeradas.
 
+**Organização do repositório (mesma data, sem mudança no template):** o template
+ganhou uma pasta congelada com o número da versão, `template-v0.1.18/`, com a
+cópia integral do protótipo e um `LEIA-ME.txt` explicando o que é a pasta e como
+abrir. Daqui em diante, cada versão fechada ganha uma pasta como esta. O
+`README.md` da raiz passou a explicar a organização do repositório.
+
 ### v0.1.17 · 2026-10-16 · Foto do hero inteira e a descrição por cima da imagem
 
 **Pedido da cliente:** "tem que acertar a imagem e essa breve descricao em cima

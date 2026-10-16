@@ -1,5 +1,51 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Template congelado em pasta com o número da versão (v0.1.18)
+
+### Pedido da cliente
+"certo pode commitar tudo agora e coloque em uma pasta com o numero da versao do
+template". Tudo já estava commitado (a v0.1.18 fechou com os commits `100035a` e
+`abc64ca`), então a rodada foi de organização: o template passou a ter uma pasta
+congelada com o número da versão.
+
+### O que foi feito (IMPLEMENTADO)
+- **Pasta `template-v0.1.18/`** na raiz, com a cópia integral do protótipo: 22
+  páginas HTML, os quatro arquivos de CSS, os cinco de JavaScript, as fontes, as
+  39 imagens, o README do protótipo e a spec de imagens (73 arquivos, 6,2 MB).
+  Conferido com `diff -r`: a cópia é idêntica a `seu-projeto/`, fora o
+  `LEIA-ME.txt` da própria pasta.
+- **`LEIA-ME.txt` dentro da pasta**, dizendo o que ela é (cópia congelada da
+  versão 0.1.18, não recebe mais mudanças), listando o que tem dentro, como abrir
+  e onde fica a versão em desenvolvimento.
+- **`README.md` da raiz** reescrito: não era mais só o nome do repositório. Agora
+  explica a organização (versão em desenvolvimento em `seu-projeto/`, versões
+  fechadas nas pastas com número, ferramentas em `tools/`), como ver o site, como
+  rodar as verificações e os avisos de modo manual.
+- **A etiqueta `v0.1.18` foi reapontada** para incluir esta organização, para que
+  versão, pasta e etiqueta digam a mesma coisa. O conteúdo do template não mudou
+  nada com isso: a v0.1.18 continua sendo o hero quadrado.
+- **Verificações:** as 22 páginas geradas sem erro, 997 verificações automáticas
+  sem falha e o pente fino com as 12 seções zeradas. Nada disso olha para a pasta
+  nova: as ferramentas trabalham só em `seu-projeto/`, então a pasta congelada
+  não interfere no build.
+
+### Decisões tomadas
+- **Sem subir a versão:** esta rodada não mexeu no template, só na organização, e
+  a regra da cliente é que a versão sobe quando o template muda. Por isso o
+  número da pasta é 0.1.18, o mesmo da versão que ela acabou de aprovar.
+- **Cópia completa, e não só as páginas:** a pasta precisa funcionar sozinha, com
+  as imagens dentro, para poder ser aberta e enviada a outra pessoa sem quebrar.
+- **As versões anteriores não ganharam pastas** (seriam dezessete cópias de 6 MB).
+  Elas continuam guardadas nas etiquetas do Git (`v0.1.0` até `v0.1.18`) e
+  descritas no histórico. Se alguma precisar virar pasta, é rápido.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Combinar se as próximas versões ganham pasta nova a cada fechamento (como
+  agora) ou se a pasta é renomeada, mantendo só a mais recente.
+- "Tingimento natural" (casca de cebola e eucalipto), "costura em pequenos lotes"
+  e "fornecedores certificados" seguem fora do site, aguardando confirmação.
+- Composição exata por peça, tabela de medidas real e história da marca.
+
 ## [2026-10-16] - Foto do hero quadrada (v0.1.18)
 
 ### Pedido da cliente
