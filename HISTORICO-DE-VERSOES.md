@@ -61,6 +61,44 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.12 · 2026-10-16 · Dados reais da empresa e regras de venda confirmadas
+
+**Pedido da cliente:** informou os dados da empresa e as regras comerciais que
+faltavam (identificação, atendimento, frete, gateway e cupom), para tirar os
+marcadores `[PREENCHER]` do lugar onde eles já têm resposta.
+
+| O que mudou | Onde |
+|---|---|
+| Razão social, nome fantasia, CNPJ, inscrição estadual e endereço do ateliê no rodapé de todas as páginas | `tools/partials/footer.html` |
+| E-mail, telefone/WhatsApp e horário de atendimento no rodapé e no Contato | `tools/partials/footer.html`, `tools/content/14-contato.html` |
+| Prazo de resposta de 24 horas úteis (segunda a sexta) nas páginas de atendimento, nos Termos e no Envio | `14-contato.html`, `20-privacidade.html`, `21-termos.html`, `19-envio.html` |
+| Formas de pagamento: Pix com 5% de desconto e cartão em até 6x sem juros, pelo Mercado Pago | rodapé, `01-home.html`, `03-produto.html`, `05-checkout.html`, `15-faq.html`, `19-envio.html`, `21-termos.html` |
+| Boleto, transferência bancária, PayPal e bandeiras não confirmadas saíram do site | rodapé, `05-checkout.html`, `15-faq.html`, `18-trocas.html` |
+| Frete: Correios com cálculo por CEP, R$ 15,00 no Sudeste e grátis acima de R$ 299, com a tabela de exemplo reescrita | `19-envio.html`, `04-carrinho.html`, `05-checkout.html`, `06-pedido-recebido.html` |
+| Regra do cupom BEMVINDO10 fechada: primeira compra, sem acúmulo com outras promoções nem com peças em liquidação | `04-carrinho.html`, `15-faq.html`, `21-termos.html` |
+| Identificação completa da empresa nos Termos e na Política de Privacidade, com canal de privacidade | `21-termos.html`, `20-privacidade.html` |
+| Endereço do ateliê no quadro do mapa do Contato | `14-contato.html` |
+| `loja.js` passa a reconhecer a faixa de CEP do Sudeste para o recado do frete | `assets/js/loja.js` |
+| Promessa de "troca fácil em 30 dias" na home marcada como `[A DEFINIR]` | `01-home.html` |
+
+**Reconciliação com decisões anteriores:** o dossiê previa frete grátis acima de
+R$ 199 (superado pela decisão de R$ 299 em 16/10) e não fixava gateway. O rodapé
+mostrava oito formas de pagamento como ilustração; agora mostra só as confirmadas.
+Os valores de exemplo de PAC e SEDEX (R$ 24,90 e R$ 39,90, com prazos de 5 a 9 e
+2 a 4 dias úteis) saíram de todas as páginas.
+
+**Regra cumprida:** nada foi inventado para preencher marcador. Prazo e frete da
+troca por tamanho, prazo de produção, encarregado de dados (DPO), data de
+aprovação das páginas legais, composição e cuidados das peças, autoria dos textos
+do diário e valor/prazo por região fora do Sudeste continuam como
+`[A DEFINIR]`/`[PREENCHER]`.
+
+**Verificado em arquivo:** 22 páginas (`build.py` e `check.py`, "tudo certo"); teste
+de navegador com **720 verificações, nenhuma falha**, incluindo o bloco novo (§19)
+que confere os dados da empresa no rodapé das 22 páginas, a ausência de boleto,
+PayPal e transferência bancária, a ausência dos valores de exemplo que saíram e as
+regras de frete no `loja.js`; pente fino com as doze conferências zeradas.
+
 ### v0.1.11 · 2026-10-16 · Pente fino no HTML e no CSS e as melhorias de JavaScript do template
 
 **Pedido da cliente:** fazer um pente fino em todos os arquivos do template para

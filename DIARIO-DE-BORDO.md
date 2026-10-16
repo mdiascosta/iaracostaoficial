@@ -1,5 +1,87 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Dados da empresa e regras de venda confirmados
+
+### Pedido da cliente
+A cliente informou, em uma mensagem só, os dados da empresa e as regras comerciais
+que estavam em aberto no site: razão social, nome fantasia, CNPJ, inscrição
+estadual, endereço do ateliê, telefone/WhatsApp, e-mail e horário de atendimento;
+a regra de frete (Correios com cálculo por CEP, R$ 15,00 no Sudeste, grátis acima
+de R$ 299); o gateway (Mercado Pago, Pix com 5% de desconto e cartão em até 6x sem
+juros) e a regra do cupom BEMVINDO10 (10% na primeira compra, para clientes novos,
+sem acúmulo).
+
+### O que foi preenchido (IMPLEMENTADO)
+- **Identificação da empresa no rodapé de todas as 22 páginas:** Iara Costa Moda
+  Feminina LTDA, CNPJ 12.345.678/0001-90, Rua das Flores, nº 140, Sala 02, Centro,
+  Cerquilho - SP, CEP 18520-000. É o que o Decreto 7.962/2013 exige que esteja
+  visível.
+- **Atendimento:** contato@iaracosta.com.br, (15) 99123-4567 (telefone e WhatsApp)
+  e segunda a sexta, das 9h às 18h, com prazo de resposta de 24 horas úteis. Os
+  dois viraram link de verdade (`mailto:` e `tel:`).
+- **Formas de pagamento:** Pix com 5% de desconto e cartão de crédito em até 6x
+  sem juros, processados pelo Mercado Pago. O rodapé passou de oito formas
+  ilustrativas para as três confirmadas (gateway, Pix e cartão).
+- **Frete:** Correios com cálculo por CEP. No Sudeste, R$ 15,00 (escrito como PAC);
+  nas demais regiões, o valor calculado; acima de R$ 299, grátis.
+- **Cupom BEMVINDO10:** 10% na primeira compra, para clientes novos, uso pessoal e
+  não cumulativo com outras promoções nem com peças em liquidação.
+- **Páginas de política:** Termos e Privacidade ganharam a identificação completa
+  do controlador e o canal de privacidade (o mesmo e-mail, com o assunto
+  "Privacidade"), e o Contato ganhou o endereço do ateliê no quadro do mapa.
+
+### O que saiu do site (IMPLEMENTADO)
+Boleto, transferência bancária, PayPal e as bandeiras de cartão (Visa, Mastercard,
+American Express e Diners) não foram confirmados pela empresa e saíram de todas as
+páginas, incluindo o rodapé e o checkout. Também saíram os valores de exemplo de
+PAC e SEDEX (R$ 24,90 e R$ 39,90) e os prazos de "5 a 9" e "2 a 4" dias úteis, que
+eram ilustrativos: agora a página aponta o cálculo dos Correios pelo CEP.
+No `loja.js`, a função `regiaoDoCep` reconhece a faixa do Sudeste (São Paulo, Rio,
+Espírito Santo e Minas) e só escolhe o texto do recado: o valor de verdade continua
+vindo do gateway de frete.
+
+### Reconciliação com o que já estava escrito (RECOMENDADO)
+- O dossiê previa **frete grátis acima de R$ 199**; a decisão de R$ 299 veio antes e
+  vale. O protótipo nunca mostrou 199.
+- O rodapé mostrava **oito formas de pagamento** como ilustração da imagem enviada
+  pela cliente. A regra do projeto é não afirmar o que não está confirmado, então
+  ele passou a mostrar as três confirmadas.
+- A home anunciava **"troca fácil em 30 dias"** com frete da primeira troca por
+  conta da loja. Isso nunca foi confirmado e ficou marcado como `[A DEFINIR]` na
+  faixa de benefícios: prazo e frete de troca são decisão da empresa.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Se o valor fixo de R$ 15,00 no Sudeste vale para o PAC e o SEDEX ou só para o PAC.
+- Se o frete grátis considera o subtotal antes ou depois do cupom.
+- Prazo de produção, usado em "envio em até X dias úteis" e na página de pedido.
+- Prazo e frete da troca por tamanho, e quem paga o frete na devolução por
+  arrependimento.
+- Encarregado de dados (DPO) e data de aprovação das três páginas legais.
+- Composição, cuidados e país de origem das peças; autoria dos textos do diário.
+
+### Verificação (VERIFICADO EM ARQUIVO)
+- `python3 tools/build.py` e `python3 tools/check.py`: 22 páginas, "tudo certo".
+- `node tools/test.js`: **720 verificações, nenhuma falha**. O bloco novo (§19)
+  confere os dados da empresa no rodapé das 22 páginas, os canais de atendimento
+  como links, a ausência de boleto, PayPal e transferência bancária em todo o site,
+  a ausência dos valores de exemplo que saíram, as regras de frete e de cupom nas
+  páginas e a função de faixa de CEP no `loja.js`.
+- Pente fino com as doze conferências zeradas.
+- **O que isto não é:** nenhuma das regras foi testada em gateway ou em conta dos
+  Correios, porque não existe conta ligada. É conferência de arquivo.
+
+### Nota operacional sobre o repositório
+Antes de gravar esta versão, o clone local do projeto apareceu com o histórico
+reduzido ao primeiro commit (o workspace foi restaurado de um estado antigo). Nada
+foi perdido: o histórico completo, as etiquetas `v0.1.0` a `v0.1.11` e o branch de
+trabalho foram recuperados do GitHub e conferidos um a um antes de continuar. O
+conteúdo dos arquivos no workspace estava íntegro e nenhuma alteração da v0.1.12
+precisou ser refeita.
+
+### Estado
+- `VERSION` = 0.1.12. Versão anterior preservada na etiqueta `v0.1.11`.
+- Branch `arena/e067653e-iaracostaoficial`, PR #2 aberto (não mergeado).
+
 ## [2026-10-16] - Pente fino no HTML e no CSS e o JavaScript do template
 
 ### Pedido da cliente
