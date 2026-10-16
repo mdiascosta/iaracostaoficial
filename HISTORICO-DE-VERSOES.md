@@ -61,6 +61,37 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.10 · 2026-10-16 · Tipografia na escala do template e cabeçalho de página limpo
+
+**Pedido da cliente:** com a imagem de uma página de produto do template do zip em
+mãos, reduzir as fontes do site para a escala do template e deixar o cabeçalho de
+página sem fundo, apenas com um fio embaixo, contendo só a trilha de navegação e o
+nome da página, "bem clean".
+
+| O que mudou | Onde |
+|---|---|
+| Títulos na escala do template: Display 24px e Heading 18px, no lugar de clamps que chegavam a 52px | `assets/css/style.css` § tokens e base |
+| Título de página, título de produto, hero e faixas com o tratamento Display do zip: Playfair 400, 24px, entrelinha 1.1 e entreletra 0.105em | `style.css`, `pages.css`, `comercio.css` |
+| Cabeçalho de página sem fundo e sem enfeites: só a trilha, o nome da página e um fio embaixo | `assets/css/style.css` |
+| Texto de apoio saiu de dentro do cabeçalho e abre o conteúdo, logo abaixo do fio (`.page-intro`) | 17 arquivos em `tools/content/` |
+| Contagem de peças e recado de tamanhos saíram do cabeçalho da loja e passaram para a barra da coleção, ao lado da ordenação | `tools/content/02-loja.html`, `pages.css` §06, `comercio.css` §13 |
+| Faixas verdes (perguntas da home e pré-rodapé), números da página Sobre, frase de posicionamento e hero reduzidos para 24px ou 18px, conforme a tabela do template | `comercio.css`, `pages.css` |
+| Contador da sacola e linha de ajuda do hero voltaram de 10px para 11px, o mínimo da decisão de acessibilidade | `header.css`, `comercio.css` |
+
+**Regra cumprida:** nenhuma fonte acima de 24px no site (as únicas exceções são
+enfeites, como as aspas grandes do depoimento). A escala do zip (Caption 9px e
+Tagline 8px) **não** foi copiada: a decisão E0 registrada no dossiê e a regra de
+contraste (abaixo de 14px só Ink ou Ink Soft) mantêm Caption e Tagline em 11px.
+Se a cliente quiser os 9px e os 8px do template, é uma decisão nova dela.
+
+**Verificado em arquivo:** 22 páginas (`build.py` + `check.py`, "tudo certo") e
+teste de navegador com 603 verificações, nenhuma falha, incluindo uma checagem
+nova que reprova qualquer `font-size` acima de 24px nos quatro arquivos de CSS.
+
+**Não entrou nesta versão:** o logotipo do header continua em 18px a 21px (o zip
+usa 24px no nome da marca). O header foi aprovado pela cliente em 15/10 e o
+aumento mexe no equilíbrio dele; fica como pergunta, não como mudança.
+
 ### v0.1.9 · 2026-10-16 · Minha conta, Contato e Sobre refeitos com as referências da cliente
 
 **Pedido da cliente:** adaptar a página Minha conta às imagens 1 e 2, adaptar o

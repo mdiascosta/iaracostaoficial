@@ -1,5 +1,84 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Fontes na escala do template e cabeçalho de página limpo
+
+### Pedido da cliente
+Com a imagem de uma página de produto do template do zip em mãos (1456px de
+largura): "o tamanho da fonte utilizada aqui, pode ajustar nosso template para não
+ficar muito grande" e "em relação ao pageheader vamos deixar sem o fundo, apenas
+com uma borda abaixo e apenas com o breadcrumb e o nome da página, bem clean, em
+relação ao tamanho da fonte do template siga o tamanho que passei no zip".
+
+### Reconferência do template (zip)
+A tabela tipográfica do zip (`assets/css/style.css` §00.4 e §04) é: **Display
+24px** (nome da marca, título de página, título de produto, hero e faixas),
+**Heading 18px** (títulos de seção e de card), **Body 15px**, Small 12px, Micro
+11px, Caption 9px e Tagline 8px. No zip nenhum tamanho fica escrito em pixel solto:
+tudo sai de token. O `.iara-page-head` do zip é só espaçamento, sem fundo e sem
+borda, e o título dele (h1) usa a classe `.iara-display`: Playfair 400, 24px,
+entrelinha 1.1 e entreletra 0.105em. Nossos tokens Display/Heading/Body/Small/Micro
+já batiam com o zip; o que estava fora eram os clamps de título (32 a 60px) e o
+cabeçalho de página, que a cliente rejeitou por ter faixa de fundo e enfeites.
+
+### O que foi feito (IMPLEMENTADO)
+- **Escala.** Os clamps grandes saíram: nome da página, hero, título de produto,
+  faixas verdes e frases de destaque passaram a ler os tokens do template (Display
+  24px ou Heading 18px). Os tokens `--fs-h1`, `--fs-h2` e `--fs-h3` agora apontam
+  para a escala do zip, então a redução vale para o site inteiro de uma vez.
+- **Tratamento Display.** `h1` (nome da página, título de produto e hero) e os
+  títulos das faixas verdes usam o mesmo desenho do zip: Playfair 400, entrelinha
+  1.1 e entreletra 0.105em. Os h2 e h3 seguem o Heading do zip, com a entreletra
+  curta de 0.02em que o próprio template usa.
+- **Cabeçalho de página.** Saiu a faixa de fundo, saíram o fio curto e a linha de
+  olho. Ficaram a trilha de navegação, o nome da página e um fio embaixo, com
+  respiro em cima e embaixo. O `h1` está em 24px.
+- **Texto de apoio.** Estava dentro do cabeçalho; passou para logo abaixo do fio,
+  em bloco próprio (`.page-intro`), em 17 páginas. O cabeçalho ficou só com trilha
+  e nome, como pedido.
+- **Loja.** A contagem de peças e o recado "Vestuário feminino do P ao GG" ficavam
+  dentro do cabeçalho e não fazem parte do desenho limpo. Foram para a barra da
+  coleção, ao lado de "Ordenar por", que é onde a contagem pertence; abaixo de
+  1021px descem para uma linha própria, alinhados pelo fio.
+- **Contador e micro-textos.** O selo de contagem da sacola e a linha de apoio do
+  hero estavam em 10px; subiram para 11px, o mínimo da regra de contraste do
+  projeto.
+- **Limpeza de CSS.** Saíram as regras que só existiam para o cabeçalho antigo
+  (fio curto, linha de olho, grade interna e a linha de apoio da loja).
+
+### Decisão que precisa da cliente
+- O zip usa **Caption 9px** e **Tagline 8px**. Aqui os dois continuam em 11px,
+  porque a decisão E0 do dossiê e a regra de contraste do projeto (abaixo de 14px
+  só Ink ou Ink Soft) não deixam descer tanto em fundo claro. Se ela quiser os
+  valores literais do template, é uma decisão nova e o texto pequeno perde
+  contraste.
+- O nome da marca no header segue em 18px a 21px. O zip usa 24px, mas o header foi
+  aprovado em 15/10 e aumentar o logotipo mexe no equilíbrio dele; fica como
+  pergunta.
+
+### O que ainda não entrou
+- As margens escritas direto no HTML das telas internas continuam anotadas como
+  limpeza pendente (não mudam nada no visual).
+
+### Verificação (VERIFICADO EM ARQUIVOS)
+- `python3 tools/build.py` e `python3 tools/check.py`: 22 páginas, "tudo certo".
+- Teste com jsdom: **603 verificações, nenhuma falha**. O bloco novo (§17) confere
+  a escala: reprova qualquer `font-size` acima de 24px nos quatro arquivos de CSS
+  (as aspas grandes do depoimento são a única exceção declarada), confere os
+  tokens Display 24 / Heading 18 / Body 15, exige que o CSS do cabeçalho tenha fio
+  embaixo e nenhum fundo, e que as peças antigas do cabeçalho não voltem. O
+  mesmo bloco confere o que saiu de dentro do cabeçalho e não podia desaparecer:
+  a contagem de peças, o recado "do P ao GG" com o atalho do guia de medidas e a
+  linha "Última atualização" das três páginas legais.
+- O bloco do cabeçalho conferido nas 17 páginas internas: só trilha e título
+  dentro, sem texto de apoio, e a trilha continuando única na página.
+- Servidor local no ar para a conferência visual.
+- Não é medição de navegador real: navegador, leitor de tela e Lighthouse ficam
+  por conta do time, como manda o dossiê.
+
+### Estado
+- `VERSION` = 0.1.10. Versão anterior preservada na etiqueta `v0.1.9`.
+- Branch `arena/e067653e-iaracostaoficial`, PR #2 aberto (não mergeado).
+
 ## [2026-10-16] - Minha conta, Contato e Sobre refeitos com as referências da cliente
 
 ### Pedido da cliente
