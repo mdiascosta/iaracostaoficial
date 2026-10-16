@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vestido Midi Linho Terracota | Iara Costa</title>
+  <title>Vestido Midi Sálvia | Iara Costa</title>
   <meta name="description" content="Vestido midi em linho na cor terracota, com modelagem fluida e forro. Disponível em P, M, G e GG.">
   <!-- Protótipo: não deve ser indexado. Em produção o controle é do Yoast. -->
   <meta name="robots" content="noindex, nofollow">
@@ -12,25 +12,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- PRODUÇÃO: hospedar as fontes localmente (ver assets/fonts/LEIA-ME.md) -->
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&amp;family=Playfair+Display:wght@400&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=52c93de9">
-  <link rel="stylesheet" href="assets/css/header.css?v=4586c00d">
-  <link rel="stylesheet" href="assets/css/pages.css?v=ce048dda">
+  <link rel="stylesheet" href="assets/css/style.css?v=3a6dfbec">
+  <link rel="stylesheet" href="assets/css/header.css?v=d3571bb7">
+  <link rel="stylesheet" href="assets/css/pages.css?v=a3db9089">
+  <link rel="stylesheet" href="assets/css/comercio.css?v=3c490b56">
 </head>
 <body class="page-product">
 <div class="proto-banner" role="note">PROTÓTIPO · DADOS E TEXTOS DE EXEMPLO · NÃO PUBLICAR</div>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <!-- ANNOUNCEMENT BAR · Verde Sálvia #546858 · Jost 11px / 0.15em (mínimo aprovado em 2.7)
-       Textos [CONFIRMAR COM A EMPRESA] antes de publicar -->
+  <!-- ANNOUNCEMENT BAR · Verde Sálvia · texto centralizado na barra larga -->
   <div class="announcement">
     <div class="header-shell announcement__inner">
-      <p class="announcement__text">
-        Frete grátis acima de R$ 199
-        <span class="announcement__dot" aria-hidden="true">·</span>
-        Compra consciente
-        <span class="announcement__dot" aria-hidden="true">·</span>
-        Envio para todo o Brasil
-      </p>
+      <p class="announcement__text">Frete grátis acima de R$ 299</p>
+      <span class="announcement__dot" aria-hidden="true">·</span>
+      <p class="announcement__text"><a href="sobre.html">Compra consciente</a></p>
+      <span class="announcement__dot" aria-hidden="true">·</span>
+      <p class="announcement__text"><a href="envio.html">Envio para todo o Brasil</a></p>
     </div>
   </div>
 
@@ -38,39 +36,33 @@
     <div class="header-shell">
       <div class="site-header__inner">
 
-        <!-- Menu mobile: botão hambúrguer -->
         <button class="nav-toggle" type="button"
                 aria-expanded="false" aria-controls="menu-mobile"
                 aria-label="Abrir menu de navegação">
           <span class="nav-toggle__box" aria-hidden="true">
             <span class="nav-toggle__bar"></span>
             <span class="nav-toggle__bar"></span>
-            <span class="nav-toggle__bar"></span>
           </span>
         </button>
 
-        <!-- Logo em texto. Dossiê: Playfair Display 24px / 0.105em.
-             Ajustado para 18-21px a pedido da equipe (header mais enxuto). -->
-        <a class="brand" href="index.html">
+        <a class="brand" href="index.html" aria-label="Iara Costa, página inicial">
           <span class="brand__name">IARA COSTA</span>
-          <span class="brand__tagline">Moda feminina &amp; acessórios</span>
+          <span class="brand__tagline">Moda &amp; Acessórios</span>
         </a>
 
-        <!-- Navegação desktop -->
         <nav class="main-nav" aria-label="Navegação principal">
           <ul class="main-nav__list">
-            <li><a class="main-nav__link" href="index.html" data-nav="inicio">Início</a></li>
+            <li><a class="main-nav__link" href="index.html" data-nav="inicio">Home</a></li>
             <li><a class="main-nav__link" href="loja.html" data-nav="loja" aria-current="page">Loja</a></li>
-            <li><a class="main-nav__link" href="lookbook.html" data-nav="lookbook">Lookbook</a></li>
-            <li><a class="main-nav__link" href="guia-medidas.html" data-nav="guia">Guia de medidas</a></li>
-            <li><a class="main-nav__link" href="blog.html" data-nav="blog">Diário</a></li>
+            <li><a class="main-nav__link" href="lookbook.html" data-nav="colecao">Coleção</a></li>
             <li><a class="main-nav__link" href="sobre.html" data-nav="sobre">Sobre</a></li>
+            <li><a class="main-nav__link" href="contato.html" data-nav="contato">Contato</a></li>
           </ul>
         </nav>
 
         <div class="header-actions">
 
-          <!-- Busca: só a lupa. Ao clicar, abre a faixa de busca abaixo do header. -->
+          <!-- Busca: só a lupa. Ao clicar, abre a faixa abaixo do header. -->
           <button class="icon-btn" type="button"
                   data-search-toggle
                   aria-expanded="false" aria-controls="busca-painel"
@@ -81,30 +73,28 @@
             </svg>
           </button>
 
-          <!-- Lista de desejos: depende de plugin aprovado (seção 4, item 13) -->
-          <a class="icon-btn icon-btn--desktop" href="desejos.html" aria-label="Lista de desejos">
+          <a class="icon-btn" href="conta.html" aria-label="Minha conta">
             <svg class="icon-btn__svg" viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" focusable="false">
-              <path d="M12 20s-7-4.4-7-9.2A4 4 0 0 1 12 8a4 4 0 0 1 7 2.8C19 15.6 12 20 12 20Z"
-                    fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path>
+              <circle cx="12" cy="8.5" r="3.75" fill="none" stroke="currentColor" stroke-width="1.4"></circle>
+              <path d="M4.5 20c1.6-4 4.3-5.75 7.5-5.75S18 16 19.5 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
             </svg>
           </a>
 
-          <a class="icon-btn icon-btn--desktop" href="conta.html" aria-label="Minha conta">
+          <a class="icon-btn" href="desejos.html" aria-label="Lista de desejos">
             <svg class="icon-btn__svg" viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" focusable="false">
-              <circle cx="12" cy="8.5" r="3.8" fill="none" stroke="currentColor" stroke-width="1.4"></circle>
-              <path d="M4.8 20c.6-3.4 3.6-5.4 7.2-5.4S18.6 16.6 19.2 20"
-                    fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+              <path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9Z"
+                    fill="none" stroke="currentColor" stroke-width="1.4"></path>
             </svg>
+            <span class="icon-count" data-wish-count aria-hidden="true">0</span>
           </a>
 
-          <a class="icon-btn icon-btn--cart" href="carrinho.html"
+          <a class="icon-btn icon-btn--cart" href="carrinho.html" data-cart-link
              aria-label="Sacola de compras, nenhum item">
             <svg class="icon-btn__svg" viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" focusable="false">
-              <path d="M5 8h14l-1.1 11.2a1.6 1.6 0 0 1-1.6 1.4H7.7a1.6 1.6 0 0 1-1.6-1.4Z"
-                    fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path>
-              <path d="M9 8V6.6a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+              <path d="M4.75 7.5h14.5l-1.1 12H5.85L4.75 7.5Z" fill="none" stroke="currentColor" stroke-width="1.4"></path>
+              <path d="M9 7.5V6a3 3 0 0 1 6 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
             </svg>
-            <span class="cart-count" aria-hidden="true">0</span>
+            <span class="icon-count" data-cart-count aria-hidden="true">0</span>
           </a>
 
         </div>
@@ -122,7 +112,7 @@
             </svg>
             <label class="visually-hidden" for="busca-topo">Buscar produtos</label>
             <input class="search-band__input" id="busca-topo" name="q" type="search"
-                   placeholder="O que você procura? Tente “vestido linho”"
+                   placeholder="O que você procura? Tente “linho”, “vestido” ou “cerâmica”"
                    autocomplete="off" data-search-input>
           </div>
           <button class="icon-btn search-band__close" type="button" data-search-close aria-label="Fechar busca">
@@ -136,10 +126,13 @@
     </div>
   </header>
 
-  <!-- Painel de navegação mobile (aberto pelo hambúrguer) -->
+  <!-- Painel de navegação mobile -->
   <div class="mobile-panel" id="menu-mobile" hidden>
     <div class="mobile-panel__head">
-      <span class="mobile-panel__title">Menu</span>
+      <span class="mobile-panel__brand">
+        <span class="brand__name">IARA COSTA</span>
+        <span class="brand__tagline">Moda &amp; Acessórios</span>
+      </span>
       <button class="mobile-panel__close" type="button" aria-label="Fechar menu">
         <span aria-hidden="true">Fechar</span>
       </button>
@@ -147,43 +140,19 @@
 
     <nav aria-label="Navegação principal (celular)">
       <ul class="mobile-nav__list">
-        <li><a class="mobile-nav__link" href="index.html" data-nav="inicio">Início</a></li>
-        <li><a class="mobile-nav__link" href="loja.html" data-nav="loja" aria-current="page">Loja</a></li>
-        <li><a class="mobile-nav__link" href="lookbook.html" data-nav="lookbook">Lookbook</a></li>
-        <li><a class="mobile-nav__link" href="guia-medidas.html" data-nav="guia">Guia de medidas</a></li>
-        <li><a class="mobile-nav__link" href="blog.html" data-nav="blog">Diário</a></li>
-        <li><a class="mobile-nav__link" href="sobre.html" data-nav="sobre">Sobre</a></li>
-        <li><a class="mobile-nav__link" href="contato.html" data-nav="contato">Contato</a></li>
+        <li><a class="mobile-nav__link" href="index.html" data-nav="inicio"><span class="index-number" aria-hidden="true">01</span>Home</a></li>
+        <li><a class="mobile-nav__link" href="loja.html" data-nav="loja" aria-current="page"><span class="index-number" aria-hidden="true">02</span>Loja</a></li>
+        <li><a class="mobile-nav__link" href="lookbook.html" data-nav="colecao"><span class="index-number" aria-hidden="true">03</span>Coleção</a></li>
+        <li><a class="mobile-nav__link" href="sobre.html" data-nav="sobre"><span class="index-number" aria-hidden="true">04</span>Sobre</a></li>
+        <li><a class="mobile-nav__link" href="contato.html" data-nav="contato"><span class="index-number" aria-hidden="true">05</span>Contato</a></li>
       </ul>
     </nav>
 
     <ul class="mobile-nav__list mobile-nav__list--secondary">
-      <li>
-        <a class="mobile-nav__link mobile-nav__link--sm" href="conta.html">
-          <svg class="mobile-nav__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-            <circle cx="12" cy="8.5" r="3.8" fill="none" stroke="currentColor" stroke-width="1.4"></circle>
-            <path d="M4.8 20c.6-3.4 3.6-5.4 7.2-5.4S18.6 16.6 19.2 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
-          </svg>
-          Minha conta
-        </a>
-      </li>
-      <li>
-        <a class="mobile-nav__link mobile-nav__link--sm" href="desejos.html">
-          <svg class="mobile-nav__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-            <path d="M12 20s-7-4.4-7-9.2A4 4 0 0 1 12 8a4 4 0 0 1 7 2.8C19 15.6 12 20 12 20Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path>
-          </svg>
-          Lista de desejos
-        </a>
-      </li>
-      <li>
-        <a class="mobile-nav__link mobile-nav__link--sm" href="carrinho.html">
-          <svg class="mobile-nav__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-            <path d="M5 8h14l-1.1 11.2a1.6 1.6 0 0 1-1.6 1.4H7.7a1.6 1.6 0 0 1-1.6-1.4Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path>
-            <path d="M9 8V6.6a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
-          </svg>
-          Sacola (0)
-        </a>
-      </li>
+      <li><a class="mobile-nav__link mobile-nav__link--sm" href="conta.html">Minha conta</a></li>
+      <li><a class="mobile-nav__link mobile-nav__link--sm" href="desejos.html">Lista de desejos (0)</a></li>
+      <li><a class="mobile-nav__link mobile-nav__link--sm" href="carrinho.html">Sacola (0)</a></li>
+      <li><a class="mobile-nav__link mobile-nav__link--sm" href="guia-medidas.html">Guia de medidas</a></li>
       <li><a class="mobile-nav__link mobile-nav__link--sm" href="trocas.html">Trocas e devoluções</a></li>
       <li><a class="mobile-nav__link mobile-nav__link--sm" href="envio.html">Envio e entrega</a></li>
     </ul>
@@ -196,7 +165,7 @@
           <li><a href="index.html">Início</a></li>
           <li><a href="loja.html">Loja</a></li>
           <li><a href="loja.html">Vestidos</a></li>
-          <li><span aria-current="page">Vestido Midi Linho Terracota</span></li>
+          <li><span aria-current="page">Vestido Midi Sálvia</span></li>
         </ol>
       </nav>
     </div>
@@ -207,30 +176,30 @@
       <div class="gallery">
         <div class="gallery__main">
           <img data-gallery-main
-               src="assets/img/produto-01-a.svg"
-               alt="Vestido midi em linho terracota, visto de frente"
+               src="assets/img/vestido-salvia.jpg"
+               alt="Vestido midi sálvia de linho, visto de frente"
                width="1600" height="1600">
         </div>
         <ul class="gallery__thumbs" aria-label="Fotos do produto">
           <li>
             <button class="gallery__thumb" type="button" data-gallery-thumb aria-current="true"
                     aria-label="Ver foto 1: frente">
-              <img src="assets/img/produto-01-a.svg" data-full="assets/img/produto-01-a.svg"
-                   alt="Vestido midi em linho terracota, visto de frente" width="1600" height="1600">
+              <img src="assets/img/vestido-salvia.jpg" data-full="assets/img/vestido-salvia.jpg"
+                   alt="Vestido midi sálvia de linho, visto de frente" width="1600" height="1600">
             </button>
           </li>
           <li>
             <button class="gallery__thumb" type="button" data-gallery-thumb aria-current="false"
                     aria-label="Ver foto 2: costas">
-              <img src="assets/img/produto-01-b.svg" data-full="assets/img/produto-01-b.svg"
-                   alt="Vestido midi em linho terracota, visto de costas" width="1600" height="1600">
+              <img src="assets/img/detalhe-botoes.jpg" data-full="assets/img/detalhe-botoes.jpg"
+                   alt="Vestido midi sálvia de linho, visto de costas" width="1600" height="1600">
             </button>
           </li>
           <li>
             <button class="gallery__thumb" type="button" data-gallery-thumb aria-current="false"
                     aria-label="Ver foto 3: detalhe do tecido">
-              <img src="assets/img/produto-01-c.svg" data-full="assets/img/produto-01-c.svg"
-                   alt="Detalhe do tecido e da costura do vestido" width="1600" height="1600">
+              <img src="assets/img/costura.jpg" data-full="assets/img/costura.jpg"
+                   alt="Detalhe do tecido e da costura do vestido sálvia" width="1600" height="1600">
             </button>
           </li>
         </ul>
@@ -243,9 +212,9 @@
       <!-- COLUNA 2: INFORMAÇÕES E COMPRA -->
       <div class="product__info">
         <p class="eyebrow">Vestidos</p>
-        <h1 class="product__title">Vestido Midi Linho Terracota</h1>
+        <h1 class="product__title">Vestido Midi Sálvia</h1>
 
-        <p class="product__price">R$ 389,00</p>
+        <p class="product__price">R$ 596,00</p>
         <!-- Parcelamento e desconto no Pix seguem [A DEFINIR]: não exibir antes
              de confirmar com a empresa (seção 1). -->
         <p class="product__installment">
@@ -324,7 +293,7 @@
         <ul class="assurance">
           <li>
             <span aria-hidden="true">·</span>
-            <span>Frete calculado no carrinho, com frete grátis acima de R$ 199.</span>
+            <span>Frete calculado no carrinho, com frete grátis acima de R$ 299.</span>
           </li>
           <li>
             <span aria-hidden="true">·</span>
@@ -453,40 +422,88 @@
       </div>
 
       <ul class="product-grid product-grid--four">
-        <li class="card">
-          <a class="card__media" href="produto.html">
-            <img class="card__img" src="assets/img/produto-05-a.svg" alt="Camisa oversized de algodão, frente" loading="lazy" width="1600" height="1600">
+        <li class="card" data-categoria="blusas" data-preco="389.00" data-nome="Camisa Branca de Linho" data-ordem="3">
+          <a class="card__media" href="produto.html" aria-label="Ver Camisa Branca de Linho">
+            <img class="card__img" src="assets/img/camisa-branca.jpg" alt="Camisa branca feminina de linho lavado com bolso frontal"
+                 width="800" height="1000" loading="lazy" decoding="async">
           </a>
+          <button class="card__wish" type="button" data-wish="camisa-linho-branca" aria-pressed="false"
+                  aria-label="Salvar Camisa Branca de Linho nos desejos">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9Z"></path></svg>
+          </button>
           <div class="card__body">
-            <h3 class="card__name"><a href="produto.html">Camisa Oversized Algodão</a></h3>
-            <p class="card__price">R$ 249,00</p>
+            <p class="card__cat">Blusas & Camisas</p>
+            <h3 class="card__name"><a href="produto.html">Camisa Branca de Linho</a></h3>
+            <p class="card__rating">
+              <span class="stars" role="img" aria-label="Avaliação 4,8 de 5">★★★★★</span>
+              4,8 · 19 avaliações
+            </p>
+            <p class="card__price">R$ 389,00</p>
+            <p class="card__sizes">P · M · G · GG</p>
+            <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="camisa-linho-branca">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card">
-          <a class="card__media" href="produto.html">
-            <img class="card__img" src="assets/img/produto-09-a.svg" alt="Bolsa tote de couro vegano caramelo, frente" loading="lazy" width="1600" height="1600">
+        <li class="card" data-categoria="bolsas" data-preco="429.00" data-nome="Bolsa Artesanal em Palha" data-ordem="11">
+          <a class="card__media" href="produto.html" aria-label="Ver Bolsa Artesanal em Palha">
+            <img class="card__img" src="assets/img/bolsa-palha.jpg" alt="Bolsa feminina artesanal trançada em palha natural"
+                 width="800" height="1000" loading="lazy" decoding="async">
           </a>
+          <button class="card__wish" type="button" data-wish="bolsa-palha" aria-pressed="false"
+                  aria-label="Salvar Bolsa Artesanal em Palha nos desejos">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9Z"></path></svg>
+          </button>
           <div class="card__body">
-            <h3 class="card__name"><a href="produto.html">Bolsa Tote Couro Vegano</a></h3>
-            <p class="card__price">R$ 289,00</p>
+            <p class="card__cat">Bolsas</p>
+            <h3 class="card__name"><a href="produto.html">Bolsa Artesanal em Palha</a></h3>
+            <p class="card__rating">
+              <span class="stars" role="img" aria-label="Avaliação 4,8 de 5">★★★★★</span>
+              4,8 · 22 avaliações
+            </p>
+            <p class="card__price">R$ 429,00</p>
+            <p class="card__sizes">Tamanho único</p>
+            <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="bolsa-palha">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card">
-          <a class="card__media" href="produto.html">
-            <img class="card__img" src="assets/img/produto-10-a.svg" alt="Brinco de argola dourada, frente" loading="lazy" width="1600" height="1600">
+        <li class="card" data-categoria="acessorios" data-preco="149.00" data-nome="Brinco de Argila Torneado" data-ordem="10">
+          <a class="card__media" href="produto.html" aria-label="Ver Brinco de Argila Torneado">
+            <img class="card__img" src="assets/img/brinco-argila.jpg" alt="Brinco feminino de argila torneada em tom terracota"
+                 width="800" height="1000" loading="lazy" decoding="async">
           </a>
+          <button class="card__wish" type="button" data-wish="brinco-argila" aria-pressed="false"
+                  aria-label="Salvar Brinco de Argila Torneado nos desejos">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9Z"></path></svg>
+          </button>
           <div class="card__body">
-            <h3 class="card__name"><a href="produto.html">Brinco Argola Dourada</a></h3>
-            <p class="card__price">R$ 89,00</p>
+            <p class="card__cat">Acessórios</p>
+            <h3 class="card__name"><a href="produto.html">Brinco de Argila Torneado</a></h3>
+            <p class="card__rating">
+              <span class="stars" role="img" aria-label="Avaliação 4,9 de 5">★★★★★</span>
+              4,9 · 18 avaliações
+            </p>
+            <p class="card__price">R$ 149,00</p>
+            <p class="card__sizes">Par · gancho antialérgico</p>
+            <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="brinco-argila">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card">
-          <a class="card__media" href="produto.html">
-            <img class="card__img" src="assets/img/produto-03-a.svg" alt="Vestido chemise com botões, frente" loading="lazy" width="1600" height="1600">
+        <li class="card" data-categoria="vestidos" data-preco="684.00" data-nome="Vestido Longo Cerrado" data-ordem="4">
+          <a class="card__media" href="produto.html" aria-label="Ver Vestido Longo Cerrado">
+            <img class="card__img" src="assets/img/vestido-cerrado.jpg" alt="Vestido longo feminino estampado em tom natural"
+                 width="800" height="1000" loading="lazy" decoding="async">
           </a>
+          <button class="card__wish" type="button" data-wish="vestido-longo-cerrado" aria-pressed="false"
+                  aria-label="Salvar Vestido Longo Cerrado nos desejos">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9Z"></path></svg>
+          </button>
           <div class="card__body">
-            <h3 class="card__name"><a href="produto.html">Vestido Chemise Botões</a></h3>
-            <p class="card__price">R$ 359,00</p>
+            <p class="card__cat">Vestidos</p>
+            <h3 class="card__name"><a href="produto.html">Vestido Longo Cerrado</a></h3>
+            <p class="card__rating">
+              <span class="stars" role="img" aria-label="Avaliação 4,9 de 5">★★★★★</span>
+              4,9 · 15 avaliações
+            </p>
+            <p class="card__price">R$ 684,00</p>
+            <p class="card__sizes">P · M · G · GG</p>
+            <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="vestido-longo-cerrado">Adicionar à sacola</a></p>
           </div>
         </li>
       </ul>
@@ -513,77 +530,45 @@
   <footer class="site-footer">
     <div class="container">
 
-      <!-- NEWSLETTER · consentimento NÃO pré-marcado (LGPD) -->
+      <!-- NEWSLETTER · consentimento depois do envio, nunca pré-marcado (LGPD) -->
       <section class="newsletter" aria-labelledby="newsletter-titulo">
-        <div class="newsletter__text">
-          <h2 class="newsletter__title" id="newsletter-titulo">Novidades no seu e-mail</h2>
-          <p class="newsletter__lead">Lançamentos, reposições de estoque e conteúdo sobre caimento e cuidados com as peças. Sem excesso de mensagens.</p>
+        <div>
+          <p class="eyebrow">Newsletter</p>
+          <p class="newsletter__lead" id="newsletter-titulo">
+            Cartas do ateliê: lançamentos, guia de medidas e cuidados com o linho.
+          </p>
         </div>
-        <form class="newsletter__form" action="#" method="post" novalidate>
-          <div class="field">
-            <label class="field__label" for="news-email">Seu e-mail</label>
-            <input class="field__input" id="news-email" name="email" type="email"
-                   autocomplete="email" placeholder="voce@exemplo.com.br" required>
-          </div>
-          <div class="checkbox">
-            <input class="checkbox__input" id="news-consent" name="consent" type="checkbox" required>
-            <label class="checkbox__label" for="news-consent">
-              Concordo em receber novidades por e-mail e li a
-              <a href="privacidade.html">Política de Privacidade</a>.
-            </label>
-          </div>
-          <button class="btn btn--primary" type="submit">Quero receber</button>
-          <p class="field__hint">Você pode cancelar quando quiser, em um clique.</p>
+        <form class="newsletter__form" action="#" method="post">
+          <label class="visually-hidden" for="news-email">Seu e-mail</label>
+          <input class="field__input" id="news-email" name="email" type="email"
+                 placeholder="seu@email.com" autocomplete="email" required>
+          <button class="btn btn--primary" type="submit">Assinar</button>
         </form>
       </section>
+      <p class="newsletter__note">
+        Ao assinar, você concorda em receber e-mails e confirma que leu a
+        <a href="privacidade.html">Política de Privacidade</a>. Cancelamento em um clique.
+      </p>
 
       <div class="site-footer__columns">
 
         <div class="site-footer__col">
           <p class="site-footer__brand">IARA COSTA</p>
+          <p class="site-footer__tagline">Moda &amp; Acessórios</p>
           <p class="site-footer__about">
-            Moda feminina com curadoria: peças casuais, alinhadas e de tendência,
-            escolhidas para acompanhar o seu dia com conforto e presença.
+            Vestuário feminino autoral em linho e fibras naturais. Peças em
+            pequenos lotes, feitas para durar mais de uma estação.
           </p>
-          <ul class="social" aria-label="Redes sociais">
-            <li>
-              <a class="social__link" href="#">
-                <svg class="social__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                  <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
-                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
-                  <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"></circle>
-                </svg>
-                <span class="visually-hidden">Instagram (endereço a preencher)</span>
-              </a>
-            </li>
-            <li>
-              <a class="social__link" href="#">
-                <svg class="social__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                  <path d="M14 8.5h2.2V5.6c-.4-.06-1.5-.16-2.6-.16-2.5 0-4.1 1.5-4.1 4.2v2.2H7.2v3.1h2.3V22h3.3v-7h2.4l.4-3.1h-2.8V9.9c0-.9.3-1.4 1.2-1.4Z" fill="currentColor"></path>
-                </svg>
-                <span class="visually-hidden">Facebook (endereço a preencher)</span>
-              </a>
-            </li>
-            <li>
-              <a class="social__link" href="#">
-                <svg class="social__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                  <rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
-                  <path d="M10 9.2v7l6-3.5-6-3.5Z" fill="currentColor"></path>
-                </svg>
-                <span class="visually-hidden">YouTube (endereço a preencher)</span>
-              </a>
-            </li>
-          </ul>
         </div>
 
         <nav class="site-footer__col" aria-labelledby="footer-institucional">
           <h2 class="site-footer__title" id="footer-institucional">Institucional</h2>
           <ul class="site-footer__list">
             <li><a href="sobre.html">Sobre a marca</a></li>
-            <li><a href="blog.html">Diário</a></li>
-            <li><a href="lookbook.html">Lookbook</a></li>
+            <li><a href="lookbook.html">Coleção Terra &amp; Linho</a></li>
+            <li><a href="guia-medidas.html">Guia de medidas</a></li>
+            <li><a href="trocas.html">Trocas e devoluções</a></li>
             <li><a href="contato.html">Contato</a></li>
-            <li><a href="faq.html">Perguntas frequentes</a></li>
           </ul>
         </nav>
 
@@ -591,37 +576,69 @@
           <h2 class="site-footer__title" id="footer-categorias">Categorias</h2>
           <ul class="site-footer__list">
             <li><a href="loja.html">Vestidos</a></li>
-            <li><a href="loja.html">Blusas e camisas</a></li>
-            <li><a href="loja.html">Calças</a></li>
-            <li><a href="loja.html">Saias</a></li>
+            <li><a href="loja.html">Blusas &amp; Camisas</a></li>
+            <li><a href="loja.html">Saias &amp; Calças</a></li>
             <li><a href="loja.html">Acessórios</a></li>
+            <li><a href="loja.html">Ver tudo</a></li>
           </ul>
         </nav>
 
         <div class="site-footer__col">
           <h2 class="site-footer__title">Atendimento</h2>
           <ul class="site-footer__list">
-            <li>E-mail: <span class="placeholder">[PREENCHER]</span></li>
-            <li>WhatsApp: <span class="placeholder">[PREENCHER]</span></li>
-            <li>Horário: <span class="placeholder">[PREENCHER]</span></li>
-            <li>Resposta em até <span class="placeholder">[PREENCHER]</span> útil(eis)</li>
+            <li><span class="placeholder">[PREENCHER: e-mail]</span></li>
+            <li><span class="placeholder">[PREENCHER: WhatsApp]</span></li>
+            <li><span class="placeholder">[PREENCHER: horário]</span></li>
+            <li><span class="placeholder">[PREENCHER: endereço]</span></li>
+            <li>
+              <a href="conta.html">Minha conta</a> ·
+              <a href="desejos.html">Desejos</a> ·
+              <a href="carrinho.html">Sacola</a>
+            </li>
           </ul>
-          <ul class="site-footer__list site-footer__list--tight">
-            <li><a href="trocas.html">Trocas e devoluções</a></li>
-            <li><a href="envio.html">Envio e entrega</a></li>
-            <li><a href="guia-medidas.html">Guia de medidas</a></li>
+
+          <ul class="social" aria-label="Redes sociais">
+            <li>
+              <a class="social__link" href="#">
+                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.25"></rect>
+                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.25"></circle>
+                  <circle cx="17" cy="7" r="0.9" fill="currentColor"></circle>
+                </svg>
+                <span class="visually-hidden">Instagram (endereço a preencher)</span>
+              </a>
+            </li>
+            <li>
+              <a class="social__link" href="#">
+                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.25"></circle>
+                  <path d="M10.5 18.5c.6-1.5 1.6-4.3 2-6.2M9.6 10.9c0-1.9 1.3-3.4 3.1-3.4 1.8 0 2.9 1.2 2.9 2.8 0 2-1.1 3.6-2.6 3.6-.9 0-1.6-.7-1.4-1.6" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"></path>
+                </svg>
+                <span class="visually-hidden">Pinterest (endereço a preencher)</span>
+              </a>
+            </li>
+            <li>
+              <a class="social__link" href="#">
+                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <path d="M20 11.7a8 8 0 0 1-11.8 7.1L4 20l1.3-4.1A8 8 0 1 1 20 11.7Z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"></path>
+                  <path d="M9.3 9.4c.3 2 2.1 3.8 4.2 4.2l.9-1.1 1.5.8c-.4 1.1-1.6 1.6-2.8 1.3-1.9-.5-3.6-2.3-4-4.2-.2-1.1.3-2.2 1.4-2.6l.8 1.5-1 .8Z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"></path>
+                </svg>
+                <span class="visually-hidden">WhatsApp (número a preencher)</span>
+              </a>
+            </li>
           </ul>
         </div>
 
       </div>
 
-      <!-- TRUST BAR · selos e bandeiras somente se verdadeiros (7.5) -->
+      <!-- TRUST BAR · selos e bandeiras somente se verdadeiros (seção 7.5) -->
       <section class="trust" aria-labelledby="trust-titulo">
         <h2 class="visually-hidden" id="trust-titulo">Formas de pagamento e segurança</h2>
         <ul class="trust__list">
           <li class="trust__item"><span class="trust__flag">Pix</span></li>
           <li class="trust__item"><span class="trust__flag">Cartão de crédito</span></li>
           <li class="trust__item"><span class="trust__flag">Boleto</span></li>
+          <li class="trust__item"><span class="trust__flag">Site seguro · HTTPS</span></li>
         </ul>
         <p class="trust__note">
           Ilustrativo. Bandeiras, selos e métodos só entram no ar depois de contratados
@@ -651,7 +668,11 @@
 
       <div class="site-footer__bottom">
         <p class="site-footer__copy">© 2026 Iara Costa. Todos os direitos reservados.</p>
-        <p class="site-footer__copy">Preços e condições válidos para compras neste site.</p>
+        <ul class="site-footer__meta">
+          <li><a href="privacidade.html">Política de privacidade</a></li>
+          <li><a href="trocas.html">Trocas e devoluções</a></li>
+          <li><a href="cookies.html">Preferências de cookies</a></li>
+        </ul>
       </div>
 
     </div>
@@ -661,12 +682,65 @@
        Número [PREENCHER]; aqui fica ilustrativo e sem link real. -->
   <div class="whats-float" aria-hidden="true">
     <span class="whats-float__label">WhatsApp</span>
-    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
       <path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 0 1 0 16.4 8.1 8.1 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8Zm-3 4c-.2 0-.5.1-.7.3-.3.3-.8.9-.8 1.8s.6 1.9 1.5 3c.9 1.1 2 1.9 3.3 2.3 1 .3 1.6.2 2.1 0 .6-.3 1.1-.9 1.2-1.3.1-.4.1-.7 0-.8l-1.7-.8c-.2-.1-.4 0-.6.2l-.5.6c-.1.2-.3.2-.5.1-.5-.2-1.3-.7-1.9-1.5-.4-.5-.6-.9-.7-1.1 0-.2 0-.3.1-.4l.4-.5c.1-.2.2-.3.1-.5l-.7-1.6c-.2-.4-.3-.4-.5-.4h-.1Z"></path>
     </svg>
   </div>
 
+  <!-- ==========================================================================
+       MINI-SACOLA (drawer) + aviso rápido (toast)
+
+       Por que existe: quem clica em "Adicionar à sacola" precisa de uma
+       confirmação imediata sem sair da página. O drawer mostra o item, o
+       subtotal e, principalmente, quanto falta para o frete grátis, que é o
+       empurrão honesto para completar o pedido (nada de contador falso).
+
+       No Bloco B isto é o widget "Menu Cart" / mini-carrinho do Elementor Pro.
+       Aqui é uma demonstração em HTML, com os valores de exemplo.
+       ======================================================================= -->
+  <div class="drawer-backdrop" data-drawer-backdrop hidden></div>
+
+  <aside class="drawer" data-drawer role="dialog" aria-modal="true"
+         aria-labelledby="drawer-titulo" hidden>
+    <div class="drawer__head">
+      <h2 class="drawer__title" id="drawer-titulo">Sua sacola</h2>
+      <button class="icon-btn drawer__close" type="button" data-drawer-close aria-label="Fechar a sacola">
+        <svg class="icon-btn__svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+          <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer__body" data-drawer-body>
+      <!-- Preenchido pelo loja.js com os itens escolhidos -->
+    </div>
+
+    <div class="drawer__foot">
+      <div class="ship-progress">
+        <p class="ship-progress__text" data-ship-text>Faltam R$ 299,00 para o frete grátis.</p>
+        <div class="ship-progress__bar" aria-hidden="true">
+          <span class="ship-progress__fill" data-ship-fill style="width: 0%"></span>
+        </div>
+      </div>
+
+      <div class="drawer__total">
+        <span>Subtotal</span>
+        <strong data-drawer-total>R$ 0,00</strong>
+      </div>
+
+      <a class="btn btn--primary btn--block" href="carrinho.html">Ver sacola</a>
+      <a class="btn btn--outline btn--block" href="checkout.html">Finalizar compra</a>
+      <p class="drawer__note">
+        Frete calculado pelo CEP no carrinho. Impostos incluídos no preço.
+      </p>
+    </div>
+  </aside>
+
+  <!-- Aviso rápido: usado quando o cliente salva uma peça nos desejos -->
+  <p class="toast" data-toast role="status" aria-live="polite"></p>
+
 <script src="assets/js/header.js?v=01af3b8f" defer></script>
+<script src="assets/js/loja.js?v=6f942b54" defer></script>
 <script src="assets/js/swatches.js?v=bab04bd2" defer></script>
 </body>
 </html>

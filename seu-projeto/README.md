@@ -45,6 +45,23 @@ Depois abra `http://localhost:8080` no navegador.
 
 O dossiê pede que todos os estados de tela estejam representados. Onde procurar:
 
+### Novidades da v0.1.1 (super layout)
+
+| Bloco | Onde está |
+|---|---|
+| Faixa de benefícios centralizada (4 itens) | `index.html`, logo abaixo do hero |
+| Categorias com numeral 01/02/03 | `index.html` |
+| Card de produto com selo, coração, nota, tamanhos e preço promocional | `index.html`, `loja.html` e todas as grades |
+| Vitrine por ocasião (dia a dia, trabalho, festa, acessórios) | `index.html` |
+| Editorial "Um ateliê, três gestos" e coleção Terra & Linho | `index.html` |
+| Faixa verde sálvia de lista de espera e newsletter | `index.html` e rodapé de todas as páginas |
+| Mini-sacola lateral com barra do frete grátis | todas as páginas, ao clicar em "Adicionar à sacola" |
+| Aviso rápido (toast) ao salvar nos desejos | todas as páginas, ao clicar no coração |
+
+### Estados de interface demonstrados
+
+O dossiê pede que todos os estados de tela estejam representados. Onde procurar:
+
 | Estado | Onde ver |
 |---|---|
 | Carregando | classe `.skeleton` no CSS, exemplo em `produto.html` |
@@ -70,14 +87,16 @@ seu-projeto/
 │   ├── css/
 │   │   ├── style.css          (tokens, base, componentes)
 │   │   ├── header.css         (header, busca, menu, footer)
-│   │   └── pages.css          (blocos específicos de página)
+│   │   ├── pages.css          (blocos específicos de página)
+│   │   └── comercio.css       (benefícios, categorias, card, ocasião, mini-sacola)
 │   ├── js/
 │   │   ├── header.js          (menu mobile e faixa de busca)
 │   │   ├── swatches.js        (galeria, variações, abas)
-│   │   └── filtros.js         (filtro e ordenação da loja)
+│   │   ├── filtros.js         (filtro e ordenação da loja)
+│   │   └── loja.js            (desejos, sacola e mini-sacola)
 │   ├── fonts/
 │   │   └── LEIA-ME.md         (instruções de hospedagem local das fontes)
-│   └── img/                   (47 imagens de exemplo em SVG)
+│   └── img/                   (31 fotos de exemplo em JPG + favicon)
 ├── custom-code/               (reservado)
 ├── docs/                      (reservado)
 └── templates/                 (reservado)
@@ -144,9 +163,11 @@ Importante para não gerar expectativa errada:
 
 **Todos** os dados são de exemplo, autorizados pela equipe na fase de coleta:
 
-- Os 10 produtos (nomes, preços, estoque, variações) são fictícios.
+- Os **12 produtos** de exemplo (nomes, preços, estoque, variações) são
+  fictícios e vivem em um só lugar: `tools/produtos.json`.
 - Depoimentos são fictícios e estão marcados como tal na página.
-- Imagens são retângulos com a etiqueta "SUBSTITUIR POR FOTO REAL".
+- Imagens são **fotos de exemplo vindas do template de referência** enviado pela
+  cliente. Direitos e origem: `[CONFERIR]` antes de publicar.
 - Prazos, fretes e valores de pagamento são ilustrativos.
 - Razão social, CNPJ, endereço e contatos estão como `[PREENCHER]`.
 
@@ -171,6 +192,18 @@ Depois de mexer em qualquer arquivo de CSS ou JS, rode o gerador de novo: ele
 acrescenta um selo de versão no endereço dos arquivos, o que força o navegador a
 baixar a versão nova em vez de usar a do cache.
 
+**Card de produto em um só lugar.** O mesmo card aparece em 8 páginas. Em vez de
+copiar o HTML, as páginas escrevem um marcador:
+
+```html
+<ul class="product-grid product-grid--four">
+  <!--CARDS:blusa-linho-terracota,vestido-midi-salvia,colar-ceramica-->
+</ul>
+```
+
+O gerador troca cada marcador pelo card montado, usando os dados de
+`tools/produtos.json`. Mudar um preço lá muda o site inteiro.
+
 ### Verificação automática
 
 ```bash
@@ -189,13 +222,17 @@ Resultado esperado hoje: **tudo certo**.
 python3 tools/make_placeholders.py
 ```
 
-Recria os arquivos SVG de exemplo. Use só se precisar restaurar algum.
+Recria os retângulos SVG de exemplo da v0.1.0. **Não é mais necessário:** na
+v0.1.1 as fotos de exemplo vieram do template de referência e os SVGs saíram do
+projeto. O script fica guardado caso seja preciso gerar imagem provisória para
+alguma peça nova.
 
 ---
 
 ## 9. Próximos passos
 
-1. **Conferir o visual** nas três larguras: celular, tablet e desktop.
+1. **Conferir o visual** nas três larguras: celular, tablet e desktop, com
+   atenção à faixa de benefícios centralizada e aos blocos novos da home.
 2. **Aprovar ou pedir ajustes** em cada grupo de página.
 3. **Produzir as fotos** seguindo `SPECS-DE-IMAGEM.md`.
 4. **Bloco B:** reproduzir no Elementor, usando Global Colors e Global Fonts.
@@ -214,6 +251,10 @@ go-live:
 - [ ] E-mail e WhatsApp de atendimento, com horário.
 - [ ] Gateway de pagamento e solução de frete contratados.
 - [ ] Regras de parcelamento e desconto no Pix definidas.
+- [ ] **Frete grátis: R$ 199 ou R$ 299?** O dossiê dizia R$ 199 e o header
+      aprovado diz R$ 299. O protótipo está todo em R$ 299.
+- [ ] **Catálogo de 10 ou 12 peças?** O protótipo está com 12, como o template.
+- [ ] **Direitos das 31 fotos** vindas do template de referência.
 - [ ] Regras finas do cupom BEMVINDO10 e do frete grátis definidas.
 - [ ] Regime tributário e emissão de nota fiscal definidos com o contador.
 - [ ] Revisão jurídica das três páginas legais e de trocas.
