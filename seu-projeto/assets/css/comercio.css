@@ -184,7 +184,7 @@
 .card__wish[aria-pressed="true"] svg { fill: var(--iara-accent); }
 
 .card__cat {
-  margin: 0 0 4px;
+  margin: 0;
   font-size: var(--fs-micro);
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -195,26 +195,28 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 8px 0 0;
+  margin: 0;
   font-size: var(--fs-small);
   color: var(--iara-ink-soft);
 }
 
 .card__rating .stars { color: var(--iara-accent); letter-spacing: 1px; }
 
-.card__price { margin: 8px 0 0; font-size: var(--fs-price); color: var(--iara-ink); }
+.card__price { margin: 0; font-size: var(--fs-price); color: var(--iara-ink); }
 
 .card__price--promo { color: var(--iara-accent-dark); font-weight: 600; }
 .card__price--promo del { color: var(--iara-ink-soft); font-weight: 400; margin-right: 8px; }
 
 .card__sizes {
-  margin: 6px 0 0;
+  margin: 0;
   font-size: var(--fs-micro);
   letter-spacing: 0.06em;
   color: var(--iara-ink-soft);
 }
 
-.card__add { margin: 10px 0 0; font-size: var(--fs-small); }
+/* O convite para a sacola fica sempre visível, como no zip: esconder uma ação
+   atrás do hover deixaria a compra sem saída no celular e no teclado. */
+.card__add { margin: 0; font-size: var(--fs-small); }
 
 .badge--promo { background: var(--iara-accent); border-color: var(--iara-accent); color: var(--iara-paper); }
 
@@ -564,25 +566,57 @@
 }
 
 /* ---------------------------------------------------------- 13.1 PAINEL */
+/* A coluna de filtros acompanha a rolagem, como no zip. O teto de altura evita
+   que ela fique mais alta que a janela e esconda o fim da lista. */
 .filters {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.filters__head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--iara-line);
+@media (min-width: 1021px) {
+  .filters {
+    position: sticky;
+    top: var(--iara-sticky-top);
+    max-height: calc(100vh - var(--iara-sticky-top) - var(--iara-space-4));
+    max-height: calc(100dvh - var(--iara-sticky-top) - var(--iara-space-4));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: var(--iara-space-2);
+  }
 }
 
+/* No desktop a coluna começa direto em Categorias, como no zip: o título fica
+   só para leitor de tela. Na gaveta do celular e do tablet ele volta a aparecer,
+   porque ali a coluna é um painel que abre e precisa de nome visível. */
 .filters__heading {
-  font-family: var(--iara-font-display);
-  font-size: var(--fs-heading);
-  margin: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 1020px) {
+  .filters__heading {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0 0 var(--iara-space-3);
+    clip-path: none;
+    font-family: var(--iara-font-display);
+    font-size: var(--fs-heading);
+  }
+}
+
+/* Ações do filtro no fim da coluna, como no zip: botão largo e link de limpar. */
+.filters__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iara-space-2);
+  padding-top: var(--iara-space-5);
 }
 
 .filters__clear {
@@ -597,6 +631,7 @@
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 3px;
+  text-align: center;
 }
 
 .filters__clear:hover { color: var(--iara-accent-dark); }
@@ -810,7 +845,6 @@ main:has(> .band:last-child) + .site-footer {
    com o mesmo fio embaixo, e o seletor segue o estilo dos campos do site.
    ========================================================================= */
 
-.filters__head,
 .shop__toolbar {
   min-height: 46px;
   align-items: center;

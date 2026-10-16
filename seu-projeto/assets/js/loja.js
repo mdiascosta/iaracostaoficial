@@ -507,12 +507,20 @@
   var TEXTO_ENVIO = {
     PAC: 'PAC: postagem em até 2 dias úteis, com rastreio. O prazo de entrega sai do cálculo dos Correios pelo CEP.',
     SEDEX: 'SEDEX: valor e prazo aparecem depois do cálculo dos Correios pelo CEP.',
-    Retirada: 'Retirada no ateliê: dia e horário [A DEFINIR: combinar com o atendimento].'
+    Retirada: 'Retirada no ateliê: segunda a sexta, das 10h às 17h, depois do aviso de Pronto para Retirada por e-mail. Sem custo de frete.'
   };
 
   var TEXTO_PAGAMENTO = {
     pix: 'No Pix a confirmação é na hora, com 5% de desconto. O QR Code é gerado pelo Mercado Pago depois de confirmar o pedido.',
-    cartao: 'Cartão em até 6x sem juros, parcela mínima de R$ 50,00, processado pelo Mercado Pago. No site publicado os campos do cartão são os do gateway.'
+    cartao: 'Cartão em até 6x sem juros, parcela mínima de R$ 50,00, processado pelo Mercado Pago. No site publicado os campos do cartão são os do gateway.',
+    boleto: 'Boleto pelo Mercado Pago: vence em 2 dias úteis e o pedido é liberado depois da compensação bancária. O valor é o cheio, sem o desconto do Pix.'
+  };
+
+  /* Como o total do resumo se chama em cada forma de pagamento. */
+  var ROTULO_TOTAL = {
+    pix: 'Total no Pix',
+    cartao: 'Total no cartão',
+    boleto: 'Total no boleto'
   };
 
   /* Faixa do CEP digitado no checkout; sem CEP completo, não dá para dizer qual. */
@@ -549,8 +557,10 @@
        cartão mostra só os produtos e o total do resumo sai sem frete. */
     var precoPix = document.querySelector('[data-preco-pix]');
     var precoCartao = document.querySelector('[data-preco-cartao]');
+    var precoBoleto = document.querySelector('[data-preco-boleto]');
     if (precoPix) { precoPix.textContent = dinheiro(liquido * (1 - PIX_DESCONTO) + freteSomado); }
     if (precoCartao) { precoCartao.textContent = dinheiro(liquido + freteSomado); }
+    if (precoBoleto) { precoBoleto.textContent = dinheiro(liquido + freteSomado); }
 
     /* Preço do PAC no cartão de envio. */
     var pacEl = document.querySelector('[data-frete-pac]');
@@ -585,7 +595,9 @@
       if (totalRotulo) { totalRotulo.textContent = 'Total sem frete'; }
     } else {
       totalEl.textContent = dinheiro(base + frete);
-      if (totalRotulo) { totalRotulo.textContent = pix ? 'Total no Pix' : 'Total no cartão'; }
+      if (totalRotulo) {
+        totalRotulo.textContent = ROTULO_TOTAL[escolhido('pagamento')] || 'Total';
+      }
     }
 
     /* Parcelas, respeitando a parcela mínima de R$ 50,00 confirmada pela empresa. */

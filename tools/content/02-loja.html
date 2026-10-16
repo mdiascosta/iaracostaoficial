@@ -36,10 +36,9 @@
              anunciada por leitor de tela (aria-live).
              ================================================================== -->
         <aside class="filters" id="filtros-loja" aria-label="Filtros de produtos">
-          <div class="filters__head">
-            <h2 class="filters__heading">Filtros</h2>
-            <button class="filters__clear" type="button" data-filters-clear>Limpar</button>
-          </div>
+          <!-- O título só existe para leitor de tela e para a gaveta do celular:
+               no desktop a coluna começa direto em Categorias, como no zip. -->
+          <h2 class="filters__heading">Filtros</h2>
 
           <fieldset class="filters__group">
             <legend class="filters__title">Categorias</legend>
@@ -143,6 +142,13 @@
               Único <span class="filters__count">4</span>
             </label>
           </fieldset>
+
+          <!-- Ações do filtro, no fim da coluna, como no zip: o botão aplica
+               (no protótipo o filtro já responde na hora) e o link limpa tudo. -->
+          <div class="filters__actions">
+            <button class="btn btn--outline btn--block" type="button" data-filters-apply>Aplicar filtros</button>
+            <button class="filters__clear" type="button" data-filters-clear>Limpar filtros</button>
+          </div>
         </aside>
 
         <!-- ==================================================================
@@ -160,7 +166,7 @@
                  aqui que a contagem pertence, junto da ordenação. -->
             <div class="shop__meta">
               <!-- [CONFERIR] no WooCommerce a contagem vem do próprio tema -->
-              <p class="shop__count" data-count role="status" aria-live="polite">12 peças encontradas</p>
+              <p class="shop__count" data-count role="status" aria-live="polite" tabindex="-1">12 peças nesta seleção</p>
               <p class="shop__sizes">
                 Vestuário feminino do P ao GG ·
                 <a href="guia-medidas.html">Guia de medidas</a>

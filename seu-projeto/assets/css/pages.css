@@ -332,7 +332,7 @@
 .tab-panel[hidden] { display: none; }
 
 /* ======================================================= SACOLA/CHECKOUT */
-.cart-layout { display: grid; gap: clamp(24px, 4vw, 40px); }
+.cart-layout { display: grid; gap: clamp(24px, 4vw, 40px); align-items: start; }
 
 @media (min-width: 1021px) { .cart-layout { grid-template-columns: 1.5fr 1fr; align-items: start; } }
 
@@ -353,22 +353,44 @@
   border-radius: var(--iara-radius);
   background: var(--iara-white);
   padding: clamp(20px, 3vw, 28px);
+  align-self: start;
   position: sticky;
-  top: 120px;
+  /* Fica preso logo abaixo do cabeçalho fixo enquanto a sacola rola. */
+  top: var(--iara-sticky-top);
+  /* Se o resumo for mais alto que a janela, ele rola por dentro em vez de
+     esconder o botão de finalizar. */
+  max-height: calc(100vh - var(--iara-sticky-top) - var(--iara-space-4));
+  max-height: calc(100dvh - var(--iara-sticky-top) - var(--iara-space-4));
+  overflow: auto;
+  overscroll-behavior: contain;
 }
 
 .summary__title { font-size: var(--fs-heading); font-family: var(--iara-font-display); margin-bottom: 16px; }
 
-.summary__row { display: flex; justify-content: space-between; gap: 16px; padding-block: 10px; font-size: var(--fs-small); border-bottom: 1px solid var(--iara-hairline); }
+.summary__row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-block: 10px; font-size: var(--fs-small); border-bottom: 1px solid var(--iara-hairline); }
+
+/* Os valores formam uma coluna: o dígito ocupa sempre a mesma largura, então
+   R$ 974,00 e R$ 15,00 terminam exatamente na mesma linha vertical. */
+.summary__row > :last-child,
+.shipping-options li > :last-child { text-align: right; font-variant-numeric: tabular-nums; }
 
 .summary__row--total { font-size: var(--fs-body); font-weight: 600; border-bottom: 0; padding-top: 16px; }
 
 .summary__note { font-size: var(--fs-micro); color: var(--iara-ink-soft); margin: 14px 0 0; }
 
-.coupon { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 18px; }
-.coupon .field { flex: 1; margin-bottom: 0; }
+/* Campo + botão na mesma linha de base: o botão acompanha a base do campo,
+   sem margem calculada à mão (era o que desalinhava o APLICAR e o CALCULAR). */
+.coupon {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--iara-space-2);
+  margin-bottom: 18px;
+}
+.coupon .field { margin-bottom: 0; }
+.coupon .btn { height: 44px; padding-block: 0; }
 
-.shipping-options { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.shipping-options { list-style: none; margin: var(--iara-space-3) 0 0; padding: 0; display: grid; gap: 10px; }
 
 .shipping-options li { display: flex; justify-content: space-between; gap: 12px; font-size: var(--fs-small); color: var(--iara-ink-soft); }
 
@@ -486,7 +508,215 @@
 }
 
 /* ======================================================== BLOG E CONTEÚDO */
-.post-header { padding-block: clamp(24px, 4vw, 48px); max-width: 72ch; }
+/* --------------------------------------------------------------------------
+   ARTIGO DO DIÁRIO (v0.1.14)
+   Layout novo, no lugar do cabeçalho centralizado com a foto embaixo:
+   capa em duas colunas (texto e foto), índice que acompanha a leitura, barra
+   fina de progresso e fecho com etiquetas, compartilhamento e autoria.
+   -------------------------------------------------------------------------- */
+
+/* 1. CAPA: texto à esquerda, foto à direita */
+.post-hero {
+  display: grid;
+  gap: clamp(24px, 3vw, 48px);
+  padding-block: clamp(20px, 3vw, 40px) clamp(24px, 4vw, 48px);
+  align-items: end;
+}
+
+@media (min-width: 1021px) {
+  .post-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }
+}
+
+.post-hero__title {
+  font-size: clamp(28px, 3.4vw, var(--fs-display));
+  line-height: 1.12;
+  letter-spacing: 0.02em;
+  margin: 0 0 var(--iara-space-4);
+}
+
+.post-hero .lead { margin-bottom: var(--iara-space-5); }
+
+.post-hero__text { min-width: 0; }
+
+.post-hero__media { margin: 0; }
+
+/* 2. BARRA DE PROGRESSO: acompanha a altura do artigo */
+.post-progress {
+  position: sticky;
+  top: var(--iara-scroll-padding);
+  z-index: 5;
+  height: 2px;
+  background: var(--iara-hairline);
+  margin-bottom: clamp(24px, 3vw, 40px);
+}
+
+.post-progress[hidden] { display: none; }
+
+.post-progress__fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--iara-accent);
+}
+
+/* 3. CORPO: índice à esquerda, texto à direita */
+.post-body { display: grid; gap: clamp(24px, 3vw, 48px); }
+
+@media (min-width: 1021px) {
+  .post-body { grid-template-columns: 220px minmax(0, 1fr); align-items: start; }
+}
+
+.post-index {
+  border-top: 2px solid var(--iara-ink);
+  padding-top: var(--iara-space-4);
+}
+
+@media (min-width: 1021px) {
+  .post-index {
+    position: sticky;
+    top: var(--iara-sticky-top);
+    max-height: calc(100dvh - var(--iara-sticky-top) - var(--iara-space-4));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+.post-index__title {
+  margin: 0 0 var(--iara-space-3);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--iara-ink);
+}
+
+.post-index__list {
+  list-style: none;
+  margin: 0 0 var(--iara-space-5);
+  padding: 0;
+  display: grid;
+  gap: 2px;
+  counter-reset: indice;
+}
+
+.post-index__list a {
+  display: block;
+  padding: 8px 0 8px 30px;
+  position: relative;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+  text-decoration: none;
+  line-height: 1.4;
+  counter-increment: indice;
+}
+
+.post-index__list a::before {
+  content: counter(indice, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 9px;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.08em;
+  color: var(--iara-index);
+}
+
+.post-index__list a:hover { color: var(--iara-ink); }
+
+.post-index__list a[aria-current="true"] {
+  color: var(--iara-accent-dark);
+  font-weight: 600;
+}
+
+.post-index__list a[aria-current="true"]::before { color: var(--iara-accent-dark); }
+
+.post-index__link {
+  display: inline-block;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--iara-accent-dark);
+}
+
+/* 4. TEXTO: medida de leitura confortável */
+.post-text { max-width: 72ch; }
+
+.post-text .prose > h2 { margin-top: clamp(32px, 4vw, 48px); }
+
+.post-text .prose > h2:first-child { margin-top: 0; }
+
+/* Citação grande, que dá respiro no meio do texto */
+.pull-quote {
+  margin: clamp(28px, 3.5vw, 40px) 0;
+  padding: clamp(20px, 2.5vw, 28px) 0 clamp(20px, 2.5vw, 28px) clamp(20px, 3vw, 32px);
+  border-left: 2px solid var(--iara-accent-soft);
+}
+
+.pull-quote p {
+  margin: 0;
+  font-family: var(--iara-font-display);
+  font-size: clamp(20px, 2vw, 24px);
+  line-height: 1.35;
+  color: var(--iara-ink);
+}
+
+/* Caixa de chamada, para o convite do guia de medidas */
+.post-callout {
+  display: grid;
+  gap: var(--iara-space-3);
+  justify-items: start;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-hover-soft);
+  padding: clamp(20px, 2.5vw, 28px);
+  margin: clamp(28px, 3.5vw, 40px) 0;
+}
+
+.post-callout__title {
+  margin: 0;
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-heading);
+}
+
+.post-callout p { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
+
+/* 5. FECHO: etiquetas, compartilhar e autoria */
+.post-foot {
+  display: grid;
+  gap: var(--iara-space-6);
+  margin-top: clamp(32px, 4vw, 48px);
+  padding-top: var(--iara-space-5);
+  border-top: 1px solid var(--iara-hairline);
+}
+
+.post-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; }
+
+.post-tags a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--iara-line);
+  border-radius: 999px;
+  background: var(--iara-white);
+  color: var(--iara-ink-soft);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.post-tags a:hover { border-color: var(--iara-accent); color: var(--iara-accent-dark); }
+
+.post-share { min-width: 0; }
+
+.post-foot .post-index__title { margin-bottom: var(--iara-space-3); }
+
+.post-foot .share { margin: 0; }
+
+.author-box__name { margin: 0 0 4px; font-family: var(--iara-font-display); font-size: var(--fs-heading); }
+
+.author-box__bio { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
 
 .post-meta { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: var(--fs-small); color: var(--iara-ink-soft); margin-bottom: 18px; }
 
@@ -663,23 +893,6 @@ mark {
 .post-feature__title a:hover { color: var(--iara-accent-dark); }
 
 .post-byline { font-size: var(--fs-small); color: var(--iara-ink-soft); margin: 10px 0 0; }
-
-.post-layout { display: grid; gap: clamp(24px, 4vw, 56px); padding-block: clamp(24px, 4vw, 40px); }
-
-@media (min-width: 1021px) { .post-layout { grid-template-columns: 1fr 320px; align-items: start; } }
-
-.post-aside { border-left: 1px solid var(--iara-hairline); padding-left: 24px; }
-
-@media (max-width: 1020px) { .post-aside { border-left: 0; border-top: 1px solid var(--iara-hairline); padding-left: 0; padding-top: 24px; } }
-
-.post-aside__title {
-  font-family: var(--iara-font-ui);
-  font-size: var(--fs-micro);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--iara-ink-soft);
-  margin-bottom: 12px;
-}
 
 .pagination {
   display: flex;
@@ -1021,9 +1234,6 @@ form + h3,
 /* ---- Carrinho ---- */
 .page-cart .notice { margin-top: var(--iara-space-5); }
 .page-cart .state { margin-top: var(--iara-space-5); }
-.page-cart .coupon .btn { margin-top: 26px; }        /* alinha com o campo */
-.page-cart .shipping-options { margin-top: 14px; }
-
 /* Linha do resumo que empilha o conteúdo (a linha com o cálculo do frete). */
 .summary__row--stack { display: block; }
 .summary__row--stack .field__label { margin: 0 0 var(--iara-space-2); }
@@ -1031,6 +1241,12 @@ form + h3,
 
 /* Botão de fechar o pedido, separado do total. */
 .summary__action { margin: 18px 0 0; }
+
+/* Celular e tablet: uma coluna só, então nada de grudar nem de rolagem
+   interna no resumo. */
+@media (max-width: 1020px) {
+  .summary { position: static; max-height: none; overflow: visible; }
+}
 
 /* ---- Checkout ---- */
 .page-checkout .shipping-options { margin-bottom: 16px; }
@@ -1054,7 +1270,6 @@ form + h3,
 .page-post .info-box { margin-top: var(--iara-space-5); }
 
 /* Caixa de links dentro de um quadro de texto: título no corpo, não em 18px. */
-.info-box__title { font-size: var(--fs-body); }
 
 /* ---- Página 404 ---- */
 .page-404 .state__actions { justify-content: flex-start; margin-top: var(--iara-space-5); }

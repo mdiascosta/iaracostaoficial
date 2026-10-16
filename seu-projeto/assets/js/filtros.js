@@ -29,6 +29,7 @@
     var precoMin = document.querySelector('[data-facet="preco-min"]');
     var precoMax = document.querySelector('[data-facet="preco-max"]');
     var limparBotoes = Array.prototype.slice.call(document.querySelectorAll('[data-filters-clear]'));
+    var aplicarBotao = document.querySelector('[data-filters-apply]');
     var alternarFiltros = document.querySelector('[data-filters-toggle]');
     var insignia = document.querySelector('[data-filters-badge]');
     var painel = document.getElementById('filtros-loja');
@@ -121,8 +122,8 @@
 
       if (count) {
         count.textContent = visiveis.length === 1
-          ? '1 peça encontrada'
-          : visiveis.length + ' peças encontradas';
+          ? '1 peça nesta seleção'
+          : visiveis.length + ' peças nesta seleção';
       }
 
       if (vazio) {
@@ -161,6 +162,16 @@
     });
 
     if (sort) { sort.addEventListener('change', render); }
+
+    /* O botão do fim da coluna aplica o que já está marcado e devolve o foco
+       para a contagem, que é anunciada por leitor de tela. No protótipo o filtro
+       responde na hora; o botão existe porque faz parte do layout do zip. */
+    if (aplicarBotao) {
+      aplicarBotao.addEventListener('click', function () {
+        render();
+        if (count) { count.focus(); }
+      });
+    }
 
     limparBotoes.forEach(function (botao) {
       botao.addEventListener('click', function () {

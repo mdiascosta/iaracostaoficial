@@ -12,10 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- PRODUÇÃO: hospedar as fontes localmente (ver assets/fonts/LEIA-ME.md) -->
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&amp;family=Playfair+Display:wght@400&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=1b4095e3">
+  <link rel="stylesheet" href="assets/css/style.css?v=2a34c4fc">
   <link rel="stylesheet" href="assets/css/header.css?v=13cb981f">
-  <link rel="stylesheet" href="assets/css/pages.css?v=a2e5359e">
-  <link rel="stylesheet" href="assets/css/comercio.css?v=f958a274">
+  <link rel="stylesheet" href="assets/css/pages.css?v=ba14674a">
+  <link rel="stylesheet" href="assets/css/comercio.css?v=416baa63">
 </head>
 <body class="page-shop">
 <div class="proto-banner" role="note">PROTÓTIPO · DADOS E TEXTOS DE EXEMPLO · NÃO PUBLICAR</div>
@@ -197,10 +197,9 @@
              anunciada por leitor de tela (aria-live).
              ================================================================== -->
         <aside class="filters" id="filtros-loja" aria-label="Filtros de produtos">
-          <div class="filters__head">
-            <h2 class="filters__heading">Filtros</h2>
-            <button class="filters__clear" type="button" data-filters-clear>Limpar</button>
-          </div>
+          <!-- O título só existe para leitor de tela e para a gaveta do celular:
+               no desktop a coluna começa direto em Categorias, como no zip. -->
+          <h2 class="filters__heading">Filtros</h2>
 
           <fieldset class="filters__group">
             <legend class="filters__title">Categorias</legend>
@@ -304,6 +303,13 @@
               Único <span class="filters__count">4</span>
             </label>
           </fieldset>
+
+          <!-- Ações do filtro, no fim da coluna, como no zip: o botão aplica
+               (no protótipo o filtro já responde na hora) e o link limpa tudo. -->
+          <div class="filters__actions">
+            <button class="btn btn--outline btn--block" type="button" data-filters-apply>Aplicar filtros</button>
+            <button class="filters__clear" type="button" data-filters-clear>Limpar filtros</button>
+          </div>
         </aside>
 
         <!-- ==================================================================
@@ -321,7 +327,7 @@
                  aqui que a contagem pertence, junto da ordenação. -->
             <div class="shop__meta">
               <!-- [CONFERIR] no WooCommerce a contagem vem do próprio tema -->
-              <p class="shop__count" data-count role="status" aria-live="polite">12 peças encontradas</p>
+              <p class="shop__count" data-count role="status" aria-live="polite" tabindex="-1">12 peças nesta seleção</p>
               <p class="shop__sizes">
                 Vestuário feminino do P ao GG ·
                 <a href="guia-medidas.html">Guia de medidas</a>
@@ -766,9 +772,9 @@
               <path d="M3.5 10h17M7 15h4"></path>
             </svg>
             <span>
-              <strong>Pix e cartão de crédito</strong>
-              <span>Pix com 5% de desconto e cartão em até 6x sem juros, pelo
-                Mercado Pago.</span>
+              <strong>Pix, cartão e boleto</strong>
+              <span>Pix com 5% de desconto, cartão em até 6x sem juros e boleto
+                pelo Mercado Pago.</span>
             </span>
           </li>
           <li class="security__item">
@@ -809,12 +815,14 @@
           <div class="pay">
             <h3 class="security__subtitle">Formas de pagamento</h3>
             <ul class="pay__list">
-              <!-- Só o que a empresa confirmou: o gateway Mercado Pago e os dois
-                   meios de pagamento ativos. Bandeiras de cartão entram aqui
-                   quando estiverem ativas na conta do gateway. -->
+              <!-- Só o que a empresa confirmou: o gateway Mercado Pago e os três
+                   meios de pagamento ativos (boleto incluído em 16/10/2026).
+                   Bandeiras de cartão entram aqui quando estiverem ativas na
+                   conta do gateway. -->
               <li class="pay__chip">Mercado Pago</li>
               <li class="pay__chip">Pix</li>
               <li class="pay__chip">Cartão de crédito</li>
+              <li class="pay__chip">Boleto bancário</li>
             </ul>
           </div>
 
@@ -943,7 +951,7 @@
   <p class="toast" data-toast role="status" aria-live="polite"></p>
 
 <script src="assets/js/header.js?v=379ac46d" defer></script>
-<script src="assets/js/loja.js?v=f2ac80c8" defer></script>
-<script src="assets/js/filtros.js?v=eab5180f" defer></script>
+<script src="assets/js/loja.js?v=2aac383e" defer></script>
+<script src="assets/js/filtros.js?v=91fcf2a0" defer></script>
 </body>
 </html>

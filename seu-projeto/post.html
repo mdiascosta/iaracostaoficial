@@ -12,10 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- PRODUÇÃO: hospedar as fontes localmente (ver assets/fonts/LEIA-ME.md) -->
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&amp;family=Playfair+Display:wght@400&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=1b4095e3">
+  <link rel="stylesheet" href="assets/css/style.css?v=2a34c4fc">
   <link rel="stylesheet" href="assets/css/header.css?v=13cb981f">
-  <link rel="stylesheet" href="assets/css/pages.css?v=a2e5359e">
-  <link rel="stylesheet" href="assets/css/comercio.css?v=f958a274">
+  <link rel="stylesheet" href="assets/css/pages.css?v=ba14674a">
+  <link rel="stylesheet" href="assets/css/comercio.css?v=416baa63">
 </head>
 <body class="page-post">
 <div class="proto-banner" role="note">PROTÓTIPO · DADOS E TEXTOS DE EXEMPLO · NÃO PUBLICAR</div>
@@ -170,39 +170,64 @@
       </nav>
     </div>
 
-    <article>
-      <header class="container post-header">
-        <p class="post-card__eyebrow">Tamanhos e caimento</p>
-        <h1>Como escolher o caimento certo sem provar</h1>
-        <div class="post-meta">
-          <span>Por <span class="placeholder">[PREENCHER: autoria]</span></span>
-          <span class="post-meta__dot" aria-hidden="true">·</span>
-          <time datetime="2026-10-08">8 de outubro de 2026</time>
-          <span class="post-meta__dot" aria-hidden="true">·</span>
-          <span>6 min de leitura</span>
-        </div>
-        <p class="lead">
-          Comprar roupa sem provar dá certo quando você compara medidas, e não
-          tamanhos. Três medições resolvem a maior parte das dúvidas entre dois
-          tamanhos.
-        </p>
-      </header>
+    <article class="container" data-post-artigo>
 
-      <div class="container">
-        <figure class="post-figure">
+      <!-- ==================================================================
+           CAPA: texto à esquerda, foto à direita (v0.1.14). Antes o título
+           ficava centralizado com a foto embaixo, e a página abria devagar.
+           ================================================================== -->
+      <header class="post-hero">
+        <div class="post-hero__text">
+          <p class="post-card__eyebrow">Tamanhos e caimento</p>
+          <h1 class="post-hero__title">Como escolher o caimento certo sem provar</h1>
+          <p class="lead">
+            Comprar roupa sem provar dá certo quando você compara medidas, e não
+            tamanhos. Três medições resolvem a maior parte das dúvidas entre dois
+            tamanhos.
+          </p>
+          <div class="post-meta">
+            <span>Por Iara Costa e Equipe de Criação</span>
+            <span class="post-meta__dot" aria-hidden="true">·</span>
+            <time datetime="2026-10-08">8 de outubro de 2026</time>
+            <span class="post-meta__dot" aria-hidden="true">·</span>
+            <span>6 min de leitura</span>
+          </div>
+        </div>
+
+        <figure class="post-figure post-hero__media">
           <img src="assets/img/cap-salvia.jpg" alt="Peça verde sálvia de linho sobre superfície clara" width="768" height="1376">
           <figcaption>
             Medir uma peça que já veste bem é mais confiável do que medir o corpo.
             Imagem de exemplo: substituir por foto própria.
           </figcaption>
         </figure>
+      </header>
+
+      <!-- Barra fina de progresso da leitura: enche conforme o artigo rola. -->
+      <div class="post-progress" data-post-progress hidden aria-hidden="true">
+        <span class="post-progress__fill" data-post-progress-fill></span>
       </div>
 
-      <div class="container">
-        <div class="post-layout">
+      <!-- ==================================================================
+           CORPO: índice que acompanha a leitura à esquerda, texto à direita.
+           ================================================================== -->
+      <div class="post-body">
 
+        <aside class="post-index" aria-labelledby="post-index-titulo">
+          <p class="post-index__title" id="post-index-titulo">Neste texto</p>
+          <ol class="post-index__list" data-post-indice>
+            <li><a href="#tamanho-engana">Por que o tamanho escrito engana</a></li>
+            <li><a href="#tres-medicoes">As três medições que importam</a></li>
+            <li><a href="#subir-tamanho">Quando vale subir um tamanho</a></li>
+            <li><a href="#nao-servir">O que fazer se não servir</a></li>
+            <li><a href="#ajuda">Quer ajuda antes de comprar?</a></li>
+          </ol>
+          <a class="post-index__link" href="guia-medidas.html">Guia de medidas completo</a>
+        </aside>
+
+        <div class="post-text">
           <div class="prose">
-            <h2>Por que o tamanho escrito engana</h2>
+            <h2 id="tamanho-engana">Por que o tamanho escrito engana</h2>
             <p>
               Não existe tabela única no Brasil. Uma marca chama de M o que outra
               chama de P, e a mesma etiqueta pode variar entre uma coleção e
@@ -214,7 +239,13 @@
               você teria em mãos ao provar na loja física.
             </p>
 
-            <h2>As três medições que importam</h2>
+            <blockquote class="pull-quote">
+              <p>
+                A etiqueta diz o tamanho. A fita métrica diz se a peça veste.
+              </p>
+            </blockquote>
+
+            <h2 id="tres-medicoes">As três medições que importam</h2>
             <ul>
               <li><strong>Busto ou tórax:</strong> mede a largura de axila a axila, com a peça fechada.</li>
               <li><strong>Cintura:</strong> no ponto mais estreito da peça, sem esticar.</li>
@@ -226,7 +257,16 @@
               vale perguntar ao atendimento antes de escolher.
             </p>
 
-            <h2>Quando vale subir um tamanho</h2>
+            <div class="post-callout">
+              <p class="post-callout__title">Medida certa, sem sair de casa</p>
+              <p>
+                O guia do ateliê mostra onde encostar a fita em cada tipo de peça
+                e o que fazer quando a medida cai entre dois tamanhos.
+              </p>
+              <a class="btn btn--outline" href="guia-medidas.html">Abrir o guia de medidas</a>
+            </div>
+
+            <h2 id="subir-tamanho">Quando vale subir um tamanho</h2>
             <p>
               Tecidos sem elastano, modelagem justa ou caimento reto pedem atenção
               extra: se você ficou exatamente no limite da tabela e prefere
@@ -239,7 +279,7 @@
               ilustrado.
             </p>
 
-            <h2>O que fazer se não servir</h2>
+            <h2 id="nao-servir">O que fazer se não servir</h2>
             <p>
               Você tem sete dias corridos a partir do recebimento para desistir da
               compra, sem precisar justificar. Trocas por tamanho têm prazo
@@ -247,7 +287,7 @@
               <a href="trocas.html">Trocas e devoluções</a>.
             </p>
 
-            <h3>Quer ajuda antes de comprar?</h3>
+            <h2 id="ajuda">Quer ajuda antes de comprar?</h2>
             <p>
               Mande a sua medida de busto, cintura e quadril pelo atendimento. A
               gente diz qual tamanho costuma ficar melhor naquela peça
@@ -255,33 +295,40 @@
             </p>
           </div>
 
-          <aside class="post-aside" aria-labelledby="aside-titulo">
-            <h2 class="post-aside__title" id="aside-titulo">Compartilhar</h2>
-            <ul class="share">
-              <li><button type="button">Copiar link</button></li>
-              <li><a href="#">WhatsApp</a></li>
-              <li><a href="#">Facebook</a></li>
+          <!-- ==============================================================
+               FECHO DO ARTIGO: etiquetas, compartilhar e autoria
+               ============================================================== -->
+          <footer class="post-foot">
+            <ul class="post-tags" aria-label="Assuntos deste texto">
+              <li><a href="blog.html">Tamanhos e caimento</a></li>
+              <li><a href="blog.html">Medidas</a></li>
+              <li><a href="blog.html">Linho</a></li>
             </ul>
+
+            <div class="post-share">
+              <p class="post-index__title" id="post-share-titulo">Compartilhar</p>
+              <ul class="share" aria-labelledby="post-share-titulo">
+                <li><button type="button" data-copy-link>Copiar link</button></li>
+                <li><a href="#">WhatsApp</a></li>
+                <li><a href="#">Facebook</a></li>
+              </ul>
+            </div>
 
             <div class="author-box">
               <img class="author-box__avatar" src="assets/img/cap-terracota.jpg" alt="" aria-hidden="true" width="768" height="1376">
               <div>
                 <p class="post-card__eyebrow">Autoria</p>
-                <p class="mb-0"><span class="placeholder">[PREENCHER: nome e breve apresentação]</span></p>
+                <p class="author-box__name">Iara Costa e Equipe de Criação</p>
+                <p class="author-box__bio">
+                  Textos sobre bastidores do ateliê, curadoria de tecidos e estilo
+                  atemporal, escritos por quem desenha e costura as peças.
+                  <span class="placeholder">[PREENCHER: breve apresentação de quem assina]</span>
+                </p>
               </div>
             </div>
-
-            <div class="info-box">
-              <h2 class="info-box__title">Peças citadas neste texto</h2>
-              <ul class="info-box__links">
-                <li><a href="produto.html">Vestido Midi Sálvia</a></li>
-                <li><a href="produto.html">Calça Pantalona Sálvia</a></li>
-                <li><a href="guia-medidas.html">Guia de Medidas completo</a></li>
-              </ul>
-            </div>
-          </aside>
-
+          </footer>
         </div>
+
       </div>
     </article>
 
@@ -558,9 +605,9 @@
               <path d="M3.5 10h17M7 15h4"></path>
             </svg>
             <span>
-              <strong>Pix e cartão de crédito</strong>
-              <span>Pix com 5% de desconto e cartão em até 6x sem juros, pelo
-                Mercado Pago.</span>
+              <strong>Pix, cartão e boleto</strong>
+              <span>Pix com 5% de desconto, cartão em até 6x sem juros e boleto
+                pelo Mercado Pago.</span>
             </span>
           </li>
           <li class="security__item">
@@ -601,12 +648,14 @@
           <div class="pay">
             <h3 class="security__subtitle">Formas de pagamento</h3>
             <ul class="pay__list">
-              <!-- Só o que a empresa confirmou: o gateway Mercado Pago e os dois
-                   meios de pagamento ativos. Bandeiras de cartão entram aqui
-                   quando estiverem ativas na conta do gateway. -->
+              <!-- Só o que a empresa confirmou: o gateway Mercado Pago e os três
+                   meios de pagamento ativos (boleto incluído em 16/10/2026).
+                   Bandeiras de cartão entram aqui quando estiverem ativas na
+                   conta do gateway. -->
               <li class="pay__chip">Mercado Pago</li>
               <li class="pay__chip">Pix</li>
               <li class="pay__chip">Cartão de crédito</li>
+              <li class="pay__chip">Boleto bancário</li>
             </ul>
           </div>
 
@@ -735,6 +784,7 @@
   <p class="toast" data-toast role="status" aria-live="polite"></p>
 
 <script src="assets/js/header.js?v=379ac46d" defer></script>
-<script src="assets/js/loja.js?v=f2ac80c8" defer></script>
+<script src="assets/js/loja.js?v=2aac383e" defer></script>
+<script src="assets/js/artigo.js?v=411f0587" defer></script>
 </body>
 </html>

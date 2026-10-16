@@ -157,8 +157,8 @@
                     <input class="choice__input" id="envio-retirada" name="envio" type="radio" value="Retirada">
                     <span class="choice__body">
                       <span class="choice__title">Retirar no ateliê</span>
-                      <span class="choice__meta">Rua das Flores, nº 140, Sala 02 · Centro, Cerquilho - SP ·
-                        <span class="placeholder">[A DEFINIR: dias e horários de retirada]</span></span>
+                      <span class="choice__meta">Segunda a sexta, das 10h às 17h · Rua das Flores, nº 140, Sala 02 ·
+                        Centro, Cerquilho - SP</span>
                     </span>
                     <span class="choice__price">Grátis</span>
                   </label>
@@ -204,14 +204,24 @@
                     <span class="choice__price" data-preco-cartao>R$ 876,60</span>
                   </label>
                 </li>
-                <!-- Boleto e transferência ficaram fora do protótipo em 16/10/2026:
-                     a empresa confirmou Pix e cartão de crédito pelo Mercado Pago.
-                     Se entrarem na conta do gateway, voltam para cá. -->
+                <li>
+                  <label class="choice" for="pg-boleto">
+                    <input class="choice__input" id="pg-boleto" name="pagamento" type="radio" value="boleto">
+                    <span class="choice__body">
+                      <span class="choice__title">Boleto bancário</span>
+                      <span class="choice__meta">Vence em 2 dias úteis · pedido liberado depois da compensação</span>
+                    </span>
+                    <span class="choice__price" data-preco-boleto>R$ 876,60</span>
+                  </label>
+                </li>
+                <!-- Boleto habilitado pela empresa em 16/10/2026, pelo Mercado Pago.
+                     Transferência bancária continua fora: não foi confirmada. -->
               </ul>
 
               <p class="field__hint" id="pagamento-hint">
-                O desconto do Pix é aplicado sobre o valor dos produtos. O frete
-                entra no total conforme a forma de envio escolhida.
+                O desconto do Pix é aplicado sobre o valor dos produtos. No cartão
+                e no boleto, o valor é o cheio. O frete entra no total conforme a
+                forma de envio escolhida.
               </p>
               <p class="field__hint" data-pay-note role="status"></p>
 

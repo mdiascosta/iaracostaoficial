@@ -105,7 +105,10 @@
     "body_class": "page-post",
     "title": "Como escolher o caimento certo sem provar | Iara Costa",
     "desc": "Guia prático para acertar no tamanho e no caimento comprando online.",
-    "content": "11-post.html"
+    "content": "11-post.html",
+    "extra_js": [
+      "artigo.js"
+    ]
   },
   {
     "file": "404.html",

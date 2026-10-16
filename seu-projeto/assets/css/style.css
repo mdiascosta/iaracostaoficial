@@ -83,6 +83,9 @@
   --iara-gap: 20px;          /* "Space Between Widgets" do dossiê */
   --iara-radius: 2px;
   --iara-scroll-padding: 96px;
+  /* Distância em que o conteúdo gruda abaixo do cabeçalho fixo (o resumo
+     da sacola e a coluna de filtros usam este valor). */
+  --iara-sticky-top: calc(var(--iara-scroll-padding) + var(--iara-space-5));
 
   --iara-transition: 200ms ease;
 }
@@ -115,7 +118,17 @@ body {
   font-weight: 400;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden; /* nada de rolagem lateral (10.2) */
+  /* Nada de rolagem lateral (10.2). O valor é `clip`, e não `hidden`, de
+     propósito: `overflow-x: hidden` transforma o body numa caixa de rolagem e
+     com isso mata o `position: sticky` de tudo que está dentro dele, o que
+     acontecia com o cabeçalho e com o resumo da sacola (corrigido na v0.1.14).
+     `clip` corta o excesso sem criar caixa de rolagem. Navegador antigo que não
+     conhece `clip` fica com o `hidden` do @supports lá embaixo. */
+  overflow-x: clip;
+}
+
+@supports not (overflow: clip) {
+  body { overflow-x: hidden; }
 }
 
 img,
@@ -527,7 +540,8 @@ body.page-returns        .notice, body.page-returns        .legal-draft { max-wi
   list-style: none;
   margin: 0; padding: 0;
   display: grid;
-  gap: clamp(20px, 3vw, 32px);
+  /* Espaçamento do zip: mais ar entre as linhas do que entre as colunas. */
+  gap: clamp(28px, 3vw, var(--iara-space-6)) var(--iara-gap);
   grid-template-columns: 1fr;          /* celular (dossiê 7.7) */
 }
 
@@ -535,7 +549,13 @@ body.page-returns        .notice, body.page-returns        .legal-draft { max-wi
 @media (min-width: 1021px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 1021px) { .product-grid--four { grid-template-columns: repeat(4, 1fr); } }
 
-.card { position: relative; }
+/* Cartão em coluna, com 12px entre as partes: é o ritmo do cartão do zip. */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--iara-space-3);
+}
 
 .card__media {
   position: relative;
@@ -555,16 +575,20 @@ body.page-returns        .notice, body.page-returns        .legal-draft { max-wi
   .card__media:hover .card__img { transform: none; }
 }
 
-.card__body { padding-top: 12px; }
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iara-space-3);
+}
 
-.card__name { margin: 0 0 4px; font-size: var(--fs-body); font-weight: 400; }
+.card__name { margin: 0; font-size: var(--fs-body); font-weight: 400; }
 .card__name a { color: var(--iara-ink); text-decoration: none; }
 .card__name a:hover { color: var(--iara-accent-dark); }
 
 .card__meta { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
 
 .card__price {
-  margin: 8px 0 0;
+  margin: 0;
   font-size: var(--fs-price);
   color: var(--iara-ink);
 }

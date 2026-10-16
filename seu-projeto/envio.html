@@ -12,10 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- PRODUÇÃO: hospedar as fontes localmente (ver assets/fonts/LEIA-ME.md) -->
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&amp;family=Playfair+Display:wght@400&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=1b4095e3">
+  <link rel="stylesheet" href="assets/css/style.css?v=2a34c4fc">
   <link rel="stylesheet" href="assets/css/header.css?v=13cb981f">
-  <link rel="stylesheet" href="assets/css/pages.css?v=a2e5359e">
-  <link rel="stylesheet" href="assets/css/comercio.css?v=f958a274">
+  <link rel="stylesheet" href="assets/css/pages.css?v=ba14674a">
+  <link rel="stylesheet" href="assets/css/comercio.css?v=416baa63">
 </head>
 <body class="page-shipping">
 <div class="proto-banner" role="note">PROTÓTIPO · DADOS E TEXTOS DE EXEMPLO · NÃO PUBLICAR</div>
@@ -229,7 +229,7 @@
                 </tr>
                 <tr>
                   <th scope="row">Retirada no ateliê</th>
-                  <td><span class="placeholder">[A DEFINIR: dias e horários de retirada]</span></td>
+                  <td>Segunda a sexta, das 10h às 17h, depois do aviso de "Pronto para Retirada"</td>
                   <td>Grátis</td>
                 </tr>
               </tbody>
@@ -375,7 +375,7 @@
             <li>Configurar a regra de R$ 15,00 do PAC só para SP, RJ, MG e ES, nas faixas de CEP 01000-000 a 39999-999.</li>
             <li>Cadastrar origem do envio, embalagem, peso e dimensões de cada produto no cadastro do WooCommerce.</li>
             <li>Conferir se os prazos exibidos pelo plugin dos Correios são os mesmos desta página, para não haver contradição.</li>
-            <li>Confirmar se a retirada no ateliê está disponível, com dias e horários, e cadastrar a opção no checkout.</li>
+            <li>Cadastrar a retirada no ateliê no checkout (segunda a sexta, das 10h às 17h) e ligar o e-mail de "Pronto para Retirada".</li>
             <li>Cadastrar os prazos de produção (2 dias úteis de pronta entrega e 5 a 7 dias úteis sob encomenda).</li>
             <li>Testar: CEP válido, CEP inválido, carrinho acima de R$ 299 e abaixo de R$ 299, com e sem cupom.</li>
           </ul>
@@ -535,9 +535,9 @@
               <path d="M3.5 10h17M7 15h4"></path>
             </svg>
             <span>
-              <strong>Pix e cartão de crédito</strong>
-              <span>Pix com 5% de desconto e cartão em até 6x sem juros, pelo
-                Mercado Pago.</span>
+              <strong>Pix, cartão e boleto</strong>
+              <span>Pix com 5% de desconto, cartão em até 6x sem juros e boleto
+                pelo Mercado Pago.</span>
             </span>
           </li>
           <li class="security__item">
@@ -578,12 +578,14 @@
           <div class="pay">
             <h3 class="security__subtitle">Formas de pagamento</h3>
             <ul class="pay__list">
-              <!-- Só o que a empresa confirmou: o gateway Mercado Pago e os dois
-                   meios de pagamento ativos. Bandeiras de cartão entram aqui
-                   quando estiverem ativas na conta do gateway. -->
+              <!-- Só o que a empresa confirmou: o gateway Mercado Pago e os três
+                   meios de pagamento ativos (boleto incluído em 16/10/2026).
+                   Bandeiras de cartão entram aqui quando estiverem ativas na
+                   conta do gateway. -->
               <li class="pay__chip">Mercado Pago</li>
               <li class="pay__chip">Pix</li>
               <li class="pay__chip">Cartão de crédito</li>
+              <li class="pay__chip">Boleto bancário</li>
             </ul>
           </div>
 
@@ -712,6 +714,6 @@
   <p class="toast" data-toast role="status" aria-live="polite"></p>
 
 <script src="assets/js/header.js?v=379ac46d" defer></script>
-<script src="assets/js/loja.js?v=f2ac80c8" defer></script>
+<script src="assets/js/loja.js?v=2aac383e" defer></script>
 </body>
 </html>

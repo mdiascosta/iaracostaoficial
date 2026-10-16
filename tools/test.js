@@ -199,7 +199,7 @@ console.log('\n=== 7. FILTROS DA LOJA (coluna à esquerda) ===');
   catVestidos.checked = true;
   catVestidos.dispatchEvent(new dom.window.Event('change', { bubbles: true }));
   ok(visiveis() === 2, 'categoria Vestidos mostra 2 peças (achou ' + visiveis() + ')');
-  ok(contador() === '2 peças encontradas', 'contador anuncia 2 peças ("' + contador() + '")');
+  ok(contador() === '2 peças nesta seleção', 'contador anuncia 2 peças nesta seleção ("' + contador() + '")');
 
   // agora soma um tamanho que os vestidos têm, sem mudar o resultado
   const tamP = doc.querySelector('[data-facet="tamanho"][value="p"]');
@@ -410,7 +410,10 @@ console.log('\n=== 14. CABECALHO DA LOJA, ORDENACAO E TRILHA (v0.1.7) ===');
   ok(seletor.classList.contains('field__select'), 'seletor usa a classe de campo do site');
   ok(seletor.querySelectorAll('option').length === 4, 'quatro formas de ordenar');
 
-  ok(!!doc.querySelector('.filters__head'), 'coluna de filtros tem o cabeçalho próprio');
+  ok(!!doc.querySelector('.filters__heading'), 'coluna de filtros mantém o título para a gaveta e para leitor de tela');
+  ok(!!doc.querySelector('[data-filters-apply]'), 'coluna de filtros tem o botão Aplicar filtros no fim, como no zip');
+  ok(!!doc.querySelector('[data-filters-clear]'), 'coluna de filtros tem como limpar tudo');
+  ok(!doc.querySelector('.filters__head'), 'a coluna não tem mais o cabeçalho antigo: começa direto em Categorias');
   ok(!!doc.querySelector('.shop__toolbar'), 'coluna da grade tem a barra de ordenação');
 
   // trilha em todas as páginas internas, e só na home ela não existe
@@ -433,14 +436,15 @@ console.log('\n=== 15. RODAPE, CABECALHO DE PAGINA E RENOVACAO DAS INTERNAS (v0.
   ok(!!bands, 'rodapé tem a faixa de pagamento e segurança');
 
   const chips = d.querySelectorAll('.pay .pay__chip');
-  // A empresa confirmou o gateway e os dois meios ativos em 16/10/2026.
-  // Bandeira de cartão entra aqui quando estiver habilitada na conta do gateway.
-  ok(chips.length === 3, 'três formas de pagamento listadas (tem ' + chips.length + ')');
+  // A empresa confirmou o gateway e os três meios ativos em 16/10/2026
+  // (o boleto entrou nesta versão). Bandeira de cartão entra aqui quando
+  // estiver habilitada na conta do gateway.
+  ok(chips.length === 4, 'quatro formas de pagamento listadas (tem ' + chips.length + ')');
   const nomes = Array.prototype.map.call(chips, (c) => c.textContent.trim());
-  ['Mercado Pago', 'Pix', 'Cartão de crédito'].forEach((n) => {
+  ['Mercado Pago', 'Pix', 'Cartão de crédito', 'Boleto bancário'].forEach((n) => {
     ok(nomes.indexOf(n) >= 0, 'forma de pagamento confirmada: ' + n);
   });
-  ok(!/Boleto|PayPal|Visa|Mastercard|American Express|Diners/.test(d.querySelector('.pay').textContent),
+  ok(!/PayPal|Visa|Mastercard|American Express|Diners/.test(d.querySelector('.pay').textContent),
      'rodapé sem forma de pagamento que a empresa não confirmou');
 
   const selos = d.querySelectorAll('.seals .seal');
@@ -889,22 +893,31 @@ console.log('\n=== 19. DADOS DA EMPRESA E REGRAS CONFIRMADAS (v0.1.12) ===');
   const paginasComTexto = ['index.html', 'carrinho.html', 'checkout.html', 'faq.html',
     'produto.html', 'termos.html', 'trocas.html', 'privacidade.html', 'cookies.html',
     'envio.html', 'pedido-recebido.html', 'contato.html'];
+  const naoConfirmados = [];
   let comBoleto = [];
   paginasComTexto.forEach((pagina) => {
     const t = textoDe(pagina);
-    if (/boleto/i.test(t) || /PayPal/.test(t) || /transfer[eê]ncia banc[aá]ria/i.test(t)) {
-      comBoleto.push(pagina);
-    }
+    if (/PayPal/.test(t) || /transfer[eê]ncia banc[aá]ria/i.test(t)) { naoConfirmados.push(pagina); }
+    if (/boleto/i.test(t)) { comBoleto.push(pagina); }
   });
-  ok(comBoleto.length === 0,
-     'nenhuma página oferece boleto, PayPal ou transferência bancária (achados: ' + (comBoleto.join(', ') || 'nenhum') + ')');
+  ok(naoConfirmados.length === 0,
+     'nenhuma página oferece PayPal ou transferência bancária (achados: ' + (naoConfirmados.join(', ') || 'nenhum') + ')');
+  // Boleto: confirmado pela empresa em 16/10/2026, sempre com as mesmas regras.
+  ok(comBoleto.length >= 5, 'boleto divulgado nas páginas de venda e de política (em ' + comBoleto.length + ')');
+  ok(/Vence em 2 dias úteis/.test(textoDe('checkout.html')), 'checkout: boleto com vencimento em 2 dias úteis');
+  ok(/depois da compensação/.test(textoDe('checkout.html')), 'checkout: boleto libera o pedido depois da compensação');
+  ok(/Boleto bancário/.test(textoDe('termos.html')) && /2 dias úteis/.test(textoDe('termos.html')),
+     'termos: boleto com as regras confirmadas');
+  ok(/depósito ou Pix em até/.test(textoDe('trocas.html')), 'trocas: reembolso do boleto em até 3 dias úteis');
 
   const checkoutTexto = textoDe('checkout.html');
   ok(/5% de desconto/.test(checkoutTexto), 'checkout: Pix com 5% de desconto');
   ok(/6x sem juros/.test(checkoutTexto), 'checkout: cartão em até 6x sem juros');
   ok(/Mercado Pago/.test(checkoutTexto), 'checkout: gateway Mercado Pago nomeado');
-  ok(!/pg-boleto|pg-transferencia/.test(carregar('checkout.html').window.document.documentElement.outerHTML),
-     'checkout sem os campos de boleto e transferência');
+  ok(!!carregar('checkout.html').window.document.getElementById('pg-boleto'),
+     'checkout tem o cartão do boleto, confirmado pela empresa');
+  ok(!/pg-transferencia/.test(carregar('checkout.html').window.document.documentElement.outerHTML),
+     'checkout sem transferência bancária: não foi confirmada');
 
   // 19.5 — Pix e cartão nas páginas de venda
   ok(/5% de desconto/.test(textoDe('produto.html')), 'produto: Pix com 5% de desconto');
@@ -967,7 +980,8 @@ console.log('\n=== 19. DADOS DA EMPRESA E REGRAS CONFIRMADAS (v0.1.12) ===');
   ok(/sudeste/.test(js) && /PAC por R\$ 15,00/.test(js), 'loja.js: recado do Sudeste com R$ 15,00');
   ok(/o PAC e o SEDEX são calculados pelos Correios/i.test(js),
      'loja.js: nas outras regiões o recado aponta o cálculo dos Correios');
-  ok(!/boleto|transferência bancária/i.test(js), 'loja.js: sem forma de pagamento que a empresa não confirmou');
+  ok(!/transferência bancária/i.test(js), 'loja.js: sem forma de pagamento que a empresa não confirmou');
+  ok(/boleto/i.test(js) && /compensação bancária/i.test(js), 'loja.js: recado do boleto com a compensação');
   ok(/5% de desconto/.test(js), 'loja.js: recado do Pix com 5% de desconto');
 
   // 19.11 — nenhuma página promete troca em 30 dias como se fosse regra fechada
@@ -1002,8 +1016,8 @@ console.log('\n=== 20. CARTÕES DE OPÇÃO NO CHECKOUT E REGRAS NOVAS (v0.1.13) 
   ok(/Retirar no ateliê/.test(envioTitulos[2]), 'cartão: retirada no ateliê');
   ok(/Rua das Flores, nº 140/.test(t('.choice-list')),
      'cartão da retirada com o endereço do ateliê confirmado pela empresa');
-  ok(/\[A DEFINIR: dias e horários de retirada\]/.test(t('.choice-list')),
-     'cartão da retirada marca dias e horários como pendentes');
+  ok(/Segunda a sexta, das 10h às 17h/.test(t('.choice-list')),
+     'cartão da retirada com os dias e horários confirmados pela empresa');
   ok(/Postagem em até 2 dias úteis/.test(t('.choice-list')), 'cartão do PAC com o prazo de postagem');
   ok(marcados() === 2, 'duas opções marcadas no total: uma de envio e uma de pagamento');
 
@@ -1034,7 +1048,7 @@ console.log('\n=== 20. CARTÕES DE OPÇÃO NO CHECKOUT E REGRAS NOVAS (v0.1.13) 
   // 20.3 — cartões de pagamento
   const titulosPag = Array.prototype.map.call(
     doc.querySelectorAll('input[name="pagamento"]'), (i) => i.closest('.choice').querySelector('.choice__title').textContent.replace(/\s+/g, ' ').trim());
-  ok(titulosPag.length === 2, 'checkout: duas formas de pagamento (Pix e cartão)');
+  ok(titulosPag.length === 3, 'checkout: três formas de pagamento (Pix, cartão e boleto)');
   ok(/Pix/.test(titulosPag[0]) && /5% off/.test(titulosPag[0]), 'cartão do Pix com a etiqueta de 5% off');
   ok(/Cartão de crédito/.test(titulosPag[1]), 'cartão do cartão de crédito');
   const cartaoTexto = doc.querySelector('label[for="pg-cartao"]').textContent.replace(/\s+/g, ' ');
@@ -1152,6 +1166,156 @@ console.log('\n=== 20. CARTÕES DE OPÇÃO NO CHECKOUT E REGRAS NOVAS (v0.1.13) 
   ok(/MAX_PARCELAS = 6/.test(js), 'loja.js: no máximo 6 parcelas');
   ok(!/24,90|39,90/.test(js), 'loja.js: nenhum valor de frete inventado');
   ok(/frete grátis conta o valor líquido|valor LÍQUIDO/.test(js), 'loja.js: frete grátis sobre o valor líquido');
+}
+
+console.log('\n=== 21. RESUMO FIXO, BOLETO, RETIRADA, COLECAO DO ZIP E NOVO ARTIGO (v0.1.14) ===');
+{
+  const css = (arquivo) => fs.readFileSync(path.join(RAIZ, 'assets', 'css', arquivo), 'utf8');
+  const js = (arquivo) => fs.readFileSync(path.join(RAIZ, 'assets', 'js', arquivo), 'utf8');
+  const textoDe = (arquivo) => carregar(arquivo).window.document.body.textContent.replace(/\s+/g, ' ');
+  const arquivoHtml = (arquivo) => fs.readFileSync(path.join(RAIZ, arquivo), 'utf8');
+
+  // 21.1 — o resumo da sacola: alinhamento de dentro e foco ao rolar
+  const style = css('style.css');
+  const pages = css('pages.css');
+  const comercio = css('comercio.css');
+
+  const styleSemComentarios = style.replace(/\/\*[\s\S]*?\*\//g, '');
+  const corpo = styleSemComentarios.match(/body \{[^}]*\}/)[0];
+  ok(!/overflow-x:\s*hidden/.test(corpo),
+     'body não usa overflow-x: hidden (era o que matava o position: sticky)');
+  ok(/overflow-x:\s*clip/.test(corpo), 'body corta o excesso com overflow-x: clip');
+  ok(/@supports not \(overflow: clip\)/.test(style), 'navegador antigo ganha o hidden como reserva');
+
+  const resumo = pages.match(/\.summary \{[^}]*\}/)[0];
+  ok(/position:\s*sticky/.test(resumo), 'resumo fica preso ao rolar');
+  ok(/top:\s*var\(--iara-sticky-top\)/.test(resumo), 'resumo gruda abaixo do cabeçalho, pelo token do site');
+  ok(/max-height:/.test(resumo) && /overflow:\s*auto/.test(resumo),
+     'resumo alto demais rola por dentro em vez de esconder o botão');
+  ok(/align-self:\s*start/.test(resumo), 'resumo alinhado ao topo da coluna');
+  ok(/@media \(max-width: 1020px\) \{\s*\.summary \{ position: static/.test(pages.replace(/\s+\n/g, '\n')),
+     'no celular e no tablet o resumo volta ao fluxo normal');
+
+  const coupon = pages.match(/\.coupon \{[^}]*\}/)[0];
+  ok(/align-items:\s*end/.test(coupon), 'campo e botão alinhados pela base');
+  ok(!/margin-top:\s*26px/.test(pages), 'a margem mágica de 26px saiu do CSS');
+  ok(/grid-template-columns:\s*minmax\(0, 1fr\) auto/.test(coupon), 'campo e botão em duas colunas de largura previsível');
+  ok(/font-variant-numeric:\s*tabular-nums/.test(pages), 'valores do resumo em coluna, com número de largura fixa');
+
+  const carrinho = carregar('carrinho.html').window.document;
+  ok(!!carrinho.querySelector('.summary'), 'sacola tem o resumo');
+  ok(!!carrinho.querySelector('[data-frete-form]'), 'o cálculo do frete dentro do resumo é um formulário de verdade');
+  ok(!!carrinho.querySelector('.summary .coupon .btn'), 'o resumo tem o botão de aplicar cupom na mesma linha do campo');
+  ok(/--iara-sticky-top/.test(style), 'token --iara-sticky-top definido no CSS');
+
+  // 21.2 — boleto no checkout, com as regras confirmadas
+  const dom = carregar('checkout.html');
+  const doc = dom.window.document;
+  const win = dom.window;
+  const t = (sel) => ((doc.querySelector(sel) || {}).textContent || '').replace(/\s+/g, ' ');
+  const evt = (el, tipo) => el.dispatchEvent(new win.Event(tipo, { bubbles: true }));
+
+  const boleto = doc.getElementById('pg-boleto');
+  ok(!!boleto, 'checkout tem o cartão do boleto');
+  const cartaoBoleto = boleto.closest('.choice');
+  ok(/Boleto bancário/.test(cartaoBoleto.querySelector('.choice__title').textContent),
+     'cartão do boleto com o título certo');
+  ok(/Vence em 2 dias úteis/.test(cartaoBoleto.textContent), 'boleto: vencimento em 2 dias úteis');
+  ok(/depois da compensação/.test(cartaoBoleto.textContent), 'boleto: pedido liberado depois da compensação');
+  ok(!/5% off/.test(cartaoBoleto.textContent), 'boleto não recebe a etiqueta do desconto do Pix');
+
+  boleto.checked = true; evt(boleto, 'change');
+  ok(/R\$ 876,60/.test(t('[data-preco-boleto]')), 'boleto: valor cheio, sem o desconto do Pix');
+  ok(/R\$ 876,60/.test(t('[data-resumo-total]')), 'boleto: total do resumo sem desconto');
+  ok(/Total no boleto/.test(t('[data-resumo-total-rotulo]')), 'boleto: rótulo do total muda para boleto');
+  ok(doc.getElementById('cartao-campos').hasAttribute('hidden'), 'boleto não pede dados de cartão');
+  ok(/compensação bancária/.test(t('[data-pay-note]')), 'boleto: recado explica a compensação');
+
+  const pix = doc.getElementById('pg-pix');
+  pix.checked = true; evt(pix, 'change');
+  ok(/R\$ 832,77/.test(t('[data-resumo-total]')), 'voltar para o Pix traz o total com desconto');
+
+  // 21.3 — retirada no ateliê, com dias e horários
+  ok(/Segunda a sexta, das 10h às 17h/.test(textoDe('checkout.html')), 'checkout: horário de retirada confirmado');
+  ok(/Segunda a sexta, das 10h às 17h/.test(textoDe('envio.html')), 'envio: tabela com o horário de retirada');
+  ok(/Pronto para Retirada/.test(textoDe('envio.html')), 'envio: retirada só depois do aviso de pronto');
+  ok(/segunda a sexta, das 10h às 17h/i.test(textoDe('contato.html')), 'contato: horário de retirada confirmado');
+  ok(/segunda a sexta, das 10h às 17h/i.test(js('loja.js')), 'loja.js: recado da retirada com o horário');
+  ok(!/\[A DEFINIR: dias e horários de retirada\]/.test(textoDe('checkout.html') + textoDe('envio.html') + textoDe('contato.html')),
+     'o marcador de dias e horários saiu do site');
+
+  // 21.4 — o que a empresa respondeu sobre trocas, reembolso e tecidos
+  const trocas = textoDe('trocas.html');
+  ok(/mesmo\s+modelo em outro tamanho/.test(trocas), 'trocas: peças de liquidação trocam pelo mesmo modelo');
+  ok(/valor\s+pago/.test(trocas), 'trocas: cupom de troca vale o valor pago');
+  ok(/em até 2 dias úteis/.test(trocas), 'trocas: reembolso no Pix em 2 dias úteis');
+  ok(/3 dias úteis/.test(trocas), 'trocas: cartão e boleto em 3 dias úteis');
+  ok(!/Prazo para processar o reembolso depois da conferência da peça:/.test(trocas),
+     'trocas: o marcador do prazo de reembolso saiu');
+
+  const sobre = textoDe('sobre.html');
+  ok(/linho, algodão egípcio e viscose de alta gramatura/.test(sobre), 'sobre: tecidos confirmados pela empresa');
+  ok(/100% autorais/.test(sobre), 'sobre: modelagem autoral confirmada');
+  ok(/Cerquilho - SP/.test(sobre), 'sobre: ateliê em Cerquilho');
+
+  const produto = textoDe('produto.html');
+  ok(/País de origem: Brasil/.test(produto), 'produto: país de origem confirmado');
+  ok(/linho, algodão egípcio e viscose de alta gramatura/.test(produto), 'produto: tecidos do ateliê citados');
+
+  ok(/Iara Costa e Equipe de Criação/.test(textoDe('post.html')), 'artigo: autoria confirmada pela empresa');
+  ok(/Iara Costa e Equipe de Criação/.test(textoDe('blog.html')), 'diário: autoria confirmada pela empresa');
+  ok(!/\[PREENCHER: autoria\]/.test(textoDe('post.html') + textoDe('blog.html')), 'o marcador de autoria saiu do diário');
+
+  // 21.5 — página de coleção no layout do zip
+  const loja = carregar('loja.html').window.document;
+  ok(!!loja.querySelector('.filters__actions'), 'coluna de filtros fecha com as ações, como no zip');
+  const acoes = loja.querySelector('.filters__actions');
+  ok(/Aplicar filtros/.test(acoes.textContent), 'ações trazem o botão Aplicar filtros');
+  ok(/Limpar filtros/.test(acoes.textContent), 'ações trazem o Limpar filtros');
+  ok(!loja.querySelector('.filters__head'), 'sem o cabeçalho antigo na coluna');
+  ok(/12 peças nesta seleção/.test(loja.querySelector('[data-count]').textContent), 'contagem com o texto do zip');
+
+  const filtrosCss = comercio.match(/@media \(min-width: 1021px\) \{\s*\.filters \{[^}]*\}/);
+  ok(!!filtrosCss && /position:\s*sticky/.test(filtrosCss[0]), 'coluna de filtros acompanha a rolagem, como no zip');
+
+  const cardCss = style.match(/\.card \{[^}]*\}/)[0];
+  ok(/display:\s*flex/.test(cardCss) && /gap:\s*var\(--iara-space-3\)/.test(cardCss),
+     'cartão em coluna com 12px entre as partes, como no zip');
+  const addCss = comercio.match(/\.card__add \{[^}]*\}/)[0];
+  ok(/font-size:\s*var\(--fs-small\)/.test(addCss), 'convite da sacola no corpo pequeno, como no zip');
+  ok(!/opacity:\s*0/.test(addCss), 'convite da sacola fica sempre visível: nada escondido atrás do hover');
+  ok(/gap: clamp\(28px, 3vw, var\(--iara-space-6\)\) var\(--iara-gap\)/.test(style),
+     'grade de produtos com o espaçamento do zip (mais ar entre as linhas)');
+
+  const filtros = js('filtros.js');
+  ok(/data-filters-apply/.test(filtros), 'filtros.js lê o botão Aplicar filtros');
+  ok(/peças nesta seleção/.test(filtros), 'filtros.js escreve a contagem do zip');
+
+  // 21.6 — layout novo do artigo
+  const post = carregar('post.html').window.document;
+  ok(!!post.querySelector('.post-hero'), 'artigo abre com a capa em duas colunas');
+  ok(!!post.querySelector('.post-hero .post-figure'), 'a foto da capa fica ao lado do texto');
+  ok(!!post.querySelector('.post-index'), 'artigo tem o índice do texto');
+  const linksIndice = Array.prototype.map.call(post.querySelectorAll('.post-index__list a'), (a) => a.getAttribute('href'));
+  ok(linksIndice.length === 5, 'índice com as cinco seções (tem ' + linksIndice.length + ')');
+  ok(linksIndice.every((href) => !!post.querySelector(href)), 'todos os atalhos do índice levam a uma seção que existe');
+  ok(!!post.querySelector('.pull-quote'), 'artigo tem a citação de respiro');
+  ok(!!post.querySelector('.post-callout'), 'artigo tem a chamada do guia de medidas');
+  ok(!!post.querySelector('.post-tags'), 'artigo fecha com as etiquetas de assunto');
+  ok(!!post.querySelector('.post-foot .share'), 'artigo tem o compartilhar no fecho');
+  ok(!!post.querySelector('.author-box__name'), 'artigo tem o nome de quem assina');
+  ok(!!post.querySelector('[data-post-progress]'), 'artigo tem a barra de progresso da leitura');
+  ok(post.querySelector('[data-post-progress]').hasAttribute('hidden'),
+     'a barra de progresso começa escondida e só aparece com rolagem');
+  ok(!post.querySelector('.post-layout') && !post.querySelector('.post-aside'),
+     'o layout antigo do artigo saiu do HTML');
+  ok(/artigo\.js/.test(arquivoHtml('post.html')), 'a página do artigo carrega o artigo.js');
+
+  const artigo = js('artigo.js');
+  ok(/data-post-artigo/.test(artigo), 'artigo.js trabalha só na página do artigo');
+  ok(/IntersectionObserver/.test(artigo), 'artigo.js marca a seção atual no índice');
+  ok(/clipboard/.test(artigo), 'artigo.js copia o link do artigo');
+  ok(/catch \(erro\)/.test(artigo), 'artigo.js falha em silêncio se algo der errado');
 }
 
 console.log('\n========================================');
