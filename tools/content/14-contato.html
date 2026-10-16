@@ -1,0 +1,179 @@
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Você está aqui">
+        <ol>
+          <li><a href="index.html">Início</a></li>
+          <li><span aria-current="page">Contato</span></li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="container page-head">
+      <div class="page-head__inner">
+        <h1>Fale com a gente</h1>
+        <p class="lead">
+          Dúvida de tamanho, prazo, troca ou pedido: escolha o canal que for
+          melhor para você. Quem responde é gente de verdade.
+        </p>
+      </div>
+    </div>
+
+    <div class="container section--tight">
+      <div class="contact-layout">
+
+        <div>
+          <h2>Enviar mensagem</h2>
+
+          <form action="#" method="post" novalidate>
+            <div class="form-row form-row--2">
+              <div class="field">
+                <label class="field__label" for="ct-nome">Seu nome</label>
+                <input class="field__input" id="ct-nome" name="nome" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="ct-email">Seu e-mail</label>
+                <input class="field__input" id="ct-email" name="email" type="email" autocomplete="email"
+                       aria-describedby="ct-email-hint" required>
+                <p class="field__hint" id="ct-email-hint">Respondemos para este e-mail.</p>
+              </div>
+            </div>
+
+            <div class="form-row form-row--2">
+              <div class="field">
+                <label class="field__label" for="ct-telefone">Telefone (opcional)</label>
+                <input class="field__input" id="ct-telefone" name="telefone" type="tel"
+                       inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000">
+              </div>
+              <div class="field">
+                <label class="field__label" for="ct-pedido">Número do pedido (opcional)</label>
+                <input class="field__input" id="ct-pedido" name="pedido" type="text"
+                       inputmode="numeric" placeholder="0000"
+                       aria-describedby="ct-pedido-hint">
+                <p class="field__hint" id="ct-pedido-hint">Ajuda a resolver mais rápido.</p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="ct-assunto">Assunto</label>
+              <select class="field__select" id="ct-assunto" name="assunto" required>
+                <option value="">Escolha o assunto</option>
+                <option>Dúvida sobre tamanho ou caimento</option>
+                <option>Dúvida sobre produto ou tecido</option>
+                <option>Status do meu pedido</option>
+                <option>Troca ou devolução</option>
+                <option>Problema com pagamento</option>
+                <option>Dados pessoais e privacidade</option>
+                <option>Outro assunto</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="ct-msg">Mensagem</label>
+              <textarea class="field__textarea" id="ct-msg" name="mensagem" rows="6"
+                        placeholder="Conte o que está acontecendo. Se for dúvida de tamanho, mande as suas medidas de busto, cintura e quadril."
+                        required></textarea>
+            </div>
+
+            <div class="checkbox">
+              <input class="checkbox__input" id="ct-consent" name="consentimento" type="checkbox" required>
+              <label class="checkbox__label" for="ct-consent">
+                Autorizo o uso dos meus dados para responder esta mensagem,
+                conforme a <a href="privacidade.html">Política de Privacidade</a>.
+              </label>
+            </div>
+
+            <div class="checkbox">
+              <input class="checkbox__input" id="ct-news" name="newsletter" type="checkbox">
+              <label class="checkbox__label" for="ct-news">
+                Quero receber novidades por e-mail. (Opcional. Não interfere na resposta.)
+              </label>
+            </div>
+
+            <p class="muted-note" style="margin-bottom:16px">
+              Este formulário terá proteção anti-robô (CAPTCHA) e proteção contra
+              envio repetido. [CONFERIR no Bloco B] Testar o CAPTCHA junto com o
+              gateway de pagamento, porque alguns fluxos interferem entre si.
+            </p>
+
+            <button class="btn btn--primary" type="submit">Enviar mensagem</button>
+          </form>
+
+          <!-- ESTADO DE UI: mensagem enviada -->
+          <section class="section" aria-labelledby="contato-ok">
+            <h2 class="state-label" id="contato-ok">Referência de estado: mensagem enviada</h2>
+            <div class="notice" role="status">
+              <strong>Recebemos a sua mensagem.</strong>
+              A resposta chega no e-mail informado em até
+              <span class="placeholder">[PREENCHER: prazo]</span>. Se o assunto for
+              urgente, use o WhatsApp.
+            </div>
+          </section>
+        </div>
+
+        <aside aria-labelledby="canais-titulo">
+          <h2 id="canais-titulo">Outros canais</h2>
+
+          <div class="info-box">
+            <h3>WhatsApp</h3>
+            <p>
+              Número: <span class="placeholder">[PREENCHER]</span><br>
+              Atendimento: <span class="placeholder">[PREENCHER: dias e horários]</span>
+            </p>
+            <p class="muted-note">
+              Não pedimos senha, dados de cartão nem código por WhatsApp. Se
+              alguém pedir em nome da loja, não envie e avise a gente.
+            </p>
+          </div>
+
+          <div class="info-box" style="margin-top:20px">
+            <h3>E-mail</h3>
+            <p>
+              Atendimento: <span class="placeholder">[PREENCHER]</span><br>
+              Dúvidas sobre dados pessoais: <span class="placeholder">[PREENCHER: canal do encarregado de dados]</span>
+            </p>
+          </div>
+
+          <div class="info-box" style="margin-top:20px">
+            <h3>Prazo de resposta</h3>
+            <p>
+              Até <span class="placeholder">[PREENCHER]</span> em dias úteis.
+              Pedidos com número informado costumam ser resolvidos na primeira
+              resposta.
+            </p>
+          </div>
+
+          <div class="info-box" style="margin-top:20px">
+            <h3>Antes de escrever</h3>
+            <p class="muted-note" style="margin-bottom:10px">
+              Talvez a resposta já esteja pronta:
+            </p>
+            <ul class="site-footer__list" style="margin-bottom:0">
+              <li><a href="faq.html">Perguntas frequentes</a></li>
+              <li><a href="guia-medidas.html">Guia de medidas</a></li>
+              <li><a href="envio.html">Prazos de envio e entrega</a></li>
+              <li><a href="trocas.html">Trocas e devoluções</a></li>
+              <li><a href="conta.html">Acompanhar meu pedido</a></li>
+            </ul>
+          </div>
+
+          <div class="info-box" style="margin-top:20px">
+            <h3>Dados da empresa</h3>
+            <p class="muted-note" style="margin-bottom:0">
+              <span class="placeholder">[PREENCHER: razão social]</span><br>
+              CNPJ <span class="placeholder">[PREENCHER]</span><br>
+              <span class="placeholder">[PREENCHER: endereço completo]</span>
+            </p>
+          </div>
+
+          <!-- OPCIONAL: se a empresa tiver endereço físico aberto ao público -->
+          <div class="info-box" style="margin-top:20px">
+            <h3>Retirada no local</h3>
+            <p class="muted-note" style="margin-bottom:0">
+              <span class="placeholder">[A DEFINIR]</span> Se a Iara Costa não
+              atender no local, esta seção deve sair da página. Não prometemos
+              retirada sem confirmar com a empresa.
+            </p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
