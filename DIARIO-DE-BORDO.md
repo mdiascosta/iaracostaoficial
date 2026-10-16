@@ -1,5 +1,104 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Segundo pente fino: descrições de busca e alvos de toque (v0.1.20)
+
+### Como esta rodada funcionou
+A v0.1.19 procurou o que estava **quebrado** no navegador. Esta rodada procurou o
+que estava **difícil de usar**: o texto que aparece no resultado do Google e o
+tamanho do que se clica e se toca. As 22 páginas foram abertas em Chromium sem
+interface (390, 768 e 1440 pixels de largura) e cada elemento clicável foi
+medido pelo próprio navegador, com o critério 2.5.8 da WCAG 2.2 (versão AA) como
+régua: 24 por 24 pixels no mínimo. Também foi feita nova varredura de conteúdo
+sem JavaScript, estrutura de títulos, ordem de foco e movimento reduzido.
+
+### O que a medição mostrou
+
+**Descrições de busca.** Onze das 22 páginas tinham descrição com menos de 60
+caracteres, a menor delas com 37. O Google mostra duas ou três linhas embaixo do
+título: com texto curto, ele completa com pedaços aleatórios da página. As 22
+foram reescritas à mão, entre 111 e 149 caracteres, cada uma descrevendo o que
+existe de verdade naquela página.
+
+**Alvos de toque.** Cinco elementos ficavam abaixo dos 24 pixels de altura:
+
+| O que | Antes | Agora |
+|---|---|---|
+| Botões de menos e mais da quantidade | 44 x 23 px | 44 x 44 px |
+| Links das colunas do rodapé | 21 px | 31 px |
+| Links da faixa de texto miúdo do rodapé | 13 px | 24 px |
+| Convite "Adicionar à sacola" no cartão | 109 x 14 px | 24 px |
+| Links da faixa de aviso no topo | 141 x 13 px | ~29 px, com a faixa intacta (84px) |
+
+O conserto dos links do rodapé veio por espaço interno e não por altura fixa, o
+que mantém o desenho das colunas. O da faixa de aviso usou uma camada invisível
+por cima do texto: a área de toque cresce, o desenho não.
+
+**O que ficou como estava, com motivo registrado.** Os links que vivem dentro de
+uma frase ou de um título (nome do produto no cartão, "Guia de medidas", nota da
+newsletter) medem só a caixa do texto. A WCAG 2.2 abre exceção exatamente para
+esse caso, chamado de texto em linha: aumentar a área mudaria a quebra de linha e
+o desenho do parágrafo. As caixas de seleção do checkout e da conta, de 20 por 20
+pixels, ficam dentro do rótulo, e o rótulo inteiro é a área de toque.
+
+### O que mais foi conferido e não achou problema
+- Sem JavaScript: as 22 páginas continuam com conteúdo e navegação.
+- Estrutura: um único H1 por página, sem pulo de nível, `lang` correto, um `main`,
+  sem id repetido. O único caso de dois `header` na página do artigo é o bloco de
+  abertura do texto, que é legítimo.
+- Foco visível: 25 paradas de teclado conferidas em 7 páginas, todas visíveis.
+- Movimento reduzido: só transições de duração 0,00001s, sem animação perceptível.
+- Busca: pela lupa, com resultado, sem resultado, por categoria e por cor, além
+  do termo gigante (1.000 caracteres) que não estoura a largura.
+- Filtros da loja: os quatro grupos respondem e a contagem da faixa confere.
+
+### Decisões tomadas
+- Manter a exceção da norma para links em linha, em vez de forçar área maior e
+  mexer no desenho do texto.
+- Consertar os alvos de toque sem alterar a altura da faixa de aviso nem do
+  cabeçalho (conferido: 84px e 71px, iguais a antes).
+- Nenhuma cor, texto de marca ou informação nova foi inventada nesta rodada.
+
+### Verificação automática
+`node tools/test.js` passou de 1.032 para **1.043 verificações, nenhuma falha**,
+com a seção 26 nova cobrindo os cinco alvos de toque e os limites de tamanho das
+descrições. `python3 tools/check.py` e o pente fino de HTML e CSS seguem em
+"tudo certo" nas 22 páginas.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Conferência da cliente no navegador: acordeão do FAQ, formulário de contato e
+  seletor de cor da página de produto (pendências trazidas da v0.1.19).
+- Contraste dos pontos decorativos (`--iara-index` 3,17:1 e estrela da avaliação
+  4,46:1) segue como estava, por serem ícones e ornamentos com texto ao lado.
+- Composição exata por peça, tabela de medidas real, história da marca,
+  analytics, e a confirmação de "Outono · Inverno 2026" e "Terra & Linho".
+- Combinar se as próximas versões ganham pasta congelada a cada fechamento.
+
+## [2026-10-16] - PR #3 mergeado na main (registro)
+
+### O que aconteceu
+- O **PR #3** (branch de trabalho -> `main`) foi **mergeado** em 16/10/2026, às
+  15h47 (horário de Brasília), por Matheus Costa (`mdiascosta`).
+- **Commit de merge: `fd71101`.** Entraram os dois commits da v0.1.19: os sete
+  consertos do pente fino no navegador (largura no celular, balão do WhatsApp,
+  acordeão, formulário de contato, cor do produto, botões da lista de desejos e
+  contraste) e a subida de versão de 0.1.18 para 0.1.19.
+- A `main` está com o `VERSION` em 0.1.19, com o `contato.js` novo dentro e com
+  as etiquetas `v0.1.0` a `v0.1.19`. A `v0.1.19` aponta para `906d81d`, o mesmo
+  conteúdo que entrou na `main`.
+- O trabalho seguinte começa em uma branch nova a partir do commit de merge.
+
+### Decisões tomadas
+- **Registro sem mudança de versão:** anotação de documentação sobre algo que já
+  estava entregue. A versão continua 0.1.19 até o template mudar de novo.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Conferência da cliente no navegador: acordeão do FAQ, envio vazio no formulário
+  de contato e o seletor de cor da página de produto.
+- "Tingimento natural" (casca de cebola e eucalipto), "costura em pequenos lotes"
+  e "fornecedores certificados" seguem fora do site, aguardando confirmação.
+- Composição exata por peça, tabela de medidas real e história da marca.
+- Combinar se as próximas versões ganham pasta congelada a cada fechamento.
+
 ## [2026-10-16] - Pente fino no navegador de verdade (v0.1.19)
 
 ### Como esta rodada foi diferente

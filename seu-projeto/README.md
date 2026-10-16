@@ -41,6 +41,16 @@ Depois abra `http://localhost:8080` no navegador.
 | Institucional | `sobre.html`, `contato.html`, `faq.html`, `guia-medidas.html` |
 | Políticas | `trocas.html`, `envio.html`, `privacidade.html`, `termos.html`, `cookies.html` |
 
+### Novidades da v0.1.20 (descrições de busca e área de toque)
+
+| Peça | Como ficou |
+|---|---|
+| Descrições de busca | As 22 descrições de página foram reescritas: nenhuma abaixo de 110 caracteres (11 estavam com menos de 60) e nenhuma acima de 160 |
+| Botões de quantidade | Os botões de menos e mais da sacola têm 44px de altura (eram 23px) |
+| Rodapé | Links das colunas e da faixa de texto miúdo ganharam área de toque de 24px de altura |
+| Cartão de produto | O convite "Adicionar à sacola" tem 24px de altura (era 14px) |
+| Faixa de aviso | Os links do topo ganharam área de toque maior por dentro do texto, sem engrossar a faixa |
+
 ### Novidades da v0.1.19 (pente fino no navegador)
 
 | Peça | Como ficou |
@@ -367,6 +377,8 @@ no lugar dos 9px e 8px do template, por causa da regra de contraste abaixo.
 - Link "Pular para o conteúdo" como primeiro elemento focável.
 - Contorno de foco visível em tudo, em terracota escuro.
 - Área de toque mínima de 44x44 pixels em botões, ícones e campos.
+- Tudo o que é clicável ou tocável tem pelo menos 24x24 pixels (WCAG 2.2, critério 2.5.8).
+  Links dentro de frases e de títulos são a exceção prevista pela própria norma.
 - Menu mobile fecha com ESC e devolve o foco para o botão que o abriu.
 - Faixa de busca: abre pela lupa, foco vai para o campo, ESC fecha.
 - Campo de busca com 16px no celular, o que evita o zoom automático do iOS.
@@ -466,7 +478,7 @@ npm install          # uma vez só, instala o jsdom
 node tools/test.js   # imprime PASS/FAIL e sai com erro se algo falhar
 ```
 
-Resultado esperado hoje: **649 verificações, nenhuma falha**.
+Resultado esperado hoje: **1.043 verificações, nenhuma falha**.
 
 **Pente fino de HTML e CSS.** Lê os arquivos com parser de verdade (`html5lib` e
 `tinycss2`) e confere doze pontos: sintaxe, ids repetidos, links e âncoras, rótulos

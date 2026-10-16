@@ -1607,6 +1607,46 @@ console.log('\n=== 25. AJUSTES DE NAVEGADOR DA v0.1.19 ===');
      'desejos: o aviso de indisponivel virou atributo real (disabled)');
 }
 
+console.log('\n=== 26. SEGUNDO PENTE FINO: ALVOS DE TOQUE E DESCRICOES (v0.1.20) ===');
+{
+  const semComentario = (texto) => texto.replace(/\/\*[\s\S]*?\*\//g, '');
+  const pagesCss = semComentario(fs.readFileSync(path.join(RAIZ, 'assets/css/pages.css'), 'utf8'));
+  const headerCss = semComentario(fs.readFileSync(path.join(RAIZ, 'assets/css/header.css'), 'utf8'));
+  const comercioCss = semComentario(fs.readFileSync(path.join(RAIZ, 'assets/css/comercio.css'), 'utf8'));
+  const paginas = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'tools', 'pages.json'), 'utf8'));
+
+  // 26.1 — alvos de toque de 24px (WCAG 2.2, criterio 2.5.8)
+  ok(/\.qty \{[^}]*min-height: 44px/.test(pagesCss),
+     'botoes + e - da quantidade com 44px de altura (eram 23px)');
+  ok(/\.site-footer__list a \{[^}]*padding-block: 6px/.test(headerCss),
+     'links das colunas do rodape com area de toque de 24px por espaco interno (eram 21px)');
+  ok(/\.site-footer__meta a \{[^}]*min-height: 24px/.test(headerCss),
+     'links da faixa inferior do rodape com 24px de altura (eram 13px)');
+  ok(/\.card__add a \{[^}]*min-height: 24px/.test(comercioCss),
+     'convite "Adicionar a sacola" com 24px de altura (era 14px)');
+  ok(/\.announcement__text a::after \{[^}]*inset: -8px/.test(headerCss),
+     'links da faixa de aviso ganham area de toque sem engrossar a faixa');
+
+  // 26.2 — descricoes de busca em tamanho util (nem curtas, nem cortadas)
+  const curtas = paginas.filter((p) => p.desc.length < 110);
+  const longas = paginas.filter((p) => p.desc.length > 160);
+  ok(curtas.length === 0, 'nenhuma descricao curta demais (menos de 110 caracteres)',
+     curtas.map((p) => p.file + '=' + p.desc.length).join(', '));
+  ok(longas.length === 0, 'nenhuma descricao longa demais (mais de 160 caracteres)',
+     longas.map((p) => p.file + '=' + p.desc.length).join(', '));
+  ok(paginas.every((p) => p.desc.indexOf('—') < 0), 'nenhuma descricao com travessao');
+  const semPonto = paginas.filter((p) => !/\.$/.test(p.desc));
+  ok(semPonto.length === 0, 'todas as descricoes terminam em ponto',
+     semPonto.map((p) => p.file).join(', '));
+
+  // 26.3 — a descricao entra mesmo na pagina
+  const index = carregar('index.html').window.document;
+  const meta = index.querySelector('meta[name="description"]');
+  ok(!!meta && meta.getAttribute('content').length > 110, 'a descricao longa chega na pagina da home');
+  ok(!!index.querySelector('meta[name="robots"]'),
+     'a home segue com a orientacao de indexacao (enquanto o prototipo nao vai ao ar)');
+}
+
 console.log(falhas === 0 ? 'RESULTADO: TUDO CERTO' : 'RESULTADO: ' + falhas + ' FALHA(S)');
 console.log('========================================\n');
 process.exit(falhas === 0 ? 0 : 1);

@@ -296,6 +296,10 @@
 .qty {
   display: flex;
   align-items: stretch;
+  /* v0.1.20: sem a altura mínima, os botões + e − ficavam com 23px de altura na
+     sacola, abaixo dos 24px que a WCAG 2.2 (2.5.8) pede para alvo de toque e
+     longe dos 44px que o resto do projeto já usa. */
+  min-height: 44px;
   border: 1px solid var(--iara-line);
   border-radius: var(--iara-radius);
   background: var(--iara-white);
