@@ -1,0 +1,167 @@
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Você está aqui">
+        <ol>
+          <li><a href="index.html">Início</a></li>
+          <li><span aria-current="page">Minha conta</span></li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="container page-head">
+      <div class="page-head__inner">
+        <h1>Minha conta</h1>
+        <p class="lead">Acompanhe pedidos, endereços e dados de acesso em um só lugar.</p>
+      </div>
+    </div>
+
+    <div class="container section--tight">
+      <div class="account-layout">
+
+        <!-- NAVEGAÇÃO LATERAL -->
+        <nav class="account-nav" aria-label="Seções da conta">
+          <ul>
+            <li><a href="#painel" aria-current="true">Visão geral</a></li>
+            <li><a href="#pedidos">Meus pedidos</a></li>
+            <li><a href="#dados">Dados da conta</a></li>
+            <li><a href="#enderecos">Endereços</a></li>
+            <li><a href="desejos.html">Lista de desejos</a></li>
+            <li><a href="index.html">Sair</a></li>
+          </ul>
+        </nav>
+
+        <div class="account-content">
+
+          <section id="painel" aria-labelledby="painel-titulo">
+            <h2 id="painel-titulo">Olá, <span class="placeholder">[nome do cliente]</span></h2>
+            <p class="lead">
+              Daqui você acompanha o envio das peças e resolve trocas sem
+              precisar falar com o atendimento.
+            </p>
+            <div class="account-cards">
+              <a class="account-card" href="#pedidos">
+                <span class="account-card__title">Meus pedidos</span>
+                <span class="account-card__text">Histórico, rastreio e nota fiscal.</span>
+              </a>
+              <a class="account-card" href="#enderecos">
+                <span class="account-card__title">Endereços</span>
+                <span class="account-card__text">Alterar ou adicionar endereço de entrega.</span>
+              </a>
+              <a class="account-card" href="#dados">
+                <span class="account-card__title">Dados da conta</span>
+                <span class="account-card__text">E-mail, telefone e senha.</span>
+              </a>
+            </div>
+          </section>
+
+          <section id="pedidos" aria-labelledby="pedidos-titulo">
+            <h2 id="pedidos-titulo">Meus pedidos</h2>
+
+            <div class="order-card">
+              <div class="order-card__head">
+                <p class="order-card__number">Pedido #0000</p>
+                <p class="pill pill--accent">Aguardando pagamento</p>
+              </div>
+              <p class="order-card__meta">15/10/2026 · 2 itens · R$ 510,30 · Pix</p>
+              <div class="order-card__actions">
+                <a class="btn btn--outline" href="pedido-recebido.html">Ver detalhes</a>
+                <button class="btn btn--quiet" type="button">Pagar agora</button>
+              </div>
+            </div>
+
+            <div class="order-card">
+              <div class="order-card__head">
+                <p class="order-card__number">Pedido #0001</p>
+                <p class="pill pill--sage">Enviado</p>
+              </div>
+              <p class="order-card__meta">02/10/2026 · 1 item · R$ 389,00 · Cartão</p>
+              <p class="order-card__meta">Rastreio: <span class="placeholder">[código]</span> · Transportadora <span class="placeholder">[A DEFINIR]</span></p>
+              <div class="order-card__actions">
+                <a class="btn btn--outline" href="#pedidos">Acompanhar entrega</a>
+                <button class="btn btn--quiet" type="button">Solicitar troca</button>
+              </div>
+            </div>
+
+            <div class="order-card">
+              <div class="order-card__head">
+                <p class="order-card__number">Pedido #0002</p>
+                <p class="pill">Cancelado</p>
+              </div>
+              <p class="order-card__meta">20/09/2026 · 1 item · R$ 279,00 · Boleto</p>
+              <p class="order-card__meta">Pagamento não identificado no prazo. O estoque foi devolvido ao catálogo.</p>
+              <div class="order-card__actions">
+                <button class="btn btn--quiet" type="button">Comprar novamente</button>
+              </div>
+            </div>
+
+            <p class="muted-note">
+              Estados demonstrados: aguardando pagamento, enviado e cancelado.
+              O fluxo completo de status está no GUIA-INSTALACAO.md (Etapa E3).
+            </p>
+          </section>
+
+          <section id="dados" aria-labelledby="dados-titulo">
+            <h2 id="dados-titulo">Dados da conta</h2>
+
+            <form action="#" method="post" novalidate>
+              <div class="form-row form-row--2">
+                <div class="field">
+                  <label class="field__label" for="conta-nome">Nome completo</label>
+                  <input class="field__input" id="conta-nome" name="nome" type="text" autocomplete="name">
+                </div>
+                <div class="field">
+                  <label class="field__label" for="conta-email">E-mail</label>
+                  <input class="field__input" id="conta-email" name="email" type="email" autocomplete="email"
+                         aria-describedby="conta-email-hint">
+                  <p class="field__hint" id="conta-email-hint">Alterar o e-mail pede confirmação por link, por segurança.</p>
+                </div>
+              </div>
+
+              <div class="form-row form-row--2">
+                <div class="field">
+                  <label class="field__label" for="conta-tel">Telefone</label>
+                  <input class="field__input" id="conta-tel" name="telefone" type="tel" autocomplete="tel">
+                </div>
+                <div class="field">
+                  <label class="field__label" for="conta-cpf">CPF</label>
+                  <input class="field__input" id="conta-cpf" name="cpf" type="text" inputmode="numeric"
+                         aria-describedby="conta-cpf-hint">
+                  <p class="field__hint" id="conta-cpf-hint">Alteração só pelo atendimento, para evitar fraude.</p>
+                </div>
+              </div>
+
+              <button class="btn btn--outline" type="submit">Salvar alterações</button>
+            </form>
+
+            <h3 style="margin-top:32px">Senha</h3>
+            <p class="muted-note">
+              A troca de senha é feita por link enviado ao e-mail cadastrado. Não
+              pedimos senha por WhatsApp, e-mail ou telefone.
+            </p>
+            <p><a class="btn btn--outline" href="#">Enviar link de nova senha</a></p>
+          </section>
+
+          <section id="enderecos" aria-labelledby="enderecos-titulo">
+            <h2 id="enderecos-titulo">Endereços</h2>
+
+            <div class="order-card">
+              <p class="order-card__number">Endereço principal</p>
+              <p class="order-card__meta">
+                <span class="placeholder">[PREENCHER: nome da rua, número, complemento]</span><br>
+                <span class="placeholder">[bairro, cidade, estado, CEP]</span>
+              </p>
+              <div class="order-card__actions">
+                <button class="btn btn--outline" type="button">Editar</button>
+                <button class="btn btn--quiet" type="button">Remover</button>
+              </div>
+            </div>
+
+            <p><button class="btn btn--outline" type="button">Adicionar endereço</button></p>
+            <p class="muted-note">
+              Endereço de exemplo. O cadastro real guarda apenas o necessário para
+              entrega e nota fiscal.
+            </p>
+          </section>
+
+        </div>
+      </div>
+    </div>

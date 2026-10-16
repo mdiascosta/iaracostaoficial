@@ -1,0 +1,548 @@
+/* ============================================================================
+   IARA COSTA · BLOCO A (Etapa E1) · header.css
+   Announcement Bar, Header (logo, nav, ícones), faixa de busca, painel mobile,
+   Footer, Trust Bar e identificação da empresa.
+   ----------------------------------------------------------------------------
+   ESTRUTURA DO HEADER (padrão de site de moda, referência da equipe):
+     logo à esquerda · navegação ao centro · ícones à direita
+     ícones: lupa (abre a busca) · coração (desejos) · conta · sacola
+   O header e o conteúdo usam larguras diferentes de propósito:
+     .header-shell  -> até 1688px (barra larga, como em site de moda)
+     .container     -> 1280px (grade de conteúdo e produtos)
+   ========================================================================= */
+
+/* ------------------------------------------------------- 1. ANNOUNCEMENT BAR
+   Verde Sálvia #546858 · texto #fffdf8 · Jost 12px / 0.15em · padding 8px 0
+   Tamanho 12px em vez dos 9px do dossiê: decisão de acessibilidade aprovada
+   em 2.7 (nada abaixo de 11px).                                                */
+.announcement {
+  background: var(--iara-sage);
+  padding: 7px 0;
+}
+
+.announcement__inner { text-align: center; }
+
+.announcement__text {
+  margin: 0;
+  color: var(--iara-announcement-ink);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.15em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.announcement__dot { color: var(--iara-accent-soft); margin: 0 6px; }
+
+/* --------------------------------------------------------- 2. BARRA LARGA
+   Alinhada na referência: max-width 1688px, centralizada, itens alinhados
+   ao centro na vertical. O padding lateral é o gutter do sistema, para o
+   logo não encostar na borda em telas largas.                                 */
+.header-shell {
+  position: relative;
+  width: 100%;
+  max-width: var(--iara-header-max);
+  margin: 0 auto;
+  padding-inline: var(--iara-gutter);
+  display: flex;
+  align-items: center;
+}
+
+/* ------------------------------------------------------------ 3. HEADER */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: var(--iara-paper);
+  border-bottom: 1px solid var(--iara-line);
+}
+
+.site-header__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "toggle brand actions";
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding-block: 12px;
+}
+
+/* --------------------------------------------------------- 4. HAMBÚRGUER */
+.nav-toggle {
+  grid-area: toggle;
+  width: 44px; height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-white);
+  color: var(--iara-ink);
+  cursor: pointer;
+}
+
+.nav-toggle:hover { border-color: var(--iara-accent); color: var(--iara-accent-dark); }
+
+.nav-toggle__box { display: grid; gap: 4px; width: 18px; }
+
+.nav-toggle__bar { display: block; height: 1px; background: currentColor; }
+
+/* -------------------------------------------------------------- 5. LOGO */
+.brand {
+  grid-area: brand;
+  justify-self: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--iara-ink);
+}
+
+.brand__name {
+  display: block;
+  font-family: var(--iara-font-display);
+  font-size: clamp(18px, 1.5vw, 21px);
+  letter-spacing: 0.105em;
+  line-height: 1.15;
+}
+
+/* Tagline: 11px com Ink Soft. Abaixo de 14px a regra 10.2 proíbe --iara-muted. */
+.brand__tagline {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+}
+
+@media (max-width: 400px) { .brand__tagline { display: none; } }
+
+/* ---------------------------------------------------- 6. NAVEGAÇÃO DESKTOP */
+.main-nav { display: none; }
+
+.main-nav__list {
+  display: flex;
+  list-style: none;
+  gap: clamp(12px, 1.6vw, 28px);
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav__link {
+  display: inline-block;
+  padding: 6px 0;
+  color: var(--iara-nav-link);
+  font-size: var(--fs-nav);
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.main-nav__link:hover {
+  color: var(--iara-accent-dark);
+  border-bottom-color: var(--iara-accent-dark);
+}
+
+.main-nav__link[aria-current="page"] {
+  color: var(--iara-accent-dark);
+  border-bottom-color: var(--iara-accent-soft);
+}
+
+@media (min-width: 1021px) {
+  .nav-toggle { display: none; }
+
+  .site-header__inner {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "brand nav actions";
+    padding-block: 13px;
+  }
+
+  .brand { justify-self: start; text-align: left; }
+
+  .main-nav {
+    grid-area: nav;
+    display: block;
+    justify-self: center;
+  }
+}
+
+/* ------------------------------------------------ 7. ÍCONES DE AÇÃO (direita)
+   Botões quadrados de 44x44 (área de toque), ícone em traço fino, sem
+   preenchimento: o mesmo desenho do dossiê, só reorganizado.                  */
+.header-actions {
+  grid-area: actions;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Sem caixa, sem borda, sem fundo: só o traço do ícone. O visual fica limpo e
+   o alvo de toque continua com 44x44 (10.2). */
+.icon-btn {
+  position: relative;
+  width: 44px; height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+  color: var(--iara-ink);
+  cursor: pointer;
+  transition: color var(--iara-transition);
+}
+
+.icon-btn:hover,
+.icon-btn:focus-visible { color: var(--iara-accent-dark); background: none; }
+
+.icon-btn__svg { display: block; }
+
+/* Desejos e conta saem da barra no celular: eles ficam no painel do menu */
+@media (max-width: 720px) {
+  .icon-btn--desktop { display: none; }
+}
+
+.icon-btn--cart { margin-left: 0; }
+
+.cart-count {
+  position: absolute;
+  top: 5px;
+  right: 3px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--iara-accent);
+  color: var(--iara-paper);
+  font-family: var(--iara-font-ui);
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.icon-btn[aria-expanded="true"] { color: var(--iara-accent-dark); }
+
+/* --------------------------------------------------- 8. FAIXA DE BUSCA
+   Abre pela lupa e cobre o conteúdo logo abaixo do header, sem empurrar a
+   página (position absolute dentro do header sticky). Espelha a referência:
+   faixa clara, lupa à esquerda, campo grande, fechar e Buscar à direita.      */
+.search-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 998;
+  background: var(--iara-hover-soft);
+  border-bottom: 1px solid var(--iara-line);
+  box-shadow: 0 12px 24px rgba(45, 41, 37, 0.06);
+}
+
+.search-panel[hidden] { display: none; }
+
+.search-band {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding-block: 14px;
+}
+
+/* A caixa em si: fundo branco, borda fina, lupa à esquerda */
+.search-band__field {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-white);
+}
+
+.search-band__field:focus-within { border-color: var(--iara-accent); }
+
+.search-band__icon { flex: 0 0 auto; color: var(--iara-ink-soft); }
+
+.search-band__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 46px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--iara-ink);
+  font-family: var(--iara-font-ui);
+  font-size: var(--fs-body);
+}
+
+.search-band__input::placeholder { color: var(--iara-ink-soft); }
+.search-band__input:focus { outline: none; }
+
+.search-band__close { color: var(--iara-ink-soft); }
+.search-band__submit { flex: 0 0 auto; }
+
+@media (max-width: 720px) {
+  .search-band { flex-wrap: wrap; }
+  /* 16px evita o zoom automático do iOS ao focar o campo (10.2) */
+  .search-band__input { font-size: 16px; }
+  .search-band__submit { width: 100%; order: 3; }
+  .search-band__close { order: 2; margin-left: auto; }
+}
+
+/* ------------------------------------------------------ 9. PAINEL MOBILE */
+.mobile-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--iara-paper);
+  padding: 20px var(--iara-gutter) 40px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.mobile-panel[hidden] { display: none; }
+
+.mobile-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--iara-hairline);
+  margin-bottom: 20px;
+}
+
+.mobile-panel__title {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+}
+
+.mobile-panel__close {
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-white);
+  color: var(--iara-ink);
+  font-family: var(--iara-font-ui);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.mobile-nav__list { list-style: none; margin: 0 0 24px; padding: 0; }
+
+.mobile-nav__list--secondary { border-top: 1px solid var(--iara-hairline); padding-top: 16px; }
+
+.mobile-nav__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0;
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-heading);
+  color: var(--iara-ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--iara-hairline);
+}
+
+.mobile-nav__link:hover { color: var(--iara-accent-dark); }
+
+.mobile-nav__link[aria-current="page"] { color: var(--iara-accent-dark); }
+
+.mobile-nav__link--sm {
+  font-family: var(--iara-font-ui);
+  font-size: var(--fs-body);
+  color: var(--iara-ink-soft);
+}
+
+.mobile-nav__icon { flex: 0 0 auto; color: var(--iara-ink-soft); }
+
+body.is-locked { overflow: hidden; }
+
+/* --------------------------------------------------------------- 10. FOOTER */
+.site-footer {
+  margin-top: clamp(48px, 8vw, 96px);
+  padding-block: clamp(40px, 6vw, 64px) 24px;
+  border-top: 1px solid var(--iara-line);
+  background: var(--iara-paper);
+}
+
+.newsletter {
+  display: grid;
+  gap: 20px;
+  padding-bottom: clamp(28px, 4vw, 44px);
+  border-bottom: 1px solid var(--iara-hairline);
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+@media (min-width: 1021px) {
+  .newsletter { grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+}
+
+.newsletter__title { font-size: var(--fs-h3); font-family: var(--iara-font-display); margin-bottom: 6px; }
+.newsletter__lead { color: var(--iara-ink-soft); max-width: 46ch; margin: 0; }
+
+.newsletter__form .btn { margin-top: 4px; }
+
+.site-footer__columns {
+  display: grid;
+  gap: clamp(24px, 4vw, 40px);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 721px) { .site-footer__columns { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1021px) { .site-footer__columns { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; } }
+
+.site-footer__brand {
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-display);
+  letter-spacing: 0.105em;
+  margin: 0 0 12px;
+}
+
+.site-footer__about { color: var(--iara-ink-soft); font-size: var(--fs-small); max-width: 34ch; }
+
+.site-footer__title {
+  font-family: var(--iara-font-ui);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--iara-ink);
+  margin: 0 0 14px;
+}
+
+.site-footer__list { list-style: none; margin: 0 0 20px; padding: 0; }
+
+.site-footer__list li { margin-bottom: 10px; font-size: var(--fs-small); color: var(--iara-ink-soft); }
+
+.site-footer__list--tight { margin-top: -6px; }
+
+.site-footer__list a { color: var(--iara-ink-soft); text-decoration: none; }
+.site-footer__list a:hover { color: var(--iara-accent-dark); text-decoration: underline; }
+
+.social { list-style: none; display: flex; gap: 8px; margin: 16px 0 0; padding: 0; }
+
+.social__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border: 1px solid var(--iara-line);
+  border-radius: 50%;
+  color: var(--iara-ink-soft);       /* Muted é permitido: elemento decorativo */
+  background: var(--iara-paper);
+}
+
+.social__link:hover {
+  color: var(--iara-accent);
+  background: var(--iara-hover-soft);
+  border-color: var(--iara-accent-soft);
+}
+
+/* ------------------------------------------------------------ 11. TRUST BAR */
+.trust {
+  margin-top: clamp(28px, 4vw, 44px);
+  padding-top: clamp(24px, 4vw, 36px);
+  border-top: 1px solid var(--iara-hairline);
+  text-align: center;
+}
+
+.trust__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0 14px;
+  padding: 0;
+}
+
+.trust__flag {
+  display: inline-block;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-white);
+  padding: 8px 16px;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+}
+
+.trust__note { font-size: var(--fs-micro); color: var(--iara-ink-soft); margin: 0 0 16px; }
+
+.trust__links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.trust__links a {
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+  text-decoration: underline;
+}
+
+.trust__links a:hover { color: var(--iara-accent-dark); }
+
+/* ------------------------------------------------- 12. IDENTIFICAÇÃO / BASE */
+.company {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--iara-hairline);
+  text-align: center;
+}
+
+.company__line { font-size: var(--fs-micro); color: var(--iara-ink-soft); margin: 0 0 6px; }
+
+.site-footer__bottom {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--iara-hairline);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+/* 11px: usa Ink Soft. Muted abaixo de 14px é proibido pela regra 10.2. */
+.site-footer__copy { font-size: var(--fs-micro); color: var(--iara-ink-soft); margin: 0; }
+
+/* -------------------------------------------------- 13. WHATSAPP FLUTUANTE */
+.whats-float {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: var(--iara-sage);
+  color: var(--iara-announcement-ink);
+  box-shadow: 0 6px 18px rgba(45, 41, 37, 0.18);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 720px) {
+  .whats-float__label { display: none; }
+  .whats-float { padding: 14px; }
+}

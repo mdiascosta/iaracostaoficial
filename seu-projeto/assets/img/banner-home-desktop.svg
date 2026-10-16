@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="800" viewBox="0 0 1920 800" role="img" aria-label="Imagem de exemplo: BANNER PRINCIPAL · DESKTOP">
+  <rect width="1920" height="800" fill="#eee9e1"/>
+  <rect x="1" y="1" width="1918" height="798" fill="none" stroke="#ded8ce" stroke-width="2"/>
+  <circle cx="960.0" cy="296" r="44" fill="none" stroke="#e4cbb5" stroke-width="2"/>
+  <path d="M932 320 l56 0 l0 44 l-56 0 z" fill="none" stroke="#e4cbb5" stroke-width="2"/>
+  <text x="50%" y="416" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="36" letter-spacing="2" fill="#625a52">BANNER PRINCIPAL · DESKTOP</text>
+  <text x="50%" y="460" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#81786e">Campanha atual, sem excesso de texto</text>
+  <text x="50%" y="492" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" letter-spacing="3" fill="#a45f43">SUBSTITUIR POR FOTO REAL · 1920x800</text>
+</svg>

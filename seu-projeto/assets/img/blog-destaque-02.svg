@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Imagem de exemplo: IMAGEM DE DESTAQUE · POST 02">
+  <rect width="1600" height="900" fill="#fffdf9"/>
+  <rect x="1" y="1" width="1598" height="898" fill="none" stroke="#ded8ce" stroke-width="2"/>
+  <circle cx="800.0" cy="333" r="50" fill="none" stroke="#e4cbb5" stroke-width="2"/>
+  <path d="M768 360 l63 0 l0 50 l-63 0 z" fill="none" stroke="#e4cbb5" stroke-width="2"/>
+  <text x="50%" y="468" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="40" letter-spacing="2" fill="#625a52">IMAGEM DE DESTAQUE · POST 02</text>
+  <text x="50%" y="518" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="22" fill="#81786e">Foto relacionada ao tema do texto</text>
+  <text x="50%" y="554" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" letter-spacing="3" fill="#a45f43">SUBSTITUIR POR FOTO REAL · 1600x900</text>
+</svg>

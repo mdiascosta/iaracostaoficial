@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1600" viewBox="0 0 1600 1600" role="img" aria-label="Imagem de exemplo: PRODUTO 06 · ângulo B">
+  <rect width="1600" height="1600" fill="#fffdf9"/>
+  <rect x="1" y="1" width="1598" height="1598" fill="none" stroke="#ded8ce" stroke-width="2"/>
+  <circle cx="800.0" cy="592" r="88" fill="none" stroke="#e4cbb5" stroke-width="2"/>
+  <path d="M744 640 l112 0 l0 88 l-112 0 z" fill="none" stroke="#e4cbb5" stroke-width="2"/>
+  <text x="50%" y="832" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="72" letter-spacing="2" fill="#625a52">PRODUTO 06 · ângulo B</text>
+  <text x="50%" y="920" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="38" fill="#81786e">Foto do produto, fundo claro consistente</text>
+  <text x="50%" y="984" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="29" letter-spacing="3" fill="#a45f43">SUBSTITUIR POR FOTO REAL · 1600x1600</text>
+</svg>

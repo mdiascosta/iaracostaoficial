@@ -1,0 +1,31 @@
+# Arquivos que não devem entrar no Git
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# Dependências (o teste do header usa jsdom, instalado fora do repositório)
+node_modules/
+package-lock.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Arquivos temporários de exportação do WordPress / Elementor
+# (não confundir com os JSONs do Bloco B, que são entregáveis e vão versionados)
+*.tmp
+*-backup-*.json
+updraft/
+wp-content/uploads/
+
+# Logs
+*.log

@@ -1,0 +1,177 @@
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Você está aqui">
+        <ol>
+          <li><a href="index.html">Início</a></li>
+          <li><span aria-current="page">Loja</span></li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="container page-head">
+      <div class="page-head__inner">
+        <h1>Todas as peças</h1>
+        <p class="lead">
+          Dez peças escolhidas a dedo, sem paginação e sem esconder nada:
+          o catálogo inteiro em uma única grade.
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="shop-toolbar">
+        <div>
+          <p class="field__label" id="filtro-rotulo">Filtrar por categoria</p>
+          <ul class="filter-list" aria-labelledby="filtro-rotulo">
+            <li><button class="filter-chip" type="button" data-filter="todas" aria-pressed="true">Todas (10)</button></li>
+            <li><button class="filter-chip" type="button" data-filter="vestidos" aria-pressed="false">Vestidos (3)</button></li>
+            <li><button class="filter-chip" type="button" data-filter="blusas" aria-pressed="false">Blusas e camisas (2)</button></li>
+            <li><button class="filter-chip" type="button" data-filter="calcas" aria-pressed="false">Calças (2)</button></li>
+            <li><button class="filter-chip" type="button" data-filter="saias" aria-pressed="false">Saias (1)</button></li>
+            <li><button class="filter-chip" type="button" data-filter="acessorios" aria-pressed="false">Acessórios (2)</button></li>
+          </ul>
+        </div>
+
+        <div class="shop-sort">
+          <label for="ordenar">Ordenar por</label>
+          <select id="ordenar" data-sort>
+            <option value="destaque">Destaques</option>
+            <option value="preco-asc">Menor preço</option>
+            <option value="preco-desc">Maior preço</option>
+            <option value="nome">Nome, de A a Z</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="shop-count" data-count role="status" aria-live="polite">10 peças encontradas</p>
+
+      <ul class="product-grid" data-shop-grid>
+
+        <li class="card" data-categoria="vestidos" data-preco="389" data-nome="Vestido Midi Linho Terracota" data-ordem="1">
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-01-a.svg" alt="Vestido midi em linho terracota, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h2 class="card__name"><a href="produto.html">Vestido Midi Linho Terracota</a></h2>
+            <p class="card__meta">Vestidos · P, M, G, GG · Terracota, Off-white, Preto</p>
+            <p class="card__price">R$ 389,00</p>
+          </div>
+        </li>
+
+        <li class="card" data-categoria="vestidos" data-preco="429" data-nome="Vestido Longo Fluido Off-White" data-ordem="2">
+          <span class="badge">Novo</span>
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-02-a.svg" alt="Vestido longo fluido off-white, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h2 class="card__name"><a href="produto.html">Vestido Longo Fluido Off-White</a></h2>
+            <p class="card__meta">Vestidos · P, M, G · Off-white, Verde sálvia</p>
+            <p class="card__price">R$ 429,00</p>
+          </div>
+        </li>
+
+        <li class="card" data-categoria="vestidos" data-preco="359" data-nome="Vestido Chemise Botões" data-ordem="3">
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-03-a.svg" alt="Vestido chemise com botões, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h2 class="card__name"><a href="produto.html">Vestido Chemise Botões</a></h2>
+            <p class="card__meta">Vestidos · P, M, G, GG · Areia, Preto</p>
+            <p class="card__price">R$ 359,00</p>
+          </div>
+        </li>
+
+        <li class="card" data-categoria="blusas" data-preco="179" data-nome="Blusa Canelada Manga Longa" data-ordem="4">
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-04-a.svg" alt="Blusa canelada de manga longa, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h2 class="card__name"><a href="produto.html">Blusa Canelada Manga Longa</a></h2>
+            <p class="card__meta">Blusas e camisas · P, M, G, GG · Preto, Areia, Caramelo</p>
+            <p class="card__price">R$ 179,00</p>
+          </div>
+        </li>
+
+        <li class="card" data-categoria="blusas" data-preco="249" data-nome="Camisa Oversized Algodão" data-ordem="5">
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-05-a.svg" alt="Camisa oversized de algodão, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h2 class="card__name"><a href="produto.html">Camisa Oversized Algodão</a></h2>
+            <p class="card__meta">Blusas e camisas · P, M, G · Branco, Azul claro</p>
+            <p class="card__price">R$ 249,00</p>
+          </div>
+        </li>
+
+        <li class="card" data-categoria="calcas" data-preco="319" data-nome="Calça Wide Leg Alfaiataria" data-ordem="6">
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-06-a.svg" alt="Calça wide leg de alfaiataria, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h2 class="card__name"><a href="produto.html">Calça Wide Leg Alfaiataria</a></h2>
+            <p class="card__meta">Calças · 36, 38, 40, 42 · Preto, Cinza</p>
+            <p class="card__price">R$ 319,00</p>
+          </div>
+        </li>
+
+        <li class="card" data-categoria="calcas" data-preco="279" data-nome="Calça Jeans Reta Cintura Alta" data-ordem="7">
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-07-a.svg" alt="Calça jeans reta de cintura alta, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h2 class="card__name"><a href="produto.html">Calça Jeans Reta Cintura Alta</a></h2>
+            <p class="card__meta">Calças · 36, 38, 40, 42 · Azul médio</p>
+            <p class="card__price">R$ 279,00</p>
+          </div>
+        </li>
+
+        <li class="card" data-categoria="saias" data-preco="229" data-nome="Saia Midi Plissada" data-ordem="8">
+          <span class="badge badge--out">Esgotado</span>
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-08-a.svg" alt="Saia midi plissada caramelo, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h2 class="card__name"><a href="produto.html">Saia Midi Plissada</a></h2>
+            <p class="card__meta">Saias · P, M, G · Caramelo, Preto</p>
+            <p class="card__price">R$ 229,00</p>
+            <p class="card__meta">Produto esgotado. Avise-me quando chegar.</p>
+          </div>
+        </li>
+
+        <li class="card" data-categoria="acessorios" data-preco="289" data-nome="Bolsa Tote Couro Vegano" data-ordem="9">
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-09-a.svg" alt="Bolsa tote de couro vegano caramelo, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h2 class="card__name"><a href="produto.html">Bolsa Tote Couro Vegano</a></h2>
+            <p class="card__meta">Acessórios · Tamanho único · Caramelo, Preto</p>
+            <p class="card__price">R$ 289,00</p>
+          </div>
+        </li>
+
+        <li class="card" data-categoria="acessorios" data-preco="89" data-nome="Brinco Argola Dourada" data-ordem="10">
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-10-a.svg" alt="Brinco de argola dourada, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h2 class="card__name"><a href="produto.html">Brinco Argola Dourada</a></h2>
+            <p class="card__meta">Acessórios · Tamanho único</p>
+            <p class="card__price">R$ 89,00</p>
+          </div>
+        </li>
+
+      </ul>
+
+      <!-- Estado: nenhum produto na categoria escolhida -->
+      <div class="state" data-shop-empty hidden>
+        <p class="state__title">Nenhuma peça nesta categoria</p>
+        <p class="state__text">Tente outra categoria ou veja o catálogo completo.</p>
+        <div class="state__actions">
+          <button class="btn btn--outline" type="button" data-filter="todas">Ver todas as peças</button>
+        </div>
+      </div>
+
+      <p class="muted-note shop-note">
+        Sem paginação, conforme o dossiê: 10 produtos visíveis de uma vez.
+        Quando o catálogo passar de 30 peças, o layout precisa ser revisto.
+      </p>
+    </div>

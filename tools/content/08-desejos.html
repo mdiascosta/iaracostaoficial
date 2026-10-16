@@ -1,0 +1,93 @@
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Você está aqui">
+        <ol>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="conta.html">Minha conta</a></li>
+          <li><span aria-current="page">Lista de desejos</span></li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="container page-head">
+      <div class="page-head__inner">
+        <h1>Lista de desejos</h1>
+        <p class="lead">
+          As peças que você salvou. Elas continuam aqui quando você volta, desde
+          que esteja com a conta aberta.
+        </p>
+      </div>
+    </div>
+
+    <div class="container section--tight">
+
+      <p class="notice notice--attention">
+        Esta página depende de um plugin de lista de desejos aprovado (item 13 da
+        lista de plugins). Sem essa aprovação, o coração sai do header e esta
+        página não vai ao ar. Aqui, o terceiro item está esgotado, para demonstrar
+        como fica: botão desabilitado e aviso em texto.
+      </p>
+
+      <ul class="product-grid">
+        <li class="card">
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-02-a.svg" alt="Vestido longo fluido off-white, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h2 class="card__name"><a href="produto.html">Vestido Longo Fluido Off-White</a></h2>
+            <p class="card__meta">Vestidos · P, M, G</p>
+            <p class="card__price">R$ 429,00</p>
+            <div class="wish-actions">
+              <button class="btn btn--primary" type="button">Adicionar à sacola</button>
+              <button class="btn btn--quiet" type="button" aria-label="Remover Vestido Longo Fluido Off-White da lista de desejos">Remover</button>
+            </div>
+          </div>
+        </li>
+
+        <li class="card">
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-06-a.svg" alt="Calça wide leg de alfaiataria, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h2 class="card__name"><a href="produto.html">Calça Wide Leg Alfaiataria</a></h2>
+            <p class="card__meta">Calças · 36, 38, 40, 42</p>
+            <p class="card__price">R$ 319,00</p>
+            <div class="wish-actions">
+              <button class="btn btn--primary" type="button">Adicionar à sacola</button>
+              <button class="btn btn--quiet" type="button" aria-label="Remover Calça Wide Leg Alfaiataria da lista de desejos">Remover</button>
+            </div>
+          </div>
+        </li>
+
+        <li class="card">
+          <span class="badge badge--out">Esgotado</span>
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-08-a.svg" alt="Saia midi plissada caramelo, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h2 class="card__name"><a href="produto.html">Saia Midi Plissada</a></h2>
+            <p class="card__meta">Saias · P, M, G</p>
+            <p class="card__price">R$ 229,00</p>
+            <p class="card__meta">Esgotado. O botão de compra fica desabilitado e o aviso aparece em texto.</p>
+            <div class="wish-actions">
+              <button class="btn btn--outline" type="button" aria-disabled="true">Indisponível</button>
+              <button class="btn btn--quiet" type="button" aria-label="Remover Saia Midi Plissada da lista de desejos">Remover</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <!-- ESTADO DE UI: lista vazia -->
+      <section class="section" aria-labelledby="desejos-vazia">
+        <h2 class="state-label" id="desejos-vazia">Referência de estado: lista vazia</h2>
+        <div class="state">
+          <p class="state__title">Sua lista está vazia</p>
+          <p class="state__text">
+            Toque no coração das peças que você quer acompanhar. Avisamos quando
+            algo esgotado voltar ao estoque.
+          </p>
+          <div class="state__actions">
+            <a class="btn btn--primary" href="loja.html">Ver a loja</a>
+          </div>
+        </div>
+      </section>
+    </div>

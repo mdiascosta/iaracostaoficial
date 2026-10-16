@@ -1,0 +1,318 @@
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Você está aqui">
+        <ol>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="loja.html">Loja</a></li>
+          <li><a href="loja.html">Vestidos</a></li>
+          <li><span aria-current="page">Vestido Midi Linho Terracota</span></li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="container product">
+
+      <!-- COLUNA 1: GALERIA -->
+      <div class="gallery">
+        <div class="gallery__main">
+          <img data-gallery-main
+               src="assets/img/produto-01-a.svg"
+               alt="Vestido midi em linho terracota, visto de frente"
+               width="1600" height="1600">
+        </div>
+        <ul class="gallery__thumbs" aria-label="Fotos do produto">
+          <li>
+            <button class="gallery__thumb" type="button" data-gallery-thumb aria-current="true"
+                    aria-label="Ver foto 1: frente">
+              <img src="assets/img/produto-01-a.svg" data-full="assets/img/produto-01-a.svg"
+                   alt="Vestido midi em linho terracota, visto de frente" width="1600" height="1600">
+            </button>
+          </li>
+          <li>
+            <button class="gallery__thumb" type="button" data-gallery-thumb aria-current="false"
+                    aria-label="Ver foto 2: costas">
+              <img src="assets/img/produto-01-b.svg" data-full="assets/img/produto-01-b.svg"
+                   alt="Vestido midi em linho terracota, visto de costas" width="1600" height="1600">
+            </button>
+          </li>
+          <li>
+            <button class="gallery__thumb" type="button" data-gallery-thumb aria-current="false"
+                    aria-label="Ver foto 3: detalhe do tecido">
+              <img src="assets/img/produto-01-c.svg" data-full="assets/img/produto-01-c.svg"
+                   alt="Detalhe do tecido e da costura do vestido" width="1600" height="1600">
+            </button>
+          </li>
+        </ul>
+        <p class="muted-note">
+          No WooCommerce, a galeria usa zoom e lightbox nativos. As imagens deste
+          protótipo são de exemplo.
+        </p>
+      </div>
+
+      <!-- COLUNA 2: INFORMAÇÕES E COMPRA -->
+      <div class="product__info">
+        <p class="eyebrow">Vestidos</p>
+        <h1 class="product__title">Vestido Midi Linho Terracota</h1>
+
+        <p class="product__price">R$ 389,00</p>
+        <!-- Parcelamento e desconto no Pix seguem [A DEFINIR]: não exibir antes
+             de confirmar com a empresa (seção 1). -->
+        <p class="product__installment">
+          Parcelamento e desconto no Pix: <span class="placeholder">[A DEFINIR]</span>
+        </p>
+
+        <div class="option-group" data-option-group data-option-label="Cor">
+          <div class="option-group__head">
+            <p class="option-group__label" id="cor-rotulo">Cor</p>
+            <p class="option-group__value" data-option-output data-live aria-live="polite">Cor selecionada: Terracota</p>
+          </div>
+          <ul class="swatch-list" aria-labelledby="cor-rotulo">
+            <li>
+              <button class="swatch swatch--color" type="button" data-value="Terracota" aria-pressed="true">
+                <span class="swatch__dot sw-terracota" aria-hidden="true"></span>
+                Terracota
+              </button>
+            </li>
+            <li>
+              <button class="swatch swatch--color" type="button" data-value="Off-white" aria-pressed="false">
+                <span class="swatch__dot sw-offwhite" aria-hidden="true"></span>
+                Off-white
+              </button>
+            </li>
+            <li>
+              <button class="swatch swatch--color" type="button" data-value="Preto" aria-pressed="false">
+                <span class="swatch__dot sw-preto" aria-hidden="true"></span>
+                Preto
+              </button>
+            </li>
+          </ul>
+          <input type="hidden" name="cor" value="Terracota">
+        </div>
+
+        <div class="option-group" data-option-group data-option-label="Tamanho">
+          <div class="option-group__head">
+            <p class="option-group__label" id="tam-rotulo">Tamanho</p>
+            <p class="option-group__value" data-option-output data-live aria-live="polite">Tamanho selecionado: M</p>
+          </div>
+          <ul class="swatch-list" aria-labelledby="tam-rotulo">
+            <li><button class="swatch" type="button" data-value="P" aria-pressed="false">P</button></li>
+            <li><button class="swatch" type="button" data-value="M" aria-pressed="true">M</button></li>
+            <li><button class="swatch" type="button" data-value="G" aria-pressed="false">G</button></li>
+            <li>
+              <button class="swatch" type="button" data-value="GG" aria-pressed="false" disabled
+                      aria-describedby="gg-esgotado">GG</button>
+            </li>
+          </ul>
+          <p class="field__hint" id="gg-esgotado">O tamanho GG está esgotado. Este é o estado de variação sem estoque.</p>
+          <input type="hidden" name="tamanho" value="M">
+          <p class="field__hint">
+            <a href="guia-medidas.html">Ver o Guia de Medidas</a> para comparar com uma peça sua.
+          </p>
+        </div>
+
+        <p class="stock-note">
+          <span class="stock-dot" aria-hidden="true"></span>
+          Em estoque. Envio em até <span class="placeholder">[A DEFINIR]</span> dia(s) útil(eis).
+        </p>
+
+        <div class="buy-row">
+          <div class="qty">
+            <button class="qty__btn" type="button" data-qty-minus aria-label="Diminuir quantidade">−</button>
+            <input class="qty__input" type="number" value="1" min="1" max="10" step="1"
+                   data-qty-input aria-label="Quantidade">
+            <button class="qty__btn" type="button" data-qty-plus aria-label="Aumentar quantidade">+</button>
+          </div>
+          <button class="btn btn--primary" type="button">Adicionar à sacola</button>
+        </div>
+
+        <p class="field__hint">
+          Protótipo: este botão não envia pedido. No WooCommerce ele passa a
+          adicionar a variação escolhida ao carrinho.
+        </p>
+
+        <ul class="assurance">
+          <li>
+            <span aria-hidden="true">·</span>
+            <span>Frete calculado no carrinho, com frete grátis acima de R$ 199.</span>
+          </li>
+          <li>
+            <span aria-hidden="true">·</span>
+            <span>7 dias para desistir da compra (CDC Art. 49) e troca por tamanho ou defeito.</span>
+          </li>
+          <li>
+            <span aria-hidden="true">·</span>
+            <span>Pagamento processado por gateway com antifraude. Não guardamos dados do seu cartão.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ABAS: DESCRIÇÃO, INFORMAÇÕES ADICIONAIS, AVALIAÇÕES -->
+    <div class="container product-tabs">
+      <div class="tabs" role="tablist" data-tabs aria-label="Informações do produto">
+        <button class="tabs__tab" type="button" role="tab" id="tab-descricao"
+                aria-controls="painel-descricao" aria-selected="true" tabindex="0">Descrição</button>
+        <button class="tabs__tab" type="button" role="tab" id="tab-info"
+                aria-controls="painel-info" aria-selected="false" tabindex="-1">Informações adicionais</button>
+        <button class="tabs__tab" type="button" role="tab" id="tab-avaliacoes"
+                aria-controls="painel-avaliacoes" aria-selected="false" tabindex="-1">Avaliações (0)</button>
+      </div>
+
+      <div class="tab-panel prose" id="painel-descricao" role="tabpanel" aria-labelledby="tab-descricao" tabindex="0">
+        <h2>Um vestido para os dias em que você quer resolver tudo com uma peça só</h2>
+        <p>
+          Modelagem midi, decote redondo e manga curta. O linho dá estrutura sem
+          pesar e amacia a cada lavagem. Fecha nas costas com zíper invisível e
+          tem bolsos laterais embutidos na costura.
+        </p>
+        <p>
+          Veste bem em corpo mais reto e também em quem tem quadril mais largo:
+          a saia abre em leve A e não marca.
+        </p>
+        <p class="muted-note">
+          Texto de exemplo. A descrição final precisa ser escrita ou aprovada pela
+          Iara Costa, com composição e medidas reais do fornecedor.
+        </p>
+      </div>
+
+      <div class="tab-panel" id="painel-info" role="tabpanel" aria-labelledby="tab-info" tabindex="0" hidden>
+        <div class="table-scroll">
+          <table>
+            <caption>Medidas da peça, em centímetros, com a roupa esticada sobre a mesa.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Tamanho</th>
+                <th scope="col">Busto</th>
+                <th scope="col">Cintura</th>
+                <th scope="col">Quadril</th>
+                <th scope="col">Comprimento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">P</th><td>92</td><td>74</td><td>98</td><td>112</td></tr>
+              <tr><th scope="row">M</th><td>96</td><td>78</td><td>102</td><td>114</td></tr>
+              <tr><th scope="row">G</th><td>100</td><td>82</td><td>106</td><td>116</td></tr>
+              <tr><th scope="row">GG</th><td>104</td><td>86</td><td>110</td><td>118</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted-note">
+          Medidas de exemplo. A tabela real vem do fornecedor e é conferida uma a
+          uma antes de publicar.
+        </p>
+        <ul class="list-check">
+          <li>Composição: <span class="placeholder">[PREENCHER: ex. 55% linho, 45% viscose]</span></li>
+          <li>Cuidados: <span class="placeholder">[PREENCHER: instruções de lavagem]</span></li>
+          <li>País de origem: <span class="placeholder">[PREENCHER se aplicável]</span></li>
+          <li>Peso e dimensões da embalagem: <span class="placeholder">[PREENCHER]</span></li>
+        </ul>
+      </div>
+
+      <div class="tab-panel" id="painel-avaliacoes" role="tabpanel" aria-labelledby="tab-avaliacoes" tabindex="0" hidden>
+        <p class="notice">
+          Ainda não há avaliações deste produto. As avaliações passam por
+          moderação antes de aparecer aqui, e nenhuma é criada pela loja.
+        </p>
+
+        <h2>Deixe a sua avaliação</h2>
+        <form action="#" method="post" novalidate>
+          <div class="form-row form-row--2">
+            <div class="field">
+              <label class="field__label" for="av-nome">Nome</label>
+              <input class="field__input" id="av-nome" name="nome" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="av-email">E-mail</label>
+              <input class="field__input" id="av-email" name="email" type="email" autocomplete="email" required>
+              <p class="field__hint">Não publicamos seu e-mail.</p>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field__label" for="av-nota">Sua nota</label>
+            <select class="field__select" id="av-nota" name="nota" required>
+              <option value="">Escolha uma nota</option>
+              <option value="5">5 · Excelente</option>
+              <option value="4">4 · Muito bom</option>
+              <option value="3">3 · Bom</option>
+              <option value="2">2 · Regular</option>
+              <option value="1">1 · Ruim</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field__label" for="av-texto">Comentário</label>
+            <textarea class="field__textarea" id="av-texto" name="comentario" rows="5"
+                      placeholder="Conte como a peça vestiu e o que você achou do tecido."></textarea>
+          </div>
+          <div class="checkbox">
+            <input class="checkbox__input" id="av-consent" name="consentimento" type="checkbox" required>
+            <label class="checkbox__label" for="av-consent">
+              Autorizo a publicação do meu comentário e li a
+              <a href="privacidade.html">Política de Privacidade</a>.
+            </label>
+          </div>
+          <button class="btn btn--primary" type="submit">Enviar avaliação</button>
+        </form>
+      </div>
+    </div>
+
+    <section class="section container" aria-labelledby="relacionados-titulo">
+      <div class="section__head">
+        <h2 id="relacionados-titulo">Combina com</h2>
+        <a class="btn btn--quiet" href="loja.html">Ver toda a loja</a>
+      </div>
+
+      <ul class="product-grid product-grid--four">
+        <li class="card">
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-05-a.svg" alt="Camisa oversized de algodão, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h3 class="card__name"><a href="produto.html">Camisa Oversized Algodão</a></h3>
+            <p class="card__price">R$ 249,00</p>
+          </div>
+        </li>
+        <li class="card">
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-09-a.svg" alt="Bolsa tote de couro vegano caramelo, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h3 class="card__name"><a href="produto.html">Bolsa Tote Couro Vegano</a></h3>
+            <p class="card__price">R$ 289,00</p>
+          </div>
+        </li>
+        <li class="card">
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-10-a.svg" alt="Brinco de argola dourada, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h3 class="card__name"><a href="produto.html">Brinco Argola Dourada</a></h3>
+            <p class="card__price">R$ 89,00</p>
+          </div>
+        </li>
+        <li class="card">
+          <a class="card__media" href="produto.html">
+            <img class="card__img" src="assets/img/produto-03-a.svg" alt="Vestido chemise com botões, frente" loading="lazy" width="1600" height="1600">
+          </a>
+          <div class="card__body">
+            <h3 class="card__name"><a href="produto.html">Vestido Chemise Botões</a></h3>
+            <p class="card__price">R$ 359,00</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ESTADO DE UI: produto indisponível (referência para a equipe) -->
+    <section class="section container" aria-labelledby="estado-esgotado">
+      <h2 id="estado-esgotado" class="state-label">
+        Referência de estado: produto esgotado
+      </h2>
+      <div class="state">
+        <p class="state__title">Esta peça está esgotada</p>
+        <p class="state__text">
+          A produção da próxima remessa ainda não tem data fechada. Deixe seu
+          e-mail para receber o aviso de reposição.
+        </p>
+        <div class="state__actions">
+          <a class="btn btn--outline" href="loja.html">Ver peças disponíveis</a>
+        </div>
+      </div>
+    </section>
