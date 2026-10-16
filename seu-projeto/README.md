@@ -45,6 +45,15 @@ Depois abra `http://localhost:8080` no navegador.
 
 O dossiê pede que todos os estados de tela estejam representados. Onde procurar:
 
+### Novidades da v0.1.7 (cabeçalho da loja, ordenação e trilha)
+
+| Ajuste | Como ficou |
+|---|---|
+| Trilha de navegação | Separador visível em barra no tom Muted (4,3:1), mais respiro entre os itens e a página atual em Ink; a trilha entrou nas duas páginas que não tinham (Pedido recebido e Erro 404) |
+| Cabeçalho de página | Título de 46px no máximo, respiro mais curto e contagem de peças alinhada pela base do texto, em todas as páginas internas |
+| Linha de filtros e ordenação | "Filtros / Limpar" e "Ordenar por" abrem na mesma linha, com a mesma altura e o mesmo fio embaixo |
+| Seletor de ordenação | Passou a usar a classe de campo do site: 46px de altura, borda de linha, seta em SVG e foco visível; no celular ocupa a linha inteira |
+
 ### Novidades da v0.1.6 (decisões da cliente)
 
 | Decisão | Como ficou |

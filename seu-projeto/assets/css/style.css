@@ -425,39 +425,44 @@ body.page-returns        .notice, body.page-returns        .legal-draft { max-wi
    com muito espaço em branco em volta, para ela desaparecer quando o olho
    procura o título. Referências olhadas: COS, Massimo Dutti e Aritzia, que
    usam a trilha discreta acima do nome da seção. */
+/* Trilha de navegação (todas as páginas internas).
+   v0.1.7 — o separador era um ponto em Accent Soft, que sobre o papel fica em
+   1,5:1 e praticamente desaparecia: as migalhas pareciam duas palavras soltas.
+   Agora o separador é uma barra em Muted (4,3:1), com mais respiro entre os
+   itens, e a página atual fica em Ink, que é o tom mais forte da linha. */
 .breadcrumbs {
   font-size: var(--fs-micro);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--iara-muted);
-  padding-block: clamp(18px, 2.6vw, 30px) 0;
+  padding-block: clamp(16px, 2.2vw, 26px) 0;
 }
 
 .breadcrumbs ol {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
   margin: 0; padding: 0;
 }
 
 .breadcrumbs li + li::before {
-  content: "·";
-  color: var(--iara-accent-soft);
-  margin-right: 6px;
+  content: "/";
+  color: var(--iara-muted);
+  margin-right: 8px;
 }
 
 .breadcrumbs a { color: var(--iara-muted); text-decoration: none; }
-.breadcrumbs a:hover { color: var(--iara-accent-dark); text-decoration: underline; }
+.breadcrumbs a:hover { color: var(--iara-accent-dark); text-decoration: underline; text-underline-offset: 3px; }
 .breadcrumbs [aria-current="page"] { color: var(--iara-ink); }
 
 /* Cabeçalho de página (todas as páginas internas).
-   Antes era um título colado na borda de cima, sem respiro. Agora segue o
-   padrão de vitrine de moda: muito espaço em branco, título grande em serifa,
-   texto de apoio curto e estreito, e um fio fino fechando o bloco.
-   A coluna da direita (.page-head__meta) recebe a contagem de peças na loja. */
+   v0.1.7 — ajustado depois da captura da loja: título um pouco menor para não
+   brigar com a grade, respiro mais curto em cima e embaixo, e a contagem de
+   peças alinhada pela base do texto, sem flutuar no canto. */
 .page-head {
-  padding-block: clamp(22px, 3.4vw, 40px) clamp(26px, 4vw, 44px);
+  padding-block: clamp(18px, 2.4vw, 30px) clamp(22px, 3vw, 36px);
   border-bottom: 1px solid var(--iara-hairline);
 }
 
@@ -466,27 +471,29 @@ body.page-returns        .notice, body.page-returns        .legal-draft { max-wi
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 18px 48px;
+  gap: 14px 48px;
 }
 
 .page-head__text { max-width: 62ch; }
 
 .page-head h1 {
-  font-size: clamp(32px, 4.2vw, 54px);
-  line-height: 1.04;
-  margin: 0 0 14px;
+  font-size: clamp(30px, 3.5vw, 46px);
+  line-height: 1.06;
+  letter-spacing: -0.005em;
+  margin: 0 0 12px;
   text-wrap: balance;
 }
 
 .page-head .lead { margin: 0; max-width: 56ch; }
 
 .page-head__meta {
-  margin: 0 0 8px;
+  margin: 0 0 4px;
   font-size: var(--fs-micro);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--iara-ink-soft);
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ------------------------------------------------------ 8. CARDS DE PRODUTO */
