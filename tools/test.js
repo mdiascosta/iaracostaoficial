@@ -457,7 +457,7 @@ console.log('\n=== 15. RODAPE, CABECALHO DE PAGINA E RENOVACAO DAS INTERNAS (v0.
   ok(!!d.querySelector('.security__note .placeholder'), 'aviso de confirmação com a empresa mantido');
 
   // --- 15.2 Cabeçalho de página limpo (v0.1.10): trilha + nome da página
-  const semCabecalho = ['404.html', 'pedido-recebido.html', 'post.html', 'produto.html'];
+  const semCabecalho = ['404.html', 'pedido-recebido.html', 'post.html', 'produto.html', 'lookbook.html'];
   const internas = paginas.filter((f) => f !== 'index.html');
   const comCabecalhoEsperado = internas.filter((f) => semCabecalho.indexOf(f) < 0);
   let comCabecalho = 0;
@@ -538,10 +538,12 @@ console.log('\n=== 15. RODAPE, CABECALHO DE PAGINA E RENOVACAO DAS INTERNAS (v0.
   ok(!!blog.querySelector('.post-feature .post-feature__body'), 'destaque do Diário com corpo de texto próprio');
   ok(!!blog.querySelector('.post-feature__title a'), 'destaque do Diário com link no título');
 
+  // v0.1.16 — a página da coleção passou a seguir o zip: capa e capítulos.
   const look = carregar('lookbook.html').window.document;
-  ok(look.querySelectorAll('.lookbook-grid .look-item').length === 4, 'lookbook com quatro looks');
-  ok(!!look.querySelector('.look-item .index-number'), 'look numerado');
-  ok(!!look.querySelector('.notice--lead'), 'aviso do lookbook sem margem escrita no HTML');
+  ok(!!look.querySelector('.look-hero'), 'capa centralizada da coleção');
+  ok(look.querySelectorAll('.chapter').length === 3, 'três capítulos, como no zip');
+  ok(!!look.querySelector('.chapter__eyebrow .index-number'), 'capítulo numerado');
+  ok(!!look.querySelector('.notice--lead'), 'aviso das imagens de exemplo sem margem escrita no HTML');
 
   // --- 15.7 Fechamento das páginas: a faixa sálvia tem de ser filha direta do <main>.
   // Este teste pega qualquer </div> faltando: o bloco de cima engoliria a faixa.
@@ -1392,7 +1394,93 @@ console.log('\n=== 22. PAGINACAO DA COLECAO E ORDENACAO DO ZIP (v0.1.15) ===');
   ok(doc.querySelectorAll('[data-shop-grid] .card[data-avaliacoes]').length === 12, 'todo cartao traz o numero de avaliacoes');
 }
 
-console.log('\n========================================');
+console.log('\n=== 23. COLECAO EM CAPITULOS, COMO NO ZIP (v0.1.16) ===');
+{
+  const doc = carregar('lookbook.html').window.document;
+  const css = fs.readFileSync(path.join(RAIZ, 'assets/css/pages.css'), 'utf8');
+
+  const hero = doc.querySelector('.look-hero');
+  ok(!!hero, 'a colecao abre com a capa do zip');
+  ok(!!hero.querySelector('.breadcrumbs'), 'trilha dentro da capa, centralizada como no zip');
+  ok(!!hero.querySelector('h1'), 'nome da colecao na capa');
+  ok(doc.querySelectorAll('.page-head').length === 0, 'a colecao nao usa o cabecalho de pagina das outras telas');
+  ok(hero.querySelectorAll('.look-hero__chips .chip').length === 4, 'quatro fichas de informacao na capa');
+  ok(/Doze peças/.test(hero.textContent), 'ficha com o tamanho real do catalogo');
+  ok(/Feito no Brasil/.test(hero.textContent), 'ficha com a origem confirmada pela empresa');
+  ok(!/18 peças|Tingimento natural|Edições numeradas/.test(hero.textContent),
+     'as fichas do zip que a empresa nao confirmou nao entraram');
+
+  const capitulos = doc.querySelectorAll('.chapter');
+  ok(capitulos.length === 3, 'tres capitulos, como no zip (achou ' + capitulos.length + ')');
+
+  const cabecalhos = Array.prototype.map.call(capitulos, (c) => c.querySelector('.chapter__title').textContent);
+  ok(cabecalhos.join(' | ') === 'O barro que veste | Verde que acalma | O branco que não é básico',
+     'titulos dos capitulos iguais aos do zip (' + cabecalhos.join(' | ') + ')');
+
+  const numeros = Array.prototype.map.call(capitulos, (c) => c.querySelector('.chapter__eyebrow .index-number').textContent.trim());
+  ok(numeros.join(' ') === '01 · 02 · 03 ·', 'capitulos numerados em 01, 02 e 03');
+
+  Array.prototype.forEach.call(capitulos, (capitulo, i) => {
+    const n = i + 1;
+    ok(!!capitulo.querySelector('.chapter__media img'), 'capitulo ' + n + ': foto grande');
+    ok(!!capitulo.querySelector('.chapter__media img').getAttribute('alt'),
+       'capitulo ' + n + ': foto com descricao para leitor de tela');
+    ok(!!capitulo.querySelector('h2[id]'), 'capitulo ' + n + ': titulo com ancora propria');
+    ok(!!capitulo.querySelector('.chapter__cta .action-link[href="loja.html"]'),
+       'capitulo ' + n + ': convite para comprar o capitulo');
+    ok(capitulo.querySelectorAll('.chapter__products .card').length === 2,
+       'capitulo ' + n + ': duas pecas do catalogo embaixo do texto');
+  });
+
+  ok(capitulos[1].classList.contains('chapter--reverse'),
+     'capitulo do meio inverte os lados, como no zip');
+  ok(!capitulos[0].classList.contains('chapter--reverse') && !capitulos[2].classList.contains('chapter--reverse'),
+     'primeiro e ultimo capitulos ficam com a foto a esquerda');
+
+  const pecasDoCapitulo = (i) => Array.prototype.map.call(
+    capitulos[i].querySelectorAll('.chapter__products [data-wish]'),
+    (b) => b.dataset.wish).join(',');
+  ok(pecasDoCapitulo(0) === 'blusa-linho-terracota,vestido-longo-cerrado', 'capitulo 1 com as duas pecas terracota');
+  ok(pecasDoCapitulo(1) === 'vestido-midi-salvia,calca-pantalona-salvia', 'capitulo 2 com as duas pecas salvia');
+  ok(pecasDoCapitulo(2) === 'camisa-linho-branca,saia-linho-cru', 'capitulo 3 com as duas pecas cru');
+
+  // o cartao do capitulo e enxuto, como no zip
+  const primeiro = capitulos[0].querySelector('.chapter__products .card');
+  ok(!!primeiro.querySelector('.card__cat'), 'cartao do capitulo traz a categoria');
+  ok(!!primeiro.querySelector('.card__name a'), 'cartao do capitulo traz o nome com link');
+  ok(!!primeiro.querySelector('.card__price'), 'cartao do capitulo traz o preco');
+  ok(!!primeiro.querySelector('.card__wish'), 'cartao do capitulo tem o coracao dos desejos');
+  ok(!primeiro.querySelector('.card__rating') && !primeiro.querySelector('.card__sizes') && !primeiro.querySelector('.card__add'),
+     'cartao do capitulo sem nota, sem tamanhos e sem o convite da sacola (como no zip)');
+  ok(primeiro.tagName.toLowerCase() === 'article', 'cartao do capitulo e um article, nao um item de lista');
+  ok(primeiro.querySelector('.card__media').getAttribute('href') === 'produto.html',
+     'foto do cartao do capitulo leva para a peca');
+
+  // o cartao da loja continua completo
+  const lojaDoc = carregar('loja.html').window.document;
+  const naLoja = lojaDoc.querySelector('[data-shop-grid] .card');
+  ok(!!naLoja.querySelector('.card__rating') && !!naLoja.querySelector('.card__sizes') && !!naLoja.querySelector('.card__add'),
+     'o cartao da loja segue com nota, tamanhos e convite da sacola');
+
+  // nota interna das fotos
+  ok(!!doc.querySelector('.chapter-specs .list-check'), 'a nota de producao das fotos fecha a pagina');
+  ok(/4:5/.test(doc.querySelector('.chapter-specs').textContent), 'nota cita a proporcao das fotos de peca');
+
+  // CSS
+  const capituloCss = css.match(/\.chapter \{[^}]*\}/)[0];
+  ok(/grid-template-columns:\s*1\.05fr 1fr/.test(capituloCss), 'capitulo em duas colunas, com a foto maior');
+  ok(/align-items:\s*center/.test(capituloCss), 'texto centrado na altura da foto');
+  ok(/\.chapter--reverse > :first-child \{ order: 2; \}/.test(css), 'o capitulo invertido troca os lados por ordem');
+  ok(/@media \(max-width: 1020px\) \{\s*\.chapter \{ grid-template-columns: 1fr; \}/.test(css),
+     'abaixo de 1021px a foto vai para cima do texto');
+  ok(/\.chapter__media img \{ display: block; width: 100%; height: auto; \}/.test(css),
+     'a foto do capitulo ocupa a coluna inteira, na proporcao original (como no zip)');
+  ok(/max-width: 390px[\s\S]{0,200}\.chapter__products \{ grid-template-columns: 1fr; \}/.test(css),
+     'no celular pequeno as duas pecas ficam uma embaixo da outra');
+
+  const heroCss = css.match(/\.look-hero \{[^}]*\}/)[0];
+  ok(/text-align:\s*center/.test(heroCss), 'capa centralizada, como no zip');
+}
 console.log(falhas === 0 ? 'RESULTADO: TUDO CERTO' : 'RESULTADO: ' + falhas + ' FALHA(S)');
 console.log('========================================\n');
 process.exit(falhas === 0 ? 0 : 1);

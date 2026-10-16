@@ -5,7 +5,7 @@
     "nav": "inicio",
     "body_class": "page-home",
     "title": "Iara Costa | Moda feminina e acessórios",
-    "desc": "Vestuário feminino autoral em linho e fibras naturais: vestidos, blusas, saias e acessórios do P ao GG. Frete grátis acima de R$ 299 para todo o Brasil.",
+    "desc": "Vestuário feminino autoral em linho, algodão egípcio e viscose: vestidos, blusas, saias e acessórios do P ao GG. Frete grátis acima de R$ 299 para todo o Brasil.",
     "content": "01-home.html",
     "extra_js": [
       "swatches.js"
@@ -160,7 +160,7 @@
     "part": 3,
     "nav": "lookbook",
     "body_class": "page-lookbook",
-    "title": "Lookbook | Iara Costa",
+    "title": "Coleção Terra & Linho | Iara Costa",
     "desc": "Combinações da coleção Iara Costa com links diretos para as peças.",
     "content": "17-lookbook.html"
   },

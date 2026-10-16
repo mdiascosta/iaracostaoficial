@@ -136,13 +136,16 @@ avise: o header precisa de ajuste para trocar texto por imagem.
 
 ---
 
-## 6. Lookbook
+## 6. Coleção (capítulos)
 
 | Arquivo | Tamanho | Conteúdo |
 |---|---|---|
-| `oc-diadia.jpg`, `oc-trabalho.jpg`, `oc-festa.jpg`, `vestido-terra.jpg`, `cap-cru.jpg` | 1200x1500 (4:5) | Looks completos, corpo inteiro. Podem ser reaproveitados entre lookbook e vitrines por ocasião |
+| `cap-terracota.jpg`, `cap-salvia.jpg`, `cap-cru.jpg` | 768x1376 (9:16) | Abertura dos três capítulos: corpo inteiro, mesmo tom de fundo nos três |
+| `oc-diadia.jpg`, `oc-trabalho.jpg`, `oc-festa.jpg`, `vestido-terra.jpg` | 1200x1500 (4:5) | Looks completos, corpo inteiro. Fora da página de coleção desde a v0.1.16; ficam para vitrines e o Diário |
 
-Detalhes de produção estão na própria página `lookbook.html`, seção final.
+Cada capítulo leva, embaixo do texto, duas peças do catálogo com foto 4:5
+(as mesmas da loja). Detalhes de produção estão na própria página
+`lookbook.html`, seção final.
 
 ---
 

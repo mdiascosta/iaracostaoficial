@@ -1,112 +1,145 @@
-        <div class="container page-head">
-      <nav class="breadcrumbs" aria-label="Trilha de navegação">
-        <ol>
-          <li><a href="index.html">Início</a></li>
-          <li><span aria-current="page">Lookbook</span></li>
-        </ol>
-      </nav>
+    <!-- ====================================================================
+         CAPA DA COLEÇÃO, como no zip: centralizada, com o nome da coleção, a
+         chamada e as fichas. Aqui não existe o cabeçalho de página das outras
+         telas: esta página abre como editorial, do mesmo jeito que a do
+         template de referência.
+         ==================================================================== -->
+    <section class="look-hero" aria-labelledby="colecao-titulo">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Trilha de navegação">
+          <ol>
+            <li><a href="index.html">Início</a></li>
+            <li><span aria-current="page">Coleção</span></li>
+          </ol>
+        </nav>
 
-      <h1>Lookbook</h1>
-    </div>
+        <h1 class="look-hero__title" id="colecao-titulo">Terra &amp; Linho</h1>
 
-    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
-         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+        <p class="lead look-hero__lead">
+          Três capítulos, uma paleta: terracota do barro, sálvia da mata e cru do
+          linho. Todas as peças do editorial estão à venda. Toque no coração para
+          guardar, na sacola para levar.
+        </p>
+
+        <!-- Fichas do zip, com o que é verdade neste catálogo: as 12 peças, a
+             grade de tamanhos e o que a empresa confirmou (tecido, origem e
+             modelagem). As fichas do zip (18 peças, tingimento natural, edições
+             numeradas) não entraram: nada disso está confirmado. -->
+        <ul class="look-hero__chips">
+          <li class="chip">Doze peças</li>
+          <li class="chip">Do P ao GG</li>
+          <li class="chip">Feito no Brasil</li>
+          <li class="chip">Modelagem autoral</li>
+        </ul>
+      </div>
+    </section>
+
     <div class="container">
-      <p class="lead page-intro">
-        Combinações montadas com as peças da coleção, para você ver como as roupas
-        conversam entre si. Clique em qualquer peça citada para abrir o produto.
-      </p>
-    </div>
-
-
-    <div class="container section--tight">
       <div class="notice notice--lead">
-        <strong>Imagens de exemplo.</strong> O lookbook só vai ao ar com fotos
-        reais da coleção. Specs de produção na seção final desta página.
+        <strong>Imagens de exemplo.</strong> A coleção só vai ao ar com as fotos
+        reais das peças. Como produzir essas fotos está no fim desta página.
       </div>
 
-      <div class="lookbook-grid">
+      <!-- ==================================================================
+           CAPÍTULO 01
+           Mesma estrutura do zip: foto grande à esquerda, texto e duas peças à
+           direita, e o convite para comprar o capítulo no fim.
+           ================================================================== -->
+      <article class="chapter" aria-labelledby="capitulo-terracota">
+        <figure class="chapter__media">
+          <img src="assets/img/cap-terracota.jpg"
+               alt="Peça de linho terracota em cenário de barro cru"
+               width="768" height="1376" loading="eager" fetchpriority="high" decoding="async">
+        </figure>
 
-        <article class="look-item">
-          <img src="assets/img/oc-diadia.jpg" alt="Look de dia: vestido midi de linho com bolsa de palha" loading="lazy" width="1200" height="1500">
-          <div class="look-item__body">
-            <p class="index-number">Look 01 · Dia a dia</p>
-            <h2 class="post-card__title">Terracota para o dia inteiro</h2>
-            <p class="post-card__excerpt">
-              O vestido midi de linho resolve o dia sozinho. A bolsa tote caber
-              notebook e os brincos de argola dão o acabamento sem esforço.
-            </p>
-            <ul class="look-item__tags">
-              <li><a class="pill pill--accent" href="produto.html">Vestido Midi Linho</a></li>
-              <li><a class="pill" href="produto.html">Bolsa Tote</a></li>
-              <li><a class="pill" href="produto.html">Brinco Argola</a></li>
-            </ul>
+        <div class="chapter__text">
+          <p class="chapter__eyebrow"><span class="index-number" aria-hidden="true">01 · </span>Terracota</p>
+          <h2 class="chapter__title" id="capitulo-terracota">O barro que veste</h2>
+          <p class="lead">
+            O terracota abre a coleção, em linho, algodão egípcio e viscose de alta
+            gramatura. Modelagem, corte e confecção autorais, no ateliê de Cerquilho.
+          </p>
+
+          <div class="chapter__products">
+            <!--CARDCAP:blusa-linho-terracota,vestido-longo-cerrado-->
           </div>
-        </article>
 
-        <article class="look-item">
-          <img src="assets/img/oc-trabalho.jpg" alt="Look de trabalho: calça ampla de linho com camisa solta" loading="lazy" width="1200" height="1500">
-          <div class="look-item__body">
-            <p class="index-number">Look 02 · Trabalho</p>
-            <h2 class="post-card__title">Alfaiataria sem rigidez</h2>
-            <p class="post-card__excerpt">
-              Calça wide leg com camisa oversized por cima. A camisa aberta tira
-              o peso da alfaiataria e deixa o look mais leve para o dia.
-            </p>
-            <ul class="look-item__tags">
-              <li><a class="pill pill--accent" href="produto.html">Calça Wide Leg</a></li>
-              <li><a class="pill" href="produto.html">Camisa Oversized</a></li>
-              <li><a class="pill" href="produto.html">Brinco Argola</a></li>
-            </ul>
+          <p class="chapter__cta">
+            <a class="action-link" href="loja.html">Comprar o capítulo <span aria-hidden="true">→</span></a>
+          </p>
+        </div>
+      </article>
+
+      <!-- ==================================================================
+           CAPÍTULO 02 (foto à direita, como no zip)
+           ================================================================== -->
+      <article class="chapter chapter--reverse" aria-labelledby="capitulo-salvia">
+        <figure class="chapter__media">
+          <img src="assets/img/cap-salvia.jpg"
+               alt="Peça de linho verde sálvia sobre superfície clara"
+               width="768" height="1376" loading="lazy" decoding="async">
+        </figure>
+
+        <div class="chapter__text">
+          <p class="chapter__eyebrow"><span class="index-number" aria-hidden="true">02 · </span>Sálvia</p>
+          <h2 class="chapter__title" id="capitulo-salvia">Verde que acalma</h2>
+          <p class="lead">
+            Alfaiataria leve e vestidos midi em verde sálvia: do escritório ao
+            jantar, sem trocar de roupa.
+          </p>
+
+          <div class="chapter__products">
+            <!--CARDCAP:vestido-midi-salvia,calca-pantalona-salvia-->
           </div>
-        </article>
 
-        <article class="look-item">
-          <img src="assets/img/cap-cru.jpg" alt="Look de fim de semana: peça de linho cru com saia midi" loading="lazy" width="1200" height="1500">
-          <div class="look-item__body">
-            <p class="index-number">Look 03 · Fim de semana</p>
-            <h2 class="post-card__title">Camadas para o sábado</h2>
-            <p class="post-card__excerpt">
-              Vestido chemise usado como sobreposição, com blusa canelada por
-              baixo. Funciona no almoço e continua confortável à tarde.
-            </p>
-            <ul class="look-item__tags">
-              <li><a class="pill pill--accent" href="produto.html">Vestido Chemise</a></li>
-              <li><a class="pill" href="produto.html">Blusa Canelada</a></li>
-            </ul>
+          <p class="chapter__cta">
+            <a class="action-link" href="loja.html">Comprar o capítulo <span aria-hidden="true">→</span></a>
+          </p>
+        </div>
+      </article>
+
+      <!-- ==================================================================
+           CAPÍTULO 03
+           ================================================================== -->
+      <article class="chapter" aria-labelledby="capitulo-cru">
+        <figure class="chapter__media">
+          <img src="assets/img/cap-cru.jpg"
+               alt="Peça de linho cru com acessório de cerâmica"
+               width="768" height="1376" loading="lazy" decoding="async">
+        </figure>
+
+        <div class="chapter__text">
+          <p class="chapter__eyebrow"><span class="index-number" aria-hidden="true">03 · </span>Cru</p>
+          <h2 class="chapter__title" id="capitulo-cru">O branco que não é básico</h2>
+          <p class="lead">
+            Linho cru e acessórios de cerâmica: base neutra para os outros
+            capítulos, ou o look inteiro para quem é minimalista.
+          </p>
+
+          <div class="chapter__products">
+            <!--CARDCAP:camisa-linho-branca,saia-linho-cru-->
           </div>
-        </article>
 
-        <article class="look-item">
-          <img src="assets/img/vestido-terra.jpg" alt="Look de noite: vestido longo fluido em tom terracota" loading="lazy" width="1200" height="1500">
-          <div class="look-item__body">
-            <p class="index-number">Look 04 · Noite</p>
-            <h2 class="post-card__title">Fluido para o jantar</h2>
-            <p class="post-card__excerpt">
-              O vestido longo off-white com o brinco dourado e nada mais. Peça
-              fluida pede acessório mínimo para não competir.
-            </p>
-            <ul class="look-item__tags">
-              <li><a class="pill pill--accent" href="produto.html">Vestido Longo Fluido</a></li>
-              <li><a class="pill" href="produto.html">Brinco Argola</a></li>
-            </ul>
-          </div>
-        </article>
+          <p class="chapter__cta">
+            <a class="action-link" href="loja.html">Comprar o capítulo <span aria-hidden="true">→</span></a>
+          </p>
+        </div>
+      </article>
 
-      </div>
-
-      <section class="section" aria-labelledby="lookbook-specs">
-        <h2 id="lookbook-specs">Como produzir as fotos deste lookbook</h2>
+      <!-- ==================================================================
+           COMO PRODUZIR AS FOTOS (nota interna do protótipo)
+           ================================================================== -->
+      <section class="section chapter-specs" aria-labelledby="colecao-fotos">
+        <h2 id="colecao-fotos">Como produzir as fotos desta coleção</h2>
         <div class="prose">
           <ul class="list-check">
-            <li><strong>Quantidade:</strong> 4 a 6 looks, cada um com uma foto principal de corpo inteiro e, se possível, um detalhe de tecido.</li>
-            <li><strong>Proporção:</strong> vertical 4:5, por exemplo 1200x1500 pixels. É o formato que melhor ocupa a tela do celular.</li>
+            <li><strong>Abertura de capítulo:</strong> uma foto por capítulo, corpo inteiro, no mesmo cenário e no mesmo tom de fundo nos três, para a sequência parecer um editorial e não uma colagem.</li>
+            <li><strong>Peças:</strong> uma foto por peça, na proporção 4:5 (por exemplo 1200x1500 pixels), que é o formato da grade da loja.</li>
             <li><strong>Peso do arquivo:</strong> até 300 KB depois de converter para WebP, sem perder qualidade visível.</li>
-            <li><strong>Fundo:</strong> o mesmo tom em todos os looks, para a página parecer um editorial e não uma colagem.</li>
-            <li><strong>Luz:</strong> natural, sem filtro pesado. A cor da peça na foto precisa bater com a peça real: se o cliente recebe outra cor, gera troca.</li>
-            <li><strong>Vestiário:</strong> as peças citadas na lista de tags precisam aparecer na foto, e a ordem das tags deve seguir a ordem visual.</li>
-            <li><strong>Direitos:</strong> se houver modelo fotografada, termo de uso de imagem assinado antes da publicação. <span class="placeholder">[PREENCHER]</span></li>
-            <li><strong>Nomenclatura sugerida:</strong> lookbook-look-01-principal.webp, lookbook-look-01-detalhe.webp, seguindo o padrão minúsculas, hífen, sem acento.</li>
+            <li><strong>Luz:</strong> natural, sem filtro pesado. A cor da foto precisa bater com a peça real: se o cliente receber outra cor, gera troca.</li>
+            <li><strong>Cenário dos capítulos:</strong> o zip sugere barro cru no capítulo 1, mata no 2 e superfície clara no 3. O ateliê é em Cerquilho, no interior de São Paulo. <span class="placeholder">[CONFIRMAR COM A EMPRESA]</span></li>
+            <li><strong>Direitos de imagem:</strong> se houver modelo fotografada, termo de uso de imagem assinado antes da publicação. <span class="placeholder">[PREENCHER]</span></li>
+            <li><strong>Nomenclatura sugerida:</strong> colecao-capitulo-01-terracota.webp e peca-blusa-linho-terracota.webp, seguindo o padrão minúsculas, hífen, sem acento.</li>
           </ul>
         </div>
       </section>
@@ -118,7 +151,7 @@
     <section class="band band--rodape" aria-labelledby="banda-rodape-titulo">
       <div class="container band__inner">
         <h2 id="banda-rodape-titulo">Viu algo que gostou?</h2>
-        <p>Todas as peças do lookbook estão na loja, com troca em 7 dias.</p>
+        <p>Todas as peças da coleção estão na loja, com troca em 30 dias.</p>
         <a class="btn btn--paper" href="loja.html">Ver a coleção</a>
       </div>
     </section>

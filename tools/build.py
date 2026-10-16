@@ -69,7 +69,7 @@ def preco_html(produto: dict) -> str:
     return produto["preco"]
 
 
-def render_card(slug: str, produto: dict, nivel: str = "h3") -> str:
+def render_card(slug: str, produto: dict, nivel: str = "h3", capitulo: bool = False) -> str:
     badge = ""
     if produto.get("badge"):
         classe = "badge badge--promo" if produto["badge"].lower() == "oferta" else "badge"
@@ -87,6 +87,26 @@ def render_card(slug: str, produto: dict, nivel: str = "h3") -> str:
     nota, _, quantidade = produto.get("avaliacoes", "").partition(" · ")
     nota_num = nota.replace(",", ".") or "0"
     avaliacoes_num = "".join(caractere for caractere in quantidade if caractere.isdigit()) or "0"
+
+    # Nos capítulos da coleção o cartão é enxuto, como no zip: foto, selo,
+    # coração, categoria, nome e preço. Sem nota, sem tamanhos e sem o convite
+    # da sacola (quem compra pelo capítulo abre a peça antes).
+    if capitulo:
+        return f"""<article class="card">
+          <a class="card__media" href="produto.html" aria-label="Ver {produto['nome']}">{badge}
+            <img class="card__img" src="assets/img/{produto['img']}" alt="{produto['alt']}"
+                 width="800" height="1000" loading="lazy" decoding="async">
+          </a>
+          <button class="card__wish" type="button" data-wish="{slug}" aria-pressed="false"
+                  aria-label="Salvar {produto['nome']} nos desejos">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9Z"></path></svg>
+          </button>
+          <div class="card__body">
+            <p class="card__cat">{produto['categoria']}</p>
+            <{nivel} class="card__name"><a href="produto.html">{produto['nome']}</a></{nivel}>
+            <p class="card__price{promo}">{preco_html(produto)}</p>
+          </div>
+        </article>"""
 
     return f"""<li class="card" data-categoria="{produto['categoria_slug']}" data-cores="{cores}" data-tamanhos="{tamanhos}" data-preco="{preco_num}" data-nota="{nota_num}" data-avaliacoes="{avaliacoes_num}" data-ordem="{produto.get('ordem', 0)}">
           <a class="card__media" href="produto.html" aria-label="Ver {produto['nome']}">{badge}
@@ -137,7 +157,19 @@ def expandir_cards(html: str, produtos: dict) -> str:
             blocos.append(render_card(slug, produtos[slug], "h3"))
         return "\n        ".join(blocos)
 
-    return re.sub(r"<!--CARDS:([a-z0-9,\s-]+)-->", troca_varios, html)
+    html = re.sub(r"<!--CARDS:([a-z0-9,\s-]+)-->", troca_varios, html)
+
+    # <!--CARDCAP:a,b--> monta os cartões enxutos dos capítulos da coleção
+    def troca_capitulo(match):
+        slugs = [s.strip() for s in match.group(1).split(",") if s.strip()]
+        blocos = []
+        for slug in slugs:
+            if slug not in produtos:
+                raise SystemExit(f"erro: produto '{slug}' não existe em tools/produtos.json")
+            blocos.append(render_card(slug, produtos[slug], "h3", capitulo=True))
+        return "\n            ".join(blocos)
+
+    return re.sub(r"<!--CARDCAP:([a-z0-9,\s-]+)-->", troca_capitulo, html)
 
 
 def nav_markup(header: str, nav_key: str) -> str:

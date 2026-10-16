@@ -762,17 +762,139 @@
 
 .info-box h2 { font-size: var(--fs-heading); }
 
-.lookbook-grid { display: grid; gap: var(--iara-gap); }
+/* ------------------------------------------------- 05. COLEÇÃO (CAPÍTULOS) */
+/* v0.1.16 — a página da coleção passou a seguir o zip: capa centralizada com
+   as fichas de informação e três capítulos, cada um com uma foto grande de um
+   lado, o texto e duas peças do outro. O capítulo do meio inverte os lados.
+   Abaixo de 1021px a foto vai para cima e o texto desce. */
 
-@media (min-width: 721px) { .lookbook-grid { grid-template-columns: repeat(2, 1fr); } }
+.look-hero {
+  background: var(--iara-hover-soft);
+  border-bottom: 1px solid var(--iara-hairline);
+  padding-block: clamp(28px, 4vw, 56px);
+  text-align: center;
+}
 
-.look-item { position: relative; border: 1px solid var(--iara-hairline); border-radius: var(--iara-radius); overflow: hidden; }
+.look-hero .breadcrumbs { justify-content: center; padding-block: 0; margin-bottom: clamp(16px, 2.2vw, 24px); }
 
-.look-item img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.look-hero__title {
+  font-size: var(--fs-display);
+  line-height: 1.1;
+  letter-spacing: 0.105em;
+  margin: 0 0 var(--iara-space-3);
+  text-wrap: balance;
+}
 
-.look-item__body { padding: 16px 0 0; }
+.look-hero__lead { margin: 0 auto; max-width: 62ch; }
 
-.look-item__tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; padding: 0; }
+.look-hero__chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: var(--iara-space-5) 0 0;
+  padding: 0;
+}
+
+.chip {
+  display: inline-block;
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+  background: var(--iara-paper);
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  padding: 7px 12px;
+}
+
+.chapter {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(24px, 3.4vw, 56px);
+  align-items: center;
+  padding-block: clamp(32px, 5vw, 72px);
+  border-bottom: 1px solid var(--iara-hairline);
+}
+
+.chapter:last-of-type { border-bottom: 0; }
+
+.chapter--reverse > :first-child { order: 2; }
+
+.chapter__media {
+  margin: 0;
+  border: 1px solid var(--iara-hairline);
+  border-radius: var(--iara-radius);
+  background: var(--iara-hover-soft);
+  overflow: hidden;
+}
+
+.chapter__media img { display: block; width: 100%; height: auto; }
+
+/* A coluna de texto pode encolher sem estourar a grade (a foto é larga). */
+.chapter__text { min-width: 0; }
+
+.chapter__eyebrow {
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+  margin: 0 0 10px;
+}
+
+.chapter__eyebrow .index-number { color: var(--iara-accent-dark); }
+
+.chapter__title {
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-display);
+  line-height: 1.15;
+  margin: 0 0 var(--iara-space-3);
+  text-wrap: balance;
+}
+
+.chapter__products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--iara-gap);
+  margin-top: var(--iara-space-5);
+}
+
+.chapter__cta { margin: var(--iara-space-5) 0 0; }
+
+/* Link de ação com seta (o "Comprar o capítulo" do zip). */
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--iara-accent-dark);
+  text-decoration: none;
+  border-bottom: 1px solid var(--iara-line);
+  padding-bottom: 4px;
+  transition: color var(--iara-transition), border-color var(--iara-transition);
+}
+
+.action-link:hover,
+.action-link:focus-visible { color: var(--iara-accent); border-color: var(--iara-accent); }
+
+@media (prefers-reduced-motion: reduce) { .action-link { transition: none; } }
+
+.chapter-specs { padding-block: clamp(28px, 4vw, 48px); }
+
+@media (max-width: 1020px) {
+  .chapter { grid-template-columns: 1fr; }
+  .chapter--reverse > :first-child { order: 0; }
+}
+
+@media (max-width: 390px) {
+  .chapter__products { grid-template-columns: 1fr; }
+}
 
 .anchor-nav { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 0 0 28px; padding: 0; font-size: var(--fs-small); }
 
@@ -983,15 +1105,6 @@ mark {
 
 .measure-diagram { margin-top: 32px; }
 
-/* ---------------------------------------------------------------- LOOKBOOK */
-.look-item .post-card__title { font-size: var(--fs-heading); margin-bottom: 8px; }
-
-.look-item__tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; }
-
-.look-item__tags .pill { text-decoration: none; }
-
-.look-item__tags .pill:hover { border-color: var(--iara-accent); color: var(--iara-accent-dark); }
-
 /* -------------------------------------------------------- BANNER DE COOKIES */
 .cookie-bar {
   display: grid;
@@ -1186,27 +1299,6 @@ mark {
 
 .post-feature__body .post-card__title { margin: 0; }
 
-/* ----------------------------------------------------------- 06. LOOKBOOK */
-/* Duas colunas que não ficam na mesma linha de base: em vez de parede de
-   cartões, o olho desce em ziguezague, como numa revista. */
-@media (min-width: 1021px) {
-  .lookbook-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
-  .lookbook-grid > .look-item:nth-child(even) { margin-top: clamp(32px, 6vw, 88px); }
-}
-
-.look-item { background: var(--iara-paper); }
-
-.look-item img { border-bottom: 1px solid var(--iara-hairline); }
-
-.look-item__body { padding: clamp(18px, 2.4vw, 26px); }
-
-.look-item .index-number {
-  font-size: var(--fs-micro);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--iara-accent-dark);
-  margin: 0 0 10px;
-}
 
 /* ----------------------------------------- 07. ESPAÇO QUE VINHA DO HTML */
 /* Estes espaçamentos eram style="..." escrito dentro dos arquivos. Os primeiros
