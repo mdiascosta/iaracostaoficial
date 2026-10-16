@@ -1,0 +1,44 @@
+BLOCO B · TEMPLATES DO ELEMENTOR · PARTE 1 · 16/10/2026
+
+
+O QUE E ESTA PASTA
+
+Sao os templates do site da Iara Costa no formato que o Elementor importa
+(arquivos .json), junto com as cores e as fontes globais do projeto. E a
+traducao do prototipo aprovado (Bloco A) para o WordPress.
+
+
+O QUE TEM AQUI DENTRO
+
+  GUIA-IMPORTACAO.md        leia este primeiro: ordem, cuidados e o que fazer
+  json/01-cabecalho.json    cabecalho do site (faixa verde, logo, menu, icones)
+  json/02-rodape.json       rodape do site (newsletter, colunas, seguranca, base)
+  globais/cores-e-fontes.json   as 15 cores e as 10 fontes do site, por nome
+
+
+ORDEM DE TRABALHO
+
+  1. Criar as cores e as fontes globais no site, seguindo a tabela da secao 3 do
+     GUIA-IMPORTACAO.md.
+  2. Rodar o script que acerta os ids das cores:
+         python3 tools/ajusta-ids.py <site-settings.json exportado do site>
+  3. Conferir:
+         python3 tools/blocob_confere.py
+  4. Importar os dois templates e definir a condicao de exibicao
+     (Entire Site, nos dois).
+
+
+AVISO IMPORTANTE
+
+Nenhuma importacao foi testada: este trabalho e feito sem acesso ao WordPress,
+ao painel ou ao banco de dados. O formato dos arquivos foi conferido no
+codigo-fonte do Elementor, nao em um site real. Importe em staging, um arquivo
+por vez, e confira antes de seguir para o proximo.
+
+
+ONDE ESTA A VERSAO MAIS NOVA
+
+Este material faz parte do repositorio do projeto. A versao em desenvolvimento do
+prototipo fica em seu-projeto/ (congelada em template-v0.1.20/), o que ainda
+depende de informacao da empresa esta em PENDENCIAS.md e o historico de cada
+rodada esta em HISTORICO-DE-VERSOES.md e DIARIO-DE-BORDO.md.

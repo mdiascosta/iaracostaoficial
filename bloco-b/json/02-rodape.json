@@ -1,0 +1,1720 @@
+{
+  "content": [
+    {
+      "id": "28bf481",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "0",
+          "column": "0",
+          "isLinked": true,
+          "unit": "px",
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        },
+        "background_background": "classic",
+        "__globals__": {
+          "background_color": "globals/colors?id=iara-branco"
+        },
+        "_title": "Rodapé"
+      },
+      "elements": [
+        {
+          "id": "8d64e28",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "0",
+              "column": "0",
+              "isLinked": true,
+              "unit": "px",
+              "size": 0
+            },
+            "_title": "Conteúdo do rodapé"
+          },
+          "elements": [
+            {
+              "id": "3d2ab91",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "row",
+                "flex_wrap": "wrap",
+                "flex_justify_content": "space-between",
+                "flex_align_items": "center",
+                "flex_gap": {
+                  "row": "24",
+                  "column": "24",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 24
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "28",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "1",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "__globals__": {
+                  "border_color": "globals/colors?id=iara-fio"
+                },
+                "_title": "Newsletter"
+              },
+              "elements": [
+                {
+                  "id": "2870154",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "row": "8",
+                      "column": "8",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 8
+                    },
+                    "_title": "Convite da newsletter"
+                  },
+                  "elements": [
+                    {
+                      "id": "90d69d6",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Rótulo",
+                        "title": "Newsletter",
+                        "header_size": "p",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=iara-texto-discreto",
+                          "typography": "globals/typography?id=iara-rotulo"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "b287015",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<p>Cartas do ateliê: lançamentos, guia de medidas e cuidados com o linho.</p>",
+                        "__globals__": {
+                          "text_color": "globals/colors?id=iara-texto-suave",
+                          "typography": "globals/typography?id=text"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "dd48069",
+                  "elType": "widget",
+                  "widgetType": "form",
+                  "settings": {
+                    "_title": "Assinar a newsletter",
+                    "form_name": "Newsletter do rodapé",
+                    "form_fields": [
+                      {
+                        "custom_id": "email",
+                        "field_type": "email",
+                        "field_label": "Seu e-mail",
+                        "placeholder": "seu@email.com",
+                        "required": "true",
+                        "width": "100",
+                        "_id": "9c73d81"
+                      }
+                    ],
+                    "button_text": "Assinar",
+                    "button_size": "sm",
+                    "email_to": "[CONFERIR: e-mail de destino]",
+                    "form_id": "newsletter"
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "dfc74b9",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "flex_direction": "row",
+                "flex_wrap": "wrap",
+                "flex_gap": {
+                  "row": "24",
+                  "column": "24",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 24
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "40",
+                  "right": "0",
+                  "bottom": "40",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "_title": "Colunas do rodapé"
+              },
+              "elements": [
+                {
+                  "id": "64b2d2a",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "row": "10",
+                      "column": "10",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 10
+                    },
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 25,
+                      "sizes": []
+                    },
+                    "_title": "Coluna da marca"
+                  },
+                  "elements": [
+                    {
+                      "id": "4f7f92a",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Iara Costa",
+                        "title": "IARA COSTA",
+                        "header_size": "p",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "typography": "globals/typography?id=primary"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "8eb2b9b",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Moda e acessórios",
+                        "title": "Moda & Acessórios",
+                        "header_size": "p",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=iara-texto-discreto",
+                          "typography": "globals/typography?id=iara-assinatura"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "fbc2caa",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<p>Vestuário feminino autoral em linho, algodão egípcio e viscose de alta gramatura. Modelagem, corte e confecção próprios, no ateliê em Cerquilho (SP).</p>",
+                        "__globals__": {
+                          "text_color": "globals/colors?id=iara-texto-suave",
+                          "typography": "globals/typography?id=text"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "7c77da2",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "row": "14",
+                      "column": "14",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 14
+                    },
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 21,
+                      "sizes": []
+                    },
+                    "_title": "Institucional"
+                  },
+                  "elements": [
+                    {
+                      "id": "101cc03",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Institucional",
+                        "header_size": "p",
+                        "_title": "Institucional",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "typography": "globals/typography?id=iara-texto-micro"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "b193a1c",
+                      "elType": "widget",
+                      "widgetType": "icon-list",
+                      "settings": {
+                        "_title": "Institucional",
+                        "icon_list": [
+                          {
+                            "text": "Sobre a marca",
+                            "link": {
+                              "url": "/sobre/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "bbf8cb5"
+                          },
+                          {
+                            "text": "Coleção Terra & Linho",
+                            "link": {
+                              "url": "/colecao/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "620fd35"
+                          },
+                          {
+                            "text": "Guia de medidas",
+                            "link": {
+                              "url": "/guia-de-medidas/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "ab0046f"
+                          },
+                          {
+                            "text": "Trocas e devoluções",
+                            "link": {
+                              "url": "/trocas-e-devolucoes/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "1c7676a"
+                          },
+                          {
+                            "text": "Contato",
+                            "link": {
+                              "url": "/contato/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "ac8ec6c"
+                          }
+                        ],
+                        "space_between": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "__globals__": {
+                          "text_color": "globals/colors?id=iara-texto-suave"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "1c0f890",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "row": "14",
+                      "column": "14",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 14
+                    },
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 21,
+                      "sizes": []
+                    },
+                    "_title": "Categorias"
+                  },
+                  "elements": [
+                    {
+                      "id": "a495410",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Categorias",
+                        "header_size": "p",
+                        "_title": "Categorias",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "typography": "globals/typography?id=iara-texto-micro"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "adcda0f",
+                      "elType": "widget",
+                      "widgetType": "icon-list",
+                      "settings": {
+                        "_title": "Categorias",
+                        "icon_list": [
+                          {
+                            "text": "Vestidos",
+                            "link": {
+                              "url": "/loja/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "097c1a1"
+                          },
+                          {
+                            "text": "Blusas & Camisas",
+                            "link": {
+                              "url": "/loja/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "fc1fccb"
+                          },
+                          {
+                            "text": "Saias & Calças",
+                            "link": {
+                              "url": "/loja/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "747c9f7"
+                          },
+                          {
+                            "text": "Acessórios",
+                            "link": {
+                              "url": "/loja/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "d75d51f"
+                          },
+                          {
+                            "text": "Ver tudo",
+                            "link": {
+                              "url": "/loja/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "90bccb2"
+                          }
+                        ],
+                        "space_between": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "__globals__": {
+                          "text_color": "globals/colors?id=iara-texto-suave"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "2b25958",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "row": "14",
+                      "column": "14",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 14
+                    },
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 24,
+                      "sizes": []
+                    },
+                    "_title": "Atendimento"
+                  },
+                  "elements": [
+                    {
+                      "id": "c9bbb2c",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Atendimento",
+                        "header_size": "p",
+                        "_title": "Atendimento",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "typography": "globals/typography?id=iara-texto-micro"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "8b7fbe0",
+                      "elType": "widget",
+                      "widgetType": "icon-list",
+                      "settings": {
+                        "_title": "Contatos",
+                        "icon_list": [
+                          {
+                            "text": "contato@iaracosta.com.br",
+                            "link": {
+                              "url": "mailto:contato@iaracosta.com.br",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "415069a"
+                          },
+                          {
+                            "text": "(15) 99123-4567",
+                            "link": {
+                              "url": "https://wa.me/5515991234567",
+                              "is_external": "on",
+                              "nofollow": ""
+                            },
+                            "_id": "2007f5d"
+                          },
+                          {
+                            "text": "Segunda a sexta, das 9h às 18h",
+                            "_id": "31caed5"
+                          }
+                        ],
+                        "space_between": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "__globals__": {
+                          "text_color": "globals/colors?id=iara-texto-suave"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "cfdbc05",
+                      "elType": "widget",
+                      "widgetType": "icon-list",
+                      "settings": {
+                        "_title": "Redes sociais",
+                        "icon_list": [
+                          {
+                            "text": "Instagram",
+                            "selected_icon": {
+                              "value": "fab fa-instagram",
+                              "library": "fa-brands"
+                            },
+                            "link": {
+                              "url": "[PREENCHER]",
+                              "is_external": "on",
+                              "nofollow": ""
+                            },
+                            "_id": "3687719"
+                          },
+                          {
+                            "text": "Pinterest",
+                            "selected_icon": {
+                              "value": "fab fa-pinterest",
+                              "library": "fa-brands"
+                            },
+                            "link": {
+                              "url": "[PREENCHER]",
+                              "is_external": "on",
+                              "nofollow": ""
+                            },
+                            "_id": "16e84ad"
+                          },
+                          {
+                            "text": "WhatsApp",
+                            "selected_icon": {
+                              "value": "fab fa-whatsapp",
+                              "library": "fa-brands"
+                            },
+                            "link": {
+                              "url": "https://wa.me/5515991234567",
+                              "is_external": "on",
+                              "nofollow": ""
+                            },
+                            "_id": "a947a9f"
+                          }
+                        ],
+                        "space_between": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "icon_size": {
+                          "unit": "px",
+                          "size": 16,
+                          "sizes": []
+                        },
+                        "__globals__": {
+                          "text_color": "globals/colors?id=iara-texto-suave"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "3678ad5",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "flex_gap": {
+                  "row": "20",
+                  "column": "20",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 20
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "28",
+                  "right": "0",
+                  "bottom": "28",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "0",
+                  "bottom": "1",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "__globals__": {
+                  "border_color": "globals/colors?id=iara-fio"
+                },
+                "_title": "Segurança e formas de pagamento"
+              },
+              "elements": [
+                {
+                  "id": "ae29c66",
+                  "elType": "container",
+                  "settings": {
+                    "content_width": "full",
+                    "flex_direction": "row",
+                    "flex_wrap": "wrap",
+                    "flex_gap": {
+                      "row": "20",
+                      "column": "20",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 20
+                    },
+                    "_title": "Faixa de segurança"
+                  },
+                  "elements": [
+                    {
+                      "id": "4a82634",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "full",
+                        "flex_direction": "row",
+                        "flex_align_items": "flex-start",
+                        "flex_gap": {
+                          "row": "12",
+                          "column": "12",
+                          "isLinked": true,
+                          "unit": "px",
+                          "size": 12
+                        },
+                        "_flex_size": "custom",
+                        "_flex_basis_type": "custom",
+                        "_flex_basis": {
+                          "unit": "%",
+                          "size": 23,
+                          "sizes": []
+                        },
+                        "_title": "Pix, cartão e boleto"
+                      },
+                      "elements": [
+                        {
+                          "id": "e4efca3",
+                          "elType": "widget",
+                          "widgetType": "icon",
+                          "settings": {
+                            "_title": "Ícone",
+                            "selected_icon": {
+                              "value": "fas fa-credit-card",
+                              "library": "fa-solid"
+                            },
+                            "size": {
+                              "unit": "px",
+                              "size": 20,
+                              "sizes": []
+                            },
+                            "__globals__": {
+                              "primary_color": "globals/colors?id=primary"
+                            }
+                          },
+                          "elements": []
+                        },
+                        {
+                          "id": "2954c8c",
+                          "elType": "container",
+                          "settings": {
+                            "flex_direction": "column",
+                            "flex_gap": {
+                              "row": "4",
+                              "column": "4",
+                              "isLinked": true,
+                              "unit": "px",
+                              "size": 4
+                            },
+                            "_title": "Texto"
+                          },
+                          "elements": [
+                            {
+                              "id": "8528220",
+                              "elType": "widget",
+                              "widgetType": "heading",
+                              "settings": {
+                                "title": "Pix, cartão e boleto",
+                                "header_size": "p",
+                                "_title": "Pix, cartão e boleto",
+                                "__globals__": {
+                                  "title_color": "globals/colors?id=text",
+                                  "typography": "globals/typography?id=iara-texto-micro"
+                                }
+                              },
+                              "elements": []
+                            },
+                            {
+                              "id": "82954c8",
+                              "elType": "widget",
+                              "widgetType": "text-editor",
+                              "settings": {
+                                "editor": "<p>Pix com 5% de desconto, cartão em até 6x sem juros e boleto pelo Mercado Pago.</p>",
+                                "__globals__": {
+                                  "text_color": "globals/colors?id=iara-texto-suave",
+                                  "typography": "globals/typography?id=text"
+                                }
+                              },
+                              "elements": []
+                            }
+                          ],
+                          "isInner": true
+                        }
+                      ],
+                      "isInner": true
+                    },
+                    {
+                      "id": "f38c5a1",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "full",
+                        "flex_direction": "row",
+                        "flex_align_items": "flex-start",
+                        "flex_gap": {
+                          "row": "12",
+                          "column": "12",
+                          "isLinked": true,
+                          "unit": "px",
+                          "size": 12
+                        },
+                        "_flex_size": "custom",
+                        "_flex_basis_type": "custom",
+                        "_flex_basis": {
+                          "unit": "%",
+                          "size": 23,
+                          "sizes": []
+                        },
+                        "_title": "Ambiente protegido"
+                      },
+                      "elements": [
+                        {
+                          "id": "b24c9f8",
+                          "elType": "widget",
+                          "widgetType": "icon",
+                          "settings": {
+                            "_title": "Ícone",
+                            "selected_icon": {
+                              "value": "fas fa-shield-alt",
+                              "library": "fa-solid"
+                            },
+                            "size": {
+                              "unit": "px",
+                              "size": 20,
+                              "sizes": []
+                            },
+                            "__globals__": {
+                              "primary_color": "globals/colors?id=primary"
+                            }
+                          },
+                          "elements": []
+                        },
+                        {
+                          "id": "0a941bb",
+                          "elType": "container",
+                          "settings": {
+                            "flex_direction": "column",
+                            "flex_gap": {
+                              "row": "4",
+                              "column": "4",
+                              "isLinked": true,
+                              "unit": "px",
+                              "size": 4
+                            },
+                            "_title": "Texto"
+                          },
+                          "elements": [
+                            {
+                              "id": "6a17e40",
+                              "elType": "widget",
+                              "widgetType": "heading",
+                              "settings": {
+                                "title": "Ambiente protegido",
+                                "header_size": "p",
+                                "_title": "Ambiente protegido",
+                                "__globals__": {
+                                  "title_color": "globals/colors?id=text",
+                                  "typography": "globals/typography?id=iara-texto-micro"
+                                }
+                              },
+                              "elements": []
+                            },
+                            {
+                              "id": "a0a941b",
+                              "elType": "widget",
+                              "widgetType": "text-editor",
+                              "settings": {
+                                "editor": "<p>Seus dados trafegam criptografados e não são compartilhados.</p>",
+                                "__globals__": {
+                                  "text_color": "globals/colors?id=iara-texto-suave",
+                                  "typography": "globals/typography?id=text"
+                                }
+                              },
+                              "elements": []
+                            }
+                          ],
+                          "isInner": true
+                        }
+                      ],
+                      "isInner": true
+                    },
+                    {
+                      "id": "2857ab5",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "full",
+                        "flex_direction": "row",
+                        "flex_align_items": "flex-start",
+                        "flex_gap": {
+                          "row": "12",
+                          "column": "12",
+                          "isLinked": true,
+                          "unit": "px",
+                          "size": 12
+                        },
+                        "_flex_size": "custom",
+                        "_flex_basis_type": "custom",
+                        "_flex_basis": {
+                          "unit": "%",
+                          "size": 23,
+                          "sizes": []
+                        },
+                        "_title": "Pedido rastreado"
+                      },
+                      "elements": [
+                        {
+                          "id": "d232f04",
+                          "elType": "widget",
+                          "widgetType": "icon",
+                          "settings": {
+                            "_title": "Ícone",
+                            "selected_icon": {
+                              "value": "fas fa-truck",
+                              "library": "fa-solid"
+                            },
+                            "size": {
+                              "unit": "px",
+                              "size": 20,
+                              "sizes": []
+                            },
+                            "__globals__": {
+                              "primary_color": "globals/colors?id=primary"
+                            }
+                          },
+                          "elements": []
+                        },
+                        {
+                          "id": "afd11f2",
+                          "elType": "container",
+                          "settings": {
+                            "flex_direction": "column",
+                            "flex_gap": {
+                              "row": "4",
+                              "column": "4",
+                              "isLinked": true,
+                              "unit": "px",
+                              "size": 4
+                            },
+                            "_title": "Texto"
+                          },
+                          "elements": [
+                            {
+                              "id": "c0db4e8",
+                              "elType": "widget",
+                              "widgetType": "heading",
+                              "settings": {
+                                "title": "Pedido rastreado",
+                                "header_size": "p",
+                                "_title": "Pedido rastreado",
+                                "__globals__": {
+                                  "title_color": "globals/colors?id=text",
+                                  "typography": "globals/typography?id=iara-texto-micro"
+                                }
+                              },
+                              "elements": []
+                            },
+                            {
+                              "id": "eafd11f",
+                              "elType": "widget",
+                              "widgetType": "text-editor",
+                              "settings": {
+                                "editor": "<p>Código de rastreio por e-mail assim que a peça é postada.</p>",
+                                "__globals__": {
+                                  "text_color": "globals/colors?id=iara-texto-suave",
+                                  "typography": "globals/typography?id=text"
+                                }
+                              },
+                              "elements": []
+                            }
+                          ],
+                          "isInner": true
+                        }
+                      ],
+                      "isInner": true
+                    },
+                    {
+                      "id": "41ba562",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "full",
+                        "flex_direction": "row",
+                        "flex_align_items": "flex-start",
+                        "flex_gap": {
+                          "row": "12",
+                          "column": "12",
+                          "isLinked": true,
+                          "unit": "px",
+                          "size": 12
+                        },
+                        "_flex_size": "custom",
+                        "_flex_basis_type": "custom",
+                        "_flex_basis": {
+                          "unit": "%",
+                          "size": 23,
+                          "sizes": []
+                        },
+                        "_title": "7 dias para desistir"
+                      },
+                      "elements": [
+                        {
+                          "id": "ff1a69f",
+                          "elType": "widget",
+                          "widgetType": "icon",
+                          "settings": {
+                            "_title": "Ícone",
+                            "selected_icon": {
+                              "value": "fas fa-heart",
+                              "library": "fa-solid"
+                            },
+                            "size": {
+                              "unit": "px",
+                              "size": 20,
+                              "sizes": []
+                            },
+                            "__globals__": {
+                              "primary_color": "globals/colors?id=primary"
+                            }
+                          },
+                          "elements": []
+                        },
+                        {
+                          "id": "6a59a31",
+                          "elType": "container",
+                          "settings": {
+                            "flex_direction": "column",
+                            "flex_gap": {
+                              "row": "4",
+                              "column": "4",
+                              "isLinked": true,
+                              "unit": "px",
+                              "size": 4
+                            },
+                            "_title": "Texto"
+                          },
+                          "elements": [
+                            {
+                              "id": "571fca9",
+                              "elType": "widget",
+                              "widgetType": "heading",
+                              "settings": {
+                                "title": "7 dias para desistir",
+                                "header_size": "p",
+                                "_title": "7 dias para desistir",
+                                "__globals__": {
+                                  "title_color": "globals/colors?id=text",
+                                  "typography": "globals/typography?id=iara-texto-micro"
+                                }
+                              },
+                              "elements": []
+                            },
+                            {
+                              "id": "86a59a3",
+                              "elType": "widget",
+                              "widgetType": "text-editor",
+                              "settings": {
+                                "editor": "<p>Direito de arrependimento previsto no CDC, Art. 49.</p>",
+                                "__globals__": {
+                                  "text_color": "globals/colors?id=iara-texto-suave",
+                                  "typography": "globals/typography?id=text"
+                                }
+                              },
+                              "elements": []
+                            }
+                          ],
+                          "isInner": true
+                        }
+                      ],
+                      "isInner": true
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "cdbced3",
+                  "elType": "container",
+                  "settings": {
+                    "content_width": "full",
+                    "flex_direction": "row",
+                    "flex_wrap": "wrap",
+                    "flex_gap": {
+                      "row": "24",
+                      "column": "24",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 24
+                    },
+                    "_title": "Pagamento e selos"
+                  },
+                  "elements": [
+                    {
+                      "id": "139ed0d",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "full",
+                        "flex_direction": "column",
+                        "flex_gap": {
+                          "row": "12",
+                          "column": "12",
+                          "isLinked": true,
+                          "unit": "px",
+                          "size": 12
+                        },
+                        "_flex_size": "custom",
+                        "_flex_basis_type": "custom",
+                        "_flex_basis": {
+                          "unit": "%",
+                          "size": 48,
+                          "sizes": []
+                        },
+                        "_title": "Formas de pagamento"
+                      },
+                      "elements": [
+                        {
+                          "id": "99441cc",
+                          "elType": "widget",
+                          "widgetType": "heading",
+                          "settings": {
+                            "title": "Formas de pagamento",
+                            "header_size": "p",
+                            "_title": "Formas de pagamento",
+                            "__globals__": {
+                              "title_color": "globals/colors?id=text",
+                              "typography": "globals/typography?id=iara-texto-micro"
+                            }
+                          },
+                          "elements": []
+                        },
+                        {
+                          "id": "0fa4739",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "full",
+                            "flex_direction": "row",
+                            "flex_wrap": "wrap",
+                            "flex_gap": {
+                              "row": "8",
+                              "column": "8",
+                              "isLinked": true,
+                              "unit": "px",
+                              "size": 8
+                            },
+                            "_title": "Quadros"
+                          },
+                          "elements": [
+                            {
+                              "id": "36ab79c",
+                              "elType": "container",
+                              "settings": {
+                                "flex_direction": "row",
+                                "flex_align_items": "center",
+                                "flex_justify_content": "center",
+                                "padding": {
+                                  "unit": "px",
+                                  "top": "10",
+                                  "right": "16",
+                                  "bottom": "10",
+                                  "left": "16",
+                                  "isLinked": false
+                                },
+                                "border_border": "solid",
+                                "border_width": {
+                                  "unit": "px",
+                                  "top": "1",
+                                  "right": "1",
+                                  "bottom": "1",
+                                  "left": "1",
+                                  "isLinked": true
+                                },
+                                "border_radius": {
+                                  "unit": "px",
+                                  "top": "2",
+                                  "right": "2",
+                                  "bottom": "2",
+                                  "left": "2",
+                                  "isLinked": true
+                                },
+                                "_title": "Mercado Pago"
+                              },
+                              "elements": [
+                                {
+                                  "id": "7a40321",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "<p>Mercado Pago</p>",
+                                    "__globals__": {
+                                      "text_color": "globals/colors?id=text",
+                                      "typography": "globals/typography?id=iara-texto-micro"
+                                    }
+                                  },
+                                  "elements": []
+                                }
+                              ],
+                              "isInner": true
+                            },
+                            {
+                              "id": "e59c239",
+                              "elType": "container",
+                              "settings": {
+                                "flex_direction": "row",
+                                "flex_align_items": "center",
+                                "flex_justify_content": "center",
+                                "padding": {
+                                  "unit": "px",
+                                  "top": "10",
+                                  "right": "16",
+                                  "bottom": "10",
+                                  "left": "16",
+                                  "isLinked": false
+                                },
+                                "border_border": "solid",
+                                "border_width": {
+                                  "unit": "px",
+                                  "top": "1",
+                                  "right": "1",
+                                  "bottom": "1",
+                                  "left": "1",
+                                  "isLinked": true
+                                },
+                                "border_radius": {
+                                  "unit": "px",
+                                  "top": "2",
+                                  "right": "2",
+                                  "bottom": "2",
+                                  "left": "2",
+                                  "isLinked": true
+                                },
+                                "_title": "Pix"
+                              },
+                              "elements": [
+                                {
+                                  "id": "60e3eb9",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "<p>Pix</p>",
+                                    "__globals__": {
+                                      "text_color": "globals/colors?id=text",
+                                      "typography": "globals/typography?id=iara-texto-micro"
+                                    }
+                                  },
+                                  "elements": []
+                                }
+                              ],
+                              "isInner": true
+                            },
+                            {
+                              "id": "17b1e78",
+                              "elType": "container",
+                              "settings": {
+                                "flex_direction": "row",
+                                "flex_align_items": "center",
+                                "flex_justify_content": "center",
+                                "padding": {
+                                  "unit": "px",
+                                  "top": "10",
+                                  "right": "16",
+                                  "bottom": "10",
+                                  "left": "16",
+                                  "isLinked": false
+                                },
+                                "border_border": "solid",
+                                "border_width": {
+                                  "unit": "px",
+                                  "top": "1",
+                                  "right": "1",
+                                  "bottom": "1",
+                                  "left": "1",
+                                  "isLinked": true
+                                },
+                                "border_radius": {
+                                  "unit": "px",
+                                  "top": "2",
+                                  "right": "2",
+                                  "bottom": "2",
+                                  "left": "2",
+                                  "isLinked": true
+                                },
+                                "_title": "Cartão de crédito"
+                              },
+                              "elements": [
+                                {
+                                  "id": "af3ac63",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "<p>Cartão de crédito</p>",
+                                    "__globals__": {
+                                      "text_color": "globals/colors?id=text",
+                                      "typography": "globals/typography?id=iara-texto-micro"
+                                    }
+                                  },
+                                  "elements": []
+                                }
+                              ],
+                              "isInner": true
+                            },
+                            {
+                              "id": "0d1870f",
+                              "elType": "container",
+                              "settings": {
+                                "flex_direction": "row",
+                                "flex_align_items": "center",
+                                "flex_justify_content": "center",
+                                "padding": {
+                                  "unit": "px",
+                                  "top": "10",
+                                  "right": "16",
+                                  "bottom": "10",
+                                  "left": "16",
+                                  "isLinked": false
+                                },
+                                "border_border": "solid",
+                                "border_width": {
+                                  "unit": "px",
+                                  "top": "1",
+                                  "right": "1",
+                                  "bottom": "1",
+                                  "left": "1",
+                                  "isLinked": true
+                                },
+                                "border_radius": {
+                                  "unit": "px",
+                                  "top": "2",
+                                  "right": "2",
+                                  "bottom": "2",
+                                  "left": "2",
+                                  "isLinked": true
+                                },
+                                "_title": "Boleto bancário"
+                              },
+                              "elements": [
+                                {
+                                  "id": "97c9949",
+                                  "elType": "widget",
+                                  "widgetType": "text-editor",
+                                  "settings": {
+                                    "editor": "<p>Boleto bancário</p>",
+                                    "__globals__": {
+                                      "text_color": "globals/colors?id=text",
+                                      "typography": "globals/typography?id=iara-texto-micro"
+                                    }
+                                  },
+                                  "elements": []
+                                }
+                              ],
+                              "isInner": true
+                            }
+                          ],
+                          "isInner": true
+                        }
+                      ],
+                      "isInner": true
+                    },
+                    {
+                      "id": "f292ee7",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "full",
+                        "flex_direction": "column",
+                        "flex_gap": {
+                          "row": "12",
+                          "column": "12",
+                          "isLinked": true,
+                          "unit": "px",
+                          "size": 12
+                        },
+                        "_flex_size": "custom",
+                        "_flex_basis_type": "custom",
+                        "_flex_basis": {
+                          "unit": "%",
+                          "size": 48,
+                          "sizes": []
+                        },
+                        "_title": "Selos de segurança"
+                      },
+                      "elements": [
+                        {
+                          "id": "d3b960a",
+                          "elType": "widget",
+                          "widgetType": "heading",
+                          "settings": {
+                            "title": "Segurança",
+                            "header_size": "p",
+                            "_title": "Segurança",
+                            "__globals__": {
+                              "title_color": "globals/colors?id=text",
+                              "typography": "globals/typography?id=iara-texto-micro"
+                            }
+                          },
+                          "elements": []
+                        },
+                        {
+                          "id": "2ca3082",
+                          "elType": "container",
+                          "settings": {
+                            "content_width": "full",
+                            "flex_direction": "row",
+                            "flex_wrap": "wrap",
+                            "flex_gap": {
+                              "row": "8",
+                              "column": "8",
+                              "isLinked": true,
+                              "unit": "px",
+                              "size": 8
+                            },
+                            "_title": "Distintivos"
+                          },
+                          "elements": [
+                            {
+                              "id": "ed7f83f",
+                              "elType": "container",
+                              "settings": {
+                                "flex_direction": "row",
+                                "flex_align_items": "center",
+                                "flex_gap": {
+                                  "row": "8",
+                                  "column": "8",
+                                  "isLinked": true,
+                                  "unit": "px",
+                                  "size": 8
+                                },
+                                "padding": {
+                                  "unit": "px",
+                                  "top": "10",
+                                  "right": "16",
+                                  "bottom": "10",
+                                  "left": "16",
+                                  "isLinked": false
+                                },
+                                "border_border": "solid",
+                                "border_width": {
+                                  "unit": "px",
+                                  "top": "1",
+                                  "right": "1",
+                                  "bottom": "1",
+                                  "left": "1",
+                                  "isLinked": true
+                                },
+                                "border_radius": {
+                                  "unit": "px",
+                                  "top": "2",
+                                  "right": "2",
+                                  "bottom": "2",
+                                  "left": "2",
+                                  "isLinked": true
+                                },
+                                "_title": "Site seguro"
+                              },
+                              "elements": [
+                                {
+                                  "id": "4ed22f1",
+                                  "elType": "widget",
+                                  "widgetType": "icon",
+                                  "settings": {
+                                    "selected_icon": {
+                                      "value": "fas fa-lock",
+                                      "library": "fa-solid"
+                                    },
+                                    "size": {
+                                      "unit": "px",
+                                      "size": 18,
+                                      "sizes": []
+                                    },
+                                    "_title": "Ícone",
+                                    "__globals__": {
+                                      "primary_color": "globals/colors?id=primary"
+                                    }
+                                  },
+                                  "elements": []
+                                },
+                                {
+                                  "id": "ace980e",
+                                  "elType": "container",
+                                  "settings": {
+                                    "flex_direction": "column",
+                                    "flex_gap": {
+                                      "row": "0",
+                                      "column": "0",
+                                      "isLinked": true,
+                                      "unit": "px",
+                                      "size": 0
+                                    },
+                                    "_title": "Texto"
+                                  },
+                                  "elements": [
+                                    {
+                                      "id": "57d77a8",
+                                      "elType": "widget",
+                                      "widgetType": "heading",
+                                      "settings": {
+                                        "title": "Site seguro",
+                                        "header_size": "p",
+                                        "_title": "Site seguro",
+                                        "__globals__": {
+                                          "title_color": "globals/colors?id=text",
+                                          "typography": "globals/typography?id=iara-texto-micro"
+                                        }
+                                      },
+                                      "elements": []
+                                    },
+                                    {
+                                      "id": "a6121b9",
+                                      "elType": "widget",
+                                      "widgetType": "text-editor",
+                                      "settings": {
+                                        "editor": "<p>SSL 256 bits</p>",
+                                        "__globals__": {
+                                          "text_color": "globals/colors?id=iara-texto-discreto",
+                                          "typography": "globals/typography?id=iara-texto-micro"
+                                        }
+                                      },
+                                      "elements": []
+                                    }
+                                  ],
+                                  "isInner": true
+                                }
+                              ],
+                              "isInner": true
+                            },
+                            {
+                              "id": "209610e",
+                              "elType": "container",
+                              "settings": {
+                                "flex_direction": "row",
+                                "flex_align_items": "center",
+                                "flex_gap": {
+                                  "row": "8",
+                                  "column": "8",
+                                  "isLinked": true,
+                                  "unit": "px",
+                                  "size": 8
+                                },
+                                "padding": {
+                                  "unit": "px",
+                                  "top": "10",
+                                  "right": "16",
+                                  "bottom": "10",
+                                  "left": "16",
+                                  "isLinked": false
+                                },
+                                "border_border": "solid",
+                                "border_width": {
+                                  "unit": "px",
+                                  "top": "1",
+                                  "right": "1",
+                                  "bottom": "1",
+                                  "left": "1",
+                                  "isLinked": true
+                                },
+                                "border_radius": {
+                                  "unit": "px",
+                                  "top": "2",
+                                  "right": "2",
+                                  "bottom": "2",
+                                  "left": "2",
+                                  "isLinked": true
+                                },
+                                "_title": "Navegação verificada"
+                              },
+                              "elements": [
+                                {
+                                  "id": "2ff3483",
+                                  "elType": "widget",
+                                  "widgetType": "icon",
+                                  "settings": {
+                                    "selected_icon": {
+                                      "value": "fas fa-shield-alt",
+                                      "library": "fa-solid"
+                                    },
+                                    "size": {
+                                      "unit": "px",
+                                      "size": 18,
+                                      "sizes": []
+                                    },
+                                    "_title": "Ícone",
+                                    "__globals__": {
+                                      "primary_color": "globals/colors?id=primary"
+                                    }
+                                  },
+                                  "elements": []
+                                },
+                                {
+                                  "id": "9692be1",
+                                  "elType": "container",
+                                  "settings": {
+                                    "flex_direction": "column",
+                                    "flex_gap": {
+                                      "row": "0",
+                                      "column": "0",
+                                      "isLinked": true,
+                                      "unit": "px",
+                                      "size": 0
+                                    },
+                                    "_title": "Texto"
+                                  },
+                                  "elements": [
+                                    {
+                                      "id": "bd7af51",
+                                      "elType": "widget",
+                                      "widgetType": "heading",
+                                      "settings": {
+                                        "title": "Navegação verificada",
+                                        "header_size": "p",
+                                        "_title": "Navegação verificada",
+                                        "__globals__": {
+                                          "title_color": "globals/colors?id=text",
+                                          "typography": "globals/typography?id=iara-texto-micro"
+                                        }
+                                      },
+                                      "elements": []
+                                    },
+                                    {
+                                      "id": "1877afa",
+                                      "elType": "widget",
+                                      "widgetType": "text-editor",
+                                      "settings": {
+                                        "editor": "<p>Sem páginas suspeitas</p>",
+                                        "__globals__": {
+                                          "text_color": "globals/colors?id=iara-texto-discreto",
+                                          "typography": "globals/typography?id=iara-texto-micro"
+                                        }
+                                      },
+                                      "elements": []
+                                    }
+                                  ],
+                                  "isInner": true
+                                }
+                              ],
+                              "isInner": true
+                            }
+                          ],
+                          "isInner": true
+                        }
+                      ],
+                      "isInner": true
+                    }
+                  ],
+                  "isInner": true
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "88d57e3",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "flex_direction": "row",
+                "flex_wrap": "wrap",
+                "flex_justify_content": "space-between",
+                "flex_align_items": "center",
+                "flex_gap": {
+                  "row": "16",
+                  "column": "16",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 16
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "20",
+                  "right": "0",
+                  "bottom": "20",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "_title": "Base do rodapé"
+              },
+              "elements": [
+                {
+                  "id": "43d8979",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Direitos e identificação",
+                    "editor": "<p>© 2026 Iara Costa. Todos os direitos reservados.</p><p>Iara Costa Moda Feminina LTDA · CNPJ 12.345.678/0001-90 · Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000</p>",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-discreto",
+                      "typography": "globals/typography?id=iara-texto-micro"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "087e341",
+                  "elType": "widget",
+                  "widgetType": "icon-list",
+                  "settings": {
+                    "_title": "Links de política",
+                    "icon_list": [
+                      {
+                        "text": "Política de privacidade",
+                        "link": {
+                          "url": "/politica-de-privacidade/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "_id": "77b5eda"
+                      },
+                      {
+                        "text": "Termos de uso",
+                        "link": {
+                          "url": "/termos-de-uso/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "_id": "aa475ab"
+                      },
+                      {
+                        "text": "Trocas e devoluções",
+                        "link": {
+                          "url": "/trocas-e-devolucoes/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "_id": "b4046d2"
+                      },
+                      {
+                        "text": "Cookies",
+                        "link": {
+                          "url": "/politica-de-cookies/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "_id": "e10848b"
+                      }
+                    ],
+                    "space_between": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-discreto"
+                    }
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            }
+          ],
+          "isInner": true
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": [],
+  "version": "0.4",
+  "title": "Rodapé do site",
+  "type": "footer"
+}
