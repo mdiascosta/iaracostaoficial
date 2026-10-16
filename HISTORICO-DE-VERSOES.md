@@ -61,6 +61,32 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.6 · 2026-10-16 · Decisões da cliente confirmadas
+
+**O que mudou em relação à v0.1.5:**
+
+- **Frete grátis definido: acima de R$ 299.** O protótipo já usava 299 em todo
+  lugar (barra do topo, página do produto, carrinho, checkout, pedido recebido,
+  página de envio, descrição para busca e a conta do frete no JavaScript). O que
+  mudou foi a pendência: o comentário no código e a lista de decisões abertas
+  passaram a registrar o valor confirmado. Nenhum preço de produto mudou.
+- **Catálogo definido: 12 peças visíveis.** A loja já mostrava as 12. Dois
+  textos ainda diziam 10 peças e foram corrigidos: o atalho da página 404
+  ("Loja completa, 12 peças") e o item da página Sobre ("Doze peças bem
+  escolhidas valem mais que cem peças iguais").
+- **Newsletter do rodapé mantida.** Confirmado pela cliente em 16/10/2026: a
+  linha de newsletter fica no rodapé e a home continua com uma única faixa
+  sálvia, a de perguntas frequentes, antes do rodapé.
+
+**Verificado nesta versão:** 22 páginas sem erro de estrutura; 189 verificações
+automatizadas passando; nenhuma referência a 10 peças restante nos textos do
+site.
+
+**Ainda não verificado:** conferência visual em navegador e contraste medido por
+ferramenta (axe ou WAVE).
+
+---
+
 ### v0.1.5 · 2026-10-16 · Faixa verde antes do rodapé em todas as páginas
 
 **O que mudou em relação à v0.1.4:**
@@ -253,10 +279,10 @@ com a cliente).
 - **Rodapé em 4 colunas**, newsletter com nota de consentimento, selos de
   pagamento ilustrativos e identificação da empresa.
 - **Catálogo de exemplo ampliado** de 10 para 12 peças, alinhado ao template.
-  Decisão pendente com a cliente: `[A DEFINIR]` manter 12 ou voltar a 10.
+  **Confirmado pela cliente em 16/10/2026: ficam 12 peças visíveis.**
 - **Regra de frete grátis unificada em R$ 299** em todo o protótipo (o dossiê
-  previa R$ 199 e o header aprovado diz R$ 299). Confirmar qual vale:
-  `[CONFIRMAR COM A EMPRESA]`.
+  previa R$ 199 e o header aprovado diz R$ 299). **Confirmado pela cliente em
+  16/10/2026: frete grátis acima de R$ 299.**
 
 **Arquivos novos:** `assets/css/comercio.css`, `assets/js/loja.js`,
 `tools/produtos.json`, `tools/partials/drawer.html`.

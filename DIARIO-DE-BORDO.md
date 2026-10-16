@@ -1,5 +1,56 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Decisões da cliente confirmadas
+
+### Pedido da cliente
+Três respostas curtas: frete grátis acima de R$ 299, catálogo com 12 peças
+visíveis e a newsletter do rodapé pode ficar.
+
+### O que foi feito (IMPLEMENTADO)
+- **Frete grátis acima de R$ 299.** Nenhum texto do site precisou mudar: a
+  regra já estava em 299 na barra do topo, na página do produto, no carrinho, no
+  checkout, no pedido recebido, na página de envio, na descrição para busca e na
+  conta que o JavaScript faz na mini-sacola. Foi atualizado o registro: o
+  comentário no `loja.js`, a lista de decisões abertas e as pendências do
+  README deixaram de dizer que o valor estava em dúvida.
+- **Catálogo com 12 peças visíveis.** A loja já mostrava as 12 peças. Dois
+  textos que ficaram para trás foram corrigidos: o atalho da página 404 passou a
+  dizer "Loja completa, 12 peças" e o item da página Sobre passou de "Dez
+  peças" para "Doze peças bem escolhidas".
+- **Newsletter do rodapé mantida.** Era a última dúvida da v0.1.5 e ficou
+  resolvida: a home continua com uma única faixa sálvia antes do rodapé (a de
+  perguntas frequentes) e a newsletter fica no rodapé de todas as páginas.
+
+### Decisões e observações
+- Nada de preço de produto mudou. O que foi confirmado é a **regra de frete**,
+  que já estava no protótipo, e a **quantidade de peças** do catálogo, que
+  também já estava.
+- As duas decisões deixam de ser `[A DEFINIR]` e passam a valer como regra do
+  projeto. Se um dia a regra mudar, é uma alteração de uma linha no
+  `loja.js` (frete) ou uma linha no `tools/produtos.json` (peças), com nova
+  versão registrada.
+
+### O que foi verificado
+- Geração das 22 páginas sem erro de estrutura.
+- 189 verificações automatizadas continuam passando.
+- Varredura de texto: não sobrou nenhuma menção a 10 peças nos textos do site.
+
+### O que ainda não foi verificado
+- Conferência visual em navegador e contraste medido por ferramenta.
+- Direitos das 31 fotos do template, que segue em aberto com a equipe.
+
+### Pendências que continuam abertas
+- Fotos, dados legais da empresa (razão social, CNPJ, endereço), atendimento,
+  gateway de pagamento, frete contratado, revisão jurídica e contador. Todas já
+  estão na lista de bloqueadores do go-live.
+
+### Próximo passo sugerido
+Seguir para o Bloco B: os 21 arquivos JSON do Elementor e o guia de importação,
+com a ressalva de que o esquema dos arquivos precisa ser conferido contra um
+export real da equipe e que nenhuma importação foi testada por aqui.
+
+---
+
 ## [2026-10-16] - Faixa verde antes do rodapé em todas as páginas e revisão de CSS
 
 ### Pedido da cliente
@@ -35,8 +86,8 @@ todas as páginas para revisar e melhorar o CSS.
 - **A newsletter do rodapé continua.** Ela foi pedida na v0.1.3, a partir da
   imagem de referência do rodapé, e é o convite para as cartas do ateliê. O que
   saiu foi a faixa de lista de espera criada na v0.1.4 no meio da home, que era
-  o segundo pedido de e-mail da mesma página. Se o pedido era tirar a linha de
-  newsletter do rodapé, é um ajuste de dois minutos.
+  o segundo pedido de e-mail da mesma página. Confirmado pela cliente em
+  16/10: a newsletter do rodapé fica.
 - **Um convite por página.** Cada faixa usa um texto curto ligado ao assunto da
   página (medidas na página do produto, prazos no pedido recebido, dúvidas nas
   páginas legais), sem repetir o mesmo bloco em todas.
@@ -55,9 +106,9 @@ todas as páginas para revisar e melhorar o CSS.
   ferramenta (axe ou WAVE).
 
 ### Pendências que continuam abertas
-- Frete grátis: acima de R$ 199 (texto do briefing) ou R$ 299 (texto que está no
-  site hoje)? [A DEFINIR]
-- Catálogo com 10 ou 12 peças visíveis? [A DEFINIR]
+- Nenhuma das duas que estavam nesta lista. Em 16/10 a cliente confirmou:
+  frete grátis acima de R$ 299, catálogo com 12 peças visíveis e a newsletter
+  do rodapé mantida. O registro está na entrada da v0.1.6.
 
 ### Próximo passo sugerido
 Abrir a home e o lookbook no navegador e conferir a faixa verde antes do rodapé
@@ -274,12 +325,13 @@ Ela pediu para conferir o resultado visualmente antes de qualquer outra coisa.
 - **Preço e frete coerentes em todo o protótipo**: sacola 974,00 menos
   BEMVINDO10 (97,40) = 876,60, com frete grátis.
 
-### Decisões que precisam da cliente (2)
-1. **Frete grátis: R$ 199 ou R$ 299?** O dossiê previa R$ 199; o header aprovado
-   diz R$ 299. Unificamos em R$ 299 no protótipo inteiro. `[CONFIRMAR COM A EMPRESA]`
-2. **Catálogo: 10 ou 12 peças?** O dossiê falava de 10 produtos; o template
-   trouxe 12. Se a loja real tem 10, basta remover duas linhas de
-   `tools/produtos.json`. `[A DEFINIR]`
+### Decisões que precisavam da cliente (2) - respondidas em 16/10/2026
+1. **Frete grátis:** o dossiê previa R$ 199; o header aprovado diz R$ 299.
+   Unificamos em R$ 299 no protótipo inteiro e a cliente confirmou: **acima de
+   R$ 299**.
+2. **Catálogo:** o dossiê falava de 10 produtos; o template trouxe 12. A
+   cliente confirmou: **12 peças visíveis**. Os dois textos que ainda diziam 10
+   peças foram corrigidos na v0.1.6.
 
 ### Verificado (arquivos)
 - `tools/check.py`: 22 páginas, "tudo certo", nenhuma referência quebrada.
@@ -418,7 +470,7 @@ Bloqueiam produção:
 - [ ] Regime tributário e emissor de nota fiscal - contador
 - [ ] Revisão jurídica de privacidade, termos, cookies e trocas - jurídico
 - [ ] Regras de parcelamento, desconto no Pix, cupom e frete grátis - empresa
-- [ ] Dados reais dos 10 produtos (substituir os de exemplo) - equipe
+- [ ] Dados reais dos 12 produtos (substituir os de exemplo) - equipe
 
 Não bloqueiam, mas precisam de decisão:
 - [ ] Plugin de lista de desejos: aprovado ou o coração sai do header
@@ -771,7 +823,7 @@ Nove páginas novas, todas usando o mesmo header, footer e sistema de cores:
 - [ ] Imagens reais (produtos, logo, favicon, banners) - equipe - sem prazo - [BLOQUEADOR DE PRODUÇÃO? Sim]
 - [ ] Dados legais da empresa (razão social, CNPJ, endereço, e-mail, WhatsApp, regime tributário) - equipe - sem prazo - [BLOQUEADOR DE PRODUÇÃO? Sim]
 - [ ] Definição de gateway de pagamento e solução de frete - equipe - sem prazo - [BLOQUEADOR DE PRODUÇÃO? Sim]
-- [ ] Dados reais dos 10 produtos (substituir os fictícios) - equipe - sem prazo - [BLOQUEADOR DE PRODUÇÃO? Sim]
+- [ ] Dados reais dos 12 produtos (substituir os fictícios) - equipe - sem prazo - [BLOQUEADOR DE PRODUÇÃO? Sim]
 - [ ] Versões de WP/PHP/tema/plugins no staging - equipe - sem prazo - [BLOQUEADOR DE PRODUÇÃO? Não, mas bloqueia ajustes finos de JSON/kit]
 
 ### Perguntas abertas (pós-E0)
