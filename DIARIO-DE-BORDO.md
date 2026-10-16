@@ -1,5 +1,84 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Rodapé com pagamento e segurança, cabeçalho de página e renovação das internas
+
+### Pedido da cliente
+Três pedidos no mesmo recado: (1) acrescentar no rodapé as formas de pagamento e
+a área de segurança, seguindo a captura enviada; (2) o cabeçalho das páginas
+internas estava "muito simples", pedir sugestão e ajustar; (3) renovar o layout
+das páginas internas, que estavam ruins, usando como exemplo o template do zip.
+
+### O que foi feito (IMPLEMENTADO)
+- **Rodapé, formas de pagamento e segurança.** A faixa de segurança ganhou dois
+  quadros: "Formas de pagamento", com oito formas (Visa, Mastercard, American
+  Express, Diners Club, Mercado Pago, PayPal, Pix e Boleto) em quadros de texto,
+  e "Segurança", com dois selos desenhados (cadeado e escudo) e as legendas
+  "Site seguro / SSL 256 bits" e "Navegação verificada / Sem páginas suspeitas".
+  Decisão de segurança e de direito de marca: as capturas de referência mostram
+  logotipos de terceiros (bandeiras de cartão, Pix, selo SSL, Google Safe
+  Browsing). Nada disso foi copiado para o protótipo: são marcas de outras
+  empresas e os certificados só podem ser exibidos quando existirem de verdade,
+  com o gateway contratado. No protótipo vão texto e desenho próprio, e o aviso
+  de conferência com a empresa continua embaixo da faixa.
+- **Cabeçalho das páginas internas.** A trilha de navegação saiu do bloco
+  solto que ficava acima e entrou para dentro do cabeçalho; abaixo dela veio um
+  fio curto em Terracota e uma linha de olho em maiúsculas, que diz de que parte
+  do site a página é ("Central de ajuda" no FAQ, "A marca" na Sobre, "Documento
+  legal" nas páginas legais). O bloco ganhou uma faixa de fundo suave
+  (Hover Soft) com fio embaixo, o título ficou responsivo (32 a 52px) e a
+  contagem de peças, quando existe, continua alinhada pela base do texto.
+  São 17 páginas com esse cabeçalho. Quatro telas ficam de fora por desenho:
+  produto (a galeria é o topo da página), post (o cabeçalho do artigo tem
+  autoria e data), 404 e pedido recebido (as duas são telas centralizadas de
+  estado, com a trilha solta).
+- **Página Sobre renovada.** Duas fotos na abertura, uma descendo em relação à
+  outra; faixa com quatro números (12 peças, R$ 299 de frete grátis, 6x sem
+  juros, 7 dias para desistir) e uma frase de posicionamento com fio em
+  Terracota. Os números saem de decisões já tomadas pela cliente e de copy que já
+  está no site; a frase reaproveita um texto que já existia na própria página.
+  Nenhum número, prêmio ou depoimento foi inventado.
+- **Índice de leitura.** FAQ, guia de medidas, trocas, envio, privacidade,
+  termos e cookies ganharam uma coluna à esquerda com atalhos para cada seção,
+  que fica fixa enquanto a página rola no computador e vira uma lista no topo no
+  celular. Os títulos das seções das páginas legais receberam identificador, o
+  que permite mandar o link direto de um item para outra pessoa.
+- **Guia de medidas, Diário e lookbook.** Os três passos do guia aparecem
+  numerados em serifa; o destaque do Diário ganhou corpo de texto próprio (a
+  classe existia no HTML sem nenhum estilo e o texto ficava colado na foto); o
+  lookbook passou a um ziguezague de duas colunas, com cada look numerado e o
+  texto dentro do cartão.
+- **Limpeza de CSS.** As margens que estavam escritas dentro do HTML dessas
+  páginas (margens de seção, de aviso e de título) passaram para o CSS, e o
+  seletor dos selos do rodapé deixou de depender de "span dentro de span":
+  agora tem classe própria. Nesta limpeza, três blocos da faixa de segurança do
+  rodapé foram tocados por engano por um script e devolvidos ao formato original
+  no mesmo momento.
+
+### O que ainda não entrou
+- Carrinho, checkout, conta, desejos, busca, contato, produto e a página do post
+  continuam com o layout anterior. São telas de tarefa, com formulário e lista,
+  e a renovação delas pede uma rodada própria: mexer em carrinho e checkout sem
+  esse cuidado pode quebrar o fluxo de compra.
+- Os outros ~40 espaçamentos escritos direto no HTML dessas telas seguem
+  anotados como limpeza pendente.
+
+### Verificação (VERIFICADO EM ARQUIVOS)
+- `python3 tools/build.py` e `python3 tools/check.py`: 22 páginas, "tudo certo".
+- Teste com jsdom: **479 verificações, nenhuma falha** (inclui o bloco novo §15,
+  que confere rodapé, cabeçalho das 17 páginas, o índice das sete páginas longas
+  com atalho sem destino contado um a um, a página Sobre, o guia de medidas, o
+  Diário e o lookbook).
+- Teste novo de fechamento: em todas as 22 páginas a faixa sálvia tem de ser
+  filha direta do `<main>`. Esse teste pega qualquer `</div>` faltando, porque
+  uma div aberta engoliria a faixa.
+- Servidor local no ar em `http://localhost:8080` para a conferência visual.
+- Não é medição de navegador real: navegador, leitor de tela, Lighthouse e
+  contraste em tela ficam por conta do time, como manda o dossiê.
+
+### Estado
+- `VERSION` = 0.1.8. Versão anterior preservada na etiqueta `v0.1.7`.
+- Branch `arena/e067653e-iaracostaoficial`, PR #2 aberto (não mergeado).
+
 ## [2026-10-16] - Cabeçalho da loja, ordenação e trilha de navegação
 
 ### Pedido da cliente

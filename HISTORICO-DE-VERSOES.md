@@ -61,6 +61,34 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.8 · 2026-10-16 · Pagamento e segurança no rodapé, cabeçalho de página e internas renovadas
+
+**Pedido da cliente:** acrescentar no rodapé as formas de pagamento e a área de
+segurança (imagem enviada), melhorar o cabeçalho das páginas internas, que
+estava "muito simples", e renovar o layout das páginas internas usando o
+template do zip como referência.
+
+| O que mudou | Onde |
+|---|---|
+| Formas de pagamento e segurança no rodapé, em quadros de texto e selos desenhados | `tools/partials/footer.html`, `assets/css/header.css` §11.1a |
+| Cabeçalho de página novo: trilha dentro do bloco, fio em Terracota, linha de olho e faixa de fundo suave | `assets/css/style.css`, 17 páginas de `tools/content/` |
+| Página Sobre com galeria de duas fotos, faixa de números e frase de posicionamento | `tools/content/13-sobre.html`, `assets/css/pages.css` |
+| Índice de leitura na coluna da esquerda em FAQ, guia de medidas, trocas, envio, privacidade, termos e cookies | `tools/content/15` a `22`, `assets/css/pages.css` |
+| Guia de medidas com passos numerados; Diário com destaque de texto próprio; lookbook em ziguezague com look numerado | `assets/css/pages.css` |
+| Margens escritas no HTML das páginas renovadas passaram para o CSS | `assets/css/pages.css` §07 |
+
+**Regra cumprida:** nenhuma marca de terceiros (Visa, Mastercard, Pix e afins)
+foi reproduzida como imagem. As formas de pagamento aparecem em texto e os dois
+selos são desenhos próprios, com o aviso de conferência com a empresa mantido.
+No go-live, com o gateway contratado, os distintivos oficiais entram no lugar.
+
+**Verificado em arquivo:** 22 páginas (`build.py` + `check.py`, "tudo certo") e
+teste de navegador com 479 verificações, nenhuma falha.
+
+**Não entrou nesta versão:** carrinho, checkout, conta, desejos, busca, contato,
+produto e post seguem com o layout que já tinham; são telas de tarefa e ficam
+para uma próxima rodada, se a cliente quiser o mesmo tratamento.
+
 ### v0.1.7 · 2026-10-16 · Cabeçalho da loja, ordenação e trilha de navegação
 
 **O que mudou em relação à v0.1.6:**
