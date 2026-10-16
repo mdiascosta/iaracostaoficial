@@ -1,5 +1,119 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Pente fino no HTML e no CSS e o JavaScript do template
+
+### Pedido da cliente
+"Faça um pente fino em todos os arquivo do template e veja se possui algum html ou
+css quebrado e veja que o template passado tem os arquivos js, pode verificra e
+ajsutar em nosso template." Leitura feita: (1) varrer todo o HTML e o CSS do
+protótipo atrás de quebrado e consertar o que aparecesse; (2) conferir os arquivos
+de JavaScript do zip e adaptar o que fizesse sentido.
+
+### Pente fino (IMPLEMENTADO)
+Escrito um conferidor que lê os arquivos com parser de verdade, não com busca de
+texto: `html5lib` para o HTML e `tinycss2` para o CSS. Ele roda as doze
+conferências abaixo e só lê, não conserta nada. Placar final: **nenhum achado**.
+
+| Conferência | Resultado |
+|---|---|
+| Erros de sintaxe do HTML e do CSS | nenhum |
+| Classes usadas no HTML sem nenhuma regra no CSS | nenhuma (17 são caixas de contexto, conferidas uma a uma) |
+| Regras de CSS que não aparecem em nenhum HTML | nenhuma (as sete sem uso foram removidas ou viraram demonstração) |
+| Ids repetidos na mesma página | nenhum |
+| Links internos e âncoras que não existem | nenhum |
+| `aria-controls`, `aria-labelledby`, `aria-describedby` e `for` apontando para o nada | nenhum |
+| Imagens e arquivos locais que não existem, `<img>` sem `alt`, sem `aria-hidden` ou sem medida | nenhum |
+| Campos de formulário sem rótulo acessível | nenhum |
+| Ganchos `data-*` no HTML que nenhum JS lê | nenhum |
+| Ganchos que o JS lê e não existem no HTML | nenhum |
+| Estilos escritos direto no HTML (`style="..."`) | zero |
+| Ids usados no CSS ou no JS que não existem no HTML | nenhum |
+
+### O que estava quebrado de verdade (IMPLEMENTADO)
+- **Dois atributos inválidos.** Termos e Cookies tinham `<p margin-bottom:0">`. O
+  estilo foi escrito como se fosse atributo: o navegador descarta o trecho como
+  resto de tag. Virou `<p class="mb-0">`, com a regra na folha de estilo.
+- **Duas imagens do resumo do checkout sem medida declarada.** O tamanho estava só
+  dentro de um `style=""`; o gerador só corrige medida em atributo, então as duas
+  ficaram com o valor antigo. Agora declaram as medidas reais do arquivo
+  (`768x1376`) e o tamanho visual vem do CSS.
+- **Quarenta estilos escritos direto no HTML** viraram regras com nome, dentro do
+  CSS: linha do resumo que empilha, botão de fechar o pedido, caixa de links,
+  título de caixa, item de sacola em miniatura e campo de largura dupla. Cada
+  regra é presa à tela pela classe `page-*` que o `<body>` já carrega, então nada
+  vaza de uma página para outra.
+- **CSS sem uso.** Saíram `.cart-count` (o contador antigo da sacola), o bloco
+  `.section--sage`, quatro cores de swatch que nenhum produto usava e o
+  `style="width:0%"` da gaveta, que agora é regra de CSS.
+- **O esqueleto de carregamento, o erro de campo e os três estados de estoque**
+  eram CSS sem uso. Em vez de apagar, viraram demonstração para a equipe: o
+  produto mostra os três estados de estoque lado a lado e uma referência do estado
+  carregando, e o checkout mostra um campo com erro, com a marca para leitor de
+  tela (`aria-invalid` e `aria-describedby`).
+
+### JavaScript do template (IMPLEMENTADO)
+O zip traz **dois** arquivos: `header.js` (15 KB) e `loja.js` (24 KB). O que foi
+aproveitado, adaptado à nossa marcação e às decisões do dossiê:
+
+| Do template | O que entrou aqui |
+|---|---|
+| `safeInit`: cada melhoria inicia isolada | Nas quatro folhas de JS. Antes, um erro na galeria deixava o acordeão sem funcionar; agora uma falha avisa no console e as outras melhorias seguem de pé |
+| Máscara de CEP | Na sacola e no checkout, no formato `00000-000` |
+| Máscara de telefone | No checkout, no formato brasileiro `(15) 99123-4567` |
+| Recado que muda conforme o meio de pagamento | No checkout, com texto próprio para Pix, cartão, boleto e transferência |
+| Botões + e − e remover peça | Na sacola, recalculando subtotal, desconto, frete e total na hora |
+| Cupom com validação | Só o BEMVINDO10 do dossiê: 10% na primeira compra, aceito maiúscula ou minúscula, recado claro quando o código não é reconhecido |
+| Cálculo de frete | Confere o CEP e responde com a regra confirmada (grátis acima de R$ 299); o resto fica `[A DEFINIR]` |
+| Trava de rolagem da gaveta, com compensação por script | Resolvido em CSS (`scrollbar-gutter: stable`): o conteúdo não anda para o lado quando a gaveta abre, e sem script |
+
+### O que do template NÃO entrou, e por quê (RECOMENDADO)
+- **Valores de frete fixos.** O zip devolve PAC R$ 24,90 e SEDEX R$ 39,90 com
+  prazos. Não existe contrato de frete ainda: inventar esses números seria pior do
+  que responder `[A DEFINIR]`.
+- **Número de cartão na própria página.** O zip tem máscara e validação de cartão.
+  Os dados do cartão são digitados na página segura do gateway, que ainda não foi
+  contratado; o protótipo não pede número de cartão em campo nenhum.
+- **Recursos presos ao WordPress.** O resto dos dois arquivos chama carrinho do
+  WooCommerce, painel de conta e filtro por URL. São do Bloco B, quando houver site
+  para testar.
+
+### Dois ganchos que o pente fino levantou, e a decisão
+- `data-nav` **não** é código morto: é a marca que o `tools/build.py` lê para
+  escrever `aria-current="page"` no item do menu da página atual. O pente fino
+  passou a reconhecer isso, para não apontar de novo.
+- `data-drawer-open` é a porta de entrada da mini-sacola: qualquer botão com esse
+  gancho abre a gaveta. No protótipo o ícone do cabeçalho continua levando para a
+  página da sacola, que foi o comportamento aprovado, então nenhuma tela usa o
+  gancho. Fica mantido como porta de entrada, documentado.
+
+### Régua de verificação agora vive no repositório (IMPLEMENTADO)
+O teste de navegador e o pente fino existiam só fora do projeto e se perdiam a cada
+rodada. Agora são `tools/test.js` (jsdom) e `tools/pente-fino.py`, com o
+`package.json` que instala o jsdom e o passo a passo no README do protótipo. O site
+publicado não depende de Node: são ferramentas de conferência para a equipe.
+
+### Verificação (VERIFICADO EM ARQUIVO)
+- `python3 tools/build.py` e `python3 tools/check.py`: 22 páginas, "tudo certo".
+- `node tools/test.js`: **649 verificações, nenhuma falha**. O bloco novo (§18)
+  confere: nenhum `style=""` no HTML, nenhum atributo inválido, cada classe que
+  estava sem CSS agora tem regra, o CSS morto não voltou, a regra de movimento
+  reduzido cobre o esqueleto, os três estados de estoque e o campo com erro
+  existem, cupom válido e inválido, CEP incompleto e completo, frete grátis acima
+  de R$ 299, o botão + recalculando o subtotal, a remoção de uma peça, as duas
+  máscaras, o recado do pagamento trocando com o rádio e nenhum campo de cartão no
+  protótipo.
+- `python3 tools/pente-fino.py`: as doze conferências zeradas.
+- Servidor local no ar para a conferência visual.
+- **O que isto não é:** não é teste em navegador de verdade, nem leitura por leitor
+  de tela, nem medição de Lighthouse. Isso continua com o time, como manda o
+  dossiê.
+
+### Estado
+- `VERSION` = 0.1.11. Versão anterior preservada na etiqueta `v0.1.10`.
+- Branch `arena/e067653e-iaracostaoficial`, PR #2 aberto (não mergeado).
+- Perguntas da v0.1.10 seguem abertas: nome da marca em 24px como no zip e os 9px
+  e 8px do Caption e do Tagline do template.
+
 ## [2026-10-16] - Fontes na escala do template e cabeçalho de página limpo
 
 ### Pedido da cliente

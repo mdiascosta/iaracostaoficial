@@ -61,6 +61,41 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.11 · 2026-10-16 · Pente fino no HTML e no CSS e as melhorias de JavaScript do template
+
+**Pedido da cliente:** fazer um pente fino em todos os arquivos do template para
+ver se existe HTML ou CSS quebrado, e conferir os arquivos de JavaScript do
+template enviado (zip) para ajustar o que fizer sentido no nosso.
+
+| O que mudou | Onde |
+|---|---|
+| Pente fino com parser de verdade (html5lib + tinycss2) nas 22 páginas, 25 parciais, 4 CSS e 4 JS: nenhum erro de sintaxe, nenhum id repetido, nenhuma âncora quebrada, nenhum `aria-*` ou `for` órfão, nenhum campo sem rótulo, nenhuma imagem ou arquivo faltando | `tools/pente-fino.py` (novo) |
+| Dois quebrados de HTML corrigidos: `<p margin-bottom:0">` em Termos e Cookies: era um estilo escrito como se fosse atributo, o navegador lia como resto de tag | `tools/content/21-termos.html`, `22-cookies.html` |
+| Duas fotos do resumo do checkout não declaravam medida (o tamanho estava só em `style=""`); agora trazem as medidas reais do arquivo | `tools/content/05-checkout.html` |
+| Quarenta estilos escritos direto no HTML saíram e viraram regras com nome, por tela: `.summary__row--stack`, `.summary__action`, `.cart-item--compact`, `.info-box__links`, `.info-box__title`, `.field--wide` | `tools/content/04` a `14`, `style.css`, `pages.css` |
+| CSS sem uso removido: `.cart-count` (contador antigo da sacola), `.section--sage`, quatro cores de swatch não usadas e o `style="width:0%"` da gaveta | `header.css`, `comercio.css`, `pages.css`, `tools/partials/drawer.html` |
+| Estados de interface que faltavam ganharam desenho: carregando (esqueleto) e erro de campo; os três estados de estoque passaram a aparecer lado a lado na referência da equipe | `tools/content/03-produto.html`, `05-checkout.html`, `pages.css` |
+| JavaScript do template adotado: cada melhoria inicia isolada (uma falha não derruba as outras), botões + e − da sacola, remover peça, cupom BEMVINDO10, cálculo de frete com máscara de CEP, máscara de CEP e telefone no checkout e recado que muda conforme o meio de pagamento | `assets/js/loja.js`, `swatches.js`, `header.js`, `filtros.js` |
+| Trava de rolagem da gaveta sem o conteúdo pular de lado, agora em CSS (`scrollbar-gutter: stable`) no lugar do script de compensação que o template usa | `assets/css/style.css` |
+| Régua de verificação versionada: o teste de navegador (jsdom) e o pente fino passaram a viver no repositório, com o `package.json` que instala o jsdom | `tools/test.js`, `tools/pente-fino.py`, `package.json` |
+
+**Regra cumprida (o que do template NÃO foi copiado):** o JavaScript do zip calcula
+frete com valores fixos (PAC R$ 24,90 e SEDEX R$ 39,90) e pede o número do cartão
+na própria página. Nada disso entrou. O frete aqui continua só com a regra
+confirmada pela empresa (grátis acima de R$ 299) e o resto como `[A DEFINIR]` até a
+conta de frete ser contratada; dados de cartão são digitados na página do gateway,
+que ainda não existe. Cupom: só o BEMVINDO10 documentado no dossiê, 10% na primeira
+compra. Nenhum valor, prazo ou desconto foi inventado.
+
+**Verificado em arquivo:** 22 páginas (`build.py` e `check.py`, "tudo certo"); teste
+de navegador com **649 verificações, nenhuma falha**, com bloco novo (§18) para o
+pente fino e para o JavaScript adotado; `tools/pente-fino.py` com as doze
+conferências zeradas.
+
+**Não entrou nesta versão:** os arquivos de JavaScript do zip têm 15 KB e 24 KB de
+recursos que dependem de um WordPress instalado (carrinho do WooCommerce, painel de
+conta, filtros por URL). Isso é trabalho do Bloco B, quando houver site para testar.
+
 ### v0.1.10 · 2026-10-16 · Tipografia na escala do template e cabeçalho de página limpo
 
 **Pedido da cliente:** com a imagem de uma página de produto do template do zip em
