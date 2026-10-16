@@ -12,9 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- PRODUÇÃO: hospedar as fontes localmente (ver assets/fonts/LEIA-ME.md) -->
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&amp;family=Playfair+Display:wght@400&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=f7dc8432">
-  <link rel="stylesheet" href="assets/css/header.css?v=5c56cd76">
-  <link rel="stylesheet" href="assets/css/pages.css?v=a0fa9701">
+  <link rel="stylesheet" href="assets/css/style.css?v=cb9c51bc">
+  <link rel="stylesheet" href="assets/css/header.css?v=6a0c8f8c">
+  <link rel="stylesheet" href="assets/css/pages.css?v=1f5475a8">
   <link rel="stylesheet" href="assets/css/comercio.css?v=d30df938">
 </head>
 <body class="page-legal">
@@ -159,16 +159,17 @@
   </div>
 
   <main id="conteudo" tabindex="-1">
-    <div class="container">
+    <div class="container page-head">
       <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Política de Cookies</span></li>
         </ol>
       </nav>
-    </div>
 
-    <div class="container page-head">
+      <span class="page-head__rule" aria-hidden="true"></span>
+      <p class="page-head__eyebrow">Documento legal</p>
+
       <div class="page-head__inner">
         <div class="page-head__text">
           <h1>Política de Cookies</h1>
@@ -184,7 +185,7 @@
     <div class="container section--tight">
       <div class="legal-draft">
         <strong>RASCUNHO PARA REVISÃO JURÍDICA. NÃO PUBLICAR COMO ESTÁ.</strong>
-        <p style="margin-top:10px; margin-bottom:0">
+        <p margin-bottom:0">
           Esta política precisa estar alinhada, palavra por palavra, com o que o
           banner de cookies realmente faz. Se o banner oferece apenas "aceitar" e
           "rejeitar", não podemos descrever controle individual por categoria.
@@ -192,8 +193,20 @@
         </p>
       </div>
 
-      <div class="prose">
-        <section>
+            <div class="doc-layout">
+      <nav class="doc-index doc-index--long" aria-label="Atalhos desta página">
+        <p class="doc-index__title">Nesta página</p>
+        <ul>
+          <li><a href="#o-que-sao-cookies">1. O que são cookies</a></li>
+          <li><a href="#categorias-de-cookies">2. Categorias de cookies</a></li>
+          <li><a href="#cookies-de-terceiros">3. Cookies de terceiros</a></li>
+          <li><a href="#como-controlar-os-cookies">4. Como controlar os cookies</a></li>
+          <li><a href="#alteracoes-nesta-politica">5. Alterações nesta política</a></li>
+          <li><a href="#duvidas">6. Dúvidas</a></li>
+        </ul>
+      </nav>
+      <div class="prose doc-body">
+        <section id="o-que-sao-cookies">
           <h2>1. O que são cookies</h2>
           <p>
             Cookies são pequenos arquivos que o site guarda no seu navegador. Eles
@@ -207,7 +220,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="categorias-de-cookies">
           <h2>2. Categorias de cookies</h2>
 
           <h3>Cookies necessários</h3>
@@ -273,7 +286,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="cookies-de-terceiros">
           <h2>3. Cookies de terceiros</h2>
           <p>
             Alguns recursos do site são fornecidos por empresas parceiras e podem
@@ -291,7 +304,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="como-controlar-os-cookies">
           <h2>4. Como controlar os cookies</h2>
           <ul>
             <li>
@@ -312,7 +325,7 @@
           </ul>
         </section>
 
-        <section>
+        <section id="alteracoes-nesta-politica">
           <h2>5. Alterações nesta política</h2>
           <p>
             Se passarmos a usar uma nova ferramenta que grava cookies, esta página
@@ -321,7 +334,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="duvidas">
           <h2>6. Dúvidas</h2>
           <p>
             Escreva para <span class="placeholder">[PREENCHER: canal de privacidade]</span>.
@@ -358,6 +371,8 @@
         </div>
       </section>
     </div>
+      </div>
+
 
     <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
          Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o
@@ -486,12 +501,18 @@
       </div>
 
       <!-- ==================================================================
-           SEGURANÇA E PAGAMENTO (pedido da cliente)
+           SEGURANÇA E PAGAMENTO (pedido da cliente, v0.1.8)
 
-           Quatro informações curtas, com ícone, em uma faixa fina. Nada de
-           bandeira de cartão nem selo de loja: enquanto o gateway e o
-           certificado não estiverem contratados, mostrá-los seria prometer o
-           que ainda não existe. Os selos entram aqui no go-live.
+           Quatro informações curtas com ícone, e abaixo duas linhas com a
+           mesma linguagem da referência enviada: as formas de pagamento em
+           quadros claros e os selos de segurança em formato de distintivo.
+
+           Os quadros são ilustrativos e estão escritos em texto, não com as
+           marcas oficiais: bandeira de cartão é marca registrada de terceiro e
+           só pode ser usada pela loja que de fato aceita aquele meio. Os selos
+           oficiais (certificado SSL e Google Safe Browsing, que são baixados
+           dos próprios fornecedores) entram no lugar destes no go-live, junto
+           com o gateway contratado. Mesmo aviso que já aparece embaixo.
            ================================================================== -->
       <section class="security" aria-labelledby="seguranca-titulo">
         <h2 class="visually-hidden" id="seguranca-titulo">Segurança e formas de pagamento</h2>
@@ -539,6 +560,53 @@
             </span>
           </li>
         </ul>
+
+        <!-- Formas de pagamento e selos: ilustrativos, ver aviso abaixo -->
+        <div class="security__bands">
+          <div class="pay">
+            <h3 class="security__subtitle">Formas de pagamento</h3>
+            <ul class="pay__list">
+              <li class="pay__chip">Visa</li>
+              <li class="pay__chip">Mastercard</li>
+              <li class="pay__chip">American Express</li>
+              <li class="pay__chip">Diners Club</li>
+              <li class="pay__chip">Mercado Pago</li>
+              <li class="pay__chip">PayPal</li>
+              <li class="pay__chip">Pix</li>
+              <li class="pay__chip">Boleto</li>
+            </ul>
+          </div>
+
+          <div class="seals">
+            <h3 class="security__subtitle">Segurança</h3>
+            <ul class="seals__list">
+              <li class="seal">
+                <span class="seal__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.4" focusable="false">
+                    <rect x="4.5" y="10" width="15" height="10" rx="1.6"></rect>
+                    <path d="M8 10V7.5a4 4 0 0 1 8 0V10M12 14v2.5"></path>
+                  </svg>
+                </span>
+                <span class="seal__text">
+                  <strong class="seal__title">Site seguro</strong>
+                  <span class="seal__sub">SSL 256 bits</span>
+                </span>
+              </li>
+              <li class="seal">
+                <span class="seal__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.4" focusable="false">
+                    <path d="M12 3.5 5 6v6c0 4 3 7 7 8.5 4-1.5 7-4.5 7-8.5V6l-7-2.5Z"></path>
+                    <path d="M9 12.2l2.2 2.3L15.5 10"></path>
+                  </svg>
+                </span>
+                <span class="seal__text">
+                  <strong class="seal__title">Navegação verificada</strong>
+                  <span class="seal__sub">Sem páginas suspeitas</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
 
         <p class="security__note">
           Durante o protótipo, esta faixa é demonstrativa. Selos, bandeiras e

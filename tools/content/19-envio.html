@@ -1,13 +1,14 @@
-    <div class="container">
+    <div class="container page-head">
       <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Envio e entrega</span></li>
         </ol>
       </nav>
-    </div>
 
-    <div class="container page-head">
+      <span class="page-head__rule" aria-hidden="true"></span>
+      <p class="page-head__eyebrow">Entrega</p>
+
       <div class="page-head__inner">
         <div class="page-head__text">
           <h1>Envio e entrega</h1>
@@ -28,15 +29,20 @@
         Enquanto isso, o site usa uma taxa fixa provisória para testes.
       </div>
 
-      <nav class="anchor-nav" aria-label="Atalhos desta página" style="margin-top:24px">
-        <a href="#prazos">Prazos e valores</a>
-        <a href="#gratis">Frete grátis</a>
-        <a href="#rastreio">Rastreio</a>
-        <a href="#entrega">Como recebemos a entrega</a>
-        <a href="#problemas">Se algo der errado</a>
-      </nav>
 
-      <div class="prose">
+            <div class="doc-layout">
+      <nav class="doc-index doc-index--long" aria-label="Atalhos desta página">
+        <p class="doc-index__title">Nesta página</p>
+        <ul>
+          <li><a href="#prazos">Prazos e valores</a></li>
+          <li><a href="#gratis">Frete grátis acima de R$ 299</a></li>
+          <li><a href="#rastreio">Como acompanhar o pedido</a></li>
+          <li><a href="#entrega">Como a entrega acontece</a></li>
+          <li><a href="#problemas">Se algo der errado</a></li>
+          <li><a href="#resumo-para-a-equipe-nao-publicar">Resumo para a equipe (não publicar)</a></li>
+        </ul>
+      </nav>
+      <div class="prose doc-body">
         <section id="prazos">
           <h2>Prazos e valores</h2>
           <div class="table-scroll">
@@ -194,7 +200,7 @@
           </div>
         </section>
 
-        <section>
+        <section id="resumo-para-a-equipe-nao-publicar">
           <h2>Resumo para a equipe (não publicar)</h2>
           <ul class="list-check">
             <li>Contratar a solução de frete e remover a taxa fixa provisória antes do go-live.</li>
@@ -205,7 +211,9 @@
           </ul>
         </section>
       </div>
+      </div>
     </div>
+
 
     <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
          Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o

@@ -732,3 +732,200 @@ mark {
 
 .steps__title { margin: 0 0 4px; font-size: var(--fs-body); font-weight: 600; }
 .steps__text { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
+
+/* =====================================================================
+   PARTE 4/4 · RENOVAÇÃO DAS PÁGINAS INTERNAS (v0.1.8)
+   A cliente achou as páginas internas pobres ("está ruim") e pediu uma
+   renovada usando o template do zip como referência. O que foi trazido de
+   lá: um índice de leitura na coluna da esquerda nas páginas longas, faixa
+   de números na página Sobre, passos numerados no guia de medidas e ritmo
+   de seção vindo do CSS em vez de margem escrita em cada arquivo.
+
+   Regra que não muda: nada de imagem, número, selo ou depoimento inventado.
+   Os números que aparecem na página Sobre saem de decisões já tomadas.
+   ===================================================================== */
+
+/* ------------------------------------------------- 01. RITMO ENTRE SEÇÕES */
+/* Antes cada seção carregava style="margin-top:48px" no HTML. Agora o
+   espaço entre uma seção e a seguinte vem daqui. Se um dia precisar de um
+   respiro diferente, use .section--tight, não margem inline. */
+.doc-body > section + section { margin-top: clamp(40px, 5vw, 64px); }
+
+/* O cabeçalho fixo tem cerca de 96px de altura. Sem isso, ao clicar num
+   atalho do índice o título da seção para atrás do cabeçalho. */
+[id] { scroll-margin-top: 120px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* ---------------------------------------- 02. COLUNA DE ÍNDICE + CONTEÚDO */
+/* Usada no FAQ e nas páginas longas (trocas, envio, legais, guia de medidas). */
+.doc-layout { display: grid; gap: clamp(28px, 4vw, 56px); }
+
+@media (min-width: 1021px) {
+  .doc-layout { grid-template-columns: 240px minmax(0, 1fr); align-items: start; }
+}
+
+.doc-index { border-left: 1px solid var(--iara-line); padding-left: 18px; }
+
+@media (min-width: 1021px) {
+  .doc-index { position: sticky; top: 120px; padding-block: 4px; }
+}
+
+.doc-index__title {
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--iara-accent-dark);
+  margin: 0 0 14px;
+}
+
+.doc-index ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+
+.doc-index a {
+  color: var(--iara-ink-soft);
+  text-decoration: none;
+  font-size: var(--fs-small);
+  line-height: 1.4;
+  display: block;
+}
+
+.doc-index a:hover { color: var(--iara-accent-dark); }
+
+/* Nas páginas legais o índice lista muitos títulos: a fonte fica menor. */
+.doc-index--long a { font-size: var(--fs-micro); }
+
+/* Dentro do corpo do documento o texto para em 72ch, igual ao resto do site. */
+.doc-body { min-width: 0; }
+.doc-body > section > h2:first-child { margin-top: 0; }
+
+/* ------------------------------------------------------ 03. PÁGINA SOBRE */
+.about-gallery { display: grid; gap: 22px; margin-bottom: clamp(32px, 4vw, 52px); }
+
+@media (min-width: 721px) {
+  .about-gallery { grid-template-columns: 1.4fr 1fr; align-items: start; }
+  /* Foto de apoio desce um pouco: dá o desencontro editorial do template. */
+  .about-gallery__side { margin-top: clamp(28px, 5vw, 72px); }
+}
+
+.about-gallery figure { margin: 0; }
+
+.about-gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-hover-soft);
+}
+
+.about-gallery figcaption { font-size: var(--fs-small); color: var(--iara-ink-soft); margin-top: 10px; }
+
+/* Faixa de números. A linha de cima e a de baixo separam a faixa do texto
+   sem precisar de fundo colorido. */
+.facts {
+  list-style: none;
+  margin: clamp(32px, 4vw, 48px) 0;
+  padding: clamp(24px, 3vw, 34px) 0;
+  border-top: 1px solid var(--iara-line);
+  border-bottom: 1px solid var(--iara-line);
+  display: grid;
+  gap: 24px 32px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 721px) { .facts { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+.fact { display: flex; flex-direction: column; gap: 8px; }
+
+.fact__num {
+  font-family: var(--iara-font-display);
+  font-size: clamp(30px, 3.4vw, 42px);
+  line-height: 1;
+  color: var(--iara-ink);
+}
+
+.fact__label { font-size: var(--fs-small); color: var(--iara-ink-soft); max-width: 22ch; }
+
+/* Frase de posicionamento. O fio em Terracota faz o papel das aspas sem
+   precisar de depoimento (depoimento inventado não entra no protótipo). */
+.pull {
+  margin: clamp(28px, 4vw, 44px) 0;
+  padding: 2px 0 2px clamp(18px, 2.4vw, 28px);
+  border-left: 2px solid var(--iara-accent);
+}
+
+.pull blockquote { margin: 0; }
+
+.pull p {
+  font-family: var(--iara-font-display);
+  font-size: clamp(21px, 2.4vw, 27px);
+  line-height: 1.45;
+  color: var(--iara-ink);
+  margin: 0;
+  max-width: 40ch;
+}
+
+/* ---------------------------------------------------- 04. GUIA DE MEDIDAS */
+/* Os três cartões já vinham numerados em 01/02/03: aqui o número cresce e a
+   ordem fica evidente, que é o padrão de passos do template. */
+.measure-card { display: flex; flex-direction: column; gap: 10px; }
+
+.measure-card .index-number {
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-h2);
+  line-height: 1;
+  color: var(--iara-accent);
+  margin: 0;
+}
+
+.measure-card h3 { margin: 0; }
+.measure-card p:last-child { margin: 0; }
+
+/* --------------------------------------------------------------- 05. BLOG */
+/* .post-feature__body existia no HTML sem nenhum estilo: o destaque ficava
+   colado na foto. Aqui a coluna de texto ganha respiro e alinhamento. */
+.post-feature__body { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+
+@media (min-width: 1021px) { .post-feature__body { padding-block: 8px; } }
+
+.post-feature__body .post-card__title { margin: 0; }
+
+/* ----------------------------------------------------------- 06. LOOKBOOK */
+/* Duas colunas que não ficam na mesma linha de base: em vez de parede de
+   cartões, o olho desce em ziguezague, como numa revista. */
+@media (min-width: 1021px) {
+  .lookbook-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+  .lookbook-grid > .look-item:nth-child(even) { margin-top: clamp(32px, 6vw, 88px); }
+}
+
+.look-item { background: var(--iara-paper); }
+
+.look-item img { border-bottom: 1px solid var(--iara-hairline); }
+
+.look-item__body { padding: clamp(18px, 2.4vw, 26px); }
+
+.look-item .index-number {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--iara-accent-dark);
+  margin: 0 0 10px;
+}
+
+/* ----------------------------------------- 07. ESPAÇO QUE VINHA DO HTML */
+/* Estes três espaçamentos eram style="..." escrito dentro dos arquivos.
+   Passaram para cá na v0.1.8, junto com a limpeza das margens inline. */
+
+/* Aviso que abre uma seção (guia de medidas, lookbook). */
+.notice--lead { margin-bottom: clamp(24px, 3vw, 32px); }
+
+/* Lista de dentro do aviso (checklists das páginas legais). */
+.notice ul { margin: 10px 0 0; padding-left: 20px; }
+
+/* Título que vem depois de um bloco fechado: depois do formulário na Conta e
+   depois do estado vazio na Busca. */
+form + h3,
+.state + h3 { margin-top: clamp(24px, 3vw, 32px); }

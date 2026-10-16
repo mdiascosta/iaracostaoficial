@@ -1,13 +1,14 @@
-    <div class="container">
+    <div class="container page-head">
       <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Sobre</span></li>
         </ol>
       </nav>
-    </div>
 
-    <div class="container page-head">
+      <span class="page-head__rule" aria-hidden="true"></span>
+      <p class="page-head__eyebrow">A marca</p>
+
       <div class="page-head__inner">
         <div class="page-head__text">
           <h1>Sobre a Iara Costa</h1>
@@ -20,16 +21,26 @@
     </div>
 
     <div class="container section--tight">
-      <figure class="post-figure">
-        <img src="assets/img/atelie-bancada.jpg"
-             alt="Ambiente de trabalho com peças da coleção sobre a mesa"
-             width="1600" height="900">
-        <figcaption>
-          Imagem de exemplo. Substituir por foto própria da marca ou da equipe.
-        </figcaption>
-      </figure>
+      <!-- GALERIA DE ABERTURA (v0.1.8)
+           Renovação pedida pela cliente. As duas fotos são as previstas para
+           esta página na SPECS-DE-IMAGEM (§8): a bancada do ateliê e a cerâmica
+           secando. Nenhuma imagem nova foi inventada. -->
+      <div class="about-gallery">
+        <figure>
+          <img src="assets/img/atelie-bancada.jpg"
+               alt="Ambiente de trabalho com peças da coleção sobre a mesa"
+               width="1600" height="900">
+          <figcaption>Imagem de exemplo. Substituir por foto própria da marca ou da equipe.</figcaption>
+        </figure>
+        <figure class="about-gallery__side">
+          <img src="assets/img/ceramica-seca.jpg"
+               alt="Peças de cerâmica secando ao ar livre"
+               width="1600" height="900">
+          <figcaption>Imagem de exemplo. Substituir por foto do processo real.</figcaption>
+        </figure>
+      </div>
 
-      <div class="prose" style="margin-top:40px">
+      <div class="prose">
         <h2>Como começou</h2>
         <p>
           <span class="placeholder">[PREENCHER: história real da marca, em dois ou três parágrafos. De onde veio a ideia, quando começou, quem está à frente do negócio.]</span>
@@ -39,6 +50,35 @@
           dossiê proíbe inventar a história da empresa. Escreva com as suas
           palavras, mesmo que fique simples.
         </p>
+
+        <!-- NÚMEROS DA LOJA (v0.1.8). Todos saem de decisões já tomadas ou de
+             copy que já está no site: 12 peças no catálogo, frete grátis acima
+             de R$ 299, 6x sem juros e 7 dias de arrependimento (CDC Art. 49).
+             Nada foi medido nem inventado: se algum número mudar, atualize aqui. -->
+        <ul class="facts" aria-label="Números da loja">
+          <li class="fact">
+            <span class="fact__num">12</span>
+            <span class="fact__label">peças na coleção, escolhidas uma a uma</span>
+          </li>
+          <li class="fact">
+            <span class="fact__num">R$ 299</span>
+            <span class="fact__label">frete grátis a partir deste valor</span>
+          </li>
+          <li class="fact">
+            <span class="fact__num">6x</span>
+            <span class="fact__label">sem juros no cartão de crédito</span>
+          </li>
+          <li class="fact">
+            <span class="fact__num">7</span>
+            <span class="fact__label">dias para desistir da compra</span>
+          </li>
+        </ul>
+
+        <figure class="pull">
+          <blockquote>
+            <p>Doze peças bem escolhidas valem mais que cem peças iguais.</p>
+          </blockquote>
+        </figure>
 
         <h2>O que a gente defende</h2>
         <ul class="list-check">

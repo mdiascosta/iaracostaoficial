@@ -1,13 +1,14 @@
-    <div class="container">
+    <div class="container page-head">
       <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Perguntas frequentes</span></li>
         </ol>
       </nav>
-    </div>
 
-    <div class="container page-head">
+      <span class="page-head__rule" aria-hidden="true"></span>
+      <p class="page-head__eyebrow">Central de ajuda</p>
+
       <div class="page-head__inner">
         <div class="page-head__text">
           <h1>Perguntas frequentes</h1>
@@ -20,16 +21,19 @@
     </div>
 
     <div class="container section--tight">
-      <nav class="anchor-nav" aria-label="Atalhos desta página">
-        <a href="#pedidos">Pedidos e pagamento</a>
-        <a href="#entrega">Entrega e frete</a>
-        <a href="#trocas">Trocas e devoluções</a>
-        <a href="#produtos">Produtos e tamanhos</a>
-        <a href="#atendimento">Atendimento e privacidade</a>
+      <div class="doc-layout">
+      <nav class="doc-index" aria-label="Atalhos desta página">
+        <p class="doc-index__title">Nesta página</p>
+        <ul>
+          <li><a href="#pedidos">Pedidos e pagamento</a></li>
+          <li><a href="#entrega">Entrega e frete</a></li>
+          <li><a href="#trocas">Trocas e devoluções</a></li>
+          <li><a href="#produtos">Produtos e tamanhos</a></li>
+          <li><a href="#atendimento">Atendimento e privacidade</a></li>
+        </ul>
       </nav>
-
-      <!-- PEDIDOS E PAGAMENTO -->
-      <section id="pedidos" aria-labelledby="faq-pedidos">
+      <div class="doc-body">
+<section id="pedidos" aria-labelledby="faq-pedidos">
         <h2 id="faq-pedidos">Pedidos e pagamento</h2>
         <div class="accordion" data-accordion>
 
@@ -113,7 +117,7 @@
       </section>
 
       <!-- ENTREGA -->
-      <section id="entrega" aria-labelledby="faq-entrega" style="margin-top:48px">
+      <section id="entrega" aria-labelledby="faq-entrega">
         <h2 id="faq-entrega">Entrega e frete</h2>
         <div class="accordion" data-accordion>
 
@@ -188,7 +192,7 @@
       </section>
 
       <!-- TROCAS -->
-      <section id="trocas" aria-labelledby="faq-trocas" style="margin-top:48px">
+      <section id="trocas" aria-labelledby="faq-trocas">
         <h2 id="faq-trocas">Trocas e devoluções</h2>
         <div class="accordion" data-accordion>
 
@@ -248,7 +252,7 @@
       </section>
 
       <!-- PRODUTOS -->
-      <section id="produtos" aria-labelledby="faq-produtos" style="margin-top:48px">
+      <section id="produtos" aria-labelledby="faq-produtos">
         <h2 id="faq-produtos">Produtos e tamanhos</h2>
         <div class="accordion" data-accordion>
 
@@ -326,7 +330,7 @@
       </section>
 
       <!-- ATENDIMENTO -->
-      <section id="atendimento" aria-labelledby="faq-atendimento" style="margin-top:48px">
+      <section id="atendimento" aria-labelledby="faq-atendimento">
         <h2 id="faq-atendimento">Atendimento e privacidade</h2>
         <div class="accordion" data-accordion>
 
@@ -387,6 +391,8 @@
 
         </div>
       </section>
+      </div>
+      </div>
     </div>
 
     <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)

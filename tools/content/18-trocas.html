@@ -1,13 +1,14 @@
-    <div class="container">
+    <div class="container page-head">
       <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Trocas e devoluções</span></li>
         </ol>
       </nav>
-    </div>
 
-    <div class="container page-head">
+      <span class="page-head__rule" aria-hidden="true"></span>
+      <p class="page-head__eyebrow">Pós-venda</p>
+
       <div class="page-head__inner">
         <div class="page-head__text">
           <h1>Trocas e devoluções</h1>
@@ -29,16 +30,21 @@
         tamanho.
       </div>
 
-      <nav class="anchor-nav" aria-label="Atalhos desta página">
-        <a href="#arrependimento">Desistência em 7 dias</a>
-        <a href="#troca">Troca por tamanho</a>
-        <a href="#defeito">Peça com defeito</a>
-        <a href="#como">Como solicitar</a>
-        <a href="#reembolso">Reembolso</a>
-        <a href="#nao-aceitamos">O que não pode ser trocado</a>
-      </nav>
 
-      <div class="prose">
+            <div class="doc-layout">
+      <nav class="doc-index doc-index--long" aria-label="Atalhos desta página">
+        <p class="doc-index__title">Nesta página</p>
+        <ul>
+          <li><a href="#arrependimento">Desistência em 7 dias (direito de arrependimento)</a></li>
+          <li><a href="#troca">Troca por tamanho ou por outra peça</a></li>
+          <li><a href="#defeito">Peça com defeito de fabricação</a></li>
+          <li><a href="#como">Como solicitar</a></li>
+          <li><a href="#reembolso">Reembolso</a></li>
+          <li><a href="#nao-aceitamos">O que não pode ser trocado</a></li>
+          <li><a href="#resumo-dos-prazos">Resumo dos prazos</a></li>
+        </ul>
+      </nav>
+      <div class="prose doc-body">
         <section id="arrependimento">
           <h2>Desistência em 7 dias (direito de arrependimento)</h2>
           <p>
@@ -91,7 +97,7 @@
 
         <section id="como">
           <h2>Como solicitar</h2>
-          <ol class="steps" style="margin-top:20px">
+          <ol class="steps">
             <li class="steps__item">
               <span class="steps__num" aria-hidden="true">01</span>
               <div>
@@ -170,7 +176,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="resumo-dos-prazos">
           <h2>Resumo dos prazos</h2>
           <div class="table-scroll">
             <table>
@@ -208,7 +214,9 @@
           </div>
         </section>
       </div>
+      </div>
     </div>
+
 
     <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
          Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o

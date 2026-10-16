@@ -45,6 +45,18 @@ Depois abra `http://localhost:8080` no navegador.
 
 O dossiê pede que todos os estados de tela estejam representados. Onde procurar:
 
+### Novidades da v0.1.8 (rodapé, cabeçalho de página e internas)
+
+| Peça | Como ficou |
+|---|---|
+| Rodapé | A faixa de segurança ganhou "Formas de pagamento" (8 formas em quadros de texto) e "Segurança" (2 selos desenhados). Nenhuma marca de terceiro foi usada como imagem |
+| Cabeçalho de página | Trilha de navegação dentro do bloco, fio curto em Terracota, linha de olho acima do título (ex.: "Central de ajuda" no FAQ) e faixa de fundo suave |
+| Página Sobre | Galeria com duas fotos, faixa com quatro números da loja e frase de posicionamento |
+| FAQ, guia de medidas, trocas, envio e páginas legais | Índice de leitura na coluna da esquerda, com atalhos que levam direto a cada seção |
+| Guia de medidas | Os três passos aparecem numerados em 01, 02, 03 |
+| Diário e lookbook | Destaque do Diário com texto próprio ao lado da foto; lookbook em ziguezague, com cada look numerado |
+| Limpeza | As margens que estavam escritas dentro do HTML dessas páginas passaram para o CSS |
+
 ### Novidades da v0.1.7 (cabeçalho da loja, ordenação e trilha)
 
 | Ajuste | Como ficou |

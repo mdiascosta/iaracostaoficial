@@ -630,6 +630,98 @@ body.is-locked { overflow: hidden; }
   color: var(--iara-ink-soft);
 }
 
+/* --------------------------------- 11.1a FORMAS DE PAGAMENTO E SELOS (v0.1.8)
+   Mesma linguagem da referência enviada: quadros claros para as formas de
+   pagamento e distintivos para os selos. Tudo em texto e desenho próprios, sem
+   as marcas oficiais de terceiros, que entram no go-live quando o gateway
+   estiver contratado. */
+.security__bands {
+  display: grid;
+  gap: 28px;
+  margin-top: 26px;
+  padding-top: 26px;
+  border-top: 1px solid var(--iara-hairline);
+}
+
+@media (min-width: 1021px) {
+  .security__bands { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+}
+
+.security__subtitle {
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-heading);
+  margin: 0 0 14px;
+}
+
+.pay__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.pay__chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--iara-line);
+  border-radius: 6px;
+  background: var(--iara-white);
+  font-size: var(--fs-small);
+  color: var(--iara-ink);
+  white-space: nowrap;
+}
+
+.seals__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px 10px 12px;
+  border: 1px solid var(--iara-line);
+  border-radius: 6px;
+  background: var(--iara-white);
+}
+
+.seal__icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background: var(--iara-ink);
+  color: var(--iara-paper);
+  flex: 0 0 auto;
+}
+
+.seal__title {
+  display: block;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--iara-ink);
+}
+
+.seal__sub {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--fs-micro);
+  color: var(--iara-ink-soft);
+}
+
 .security__note {
   margin: 24px 0 0;
   font-size: var(--fs-micro);

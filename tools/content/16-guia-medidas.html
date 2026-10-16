@@ -1,13 +1,14 @@
-    <div class="container">
+    <div class="container page-head">
       <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Guia de medidas</span></li>
         </ol>
       </nav>
-    </div>
 
-    <div class="container page-head">
+      <span class="page-head__rule" aria-hidden="true"></span>
+      <p class="page-head__eyebrow">Antes de escolher</p>
+
       <div class="page-head__inner">
         <div class="page-head__text">
           <h1>Guia de medidas</h1>
@@ -26,14 +27,24 @@
         <a href="#duvidas">Dúvidas comuns</a>
       </nav>
 
-      <div class="notice" style="margin-bottom:32px">
+      <div class="notice notice--lead">
         <strong>Antes de tudo:</strong> as medidas desta página são de EXEMPLO,
         para validação do layout. A tabela definitiva vem do fornecedor de cada
         peça e precisa ser conferida uma a uma antes de publicar.
         <span class="placeholder">[PREENCHER: tabela real de cada produto]</span>
       </div>
 
-      <section id="metodo" aria-labelledby="metodo-titulo">
+            <div class="doc-layout">
+      <nav class="doc-index" aria-label="Atalhos desta página">
+        <p class="doc-index__title">Nesta página</p>
+        <ul>
+          <li><a href="#metodo">Como medir em casa</a></li>
+          <li><a href="#tabela">Tabela de medidas</a></li>
+          <li><a href="#duvidas">Dúvidas comuns sobre tamanho</a></li>
+        </ul>
+      </nav>
+      <div class="doc-body">
+<section id="metodo" aria-labelledby="metodo-titulo">
         <h2 id="metodo-titulo">Como medir em casa</h2>
 
         <div class="measure-grid">
@@ -107,7 +118,7 @@
         </div>
       </section>
 
-      <section id="tabela" aria-labelledby="tabela-titulo" style="margin-top:48px">
+      <section id="tabela" aria-labelledby="tabela-titulo">
         <h2 id="tabela-titulo">Tabela de medidas</h2>
         <p class="lead">
           Medidas da peça em centímetros, com a roupa deitada e alisada. Tolerância
@@ -142,7 +153,7 @@
           cadastro. Recomendação: padronizar com o fornecedor sempre que possível.
         </p>
 
-        <div class="table-scroll" style="margin-top:32px">
+        <div class="table-scroll">
           <table>
             <caption>Tabela de exemplo para calças e shorts, por numeração</caption>
             <thead>
@@ -164,7 +175,7 @@
         </div>
       </section>
 
-      <section id="duvidas" aria-labelledby="duvidas-titulo" style="margin-top:48px">
+      <section id="duvidas" aria-labelledby="duvidas-titulo">
         <h2 id="duvidas-titulo">Dúvidas comuns sobre tamanho</h2>
 
         <div class="accordion" data-accordion>
@@ -236,6 +247,8 @@
           </div>
         </div>
       </section>
+      </div>
+      </div>
     </div>
 
     <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
