@@ -224,22 +224,6 @@
 
 .icon-btn--cart { margin-left: 0; }
 
-.cart-count {
-  position: absolute;
-  top: 5px;
-  right: 3px;
-  min-width: 16px;
-  height: 16px;
-  padding: 0 4px;
-  border-radius: 999px;
-  background: var(--iara-accent);
-  color: var(--iara-paper);
-  font-family: var(--iara-font-ui);
-  font-size: 11px;
-  line-height: 16px;
-  text-align: center;
-}
-
 .icon-btn[aria-expanded="true"] { color: var(--iara-accent-dark); }
 
 /* --------------------------------------------------- 8. FAIXA DE BUSCA

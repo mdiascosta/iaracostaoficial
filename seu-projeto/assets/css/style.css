@@ -58,6 +58,16 @@
      Display 24px (título de página, título de produto, hero e faixas) e
      Heading 18px (títulos de seção e de card). Antes o h1 chegava a 40px e o
      h2 a 28px, e a cliente pediu para não ficar grande. */
+  /* Escala de espaço do template (§2.5 do zip), com os mesmos nomes. Adotada na
+     v0.1.11 para o espaçamento entre blocos sair do HTML e ficar num lugar só. */
+  --iara-space-1: 4px;
+  --iara-space-2: 8px;
+  --iara-space-3: 12px;
+  --iara-space-4: 20px;
+  --iara-space-5: 24px;
+  --iara-space-6: 40px;
+  --iara-space-7: 56px;
+
   --fs-h1: var(--fs-display);
   --fs-h2: var(--fs-heading);
   --fs-h3: var(--fs-heading);
@@ -89,6 +99,11 @@
 html {
   scroll-padding-top: var(--iara-scroll-padding);
   scroll-behavior: smooth;
+  /* O espaço da barra de rolagem fica sempre reservado. Sem isso, a página
+     inteira anda para o lado quando a gaveta da sacola trava a rolagem
+     (body.is-locked). Vem da correção que o template do zip faz por script;
+     aqui dá para resolver em CSS. */
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -375,6 +390,13 @@ body.page-returns        .notice, body.page-returns        .legal-draft { max-wi
   color: var(--iara-ink-soft);
 }
 
+/* Regiões de recado ficam no HTML desde o começo, vazias, para o leitor de tela
+   anunciar a mensagem quando ela chega. Vazias, não podem ocupar espaço: a
+   margem do campo criaria um vão sem nada dentro. */
+[data-cupom-msg]:empty,
+[data-frete-msg]:empty,
+[data-pay-note]:empty { margin: 0; }
+
 .field__error {
   margin: 6px 0 0;
   font-size: var(--fs-small);
@@ -425,6 +447,12 @@ body.page-returns        .notice, body.page-returns        .legal-draft { max-wi
 @media (min-width: 721px) {
   .form-row--2 { grid-template-columns: 1fr 1fr; gap: 0 20px; }
   .form-row--3 { grid-template-columns: 1fr 1fr 1fr; gap: 0 20px; }
+
+  /* Campo que ocupa a linha inteira dentro de uma grade de duas colunas.
+     v0.1.11: antes isso era um style="grid-column: span 2" no HTML, que valia
+     também no celular e criava uma coluna fantasma (o campo do endereço ficava
+     com metade da largura na tela pequena). */
+  .field--wide { grid-column: span 2; }
 }
 
 /* ------------------------------------------------ 7. BREADCRUMBS E TÍTULOS */

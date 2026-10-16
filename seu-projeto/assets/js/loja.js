@@ -309,8 +309,235 @@
     }
   });
 
+  /* ==========================================================================
+     CARRINHO: quantidade, remoção, cupom e frete (v0.1.11)
+
+     Vem do loja.js do template do zip, com duas diferenças de propósito:
+     1. Nada de valor de frete inventado. A resposta do cálculo é a regra que a
+        empresa já definiu (grátis acima de R$ 299) e o resto continua
+        [A DEFINIR] até a conta de frete ser contratada.
+     2. Cupom só o que o dossiê documenta: BEMVINDO10, 10% na primeira compra.
+        Código desconhecido não aplica desconto e diz isso na tela.
+     ========================================================================== */
+  var CUPONS = { BEMVINDO10: 0.1 };
+  var cupomAtivo = null;
+
+  function itensDaSacola() {
+    return Array.prototype.slice.call(document.querySelectorAll('[data-item]'));
+  }
+
+  function resumoDaSacola() {
+    var itens = [];
+    var subtotal = 0;
+
+    itensDaSacola().forEach(function (item) {
+      if (item.hasAttribute('hidden')) { return; }
+      var campo = item.querySelector('.qty__input');
+      var preco = item.querySelector('.cart-item__price');
+      var unitario = numero(item.getAttribute('data-unitario'));
+      var qtd = campo ? (parseInt(campo.value, 10) || 1) : 1;
+
+      if (preco) { preco.textContent = dinheiro(unitario * qtd); }
+      subtotal += unitario * qtd;
+      if (campo) { itens.push({ item: item, campo: campo, qtd: qtd }); }
+    });
+
+    return { itens: itens, subtotal: subtotal };
+  }
+
+  function pintarResumo() {
+    var subtotalEl = document.querySelector('[data-subtotal]');
+    if (!subtotalEl) { return; }
+
+    var resumo = resumoDaSacola();
+    var desconto = cupomAtivo ? resumo.subtotal * CUPONS[cupomAtivo] : 0;
+    var total = resumo.subtotal - desconto;
+    var freteGratis = resumo.subtotal >= FRETE_GRATIS;
+
+    var descontoEl = document.querySelector('[data-desconto]');
+    var descontoRotulo = document.querySelector('[data-desconto-rotulo]');
+    var freteEl = document.querySelector('[data-frete]');
+    var totalEl = document.querySelector('[data-total]');
+    var totalRotulo = document.querySelector('[data-total-rotulo]');
+
+    subtotalEl.textContent = dinheiro(resumo.subtotal);
+    if (descontoEl) { descontoEl.textContent = '− ' + dinheiro(desconto); }
+    if (descontoRotulo) {
+      descontoRotulo.textContent = cupomAtivo ? 'Desconto (' + cupomAtivo + ')' : 'Desconto';
+    }
+    if (freteEl) { freteEl.textContent = freteGratis ? 'Grátis' : '[A DEFINIR]'; }
+    if (totalEl) { totalEl.textContent = dinheiro(total); }
+    if (totalRotulo) { totalRotulo.textContent = freteGratis ? 'Total' : 'Total sem frete'; }
+  }
+
+  function recadoDoCupom(texto) {
+    var alvo = document.querySelector('[data-cupom-msg]');
+    if (alvo) { alvo.textContent = texto; }
+  }
+
+  function initCarrinho() {
+    var formCupom = document.querySelector('[data-cupom-form]');
+    var formFrete = document.querySelector('[data-frete-form]');
+
+    /* O cupom que aparece preenchido na página é o do dossiê: começa aplicado. */
+    if (formCupom) {
+      var campo = formCupom.querySelector('input[name="cupom"]');
+      var inicial = campo ? campo.value.trim().toUpperCase() : '';
+      cupomAtivo = CUPONS[inicial] ? inicial : null;
+
+      formCupom.addEventListener('submit', function (evento) {
+        evento.preventDefault();
+        var codigo = campo ? campo.value.trim().toUpperCase() : '';
+
+        if (CUPONS[codigo]) {
+          cupomAtivo = codigo;
+          recadoDoCupom('Cupom ' + codigo + ' aplicado: ' + Math.round(CUPONS[codigo] * 100) + '% de desconto na primeira compra.');
+        } else {
+          cupomAtivo = null;
+          recadoDoCupom(codigo
+            ? 'Cupom não reconhecido. Confira o código e tente de novo.'
+            : 'Digite um cupom para aplicar.');
+        }
+
+        pintarResumo();
+      });
+    }
+
+    if (formFrete) {
+      var cep = formFrete.querySelector('input[name="cep"]');
+      var recado = document.querySelector('[data-frete-msg]');
+
+      if (cep) {
+        cep.addEventListener('input', function () {
+          var digitos = cep.value.replace(/\D/g, '').slice(0, 8);
+          cep.value = digitos.length > 5 ? digitos.slice(0, 5) + '-' + digitos.slice(5) : digitos;
+        });
+      }
+
+      formFrete.addEventListener('submit', function (evento) {
+        evento.preventDefault();
+        var digitos = cep ? cep.value.replace(/\D/g, '') : '';
+
+        if (!recado) { return; }
+
+        if (digitos.length !== 8) {
+          recado.textContent = 'Digite um CEP com 8 números para ver o frete.';
+          return;
+        }
+
+        var subtotal = resumoDaSacola().subtotal;
+        recado.textContent = subtotal >= FRETE_GRATIS
+          ? 'Para o CEP ' + cep.value + ': frete grátis nesta compra.'
+          : 'Para o CEP ' + cep.value + ': o valor e o prazo por transportadora entram quando a conta de frete estiver contratada. [A DEFINIR]';
+      });
+    }
+
+    pintarResumo();
+  }
+
+  /* --------------------------------------------------- CHECKOUT (máscaras) */
+  /* Veio do loja.js do template. O protótipo NÃO pede número de cartão: os
+     dados do cartão são digitados na página segura do gateway, que ainda não
+     foi contratado. Por isso aqui só entram CEP, telefone e o recado que muda
+     conforme o meio de pagamento escolhido. */
+  function initCheckout() {
+    var cepCheckout = document.getElementById('cep2');
+    var telefone = document.getElementById('telefone');
+    var recado = document.querySelector('[data-pay-note]');
+
+    if (cepCheckout) {
+      cepCheckout.addEventListener('input', function () {
+        var digitos = cepCheckout.value.replace(/\D/g, '').slice(0, 8);
+        cepCheckout.value = digitos.length > 5 ? digitos.slice(0, 5) + '-' + digitos.slice(5) : digitos;
+      });
+    }
+
+    if (telefone) {
+      telefone.addEventListener('input', function () {
+        var d = telefone.value.replace(/\D/g, '').slice(0, 11);
+        if (d.length > 10) { telefone.value = '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7); }
+        else if (d.length > 6) { telefone.value = '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6); }
+        else if (d.length > 2) { telefone.value = '(' + d.slice(0, 2) + ') ' + d.slice(2); }
+        else { telefone.value = d; }
+      });
+    }
+
+    if (recado) {
+      var RECADOS = {
+        'pg-pix': 'No Pix a confirmação é na hora. A chave e o desconto entram quando o gateway estiver contratado. [A DEFINIR]',
+        'pg-cartao': 'Os dados do cartão são digitados na página segura do gateway. Este protótipo não pede número de cartão.',
+        'pg-boleto': 'O boleto é gerado no fim do pedido. Prazo de compensação e vencimento ficam [A DEFINIR] até a conta estar ativa.',
+        'pg-transferencia': 'Transferência bancária: dados da conta e forma de comprovante ficam [A DEFINIR]. Opção em avaliação.'
+      };
+
+      var opcoes = document.querySelectorAll('input[name="pagamento"]');
+
+      var sincronizar = function () {
+        var escolhido = document.querySelector('input[name="pagamento"]:checked');
+        recado.textContent = escolhido ? (RECADOS[escolhido.id] || '') : '';
+      };
+
+      Array.prototype.forEach.call(opcoes, function (opcao) {
+        opcao.addEventListener('change', sincronizar);
+      });
+      sincronizar();
+    }
+  }
+
+  /* Botões +/- e Remover da página da sacola. */
+  document.addEventListener('click', function (evento) {
+    var passo = evento.target.closest('[data-qty-step]');
+    var remover = evento.target.closest('[data-remover]');
+
+    if (passo) {
+      var item = passo.closest('[data-item]');
+      var campo = item ? item.querySelector('.qty__input') : null;
+      if (!campo) { return; }
+
+      var direcao = parseInt(passo.getAttribute('data-qty-step'), 10) || 1;
+      var minimo = parseInt(campo.getAttribute('min') || '1', 10);
+      var maximo = parseInt(campo.getAttribute('max') || '10', 10);
+      var atual = parseInt(campo.value, 10) || minimo;
+
+      campo.value = String(Math.min(maximo, Math.max(minimo, atual + direcao)));
+      campo.dispatchEvent(new Event('change', { bubbles: true }));
+      pintarResumo();
+      return;
+    }
+
+    if (remover) {
+      var linha = remover.closest('[data-item]');
+      if (!linha) { return; }
+
+      linha.setAttribute('hidden', '');
+      pintarResumo();
+      mostrarAviso('Peça removida da sacola.');
+    }
+  });
+
   /* ------------------------------------------------------------ INÍCIO */
-  atualizarContadores();
-  pintarCoracoes();
-  pintarSacola();
+  function seguro(nome, fn) {
+    try {
+      fn();
+    } catch (erro) {
+      /* Uma melhoria com problema não pode derrubar as outras. Nada essencial
+         depende do JS: sem ele a página continua legível e navegável. */
+      if (window.console && console.warn) {
+        console.warn('[iara-loja] "' + nome + '" não foi inicializada:', erro);
+      }
+    }
+  }
+
+  seguro('contadores', atualizarContadores);
+  seguro('desejos', pintarCoracoes);
+  seguro('mini-sacola', pintarSacola);
+  seguro('carrinho', function () {
+    initCarrinho();
+
+    /* A quantidade digitada à mão também recalcula o resumo. */
+    document.addEventListener('change', function (evento) {
+      if (evento.target.closest('.qty__input')) { pintarResumo(); }
+    });
+  });
+  seguro('checkout', initCheckout);
 })();

@@ -41,9 +41,24 @@ Depois abra `http://localhost:8080` no navegador.
 | Institucional | `sobre.html`, `contato.html`, `faq.html`, `guia-medidas.html` |
 | Políticas | `trocas.html`, `envio.html`, `privacidade.html`, `termos.html`, `cookies.html` |
 
-### Estados de interface demonstrados
+### Novidades da v0.1.11 (pente fino no HTML e no CSS e o JavaScript do template)
 
-O dossiê pede que todos os estados de tela estejam representados. Onde procurar:
+| Peça | Como ficou |
+|---|---|
+| Pente fino | As 22 páginas, 25 parciais, 4 CSS e 4 JS passaram por um conferidor com parser de verdade (html5lib e tinycss2). Placar: nenhum erro de sintaxe, nenhum id repetido, nenhuma âncora quebrada, nenhum campo sem rótulo, nenhum arquivo faltando |
+| HTML quebrado | Termos e Cookies tinham `<p margin-bottom:0">`: um estilo escrito como se fosse atributo. Virou classe no CSS |
+| Medidas das fotos | As duas fotos do resumo do checkout declaravam tamanho só em `style=""`; agora trazem as medidas reais do arquivo |
+| Estilos no HTML | Quarenta estilos escritos direto no HTML viraram regras com nome, presas à tela pela classe `page-*` do `<body>` |
+| CSS morto | Saíram o contador antigo da sacola, a classe de seção sem uso, quatro cores de swatch não usadas e o `style="width:0%"` da gaveta |
+| Estados que faltavam | Carregando (esqueleto) e erro de campo ganharam desenho nas páginas, e os três estados de estoque agora aparecem lado a lado |
+| JavaScript do template | Cada melhoria inicia isolada (uma falha não derruba as outras), botões + e − e remover peça na sacola, cupom BEMVINDO10, máscara de CEP e de telefone, cálculo de frete e recado que muda conforme o meio de pagamento |
+| Sem pular de lado | A trava de rolagem da gaveta ficou em CSS (`scrollbar-gutter: stable`), sem script |
+| Régua de verificação | O teste de navegador e o pente fino agora vivem no repositório: `tools/test.js` e `tools/pente-fino.py` |
+
+**O que do template não foi copiado:** o JavaScript do zip calcula frete com valores
+fixos (PAC e SEDEX) e pede o número do cartão na própria página. Aqui o frete só
+responde a regra confirmada (grátis acima de R$ 299) e o resto fica `[A DEFINIR]`;
+dados de cartão são digitados na página do gateway, que ainda não existe.
 
 ### Novidades da v0.1.10 (fontes na escala do template e cabeçalho limpo)
 
@@ -164,9 +179,12 @@ O dossiê pede que todos os estados de tela estejam representados. Onde procurar
 
 | Estado | Onde ver |
 |---|---|
-| Carregando | classe `.skeleton` no CSS, exemplo em `produto.html` |
+| Carregando | `produto.html`, referência do estado carregando (esqueleto) |
 | Busca sem resultado | `busca.html`, seção final |
-| Produto esgotado | `produto.html`, final da página |
+| Produto esgotado | `produto.html`, final da página, com os três estados de estoque juntos |
+| Erro em campo de formulário | `checkout.html`, final da página |
+| Cupom não reconhecido | `carrinho.html`, ao aplicar um código que não existe |
+| CEP incompleto | `carrinho.html`, ao calcular o frete com menos de 8 números |
 | Variação indisponível | `produto.html`, tamanho GG desabilitado |
 | Sacola vazia | `carrinho.html`, final da página |
 | Pagamento recusado | `checkout.html`, final da página |
@@ -319,6 +337,29 @@ referências de arquivo válidas, ausência de script inline e ausência de trav
 nos textos.
 
 Resultado esperado hoje: **tudo certo**.
+
+**Teste de navegador (jsdom).** Abre as 22 páginas, carrega os scripts que cada
+página chama e simula cliques: menu, busca, filtros da loja, desejos, sacola,
+cupom, frete, máscaras do checkout e acordeão.
+
+```bash
+npm install          # uma vez só, instala o jsdom
+node tools/test.js   # imprime PASS/FAIL e sai com erro se algo falhar
+```
+
+Resultado esperado hoje: **649 verificações, nenhuma falha**.
+
+**Pente fino de HTML e CSS.** Lê os arquivos com parser de verdade (`html5lib` e
+`tinycss2`) e confere doze pontos: sintaxe, ids repetidos, links e âncoras, rótulos
+de acessibilidade, imagens e arquivos, classes sem CSS, CSS sem uso e ganchos
+`data-*` que nenhum script lê. Ele só aponta; a correção é feita à mão.
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install html5lib tinycss2   # uma vez só
+.venv/bin/python tools/pente-fino.py
+```
+
+Resultado esperado hoje: **todas as doze conferências sem nenhum achado**.
 
 ### Imagens de exemplo
 

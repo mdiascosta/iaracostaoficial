@@ -74,7 +74,7 @@
                          aria-describedby="cep-hint" required>
                   <p class="field__hint" id="cep-hint">O frete é calculado a partir do CEP.</p>
                 </div>
-                <div class="field" style="grid-column: span 2">
+                <div class="field field--wide">
                   <label class="field__label" for="endereco">Endereço</label>
                   <input class="field__input" id="endereco" name="endereco" type="text"
                          autocomplete="street-address" required>
@@ -131,7 +131,7 @@
             <fieldset class="fieldset">
               <legend class="fieldset__legend">Formas de envio</legend>
 
-              <ul class="shipping-options" style="margin-bottom:16px">
+              <ul class="shipping-options">
                 <li><span>PAC · 5 a 9 dias úteis</span><span>R$ 24,90</span></li>
                 <li><span>SEDEX · 2 a 4 dias úteis</span><span>R$ 39,90</span></li>
               </ul>
@@ -157,7 +157,7 @@
             <fieldset class="fieldset">
               <legend class="fieldset__legend">Pagamento</legend>
 
-              <p class="notice notice--attention" style="margin-bottom:18px">
+              <p class="notice notice--attention">
                 Nenhum gateway está conectado ainda. As opções abaixo são
                 ilustrativas e servem para validar o fluxo visual. Pagamento real
                 só depois de contratar o gateway e testar em ambiente de teste.
@@ -190,6 +190,11 @@
                   <span class="placeholder">[CONFERIR: ativar somente para teste e desativar antes de publicar]</span>
                 </label>
               </div>
+
+              <!-- Recado que muda conforme o meio escolhido. Saiu do loja.js do
+                   template do zip, com uma diferença de propósito: o protótipo
+                   não pede número de cartão em lugar nenhum. -->
+              <p class="field__hint" data-pay-note role="status"></p>
             </fieldset>
 
             <fieldset class="fieldset">
@@ -228,9 +233,9 @@
         <aside class="summary" aria-labelledby="resumo-checkout">
           <h2 class="summary__title" id="resumo-checkout">Seu pedido</h2>
 
-          <div class="cart-item" style="grid-template-columns:64px 1fr; border-bottom:1px solid var(--iara-hairline)">
+          <div class="cart-item cart-item--compact">
             <div class="cart-item__media">
-              <img src="assets/img/vestido-salvia.jpg" alt="Vestido midi em linho terracota, frente" style="width:64px;height:64px">
+              <img src="assets/img/vestido-salvia.jpg" alt="Vestido midi em linho terracota, frente" width="768" height="1376">
             </div>
             <div>
               <p class="cart-item__name">Vestido Midi Sálvia</p>
@@ -238,9 +243,9 @@
             </div>
           </div>
 
-          <div class="cart-item" style="grid-template-columns:64px 1fr; border-bottom:1px solid var(--iara-hairline)">
+          <div class="cart-item cart-item--compact">
             <div class="cart-item__media">
-              <img src="assets/img/brinco-argila.jpg" alt="Brinco de argola dourada, frente" style="width:64px;height:64px">
+              <img src="assets/img/brinco-argila.jpg" alt="Brinco de argola dourada, frente" width="768" height="1376">
             </div>
             <div>
               <p class="cart-item__name">Colar de Cerâmica</p>
@@ -248,7 +253,7 @@
             </div>
           </div>
 
-          <div class="summary__row" style="margin-top:14px">
+          <div class="summary__row">
             <span>Subtotal</span><span>R$ 974,00</span>
           </div>
           <div class="summary__row">
@@ -272,7 +277,7 @@
       <!-- ESTADO DE UI: erro de pagamento -->
       <section class="section" aria-labelledby="erro-pagamento">
         <h2 class="state-label" id="erro-pagamento">Referência de estado: pagamento não aprovado</h2>
-        <div class="notice notice--error" role="alert" style="margin-bottom:20px">
+        <div class="notice notice--error" role="alert">
           <strong>Não conseguimos aprovar o pagamento.</strong>
           Isso costuma acontecer por limite do cartão ou dado digitado incorreto.
           Seu pedido continua reservado por 60 minutos. Você pode tentar outra
@@ -289,6 +294,19 @@
             <a class="btn btn--outline" href="carrinho.html">Voltar para a sacola</a>
             <a class="btn btn--outline" href="contato.html">Falar com o atendimento</a>
           </div>
+        </div>
+
+        <!-- Erro no campo, e não só no topo da página: é assim que o cliente vê
+             qual campo precisa de conserto sem procurar na tela. Exemplo com o
+             e-mail, que é o campo que mais erra. -->
+        <div class="field field--invalid">
+          <label class="field__label" for="email-erro">E-mail</label>
+          <input class="field__input" id="email-erro" name="email-erro" type="email"
+                 value="cliente@" aria-describedby="email-erro-msg"
+                 aria-invalid="true">
+          <p class="field__error" id="email-erro-msg">
+            Confira o e-mail: falta o final depois do arroba.
+          </p>
         </div>
       </section>
     </div>

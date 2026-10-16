@@ -25,7 +25,7 @@
         <div>
           <h2 class="visually-hidden">Itens na sacola</h2>
 
-          <div class="cart-item">
+          <div class="cart-item" data-item data-unitario="596">
             <div class="cart-item__media">
               <img src="assets/img/vestido-salvia.jpg" alt="Vestido midi sálvia de linho, frente" width="1600" height="1600">
             </div>
@@ -34,17 +34,17 @@
               <p class="cart-item__meta">Cor: Sálvia · Tamanho: M</p>
               <div class="cart-item__actions">
                 <div class="qty">
-                  <button class="qty__btn" type="button" aria-label="Diminuir quantidade do Vestido Midi Sálvia">−</button>
+                  <button class="qty__btn" type="button" data-qty-step="-1" aria-label="Diminuir quantidade do Vestido Midi Sálvia">−</button>
                   <input class="qty__input" type="number" value="1" min="1" max="10" aria-label="Quantidade do Vestido Midi Sálvia">
-                  <button class="qty__btn" type="button" aria-label="Aumentar quantidade do Vestido Midi Sálvia">+</button>
+                  <button class="qty__btn" type="button" data-qty-step="1" aria-label="Aumentar quantidade do Vestido Midi Sálvia">+</button>
                 </div>
-                <button class="btn btn--quiet" type="button">Remover</button>
+                <button class="btn btn--quiet" type="button" data-remover>Remover</button>
                 <p class="cart-item__price">R$ 596,00</p>
               </div>
             </div>
           </div>
 
-          <div class="cart-item">
+          <div class="cart-item" data-item data-unitario="189">
             <div class="cart-item__media">
               <img src="assets/img/brinco-argila.jpg" alt="Colar de contas de cerâmica torneada, frente" width="1600" height="1600">
             </div>
@@ -53,22 +53,22 @@
               <p class="cart-item__meta">Tamanho único</p>
               <div class="cart-item__actions">
                 <div class="qty">
-                  <button class="qty__btn" type="button" aria-label="Diminuir quantidade do Colar de Cerâmica">−</button>
+                  <button class="qty__btn" type="button" data-qty-step="-1" aria-label="Diminuir quantidade do Colar de Cerâmica">−</button>
                   <input class="qty__input" type="number" value="2" min="1" max="10" aria-label="Quantidade do Colar de Cerâmica">
-                  <button class="qty__btn" type="button" aria-label="Aumentar quantidade do Colar de Cerâmica">+</button>
+                  <button class="qty__btn" type="button" data-qty-step="1" aria-label="Aumentar quantidade do Colar de Cerâmica">+</button>
                 </div>
-                <button class="btn btn--quiet" type="button">Remover</button>
+                <button class="btn btn--quiet" type="button" data-remover>Remover</button>
                 <p class="cart-item__price">R$ 378,00</p>
               </div>
             </div>
           </div>
 
-          <p class="notice" style="margin-top:24px">
+          <p class="notice">
             Frete grátis acima de R$ 299. Se você tirar uma peça e o subtotal cair
             abaixo disso, o frete volta a ser cobrado.
           </p>
 
-          <div class="state" style="margin-top:24px">
+          <div class="state">
             <p class="state__title">Cupom BEMVINDO10 aplicado</p>
             <p class="state__text">
               10% de desconto na primeira compra. Regra de "primeira compra" tem
@@ -81,34 +81,36 @@
         <aside class="summary" aria-labelledby="resumo-titulo">
           <h2 class="summary__title" id="resumo-titulo">Resumo</h2>
 
-          <form class="coupon" action="#" method="post">
+          <form class="coupon" action="#" method="post" data-cupom-form>
             <div class="field">
               <label class="field__label" for="cupom">Cupom de desconto</label>
               <input class="field__input" id="cupom" name="cupom" type="text" value="BEMVINDO10">
             </div>
-            <button class="btn btn--outline" type="submit" style="margin-top:26px">Aplicar</button>
+            <button class="btn btn--outline" type="submit">Aplicar</button>
           </form>
+          <p class="field__hint" data-cupom-msg role="status"></p>
 
           <div class="summary__row">
             <span>Subtotal</span>
-            <span>R$ 974,00</span>
+            <span data-subtotal>R$ 974,00</span>
           </div>
           <div class="summary__row">
-            <span>Desconto (BEMVINDO10)</span>
-            <span>− R$ 97,40</span>
+            <span data-desconto-rotulo>Desconto (BEMVINDO10)</span>
+            <span data-desconto>− R$ 97,40</span>
           </div>
 
-          <div class="summary__row" style="display:block">
-            <p class="field__label" id="frete-rotulo" style="margin-bottom:8px">Calcular frete</p>
-            <div class="coupon" style="margin-bottom:0">
-              <div class="field" style="flex:1">
+          <div class="summary__row summary__row--stack">
+            <p class="field__label" id="frete-rotulo">Calcular frete</p>
+            <form class="coupon" action="#" method="post" data-frete-form>
+              <div class="field">
                 <label class="visually-hidden" for="cep">CEP de entrega</label>
                 <input class="field__input" id="cep" name="cep" type="text" inputmode="numeric"
                        autocomplete="postal-code" placeholder="00000-000">
               </div>
-              <button class="btn btn--outline" type="submit" aria-describedby="frete-rotulo" style="margin-top:26px">Calcular</button>
-            </div>
-            <ul class="shipping-options" style="margin-top:14px">
+              <button class="btn btn--outline" type="submit" aria-describedby="frete-rotulo">Calcular</button>
+            </form>
+            <p class="field__hint" data-frete-msg role="status"></p>
+            <ul class="shipping-options">
               <li><span>PAC · 5 a 9 dias úteis</span><span>R$ 24,90</span></li>
               <li><span>SEDEX · 2 a 4 dias úteis</span><span>R$ 39,90</span></li>
             </ul>
@@ -120,11 +122,11 @@
 
           <div class="summary__row">
             <span>Frete</span>
-            <span>Grátis</span>
+            <span data-frete>Grátis</span>
           </div>
           <div class="summary__row summary__row--total">
-            <span>Total</span>
-            <span>R$ 876,60</span>
+            <span data-total-rotulo>Total</span>
+            <span data-total>R$ 876,60</span>
           </div>
 
           <p class="summary__note">
@@ -132,7 +134,7 @@
             Configuração fiscal depende do contador.
           </p>
 
-          <p style="margin-top:18px">
+          <p class="summary__action">
             <a class="btn btn--primary btn--block" href="checkout.html">Finalizar compra</a>
           </p>
           <p class="text-center">

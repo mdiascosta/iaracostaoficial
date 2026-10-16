@@ -306,6 +306,23 @@
 .stock-dot--low { background: var(--iara-accent); }
 .stock-dot--out { background: var(--iara-ink-soft); }
 
+/* Lista dos três estados de estoque (referência na página de produto). */
+.stock-states {
+  list-style: none;
+  margin: var(--iara-space-4) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--iara-space-3);
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+}
+
+.stock-states li { display: flex; align-items: center; gap: var(--iara-space-3); }
+
+/* Demonstração do estado de carregamento (esqueleto cinza). */
+.load-demo { display: grid; gap: var(--iara-space-4); max-width: 320px; }
+.load-demo .skeleton--line:first-child { margin-top: 0; }
+
 .assurance { list-style: none; margin: 20px 0 0; padding: 18px; border: 1px solid var(--iara-hairline); border-radius: var(--iara-radius); background: var(--iara-hover-soft); display: grid; gap: 10px; }
 
 .assurance li { display: flex; gap: 10px; font-size: var(--fs-small); color: var(--iara-ink-soft); }
@@ -434,10 +451,6 @@
 .sw-areia     { background: #e4cbb5; }
 .sw-carvao    { background: #9c8d7e; }
 .sw-cru       { background: #eee9e1; }
-.sw-branco    { background: #ffffff; }
-.sw-azul      { background: #7d93a8; }
-.sw-caramelo  { background: #b07a4f; }
-.sw-cinza     { background: #8c8880; }
 
 /* =====================================================================
    PARTE 2/3 · SACOLA, CHECKOUT, PEDIDO, CONTA, DESEJOS, BUSCA, BLOG, 404
@@ -870,8 +883,16 @@ mark {
 }
 
 /* ----------------------------------------- 07. ESPAÇO QUE VINHA DO HTML */
-/* Estes três espaçamentos eram style="..." escrito dentro dos arquivos.
-   Passaram para cá na v0.1.8, junto com a limpeza das margens inline. */
+/* Estes espaçamentos eram style="..." escrito dentro dos arquivos. Os primeiros
+   passaram para cá na v0.1.8; o resto veio na v0.1.11, quando o pente fino
+   encontrou 40 estilos escritos direto no HTML (e um deles estava mal formado:
+   <p margin-bottom:0">, que o navegador lê como atributo inválido).
+
+   Aqui a classe page-* do <body> finalmente serve para alguma coisa: ela diz de
+   qual tela é a regra, então ninguém precisa de marcador novo nem de classe
+   genérica. Os valores são os mesmos que estavam no HTML, para a tela não mudar
+   de lugar. Onde já existia respiro no componente, o estilo do HTML era
+   repetido e simplesmente saiu. */
 
 /* Aviso que abre uma seção (guia de medidas, lookbook). */
 .notice--lead { margin-bottom: clamp(24px, 3vw, 32px); }
@@ -883,6 +904,49 @@ mark {
    depois do estado vazio na Busca. */
 form + h3,
 .state + h3 { margin-top: clamp(24px, 3vw, 32px); }
+
+/* ---- Carrinho ---- */
+.page-cart .notice { margin-top: var(--iara-space-5); }
+.page-cart .state { margin-top: var(--iara-space-5); }
+.page-cart .coupon .btn { margin-top: 26px; }        /* alinha com o campo */
+.page-cart .shipping-options { margin-top: 14px; }
+
+/* Linha do resumo que empilha o conteúdo (a linha com o cálculo do frete). */
+.summary__row--stack { display: block; }
+.summary__row--stack .field__label { margin: 0 0 var(--iara-space-2); }
+.summary__row--stack .coupon { margin-bottom: 0; }
+
+/* Botão de fechar o pedido, separado do total. */
+.summary__action { margin: 18px 0 0; }
+
+/* ---- Checkout ---- */
+.page-checkout .shipping-options { margin-bottom: 16px; }
+.page-checkout .notice--attention { margin-bottom: 18px; }
+.page-checkout .notice--error { margin-bottom: var(--iara-space-4); }
+.page-checkout .cart-item + .summary__row { margin-top: 14px; }
+
+/* Item de sacola em miniatura (resumo do checkout): foto de 64px em vez dos
+   88px do carrinho. O resto do componente já vinha do CSS. */
+.cart-item--compact { grid-template-columns: 64px 1fr; }
+.cart-item--compact .cart-item__media img { width: 64px; height: 64px; }
+
+/* ---- Pedido recebido ---- */
+.page-thankyou .state { margin-top: 32px; }
+.page-thankyou .list-check { margin-top: 32px; }
+
+/* ---- Diário e post ---- */
+.page-blog .notice { margin-top: var(--iara-space-5); }
+.page-post .author-box { margin-top: var(--iara-space-5); }
+.page-post .author-box .post-card__eyebrow { margin-bottom: var(--iara-space-1); }
+.page-post .info-box { margin-top: var(--iara-space-5); }
+
+/* Caixa de links dentro de um quadro de texto: título no corpo, não em 18px. */
+.info-box__title { font-size: var(--fs-body); }
+
+/* ---- Página 404 ---- */
+.page-404 .state__actions { justify-content: flex-start; margin-top: var(--iara-space-5); }
+.page-404 .state + h2 { margin-top: 48px; }
+.page-404 .link-cards + .muted-note { margin-top: 32px; }
 
 /* =====================================================================
    PARTE 5/5 · CONTA, ATENDIMENTO E SOBRE (v0.1.9)

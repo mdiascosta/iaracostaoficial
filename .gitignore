@@ -11,7 +11,8 @@ desktop.ini
 *.swp
 *~
 
-# Dependências (o teste do header usa jsdom, instalado fora do repositório)
+# Dependências do teste do Bloco A: o npm cria esta pasta a partir do
+# package.json. Fica fora do Git porque são milhares de arquivos de terceiros.
 node_modules/
 package-lock.json
 

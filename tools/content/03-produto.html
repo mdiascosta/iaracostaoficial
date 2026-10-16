@@ -280,6 +280,36 @@
           <a class="btn btn--outline" href="loja.html">Ver peças disponíveis</a>
         </div>
       </div>
+
+      <!-- Os três estados de estoque que o WooCommerce devolve, cada um com a
+           sua cor. O ponto verde já aparece na página; os outros dois ficam
+           documentados aqui para a equipe ver o desenho antes de configurar. -->
+      <ul class="stock-states">
+        <li><span class="stock-dot" aria-hidden="true"></span> Em estoque</li>
+        <li><span class="stock-dot stock-dot--low" aria-hidden="true"></span> Últimas peças</li>
+        <li><span class="stock-dot stock-dot--out" aria-hidden="true"></span> Esgotado</li>
+      </ul>
+    </section>
+
+    <!-- ESTADO DE UI: carregando (referência para a equipe)
+         O esqueleto cinza é o que aparece enquanto a foto e o preço não chegam.
+         A animação é desligada para quem pede menos movimento no sistema, pela
+         regra de prefers-reduced-motion do projeto. -->
+    <section class="section container" aria-labelledby="estado-carregando">
+      <h2 id="estado-carregando" class="state-label">
+        Referência de estado: carregando
+      </h2>
+      <div class="load-demo" aria-hidden="true">
+        <div class="skeleton skeleton--media"></div>
+        <div>
+          <div class="skeleton skeleton--line"></div>
+          <div class="skeleton skeleton--line skeleton--line-short"></div>
+        </div>
+      </div>
+      <p class="muted-note">
+        Blocos cinza no lugar da foto, do nome e do preço enquanto a página
+        carrega. Nada de tela branca nem de conteúdo que pula de lugar.
+      </p>
     </section>
 
     <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
