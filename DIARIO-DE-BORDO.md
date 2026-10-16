@@ -1,5 +1,95 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Pente fino no navegador de verdade (v0.1.19)
+
+### Como esta rodada foi diferente
+Até aqui, tudo era conferido lendo o código: o `test.js` usa jsdom, que não
+desenha a página, e por isso não enxerga estouro de largura, sobreposição de
+elementos, contraste nem clique que não faz nada. Nesta rodada o protótipo foi
+aberto em um navegador de verdade (Chromium sem interface, instalado aqui no
+ambiente) em três larguras (390, 768 e 1440 pixels), com medição de todas as 22
+páginas, teste de teclado, de contraste e de cada interação.
+
+### Os sete problemas encontrados e consertados (IMPLEMENTADO)
+1. **Marcadores de pendência estouravam a tela no celular.** Os textos
+   `[PREENCHER: ...]` são longos e tinham `white-space: nowrap`. Em 390px a
+   página de Sobre ficava com 1.057px de largura: rolava de lado. Agora quebram
+   linha. Atingia seis páginas.
+2. **Tabela com rolagem empurrava a coluna na Conta e no artigo.** A grade
+   deixava a tabela ditar a largura, e a página estourava para 641px e 451px.
+   Conserto de uma linha em cada grade (`min-width: 0`).
+3. **O balão do WhatsApp cobria o valor no Pix do checkout**, o botão de criar
+   conta e o botão de calcular frete no celular. Agora ele entra depois de 160px
+   de rolagem, e o resumo que gruda no topo reserva 96px para ele. Sem
+   JavaScript, o balão aparece desde o início, como antes.
+4. **O acordeão do FAQ, do Envio e do Guia de Medidas não abria:** as páginas
+   têm acordeão mas não carregavam o script. O da home funcionava, o que
+   escondia o problema.
+5. **O formulário de contato não respondia nada.** Clicar em "Enviar mensagem"
+   com campos vazios não mostrava aviso nenhum. Criei o `contato.js` seguindo o
+   padrão de erro que já existia no checkout: aviso embaixo do campo, ligado ao
+   campo para leitor de tela e foco no primeiro problema.
+6. **A página de produto mostrava a cor errada:** a peça é o Vestido Midi
+   Sálvia, mas o seletor abria com "Terracota" e oferecia "Off-white" e
+   "Preto", cores que não existem no catálogo. Corrigido para Sálvia e as duas
+   inventadas saíram do CSS.
+7. **Os botões da lista de desejos não faziam nada.** Agora "Adicionar à
+   sacola" abre a sacola e "Remover" tira a peça e atualiza o contador.
+
+### Contraste
+O rótulo de seção em 11px estava em 4,27:1, abaixo do mínimo de 4,5:1 da WCAG
+2.2 AA. O tom foi ajustado e agora dá 4,92:1 no papel. Os outros pontos que a
+varredura apontou são decorativos (pontos separadores e numeral de capítulo) ou
+têm texto equivalente ao lado (a estrela da avaliação): ficaram como estão e o
+motivo está no histórico.
+
+### Como os consertos ficam protegidos
+A seção 25 do `test.js` tem 24 verificações novas, uma para cada conserto. Se
+alguém desfizer um deles sem perceber, o teste acusa.
+
+### Verificações
+- 22 páginas geradas sem erro e conferidas.
+- 1.032 verificações automáticas, zero falhas.
+- Pente fino de HTML, CSS e JavaScript com as 12 seções zeradas.
+- Varredura no navegador: 22 páginas × 3 larguras, nenhum estouro de largura,
+  nenhuma imagem quebrada, nenhuma imagem sem descrição e nenhum erro de script.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Conferência da cliente no navegador, que é o próximo passo combinado.
+- "Tingimento natural" (casca de cebola e eucalipto), "costura em pequenos lotes"
+  e "fornecedores certificados" seguem fora do site, aguardando confirmação.
+- Composição exata por peça, tabela de medidas real e história da marca.
+
+## [2026-10-16] - PR #2 mergeado na main (registro)
+
+### O que aconteceu
+- O **PR #2** (branch de trabalho -> `main`) foi **mergeado** em 16/10/2026, às
+  15h18 (horário de Brasília), por Matheus Costa (`mdiascosta`).
+- **Commit de merge: `c45ec5a`.** Entraram 57 commits, da v0.1.1 até a v0.1.18:
+  o super layout, a loja com paginação de 9 e as cinco ordenações, a coleção em
+  capítulos, o hero quadrado e a pasta congelada `template-v0.1.18/`.
+- A `main` agora tem a versão em desenvolvimento (`seu-projeto/`), a cópia
+  congelada (`template-v0.1.18/`), o zip de referência da cliente
+  (`template_.zip`), as ferramentas (`tools/`) e os três documentos (README,
+  HISTORICO-DE-VERSOES e este diário), com o `VERSION` em 0.1.18.
+- **As etiquetas seguem intactas**, de `v0.1.0` a `v0.1.18`. A `v0.1.18` aponta
+  para `24baa31`, o mesmo conteúdo que entrou na `main`.
+- O trabalho seguinte começa em uma **branch nova, a partir do commit de merge**,
+  como manda o fluxo: a branch anterior ficou para trás, já mergeada. Nada do que
+  veio antes se perde.
+
+### Decisões tomadas
+- **Registro sem mudança de versão:** esta é uma anotação de documentação sobre
+  algo que já estava entregue, e a regra combinada é subir a versão quando o
+  template muda. A versão continua 0.1.18.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Combinar se as próximas versões ganham pasta congelada a cada fechamento ou se
+  a pasta é renomeada, mantendo só a mais recente.
+- "Tingimento natural" (casca de cebola e eucalipto), "costura em pequenos lotes"
+  e "fornecedores certificados" seguem fora do site, aguardando confirmação.
+- Composição exata por peça, tabela de medidas real e história da marca.
+
 ## [2026-10-16] - Template congelado em pasta com o número da versão (v0.1.18)
 
 ### Pedido da cliente

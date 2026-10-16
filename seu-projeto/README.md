@@ -41,6 +41,19 @@ Depois abra `http://localhost:8080` no navegador.
 | Institucional | `sobre.html`, `contato.html`, `faq.html`, `guia-medidas.html` |
 | Políticas | `trocas.html`, `envio.html`, `privacidade.html`, `termos.html`, `cookies.html` |
 
+### Novidades da v0.1.19 (pente fino no navegador)
+
+| Peça | Como ficou |
+|---|---|
+| Marcadores de pendência | Os textos `[PREENCHER: ...]` quebram linha e não estouram mais a tela no celular |
+| Conta e artigo | Tabela com rolagem não empurra mais a coluna (a página não estoura de largura) |
+| Balão do WhatsApp | Entra depois de 160px de rolagem, para não cobrir o valor no Pix nem botões |
+| Acordeão | FAQ, Envio e Guia de Medidas passaram a carregar o script que abre as perguntas |
+| Contato | O formulário responde: avisa o campo com problema e mostra o recado de envio (`contato.js`) |
+| Produto | O grupo de cor mostra a cor real da peça (Sálvia); "Terracota", "Off-white" e "Preto" saíram |
+| Desejos | "Adicionar à sacola" e "Remover" funcionam |
+| Contraste | Rótulo de seção em 11px passou de 4,27:1 para 4,92:1 (WCAG 2.2 AA) |
+
 ### Novidades da v0.1.18 (foto do hero quadrada)
 
 | Peça | Como ficou |
