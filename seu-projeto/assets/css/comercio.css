@@ -761,7 +761,8 @@
 }
 
 .band__note {
-  margin: 12px 0 0;
+  /* respiro embaixo: sem isso o verde termina colado na última linha */
+  margin: 12px 0 clamp(18px, 2.2vw, 26px);
   font-size: var(--fs-small);
   color: var(--iara-paper);
   opacity: 0.9;
