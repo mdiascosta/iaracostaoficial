@@ -41,8 +41,12 @@ git tag -l
 git checkout v0.1.0
 
 # Voltar para a versão mais recente do trabalho
-git checkout arena/557fb81d-iaracostaoficial
+git checkout main
 ```
+
+A v0.1.0 foi integrada à `main` pelo pull request #1 (16/10/2026). A partir
+dela, cada nova versão nasce em uma branch própria e é integrada por pull
+request, para a equipe poder comparar antes de aceitar.
 
 Para consultar apenas um arquivo de uma versão antiga, sem mudar nada:
 
@@ -56,6 +60,48 @@ apenas mostra os arquivos como estavam naquele momento.
 ---
 
 ## Versões registradas
+
+### v0.1.1 · 2026-10-16 · Super layout com fotos e faixa de benefícios centralizada
+
+**O que mudou em relação à v0.1.0:**
+
+- **Faixa de benefícios centralizada** (pedido da cliente): os quatro itens
+  (frete grátis, troca fácil, pagamento, do P ao GG) passam a ficar agrupados no
+  centro da faixa, com fio de separação entre eles, em vez de esticados de ponta
+  a ponta.
+- **Fotos de exemplo de verdade**: as 47 imagens de exemplo em SVG (retângulos
+  cinza escritos "SUBSTITUIR") saíram do projeto. Entraram 31 fotos em JPG
+  extraídas do template de referência enviado pela cliente. Direitos e origem
+  destas fotos: `[CONFERIR]` antes de qualquer uso em produção.
+- **Home no padrão do template**: hero com selo numerado, categorias numeradas,
+  vitrine por ocasião, editorial "Um ateliê, três gestos" com pilares numerados,
+  coleção "Terra & Linho" em bloco duplo, depoimentos e faixa verde sálvia de
+  lista de espera.
+- **Card de produto completo**: selo (Novo, Mais vendida, Oferta), coração de
+  lista de desejos, nota com avaliações, preço promocional riscado, tamanhos e
+  link "Adicionar à sacola".
+- **Mini-sacola lateral (drawer)** com barra de progresso do frete grátis,
+  subtotal, aviso rápido (toast) e circulação de foco por teclado.
+- **Rodapé em 4 colunas**, newsletter com nota de consentimento, selos de
+  pagamento ilustrativos e identificação da empresa.
+- **Catálogo de exemplo ampliado** de 10 para 12 peças, alinhado ao template.
+  Decisão pendente com a cliente: `[A DEFINIR]` manter 12 ou voltar a 10.
+- **Regra de frete grátis unificada em R$ 299** em todo o protótipo (o dossiê
+  previa R$ 199 e o header aprovado diz R$ 299). Confirmar qual vale:
+  `[CONFIRMAR COM A EMPRESA]`.
+
+**Arquivos novos:** `assets/css/comercio.css`, `assets/js/loja.js`,
+`tools/produtos.json`, `tools/partials/drawer.html`.
+
+**Verificado nesta versão:** 22 páginas sem erro de estrutura (`check.py`),
+1.250 links internos e imagens conferidos, mini-sacola, coração de desejos,
+busca e menu mobile testados por script, 1 H1 por página, alt em todas as
+imagens não decorativas.
+
+**Ainda não verificado:** conferência visual em navegador (é o próximo passo,
+com a cliente) e direitos das fotos.
+
+---
 
 ### v0.1.0 · 2026-10-16 · Bloco A concluído (protótipo HTML)
 
@@ -93,7 +139,7 @@ páginas legais.
 
 | Versão | Conteúdo esperado |
 |---|---|
-| v0.1.1 | Ajustes no protótipo a partir da conferência visual da equipe |
+| v0.1.2 | Ajustes finos no super layout a partir da conferência visual da cliente |
 | v0.2.0 | Bloco B: JSONs de templates para Elementor |
 | v0.3.0 | Bloco C: kit ZIP, produtos.csv, posts.csv e guias de instalação |
 | v1.0.0 | Go-live: site publicado com dados reais e revisão jurídica concluída |

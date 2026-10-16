@@ -1,5 +1,60 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Super layout: fotos reais, blocos do template e v0.1.1
+
+### Pedido da cliente
+Depois de aprovar o header ("O header ficou perfeito"), a cliente pediu duas
+coisas: centralizar os itens da faixa de benefícios (frete grátis, compra
+consciente, envio) e aproveitar as ideias mais limpas do template de referência
+que ela enviou (`template_.zip`), transformando o protótipo em um "super layout".
+Ela pediu para conferir o resultado visualmente antes de qualquer outra coisa.
+
+### O que foi feito (IMPLEMENTADO)
+- **Faixa de benefícios centralizada** na home: os 4 itens ficam agrupados no
+  centro, com largura máxima de 1080px e fio de separação entre eles.
+- **Fotos**: as 47 imagens de exemplo em SVG foram removidas do projeto. Entraram
+  31 fotos JPG do template de referência, com alt descritivo em português.
+  Origem e direitos das fotos: `[CONFERIR]` antes de publicar.
+- **Home reconstruída** no padrão do template: hero com selo "01", benefícios,
+  categorias numeradas, em destaque (4 cards), compre por ocasião, editorial
+  "Um ateliê, três gestos", coleção Terra & Linho, depoimentos, diário e faixa
+  verde sálvia de lista de espera.
+- **Card de produto novo**: selo (Novo, Mais vendida, Oferta), coração de
+  desejos, nota com avaliações, preço promocional riscado, tamanhos e link de
+  adicionar à sacola. O card agora é gerado por um molde único em
+  `tools/partials` a partir de `tools/produtos.json`.
+- **Mini-sacola lateral** com barra de progresso do frete grátis, subtotal,
+  dois botões e aviso rápido (toast). Fecha com ESC, clique fora e circula o
+  foco pelo teclado.
+- **Rodapé novo**: 4 colunas, newsletter com nota de consentimento LGPD, selos
+  ilustrativos, identificação da empresa e links de política.
+- **Catálogo de exemplo**: 10 para 12 peças (padrão do template), em uma única
+  fonte de dados. Loja, home, produto, sacola e busca usam a mesma lista.
+- **Preço e frete coerentes em todo o protótipo**: sacola 974,00 menos
+  BEMVINDO10 (97,40) = 876,60, com frete grátis.
+
+### Decisões que precisam da cliente (2)
+1. **Frete grátis: R$ 199 ou R$ 299?** O dossiê previa R$ 199; o header aprovado
+   diz R$ 299. Unificamos em R$ 299 no protótipo inteiro. `[CONFIRMAR COM A EMPRESA]`
+2. **Catálogo: 10 ou 12 peças?** O dossiê falava de 10 produtos; o template
+   trouxe 12. Se a loja real tem 10, basta remover duas linhas de
+   `tools/produtos.json`. `[A DEFINIR]`
+
+### Verificado (arquivos)
+- `tools/check.py`: 22 páginas, "tudo certo", nenhuma referência quebrada.
+- Teste com jsdom: 1.250 links internos, mini-sacola (abre, lista, soma, fecha
+  com ESC), coração de desejos (marca e desmarca), busca e menu mobile. Tudo OK.
+- 22 páginas respondendo HTTP 200 no servidor local.
+- Nenhuma imagem restante do tipo placeholder, exceto o favicon provisório.
+
+### Ainda não verificado
+- Conferência visual em navegador, feita pela cliente (é o próximo passo).
+- Direitos das fotos do template.
+- Tamanho das fotos: os JPG vieram do template e podem precisar de otimização
+  (alvo de até 300 KB por arquivo) antes de produção.
+
+---
+
 ## [2026-10-16] - Versionamento: v0.1.0 gravada e enviada ao GitHub
 
 ### O que foi feito (IMPLEMENTADO)
