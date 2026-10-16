@@ -61,6 +61,41 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.13 · 2026-10-16 · Cartões de envio e pagamento no checkout e as regras de negócio fechadas
+
+**Pedido da cliente:** duas imagens de referência do fechamento de compra (cartões
+de opção com rádio, título, linha de apoio e valor; campos do cartão aparecendo
+quando o cartão é escolhido) mais a "Especificação da Marca e Regras de Negócio",
+que respondeu frete, trocas, prazos, cuidados das peças, DPO e tipografia.
+
+| O que mudou | Onde |
+|---|---|
+| Cartões de opção no padrão da imagem: rádio, título, linha de apoio e valor; o cartão escolhido ganha borda e fundo (`:has()` no CSS e `.is-selected` pelo JS, para navegador sem `:has()`) | `pages.css`, `05-checkout.html` |
+| Três formas de envio em cartões: PAC, SEDEX e Retirar no ateliê, com prazo, valor e o endereço do ateliê | `05-checkout.html` |
+| Duas formas de pagamento em cartões: Pix com etiqueta "5% off" e Cartão de crédito com "6x sem juros" e parcela mínima de R$ 50,00 | `05-checkout.html` |
+| Campos do cartão que aparecem só quando o cartão é escolhido, com máscaras e aviso de que são demonstração: sem `name`, nada é enviado nem guardado | `05-checkout.html`, `loja.js` |
+| Valores conferidos no protótipo: produtos R$ 974,00, cupom R$ 97,40, Pix R$ 832,77, cartão R$ 876,60 e 6x de R$ 146,10 sem juros | `loja.js` |
+| Frete grátis passou a contar o valor líquido (depois de cupom e do desconto do Pix), em todas as páginas | `loja.js`, `19-envio.html`, `04-carrinho.html`, `15-faq.html` |
+| R$ 15,00 confirmado como regra só do PAC, em SP, RJ, MG e ES; SEDEX e demais regiões pelo cálculo dos Correios | `19-envio.html`, `15-faq.html`, `04-carrinho.html`, `loja.js` |
+| Prazos de produção: 2 dias úteis para pronta entrega e 5 a 7 dias úteis para peças sob encomenda | `19-envio.html`, `03-produto.html`, `06-pedido-recebido.html`, `15-faq.html` |
+| Troca por tamanho em 30 dias corridos, com a primeira troca gratuita e postagem reversa dos Correios; arrependimento em 7 dias com frete por conta da loja | `18-trocas.html`, `15-faq.html`, `03-produto.html`, `01-home.html` |
+| Cuidados das peças: lavagem à mão ou ciclo delicado com sabão neutro, sem alvejante à base de cloro, secagem à sombra na horizontal e passar até 110°C | `03-produto.html` |
+| Encarregado de dados (DPO) com e-mail próprio `dpo@iaracosta.com.br` no lugar do canal genérico | `20-privacidade.html`, `22-cookies.html`, `15-faq.html`, `14-contato.html` |
+| Data de aprovação das páginas legais: 16 de outubro de 2026 | `20-privacidade.html`, `21-termos.html`, `22-cookies.html` |
+| Parcela mínima de R$ 50,00 nas condições de pagamento dos Termos | `21-termos.html` |
+| Marca do cabeçalho em 20px, como a especificação pede, sem `clamp()` | `header.css` |
+| Regras `.radio` retiradas do CSS: o checkout usa `.choice` desde esta versão | `style.css` |
+| Suíte de testes ganhou a seção 20 (cartões, valores, campos do cartão, regras novas e marca do cabeçalho) | `tools/test.js` |
+
+**Resultado das verificações:** `build.py` e `check.py` com as 22 páginas certas;
+`test.js` com 819 verificações e zero falhas; `pente-fino.py` com as 12 seções
+zeradas.
+
+**Marcadores que continuam abertos nesta versão:** dias e horários de retirada no
+ateliê, composição e origem das peças, autoria dos textos do diário, prazo de
+reembolso detalhado, peças de liquidação na troca, e os itens de privacidade que
+dependem das ferramentas escolhidas (analytics, pixels, retenção).
+
 ### v0.1.12 · 2026-10-16 · Dados reais da empresa e regras de venda confirmadas
 
 **Pedido da cliente:** informou os dados da empresa e as regras comerciais que

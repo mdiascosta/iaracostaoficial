@@ -1,5 +1,80 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Cartões de envio e pagamento no checkout e as regras de negócio fechadas (v0.1.13)
+
+### Pedido da cliente
+A cliente enviou duas imagens de referência do fechamento de compra: na primeira,
+três formas de envio em cartões com rádio, título, linha de apoio e valor; na
+segunda, as formas de pagamento em cartões (Pix com a etiqueta verde "5% OFF") e os
+campos de cartão aparecendo quando o cartão de crédito é escolhido. Junto veio a
+"Especificação da Marca e Regras de Negócio", que respondeu o que estava em aberto:
+frete grátis pelo valor líquido, os R$ 15,00 só no PAC do Sudeste, parcela mínima de
+R$ 50,00, troca em 30 dias com a primeira gratuita, arrependimento de 7 dias com
+frete da loja, prazos de produção, cuidados das peças, encarregado de dados, data
+das páginas legais e a marca do cabeçalho em 20px.
+
+### O que foi feito (IMPLEMENTADO)
+- **Cartões de opção no checkout.** As três formas de envio (PAC, SEDEX e Retirar no
+  ateliê) e as duas de pagamento (Pix e cartão) viraram cartões clicáveis no padrão
+  da imagem: rádio, título, linha de apoio e valor à direita. O cartão escolhido
+  ganha borda e fundo claros, pelo `:has()` do CSS e também pela classe `.is-selected`
+  que o JavaScript marca, para navegadores que ainda não têm `:has()`.
+- **Campos do cartão, só na demonstração.** Número, nome impresso, validade, CVV e
+  parcelas aparecem quando o cartão é escolhido, com máscaras de digitação. Nenhum
+  campo tem atributo `name`, então nada é enviado ao finalizar, e nada é guardado: o
+  aviso no topo do bloco explica que, no site publicado, esses campos são do Mercado
+  Pago e o número do cartão nunca passa pela loja. É a diferença entre mostrar o
+  comportamento pedido e simular uma cobrança.
+- **Valores conferidos no protótipo.** Cesta de exemplo: produtos R$ 974,00, cupom
+  BEMVINDO10 R$ 97,40, líquido R$ 876,60, Pix (5% off) R$ 832,77, cartão R$ 876,60 e
+  parcelas sem juros de 1x R$ 876,60 até 6x de R$ 146,10, respeitando a parcela
+  mínima de R$ 50,00.
+- **Frete grátis pelo valor líquido.** O limite de R$ 299 passou a considerar o que
+  sobra depois do cupom e do desconto do Pix, em todas as páginas que falam do
+  assunto: Envio, Carrinho, Perguntas frequentes e o recado da gaveta da sacola.
+- **R$ 15,00 confirmado como regra do PAC** em SP, RJ, MG e ES. O SEDEX e as demais
+  regiões ficam com o valor calculado pelos Correios. O texto de dúvida saiu da
+  página de Envio e do resumo para a equipe.
+- **Prazos de produção:** 2 dias úteis para pronta entrega e de 5 a 7 dias úteis para
+  peças sob encomenda ou sob medida, antes da postagem. Entraram no produto, no
+  Envio, no pedido recebido e nas perguntas frequentes.
+- **Trocas e devoluções:** 30 dias corridos para troca de tamanho, com a primeira
+  troca por conta da loja (postagem reversa dos Correios), e 7 dias de
+  arrependimento com o frete de retorno também da loja. A tabela de prazos da página
+  de Trocas saiu de `[A DEFINIR]` para os valores confirmados.
+- **Cuidados das peças:** lavar à mão ou em ciclo delicado com sabão neutro, sem
+  alvejante à base de cloro, secar à sombra e na horizontal e passar até 110°C,
+  respeitando a etiqueta interna.
+- **Privacidade:** o encarregado de dados (DPO) passou a ser o Departamento
+  Jurídico, com o e-mail `dpo@iaracosta.com.br`, no lugar do canal genérico. A data
+  das três páginas legais ficou em 16 de outubro de 2026, com nota para atualizar no
+  go-live se o jurídico mudar o texto.
+- **Marca do cabeçalho em 20px**, como a especificação pede, e a limpeza das regras
+  `.radio` do CSS, que ficaram sem uso quando o checkout passou a usar `.choice`.
+- **Verificações:** `build.py` e `check.py` com as 22 páginas certas; `test.js` com
+  819 verificações e zero falhas (a seção 20 é nova e cobre os cartões, os valores,
+  os campos do cartão, as máscaras e as regras novas); `pente-fino.py` com as 12
+  seções zeradas.
+
+### Decisões tomadas
+- **Boleto não entrou.** Ele aparece na segunda imagem de referência, mas a
+  especificação da empresa confirma Pix e cartão pelo Mercado Pago. Continua fora até
+  a empresa confirmar, como já valia desde a v0.1.12.
+- **Retirada no ateliê entrou como opção do checkout**, com o endereço confirmado e
+  os dias e horários marcados como `[A DEFINIR]`, porque essa informação não veio.
+- **Os campos do cartão são demonstração.** Em site publicado, quem coleta os dados
+  do cartão é o Mercado Pago. No protótipo eles existem para mostrar o comportamento
+  pedido, sem `name` e sem envio.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- O ateliê faz retirada? Em que dias e horários? (está no checkout, no Contato e na
+  página de Envio como `[A DEFINIR: dias e horários de retirada]`)
+- Composição, cuidados específicos e país de origem de cada peça.
+- Autoria dos textos do diário e quem assina o conteúdo.
+- Prazo em dias para processar o reembolso e a regra para peças de liquidação.
+- Itens de privacidade que dependem das ferramentas escolhidas: analytics, pixels,
+  retenção e transferência internacional.
+
 ## [2026-10-16] - Dados da empresa e regras de venda confirmados
 
 ### Pedido da cliente
