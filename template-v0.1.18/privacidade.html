@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de privacidade | Iara Costa</title>
+  <meta name="description" content="Como tratamos seus dados pessoais, conforme a LGPD.">
+  <!-- Protótipo: não deve ser indexado. Em produção o controle é do Yoast. -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- PRODUÇÃO: hospedar as fontes localmente (ver assets/fonts/LEIA-ME.md) -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&amp;family=Playfair+Display:wght@400&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=9f39c382">
+  <link rel="stylesheet" href="assets/css/header.css?v=13cb981f">
+  <link rel="stylesheet" href="assets/css/pages.css?v=3b0175ba">
+  <link rel="stylesheet" href="assets/css/comercio.css?v=8237fdd1">
+</head>
+<body class="page-legal">
+<div class="proto-banner" role="note">PROTÓTIPO · DADOS E TEXTOS DE EXEMPLO · NÃO PUBLICAR</div>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ANNOUNCEMENT BAR · Verde Sálvia · texto centralizado na barra larga -->
+  <div class="announcement">
+    <div class="header-shell announcement__inner">
+      <p class="announcement__text">Frete grátis acima de R$ 299</p>
+      <span class="announcement__dot" aria-hidden="true">·</span>
+      <p class="announcement__text"><a href="sobre.html">Compra consciente</a></p>
+      <span class="announcement__dot" aria-hidden="true">·</span>
+      <p class="announcement__text"><a href="envio.html">Envio para todo o Brasil</a></p>
+    </div>
+  </div>
+
+  <header class="site-header" id="topo">
+    <div class="header-shell">
+      <div class="site-header__inner">
+
+        <button class="nav-toggle" type="button"
+                aria-expanded="false" aria-controls="menu-mobile"
+                aria-label="Abrir menu de navegação">
+          <span class="nav-toggle__box" aria-hidden="true">
+            <span class="nav-toggle__bar"></span>
+            <span class="nav-toggle__bar"></span>
+          </span>
+        </button>
+
+        <a class="brand" href="index.html" aria-label="Iara Costa, página inicial">
+          <span class="brand__name">IARA COSTA</span>
+          <span class="brand__tagline">Moda &amp; Acessórios</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Navegação principal">
+          <ul class="main-nav__list">
+            <li><a class="main-nav__link" href="index.html" data-nav="inicio">Home</a></li>
+            <li><a class="main-nav__link" href="loja.html" data-nav="loja">Loja</a></li>
+            <li><a class="main-nav__link" href="lookbook.html" data-nav="colecao">Coleção</a></li>
+            <li><a class="main-nav__link" href="sobre.html" data-nav="sobre">Sobre</a></li>
+            <li><a class="main-nav__link" href="contato.html" data-nav="contato">Contato</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+
+          <!-- Busca: só a lupa. Ao clicar, abre a faixa abaixo do header. -->
+          <button class="icon-btn" type="button"
+                  data-search-toggle
+                  aria-expanded="false" aria-controls="busca-painel"
+                  aria-label="Abrir busca">
+            <svg class="icon-btn__svg" viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" focusable="false">
+              <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.4"></circle>
+              <path d="M16.1 16.1 20.6 20.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+            </svg>
+          </button>
+
+          <a class="icon-btn" href="conta.html" aria-label="Minha conta">
+            <svg class="icon-btn__svg" viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="8.5" r="3.75" fill="none" stroke="currentColor" stroke-width="1.4"></circle>
+              <path d="M4.5 20c1.6-4 4.3-5.75 7.5-5.75S18 16 19.5 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+            </svg>
+          </a>
+
+          <a class="icon-btn" href="desejos.html" aria-label="Lista de desejos">
+            <svg class="icon-btn__svg" viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" focusable="false">
+              <path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9Z"
+                    fill="none" stroke="currentColor" stroke-width="1.4"></path>
+            </svg>
+            <span class="icon-count" data-wish-count aria-hidden="true">0</span>
+          </a>
+
+          <a class="icon-btn icon-btn--cart" href="carrinho.html" data-cart-link
+             aria-label="Sacola de compras, nenhum item">
+            <svg class="icon-btn__svg" viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" focusable="false">
+              <path d="M4.75 7.5h14.5l-1.1 12H5.85L4.75 7.5Z" fill="none" stroke="currentColor" stroke-width="1.4"></path>
+              <path d="M9 7.5V6a3 3 0 0 1 6 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+            </svg>
+            <span class="icon-count" data-cart-count aria-hidden="true">0</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- FAIXA DE BUSCA · abre pela lupa, sobrepõe o conteúdo sem empurrar a página -->
+    <div class="search-panel" id="busca-painel" hidden>
+      <div class="header-shell">
+        <form class="search-band" role="search" action="busca.html" method="get">
+          <div class="search-band__field">
+            <svg class="search-band__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+              <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.4"></circle>
+              <path d="M16.1 16.1 20.6 20.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+            </svg>
+            <label class="visually-hidden" for="busca-topo">Buscar produtos</label>
+            <input class="search-band__input" id="busca-topo" name="q" type="search"
+                   placeholder="O que você procura? Tente “linho”, “vestido” ou “cerâmica”"
+                   autocomplete="off" data-search-input>
+          </div>
+          <button class="icon-btn search-band__close" type="button" data-search-close aria-label="Fechar busca">
+            <svg class="icon-btn__svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+              <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+            </svg>
+          </button>
+          <button class="btn btn--primary search-band__submit" type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- Painel de navegação mobile -->
+  <div class="mobile-panel" id="menu-mobile" hidden>
+    <div class="mobile-panel__head">
+      <span class="mobile-panel__brand">
+        <span class="brand__name">IARA COSTA</span>
+        <span class="brand__tagline">Moda &amp; Acessórios</span>
+      </span>
+      <button class="mobile-panel__close" type="button" aria-label="Fechar menu">
+        <span aria-hidden="true">Fechar</span>
+      </button>
+    </div>
+
+    <nav aria-label="Navegação principal (celular)">
+      <ul class="mobile-nav__list">
+        <li><a class="mobile-nav__link" href="index.html" data-nav="inicio"><span class="index-number" aria-hidden="true">01</span>Home</a></li>
+        <li><a class="mobile-nav__link" href="loja.html" data-nav="loja"><span class="index-number" aria-hidden="true">02</span>Loja</a></li>
+        <li><a class="mobile-nav__link" href="lookbook.html" data-nav="colecao"><span class="index-number" aria-hidden="true">03</span>Coleção</a></li>
+        <li><a class="mobile-nav__link" href="sobre.html" data-nav="sobre"><span class="index-number" aria-hidden="true">04</span>Sobre</a></li>
+        <li><a class="mobile-nav__link" href="contato.html" data-nav="contato"><span class="index-number" aria-hidden="true">05</span>Contato</a></li>
+      </ul>
+    </nav>
+
+    <ul class="mobile-nav__list mobile-nav__list--secondary">
+      <li><a class="mobile-nav__link mobile-nav__link--sm" href="conta.html">Minha conta</a></li>
+      <li><a class="mobile-nav__link mobile-nav__link--sm" href="desejos.html">Lista de desejos (0)</a></li>
+      <li><a class="mobile-nav__link mobile-nav__link--sm" href="carrinho.html">Sacola (0)</a></li>
+      <li><a class="mobile-nav__link mobile-nav__link--sm" href="guia-medidas.html">Guia de medidas</a></li>
+      <li><a class="mobile-nav__link mobile-nav__link--sm" href="trocas.html">Trocas e devoluções</a></li>
+      <li><a class="mobile-nav__link mobile-nav__link--sm" href="envio.html">Envio e entrega</a></li>
+    </ul>
+  </div>
+
+  <main id="conteudo" tabindex="-1">
+        <div class="container page-head">
+      <nav class="breadcrumbs" aria-label="Trilha de navegação">
+        <ol>
+          <li><a href="index.html">Início</a></li>
+          <li><span aria-current="page">Política de Privacidade</span></li>
+        </ol>
+      </nav>
+
+      <h1>Política de Privacidade</h1>
+    </div>
+
+    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
+         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <div class="container">
+      <p class="lead page-intro">
+        Como a Iara Costa coleta, usa, guarda e exclui os seus dados pessoais,
+        conforme a Lei Geral de Proteção de Dados (Lei 13.709/2018).
+      </p>
+      <!-- Este bloco vivia dentro do cabeçalho; na v0.1.10 ele desceu para
+           junto do texto de apoio, porque o cabeçalho ficou só com a trilha e o
+           nome da página. -->
+      <p class="muted-note">
+        Última atualização: 16 de outubro de 2026.
+        <span class="placeholder">[CONFERIR no go-live: a data muda quando o jurídico aprovar a versão final]</span>
+      </p>
+    </div>
+
+
+    <div class="container section--tight">
+      <div class="legal-draft">
+        <strong>RASCUNHO PARA REVISÃO JURÍDICA. NÃO PUBLICAR COMO ESTÁ.</strong>
+        <p>
+          Este documento foi escrito para dar estrutura e cobrir os pontos
+          obrigatórios da LGPD. Ele <strong>precisa</strong> de revisão do jurídico
+          da Iara Costa antes de ir ao ar. Todos os campos
+          <span class="placeholder">[PREENCHER]</span> são dados que ainda
+          dependem da empresa (data da versão aprovada) e
+          <span class="placeholder">[A DEFINIR]</span> são decisões internas.
+        </p>
+        <p>
+          Importante: a lista de operadores (quem mais trata os dados) só pode ser
+          fechada depois que as contratações estiverem definidas: gateway de
+          pagamento, transportadora, serviço de e-mail e hospedagem.
+        </p>
+      </div>
+
+            <div class="doc-layout">
+      <nav class="doc-index doc-index--long" aria-label="Atalhos desta página">
+        <p class="doc-index__title">Nesta página</p>
+        <ul>
+          <li><a href="#quem-e-o-controlador-dos-seus-dados">1. Quem é o controlador dos seus dados</a></li>
+          <li><a href="#quais-dados-coletamos">2. Quais dados coletamos</a></li>
+          <li><a href="#com-quem-compartilhamos">3. Com quem compartilhamos</a></li>
+          <li><a href="#transferencia-internacional">4. Transferência internacional</a></li>
+          <li><a href="#por-quanto-tempo-guardamos">5. Por quanto tempo guardamos</a></li>
+          <li><a href="#seus-direitos-como-titular">6. Seus direitos como titular</a></li>
+          <li><a href="#seguranca">7. Segurança</a></li>
+          <li><a href="#cookies-e-tecnologias-semelhantes">8. Cookies e tecnologias semelhantes</a></li>
+          <li><a href="#alteracoes-desta-politica">9. Alterações desta política</a></li>
+          <li><a href="#reclamacoes">10. Reclamações</a></li>
+        </ul>
+      </nav>
+      <div class="prose doc-body">
+        <section id="quem-e-o-controlador-dos-seus-dados">
+          <h2>1. Quem é o controlador dos seus dados</h2>
+          <p>
+            O controlador, ou seja, quem decide como os seus dados são tratados, é:
+          </p>
+          <ul>
+            <li>Razão social: Iara Costa Moda Feminina LTDA</li>
+            <li>CNPJ: 12.345.678/0001-90</li>
+            <li>Endereço: Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000</li>
+            <li>Canal de atendimento ao titular:
+              <a href="mailto:contato@iaracosta.com.br">contato@iaracosta.com.br</a>,
+              com o assunto "Privacidade"</li>
+            <li>Encarregado de dados (DPO): Departamento Jurídico da Iara Costa,
+              <a href="mailto:dpo@iaracosta.com.br">dpo@iaracosta.com.br</a></li>
+          </ul>
+          <p class="muted-note">
+            O encarregado de dados é a pessoa responsável por receber pedidos
+            relacionados a dados pessoais. É obrigatório ter um canal definido,
+            mesmo em empresa pequena.
+          </p>
+        </section>
+
+        <section id="quais-dados-coletamos">
+          <h2>2. Quais dados coletamos</h2>
+          <div class="table-scroll">
+            <table>
+              <caption>Inventário de dados. Esta tabela precisa ser conferida com a equipe antes de publicar.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Dado</th>
+                  <th scope="col">Para que serve</th>
+                  <th scope="col">Base legal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Nome, CPF ou CNPJ</th>
+                  <td>Emitir nota fiscal, identificar o pedido e prevenir fraude.</td>
+                  <td>Execução de contrato e obrigação legal</td>
+                </tr>
+                <tr>
+                  <th scope="row">E-mail e telefone</th>
+                  <td>Enviar confirmação, rastreio, aviso de status e responder ao seu contato.</td>
+                  <td>Execução de contrato</td>
+                </tr>
+                <tr>
+                  <th scope="row">Endereço de entrega</th>
+                  <td>Entregar o pedido pela transportadora.</td>
+                  <td>Execução de contrato</td>
+                </tr>
+                <tr>
+                  <th scope="row">Dados de pagamento</th>
+                  <td>
+                    Processar a cobrança. <strong>Não armazenamos número completo
+                    de cartão nem código de segurança (CVV)</strong>: isso fica com
+                    o gateway de pagamento.
+                  </td>
+                  <td>Execução de contrato</td>
+                </tr>
+                <tr>
+                  <th scope="row">Histórico de navegação e cookies</th>
+                  <td>Fazer o site funcionar, medir desempenho e, com o seu consentimento, medir audiência.</td>
+                  <td>Consentimento (cookies não essenciais)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Dados de marketing</th>
+                  <td>Enviar novidades por e-mail, somente se você autorizar.</td>
+                  <td>Consentimento</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            <strong>Dados sensíveis:</strong> a Iara Costa não coleta dados
+            sensíveis (origem racial, convicção religiosa, dado de saúde,
+            biometria). Se isso mudar, esta política precisa ser atualizada antes.
+          </p>
+          <p>
+            <strong>Dados de crianças e adolescentes:</strong> a loja não é
+            direcionada a menores de 18 anos e não coleta dados de crianças de
+            forma intencional.
+          </p>
+        </section>
+
+        <section id="com-quem-compartilhamos">
+          <h2>3. Com quem compartilhamos</h2>
+          <p>
+            Compartilhamos o mínimo necessário para a compra acontecer. Cada
+            parceiro abaixo é um operador de dados e deve ter contrato de
+            tratamento de dados com a Iara Costa.
+          </p>
+          <div class="table-scroll">
+            <table>
+              <caption>Operadores. A equipe deve completar a coluna da direita conforme as contratações.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Tipo de parceiro</th>
+                  <th scope="col">O que ele recebe</th>
+                  <th scope="col">Contratado?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Gateway de pagamento (Mercado Pago)</th>
+                  <td>Dados do pedido e do pagador.</td>
+                  <td><span class="placeholder">[A DEFINIR: conta a ativar antes do go-live]</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Transportadora (Correios)</th>
+                  <td>Nome, endereço e telefone para a entrega.</td>
+                  <td><span class="placeholder">[A DEFINIR: conta a ativar antes do go-live]</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Serviço de e-mail transacional</th>
+                  <td>E-mail e conteúdo das mensagens de pedido.</td>
+                  <td><span class="placeholder">[A DEFINIR]</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Hospedagem</th>
+                  <td>Armazena o site e o banco de dados.</td>
+                  <td><span class="placeholder">[A DEFINIR]</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Ferramenta de analytics</th>
+                  <td>Dados de navegação anonimizados ou pseudonimizados.</td>
+                  <td><span class="placeholder">[A DEFINIR]</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Emissor de nota fiscal</th>
+                  <td>Dados fiscais do pedido.</td>
+                  <td><span class="placeholder">[A DEFINIR]</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            <strong>Não vendemos seus dados.</strong> Também não usamos seus dados
+            para finalidade diferente das descritas aqui sem avisar você antes.
+          </p>
+        </section>
+
+        <section id="transferencia-internacional">
+          <h2>4. Transferência internacional</h2>
+          <p>
+            Alguns serviços podem armazenar dados fora do Brasil, como ferramentas
+            de e-mail, hospedagem ou analytics. Se isso acontecer, a transferência
+            deve seguir os requisitos da LGPD, com garantias adequadas de proteção.
+          </p>
+          <p class="muted-note">
+            <span class="placeholder">[A DEFINIR]</span> A equipe deve confirmar em
+            que país cada serviço armazena dados. A escolha de hospedar as fontes
+            localmente, já prevista no projeto, reduz um ponto de exposição.
+          </p>
+        </section>
+
+        <section id="por-quanto-tempo-guardamos">
+          <h2>5. Por quanto tempo guardamos</h2>
+          <ul>
+            <li><strong>Dados do pedido e nota fiscal:</strong> pelo prazo exigido pela legislação fiscal e tributária. <span class="placeholder">[CONFERIR prazo com o contador]</span></li>
+            <li><strong>Dados de conta:</strong> enquanto a conta estiver ativa e por um período após o encerramento, para atender obrigações legais. <span class="placeholder">[A DEFINIR]</span></li>
+            <li><strong>Dados de marketing:</strong> até você cancelar a inscrição.</li>
+            <li><strong>Registros de acesso:</strong> conforme exigido pela legislação aplicável. <span class="placeholder">[CONFERIR]</span></li>
+            <li><strong>Cookies não essenciais:</strong> pelo prazo informado no banner de cookies.</li>
+          </ul>
+          <p>
+            Passado o prazo, os dados são excluídos ou anonimizados. Se houver
+            obrigação legal de guarda, o dado fica bloqueado para outras
+            finalidades.
+          </p>
+        </section>
+
+        <section id="seus-direitos-como-titular">
+          <h2>6. Seus direitos como titular</h2>
+          <p>Você pode solicitar, a qualquer momento:</p>
+          <ul>
+            <li>Confirmação de que tratamos os seus dados.</li>
+            <li>Acesso aos dados que temos sobre você.</li>
+            <li>Correção de dados incompletos, inexatos ou desatualizados.</li>
+            <li>Anonimização, bloqueio ou eliminação de dados desnecessários ou excessivos.</li>
+            <li>Portabilidade a outro fornecedor, conforme regulamentação.</li>
+            <li>Eliminação dos dados tratados com base em consentimento.</li>
+            <li>Informação sobre com quem compartilhamos os seus dados.</li>
+            <li>Revogação do consentimento, a qualquer momento.</li>
+          </ul>
+          <p>
+            Para exercer esses direitos, escreva para
+            <a href="mailto:contato@iaracosta.com.br">contato@iaracosta.com.br</a>,
+            com o assunto "Privacidade". Respondemos em até 24 horas úteis, de
+            segunda a sexta. Podemos
+            pedir uma confirmação de identidade para evitar que alguém acesse os
+            seus dados no seu lugar.
+          </p>
+        </section>
+
+        <section id="seguranca">
+          <h2>7. Segurança</h2>
+          <p>Adotamos medidas técnicas para proteger os seus dados, entre elas:</p>
+          <ul>
+            <li>Conexão criptografada (HTTPS) em todo o site.</li>
+            <li>Acesso administrativo restrito, com senha individual e verificação em duas etapas.</li>
+            <li>Não armazenamento de número completo de cartão nem CVV.</li>
+            <li>Backups periódicos com teste de restauração.</li>
+            <li>Servidor com firewall e monitoramento de tentativas de invasão.</li>
+          </ul>
+          <p>
+            Nenhum sistema é totalmente imune a falhas. Em caso de incidente de
+            segurança que possa causar risco relevante a você, comunicaremos os
+            titulares afetados e a Autoridade Nacional de Proteção de Dados,
+            conforme a LGPD.
+          </p>
+        </section>
+
+        <section id="cookies-e-tecnologias-semelhantes">
+          <h2>8. Cookies e tecnologias semelhantes</h2>
+          <p>
+            Usamos cookies para o funcionamento da loja, como manter os itens na
+            sacola e lembrar a sua sessão. Cookies de medição e de marketing só
+            são ativados depois do seu consentimento, e você pode mudar a escolha
+            quando quiser.
+          </p>
+          <p>
+            O detalhamento está na <a href="cookies.html">Política de Cookies</a>.
+          </p>
+        </section>
+
+        <section id="alteracoes-desta-politica">
+          <h2>9. Alterações desta política</h2>
+          <p>
+            Quando esta política mudar, atualizamos a data no topo da página e,
+            se a mudança for relevante, avisamos por e-mail quem tiver cadastro.
+            Recomendamos ler a política sempre que fizer uma compra.
+          </p>
+        </section>
+
+        <section id="reclamacoes">
+          <h2>10. Reclamações</h2>
+          <p>
+            Se você não ficar satisfeito com a nossa resposta, pode procurar a
+            Autoridade Nacional de Proteção de Dados (ANPD) ou os órgãos de defesa
+            do consumidor. Antes disso, recomendamos falar com a gente: a maioria
+            das questões é resolvida direto, e mais rápido.
+          </p>
+        </section>
+      </div>
+
+      <div class="notice">
+        <strong>Checklist para a equipe antes de publicar esta página</strong>
+        <ul>
+          <li>Confirmar, com o jurídico, a versão final e a data de aprovação
+            desta política, e registrar quem responde pelo encarregado de dados.</li>
+          <li>Fechar a lista de operadores depois das contratações.</li>
+          <li>Confirmar prazos de retenção com o contador.</li>
+          <li>Revisão final pelo jurídico.</li>
+          <li>Configurar o banner de cookies de modo compatível com o que está escrito aqui.</li>
+        </ul>
+      </div>
+      </div>
+    </div>
+
+
+    <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
+         Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o
+         conteúdo do rodapé. O texto fica dentro do container do header. -->
+    <section class="band band--rodape" aria-labelledby="banda-rodape-titulo">
+      <div class="container band__inner">
+        <h2 id="banda-rodape-titulo">Ficou alguma dúvida sobre os seus dados?</h2>
+        <p>Fale com o ateliê pelo formulário de contato.</p>
+        <a class="btn btn--paper" href="contato.html">Falar com o ateliê</a>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+
+      <!-- ==================================================================
+           RODAPÉ (v0.1.3) · estrutura da referência enviada pela cliente
+
+             1. newsletter, em uma linha (texto à esquerda, formulário à direita)
+             2. quatro colunas: marca · institucional · categorias · atendimento
+             3. faixa de segurança e formas de pagamento
+             4. base: copyright, identificação da empresa e links de política
+
+           A newsletter voltou para cá seguindo a referência. Ela conversa com o
+           ateliê (conteúdo), enquanto a faixa verde sálvia da home é a lista de
+           espera dos lançamentos: são dois convites diferentes, não repetição.
+           ================================================================== -->
+
+      <div class="newsletter">
+        <div>
+          <p class="eyebrow eyebrow--muted">Newsletter</p>
+          <p class="newsletter__lead">
+            Cartas do ateliê: lançamentos, guia de medidas e cuidados com o linho.
+          </p>
+        </div>
+
+        <form class="newsletter__form" action="#" method="post">
+          <label class="visually-hidden" for="news-email">Seu e-mail</label>
+          <input class="field__input" id="news-email" name="email" type="email"
+                 placeholder="seu@email.com" autocomplete="email" required>
+          <button class="btn btn--primary" type="submit">Assinar</button>
+        </form>
+      </div>
+      <p class="newsletter__note">
+        Um e-mail por mês, no máximo. Ao assinar, você confirma que leu a
+        <a href="privacidade.html">Política de Privacidade</a> e pode cancelar
+        quando quiser, em um clique.
+      </p>
+
+      <div class="site-footer__columns">
+
+        <div class="site-footer__col">
+          <p class="site-footer__brand">IARA COSTA</p>
+          <p class="site-footer__tagline">Moda &amp; Acessórios</p>
+          <p class="site-footer__about">
+            Vestuário feminino autoral em linho, algodão egípcio e viscose de
+            alta gramatura. Modelagem, corte e confecção próprios, no ateliê em
+            Cerquilho (SP).
+          </p>
+        </div>
+
+        <nav class="site-footer__col" aria-labelledby="footer-institucional">
+          <h2 class="site-footer__title" id="footer-institucional">Institucional</h2>
+          <ul class="site-footer__list">
+            <li><a href="sobre.html">Sobre a marca</a></li>
+            <li><a href="lookbook.html">Coleção Terra &amp; Linho</a></li>
+            <li><a href="guia-medidas.html">Guia de medidas</a></li>
+            <li><a href="trocas.html">Trocas e devoluções</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__col" aria-labelledby="footer-categorias">
+          <h2 class="site-footer__title" id="footer-categorias">Categorias</h2>
+          <ul class="site-footer__list">
+            <li><a href="loja.html">Vestidos</a></li>
+            <li><a href="loja.html">Blusas &amp; Camisas</a></li>
+            <li><a href="loja.html">Saias &amp; Calças</a></li>
+            <li><a href="loja.html">Acessórios</a></li>
+            <li><a href="loja.html">Ver tudo</a></li>
+          </ul>
+        </nav>
+
+        <div class="site-footer__col">
+          <h2 class="site-footer__title">Atendimento</h2>
+          <ul class="site-footer__list">
+            <li><a href="mailto:contato@iaracosta.com.br">contato@iaracosta.com.br</a></li>
+            <li><a href="tel:+5515991234567">(15) 99123-4567</a> · telefone e WhatsApp</li>
+            <li>Segunda a sexta, das 9h às 18h</li>
+            <li>
+              <a href="conta.html">Minha conta</a> ·
+              <a href="desejos.html">Desejos</a> ·
+              <a href="carrinho.html">Sacola</a>
+            </li>
+          </ul>
+
+          <ul class="social" aria-label="Redes sociais da marca">
+            <li>
+              <a class="social__link" href="#" aria-label="Instagram (endereço a preencher)">
+                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.25"></rect>
+                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.25"></circle>
+                  <circle cx="17" cy="7" r="0.9" fill="currentColor"></circle>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="social__link" href="#" aria-label="Pinterest (endereço a preencher)">
+                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.25"></circle>
+                  <path d="M10.5 18.5c.6-1.5 1.6-4.3 2-6.2M9.6 10.9c0-1.9 1.3-3.4 3.1-3.4 1.8 0 2.9 1.2 2.9 2.8 0 2-1.1 3.6-2.6 3.6-.9 0-1.6-.7-1.4-1.6" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="social__link" href="#" aria-label="WhatsApp (número a preencher)">
+                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <path d="M20 11.7a8 8 0 0 1-11.8 7.1L4 20l1.3-4.1A8 8 0 1 1 20 11.7Z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"></path>
+                  <path d="M9.3 9.4c.3 2 2.1 3.8 4.2 4.2l.9-1.1 1.5.8c-.4 1.1-1.6 1.6-2.8 1.3-1.9-.5-3.6-2.3-4-4.2-.2-1.1.3-2.2 1.4-2.6l.8 1.5-1 .8Z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"></path>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- ==================================================================
+           SEGURANÇA E PAGAMENTO (pedido da cliente, v0.1.8)
+
+           Quatro informações curtas com ícone, e abaixo duas linhas com a
+           mesma linguagem da referência enviada: as formas de pagamento em
+           quadros claros e os selos de segurança em formato de distintivo.
+
+           Os quadros são ilustrativos e estão escritos em texto, não com as
+           marcas oficiais: bandeira de cartão é marca registrada de terceiro e
+           só pode ser usada pela loja que de fato aceita aquele meio. Os selos
+           oficiais (certificado SSL e Google Safe Browsing, que são baixados
+           dos próprios fornecedores) entram no lugar destes no go-live, junto
+           com o gateway contratado. Mesmo aviso que já aparece embaixo.
+           ================================================================== -->
+      <section class="security" aria-labelledby="seguranca-titulo">
+        <h2 class="visually-hidden" id="seguranca-titulo">Segurança e formas de pagamento</h2>
+
+        <ul class="security__list">
+          <li class="security__item">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false">
+              <rect x="3.5" y="6" width="17" height="12" rx="1.5"></rect>
+              <path d="M3.5 10h17M7 15h4"></path>
+            </svg>
+            <span>
+              <strong>Pix, cartão e boleto</strong>
+              <span>Pix com 5% de desconto, cartão em até 6x sem juros e boleto
+                pelo Mercado Pago.</span>
+            </span>
+          </li>
+          <li class="security__item">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false">
+              <path d="M12 3.5 5 6.5v6c0 4 3 7 7 8.5 4-1.5 7-4.5 7-8.5v-6l-7-3Z"></path>
+              <path d="M9 12l2.2 2.2L15.5 10"></path>
+            </svg>
+            <span>
+              <strong>Ambiente protegido</strong>
+              <span>Seus dados trafegam criptografados e não são compartilhados.</span>
+            </span>
+          </li>
+          <li class="security__item">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false">
+              <path d="M3.5 7.5h11v9h-11zM14.5 10.5h3.5l2.5 3v3h-6z"></path>
+              <circle cx="7" cy="18" r="1.6"></circle>
+              <circle cx="17.5" cy="18" r="1.6"></circle>
+            </svg>
+            <span>
+              <strong>Pedido rastreado</strong>
+              <span>Código de rastreio por e-mail assim que a peça é postada.</span>
+            </span>
+          </li>
+          <li class="security__item">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false">
+              <path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9Z"></path>
+            </svg>
+            <span>
+              <strong>7 dias para desistir</strong>
+              <span>Direito de arrependimento previsto no
+                <a href="trocas.html">CDC, Art. 49</a>.</span>
+            </span>
+          </li>
+        </ul>
+
+        <!-- Formas de pagamento e selos: ilustrativos, ver aviso abaixo -->
+        <div class="security__bands">
+          <div class="pay">
+            <h3 class="security__subtitle">Formas de pagamento</h3>
+            <ul class="pay__list">
+              <!-- Só o que a empresa confirmou: o gateway Mercado Pago e os três
+                   meios de pagamento ativos (boleto incluído em 16/10/2026).
+                   Bandeiras de cartão entram aqui quando estiverem ativas na
+                   conta do gateway. -->
+              <li class="pay__chip">Mercado Pago</li>
+              <li class="pay__chip">Pix</li>
+              <li class="pay__chip">Cartão de crédito</li>
+              <li class="pay__chip">Boleto bancário</li>
+            </ul>
+          </div>
+
+          <div class="seals">
+            <h3 class="security__subtitle">Segurança</h3>
+            <ul class="seals__list">
+              <li class="seal">
+                <span class="seal__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.4" focusable="false">
+                    <rect x="4.5" y="10" width="15" height="10" rx="1.6"></rect>
+                    <path d="M8 10V7.5a4 4 0 0 1 8 0V10M12 14v2.5"></path>
+                  </svg>
+                </span>
+                <span class="seal__text">
+                  <strong class="seal__title">Site seguro</strong>
+                  <span class="seal__sub">SSL 256 bits</span>
+                </span>
+              </li>
+              <li class="seal">
+                <span class="seal__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.4" focusable="false">
+                    <path d="M12 3.5 5 6v6c0 4 3 7 7 8.5 4-1.5 7-4.5 7-8.5V6l-7-2.5Z"></path>
+                    <path d="M9 12.2l2.2 2.3L15.5 10"></path>
+                  </svg>
+                </span>
+                <span class="seal__text">
+                  <strong class="seal__title">Navegação verificada</strong>
+                  <span class="seal__sub">Sem páginas suspeitas</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="security__note">
+          Durante o protótipo, esta faixa é demonstrativa. O gateway da loja é o
+          Mercado Pago; bandeiras, selos e certificados oficiais entram neste
+          lugar no go-live, quando o certificado de segurança estiver ativo e as
+          bandeiras estiverem habilitadas na conta do gateway.
+          <span class="placeholder">[CONFERIR no go-live]</span>
+        </p>
+      </section>
+
+      <div class="site-footer__bottom">
+        <div>
+          <p class="site-footer__copy">
+            © 2026 Iara Costa. Todos os direitos reservados.
+          </p>
+          <p class="site-footer__copy">
+            Iara Costa Moda Feminina LTDA · CNPJ 12.345.678/0001-90 ·
+            Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000
+          </p>
+        </div>
+
+        <ul class="site-footer__meta">
+          <li><a href="privacidade.html">Política de privacidade</a></li>
+          <li><a href="termos.html">Termos de uso</a></li>
+          <li><a href="trocas.html">Trocas e devoluções</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Botão flutuante de WhatsApp: no Elementor usar Floating Elements (ver 7.10).
+       Número (15) 99123-4567; no protótipo o botão fica ilustrativo e sem link
+       real, porque a conversa só faz sentido com o atendimento montado. -->
+  <div class="whats-float" aria-hidden="true">
+    <span class="whats-float__label">WhatsApp</span>
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 0 1 0 16.4 8.1 8.1 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8Zm-3 4c-.2 0-.5.1-.7.3-.3.3-.8.9-.8 1.8s.6 1.9 1.5 3c.9 1.1 2 1.9 3.3 2.3 1 .3 1.6.2 2.1 0 .6-.3 1.1-.9 1.2-1.3.1-.4.1-.7 0-.8l-1.7-.8c-.2-.1-.4 0-.6.2l-.5.6c-.1.2-.3.2-.5.1-.5-.2-1.3-.7-1.9-1.5-.4-.5-.6-.9-.7-1.1 0-.2 0-.3.1-.4l.4-.5c.1-.2.2-.3.1-.5l-.7-1.6c-.2-.4-.3-.4-.5-.4h-.1Z"></path>
+    </svg>
+  </div>
+
+  <!-- ==========================================================================
+       MINI-SACOLA (drawer) + aviso rápido (toast)
+
+       Por que existe: quem clica em "Adicionar à sacola" precisa de uma
+       confirmação imediata sem sair da página. O drawer mostra o item, o
+       subtotal e, principalmente, quanto falta para o frete grátis, que é o
+       empurrão honesto para completar o pedido (nada de contador falso).
+
+       No Bloco B isto é o widget "Menu Cart" / mini-carrinho do Elementor Pro.
+       Aqui é uma demonstração em HTML, com os valores de exemplo.
+       ======================================================================= -->
+  <div class="drawer-backdrop" data-drawer-backdrop hidden></div>
+
+  <aside class="drawer" data-drawer role="dialog" aria-modal="true"
+         aria-labelledby="drawer-titulo" hidden>
+    <div class="drawer__head">
+      <h2 class="drawer__title" id="drawer-titulo">Sua sacola</h2>
+      <button class="icon-btn drawer__close" type="button" data-drawer-close aria-label="Fechar a sacola">
+        <svg class="icon-btn__svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+          <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer__body" data-drawer-body>
+      <!-- Preenchido pelo loja.js com os itens escolhidos -->
+    </div>
+
+    <div class="drawer__foot">
+      <div class="ship-progress">
+        <p class="ship-progress__text" data-ship-text>Faltam R$ 299,00 para o frete grátis.</p>
+        <div class="ship-progress__bar" aria-hidden="true">
+          <span class="ship-progress__fill" data-ship-fill></span>
+        </div>
+      </div>
+
+      <div class="drawer__total">
+        <span>Subtotal</span>
+        <strong data-drawer-total>R$ 0,00</strong>
+      </div>
+
+      <a class="btn btn--primary btn--block" href="carrinho.html">Ver sacola</a>
+      <a class="btn btn--outline btn--block" href="checkout.html">Finalizar compra</a>
+      <p class="drawer__note">
+        Frete calculado pelo CEP no carrinho. Impostos incluídos no preço.
+      </p>
+    </div>
+  </aside>
+
+  <!-- Aviso rápido: usado quando o cliente salva uma peça nos desejos -->
+  <p class="toast" data-toast role="status" aria-live="polite"></p>
+
+<script src="assets/js/header.js?v=379ac46d" defer></script>
+<script src="assets/js/loja.js?v=2aac383e" defer></script>
+</body>
+</html>

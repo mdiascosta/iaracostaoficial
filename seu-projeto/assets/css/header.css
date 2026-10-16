@@ -17,18 +17,34 @@
    em 2.7 (nada abaixo de 11px).                                                */
 .announcement {
   background: var(--iara-sage);
-  padding: 7px 0;
+  padding: 9px 0;
 }
 
-.announcement__inner { text-align: center; }
+/* O texto fica centralizado na barra larga. Como .header-shell é flex,
+   centralizar exige justify-content: com text-align sozinho o parágrafo
+   encosta à esquerda e o anúncio parece desalinhado. */
+.announcement__inner {
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0 8px;
+}
 
 .announcement__text {
   margin: 0;
   color: var(--iara-announcement-ink);
   font-size: var(--fs-caption);
   letter-spacing: 0.15em;
-  line-height: 1.25;
+  line-height: 1.4;
   text-transform: uppercase;
+}
+
+.announcement__text a { color: inherit; text-decoration: none; }
+.announcement__text a:hover { color: var(--iara-accent-soft); text-decoration: underline; }
+
+/* No celular o anúncio vira duas linhas: separadores viram quebra visual */
+@media (max-width: 720px) {
+  .announcement__inner { gap: 2px 6px; }
+  .announcement__text { font-size: 11px; letter-spacing: 0.1em; }
 }
 
 .announcement__dot { color: var(--iara-accent-soft); margin: 0 6px; }
@@ -99,7 +115,7 @@
 .brand__name {
   display: block;
   font-family: var(--iara-font-display);
-  font-size: clamp(18px, 1.5vw, 21px);
+  font-size: 20px;
   letter-spacing: 0.105em;
   line-height: 1.15;
 }
@@ -204,26 +220,9 @@
 
 /* Desejos e conta saem da barra no celular: eles ficam no painel do menu */
 @media (max-width: 720px) {
-  .icon-btn--desktop { display: none; }
 }
 
 .icon-btn--cart { margin-left: 0; }
-
-.cart-count {
-  position: absolute;
-  top: 5px;
-  right: 3px;
-  min-width: 16px;
-  height: 16px;
-  padding: 0 4px;
-  border-radius: 999px;
-  background: var(--iara-accent);
-  color: var(--iara-paper);
-  font-family: var(--iara-font-ui);
-  font-size: 10px;
-  line-height: 16px;
-  text-align: center;
-}
 
 .icon-btn[aria-expanded="true"] { color: var(--iara-accent-dark); }
 
@@ -318,12 +317,12 @@
   margin-bottom: 20px;
 }
 
-.mobile-panel__title {
-  font-size: var(--fs-micro);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--iara-ink-soft);
-}
+.mobile-panel__brand { display: flex; flex-direction: column; }
+
+.mobile-panel__brand .brand__name { font-size: 18px; text-align: left; }
+.mobile-panel__brand .brand__tagline { text-align: left; }
+
+.mobile-nav__link .index-number { margin-right: 12px; font-size: 11px; }
 
 .mobile-panel__close {
   min-height: 44px;
@@ -365,40 +364,29 @@
   color: var(--iara-ink-soft);
 }
 
-.mobile-nav__icon { flex: 0 0 auto; color: var(--iara-ink-soft); }
-
 body.is-locked { overflow: hidden; }
 
-/* --------------------------------------------------------------- 10. FOOTER */
+/* --------------------------------------------------------------- 10. FOOTER
+   v0.1.2: rodapé enxuto. Saiu a newsletter (duplicava a faixa da home) e saiu
+   a faixa de selos de pagamento (nada foi contratado ainda, então selo ali era
+   promessa vazia). Ficaram as quatro colunas, a identificação da empresa
+   exigida por lei e a base com os links de política. */
 .site-footer {
   margin-top: clamp(48px, 8vw, 96px);
-  padding-block: clamp(40px, 6vw, 64px) 24px;
+  padding-block: clamp(44px, 6vw, 72px) 24px;
   border-top: 1px solid var(--iara-line);
   background: var(--iara-paper);
 }
 
-.newsletter {
-  display: grid;
-  gap: 20px;
-  padding-bottom: clamp(28px, 4vw, 44px);
-  border-bottom: 1px solid var(--iara-hairline);
-  margin-bottom: clamp(28px, 4vw, 44px);
-}
-
-@media (min-width: 1021px) {
-  .newsletter { grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
-}
-
-.newsletter__title { font-size: var(--fs-h3); font-family: var(--iara-font-display); margin-bottom: 6px; }
-.newsletter__lead { color: var(--iara-ink-soft); max-width: 46ch; margin: 0; }
-
-.newsletter__form .btn { margin-top: 4px; }
-
 .site-footer__columns {
   display: grid;
-  gap: clamp(24px, 4vw, 40px);
+  gap: clamp(28px, 4vw, 56px);
   grid-template-columns: 1fr;
+  padding-bottom: clamp(28px, 4vw, 44px);
+  border-bottom: 1px solid var(--iara-hairline);
 }
+
+/* Última linha da coluna de atendimento, sem a lista completa */
 
 @media (min-width: 721px) { .site-footer__columns { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1021px) { .site-footer__columns { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; } }
@@ -408,6 +396,14 @@ body.is-locked { overflow: hidden; }
   font-size: var(--fs-display);
   letter-spacing: 0.105em;
   margin: 0 0 12px;
+}
+
+.site-footer__tagline {
+  font-size: var(--fs-tagline);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+  margin: -8px 0 12px;
 }
 
 .site-footer__about { color: var(--iara-ink-soft); font-size: var(--fs-small); max-width: 34ch; }
@@ -425,8 +421,6 @@ body.is-locked { overflow: hidden; }
 .site-footer__list { list-style: none; margin: 0 0 20px; padding: 0; }
 
 .site-footer__list li { margin-bottom: 10px; font-size: var(--fs-small); color: var(--iara-ink-soft); }
-
-.site-footer__list--tight { margin-top: -6px; }
 
 .site-footer__list a { color: var(--iara-ink-soft); text-decoration: none; }
 .site-footer__list a:hover { color: var(--iara-accent-dark); text-decoration: underline; }
@@ -451,64 +445,8 @@ body.is-locked { overflow: hidden; }
 }
 
 /* ------------------------------------------------------------ 11. TRUST BAR */
-.trust {
-  margin-top: clamp(28px, 4vw, 44px);
-  padding-top: clamp(24px, 4vw, 36px);
-  border-top: 1px solid var(--iara-hairline);
-  text-align: center;
-}
-
-.trust__list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin: 0 0 14px;
-  padding: 0;
-}
-
-.trust__flag {
-  display: inline-block;
-  border: 1px solid var(--iara-line);
-  border-radius: var(--iara-radius);
-  background: var(--iara-white);
-  padding: 8px 16px;
-  font-size: var(--fs-micro);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--iara-ink-soft);
-}
-
-.trust__note { font-size: var(--fs-micro); color: var(--iara-ink-soft); margin: 0 0 16px; }
-
-.trust__links {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 20px;
-  margin: 0;
-  padding: 0;
-}
-
-.trust__links a {
-  font-size: var(--fs-small);
-  color: var(--iara-ink-soft);
-  text-decoration: underline;
-}
-
-.trust__links a:hover { color: var(--iara-accent-dark); }
 
 /* ------------------------------------------------- 12. IDENTIFICAÇÃO / BASE */
-.company {
-  margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid var(--iara-hairline);
-  text-align: center;
-}
-
-.company__line { font-size: var(--fs-micro); color: var(--iara-ink-soft); margin: 0 0 6px; }
 
 .site-footer__bottom {
   margin-top: 20px;
@@ -522,6 +460,27 @@ body.is-locked { overflow: hidden; }
 
 /* 11px: usa Ink Soft. Muted abaixo de 14px é proibido pela regra 10.2. */
 .site-footer__copy { font-size: var(--fs-micro); color: var(--iara-ink-soft); margin: 0; }
+
+.site-footer__meta {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer__meta li { position: relative; font-size: var(--fs-micro); color: var(--iara-ink-soft); }
+
+.site-footer__meta li + li::before {
+  content: "·";
+  position: absolute;
+  left: -9px;
+  color: var(--iara-accent-soft);
+}
+
+.site-footer__meta a { color: var(--iara-ink-soft); text-decoration: none; }
+.site-footer__meta a:hover { color: var(--iara-accent-dark); text-decoration: underline; }
 
 /* -------------------------------------------------- 13. WHATSAPP FLUTUANTE */
 .whats-float {
@@ -545,4 +504,239 @@ body.is-locked { overflow: hidden; }
 @media (max-width: 720px) {
   .whats-float__label { display: none; }
   .whats-float { padding: 14px; }
+}
+
+/* ============================================================================
+   11. RODAPÉ v0.1.3 — estrutura da referência enviada pela cliente
+
+   Ordem: newsletter em uma linha · quatro colunas · faixa de segurança e
+   pagamento · base com identificação da empresa e links.
+
+   A newsletter voltou para o rodapé porque a referência mostra ela ali. O
+   convite é outro: aqui o assunto é o conteúdo do ateliê (cartas, guia de
+   medidas), enquanto a faixa verde sálvia da home é a lista de espera dos
+   lançamentos.
+   ========================================================================= */
+
+/* O rodapé segue a largura da barra do header em todas as páginas, inclusive
+   nas de leitura (nelas o miolo do texto é mais estreito por conforto de
+   leitura, mas o rodapé continua alinhado com o resto do site). */
+.site-footer > .container { max-width: var(--iara-header-max); }
+
+.newsletter {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: center;
+  padding-bottom: clamp(24px, 3vw, 36px);
+  border-bottom: 1px solid var(--iara-hairline);
+}
+
+@media (min-width: 721px) {
+  .newsletter { grid-template-columns: 1fr minmax(280px, 480px); gap: 40px; }
+}
+
+.newsletter__lead {
+  margin: 6px 0 0;
+  font-size: var(--fs-body);
+  color: var(--iara-ink-soft);
+  max-width: 48ch;
+}
+
+.newsletter__form { display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch; }
+.newsletter__form .field__input { flex: 1 1 220px; }
+.newsletter__form .btn { margin-top: 0; }
+
+.newsletter__note {
+  margin: 14px 0 0;
+  font-size: var(--fs-micro);
+  color: var(--iara-ink-soft);
+  max-width: 76ch;
+}
+
+/* ------------------------------------------- 11.1 SEGURANÇA E PAGAMENTO */
+.security {
+  padding-block: clamp(28px, 3.4vw, 40px);
+  border-bottom: 1px solid var(--iara-hairline);
+}
+
+.security__list {
+  list-style: none;
+  display: grid;
+  gap: 22px var(--iara-gap);
+  grid-template-columns: 1fr;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 721px)  { .security__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1021px) { .security__list { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; } }
+
+.security__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+@media (min-width: 1021px) {
+  .security__item { padding-inline: clamp(18px, 2vw, 30px); }
+  .security__item:first-child { padding-left: 0; }
+  .security__item:last-child { padding-right: 0; }
+  .security__item + .security__item { position: relative; }
+
+  .security__item + .security__item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    bottom: 2px;
+    width: 1px;
+    background: var(--iara-line);
+  }
+}
+
+.security__item svg { color: var(--iara-accent); margin-top: 2px; }
+
+.security__item strong {
+  display: block;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--iara-ink);
+}
+
+.security__item span span {
+  display: block;
+  margin-top: 6px;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+}
+
+/* --------------------------------- 11.1a FORMAS DE PAGAMENTO E SELOS (v0.1.8)
+   Mesma linguagem da referência enviada: quadros claros para as formas de
+   pagamento e distintivos para os selos. Tudo em texto e desenho próprios, sem
+   as marcas oficiais de terceiros, que entram no go-live quando o gateway
+   estiver contratado. */
+.security__bands {
+  display: grid;
+  gap: 28px;
+  margin-top: 26px;
+  padding-top: 26px;
+  border-top: 1px solid var(--iara-hairline);
+}
+
+@media (min-width: 1021px) {
+  .security__bands { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+}
+
+.security__subtitle {
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-heading);
+  margin: 0 0 14px;
+}
+
+.pay__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.pay__chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--iara-line);
+  border-radius: 6px;
+  background: var(--iara-white);
+  font-size: var(--fs-small);
+  color: var(--iara-ink);
+  white-space: nowrap;
+}
+
+.seals__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px 10px 12px;
+  border: 1px solid var(--iara-line);
+  border-radius: 6px;
+  background: var(--iara-white);
+}
+
+.seal__icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background: var(--iara-ink);
+  color: var(--iara-paper);
+  flex: 0 0 auto;
+}
+
+.seal__title {
+  display: block;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--iara-ink);
+}
+
+.seal__sub {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--fs-micro);
+  color: var(--iara-ink-soft);
+}
+
+.security__note {
+  margin: 24px 0 0;
+  font-size: var(--fs-micro);
+  color: var(--iara-ink-soft);
+  max-width: 96ch;
+}
+
+/* ------------------------------------------------- 11.2 COLUNAS E BASE ---
+   A base do rodapé segue a referência: copyright e dados da empresa à
+   esquerda, links de política à direita, na mesma linha em tela larga. */
+.site-footer__columns {
+  padding-top: clamp(28px, 3.4vw, 44px);
+}
+
+.social__link { transition: color var(--iara-transition), border-color var(--iara-transition); }
+.social__icon { display: block; }
+
+.social__link:hover { color: var(--iara-accent-dark); border-color: var(--iara-accent-soft); }
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 40px;
+  padding-top: clamp(20px, 2.6vw, 28px);
+}
+
+/* Identificação da empresa em duas linhas curtas: a segunda respira um pouco */
+.site-footer__bottom .site-footer__copy + .site-footer__copy { margin-top: 6px; }
+
+@media (max-width: 720px) {
+  .site-footer__bottom { flex-direction: column; align-items: flex-start; }
 }

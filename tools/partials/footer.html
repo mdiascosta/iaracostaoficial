@@ -1,77 +1,60 @@
   <footer class="site-footer">
     <div class="container">
 
-      <!-- NEWSLETTER · consentimento NÃO pré-marcado (LGPD) -->
-      <section class="newsletter" aria-labelledby="newsletter-titulo">
-        <div class="newsletter__text">
-          <h2 class="newsletter__title" id="newsletter-titulo">Novidades no seu e-mail</h2>
-          <p class="newsletter__lead">Lançamentos, reposições de estoque e conteúdo sobre caimento e cuidados com as peças. Sem excesso de mensagens.</p>
+      <!-- ==================================================================
+           RODAPÉ (v0.1.3) · estrutura da referência enviada pela cliente
+
+             1. newsletter, em uma linha (texto à esquerda, formulário à direita)
+             2. quatro colunas: marca · institucional · categorias · atendimento
+             3. faixa de segurança e formas de pagamento
+             4. base: copyright, identificação da empresa e links de política
+
+           A newsletter voltou para cá seguindo a referência. Ela conversa com o
+           ateliê (conteúdo), enquanto a faixa verde sálvia da home é a lista de
+           espera dos lançamentos: são dois convites diferentes, não repetição.
+           ================================================================== -->
+
+      <div class="newsletter">
+        <div>
+          <p class="eyebrow eyebrow--muted">Newsletter</p>
+          <p class="newsletter__lead">
+            Cartas do ateliê: lançamentos, guia de medidas e cuidados com o linho.
+          </p>
         </div>
-        <form class="newsletter__form" action="#" method="post" novalidate>
-          <div class="field">
-            <label class="field__label" for="news-email">Seu e-mail</label>
-            <input class="field__input" id="news-email" name="email" type="email"
-                   autocomplete="email" placeholder="voce@exemplo.com.br" required>
-          </div>
-          <div class="checkbox">
-            <input class="checkbox__input" id="news-consent" name="consent" type="checkbox" required>
-            <label class="checkbox__label" for="news-consent">
-              Concordo em receber novidades por e-mail e li a
-              <a href="privacidade.html">Política de Privacidade</a>.
-            </label>
-          </div>
-          <button class="btn btn--primary" type="submit">Quero receber</button>
-          <p class="field__hint">Você pode cancelar quando quiser, em um clique.</p>
+
+        <form class="newsletter__form" action="#" method="post">
+          <label class="visually-hidden" for="news-email">Seu e-mail</label>
+          <input class="field__input" id="news-email" name="email" type="email"
+                 placeholder="seu@email.com" autocomplete="email" required>
+          <button class="btn btn--primary" type="submit">Assinar</button>
         </form>
-      </section>
+      </div>
+      <p class="newsletter__note">
+        Um e-mail por mês, no máximo. Ao assinar, você confirma que leu a
+        <a href="privacidade.html">Política de Privacidade</a> e pode cancelar
+        quando quiser, em um clique.
+      </p>
 
       <div class="site-footer__columns">
 
         <div class="site-footer__col">
           <p class="site-footer__brand">IARA COSTA</p>
+          <p class="site-footer__tagline">Moda &amp; Acessórios</p>
           <p class="site-footer__about">
-            Moda feminina com curadoria: peças casuais, alinhadas e de tendência,
-            escolhidas para acompanhar o seu dia com conforto e presença.
+            Vestuário feminino autoral em linho, algodão egípcio e viscose de
+            alta gramatura. Modelagem, corte e confecção próprios, no ateliê em
+            Cerquilho (SP).
           </p>
-          <ul class="social" aria-label="Redes sociais">
-            <li>
-              <a class="social__link" href="#">
-                <svg class="social__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                  <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
-                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
-                  <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"></circle>
-                </svg>
-                <span class="visually-hidden">Instagram (endereço a preencher)</span>
-              </a>
-            </li>
-            <li>
-              <a class="social__link" href="#">
-                <svg class="social__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                  <path d="M14 8.5h2.2V5.6c-.4-.06-1.5-.16-2.6-.16-2.5 0-4.1 1.5-4.1 4.2v2.2H7.2v3.1h2.3V22h3.3v-7h2.4l.4-3.1h-2.8V9.9c0-.9.3-1.4 1.2-1.4Z" fill="currentColor"></path>
-                </svg>
-                <span class="visually-hidden">Facebook (endereço a preencher)</span>
-              </a>
-            </li>
-            <li>
-              <a class="social__link" href="#">
-                <svg class="social__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                  <rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
-                  <path d="M10 9.2v7l6-3.5-6-3.5Z" fill="currentColor"></path>
-                </svg>
-                <span class="visually-hidden">YouTube (endereço a preencher)</span>
-              </a>
-            </li>
-          </ul>
         </div>
 
         <nav class="site-footer__col" aria-labelledby="footer-institucional">
           <h2 class="site-footer__title" id="footer-institucional">Institucional</h2>
           <ul class="site-footer__list">
             <li><a href="sobre.html">Sobre a marca</a></li>
-            <li><a href="blog.html">Diário</a></li>
-            <li><a href="lookbook.html">Lookbook</a></li>
+            <li><a href="lookbook.html">Coleção Terra &amp; Linho</a></li>
+            <li><a href="guia-medidas.html">Guia de medidas</a></li>
+            <li><a href="trocas.html">Trocas e devoluções</a></li>
             <li><a href="contato.html">Contato</a></li>
-            <li><a href="faq.html">Perguntas frequentes</a></li>
           </ul>
         </nav>
 
@@ -79,77 +62,203 @@
           <h2 class="site-footer__title" id="footer-categorias">Categorias</h2>
           <ul class="site-footer__list">
             <li><a href="loja.html">Vestidos</a></li>
-            <li><a href="loja.html">Blusas e camisas</a></li>
-            <li><a href="loja.html">Calças</a></li>
-            <li><a href="loja.html">Saias</a></li>
+            <li><a href="loja.html">Blusas &amp; Camisas</a></li>
+            <li><a href="loja.html">Saias &amp; Calças</a></li>
             <li><a href="loja.html">Acessórios</a></li>
+            <li><a href="loja.html">Ver tudo</a></li>
           </ul>
         </nav>
 
         <div class="site-footer__col">
           <h2 class="site-footer__title">Atendimento</h2>
           <ul class="site-footer__list">
-            <li>E-mail: <span class="placeholder">[PREENCHER]</span></li>
-            <li>WhatsApp: <span class="placeholder">[PREENCHER]</span></li>
-            <li>Horário: <span class="placeholder">[PREENCHER]</span></li>
-            <li>Resposta em até <span class="placeholder">[PREENCHER]</span> útil(eis)</li>
+            <li><a href="mailto:contato@iaracosta.com.br">contato@iaracosta.com.br</a></li>
+            <li><a href="tel:+5515991234567">(15) 99123-4567</a> · telefone e WhatsApp</li>
+            <li>Segunda a sexta, das 9h às 18h</li>
+            <li>
+              <a href="conta.html">Minha conta</a> ·
+              <a href="desejos.html">Desejos</a> ·
+              <a href="carrinho.html">Sacola</a>
+            </li>
           </ul>
-          <ul class="site-footer__list site-footer__list--tight">
-            <li><a href="trocas.html">Trocas e devoluções</a></li>
-            <li><a href="envio.html">Envio e entrega</a></li>
-            <li><a href="guia-medidas.html">Guia de medidas</a></li>
+
+          <ul class="social" aria-label="Redes sociais da marca">
+            <li>
+              <a class="social__link" href="#" aria-label="Instagram (endereço a preencher)">
+                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.25"></rect>
+                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.25"></circle>
+                  <circle cx="17" cy="7" r="0.9" fill="currentColor"></circle>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="social__link" href="#" aria-label="Pinterest (endereço a preencher)">
+                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.25"></circle>
+                  <path d="M10.5 18.5c.6-1.5 1.6-4.3 2-6.2M9.6 10.9c0-1.9 1.3-3.4 3.1-3.4 1.8 0 2.9 1.2 2.9 2.8 0 2-1.1 3.6-2.6 3.6-.9 0-1.6-.7-1.4-1.6" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="social__link" href="#" aria-label="WhatsApp (número a preencher)">
+                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <path d="M20 11.7a8 8 0 0 1-11.8 7.1L4 20l1.3-4.1A8 8 0 1 1 20 11.7Z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"></path>
+                  <path d="M9.3 9.4c.3 2 2.1 3.8 4.2 4.2l.9-1.1 1.5.8c-.4 1.1-1.6 1.6-2.8 1.3-1.9-.5-3.6-2.3-4-4.2-.2-1.1.3-2.2 1.4-2.6l.8 1.5-1 .8Z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"></path>
+                </svg>
+              </a>
+            </li>
           </ul>
         </div>
 
       </div>
 
-      <!-- TRUST BAR · selos e bandeiras somente se verdadeiros (7.5) -->
-      <section class="trust" aria-labelledby="trust-titulo">
-        <h2 class="visually-hidden" id="trust-titulo">Formas de pagamento e segurança</h2>
-        <ul class="trust__list">
-          <li class="trust__item"><span class="trust__flag">Pix</span></li>
-          <li class="trust__item"><span class="trust__flag">Cartão de crédito</span></li>
-          <li class="trust__item"><span class="trust__flag">Boleto</span></li>
-        </ul>
-        <p class="trust__note">
-          Ilustrativo. Bandeiras, selos e métodos só entram no ar depois de contratados
-          <span class="placeholder">[CONFIRMAR COM A EMPRESA]</span>.
-        </p>
-        <ul class="trust__links">
-          <li><a href="trocas.html">Trocas e devoluções (7 dias, CDC Art. 49)</a></li>
-          <li><a href="privacidade.html">Política de Privacidade</a></li>
-          <li><a href="termos.html">Termos de uso</a></li>
-          <li><a href="envio.html">Envio e entrega</a></li>
-        </ul>
-      </section>
+      <!-- ==================================================================
+           SEGURANÇA E PAGAMENTO (pedido da cliente, v0.1.8)
 
-      <!-- IDENTIFICAÇÃO DA EMPRESA · Decreto 7.962/2013 (obrigatório no ar) -->
-      <section class="company" aria-labelledby="empresa-titulo">
-        <h2 class="visually-hidden" id="empresa-titulo">Identificação da empresa</h2>
-        <p class="company__line">
-          <span class="placeholder">[PREENCHER: razão social]</span> ·
-          CNPJ <span class="placeholder">[PREENCHER]</span> ·
-          <span class="placeholder">[PREENCHER: endereço completo]</span>
-        </p>
-        <p class="company__line">
-          Atendimento: <span class="placeholder">[PREENCHER: e-mail]</span> ·
-          <span class="placeholder">[PREENCHER: telefone ou WhatsApp]</span>
+           Quatro informações curtas com ícone, e abaixo duas linhas com a
+           mesma linguagem da referência enviada: as formas de pagamento em
+           quadros claros e os selos de segurança em formato de distintivo.
+
+           Os quadros são ilustrativos e estão escritos em texto, não com as
+           marcas oficiais: bandeira de cartão é marca registrada de terceiro e
+           só pode ser usada pela loja que de fato aceita aquele meio. Os selos
+           oficiais (certificado SSL e Google Safe Browsing, que são baixados
+           dos próprios fornecedores) entram no lugar destes no go-live, junto
+           com o gateway contratado. Mesmo aviso que já aparece embaixo.
+           ================================================================== -->
+      <section class="security" aria-labelledby="seguranca-titulo">
+        <h2 class="visually-hidden" id="seguranca-titulo">Segurança e formas de pagamento</h2>
+
+        <ul class="security__list">
+          <li class="security__item">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false">
+              <rect x="3.5" y="6" width="17" height="12" rx="1.5"></rect>
+              <path d="M3.5 10h17M7 15h4"></path>
+            </svg>
+            <span>
+              <strong>Pix, cartão e boleto</strong>
+              <span>Pix com 5% de desconto, cartão em até 6x sem juros e boleto
+                pelo Mercado Pago.</span>
+            </span>
+          </li>
+          <li class="security__item">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false">
+              <path d="M12 3.5 5 6.5v6c0 4 3 7 7 8.5 4-1.5 7-4.5 7-8.5v-6l-7-3Z"></path>
+              <path d="M9 12l2.2 2.2L15.5 10"></path>
+            </svg>
+            <span>
+              <strong>Ambiente protegido</strong>
+              <span>Seus dados trafegam criptografados e não são compartilhados.</span>
+            </span>
+          </li>
+          <li class="security__item">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false">
+              <path d="M3.5 7.5h11v9h-11zM14.5 10.5h3.5l2.5 3v3h-6z"></path>
+              <circle cx="7" cy="18" r="1.6"></circle>
+              <circle cx="17.5" cy="18" r="1.6"></circle>
+            </svg>
+            <span>
+              <strong>Pedido rastreado</strong>
+              <span>Código de rastreio por e-mail assim que a peça é postada.</span>
+            </span>
+          </li>
+          <li class="security__item">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true" focusable="false">
+              <path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9Z"></path>
+            </svg>
+            <span>
+              <strong>7 dias para desistir</strong>
+              <span>Direito de arrependimento previsto no
+                <a href="trocas.html">CDC, Art. 49</a>.</span>
+            </span>
+          </li>
+        </ul>
+
+        <!-- Formas de pagamento e selos: ilustrativos, ver aviso abaixo -->
+        <div class="security__bands">
+          <div class="pay">
+            <h3 class="security__subtitle">Formas de pagamento</h3>
+            <ul class="pay__list">
+              <!-- Só o que a empresa confirmou: o gateway Mercado Pago e os três
+                   meios de pagamento ativos (boleto incluído em 16/10/2026).
+                   Bandeiras de cartão entram aqui quando estiverem ativas na
+                   conta do gateway. -->
+              <li class="pay__chip">Mercado Pago</li>
+              <li class="pay__chip">Pix</li>
+              <li class="pay__chip">Cartão de crédito</li>
+              <li class="pay__chip">Boleto bancário</li>
+            </ul>
+          </div>
+
+          <div class="seals">
+            <h3 class="security__subtitle">Segurança</h3>
+            <ul class="seals__list">
+              <li class="seal">
+                <span class="seal__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.4" focusable="false">
+                    <rect x="4.5" y="10" width="15" height="10" rx="1.6"></rect>
+                    <path d="M8 10V7.5a4 4 0 0 1 8 0V10M12 14v2.5"></path>
+                  </svg>
+                </span>
+                <span class="seal__text">
+                  <strong class="seal__title">Site seguro</strong>
+                  <span class="seal__sub">SSL 256 bits</span>
+                </span>
+              </li>
+              <li class="seal">
+                <span class="seal__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.4" focusable="false">
+                    <path d="M12 3.5 5 6v6c0 4 3 7 7 8.5 4-1.5 7-4.5 7-8.5V6l-7-2.5Z"></path>
+                    <path d="M9 12.2l2.2 2.3L15.5 10"></path>
+                  </svg>
+                </span>
+                <span class="seal__text">
+                  <strong class="seal__title">Navegação verificada</strong>
+                  <span class="seal__sub">Sem páginas suspeitas</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="security__note">
+          Durante o protótipo, esta faixa é demonstrativa. O gateway da loja é o
+          Mercado Pago; bandeiras, selos e certificados oficiais entram neste
+          lugar no go-live, quando o certificado de segurança estiver ativo e as
+          bandeiras estiverem habilitadas na conta do gateway.
+          <span class="placeholder">[CONFERIR no go-live]</span>
         </p>
       </section>
 
       <div class="site-footer__bottom">
-        <p class="site-footer__copy">© 2026 Iara Costa. Todos os direitos reservados.</p>
-        <p class="site-footer__copy">Preços e condições válidos para compras neste site.</p>
+        <div>
+          <p class="site-footer__copy">
+            © 2026 Iara Costa. Todos os direitos reservados.
+          </p>
+          <p class="site-footer__copy">
+            Iara Costa Moda Feminina LTDA · CNPJ 12.345.678/0001-90 ·
+            Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000
+          </p>
+        </div>
+
+        <ul class="site-footer__meta">
+          <li><a href="privacidade.html">Política de privacidade</a></li>
+          <li><a href="termos.html">Termos de uso</a></li>
+          <li><a href="trocas.html">Trocas e devoluções</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+        </ul>
       </div>
 
     </div>
   </footer>
 
   <!-- Botão flutuante de WhatsApp: no Elementor usar Floating Elements (ver 7.10).
-       Número [PREENCHER]; aqui fica ilustrativo e sem link real. -->
+       Número (15) 99123-4567; no protótipo o botão fica ilustrativo e sem link
+       real, porque a conversa só faz sentido com o atendimento montado. -->
   <div class="whats-float" aria-hidden="true">
     <span class="whats-float__label">WhatsApp</span>
-    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
       <path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 0 1 0 16.4 8.1 8.1 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8Zm-3 4c-.2 0-.5.1-.7.3-.3.3-.8.9-.8 1.8s.6 1.9 1.5 3c.9 1.1 2 1.9 3.3 2.3 1 .3 1.6.2 2.1 0 .6-.3 1.1-.9 1.2-1.3.1-.4.1-.7 0-.8l-1.7-.8c-.2-.1-.4 0-.6.2l-.5.6c-.1.2-.3.2-.5.1-.5-.2-1.3-.7-1.9-1.5-.4-.5-.6-.9-.7-1.1 0-.2 0-.3.1-.4l.4-.5c.1-.2.2-.3.1-.5l-.7-1.6c-.2-.4-.3-.4-.5-.4h-.1Z"></path>
     </svg>
   </div>

@@ -5,156 +5,163 @@
    ========================================================================= */
 
 /* ============================================================== HOME (E1) */
-.hero {
+/* HERO · texto à esquerda, imagem à direita. A imagem é a candidata a LCP:
+   carrega primeiro (fetchpriority), sem lazy, com width/height declarados. */
+.hero { padding-block: clamp(24px, 4vw, 48px); }
+
+.hero__inner {
   display: grid;
-  gap: clamp(20px, 4vw, 32px);
-  padding-block: clamp(28px, 5vw, 64px);
+  gap: clamp(24px, 4vw, 40px);
+  align-items: center;
 }
 
 @media (min-width: 1021px) {
-  .hero { grid-template-columns: 1fr 1.1fr; align-items: center; gap: clamp(32px, 5vw, 72px); }
+  .hero__inner { grid-template-columns: 1fr 1.05fr; gap: clamp(32px, 5vw, 72px); }
 }
 
-.hero__title { margin-bottom: 16px; }
+.hero__title {
+  font-size: var(--fs-display);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
 
-.hero__lead { font-size: var(--fs-body); color: var(--iara-ink-soft); max-width: 46ch; margin-bottom: 24px; }
+.hero__title em { font-style: italic; color: var(--iara-accent-dark); }
+
+.hero__lead { font-size: var(--fs-body); color: var(--iara-ink-soft); max-width: 48ch; margin-bottom: 28px; }
 
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
-.hero__note { margin-top: 18px; font-size: var(--fs-small); color: var(--iara-ink-soft); }
+.hero__meta {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 28px 0 0;
+  padding: 0;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+}
+
+.hero__meta li { position: relative; }
+
+.hero__meta li + li::before {
+  content: "·";
+  position: absolute;
+  left: -12px;
+  color: var(--iara-accent-soft);
+}
+
+/* Hero (v0.1.18). A foto entra em 1:1, quadrada, com corte centralizado.
+   A cliente pediu em 16/10/2026 para reduzir a imagem e deixar quadrada, para
+   o hero nao esticar na vertical (a foto original e 768x1376, bem alta). O
+   enquadramento central foi conferido com a foto real: mantem o rosto e a peca
+   no quadro. Quando a foto definitiva chegar em 1:1, nao ha corte nenhum. */
+.hero__media { margin: 0; position: relative; }
 
 .hero__media img {
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: auto;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
+  object-position: center 50%;
+  border: 1px solid var(--iara-hairline);
+}
+
+/* Em tela grande a imagem fica com no maximo 560px, alinhada a direita, para
+   o hero nao crescer demais em altura. */
+@media (min-width: 1021px) {
+  .hero__media { max-width: 560px; justify-self: end; }
+}
+
+/* Selo sobre a foto, no canto inferior direito, como no zip: fundo de papel,
+   borda fina, numeral 01 em linha propria e a descricao em duas ou tres
+   linhas (max-width 220px, igual ao template aprovado). */
+.hero__stamp {
+  position: absolute;
+  right: var(--iara-space-4);
+  bottom: var(--iara-space-4);
+  max-width: 220px;
+  padding: var(--iara-space-3) var(--iara-space-4);
+  background: var(--iara-paper);
   border: 1px solid var(--iara-line);
-  border-radius: var(--iara-radius);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--iara-ink-soft);
 }
 
-@media (min-width: 721px) { .hero__media img { aspect-ratio: 3 / 2; } }
-@media (min-width: 1021px) { .hero__media img { aspect-ratio: 5 / 4; } }
+.hero__stamp .index-number { display: block; margin-bottom: 2px; }
 
-/* Faixa de serviços: frete, trocas, atendimento */
-.services {
-  border-block: 1px solid var(--iara-hairline);
-  background: var(--iara-hover-soft);
+/* No celular o selo desce para baixo da foto, para nao cobrir a modelo. */
+@media (max-width: 720px) {
+  .hero__stamp { position: static; max-width: none; margin-top: var(--iara-space-3); }
 }
-
-.services__list {
-  list-style: none;
-  margin: 0; padding: 20px 0;
-  display: grid;
-  gap: 16px;
-}
-
-@media (min-width: 721px) { .services__list { grid-template-columns: repeat(3, 1fr); } }
-
-.services__item { display: flex; gap: 12px; align-items: flex-start; }
-
-.services__icon { flex: 0 0 auto; color: var(--iara-accent); margin-top: 2px; }
-
-.services__title { margin: 0 0 2px; font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
-
-.services__text { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
-
-/* Categorias */
-.category-grid {
-  list-style: none;
-  margin: 0; padding: 0;
-  display: grid;
-  gap: var(--iara-gap);
-  grid-template-columns: repeat(2, 1fr);
-}
-
-@media (min-width: 1021px) { .category-grid { grid-template-columns: repeat(4, 1fr); } }
-
-.category-card { position: relative; display: block; text-decoration: none; }
-
-.category-card__media { aspect-ratio: 4 / 5; overflow: hidden; border: 1px solid var(--iara-hairline); border-radius: var(--iara-radius); }
-.category-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
-.category-card:hover .category-card__media img { transform: scale(1.03); }
-
-.category-card__label {
-  margin: 12px 0 0;
-  font-size: var(--fs-body);
-  color: var(--iara-ink);
-}
-
-.category-card__count { margin: 2px 0 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
-
-@media (prefers-reduced-motion: reduce) {
-  .category-card:hover .category-card__media img { transform: none; }
-}
-
-/* Bloco editorial numerado */
-.editorial { display: grid; gap: clamp(24px, 4vw, 48px); }
-
-@media (min-width: 1021px) { .editorial { grid-template-columns: 1fr 1fr; align-items: center; } }
-
-.editorial__media img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border: 1px solid var(--iara-line); border-radius: var(--iara-radius); }
-
-.steps { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 20px; }
-
-.steps__item { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; }
-
-.steps__num { font-size: var(--fs-small); letter-spacing: 0.2em; color: var(--iara-index); }
-
-.steps__title { margin: 0 0 4px; font-size: var(--fs-body); font-weight: 600; }
-.steps__text { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
-
-/* Depoimentos */
-.quotes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--iara-gap); }
-
-@media (min-width: 1021px) { .quotes { grid-template-columns: repeat(3, 1fr); } }
-
-.quote {
-  border: 1px solid var(--iara-line);
-  border-radius: var(--iara-radius);
-  background: var(--iara-white);
-  padding: clamp(20px, 3vw, 28px);
-}
-
-.quote__text { font-family: var(--iara-font-display); font-size: var(--fs-heading); line-height: 1.4; margin-bottom: 12px; }
-.quote__author { font-size: var(--fs-small); color: var(--iara-ink-soft); margin: 0; }
 
 /* Faixa de destaque (banner + CTA) */
-.promo {
-  background: var(--iara-sage);
-  color: var(--iara-announcement-ink);
-  padding: clamp(28px, 5vw, 56px);
-  border-radius: var(--iara-radius);
-  text-align: center;
-}
-
-.promo h2 { color: var(--iara-announcement-ink); }
-.promo .eyebrow { color: var(--iara-accent-soft); }
-.promo p { color: var(--iara-announcement-ink); opacity: 0.92; margin-inline: auto; max-width: 52ch; }
-.promo .btn--primary { background: var(--iara-paper); color: var(--iara-accent-dark); margin-top: 20px; }
-.promo .btn--primary:hover { background: var(--iara-accent-soft); color: var(--iara-ink); }
-
 /* Cards do blog */
+/* Cartões do diário.
+   v0.1.3 — ajuste pedido pela cliente (imagem 3): as fotos e os textos
+   ficavam soltos na página e o bloco seguinte parecia invadir a seção. Agora
+   cada post é um cartão fechado: foto em cima, texto embaixo, fundo de papel
+   e borda fina. Ficou mais fácil de ler e o fim da seção fica evidente. */
 .post-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--iara-gap); }
 @media (min-width: 721px) { .post-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1021px) { .post-grid { grid-template-columns: repeat(3, 1fr); } }
 
-.post-card__media { aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--iara-hairline); border-radius: var(--iara-radius); }
-.post-card__media img { width: 100%; height: 100%; object-fit: cover; }
-.post-card__eyebrow { margin: 14px 0 6px; font-size: var(--fs-micro); letter-spacing: 0.14em; text-transform: uppercase; color: var(--iara-ink-soft); }
-.post-card__title { font-size: var(--fs-heading); font-family: var(--iara-font-display); margin-bottom: 8px; }
-.post-card__title a { color: var(--iara-ink); text-decoration: none; }
-.post-card__title a:hover { color: var(--iara-accent-dark); }
-.post-card__excerpt { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
-
-/* ============================================================== LOJA (E1) */
-.shop-toolbar {
-  display: grid;
-  gap: 16px;
-  padding-block: 20px;
-  border-bottom: 1px solid var(--iara-hairline);
+.post-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--iara-paper);
+  border: 1px solid var(--iara-line);
+  overflow: hidden;
 }
 
+/* A altura da foto é calculada pela largura (75% dela). Assim a caixa nasce
+   com a altura certa e nenhuma imagem consegue empurrar o que vem depois. */
+.post-card__media {
+  display: block;
+  position: relative;
+  padding-top: 75%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--iara-hairline);
+  background: var(--iara-hover-soft);
+}
+
+.post-card__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+.post-card:hover .post-card__media img { transform: scale(1.02); }
+
+@media (prefers-reduced-motion: reduce) {
+  .post-card:hover .post-card__media img { transform: none; }
+}
+
+.post-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 8px;
+  padding: clamp(20px, 2.4vw, 28px);
+}
+
+.post-card__eyebrow { margin: 0; font-size: var(--fs-micro); letter-spacing: 0.14em; text-transform: uppercase; color: var(--iara-ink-soft); }
+.post-card__title { font-size: var(--fs-heading); font-family: var(--iara-font-display); margin: 0; }
+.post-card__title a { color: var(--iara-ink); text-decoration: none; }
+.post-card__title a:hover { color: var(--iara-accent-dark); }
+.post-card__excerpt { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); max-width: 46ch; }
+.post-byline { margin: 0; font-size: var(--fs-micro); color: var(--iara-ink-soft); }
+
+/* ============================================================== LOJA (E1) */
+
 @media (min-width: 1021px) {
-  .shop-toolbar { grid-template-columns: 1fr auto; align-items: end; }
 }
 
 .filter-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; }
@@ -181,23 +188,6 @@
   border-color: var(--iara-ink);
   color: var(--iara-paper);
 }
-
-.shop-sort { display: flex; align-items: center; gap: 10px; }
-
-.shop-sort label { font-size: var(--fs-small); color: var(--iara-ink-soft); }
-
-.shop-sort select {
-  min-height: 44px;
-  padding: 0 10px;
-  border: 1px solid var(--iara-line);
-  border-radius: var(--iara-radius);
-  background: var(--iara-white);
-  color: var(--iara-ink);
-  font-family: var(--iara-font-ui);
-  font-size: var(--fs-small);
-}
-
-.shop-count { padding-block: 16px; font-size: var(--fs-small); color: var(--iara-ink-soft); }
 
 .is-hidden { display: none !important; }
 
@@ -341,6 +331,23 @@
 .stock-dot--low { background: var(--iara-accent); }
 .stock-dot--out { background: var(--iara-ink-soft); }
 
+/* Lista dos três estados de estoque (referência na página de produto). */
+.stock-states {
+  list-style: none;
+  margin: var(--iara-space-4) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--iara-space-3);
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+}
+
+.stock-states li { display: flex; align-items: center; gap: var(--iara-space-3); }
+
+/* Demonstração do estado de carregamento (esqueleto cinza). */
+.load-demo { display: grid; gap: var(--iara-space-4); max-width: 320px; }
+.load-demo .skeleton--line:first-child { margin-top: 0; }
+
 .assurance { list-style: none; margin: 20px 0 0; padding: 18px; border: 1px solid var(--iara-hairline); border-radius: var(--iara-radius); background: var(--iara-hover-soft); display: grid; gap: 10px; }
 
 .assurance li { display: flex; gap: 10px; font-size: var(--fs-small); color: var(--iara-ink-soft); }
@@ -349,24 +356,10 @@
 
 .tab-panel[hidden] { display: none; }
 
-.review { border-bottom: 1px solid var(--iara-hairline); padding-block: 18px; }
-
-.review__head { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 6px; }
-
-.review__author { font-weight: 600; font-size: var(--fs-small); margin: 0; }
-
-.review__date { font-size: var(--fs-micro); color: var(--iara-ink-soft); margin: 0; }
-
-.review__stars { color: var(--iara-accent); letter-spacing: 2px; font-size: var(--fs-small); }
-
-.review__body { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
-
 /* ======================================================= SACOLA/CHECKOUT */
-.cart-layout { display: grid; gap: clamp(24px, 4vw, 40px); }
+.cart-layout { display: grid; gap: clamp(24px, 4vw, 40px); align-items: start; }
 
 @media (min-width: 1021px) { .cart-layout { grid-template-columns: 1.5fr 1fr; align-items: start; } }
-
-.cart-table { width: 100%; border-collapse: collapse; }
 
 .cart-item { display: grid; grid-template-columns: 88px 1fr; gap: 14px; padding-block: 18px; border-bottom: 1px solid var(--iara-hairline); }
 
@@ -385,27 +378,370 @@
   border-radius: var(--iara-radius);
   background: var(--iara-white);
   padding: clamp(20px, 3vw, 28px);
+  align-self: start;
   position: sticky;
-  top: 120px;
+  /* Fica preso logo abaixo do cabeçalho fixo enquanto a sacola rola. */
+  top: var(--iara-sticky-top);
+  /* Se o resumo for mais alto que a janela, ele rola por dentro em vez de
+     esconder o botão de finalizar. */
+  max-height: calc(100vh - var(--iara-sticky-top) - var(--iara-space-4));
+  max-height: calc(100dvh - var(--iara-sticky-top) - var(--iara-space-4));
+  overflow: auto;
+  overscroll-behavior: contain;
 }
 
 .summary__title { font-size: var(--fs-heading); font-family: var(--iara-font-display); margin-bottom: 16px; }
 
-.summary__row { display: flex; justify-content: space-between; gap: 16px; padding-block: 10px; font-size: var(--fs-small); border-bottom: 1px solid var(--iara-hairline); }
+.summary__row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-block: 10px; font-size: var(--fs-small); border-bottom: 1px solid var(--iara-hairline); }
+
+/* Os valores formam uma coluna: o dígito ocupa sempre a mesma largura, então
+   R$ 974,00 e R$ 15,00 terminam exatamente na mesma linha vertical. */
+.summary__row > :last-child,
+.shipping-options li > :last-child { text-align: right; font-variant-numeric: tabular-nums; }
 
 .summary__row--total { font-size: var(--fs-body); font-weight: 600; border-bottom: 0; padding-top: 16px; }
 
 .summary__note { font-size: var(--fs-micro); color: var(--iara-ink-soft); margin: 14px 0 0; }
 
-.coupon { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 18px; }
-.coupon .field { flex: 1; margin-bottom: 0; }
+/* Campo + botão na mesma linha de base: o botão acompanha a base do campo,
+   sem margem calculada à mão (era o que desalinhava o APLICAR e o CALCULAR). */
+.coupon {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--iara-space-2);
+  margin-bottom: 18px;
+}
+.coupon .field { margin-bottom: 0; }
+.coupon .btn { height: 44px; padding-block: 0; }
 
-.shipping-options { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.shipping-options { list-style: none; margin: var(--iara-space-3) 0 0; padding: 0; display: grid; gap: 10px; }
 
 .shipping-options li { display: flex; justify-content: space-between; gap: 12px; font-size: var(--fs-small); color: var(--iara-ink-soft); }
 
+/* --------------------------------------------- CARTÕES DE OPÇÃO (v0.1.13)
+   Padrão pedido pela cliente a partir do template: cada forma de envio e cada
+   forma de pagamento vira um cartão com rádio, título, linha de apoio e valor à
+   direita. A opção escolhida ganha fundo Hover Soft e borda Terracota.
+
+   A marcação é um <label> em volta do rádio, então clicar em qualquer ponto do
+   cartão escolhe a opção: alvo de toque grande, como pede o requisito 7.6.
+   A escolha nunca depende só da cor: o rádio continua marcado e o valor muda de
+   texto conforme a forma de pagamento. */
+
+.choice-list {
+  list-style: none;
+  margin: 0 0 var(--iara-space-4);
+  padding: 0;
+  display: grid;
+  gap: var(--iara-space-3);
+}
+
+.choice {
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  gap: var(--iara-space-4);
+  align-items: start;
+  padding: 16px 18px;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-white);
+  cursor: pointer;
+}
+
+.choice:has(.choice__input:checked),
+.choice.is-selected { background: var(--iara-hover-soft); border-color: var(--iara-accent); }
+
+.choice__input {
+  width: 20px;
+  height: 20px;
+  margin: 2px 0 0;
+  accent-color: var(--iara-accent);
+  flex: 0 0 auto;
+}
+
+.choice__body { min-width: 0; }
+
+.choice__title {
+  display: block;
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--iara-ink);
+}
+
+.choice__meta {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--iara-ink-soft);
+}
+
+.choice__price {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* Etiqueta do desconto no Pix (5% off), como no template. */
+.choice__tag {
+  display: inline-block;
+  margin-left: var(--iara-space-2);
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--iara-accent-soft);
+  color: var(--iara-accent-dark);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+/* No celular o valor desce para a linha de baixo, alinhado ao título. */
+@media (max-width: 720px) {
+  .choice { grid-template-columns: 20px 1fr; gap: var(--iara-space-3); }
+  .choice__price { grid-column: 2; text-align: left; }
+}
+
+/* ----------------------------------------- DADOS DO CARTÃO (v0.1.13)
+   Bloco que aparece embaixo dos cartões de pagamento só quando o cartão de
+   crédito é a forma escolhida, como no template.
+
+   Decisão do projeto: o protótipo NÃO coleta dado de cartão. Os campos abaixo
+   são demonstração visual, não têm atributo name (nada é enviado no envio do
+   formulário) e não são gravados em lugar nenhum. No site publicado quem
+   desenha estes campos é o Mercado Pago, na página segura dele. */
+
+.card-fields {
+  margin: var(--iara-space-3) 0 var(--iara-space-4);
+  padding: 18px;
+  border: 1px solid var(--iara-hairline);
+  border-radius: var(--iara-radius);
+  background: var(--iara-paper);
+}
+
+.card-fields[hidden] { display: none; }
+
+.card-fields__title {
+  font-family: var(--iara-font-ui);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 var(--iara-space-2);
+}
+
 /* ======================================================== BLOG E CONTEÚDO */
-.post-header { padding-block: clamp(24px, 4vw, 48px); max-width: 72ch; }
+/* --------------------------------------------------------------------------
+   ARTIGO DO DIÁRIO (v0.1.14)
+   Layout novo, no lugar do cabeçalho centralizado com a foto embaixo:
+   capa em duas colunas (texto e foto), índice que acompanha a leitura, barra
+   fina de progresso e fecho com etiquetas, compartilhamento e autoria.
+   -------------------------------------------------------------------------- */
+
+/* 1. CAPA: texto à esquerda, foto à direita */
+.post-hero {
+  display: grid;
+  gap: clamp(24px, 3vw, 48px);
+  padding-block: clamp(20px, 3vw, 40px) clamp(24px, 4vw, 48px);
+  align-items: end;
+}
+
+@media (min-width: 1021px) {
+  .post-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }
+}
+
+.post-hero__title {
+  font-size: clamp(28px, 3.4vw, var(--fs-display));
+  line-height: 1.12;
+  letter-spacing: 0.02em;
+  margin: 0 0 var(--iara-space-4);
+}
+
+.post-hero .lead { margin-bottom: var(--iara-space-5); }
+
+.post-hero__text { min-width: 0; }
+
+.post-hero__media { margin: 0; }
+
+/* 2. BARRA DE PROGRESSO: acompanha a altura do artigo */
+.post-progress {
+  position: sticky;
+  top: var(--iara-scroll-padding);
+  z-index: 5;
+  height: 2px;
+  background: var(--iara-hairline);
+  margin-bottom: clamp(24px, 3vw, 40px);
+}
+
+.post-progress[hidden] { display: none; }
+
+.post-progress__fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--iara-accent);
+}
+
+/* 3. CORPO: índice à esquerda, texto à direita */
+.post-body { display: grid; gap: clamp(24px, 3vw, 48px); }
+
+@media (min-width: 1021px) {
+  .post-body { grid-template-columns: 220px minmax(0, 1fr); align-items: start; }
+}
+
+.post-index {
+  border-top: 2px solid var(--iara-ink);
+  padding-top: var(--iara-space-4);
+}
+
+@media (min-width: 1021px) {
+  .post-index {
+    position: sticky;
+    top: var(--iara-sticky-top);
+    max-height: calc(100dvh - var(--iara-sticky-top) - var(--iara-space-4));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+.post-index__title {
+  margin: 0 0 var(--iara-space-3);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--iara-ink);
+}
+
+.post-index__list {
+  list-style: none;
+  margin: 0 0 var(--iara-space-5);
+  padding: 0;
+  display: grid;
+  gap: 2px;
+  counter-reset: indice;
+}
+
+.post-index__list a {
+  display: block;
+  padding: 8px 0 8px 30px;
+  position: relative;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+  text-decoration: none;
+  line-height: 1.4;
+  counter-increment: indice;
+}
+
+.post-index__list a::before {
+  content: counter(indice, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 9px;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.08em;
+  color: var(--iara-index);
+}
+
+.post-index__list a:hover { color: var(--iara-ink); }
+
+.post-index__list a[aria-current="true"] {
+  color: var(--iara-accent-dark);
+  font-weight: 600;
+}
+
+.post-index__list a[aria-current="true"]::before { color: var(--iara-accent-dark); }
+
+.post-index__link {
+  display: inline-block;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--iara-accent-dark);
+}
+
+/* 4. TEXTO: medida de leitura confortável */
+.post-text { max-width: 72ch; }
+
+.post-text .prose > h2 { margin-top: clamp(32px, 4vw, 48px); }
+
+.post-text .prose > h2:first-child { margin-top: 0; }
+
+/* Citação grande, que dá respiro no meio do texto */
+.pull-quote {
+  margin: clamp(28px, 3.5vw, 40px) 0;
+  padding: clamp(20px, 2.5vw, 28px) 0 clamp(20px, 2.5vw, 28px) clamp(20px, 3vw, 32px);
+  border-left: 2px solid var(--iara-accent-soft);
+}
+
+.pull-quote p {
+  margin: 0;
+  font-family: var(--iara-font-display);
+  font-size: clamp(20px, 2vw, 24px);
+  line-height: 1.35;
+  color: var(--iara-ink);
+}
+
+/* Caixa de chamada, para o convite do guia de medidas */
+.post-callout {
+  display: grid;
+  gap: var(--iara-space-3);
+  justify-items: start;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-hover-soft);
+  padding: clamp(20px, 2.5vw, 28px);
+  margin: clamp(28px, 3.5vw, 40px) 0;
+}
+
+.post-callout__title {
+  margin: 0;
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-heading);
+}
+
+.post-callout p { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
+
+/* 5. FECHO: etiquetas, compartilhar e autoria */
+.post-foot {
+  display: grid;
+  gap: var(--iara-space-6);
+  margin-top: clamp(32px, 4vw, 48px);
+  padding-top: var(--iara-space-5);
+  border-top: 1px solid var(--iara-hairline);
+}
+
+.post-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; }
+
+.post-tags a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--iara-line);
+  border-radius: 999px;
+  background: var(--iara-white);
+  color: var(--iara-ink-soft);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.post-tags a:hover { border-color: var(--iara-accent); color: var(--iara-accent-dark); }
+
+.post-share { min-width: 0; }
+
+.post-foot .post-index__title { margin-bottom: var(--iara-space-3); }
+
+.post-foot .share { margin: 0; }
+
+.author-box__name { margin: 0 0 4px; font-family: var(--iara-font-display); font-size: var(--fs-heading); }
+
+.author-box__bio { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
 
 .post-meta { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: var(--fs-small); color: var(--iara-ink-soft); margin-bottom: 18px; }
 
@@ -451,17 +787,139 @@
 
 .info-box h2 { font-size: var(--fs-heading); }
 
-.lookbook-grid { display: grid; gap: var(--iara-gap); }
+/* ------------------------------------------------- 05. COLEÇÃO (CAPÍTULOS) */
+/* v0.1.16 — a página da coleção passou a seguir o zip: capa centralizada com
+   as fichas de informação e três capítulos, cada um com uma foto grande de um
+   lado, o texto e duas peças do outro. O capítulo do meio inverte os lados.
+   Abaixo de 1021px a foto vai para cima e o texto desce. */
 
-@media (min-width: 721px) { .lookbook-grid { grid-template-columns: repeat(2, 1fr); } }
+.look-hero {
+  background: var(--iara-hover-soft);
+  border-bottom: 1px solid var(--iara-hairline);
+  padding-block: clamp(28px, 4vw, 56px);
+  text-align: center;
+}
 
-.look-item { position: relative; border: 1px solid var(--iara-hairline); border-radius: var(--iara-radius); overflow: hidden; }
+.look-hero .breadcrumbs { justify-content: center; padding-block: 0; margin-bottom: clamp(16px, 2.2vw, 24px); }
 
-.look-item img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.look-hero__title {
+  font-size: var(--fs-display);
+  line-height: 1.1;
+  letter-spacing: 0.105em;
+  margin: 0 0 var(--iara-space-3);
+  text-wrap: balance;
+}
 
-.look-item__body { padding: 16px 0 0; }
+.look-hero__lead { margin: 0 auto; max-width: 62ch; }
 
-.look-item__tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; padding: 0; }
+.look-hero__chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: var(--iara-space-5) 0 0;
+  padding: 0;
+}
+
+.chip {
+  display: inline-block;
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+  background: var(--iara-paper);
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  padding: 7px 12px;
+}
+
+.chapter {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(24px, 3.4vw, 56px);
+  align-items: center;
+  padding-block: clamp(32px, 5vw, 72px);
+  border-bottom: 1px solid var(--iara-hairline);
+}
+
+.chapter:last-of-type { border-bottom: 0; }
+
+.chapter--reverse > :first-child { order: 2; }
+
+.chapter__media {
+  margin: 0;
+  border: 1px solid var(--iara-hairline);
+  border-radius: var(--iara-radius);
+  background: var(--iara-hover-soft);
+  overflow: hidden;
+}
+
+.chapter__media img { display: block; width: 100%; height: auto; }
+
+/* A coluna de texto pode encolher sem estourar a grade (a foto é larga). */
+.chapter__text { min-width: 0; }
+
+.chapter__eyebrow {
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+  margin: 0 0 10px;
+}
+
+.chapter__eyebrow .index-number { color: var(--iara-accent-dark); }
+
+.chapter__title {
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-display);
+  line-height: 1.15;
+  margin: 0 0 var(--iara-space-3);
+  text-wrap: balance;
+}
+
+.chapter__products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--iara-gap);
+  margin-top: var(--iara-space-5);
+}
+
+.chapter__cta { margin: var(--iara-space-5) 0 0; }
+
+/* Link de ação com seta (o "Comprar o capítulo" do zip). */
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--iara-accent-dark);
+  text-decoration: none;
+  border-bottom: 1px solid var(--iara-line);
+  padding-bottom: 4px;
+  transition: color var(--iara-transition), border-color var(--iara-transition);
+}
+
+.action-link:hover,
+.action-link:focus-visible { color: var(--iara-accent); border-color: var(--iara-accent); }
+
+@media (prefers-reduced-motion: reduce) { .action-link { transition: none; } }
+
+.chapter-specs { padding-block: clamp(28px, 4vw, 48px); }
+
+@media (max-width: 1020px) {
+  .chapter { grid-template-columns: 1fr; }
+  .chapter--reverse > :first-child { order: 0; }
+}
+
+@media (max-width: 390px) {
+  .chapter__products { grid-template-columns: 1fr; }
+}
 
 .anchor-nav { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 0 0 28px; padding: 0; font-size: var(--fs-small); }
 
@@ -475,19 +933,14 @@
   color: var(--iara-ink-soft);
 }
 
-.shop-note { padding-block: 28px; }
-
 /* Cores das amostras de produto (não são cores da marca: são as cores das peças) */
 .sw-terracota { background: #a45f43; }
 .sw-offwhite  { background: #fffdf9; }
 .sw-preto     { background: #2d2925; }
 .sw-salvia    { background: #546858; }
 .sw-areia     { background: #e4cbb5; }
-.sw-carvalho  { background: #9c8d7e; }
-.sw-branco    { background: #ffffff; }
-.sw-azul      { background: #7d93a8; }
-.sw-caramelo  { background: #b07a4f; }
-.sw-cinza     { background: #8c8880; }
+.sw-carvao    { background: #9c8d7e; }
+.sw-cru       { background: #eee9e1; }
 
 /* =====================================================================
    PARTE 2/3 · SACOLA, CHECKOUT, PEDIDO, CONTA, DESEJOS, BUSCA, BLOG, 404
@@ -543,24 +996,8 @@
 .account-content > section { margin-bottom: clamp(32px, 5vw, 56px); }
 .account-content > section:last-child { margin-bottom: 0; }
 
-.account-cards { display: grid; gap: var(--iara-gap); margin-top: 20px; }
-
-@media (min-width: 721px) { .account-cards { grid-template-columns: repeat(3, 1fr); } }
-
-.account-card {
-  display: block;
-  border: 1px solid var(--iara-line);
-  border-radius: var(--iara-radius);
-  background: var(--iara-white);
-  padding: 20px;
-  text-decoration: none;
-}
-
-.account-card:hover { border-color: var(--iara-accent); background: var(--iara-hover-soft); }
-
-.account-card__title { display: block; font-size: var(--fs-body); color: var(--iara-ink); margin-bottom: 4px; }
-
-.account-card__text { display: block; font-size: var(--fs-small); color: var(--iara-ink-soft); }
+/* v0.1.9 — os cartões de atalho da conta saíram: os pedidos viraram tabela,
+   como na imagem de referência, e o resto ficou na navegação lateral. */
 
 .order-card {
   border: 1px solid var(--iara-line);
@@ -568,15 +1005,6 @@
   background: var(--iara-white);
   padding: 18px 20px;
   margin-bottom: 14px;
-}
-
-.order-card__head {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 8px;
 }
 
 .order-card__number { margin: 0; font-size: var(--fs-body); font-weight: 600; }
@@ -612,23 +1040,6 @@ mark {
 .post-feature__title a:hover { color: var(--iara-accent-dark); }
 
 .post-byline { font-size: var(--fs-small); color: var(--iara-ink-soft); margin: 10px 0 0; }
-
-.post-layout { display: grid; gap: clamp(24px, 4vw, 56px); padding-block: clamp(24px, 4vw, 40px); }
-
-@media (min-width: 1021px) { .post-layout { grid-template-columns: 1fr 320px; align-items: start; } }
-
-.post-aside { border-left: 1px solid var(--iara-hairline); padding-left: 24px; }
-
-@media (max-width: 1020px) { .post-aside { border-left: 0; border-top: 1px solid var(--iara-hairline); padding-left: 0; padding-top: 24px; } }
-
-.post-aside__title {
-  font-family: var(--iara-font-ui);
-  font-size: var(--fs-micro);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--iara-ink-soft);
-  margin-bottom: 12px;
-}
 
 .pagination {
   display: flex;
@@ -719,15 +1130,6 @@ mark {
 
 .measure-diagram { margin-top: 32px; }
 
-/* ---------------------------------------------------------------- LOOKBOOK */
-.look-item .post-card__title { font-size: var(--fs-heading); margin-bottom: 8px; }
-
-.look-item__tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; }
-
-.look-item__tags .pill { text-decoration: none; }
-
-.look-item__tags .pill:hover { border-color: var(--iara-accent); color: var(--iara-accent-dark); }
-
 /* -------------------------------------------------------- BANNER DE COOKIES */
 .cookie-bar {
   display: grid;
@@ -751,7 +1153,488 @@ mark {
 .cookie-bar__actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* Utilitários */
-.mt-0 { margin-top: 0; }
 .mb-0 { margin-bottom: 0; }
-.mb-24 { margin-bottom: 24px; }
 .text-center { text-align: center; }
+
+/* Passos do pedido (página de pedido recebido).
+   v0.1.5 — estas classes estavam sem estilo: a lista aparecia com o número do
+   navegador e o número escrito ao lado. Agora o número fica em serifa na
+   coluna da esquerda e o texto na direita, em três colunas no desktop. */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+
+@media (min-width: 721px) {
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--iara-gap); }
+}
+
+.steps__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: start;
+  padding-top: 18px;
+  border-top: 1px solid var(--iara-hairline);
+}
+
+.steps__num {
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-heading);
+  line-height: 1;
+  color: var(--iara-accent);
+}
+
+.steps__title { margin: 0 0 4px; font-size: var(--fs-body); font-weight: 600; }
+.steps__text { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
+
+/* =====================================================================
+   PARTE 4/4 · RENOVAÇÃO DAS PÁGINAS INTERNAS (v0.1.8)
+   A cliente achou as páginas internas pobres ("está ruim") e pediu uma
+   renovada usando o template do zip como referência. O que foi trazido de
+   lá: um índice de leitura na coluna da esquerda nas páginas longas, faixa
+   de números na página Sobre, passos numerados no guia de medidas e ritmo
+   de seção vindo do CSS em vez de margem escrita em cada arquivo.
+
+   Regra que não muda: nada de imagem, número, selo ou depoimento inventado.
+   Os números que aparecem na página Sobre saem de decisões já tomadas.
+   ===================================================================== */
+
+/* ------------------------------------------------- 01. RITMO ENTRE SEÇÕES */
+/* Antes cada seção carregava style="margin-top:48px" no HTML. Agora o
+   espaço entre uma seção e a seguinte vem daqui. Se um dia precisar de um
+   respiro diferente, use .section--tight, não margem inline. */
+.doc-body > section + section { margin-top: clamp(40px, 5vw, 64px); }
+
+/* O cabeçalho fixo tem cerca de 96px de altura. Sem isso, ao clicar num
+   atalho do índice o título da seção para atrás do cabeçalho. */
+[id] { scroll-margin-top: 120px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* ---------------------------------------- 02. COLUNA DE ÍNDICE + CONTEÚDO */
+/* Usada no FAQ e nas páginas longas (trocas, envio, legais, guia de medidas). */
+.doc-layout { display: grid; gap: clamp(28px, 4vw, 56px); }
+
+@media (min-width: 1021px) {
+  .doc-layout { grid-template-columns: 240px minmax(0, 1fr); align-items: start; }
+}
+
+.doc-index { border-left: 1px solid var(--iara-line); padding-left: 18px; }
+
+@media (min-width: 1021px) {
+  .doc-index { position: sticky; top: 120px; padding-block: 4px; }
+}
+
+.doc-index__title {
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--iara-accent-dark);
+  margin: 0 0 14px;
+}
+
+.doc-index ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+
+.doc-index a {
+  color: var(--iara-ink-soft);
+  text-decoration: none;
+  font-size: var(--fs-small);
+  line-height: 1.4;
+  display: block;
+}
+
+.doc-index a:hover { color: var(--iara-accent-dark); }
+
+/* Nas páginas legais o índice lista muitos títulos: a fonte fica menor. */
+.doc-index--long a { font-size: var(--fs-micro); }
+
+/* Dentro do corpo do documento o texto para em 72ch, igual ao resto do site. */
+.doc-body { min-width: 0; }
+.doc-body > section > h2:first-child { margin-top: 0; }
+
+/* ------------------------------------------------------ 03. PÁGINA SOBRE */
+/* Faixa de números. A linha de cima e a de baixo separam a faixa do texto
+   sem precisar de fundo colorido. */
+.facts {
+  list-style: none;
+  margin: clamp(32px, 4vw, 48px) 0;
+  padding: clamp(24px, 3vw, 34px) 0;
+  border-top: 1px solid var(--iara-line);
+  border-bottom: 1px solid var(--iara-line);
+  display: grid;
+  gap: 24px 32px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 721px) { .facts { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+.fact { display: flex; flex-direction: column; gap: 8px; }
+
+.fact__num {
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-display);
+  line-height: 1;
+  color: var(--iara-ink);
+}
+
+.fact__label { font-size: var(--fs-small); color: var(--iara-ink-soft); max-width: 22ch; }
+
+/* Frase de posicionamento. O fio em Terracota faz o papel das aspas sem
+   precisar de depoimento (depoimento inventado não entra no protótipo). */
+.pull {
+  margin: clamp(28px, 4vw, 44px) 0;
+  padding: 2px 0 2px clamp(18px, 2.4vw, 28px);
+  border-left: 2px solid var(--iara-accent);
+}
+
+.pull blockquote { margin: 0; }
+
+.pull p {
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-heading);
+  line-height: 1.45;
+  color: var(--iara-ink);
+  margin: 0;
+  max-width: 40ch;
+}
+
+/* ---------------------------------------------------- 04. GUIA DE MEDIDAS */
+/* Os três cartões já vinham numerados em 01/02/03: aqui o número cresce e a
+   ordem fica evidente, que é o padrão de passos do template. */
+.measure-card { display: flex; flex-direction: column; gap: 10px; }
+
+.measure-card .index-number {
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-h2);
+  line-height: 1;
+  color: var(--iara-accent);
+  margin: 0;
+}
+
+.measure-card h3 { margin: 0; }
+.measure-card p:last-child { margin: 0; }
+
+/* --------------------------------------------------------------- 05. BLOG */
+/* .post-feature__body existia no HTML sem nenhum estilo: o destaque ficava
+   colado na foto. Aqui a coluna de texto ganha respiro e alinhamento. */
+.post-feature__body { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+
+@media (min-width: 1021px) { .post-feature__body { padding-block: 8px; } }
+
+.post-feature__body .post-card__title { margin: 0; }
+
+
+/* ----------------------------------------- 07. ESPAÇO QUE VINHA DO HTML */
+/* Estes espaçamentos eram style="..." escrito dentro dos arquivos. Os primeiros
+   passaram para cá na v0.1.8; o resto veio na v0.1.11, quando o pente fino
+   encontrou 40 estilos escritos direto no HTML (e um deles estava mal formado:
+   <p margin-bottom:0">, que o navegador lê como atributo inválido).
+
+   Aqui a classe page-* do <body> finalmente serve para alguma coisa: ela diz de
+   qual tela é a regra, então ninguém precisa de marcador novo nem de classe
+   genérica. Os valores são os mesmos que estavam no HTML, para a tela não mudar
+   de lugar. Onde já existia respiro no componente, o estilo do HTML era
+   repetido e simplesmente saiu. */
+
+/* Aviso que abre uma seção (guia de medidas, lookbook). */
+.notice--lead { margin-bottom: clamp(24px, 3vw, 32px); }
+
+/* Lista de dentro do aviso (checklists das páginas legais). */
+.notice ul { margin: 10px 0 0; padding-left: 20px; }
+
+/* Título que vem depois de um bloco fechado: depois do formulário na Conta e
+   depois do estado vazio na Busca. */
+form + h3,
+.state + h3 { margin-top: clamp(24px, 3vw, 32px); }
+
+/* ---- Carrinho ---- */
+.page-cart .notice { margin-top: var(--iara-space-5); }
+.page-cart .state { margin-top: var(--iara-space-5); }
+/* Linha do resumo que empilha o conteúdo (a linha com o cálculo do frete). */
+.summary__row--stack { display: block; }
+.summary__row--stack .field__label { margin: 0 0 var(--iara-space-2); }
+.summary__row--stack .coupon { margin-bottom: 0; }
+
+/* Botão de fechar o pedido, separado do total. */
+.summary__action { margin: 18px 0 0; }
+
+/* Celular e tablet: uma coluna só, então nada de grudar nem de rolagem
+   interna no resumo. */
+@media (max-width: 1020px) {
+  .summary { position: static; max-height: none; overflow: visible; }
+}
+
+/* ---- Checkout ---- */
+.page-checkout .shipping-options { margin-bottom: 16px; }
+.page-checkout .notice--attention { margin-bottom: 18px; }
+.page-checkout .notice--error { margin-bottom: var(--iara-space-4); }
+.page-checkout .cart-item + .summary__row { margin-top: 14px; }
+
+/* Item de sacola em miniatura (resumo do checkout): foto de 64px em vez dos
+   88px do carrinho. O resto do componente já vinha do CSS. */
+.cart-item--compact { grid-template-columns: 64px 1fr; }
+.cart-item--compact .cart-item__media img { width: 64px; height: 64px; }
+
+/* ---- Pedido recebido ---- */
+.page-thankyou .state { margin-top: 32px; }
+.page-thankyou .list-check { margin-top: 32px; }
+
+/* ---- Diário e post ---- */
+.page-blog .notice { margin-top: var(--iara-space-5); }
+.page-post .author-box { margin-top: var(--iara-space-5); }
+.page-post .author-box .post-card__eyebrow { margin-bottom: var(--iara-space-1); }
+.page-post .info-box { margin-top: var(--iara-space-5); }
+
+/* Caixa de links dentro de um quadro de texto: título no corpo, não em 18px. */
+
+/* ---- Página 404 ---- */
+.page-404 .state__actions { justify-content: flex-start; margin-top: var(--iara-space-5); }
+.page-404 .state + h2 { margin-top: 48px; }
+.page-404 .link-cards + .muted-note { margin-top: 32px; }
+
+/* =====================================================================
+   PARTE 5/5 · CONTA, ATENDIMENTO E SOBRE (v0.1.9)
+   Pedido da cliente: adaptar a Minha conta às imagens 1 e 2, adaptar o
+   Contato às imagens 3, 4 e 5 (com bordas na coluna da direita, como os
+   depoimentos da home, e conferindo o fundo de cada seção) e ajustar a
+   página Sobre, com o primeiro bloco em texto à esquerda e imagem à
+   direita, mais uma seção de missão, visão e compromisso.
+
+   Regra que não muda: dado da empresa (endereço, telefone, e-mail, prazo)
+   continua marcado como [PREENCHER]/[A DEFINIR]. Nada foi inventado.
+   ===================================================================== */
+
+/* ------------------------------------------- 01. ENTRAR OU CRIAR CONTA */
+.auth-grid { display: grid; gap: var(--iara-gap); }
+
+@media (min-width: 1021px) {
+  .auth-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.auth-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-paper);
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.auth-card__title {
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-h2);
+  margin: 8px 0 8px;
+}
+
+.auth-card__note { font-size: var(--fs-small); color: var(--iara-ink-soft); margin: 0 0 22px; }
+.auth-card__note a { color: var(--iara-accent-dark); }
+
+/* O formulário ocupa o que sobra do cartão, então os dois botões ficam na
+   mesma linha de base mesmo quando um formulário tem mais campos. */
+.auth-form { display: grid; gap: 16px; margin-top: auto; }
+.auth-form .field__hint { margin-top: 6px; }
+.auth-form .checkbox { margin: 0; }
+
+/* ----------------------------------------------- 02. TABELA DE PEDIDOS */
+/* A tabela rola na horizontal em tela estreita em vez de espremer as colunas
+   (é o mesmo recurso usado nas tabelas das páginas legais). */
+.orders-table { min-width: 620px; }
+
+.orders-table th[scope="row"] { font-weight: 600; }
+.orders-table td,
+.orders-table tbody th { vertical-align: middle; }
+.orders-table .pill { white-space: nowrap; }
+
+.orders-table__actions { margin: 18px 0 0; }
+
+/* ------------------------------------------------- 03. ATELIÊ NO MAPA */
+.map-figure { margin: clamp(24px, 3vw, 36px) 0 0; }
+
+.map-figure__frame {
+  display: grid;
+  place-items: center;
+  gap: 14px;
+  aspect-ratio: 16 / 9;
+  padding: 24px;
+  border: 1px dashed var(--iara-line);
+  border-radius: var(--iara-radius);
+  text-align: center;
+  /* Fundo de grade: lembra um mapa sem fingir ser um. O mapa real do Google
+     entra aqui quando o endereço da empresa for confirmado. */
+  background:
+    linear-gradient(var(--iara-hairline) 1px, transparent 1px) 0 0 / 100% 46px,
+    linear-gradient(90deg, var(--iara-hairline) 1px, transparent 1px) 0 0 / 46px 100%,
+    var(--iara-hover-soft);
+}
+
+.map-figure__pin { width: 34px; height: 34px; color: var(--iara-accent-dark); }
+.map-figure__note { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); max-width: 40ch; }
+
+.map-figure figcaption {
+  margin-top: 12px;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+  max-width: 72ch;
+}
+
+/* -------------------------------------------------- 04. DÚVIDAS RÁPIDAS */
+/* Coluna estreita e centralizada, como na referência: pergunta e resposta
+   separadas por um fio, sem acordeão. */
+.container--narrow { max-width: 760px; }
+
+.qa-list { margin: 0; }
+
+.qa-list dt {
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-heading);
+  color: var(--iara-ink);
+  padding-top: 24px;
+}
+
+.qa-list dt:first-child { padding-top: 0; }
+
+.qa-list dd {
+  margin: 8px 0 0;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--iara-hairline);
+  color: var(--iara-ink-soft);
+}
+
+.qa-list dd a { color: var(--iara-accent-dark); }
+
+.qa-list__more { margin: 26px 0 0; }
+
+/* ------------------------------------------------------- 05. PÁGINA SOBRE */
+/* Primeiro bloco: texto à esquerda, imagem à direita. */
+.story { display: grid; gap: clamp(24px, 4vw, 48px); }
+
+@media (min-width: 1021px) {
+  .story { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); align-items: start; }
+}
+
+.story__text { min-width: 0; }
+
+.story__figure { margin: 0; }
+
+.story__figure img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+}
+
+.story__figure figcaption { font-size: var(--fs-small); color: var(--iara-ink-soft); margin-top: 10px; }
+
+/* Missão, visão e compromisso */
+.value-grid { display: grid; gap: var(--iara-gap); margin-top: clamp(24px, 3vw, 36px); }
+
+@media (min-width: 1021px) { .value-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.value-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-paper);
+  padding: clamp(22px, 3vw, 30px);
+}
+
+.value-card__label {
+  margin: 0;
+  /* O rótulo é um h3 no HTML, então a fonte e o peso vêm declarados aqui para
+     ele ficar igual às outras linhas de olho do site (Jost, em maiúsculas). */
+  font-family: var(--iara-font-ui);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--iara-accent-dark);
+}
+
+.value-card__text { margin: 0; color: var(--iara-ink); }
+
+/* O selo [PROPOSTA] fica sempre no pé do cartão, para ninguém publicar o
+   texto sem revisar. */
+.value-card__tag {
+  margin: auto 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--iara-hairline);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+}
+
+/* Faixa de fotos do ateliê */
+.gallery-strip {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 721px) { .gallery-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.gallery-strip figure { margin: 0; }
+
+.gallery-strip img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+}
+
+.gallery-strip figcaption { font-size: var(--fs-small); color: var(--iara-ink-soft); margin-top: 8px; }
+
+/* --------------------------------- 06. BARRA DA COLEÇÃO (CONTAGEM E ORDEM) */
+/* v0.1.10 — a contagem de peças saiu do cabeçalho e passou para a barra de
+   ferramentas da loja, ao lado da ordenação.
+   v0.1.15 — o recado de tamanhos e o guia de medidas subiram para a linha da
+   coleção, logo abaixo do fio, como no zip. */
+.shop__count {
+  margin: 0;
+  font-size: var(--fs-small);
+  color: var(--iara-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------ 07. ATENDIMENTO (CONTATO) */
+/* O formulário virou um quadro de papel, como os cartões de depoimento, e os
+   canais da direita também. A seção por trás é Hover Soft, então o papel
+   aparece: era isso que faltava para a coluna da direita não parecer texto
+   solto na página. */
+.contact-card {
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-paper);
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.contact-card h2 { margin-top: 0; }
+
+.form-required-note {
+  margin: 0 0 20px;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+}
+
+/* Os canais de atendimento continuam com borda, agora sobre papel. */
+.info-box { background: var(--iara-paper); margin-bottom: 16px; }
+.info-box:last-child { margin-bottom: 0; }
+.info-box h2 { margin-top: 0; }
+
+.info-box__links { margin: 10px 0 0; padding-left: 20px; font-size: var(--fs-small); }
+.info-box__links a { color: var(--iara-accent-dark); }
+
+/* Na faixa de frase o respiro vem da própria seção: a margem do bloco de
+   citação criaria um vão duplo. */
+.section--soft .pull { margin-block: 0; }
+
+/* A frase é curta, então o texto para antes da medida cheia. */
+.pull p { max-width: 42ch; }

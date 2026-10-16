@@ -1,36 +1,50 @@
-    <div class="container">
-      <nav class="breadcrumbs" aria-label="Você está aqui">
+    <div class="container page-head">
+      <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Contato</span></li>
         </ol>
       </nav>
+
+      <h1>Fale com a gente</h1>
     </div>
 
-    <div class="container page-head">
-      <div class="page-head__inner">
-        <h1>Fale com a gente</h1>
-        <p class="lead">
-          Dúvida de tamanho, prazo, troca ou pedido: escolha o canal que for
-          melhor para você. Quem responde é gente de verdade.
-        </p>
-      </div>
+    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
+         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <div class="container">
+      <p class="lead page-intro">
+        Dúvida de tamanho, prazo, troca ou pedido: escolha o canal que for melhor
+        para você. Quem responde é gente de verdade.
+      </p>
     </div>
 
-    <div class="container section--tight">
-      <div class="contact-layout">
 
-        <div>
-          <h2>Enviar mensagem</h2>
+    <!-- ====================================================================
+         ATENDIMENTO (v0.1.9)
+         Estrutura do template de referência: formulário à esquerda e canais de
+         atendimento à direita. A seção usa o fundo Hover Soft e os quadros são
+         de papel com borda, a mesma linguagem dos depoimentos da home.
+
+         Dados da empresa informados em 16/10/2026 (razão social, CNPJ,
+         endereço, telefone, e-mail e prazo de
+         resposta e endereço são informação da cliente, não do protótipo.
+         ==================================================================== -->
+    <section class="section section--soft" aria-labelledby="contato-form-titulo">
+      <div class="container">
+        <div class="contact-layout">
+
+          <div class="contact-card">
+            <h2 id="contato-form-titulo">Envie uma mensagem</h2>
+            <p class="form-required-note">Campos com <span aria-hidden="true">*</span> são obrigatórios.</p>
 
           <form action="#" method="post" novalidate>
             <div class="form-row form-row--2">
               <div class="field">
-                <label class="field__label" for="ct-nome">Seu nome</label>
+                <label class="field__label" for="ct-nome">Seu nome <span aria-hidden="true">*</span></label>
                 <input class="field__input" id="ct-nome" name="nome" type="text" autocomplete="name" required>
               </div>
               <div class="field">
-                <label class="field__label" for="ct-email">Seu e-mail</label>
+                <label class="field__label" for="ct-email">Seu e-mail <span aria-hidden="true">*</span></label>
                 <input class="field__input" id="ct-email" name="email" type="email" autocomplete="email"
                        aria-describedby="ct-email-hint" required>
                 <p class="field__hint" id="ct-email-hint">Respondemos para este e-mail.</p>
@@ -53,7 +67,7 @@
             </div>
 
             <div class="field">
-              <label class="field__label" for="ct-assunto">Assunto</label>
+              <label class="field__label" for="ct-assunto">Assunto <span aria-hidden="true">*</span></label>
               <select class="field__select" id="ct-assunto" name="assunto" required>
                 <option value="">Escolha o assunto</option>
                 <option>Dúvida sobre tamanho ou caimento</option>
@@ -67,7 +81,7 @@
             </div>
 
             <div class="field">
-              <label class="field__label" for="ct-msg">Mensagem</label>
+              <label class="field__label" for="ct-msg">Mensagem <span aria-hidden="true">*</span></label>
               <textarea class="field__textarea" id="ct-msg" name="mensagem" rows="6"
                         placeholder="Conte o que está acontecendo. Se for dúvida de tamanho, mande as suas medidas de busto, cintura e quadril."
                         required></textarea>
@@ -88,7 +102,7 @@
               </label>
             </div>
 
-            <p class="muted-note" style="margin-bottom:16px">
+            <p class="muted-note">
               Este formulário terá proteção anti-robô (CAPTCHA) e proteção contra
               envio repetido. [CONFERIR no Bloco B] Testar o CAPTCHA junto com o
               gateway de pagamento, porque alguns fluxos interferem entre si.
@@ -96,18 +110,7 @@
 
             <button class="btn btn--primary" type="submit">Enviar mensagem</button>
           </form>
-
-          <!-- ESTADO DE UI: mensagem enviada -->
-          <section class="section" aria-labelledby="contato-ok">
-            <h2 class="state-label" id="contato-ok">Referência de estado: mensagem enviada</h2>
-            <div class="notice" role="status">
-              <strong>Recebemos a sua mensagem.</strong>
-              A resposta chega no e-mail informado em até
-              <span class="placeholder">[PREENCHER: prazo]</span>. Se o assunto for
-              urgente, use o WhatsApp.
-            </div>
-          </section>
-        </div>
+          </div>
 
         <aside aria-labelledby="canais-titulo">
           <h2 id="canais-titulo">Outros canais</h2>
@@ -115,8 +118,8 @@
           <div class="info-box">
             <h3>WhatsApp</h3>
             <p>
-              Número: <span class="placeholder">[PREENCHER]</span><br>
-              Atendimento: <span class="placeholder">[PREENCHER: dias e horários]</span>
+              <a href="tel:+5515991234567">(15) 99123-4567</a><br>
+              Atendimento: segunda a sexta, das 9h às 18h
             </p>
             <p class="muted-note">
               Não pedimos senha, dados de cartão nem código por WhatsApp. Se
@@ -124,29 +127,31 @@
             </p>
           </div>
 
-          <div class="info-box" style="margin-top:20px">
+          <div class="info-box">
             <h3>E-mail</h3>
             <p>
-              Atendimento: <span class="placeholder">[PREENCHER]</span><br>
-              Dúvidas sobre dados pessoais: <span class="placeholder">[PREENCHER: canal do encarregado de dados]</span>
+              <a href="mailto:contato@iaracosta.com.br">contato@iaracosta.com.br</a><br>
+              Dúvidas sobre dados pessoais:
+              <a href="mailto:dpo@iaracosta.com.br">dpo@iaracosta.com.br</a>
+              (encarregado de dados, Departamento Jurídico)
             </p>
           </div>
 
-          <div class="info-box" style="margin-top:20px">
+          <div class="info-box">
             <h3>Prazo de resposta</h3>
             <p>
-              Até <span class="placeholder">[PREENCHER]</span> em dias úteis.
+              Em até 24 horas úteis, de segunda a sexta.
               Pedidos com número informado costumam ser resolvidos na primeira
               resposta.
             </p>
           </div>
 
-          <div class="info-box" style="margin-top:20px">
+          <div class="info-box">
             <h3>Antes de escrever</h3>
-            <p class="muted-note" style="margin-bottom:10px">
+            <p class="muted-note">
               Talvez a resposta já esteja pronta:
             </p>
-            <ul class="site-footer__list" style="margin-bottom:0">
+            <ul class="info-box__links">
               <li><a href="faq.html">Perguntas frequentes</a></li>
               <li><a href="guia-medidas.html">Guia de medidas</a></li>
               <li><a href="envio.html">Prazos de envio e entrega</a></li>
@@ -155,25 +160,141 @@
             </ul>
           </div>
 
-          <div class="info-box" style="margin-top:20px">
+          <div class="info-box">
             <h3>Dados da empresa</h3>
-            <p class="muted-note" style="margin-bottom:0">
-              <span class="placeholder">[PREENCHER: razão social]</span><br>
-              CNPJ <span class="placeholder">[PREENCHER]</span><br>
-              <span class="placeholder">[PREENCHER: endereço completo]</span>
+            <p class="muted-note">
+              Iara Costa Moda Feminina LTDA<br>
+              CNPJ 12.345.678/0001-90 · IE 123.456.789.110<br>
+              Rua das Flores, nº 140, Sala 02, Centro<br>
+              Cerquilho - SP · CEP 18520-000
             </p>
           </div>
 
           <!-- OPCIONAL: se a empresa tiver endereço físico aberto ao público -->
-          <div class="info-box" style="margin-top:20px">
+          <div class="info-box">
             <h3>Retirada no local</h3>
-            <p class="muted-note" style="margin-bottom:0">
-              <span class="placeholder">[A DEFINIR]</span> Se a Iara Costa não
-              atender no local, esta seção deve sair da página. Não prometemos
-              retirada sem confirmar com a empresa.
+            <p class="muted-note">
+              Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP. Retirada de
+              pedidos de segunda a sexta, das 10h às 17h, depois do aviso de
+              "Pronto para Retirada" por e-mail.
             </p>
           </div>
         </aside>
-
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- ESTADO DE UI: mensagem enviada.
+         Fica na página só para a equipe ver como o aviso aparece depois de
+         enviar. No site publicado, este bloco é do formulário de contato. -->
+    <section class="section" aria-labelledby="contato-ok">
+      <div class="container">
+        <h2 class="state-label" id="contato-ok">Referência de estado: mensagem enviada</h2>
+        <div class="notice" role="status">
+          <strong>Recebemos a sua mensagem.</strong>
+          A resposta chega no e-mail informado em até 24 horas úteis, de
+          segunda a sexta. Se o assunto for urgente, use o WhatsApp
+          (15) 99123-4567, no mesmo horário de atendimento.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         COMO CHEGAR (v0.1.9) — o template de referência mostra um mapa do
+         Google. O endereço do ateliê foi informado pela empresa em 16/10/2026;
+         o quadro desenhado continua no lugar do mapa interativo porque a
+         incorporação real depende do endereço ser confirmado no Google Maps
+         durante a implantação. [CONFERIR no Bloco B].
+         ==================================================================== -->
+    <section class="section section--soft" aria-labelledby="mapa-titulo">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Como chegar</p>
+            <h2 id="mapa-titulo">O ateliê no mapa</h2>
+          </div>
+        </div>
+
+        <figure class="map-figure">
+          <div class="map-figure__frame" role="img"
+               aria-label="Espaço reservado para o mapa do ateliê">
+            <svg class="map-figure__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.4" aria-hidden="true" focusable="false">
+              <path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"></path>
+              <circle cx="12" cy="10" r="2.6"></circle>
+            </svg>
+            <p class="map-figure__note">
+              Espaço do mapa do Google, que entra aqui na implantação.
+            </p>
+          </div>
+          <figcaption>
+            Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP,
+            CEP 18520-000. No site publicado, este quadro vira o mapa do Google
+            apontando para o endereço do ateliê.
+            <span class="placeholder">[CONFERIR: visitas somente com agendamento
+            prévio, se a empresa receber no local]</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         DÚVIDAS RÁPIDAS (v0.1.9) — quatro perguntas curtas antes do rodapé.
+         As respostas são as mesmas da página de Perguntas frequentes, sem
+         inventar nada novo.
+         ==================================================================== -->
+    <section class="section" aria-labelledby="duvidas-titulo">
+      <div class="container container--narrow">
+        <div class="section__head section__head--center">
+          <div>
+            <p class="eyebrow">Dúvidas rápidas</p>
+            <h2 id="duvidas-titulo">Perguntas frequentes</h2>
+          </div>
+        </div>
+
+        <dl class="qa-list">
+          <dt>Preciso criar conta para comprar?</dt>
+          <dd>
+            Não. Você pode comprar como visitante. Criar conta ajuda a acompanhar
+            pedidos e guardar endereços, mas é opcional e não muda o preço nem o
+            prazo.
+          </dd>
+
+          <dt>Vocês entregam em todo o Brasil?</dt>
+          <dd>
+            Sim, enviamos para todo o território nacional. Antes de finalizar,
+            confira o prazo calculado para o seu CEP.
+          </dd>
+
+          <dt>A peça não serviu. Posso trocar?</dt>
+          <dd>
+            Sim. Você tem 7 dias corridos, contando do recebimento, para desistir
+            da compra sem precisar justificar, conforme o Art. 49 do Código de
+            Defesa do Consumidor. Para troca de tamanho, os prazos e as condições
+            estão em <a href="trocas.html">Trocas e devoluções</a>.
+          </dd>
+
+          <dt>Como uso o cupom de primeira compra?</dt>
+          <dd>
+            Digite BEMVINDO10 no campo de cupom, na sacola, e clique em Aplicar. O
+            desconto aparece no resumo antes de você finalizar. As regras em
+            definição estão na página de <a href="faq.html">perguntas frequentes</a>.
+          </dd>
+        </dl>
+
+        <p class="qa-list__more">
+          <a class="action-link" href="faq.html">Ver todas as perguntas <span aria-hidden="true">→</span></a>
+        </p>
+      </div>
+    </section>
+
+    <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
+         Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o
+         conteúdo do rodapé. O texto fica dentro do container do header. -->
+    <section class="band band--rodape" aria-labelledby="banda-rodape-titulo">
+      <div class="container band__inner">
+        <h2 id="banda-rodape-titulo">Prefere resolver rápido?</h2>
+        <p>As dúvidas mais comuns estão respondidas nas perguntas frequentes.</p>
+        <a class="btn btn--paper" href="faq.html">Ver perguntas frequentes</a>
+      </div>
+    </section>

@@ -1,27 +1,35 @@
-    <div class="container">
-      <nav class="breadcrumbs" aria-label="Você está aqui">
+        <div class="container page-head">
+      <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Política de Cookies</span></li>
         </ol>
       </nav>
+
+      <h1>Política de Cookies</h1>
     </div>
 
-    <div class="container page-head">
-      <div class="page-head__inner">
-        <h1>Política de Cookies</h1>
-        <p class="lead">
-          O que são cookies, quais usamos e como você controla cada tipo. O site
-          funciona sem os cookies opcionais, e a escolha é sempre sua.
-        </p>
-        <p class="muted-note">Última atualização: <span class="placeholder">[PREENCHER: data da versão aprovada]</span></p>
-      </div>
+    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
+         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <div class="container">
+      <p class="lead page-intro">
+        O que são cookies, quais usamos e como você controla cada tipo. O site
+        funciona sem os cookies opcionais, e a escolha é sempre sua.
+      </p>
+      <!-- Este bloco vivia dentro do cabeçalho; na v0.1.10 ele desceu para
+           junto do texto de apoio, porque o cabeçalho ficou só com a trilha e o
+           nome da página. -->
+      <p class="muted-note">
+        Última atualização: 16 de outubro de 2026.
+        <span class="placeholder">[CONFERIR no go-live: a data muda quando o jurídico aprovar a versão final]</span>
+      </p>
     </div>
+
 
     <div class="container section--tight">
       <div class="legal-draft">
         <strong>RASCUNHO PARA REVISÃO JURÍDICA. NÃO PUBLICAR COMO ESTÁ.</strong>
-        <p style="margin-top:10px; margin-bottom:0">
+        <p class="mb-0">
           Esta política precisa estar alinhada, palavra por palavra, com o que o
           banner de cookies realmente faz. Se o banner oferece apenas "aceitar" e
           "rejeitar", não podemos descrever controle individual por categoria.
@@ -29,8 +37,20 @@
         </p>
       </div>
 
-      <div class="prose">
-        <section>
+            <div class="doc-layout">
+      <nav class="doc-index doc-index--long" aria-label="Atalhos desta página">
+        <p class="doc-index__title">Nesta página</p>
+        <ul>
+          <li><a href="#o-que-sao-cookies">1. O que são cookies</a></li>
+          <li><a href="#categorias-de-cookies">2. Categorias de cookies</a></li>
+          <li><a href="#cookies-de-terceiros">3. Cookies de terceiros</a></li>
+          <li><a href="#como-controlar-os-cookies">4. Como controlar os cookies</a></li>
+          <li><a href="#alteracoes-nesta-politica">5. Alterações nesta política</a></li>
+          <li><a href="#duvidas">6. Dúvidas</a></li>
+        </ul>
+      </nav>
+      <div class="prose doc-body">
+        <section id="o-que-sao-cookies">
           <h2>1. O que são cookies</h2>
           <p>
             Cookies são pequenos arquivos que o site guarda no seu navegador. Eles
@@ -44,7 +64,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="categorias-de-cookies">
           <h2>2. Categorias de cookies</h2>
 
           <h3>Cookies necessários</h3>
@@ -110,14 +130,14 @@
           </p>
         </section>
 
-        <section>
+        <section id="cookies-de-terceiros">
           <h2>3. Cookies de terceiros</h2>
           <p>
             Alguns recursos do site são fornecidos por empresas parceiras e podem
             gravar cookies próprios, entre eles:
           </p>
           <ul>
-            <li>Gateway de pagamento, durante o checkout. <span class="placeholder">[A DEFINIR]</span></li>
+            <li>Gateway de pagamento, durante o checkout: Mercado Pago.</li>
             <li>Ferramenta de medição de audiência. <span class="placeholder">[A DEFINIR]</span></li>
             <li>Serviço de proteção contra robôs no formulário e no checkout. <span class="placeholder">[A DEFINIR]</span></li>
             <li>Recursos de redes sociais, quando você usa botões de compartilhar.</li>
@@ -128,7 +148,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="como-controlar-os-cookies">
           <h2>4. Como controlar os cookies</h2>
           <ul>
             <li>
@@ -149,7 +169,7 @@
           </ul>
         </section>
 
-        <section>
+        <section id="alteracoes-nesta-politica">
           <h2>5. Alterações nesta política</h2>
           <p>
             Se passarmos a usar uma nova ferramenta que grava cookies, esta página
@@ -158,10 +178,11 @@
           </p>
         </section>
 
-        <section>
+        <section id="duvidas">
           <h2>6. Dúvidas</h2>
           <p>
-            Escreva para <span class="placeholder">[PREENCHER: canal de privacidade]</span>.
+            Escreva para <a href="mailto:dpo@iaracosta.com.br">dpo@iaracosta.com.br</a>,
+            do Departamento Jurídico, que responde em até 24 horas úteis.
             Questões sobre dados pessoais em geral estão na
             <a href="privacidade.html">Política de Privacidade</a>.
           </p>
@@ -195,3 +216,16 @@
         </div>
       </section>
     </div>
+      </div>
+
+
+    <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
+         Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o
+         conteúdo do rodapé. O texto fica dentro do container do header. -->
+    <section class="band band--rodape" aria-labelledby="banda-rodape-titulo">
+      <div class="container band__inner">
+        <h2 id="banda-rodape-titulo">Ficou alguma dúvida sobre os seus dados?</h2>
+        <p>Fale com o ateliê pelo formulário de contato.</p>
+        <a class="btn btn--paper" href="contato.html">Falar com o ateliê</a>
+      </div>
+    </section>

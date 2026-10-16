@@ -1,45 +1,53 @@
-    <div class="container">
-      <nav class="breadcrumbs" aria-label="Você está aqui">
+        <div class="container page-head">
+      <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Envio e entrega</span></li>
         </ol>
       </nav>
+
+      <h1>Envio e entrega</h1>
     </div>
 
-    <div class="container page-head">
-      <div class="page-head__inner">
-        <h1>Envio e entrega</h1>
-        <p class="lead">
-          Prazos, frete e rastreio explicados de forma direta. O valor exato do
-          seu frete aparece na sacola, calculado pelo CEP, antes de finalizar.
-        </p>
-      </div>
+    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
+         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <div class="container">
+      <p class="lead page-intro">
+        Prazos, frete e rastreio explicados de forma direta. O valor exato do seu
+        frete aparece na sacola, calculado pelo CEP, antes de finalizar.
+      </p>
     </div>
+
 
     <div class="container section--tight">
 
-      <div class="notice notice--attention">
-        <strong>Prazos e valores desta página são de EXEMPLO.</strong>
-        Eles serão substituídos pelos dados da transportadora depois que a conta
-        de frete for contratada. <span class="placeholder">[A DEFINIR]</span>
-        Enquanto isso, o site usa uma taxa fixa provisória para testes.
+      <div class="notice">
+        <strong>Como o frete é calculado nesta loja.</strong>
+        Os Correios calculam PAC e SEDEX a partir do CEP de entrega. No Sudeste, o
+        PAC fica em R$ 15,00; nas demais regiões e no SEDEX, o valor calculado
+        aparece na sacola e no checkout. Acima de R$ 299,00, no valor dos produtos
+        depois do cupom, o PAC é grátis.
       </div>
 
-      <nav class="anchor-nav" aria-label="Atalhos desta página" style="margin-top:24px">
-        <a href="#prazos">Prazos e valores</a>
-        <a href="#gratis">Frete grátis</a>
-        <a href="#rastreio">Rastreio</a>
-        <a href="#entrega">Como recebemos a entrega</a>
-        <a href="#problemas">Se algo der errado</a>
-      </nav>
 
-      <div class="prose">
+            <div class="doc-layout">
+      <nav class="doc-index doc-index--long" aria-label="Atalhos desta página">
+        <p class="doc-index__title">Nesta página</p>
+        <ul>
+          <li><a href="#prazos">Prazos e valores</a></li>
+          <li><a href="#gratis">Frete grátis acima de R$ 299</a></li>
+          <li><a href="#rastreio">Como acompanhar o pedido</a></li>
+          <li><a href="#entrega">Como a entrega acontece</a></li>
+          <li><a href="#problemas">Se algo der errado</a></li>
+          <li><a href="#resumo-para-a-equipe-nao-publicar">Resumo para a equipe (não publicar)</a></li>
+        </ul>
+      </nav>
+      <div class="prose doc-body">
         <section id="prazos">
           <h2>Prazos e valores</h2>
           <div class="table-scroll">
             <table>
-              <caption>Exemplo de tabela para o estado de São Paulo. O prazo real depende da sua região e da transportadora.</caption>
+              <caption>Como funciona cada modalidade. Valor e prazo saem do cálculo dos Correios pelo seu CEP.</caption>
               <thead>
                 <tr>
                   <th scope="col">Modalidade</th>
@@ -49,46 +57,53 @@
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">PAC</th>
-                  <td>5 a 9 dias úteis</td>
-                  <td>R$ 24,90</td>
+                  <th scope="row">PAC (Correios)</th>
+                  <td>Definido pelos Correios no cálculo pelo CEP</td>
+                  <td>R$ 15,00 em SP, RJ, MG e ES · demais regiões pelo CEP · grátis acima de R$ 299</td>
                 </tr>
                 <tr>
-                  <th scope="row">SEDEX</th>
-                  <td>2 a 4 dias úteis</td>
-                  <td>R$ 39,90</td>
+                  <th scope="row">SEDEX (Correios)</th>
+                  <td>Definido pelos Correios no cálculo pelo CEP</td>
+                  <td>Calculado pelo CEP, em todas as regiões</td>
                 </tr>
                 <tr>
-                  <th scope="row">Retirada no local</th>
-                  <td><span class="placeholder">[A DEFINIR]</span></td>
+                  <th scope="row">Retirada no ateliê</th>
+                  <td>Segunda a sexta, das 10h às 17h, depois do aviso de "Pronto para Retirada"</td>
                   <td>Grátis</td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <p>
+            <strong>Prazo de postagem:</strong> peças de pronta entrega saem em até
+            <strong>2 dias úteis</strong> depois da confirmação do pagamento e da
+            emissão da nota fiscal. Peças sob encomenda ou sob medida levam de
+            <strong>5 a 7 dias úteis</strong> de confecção no ateliê antes da
+            postagem, e o prazo aparece no produto antes da compra.
+          </p>
           <p class="muted-note">
-            O prazo começa a contar depois da confirmação do pagamento e da
-            emissão da nota fiscal, não no momento da compra. Sábados, domingos e
-            feriados não entram na contagem de dias úteis.
+            O prazo dos Correios começa a contar depois da postagem, não no momento
+            da compra. Sábados, domingos e feriados não entram na contagem de dias
+            úteis.
           </p>
         </section>
 
         <section id="gratis">
-          <h2>Frete grátis acima de R$ 199</h2>
+          <h2>Frete grátis acima de R$ 299</h2>
           <ul>
             <li>Vale para todo o Brasil, na modalidade econômica.</li>
             <li>
-              O limite considera o valor
-              <span class="placeholder">[A DEFINIR: subtotal antes ou depois do cupom]</span>.
-              Recomendação: definir antes de publicar, porque a diferença aparece
-              justamente para quem usou o cupom BEMVINDO10.
+              O limite de R$ 299 considera o <strong>valor líquido dos
+              produtos</strong>: o que sobra depois de aplicar cupom ou o desconto
+              do Pix. Se o valor cair abaixo de R$ 299, o frete volta a ser
+              cobrado, e o aviso aparece na sacola antes de finalizar.
             </li>
             <li>
-              Se o valor cair abaixo de R$ 199 depois de você remover um item, o
+              Se o valor cair abaixo de R$ 299 depois de você remover um item, o
               frete volta a ser cobrado. O aviso aparece na sacola antes de
               finalizar.
             </li>
-            <li>Frete grátis não se acumula automaticamente com outras promoções de frete. <span class="placeholder">[CONFIRMAR COM A EMPRESA]</span></li>
+            <li>O frete grátis vale para o PAC e é a condição final de frete da compra: ele não se acumula com outras promoções de frete ou cupons de frete.</li>
           </ul>
         </section>
 
@@ -100,8 +115,7 @@
             <a href="conta.html">Minha conta</a>, na seção Meus pedidos.
           </p>
           <p>
-            A transportadora responsável é
-            <span class="placeholder">[A DEFINIR]</span>. Se o rastreio não
+            As entregas saem pelos <strong>Correios</strong>. Se o rastreio não
             atualizar em 3 dias úteis depois do despacho, fale com o atendimento:
             a gente consulta direto com a transportadora.
           </p>
@@ -113,7 +127,7 @@
             <li>É preciso ter alguém no endereço para receber. O entregador não deixa encomenda com terceiros sem autorização.</li>
             <li>Confira o endereço no checkout antes de finalizar. Endereço errado atrasa a entrega.</li>
             <li>Em caso de ausência, a transportadora costuma fazer até 3 tentativas, conforme a política dela.</li>
-            <li>O prazo de armazenagem no centro de distribuição é definido pela transportadora <span class="placeholder">[CONFERIR]</span>.</li>
+            <li>O prazo de armazenagem nos Correios é definido pela própria empresa <span class="placeholder">[CONFERIR no Bloco B]</span>.</li>
           </ul>
         </section>
 
@@ -163,8 +177,8 @@
               <div class="accordion__panel" id="ev3" hidden>
                 <p>
                   Fale com o atendimento informando o número do pedido. A gente
-                  consulta a transportadora e te dá uma posição em até
-                  <span class="placeholder">[A DEFINIR]</span>.
+                  consulta os Correios e te dá uma posição em até 24 horas úteis,
+                  de segunda a sexta.
                 </p>
                 <p>
                   Se a transportadora não localizar o pedido, a loja reenvia ou
@@ -192,21 +206,31 @@
           </div>
         </section>
 
-        <section>
+        <section id="resumo-para-a-equipe-nao-publicar">
           <h2>Resumo para a equipe (não publicar)</h2>
           <ul class="list-check">
-            <li>Contratar a solução de frete e remover a taxa fixa provisória antes do go-live.</li>
-            <li>Definir se o frete grátis considera o subtotal antes ou depois do cupom.</li>
+            <li>Ativar a conta dos Correios no WooCommerce e remover qualquer taxa fixa deixada para teste.</li>
+            <li>Configurar o frete grátis sobre o valor líquido (depois do cupom e do desconto do Pix), como a empresa definiu.</li>
+            <li>Configurar a regra de R$ 15,00 do PAC só para SP, RJ, MG e ES, nas faixas de CEP 01000-000 a 39999-999.</li>
             <li>Cadastrar origem do envio, embalagem, peso e dimensões de cada produto no cadastro do WooCommerce.</li>
-            <li>Conferir se os prazos exibidos pelo plugin de frete são os mesmos desta página, para não haver contradição.</li>
-            <li>Testar: CEP válido, CEP inválido, carrinho acima de R$ 199 e abaixo de R$ 199, com e sem cupom.</li>
+            <li>Conferir se os prazos exibidos pelo plugin dos Correios são os mesmos desta página, para não haver contradição.</li>
+            <li>Cadastrar a retirada no ateliê no checkout (segunda a sexta, das 10h às 17h) e ligar o e-mail de "Pronto para Retirada".</li>
+            <li>Cadastrar os prazos de produção (2 dias úteis de pronta entrega e 5 a 7 dias úteis sob encomenda).</li>
+            <li>Testar: CEP válido, CEP inválido, carrinho acima de R$ 299 e abaixo de R$ 299, com e sem cupom.</li>
           </ul>
         </section>
       </div>
-
-      <div class="promo" style="margin-top:40px">
-        <h2>Dúvida sobre o seu envio?</h2>
-        <p>Informe o número do pedido e a gente consulta a transportadora para você.</p>
-        <a class="btn btn--primary" href="contato.html">Falar com o atendimento</a>
       </div>
     </div>
+
+
+    <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
+         Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o
+         conteúdo do rodapé. O texto fica dentro do container do header. -->
+    <section class="band band--rodape" aria-labelledby="banda-rodape-titulo">
+      <div class="container band__inner">
+        <h2 id="banda-rodape-titulo">Dúvida sobre o seu envio?</h2>
+        <p>Informe o número do pedido e a gente consulta a transportadora para você.</p>
+        <a class="btn btn--paper" href="contato.html">Falar com o atendimento</a>
+      </div>
+    </section>

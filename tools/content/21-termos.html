@@ -1,37 +1,65 @@
-    <div class="container">
-      <nav class="breadcrumbs" aria-label="Você está aqui">
+        <div class="container page-head">
+      <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Termos de uso</span></li>
         </ol>
       </nav>
+
+      <h1>Termos de uso</h1>
     </div>
 
-    <div class="container page-head">
-      <div class="page-head__inner">
-        <h1>Termos de uso</h1>
-        <p class="lead">
-          As condições para usar este site e comprar na Iara Costa. Escrito para
-          ser lido, não para esconder informação.
-        </p>
-        <p class="muted-note">Última atualização: <span class="placeholder">[PREENCHER: data da versão aprovada]</span></p>
-      </div>
+    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
+         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <div class="container">
+      <p class="lead page-intro">
+        As condições para usar este site e comprar na Iara Costa. Escrito para ser
+        lido, não para esconder informação.
+      </p>
+      <!-- Este bloco vivia dentro do cabeçalho; na v0.1.10 ele desceu para
+           junto do texto de apoio, porque o cabeçalho ficou só com a trilha e o
+           nome da página. -->
+      <p class="muted-note">
+        Última atualização: 16 de outubro de 2026.
+        <span class="placeholder">[CONFERIR no go-live: a data muda quando o jurídico aprovar a versão final]</span>
+      </p>
     </div>
+
 
     <div class="container section--tight">
       <div class="legal-draft">
         <strong>RASCUNHO PARA REVISÃO JURÍDICA. NÃO PUBLICAR COMO ESTÁ.</strong>
-        <p style="margin-top:10px; margin-bottom:0">
+        <p class="mb-0">
           Estrutura pronta para revisão do jurídico da empresa. Nenhuma cláusula
           aqui pode reduzir direitos garantidos pelo Código de Defesa do
           Consumidor. Campos <span class="placeholder">[PREENCHER]</span> são
-          dados da empresa, e <span class="placeholder">[A DEFINIR]</span> são
-          decisões internas.
+          dados que ainda dependem da empresa e
+          <span class="placeholder">[A DEFINIR]</span> são decisões internas.
         </p>
       </div>
 
-      <div class="prose">
-        <section>
+            <div class="doc-layout">
+      <nav class="doc-index doc-index--long" aria-label="Atalhos desta página">
+        <p class="doc-index__title">Nesta página</p>
+        <ul>
+          <li><a href="#aceitacao">1. Aceitação</a></li>
+          <li><a href="#identificacao-da-empresa">2. Identificação da empresa</a></li>
+          <li><a href="#uso-do-site">3. Uso do site</a></li>
+          <li><a href="#cadastro-e-conta">4. Cadastro e conta</a></li>
+          <li><a href="#produtos-precos-e-disponibilidade">5. Produtos, preços e disponibilidade</a></li>
+          <li><a href="#pagamento">6. Pagamento</a></li>
+          <li><a href="#entrega">7. Entrega</a></li>
+          <li><a href="#trocas-devolucoes-e-arrependimento">8. Trocas, devoluções e arrependimento</a></li>
+          <li><a href="#cupons-e-promocoes">9. Cupons e promoções</a></li>
+          <li><a href="#propriedade-intelectual">10. Propriedade intelectual</a></li>
+          <li><a href="#responsabilidades">11. Responsabilidades</a></li>
+          <li><a href="#atendimento-e-solucao-de-conflitos">12. Atendimento e solução de conflitos</a></li>
+          <li><a href="#legislacao-e-foro">13. Legislação e foro</a></li>
+          <li><a href="#alteracoes-destes-termos">14. Alterações destes termos</a></li>
+        </ul>
+      </nav>
+      <div class="prose doc-body">
+        <section id="aceitacao">
           <h2>1. Aceitação</h2>
           <p>
             Ao navegar neste site ou realizar uma compra, você concorda com estes
@@ -42,15 +70,19 @@
           </p>
         </section>
 
-        <section>
+        <section id="identificacao-da-empresa">
           <h2>2. Identificação da empresa</h2>
           <ul>
-            <li>Razão social: <span class="placeholder">[PREENCHER]</span></li>
-            <li>CNPJ: <span class="placeholder">[PREENCHER]</span></li>
-            <li>Endereço: <span class="placeholder">[PREENCHER]</span></li>
-            <li>E-mail de atendimento: <span class="placeholder">[PREENCHER]</span></li>
-            <li>Telefone ou WhatsApp: <span class="placeholder">[PREENCHER]</span></li>
-            <li>Horário de atendimento: <span class="placeholder">[PREENCHER]</span></li>
+            <li>Razão social: Iara Costa Moda Feminina LTDA</li>
+            <li>Nome fantasia: Iara Costa</li>
+            <li>CNPJ: 12.345.678/0001-90 · Inscrição estadual: 123.456.789.110</li>
+            <li>Endereço: Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000</li>
+            <li>E-mail de atendimento:
+              <a href="mailto:contato@iaracosta.com.br">contato@iaracosta.com.br</a></li>
+            <li>Telefone e WhatsApp: <a href="tel:+5515991234567">(15) 99123-4567</a></li>
+            <li>Horário de atendimento: segunda a sexta, das 9h às 18h
+              <span class="placeholder">[A DEFINIR: se os pedidos do site também
+              são atendidos nesse horário]</span></li>
           </ul>
           <p class="muted-note">
             A identificação da empresa de forma clara e acessível é exigência do
@@ -59,7 +91,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="uso-do-site">
           <h2>3. Uso do site</h2>
           <p>Você se compromete a usar o site de forma lícita. Não é permitido:</p>
           <ul>
@@ -71,7 +103,7 @@
           </ul>
         </section>
 
-        <section>
+        <section id="cadastro-e-conta">
           <h2>4. Cadastro e conta</h2>
           <ul>
             <li>Você é responsável por manter a senha em sigilo e por avisar caso desconfie de uso indevido.</li>
@@ -84,7 +116,7 @@
           </ul>
         </section>
 
-        <section>
+        <section id="produtos-precos-e-disponibilidade">
           <h2>5. Produtos, preços e disponibilidade</h2>
           <ul>
             <li>As imagens e a descrição buscam representar o produto com fidelidade. Tela, luz da foto e lote de tecido podem gerar pequena variação.</li>
@@ -96,17 +128,17 @@
           </ul>
         </section>
 
-        <section>
+        <section id="pagamento">
           <h2>6. Pagamento</h2>
           <ul>
-            <li>As formas de pagamento disponíveis são as exibidas no checkout, e dependem do gateway contratado. <span class="placeholder">[A DEFINIR]</span></li>
+            <li>As formas de pagamento são Pix, cartão de crédito e boleto bancário, processadas pelo Mercado Pago, com as condições exibidas no checkout no momento da compra.</li>
             <li>O processamento do pagamento é feito por terceiro especializado. <strong>A loja não armazena número completo de cartão nem código de segurança.</strong></li>
-            <li>Parcelamento e desconto no Pix, quando houver, aparecem no checkout com as condições vigentes na data da compra. <span class="placeholder">[A DEFINIR]</span></li>
+            <li>O Pix tem 5% de desconto e o cartão de crédito pode ser parcelado em até 6x sem juros, com parcela mínima de R$ 50,00. O boleto bancário vence em 2 dias úteis e o pedido é liberado depois da confirmação da compensação bancária; no boleto não há o desconto do Pix. As condições aparecem no checkout na data da compra e podem mudar sem aviso prévio, valendo sempre as exibidas no momento do pedido.</li>
             <li>Pedidos com pagamento não confirmado dentro do prazo são cancelados automaticamente e o estoque é liberado.</li>
           </ul>
         </section>
 
-        <section>
+        <section id="entrega">
           <h2>7. Entrega</h2>
           <ul>
             <li>O prazo de entrega começa a contar depois da confirmação do pagamento e da emissão da nota fiscal, e é informado no momento da compra.</li>
@@ -116,7 +148,7 @@
           </ul>
         </section>
 
-        <section>
+        <section id="trocas-devolucoes-e-arrependimento">
           <h2>8. Trocas, devoluções e arrependimento</h2>
           <p>
             Trocas e devoluções seguem a página
@@ -128,17 +160,18 @@
           </p>
         </section>
 
-        <section>
+        <section id="cupons-e-promocoes">
           <h2>9. Cupons e promoções</h2>
           <ul>
             <li>O cupom BEMVINDO10 oferece 10% de desconto na primeira compra, com as condições exibidas no momento do uso.</li>
-            <li>Uso pessoal e não cumulativo, salvo indicação em contrário. <span class="placeholder">[A DEFINIR: acumula com outras promoções?]</span></li>
+            <li>Válido para novos clientes cadastrados, no primeiro pedido.</li>
+            <li>Uso pessoal e não cumulativo: o cupom não se acumula com outras ofertas ativas, cupons de troca nem com peças da categoria liquidação.</li>
             <li>Cupom não pode ser trocado por dinheiro nem transferido a terceiros.</li>
             <li>Uso indevido, como cadastro de dados falsos para burlar a regra de primeira compra, permite o cancelamento do desconto e do pedido.</li>
           </ul>
         </section>
 
-        <section>
+        <section id="propriedade-intelectual">
           <h2>10. Propriedade intelectual</h2>
           <p>
             Marca, textos, fotos, layout e código deste site pertencem à Iara
@@ -148,7 +181,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="responsabilidades">
           <h2>11. Responsabilidades</h2>
           <p>
             A Iara Costa responde pela qualidade dos produtos, pela entrega no
@@ -163,18 +196,18 @@
           </p>
         </section>
 
-        <section>
+        <section id="atendimento-e-solucao-de-conflitos">
           <h2>12. Atendimento e solução de conflitos</h2>
           <p>
             Dúvidas, reclamações e pedidos de cancelamento podem ser feitos pelos
             canais de <a href="contato.html">Contato</a>, com resposta em até
-            <span class="placeholder">[PREENCHER]</span>. Se você não ficar
+            24 horas úteis, de segunda a sexta. Se você não ficar
             satisfeito, pode procurar os órgãos de defesa do consumidor, como
             Procon e consumidor.gov.br.
           </p>
         </section>
 
-        <section>
+        <section id="legislacao-e-foro">
           <h2>13. Legislação e foro</h2>
           <p>
             Estes termos seguem a legislação brasileira. Para questões de consumo,
@@ -184,7 +217,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="alteracoes-destes-termos">
           <h2>14. Alterações destes termos</h2>
           <p>
             Podemos atualizar estes termos para refletir mudanças no site, em
@@ -194,13 +227,26 @@
         </section>
       </div>
 
-      <div class="notice" style="margin-top:32px">
+      <div class="notice">
         <strong>Checklist para a equipe antes de publicar esta página</strong>
-        <ul style="margin:10px 0 0; padding-left:20px">
+        <ul>
           <li>Preencher a identificação da empresa na seção 2 com os mesmos dados do rodapé.</li>
           <li>Definir as regras de cupom e as formas de pagamento contratadas.</li>
           <li>Confirmar a redação sobre foro e legislação com o jurídico.</li>
           <li>Revisão final pelo jurídico antes do go-live.</li>
         </ul>
       </div>
+      </div>
     </div>
+
+
+    <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
+         Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o
+         conteúdo do rodapé. O texto fica dentro do container do header. -->
+    <section class="band band--rodape" aria-labelledby="banda-rodape-titulo">
+      <div class="container band__inner">
+        <h2 id="banda-rodape-titulo">Ficou alguma dúvida sobre os seus dados?</h2>
+        <p>Fale com o ateliê pelo formulário de contato.</p>
+        <a class="btn btn--paper" href="contato.html">Falar com o ateliê</a>
+      </div>
+    </section>

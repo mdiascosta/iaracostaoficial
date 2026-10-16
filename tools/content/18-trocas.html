@@ -1,42 +1,48 @@
-    <div class="container">
-      <nav class="breadcrumbs" aria-label="Você está aqui">
+        <div class="container page-head">
+      <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Trocas e devoluções</span></li>
         </ol>
       </nav>
+
+      <h1>Trocas e devoluções</h1>
     </div>
 
-    <div class="container page-head">
-      <div class="page-head__inner">
-        <h1>Trocas e devoluções</h1>
-        <p class="lead">
-          Se a peça não serviu ou você mudou de ideia, tem prazo e processo
-          definidos. Sem letra miúda e sem precisar justificar.
-        </p>
-      </div>
+    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
+         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <div class="container">
+      <p class="lead page-intro">
+        Se a peça não serviu ou você mudou de ideia, tem prazo e processo definidos.
+        Sem letra miúda e sem precisar justificar.
+      </p>
     </div>
+
 
     <div class="container section--tight">
       <div class="legal-draft">
         <strong>RASCUNHO PARA REVISÃO JURÍDICA.</strong>
         Este texto foi escrito para organizar as informações e precisa de revisão
         do jurídico da empresa antes de publicar. Os campos marcados como
-        [A DEFINIR] são decisões comerciais que só a Iara Costa pode tomar: quem
-        paga o frete de devolução, prazo de reembolso e prazo de troca por
-        tamanho.
+        [A DEFINIR] são decisões comerciais que ainda dependem da empresa, como a
+        regra das peças de bazar e a conferência das peças devolvidas.
       </div>
 
-      <nav class="anchor-nav" aria-label="Atalhos desta página">
-        <a href="#arrependimento">Desistência em 7 dias</a>
-        <a href="#troca">Troca por tamanho</a>
-        <a href="#defeito">Peça com defeito</a>
-        <a href="#como">Como solicitar</a>
-        <a href="#reembolso">Reembolso</a>
-        <a href="#nao-aceitamos">O que não pode ser trocado</a>
-      </nav>
 
-      <div class="prose">
+            <div class="doc-layout">
+      <nav class="doc-index doc-index--long" aria-label="Atalhos desta página">
+        <p class="doc-index__title">Nesta página</p>
+        <ul>
+          <li><a href="#arrependimento">Desistência em 7 dias (direito de arrependimento)</a></li>
+          <li><a href="#troca">Troca por tamanho ou por outra peça</a></li>
+          <li><a href="#defeito">Peça com defeito de fabricação</a></li>
+          <li><a href="#como">Como solicitar</a></li>
+          <li><a href="#reembolso">Reembolso</a></li>
+          <li><a href="#nao-aceitamos">O que não pode ser trocado</a></li>
+          <li><a href="#resumo-dos-prazos">Resumo dos prazos</a></li>
+        </ul>
+      </nav>
+      <div class="prose doc-body">
         <section id="arrependimento">
           <h2>Desistência em 7 dias (direito de arrependimento)</h2>
           <p>
@@ -47,9 +53,10 @@
           </p>
           <p>
             Nesse caso, o valor pago é devolvido integralmente, incluindo o frete,
-            quando houver cobrança. A devolução do produto é obrigatória, e o
-            custo do envio de retorno é
-            <span class="placeholder">[A DEFINIR: por conta da loja ou do cliente nesta hipótese]</span>.
+            quando houver cobrança. A devolução do produto é obrigatória e o
+            <strong>custo do envio de retorno é da Iara Costa</strong>, por meio de
+            autorização de postagem nos Correios: você recebe o código por e-mail e
+            leva a peça em qualquer agência.
           </p>
           <p class="muted-note">
             Observação: o direito de arrependimento é uma garantia legal e não
@@ -62,14 +69,19 @@
           <h2>Troca por tamanho ou por outra peça</h2>
           <p>
             Além do prazo legal, a Iara Costa oferece troca por tamanho ou por
-            outra peça do catálogo, dentro de
-            <span class="placeholder">[A DEFINIR: prazo, por exemplo 30 dias corridos do recebimento]</span>.
+            outra peça do catálogo em até <strong>30 dias corridos</strong>,
+            contados da entrega do pedido.
           </p>
           <ul>
             <li>A peça precisa estar sem uso, sem lavagem, sem perfume e com a etiqueta original presa.</li>
             <li>Diferença de preço, para mais ou para menos, é ajustada no momento da troca.</li>
-            <li>Custo do frete na primeira troca: <span class="placeholder">[A DEFINIR]</span>.</li>
-            <li>Peças compradas em promoção: <span class="placeholder">[A DEFINIR: trocam normalmente ou apenas por defeito]</span>.</li>
+            <li>Custo do frete na primeira troca: por conta da Iara Costa, com código de postagem reversa dos Correios. O envio e o retorno são gratuitos.</li>
+            <li>
+              Peças de <strong>liquidação e bazar</strong>: a troca é pelo mesmo
+              modelo em outro tamanho, conforme o estoque. Se não houver o tamanho
+              e a compra for devolvida, o cupom de troca vale exatamente o
+              <strong>valor pago</strong> na compra, já com o desconto aplicado.
+            </li>
           </ul>
         </section>
 
@@ -89,7 +101,7 @@
 
         <section id="como">
           <h2>Como solicitar</h2>
-          <ol class="steps" style="margin-top:20px">
+          <ol class="steps">
             <li class="steps__item">
               <span class="steps__num" aria-hidden="true">01</span>
               <div>
@@ -138,12 +150,14 @@
         <section id="reembolso">
           <h2>Reembolso</h2>
           <p>
-            Prazo para processar o reembolso depois da conferência da peça:
-            <span class="placeholder">[A DEFINIR]</span>.
+            O prazo começa depois que a peça chega ao ateliê e é conferida (sem
+            uso, com etiqueta e sem avaria), e segue a forma de pagamento usada na
+            compra:
           </p>
           <ul>
-            <li><strong>Pix e boleto:</strong> devolução por transferência para os dados do titular do pedido.</li>
-            <li><strong>Cartão de crédito:</strong> estorno na fatura, com prazo que depende do emissor do cartão, podendo aparecer em até duas faturas.</li>
+            <li><strong>Pix:</strong> em até <strong>2 dias úteis</strong> depois da conferência, por transferência para os dados do titular do pedido.</li>
+            <li><strong>Cartão de crédito:</strong> o estorno é solicitado à operadora em até <strong>3 dias úteis</strong> depois da conferência. O lançamento na fatura depende da data de fechamento da administradora do cartão, podendo aparecer em até duas faturas.</li>
+            <li><strong>Boleto bancário:</strong> depósito ou Pix em até <strong>3 dias úteis</strong> depois da conferência, na conta do titular do pedido.</li>
           </ul>
           <p>
             Nunca pedimos dados de cartão por mensagem para processar reembolso.
@@ -168,11 +182,11 @@
           </p>
         </section>
 
-        <section>
+        <section id="resumo-dos-prazos">
           <h2>Resumo dos prazos</h2>
           <div class="table-scroll">
             <table>
-              <caption>Marcadores [A DEFINIR] precisam ser decididos pela empresa</caption>
+              <caption>Prazos e custos confirmados pela empresa em 16/10/2026</caption>
               <thead>
                 <tr>
                   <th scope="col">Situação</th>
@@ -184,12 +198,12 @@
                 <tr>
                   <th scope="row">Desistência (CDC Art. 49)</th>
                   <td>7 dias corridos do recebimento</td>
-                  <td><span class="placeholder">[A DEFINIR]</span></td>
+                  <td>Loja, por autorização de postagem nos Correios</td>
                 </tr>
                 <tr>
-                  <th scope="row">Troca por tamanho</th>
-                  <td><span class="placeholder">[A DEFINIR]</span></td>
-                  <td><span class="placeholder">[A DEFINIR]</span></td>
+                  <th scope="row">Troca por tamanho (primeira)</th>
+                  <td>30 dias corridos da entrega</td>
+                  <td>Loja, com postagem reversa gratuita</td>
                 </tr>
                 <tr>
                   <th scope="row">Peça com defeito</th>
@@ -198,7 +212,7 @@
                 </tr>
                 <tr>
                   <th scope="row">Processar o reembolso</th>
-                  <td><span class="placeholder">[A DEFINIR]</span></td>
+                  <td>Pix em 2 dias úteis · cartão em 3 dias úteis (lançamento depende da operadora) · boleto em 3 dias úteis</td>
                   <td>Não se aplica</td>
                 </tr>
               </tbody>
@@ -206,10 +220,17 @@
           </div>
         </section>
       </div>
-
-      <div class="promo" style="margin-top:40px">
-        <h2>Precisa trocar uma peça agora?</h2>
-        <p>Tenha o número do pedido em mãos e fale com o atendimento.</p>
-        <a class="btn btn--primary" href="contato.html">Solicitar troca</a>
       </div>
     </div>
+
+
+    <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
+         Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o
+         conteúdo do rodapé. O texto fica dentro do container do header. -->
+    <section class="band band--rodape" aria-labelledby="banda-rodape-titulo">
+      <div class="container band__inner">
+        <h2 id="banda-rodape-titulo">Precisa trocar uma peça agora?</h2>
+        <p>Tenha o número do pedido em mãos e fale com o atendimento.</p>
+        <a class="btn btn--paper" href="contato.html">Solicitar troca</a>
+      </div>
+    </section>

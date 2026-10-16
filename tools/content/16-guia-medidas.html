@@ -1,21 +1,23 @@
-    <div class="container">
-      <nav class="breadcrumbs" aria-label="Você está aqui">
+        <div class="container page-head">
+      <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Guia de medidas</span></li>
         </ol>
       </nav>
+
+      <h1>Guia de medidas</h1>
     </div>
 
-    <div class="container page-head">
-      <div class="page-head__inner">
-        <h1>Guia de medidas</h1>
-        <p class="lead">
-          Comprar sem provar dá certo quando você compara medidas, e não
-          tamanhos. O caminho mais confiável é medir uma peça que já veste bem.
-        </p>
-      </div>
+    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
+         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <div class="container">
+      <p class="lead page-intro">
+        Comprar sem provar dá certo quando você compara medidas, e não tamanhos. O
+        caminho mais confiável é medir uma peça que já veste bem.
+      </p>
     </div>
+
 
     <div class="container section--tight">
       <nav class="anchor-nav" aria-label="Atalhos desta página">
@@ -24,14 +26,24 @@
         <a href="#duvidas">Dúvidas comuns</a>
       </nav>
 
-      <div class="notice" style="margin-bottom:32px">
+      <div class="notice notice--lead">
         <strong>Antes de tudo:</strong> as medidas desta página são de EXEMPLO,
         para validação do layout. A tabela definitiva vem do fornecedor de cada
         peça e precisa ser conferida uma a uma antes de publicar.
         <span class="placeholder">[PREENCHER: tabela real de cada produto]</span>
       </div>
 
-      <section id="metodo" aria-labelledby="metodo-titulo">
+            <div class="doc-layout">
+      <nav class="doc-index" aria-label="Atalhos desta página">
+        <p class="doc-index__title">Nesta página</p>
+        <ul>
+          <li><a href="#metodo">Como medir em casa</a></li>
+          <li><a href="#tabela">Tabela de medidas</a></li>
+          <li><a href="#duvidas">Dúvidas comuns sobre tamanho</a></li>
+        </ul>
+      </nav>
+      <div class="doc-body">
+<section id="metodo" aria-labelledby="metodo-titulo">
         <h2 id="metodo-titulo">Como medir em casa</h2>
 
         <div class="measure-grid">
@@ -105,7 +117,7 @@
         </div>
       </section>
 
-      <section id="tabela" aria-labelledby="tabela-titulo" style="margin-top:48px">
+      <section id="tabela" aria-labelledby="tabela-titulo">
         <h2 id="tabela-titulo">Tabela de medidas</h2>
         <p class="lead">
           Medidas da peça em centímetros, com a roupa deitada e alisada. Tolerância
@@ -140,7 +152,7 @@
           cadastro. Recomendação: padronizar com o fornecedor sempre que possível.
         </p>
 
-        <div class="table-scroll" style="margin-top:32px">
+        <div class="table-scroll">
           <table>
             <caption>Tabela de exemplo para calças e shorts, por numeração</caption>
             <thead>
@@ -162,7 +174,7 @@
         </div>
       </section>
 
-      <section id="duvidas" aria-labelledby="duvidas-titulo" style="margin-top:48px">
+      <section id="duvidas" aria-labelledby="duvidas-titulo">
         <h2 id="duvidas-titulo">Dúvidas comuns sobre tamanho</h2>
 
         <div class="accordion" data-accordion>
@@ -233,14 +245,18 @@
             </div>
           </div>
         </div>
-
-        <div class="promo" style="margin-top:40px">
-          <h2>Ficou em dúvida sobre uma peça?</h2>
-          <p>
-            Mande as suas medidas de busto, cintura e quadril. A gente diz qual
-            tamanho costuma ficar melhor naquela peça específica.
-          </p>
-          <a class="btn btn--primary" href="contato.html">Falar com o atendimento</a>
-        </div>
       </section>
+      </div>
+      </div>
     </div>
+
+    <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
+         Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o
+         conteúdo do rodapé. O texto fica dentro do container do header. -->
+    <section class="band band--rodape" aria-labelledby="banda-rodape-titulo">
+      <div class="container band__inner">
+        <h2 id="banda-rodape-titulo">Ficou em dúvida sobre uma peça?</h2>
+        <p>Mande as suas medidas de busto, cintura e quadril. A gente diz qual tamanho costuma ficar melhor naquela peça específica.</p>
+        <a class="btn btn--paper" href="contato.html">Falar com o atendimento</a>
+      </div>
+    </section>

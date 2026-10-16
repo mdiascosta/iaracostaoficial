@@ -1,18 +1,22 @@
-    <div class="container">
-      <nav class="breadcrumbs" aria-label="Você está aqui">
+        <div class="container page-head">
+      <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Sacola</span></li>
         </ol>
       </nav>
+
+      <h1>Sua sacola</h1>
     </div>
 
-    <div class="container page-head">
-      <div class="page-head__inner">
-        <h1>Sua sacola</h1>
-        <p class="lead">Confira as peças, aplique o cupom e veja o frete antes de finalizar.</p>
-      </div>
+    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
+         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <div class="container">
+      <p class="lead page-intro">
+        Confira as peças, aplique o cupom e veja o frete antes de finalizar.
+      </p>
     </div>
+
 
     <div class="container section--tight">
       <div class="cart-layout">
@@ -21,54 +25,59 @@
         <div>
           <h2 class="visually-hidden">Itens na sacola</h2>
 
-          <div class="cart-item">
+          <div class="cart-item" data-item data-unitario="596">
             <div class="cart-item__media">
-              <img src="assets/img/produto-01-a.svg" alt="Vestido midi em linho terracota, frente" width="1600" height="1600">
+              <img src="assets/img/vestido-salvia.jpg" alt="Vestido midi sálvia de linho, frente" width="1600" height="1600">
             </div>
             <div>
-              <h3 class="cart-item__name"><a href="produto.html">Vestido Midi Linho Terracota</a></h3>
-              <p class="cart-item__meta">Cor: Terracota · Tamanho: M</p>
+              <h3 class="cart-item__name"><a href="produto.html">Vestido Midi Sálvia</a></h3>
+              <p class="cart-item__meta">Cor: Sálvia · Tamanho: M</p>
               <div class="cart-item__actions">
                 <div class="qty">
-                  <button class="qty__btn" type="button" aria-label="Diminuir quantidade do Vestido Midi Linho Terracota">−</button>
-                  <input class="qty__input" type="number" value="1" min="1" max="10" aria-label="Quantidade do Vestido Midi Linho Terracota">
-                  <button class="qty__btn" type="button" aria-label="Aumentar quantidade do Vestido Midi Linho Terracota">+</button>
+                  <button class="qty__btn" type="button" data-qty-step="-1" aria-label="Diminuir quantidade do Vestido Midi Sálvia">−</button>
+                  <input class="qty__input" type="number" value="1" min="1" max="10" aria-label="Quantidade do Vestido Midi Sálvia">
+                  <button class="qty__btn" type="button" data-qty-step="1" aria-label="Aumentar quantidade do Vestido Midi Sálvia">+</button>
                 </div>
-                <button class="btn btn--quiet" type="button">Remover</button>
-                <p class="cart-item__price">R$ 389,00</p>
+                <button class="btn btn--quiet" type="button" data-remover>Remover</button>
+                <p class="cart-item__price">R$ 596,00</p>
               </div>
             </div>
           </div>
 
-          <div class="cart-item">
+          <div class="cart-item" data-item data-unitario="189">
             <div class="cart-item__media">
-              <img src="assets/img/produto-10-a.svg" alt="Brinco de argola dourada, frente" width="1600" height="1600">
+              <img src="assets/img/brinco-argila.jpg" alt="Colar de contas de cerâmica torneada, frente" width="1600" height="1600">
             </div>
             <div>
-              <h3 class="cart-item__name"><a href="produto.html">Brinco Argola Dourada</a></h3>
+              <h3 class="cart-item__name"><a href="produto.html">Colar de Cerâmica</a></h3>
               <p class="cart-item__meta">Tamanho único</p>
               <div class="cart-item__actions">
                 <div class="qty">
-                  <button class="qty__btn" type="button" aria-label="Diminuir quantidade do Brinco Argola Dourada">−</button>
-                  <input class="qty__input" type="number" value="2" min="1" max="10" aria-label="Quantidade do Brinco Argola Dourada">
-                  <button class="qty__btn" type="button" aria-label="Aumentar quantidade do Brinco Argola Dourada">+</button>
+                  <button class="qty__btn" type="button" data-qty-step="-1" aria-label="Diminuir quantidade do Colar de Cerâmica">−</button>
+                  <input class="qty__input" type="number" value="2" min="1" max="10" aria-label="Quantidade do Colar de Cerâmica">
+                  <button class="qty__btn" type="button" data-qty-step="1" aria-label="Aumentar quantidade do Colar de Cerâmica">+</button>
                 </div>
-                <button class="btn btn--quiet" type="button">Remover</button>
-                <p class="cart-item__price">R$ 178,00</p>
+                <button class="btn btn--quiet" type="button" data-remover>Remover</button>
+                <p class="cart-item__price">R$ 378,00</p>
               </div>
             </div>
           </div>
 
-          <p class="notice" style="margin-top:24px">
-            Frete grátis acima de R$ 199. Se você tirar uma peça e o subtotal cair
-            abaixo disso, o frete volta a ser cobrado.
+          <p class="notice">
+            Frete grátis no PAC acima de R$ 299, no valor dos produtos depois do
+            cupom. Abaixo disso, o PAC fica em R$ 15,00 no Sudeste e o SEDEX e as
+            demais regiões saem pelo cálculo dos Correios. Se você tirar uma peça e
+            o valor cair abaixo de R$ 299, o frete volta a ser cobrado.
           </p>
 
-          <div class="state" style="margin-top:24px">
+          <div class="state">
             <p class="state__title">Cupom BEMVINDO10 aplicado</p>
             <p class="state__text">
-              10% de desconto na primeira compra. Regra de "primeira compra" tem
-              limitação no WooCommerce nativo: veja a seção 8.1 do dossiê.
+              10% de desconto na primeira compra, para clientes novos cadastrados.
+              Não é cumulativo com outras ofertas ativas, cupons de troca ou peças
+              da categoria liquidação.
+              A limitação de "primeira compra" tem restrição no WooCommerce
+              nativo: veja a seção 8.1 do dossiê.
             </p>
           </div>
         </div>
@@ -77,50 +86,53 @@
         <aside class="summary" aria-labelledby="resumo-titulo">
           <h2 class="summary__title" id="resumo-titulo">Resumo</h2>
 
-          <form class="coupon" action="#" method="post">
+          <form class="coupon" action="#" method="post" data-cupom-form>
             <div class="field">
               <label class="field__label" for="cupom">Cupom de desconto</label>
               <input class="field__input" id="cupom" name="cupom" type="text" value="BEMVINDO10">
             </div>
-            <button class="btn btn--outline" type="submit" style="margin-top:26px">Aplicar</button>
+            <button class="btn btn--outline" type="submit">Aplicar</button>
           </form>
+          <p class="field__hint" data-cupom-msg role="status"></p>
 
           <div class="summary__row">
             <span>Subtotal</span>
-            <span>R$ 567,00</span>
+            <span data-subtotal>R$ 974,00</span>
           </div>
           <div class="summary__row">
-            <span>Desconto (BEMVINDO10)</span>
-            <span>− R$ 56,70</span>
+            <span data-desconto-rotulo>Desconto (BEMVINDO10)</span>
+            <span data-desconto>− R$ 97,40</span>
           </div>
 
-          <div class="summary__row" style="display:block">
-            <p class="field__label" id="frete-rotulo" style="margin-bottom:8px">Calcular frete</p>
-            <div class="coupon" style="margin-bottom:0">
-              <div class="field" style="flex:1">
+          <div class="summary__row summary__row--stack">
+            <p class="field__label" id="frete-rotulo">Calcular frete</p>
+            <form class="coupon" action="#" method="post" data-frete-form>
+              <div class="field">
                 <label class="visually-hidden" for="cep">CEP de entrega</label>
                 <input class="field__input" id="cep" name="cep" type="text" inputmode="numeric"
                        autocomplete="postal-code" placeholder="00000-000">
               </div>
-              <button class="btn btn--outline" type="submit" aria-describedby="frete-rotulo" style="margin-top:26px">Calcular</button>
-            </div>
-            <ul class="shipping-options" style="margin-top:14px">
-              <li><span>PAC · 5 a 9 dias úteis</span><span>R$ 24,90</span></li>
-              <li><span>SEDEX · 2 a 4 dias úteis</span><span>R$ 39,90</span></li>
+              <button class="btn btn--outline" type="submit" aria-describedby="frete-rotulo">Calcular</button>
+            </form>
+            <p class="field__hint" data-frete-msg role="status"></p>
+            <ul class="shipping-options">
+              <li><span>PAC · Correios</span><span>R$ 15,00 no Sudeste · grátis acima de R$ 299</span></li>
+              <li><span>SEDEX · Correios</span><span>valor calculado pelo CEP</span></li>
             </ul>
             <p class="field__hint">
-              Valores de exemplo. O frete real depende da conta de frete da
-              empresa: ver <a href="envio.html">Envio e entrega</a>.
+              O prazo de cada modalidade sai do cálculo dos Correios pelo seu CEP.
+              Acima de R$ 299 o frete é grátis. Detalhes em
+              <a href="envio.html">Envio e entrega</a>.
             </p>
           </div>
 
           <div class="summary__row">
             <span>Frete</span>
-            <span>Grátis</span>
+            <span data-frete>Grátis</span>
           </div>
           <div class="summary__row summary__row--total">
-            <span>Total</span>
-            <span>R$ 510,30</span>
+            <span data-total-rotulo>Total</span>
+            <span data-total>R$ 876,60</span>
           </div>
 
           <p class="summary__note">
@@ -128,7 +140,7 @@
             Configuração fiscal depende do contador.
           </p>
 
-          <p style="margin-top:18px">
+          <p class="summary__action">
             <a class="btn btn--primary btn--block" href="checkout.html">Finalizar compra</a>
           </p>
           <p class="text-center">
@@ -144,7 +156,7 @@
         <div class="state">
           <p class="state__title">Sua sacola está vazia</p>
           <p class="state__text">
-            Que tal começar pelas peças mais desejadas? Todas com troca em 7 dias.
+            Que tal começar pelas peças mais desejadas? Todas com troca em 30 dias.
           </p>
           <div class="state__actions">
             <a class="btn btn--primary" href="loja.html">Ver a loja</a>
@@ -156,42 +168,18 @@
       <section class="section" aria-labelledby="relacionados-carrinho">
         <h2 class="state-label" id="relacionados-carrinho">Sugestões para completar o look</h2>
         <ul class="product-grid product-grid--four">
-          <li class="card">
-            <a class="card__media" href="produto.html">
-              <img class="card__img" src="assets/img/produto-09-a.svg" alt="Bolsa tote de couro vegano caramelo, frente" loading="lazy" width="1600" height="1600">
-            </a>
-            <div class="card__body">
-              <h3 class="card__name"><a href="produto.html">Bolsa Tote Couro Vegano</a></h3>
-              <p class="card__price">R$ 289,00</p>
-            </div>
-          </li>
-          <li class="card">
-            <a class="card__media" href="produto.html">
-              <img class="card__img" src="assets/img/produto-05-a.svg" alt="Camisa oversized de algodão, frente" loading="lazy" width="1600" height="1600">
-            </a>
-            <div class="card__body">
-              <h3 class="card__name"><a href="produto.html">Camisa Oversized Algodão</a></h3>
-              <p class="card__price">R$ 249,00</p>
-            </div>
-          </li>
-          <li class="card">
-            <a class="card__media" href="produto.html">
-              <img class="card__img" src="assets/img/produto-06-a.svg" alt="Calça wide leg de alfaiataria, frente" loading="lazy" width="1600" height="1600">
-            </a>
-            <div class="card__body">
-              <h3 class="card__name"><a href="produto.html">Calça Wide Leg Alfaiataria</a></h3>
-              <p class="card__price">R$ 319,00</p>
-            </div>
-          </li>
-          <li class="card">
-            <a class="card__media" href="produto.html">
-              <img class="card__img" src="assets/img/produto-08-a.svg" alt="Saia midi plissada caramelo, frente" loading="lazy" width="1600" height="1600">
-            </a>
-            <div class="card__body">
-              <h3 class="card__name"><a href="produto.html">Saia Midi Plissada</a></h3>
-              <p class="card__price">R$ 229,00</p>
-            </div>
-          </li>
-        </ul>
+        <!--CARDS:bolsa-palha,camisa-linho-branca,calca-pantalona-salvia,saia-linho-cru-->
+      </ul>
       </section>
     </div>
+
+    <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
+         Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o
+         conteúdo do rodapé. O texto fica dentro do container do header. -->
+    <section class="band band--rodape" aria-labelledby="banda-rodape-titulo">
+      <div class="container band__inner">
+        <h2 id="banda-rodape-titulo">Precisa de ajuda com o pedido?</h2>
+        <p>Fale com o ateliê para qualquer dúvida antes de finalizar.</p>
+        <a class="btn btn--paper" href="contato.html">Falar com o ateliê</a>
+      </div>
+    </section>

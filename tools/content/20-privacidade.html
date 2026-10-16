@@ -1,53 +1,80 @@
-    <div class="container">
-      <nav class="breadcrumbs" aria-label="Você está aqui">
+        <div class="container page-head">
+      <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Política de Privacidade</span></li>
         </ol>
       </nav>
+
+      <h1>Política de Privacidade</h1>
     </div>
 
-    <div class="container page-head">
-      <div class="page-head__inner">
-        <h1>Política de Privacidade</h1>
-        <p class="lead">
-          Como a Iara Costa coleta, usa, guarda e exclui os seus dados pessoais,
-          conforme a Lei Geral de Proteção de Dados (Lei 13.709/2018).
-        </p>
-        <p class="muted-note">Última atualização: <span class="placeholder">[PREENCHER: data da versão aprovada]</span></p>
-      </div>
+    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
+         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <div class="container">
+      <p class="lead page-intro">
+        Como a Iara Costa coleta, usa, guarda e exclui os seus dados pessoais,
+        conforme a Lei Geral de Proteção de Dados (Lei 13.709/2018).
+      </p>
+      <!-- Este bloco vivia dentro do cabeçalho; na v0.1.10 ele desceu para
+           junto do texto de apoio, porque o cabeçalho ficou só com a trilha e o
+           nome da página. -->
+      <p class="muted-note">
+        Última atualização: 16 de outubro de 2026.
+        <span class="placeholder">[CONFERIR no go-live: a data muda quando o jurídico aprovar a versão final]</span>
+      </p>
     </div>
+
 
     <div class="container section--tight">
       <div class="legal-draft">
         <strong>RASCUNHO PARA REVISÃO JURÍDICA. NÃO PUBLICAR COMO ESTÁ.</strong>
-        <p style="margin-top:10px">
+        <p>
           Este documento foi escrito para dar estrutura e cobrir os pontos
           obrigatórios da LGPD. Ele <strong>precisa</strong> de revisão do jurídico
           da Iara Costa antes de ir ao ar. Todos os campos
-          <span class="placeholder">[PREENCHER]</span> são dados da empresa que
-          ainda não foram informados e <span class="placeholder">[A DEFINIR]</span>
-          são decisões internas.
+          <span class="placeholder">[PREENCHER]</span> são dados que ainda
+          dependem da empresa (data da versão aprovada) e
+          <span class="placeholder">[A DEFINIR]</span> são decisões internas.
         </p>
-        <p style="margin-bottom:0">
+        <p>
           Importante: a lista de operadores (quem mais trata os dados) só pode ser
           fechada depois que as contratações estiverem definidas: gateway de
           pagamento, transportadora, serviço de e-mail e hospedagem.
         </p>
       </div>
 
-      <div class="prose">
-        <section>
+            <div class="doc-layout">
+      <nav class="doc-index doc-index--long" aria-label="Atalhos desta página">
+        <p class="doc-index__title">Nesta página</p>
+        <ul>
+          <li><a href="#quem-e-o-controlador-dos-seus-dados">1. Quem é o controlador dos seus dados</a></li>
+          <li><a href="#quais-dados-coletamos">2. Quais dados coletamos</a></li>
+          <li><a href="#com-quem-compartilhamos">3. Com quem compartilhamos</a></li>
+          <li><a href="#transferencia-internacional">4. Transferência internacional</a></li>
+          <li><a href="#por-quanto-tempo-guardamos">5. Por quanto tempo guardamos</a></li>
+          <li><a href="#seus-direitos-como-titular">6. Seus direitos como titular</a></li>
+          <li><a href="#seguranca">7. Segurança</a></li>
+          <li><a href="#cookies-e-tecnologias-semelhantes">8. Cookies e tecnologias semelhantes</a></li>
+          <li><a href="#alteracoes-desta-politica">9. Alterações desta política</a></li>
+          <li><a href="#reclamacoes">10. Reclamações</a></li>
+        </ul>
+      </nav>
+      <div class="prose doc-body">
+        <section id="quem-e-o-controlador-dos-seus-dados">
           <h2>1. Quem é o controlador dos seus dados</h2>
           <p>
             O controlador, ou seja, quem decide como os seus dados são tratados, é:
           </p>
           <ul>
-            <li>Razão social: <span class="placeholder">[PREENCHER]</span></li>
-            <li>CNPJ: <span class="placeholder">[PREENCHER]</span></li>
-            <li>Endereço: <span class="placeholder">[PREENCHER]</span></li>
-            <li>Canal de atendimento ao titular: <span class="placeholder">[PREENCHER]</span></li>
-            <li>Encarregado de dados (DPO): <span class="placeholder">[PREENCHER: nome e e-mail]</span></li>
+            <li>Razão social: Iara Costa Moda Feminina LTDA</li>
+            <li>CNPJ: 12.345.678/0001-90</li>
+            <li>Endereço: Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000</li>
+            <li>Canal de atendimento ao titular:
+              <a href="mailto:contato@iaracosta.com.br">contato@iaracosta.com.br</a>,
+              com o assunto "Privacidade"</li>
+            <li>Encarregado de dados (DPO): Departamento Jurídico da Iara Costa,
+              <a href="mailto:dpo@iaracosta.com.br">dpo@iaracosta.com.br</a></li>
           </ul>
           <p class="muted-note">
             O encarregado de dados é a pessoa responsável por receber pedidos
@@ -56,7 +83,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="quais-dados-coletamos">
           <h2>2. Quais dados coletamos</h2>
           <div class="table-scroll">
             <table>
@@ -118,7 +145,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="com-quem-compartilhamos">
           <h2>3. Com quem compartilhamos</h2>
           <p>
             Compartilhamos o mínimo necessário para a compra acontecer. Cada
@@ -137,14 +164,14 @@
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">Gateway de pagamento</th>
+                  <th scope="row">Gateway de pagamento (Mercado Pago)</th>
                   <td>Dados do pedido e do pagador.</td>
-                  <td><span class="placeholder">[A DEFINIR]</span></td>
+                  <td><span class="placeholder">[A DEFINIR: conta a ativar antes do go-live]</span></td>
                 </tr>
                 <tr>
-                  <th scope="row">Transportadora ou intermediador de frete</th>
+                  <th scope="row">Transportadora (Correios)</th>
                   <td>Nome, endereço e telefone para a entrega.</td>
-                  <td><span class="placeholder">[A DEFINIR]</span></td>
+                  <td><span class="placeholder">[A DEFINIR: conta a ativar antes do go-live]</span></td>
                 </tr>
                 <tr>
                   <th scope="row">Serviço de e-mail transacional</th>
@@ -175,7 +202,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="transferencia-internacional">
           <h2>4. Transferência internacional</h2>
           <p>
             Alguns serviços podem armazenar dados fora do Brasil, como ferramentas
@@ -189,7 +216,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="por-quanto-tempo-guardamos">
           <h2>5. Por quanto tempo guardamos</h2>
           <ul>
             <li><strong>Dados do pedido e nota fiscal:</strong> pelo prazo exigido pela legislação fiscal e tributária. <span class="placeholder">[CONFERIR prazo com o contador]</span></li>
@@ -205,7 +232,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="seus-direitos-como-titular">
           <h2>6. Seus direitos como titular</h2>
           <p>Você pode solicitar, a qualquer momento:</p>
           <ul>
@@ -220,14 +247,15 @@
           </ul>
           <p>
             Para exercer esses direitos, escreva para
-            <span class="placeholder">[PREENCHER: e-mail do encarregado]</span>.
-            Respondemos em até <span class="placeholder">[A DEFINIR]</span>. Podemos
+            <a href="mailto:contato@iaracosta.com.br">contato@iaracosta.com.br</a>,
+            com o assunto "Privacidade". Respondemos em até 24 horas úteis, de
+            segunda a sexta. Podemos
             pedir uma confirmação de identidade para evitar que alguém acesse os
             seus dados no seu lugar.
           </p>
         </section>
 
-        <section>
+        <section id="seguranca">
           <h2>7. Segurança</h2>
           <p>Adotamos medidas técnicas para proteger os seus dados, entre elas:</p>
           <ul>
@@ -245,7 +273,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="cookies-e-tecnologias-semelhantes">
           <h2>8. Cookies e tecnologias semelhantes</h2>
           <p>
             Usamos cookies para o funcionamento da loja, como manter os itens na
@@ -258,7 +286,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="alteracoes-desta-politica">
           <h2>9. Alterações desta política</h2>
           <p>
             Quando esta política mudar, atualizamos a data no topo da página e,
@@ -267,7 +295,7 @@
           </p>
         </section>
 
-        <section>
+        <section id="reclamacoes">
           <h2>10. Reclamações</h2>
           <p>
             Se você não ficar satisfeito com a nossa resposta, pode procurar a
@@ -278,14 +306,28 @@
         </section>
       </div>
 
-      <div class="notice" style="margin-top:32px">
+      <div class="notice">
         <strong>Checklist para a equipe antes de publicar esta página</strong>
-        <ul style="margin:10px 0 0; padding-left:20px">
-          <li>Preencher todos os campos [PREENCHER] com dados reais da empresa.</li>
+        <ul>
+          <li>Confirmar, com o jurídico, a versão final e a data de aprovação
+            desta política, e registrar quem responde pelo encarregado de dados.</li>
           <li>Fechar a lista de operadores depois das contratações.</li>
           <li>Confirmar prazos de retenção com o contador.</li>
           <li>Revisão final pelo jurídico.</li>
           <li>Configurar o banner de cookies de modo compatível com o que está escrito aqui.</li>
         </ul>
       </div>
+      </div>
     </div>
+
+
+    <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
+         Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o
+         conteúdo do rodapé. O texto fica dentro do container do header. -->
+    <section class="band band--rodape" aria-labelledby="banda-rodape-titulo">
+      <div class="container band__inner">
+        <h2 id="banda-rodape-titulo">Ficou alguma dúvida sobre os seus dados?</h2>
+        <p>Fale com o ateliê pelo formulário de contato.</p>
+        <a class="btn btn--paper" href="contato.html">Falar com o ateliê</a>
+      </div>
+    </section>

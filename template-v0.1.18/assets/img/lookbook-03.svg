@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" role="img" aria-label="Imagem de exemplo: LOOK 03">
+  <rect width="1200" height="1500" fill="#fffdf9"/>
+  <rect x="1" y="1" width="1198" height="1498" fill="none" stroke="#ded8ce" stroke-width="2"/>
+  <circle cx="600.0" cy="594" r="66" fill="none" stroke="#e4cbb5" stroke-width="2"/>
+  <path d="M558 630 l84 0 l0 66 l-84 0 z" fill="none" stroke="#e4cbb5" stroke-width="2"/>
+  <text x="50%" y="774" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="54" letter-spacing="2" fill="#625a52">LOOK 03</text>
+  <text x="50%" y="840" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="29" fill="#81786e">Produção de moda com as peças da coleção</text>
+  <text x="50%" y="888" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="22" letter-spacing="3" fill="#a45f43">SUBSTITUIR POR FOTO REAL · 1200x1500</text>
+</svg>

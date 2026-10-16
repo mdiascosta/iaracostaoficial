@@ -1,19 +1,23 @@
-    <div class="container">
-      <nav class="breadcrumbs" aria-label="Você está aqui">
+        <div class="container page-head">
+      <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><a href="carrinho.html">Sacola</a></li>
           <li><span aria-current="page">Finalizar compra</span></li>
         </ol>
       </nav>
+
+      <h1>Finalizar compra</h1>
     </div>
 
-    <div class="container page-head">
-      <div class="page-head__inner">
-        <h1>Finalizar compra</h1>
-        <p class="lead">Compra segura. Você pode comprar como visitante, sem criar conta.</p>
-      </div>
+    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
+         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <div class="container">
+      <p class="lead page-intro">
+        Compra segura. Você pode comprar como visitante, sem criar conta.
+      </p>
     </div>
+
 
     <div class="container section--tight">
       <ol class="checkout-steps" aria-label="Etapas da compra">
@@ -70,7 +74,7 @@
                          aria-describedby="cep-hint" required>
                   <p class="field__hint" id="cep-hint">O frete é calculado a partir do CEP.</p>
                 </div>
-                <div class="field" style="grid-column: span 2">
+                <div class="field field--wide">
                   <label class="field__label" for="endereco">Endereço</label>
                   <input class="field__input" id="endereco" name="endereco" type="text"
                          autocomplete="street-address" required>
@@ -124,71 +128,158 @@
               </div>
             </fieldset>
 
-            <fieldset class="fieldset">
+                        <fieldset class="fieldset">
               <legend class="fieldset__legend">Formas de envio</legend>
 
-              <ul class="shipping-options" style="margin-bottom:16px">
-                <li><span>PAC · 5 a 9 dias úteis</span><span>R$ 24,90</span></li>
-                <li><span>SEDEX · 2 a 4 dias úteis</span><span>R$ 39,90</span></li>
+              <ul class="choice-list" aria-describedby="envio-hint">
+                <li>
+                  <label class="choice" for="envio-pac">
+                    <input class="choice__input" id="envio-pac" name="envio" type="radio" value="PAC" checked>
+                    <span class="choice__body">
+                      <span class="choice__title">PAC · Envio do ateliê</span>
+                      <span class="choice__meta">Postagem em até 2 dias úteis · rastreio incluso</span>
+                    </span>
+                    <span class="choice__price" data-frete-pac>Grátis</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="choice" for="envio-sedex">
+                    <input class="choice__input" id="envio-sedex" name="envio" type="radio" value="SEDEX">
+                    <span class="choice__body">
+                      <span class="choice__title">SEDEX · Entrega expressa</span>
+                      <span class="choice__meta">Valor e prazo calculados pelos Correios pelo seu CEP</span>
+                    </span>
+                    <span class="choice__price" data-frete-sedex>Calculado pelo CEP</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="choice" for="envio-retirada">
+                    <input class="choice__input" id="envio-retirada" name="envio" type="radio" value="Retirada">
+                    <span class="choice__body">
+                      <span class="choice__title">Retirar no ateliê</span>
+                      <span class="choice__meta">Segunda a sexta, das 10h às 17h · Rua das Flores, nº 140, Sala 02 ·
+                        Centro, Cerquilho - SP</span>
+                    </span>
+                    <span class="choice__price">Grátis</span>
+                  </label>
+                </li>
               </ul>
 
-              <div class="radio">
-                <input class="radio__input" id="envio-gratis" name="envio" type="radio" checked>
-                <label class="radio__label" for="envio-gratis">
-                  <strong>Frete grátis</strong> (pedido acima de R$ 199) · PAC, 5 a 9 dias úteis
-                </label>
-              </div>
-              <div class="radio">
-                <input class="radio__input" id="envio-sedex" name="envio" type="radio">
-                <label class="radio__label" for="envio-sedex">
-                  SEDEX · 2 a 4 dias úteis · R$ 39,90
-                </label>
-              </div>
-              <p class="field__hint">
-                Prazos e valores de exemplo: serão substituídos pelos dados da
-                conta de frete da empresa.
+              <p class="field__hint" id="envio-hint">
+                Os Correios calculam valor e prazo de PAC e SEDEX a partir do CEP de
+                entrega. No Sudeste o PAC fica em R$ 15,00 e, acima de R$ 299 no
+                valor líquido (depois do cupom), o PAC sai grátis.
               </p>
+              <p class="field__hint" data-envio-msg role="status"></p>
             </fieldset>
 
             <fieldset class="fieldset">
               <legend class="fieldset__legend">Pagamento</legend>
 
-              <p class="notice notice--attention" style="margin-bottom:18px">
-                Nenhum gateway está conectado ainda. As opções abaixo são
-                ilustrativas e servem para validar o fluxo visual. Pagamento real
-                só depois de contratar o gateway e testar em ambiente de teste.
+              <p class="notice notice--attention">
+                O gateway da loja é o Mercado Pago. No protótipo nenhuma conta está
+                conectada: as opções abaixo validam o fluxo visual e o pagamento
+                real só acontece depois de ligar a conta e testar em ambiente de
+                teste.
               </p>
 
-              <div class="radio">
-                <input class="radio__input" id="pg-pix" name="pagamento" type="radio" checked>
-                <label class="radio__label" for="pg-pix">
-                  <strong>Pix</strong> · aprovação na hora.
-                  <span class="placeholder">[A DEFINIR: desconto no Pix]</span>
-                </label>
-              </div>
-              <div class="radio">
-                <input class="radio__input" id="pg-cartao" name="pagamento" type="radio">
-                <label class="radio__label" for="pg-cartao">
-                  <strong>Cartão de crédito</strong> ·
-                  <span class="placeholder">[A DEFINIR: parcelamento]</span>
-                </label>
-              </div>
-              <div class="radio">
-                <input class="radio__input" id="pg-boleto" name="pagamento" type="radio">
-                <label class="radio__label" for="pg-boleto">
-                  <strong>Boleto</strong> · compensação em 1 a 2 dias úteis.
-                </label>
-              </div>
-              <div class="radio">
-                <input class="radio__input" id="pg-transferencia" name="pagamento" type="radio">
-                <label class="radio__label" for="pg-transferencia">
-                  <strong>Transferência bancária</strong> ·
-                  <span class="placeholder">[CONFERIR: ativar somente para teste e desativar antes de publicar]</span>
-                </label>
+              <ul class="choice-list" aria-describedby="pagamento-hint">
+                <li>
+                  <label class="choice" for="pg-pix">
+                    <input class="choice__input" id="pg-pix" name="pagamento" type="radio" value="pix" checked>
+                    <span class="choice__body">
+                      <span class="choice__title">Pix <span class="choice__tag">5% off</span></span>
+                      <span class="choice__meta">Aprovação na hora · QR Code depois de confirmar o pedido</span>
+                    </span>
+                    <span class="choice__price" data-preco-pix>R$ 832,77</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="choice" for="pg-cartao">
+                    <input class="choice__input" id="pg-cartao" name="pagamento" type="radio" value="cartao">
+                    <span class="choice__body">
+                      <span class="choice__title">Cartão de crédito</span>
+                      <span class="choice__meta">Em até 6x sem juros · parcela mínima de R$ 50,00</span>
+                    </span>
+                    <span class="choice__price" data-preco-cartao>R$ 876,60</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="choice" for="pg-boleto">
+                    <input class="choice__input" id="pg-boleto" name="pagamento" type="radio" value="boleto">
+                    <span class="choice__body">
+                      <span class="choice__title">Boleto bancário</span>
+                      <span class="choice__meta">Vence em 2 dias úteis · pedido liberado depois da compensação</span>
+                    </span>
+                    <span class="choice__price" data-preco-boleto>R$ 876,60</span>
+                  </label>
+                </li>
+                <!-- Boleto habilitado pela empresa em 16/10/2026, pelo Mercado Pago.
+                     Transferência bancária continua fora: não foi confirmada. -->
+              </ul>
+
+              <p class="field__hint" id="pagamento-hint">
+                O desconto do Pix é aplicado sobre o valor dos produtos. No cartão
+                e no boleto, o valor é o cheio. O frete entra no total conforme a
+                forma de envio escolhida.
+              </p>
+              <p class="field__hint" data-pay-note role="status"></p>
+
+              <!-- DADOS DO CARTÃO (v0.1.13) — aparecem só quando o cartão de
+                   crédito é a forma escolhida, como no template de referência.
+
+                   Decisão do projeto, que não muda: o protótipo NÃO coleta dado
+                   de cartão. Os campos abaixo não têm atributo name (nada é
+                   enviado ao finalizar), não são gravados em nenhum lugar e
+                   servem só para mostrar o desenho da tela. No site publicado
+                   quem desenha estes campos é o Mercado Pago, na página segura
+                   dele. -->
+              <div class="card-fields" id="cartao-campos" hidden role="group" aria-labelledby="cartao-titulo">
+                <p class="card-fields__title" id="cartao-titulo">Dados do cartão</p>
+
+                <p class="field__hint" id="cartao-aviso">
+                  Demonstração visual. No site publicado estes campos são gerados
+                  pelo Mercado Pago e o número do cartão nunca passa por este site.
+                  Nada do que for digitado aqui é guardado ou enviado.
+                </p>
+
+                <div class="field">
+                  <label class="field__label" for="cc-numero">Número do cartão <span aria-hidden="true">*</span></label>
+                  <input class="field__input" id="cc-numero" type="text" inputmode="numeric"
+                         autocomplete="off" placeholder="0000 0000 0000 0000"
+                         aria-describedby="cartao-aviso">
+                </div>
+
+                <div class="form-row form-row--2">
+                  <div class="field">
+                    <label class="field__label" for="cc-nome">Nome impresso <span aria-hidden="true">*</span></label>
+                    <input class="field__input" id="cc-nome" type="text" autocomplete="off"
+                           placeholder="Como está no cartão">
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="cc-validade">Validade <span aria-hidden="true">*</span></label>
+                    <input class="field__input" id="cc-validade" type="text" inputmode="numeric"
+                           autocomplete="off" placeholder="MM/AA" maxlength="5">
+                  </div>
+                </div>
+
+                <div class="form-row form-row--2">
+                  <div class="field">
+                    <label class="field__label" for="cc-cvv">CVV <span aria-hidden="true">*</span></label>
+                    <input class="field__input" id="cc-cvv" type="text" inputmode="numeric"
+                           autocomplete="off" placeholder="123" maxlength="4">
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="cc-parcelas">Parcelas <span aria-hidden="true">*</span></label>
+                    <select class="field__select" id="cc-parcelas" data-parcelas>
+                      <option>1x de R$ 876,60 sem juros</option>
+                    </select>
+                  </div>
+                </div>
               </div>
             </fieldset>
 
-            <fieldset class="fieldset">
+<fieldset class="fieldset">
               <legend class="fieldset__legend">Antes de finalizar</legend>
 
               <div class="checkbox">
@@ -224,37 +315,39 @@
         <aside class="summary" aria-labelledby="resumo-checkout">
           <h2 class="summary__title" id="resumo-checkout">Seu pedido</h2>
 
-          <div class="cart-item" style="grid-template-columns:64px 1fr; border-bottom:1px solid var(--iara-hairline)">
+          <div class="cart-item cart-item--compact">
             <div class="cart-item__media">
-              <img src="assets/img/produto-01-a.svg" alt="Vestido midi em linho terracota, frente" style="width:64px;height:64px">
+              <img src="assets/img/vestido-salvia.jpg" alt="Vestido midi em linho terracota, frente" width="768" height="1376">
             </div>
             <div>
-              <p class="cart-item__name">Vestido Midi Linho Terracota</p>
+              <p class="cart-item__name">Vestido Midi Sálvia</p>
               <p class="cart-item__meta">Terracota · M · 1 un.</p>
             </div>
           </div>
 
-          <div class="cart-item" style="grid-template-columns:64px 1fr; border-bottom:1px solid var(--iara-hairline)">
+          <div class="cart-item cart-item--compact">
             <div class="cart-item__media">
-              <img src="assets/img/produto-10-a.svg" alt="Brinco de argola dourada, frente" style="width:64px;height:64px">
+              <img src="assets/img/brinco-argila.jpg" alt="Brinco de argola dourada, frente" width="768" height="1376">
             </div>
             <div>
-              <p class="cart-item__name">Brinco Argola Dourada</p>
+              <p class="cart-item__name">Colar de Cerâmica</p>
               <p class="cart-item__meta">Tamanho único · 2 un.</p>
             </div>
           </div>
 
-          <div class="summary__row" style="margin-top:14px">
-            <span>Subtotal</span><span>R$ 567,00</span>
+          <div class="summary__row">
+            <span>Subtotal</span><span data-resumo-produtos>R$ 974,00</span>
           </div>
           <div class="summary__row">
-            <span>Cupom BEMVINDO10</span><span>− R$ 56,70</span>
+            <span>Cupom BEMVINDO10</span><span data-resumo-cupom>− R$ 97,40</span>
           </div>
           <div class="summary__row">
-            <span>Frete</span><span>Grátis</span>
+            <span data-resumo-frete-rotulo>Frete no PAC</span>
+            <span data-resumo-frete>Grátis</span>
           </div>
           <div class="summary__row summary__row--total">
-            <span>Total</span><span>R$ 510,30</span>
+            <span data-resumo-total-rotulo>Total no Pix</span>
+            <span data-resumo-total>R$ 832,77</span>
           </div>
 
           <p class="summary__note">
@@ -268,7 +361,7 @@
       <!-- ESTADO DE UI: erro de pagamento -->
       <section class="section" aria-labelledby="erro-pagamento">
         <h2 class="state-label" id="erro-pagamento">Referência de estado: pagamento não aprovado</h2>
-        <div class="notice notice--error" role="alert" style="margin-bottom:20px">
+        <div class="notice notice--error" role="alert">
           <strong>Não conseguimos aprovar o pagamento.</strong>
           Isso costuma acontecer por limite do cartão ou dado digitado incorreto.
           Seu pedido continua reservado por 60 minutos. Você pode tentar outra
@@ -286,5 +379,29 @@
             <a class="btn btn--outline" href="contato.html">Falar com o atendimento</a>
           </div>
         </div>
+
+        <!-- Erro no campo, e não só no topo da página: é assim que o cliente vê
+             qual campo precisa de conserto sem procurar na tela. Exemplo com o
+             e-mail, que é o campo que mais erra. -->
+        <div class="field field--invalid">
+          <label class="field__label" for="email-erro">E-mail</label>
+          <input class="field__input" id="email-erro" name="email-erro" type="email"
+                 value="cliente@" aria-describedby="email-erro-msg"
+                 aria-invalid="true">
+          <p class="field__error" id="email-erro-msg">
+            Confira o e-mail: falta o final depois do arroba.
+          </p>
+        </div>
       </section>
     </div>
+
+    <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
+         Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o
+         conteúdo do rodapé. O texto fica dentro do container do header. -->
+    <section class="band band--rodape" aria-labelledby="banda-rodape-titulo">
+      <div class="container band__inner">
+        <h2 id="banda-rodape-titulo">Precisa de ajuda com o pedido?</h2>
+        <p>Fale com o ateliê para qualquer dúvida antes de finalizar.</p>
+        <a class="btn btn--paper" href="contato.html">Falar com o ateliê</a>
+      </div>
+    </section>

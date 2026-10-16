@@ -1,0 +1,273 @@
+[
+  {
+    "slug": "blusa-linho-terracota",
+    "nome": "Blusa de Linho Terracota",
+    "categoria": "Blusas & Camisas",
+    "categoria_slug": "blusas",
+    "preco": "R$ 348,00",
+    "preco_de": "",
+    "tamanhos": "P · M · G · GG",
+    "img": "blusa-terracota.jpg",
+    "alt": "Blusa feminina de linho terracota com botões de madeira",
+    "badge": "Novo",
+    "avaliacoes": "4,9 · 32 avaliações",
+    "estrelas": 5,
+    "cores": [
+      "terracota"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
+  },
+  {
+    "slug": "vestido-midi-salvia",
+    "nome": "Vestido Midi Sálvia",
+    "categoria": "Vestidos",
+    "categoria_slug": "vestidos",
+    "preco": "R$ 596,00",
+    "preco_de": "",
+    "tamanhos": "P · M · G · GG",
+    "img": "vestido-salvia.jpg",
+    "alt": "Vestido midi feminino verde sálvia com mangas amplas",
+    "badge": "Mais vendida",
+    "avaliacoes": "5,0 · 48 avaliações",
+    "estrelas": 5,
+    "cores": [
+      "salvia"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
+  },
+  {
+    "slug": "camisa-linho-branca",
+    "nome": "Camisa Branca de Linho",
+    "categoria": "Blusas & Camisas",
+    "categoria_slug": "blusas",
+    "preco": "R$ 389,00",
+    "preco_de": "",
+    "tamanhos": "P · M · G · GG",
+    "img": "camisa-branca.jpg",
+    "alt": "Camisa branca feminina de linho lavado com bolso frontal",
+    "badge": "",
+    "avaliacoes": "4,8 · 19 avaliações",
+    "estrelas": 5,
+    "cores": [
+      "cru",
+      "carvao"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
+  },
+  {
+    "slug": "vestido-longo-cerrado",
+    "nome": "Vestido Longo Cerrado",
+    "categoria": "Vestidos",
+    "categoria_slug": "vestidos",
+    "preco": "R$ 684,00",
+    "preco_de": "",
+    "tamanhos": "P · M · G · GG",
+    "img": "vestido-cerrado.jpg",
+    "alt": "Vestido longo feminino estampado em tom natural",
+    "badge": "",
+    "avaliacoes": "4,9 · 15 avaliações",
+    "estrelas": 5,
+    "cores": [
+      "terracota",
+      "carvao"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
+  },
+  {
+    "slug": "cropped-tricot-areia",
+    "nome": "Cropped de Tricot Areia",
+    "categoria": "Blusas & Camisas",
+    "categoria_slug": "blusas",
+    "preco": "R$ 249,00",
+    "preco_de": "R$ 299,00",
+    "tamanhos": "P · M · G · GG",
+    "img": "cropped-tricot.jpg",
+    "alt": "Cropped feminino de tricot areia com manga curta",
+    "badge": "Oferta",
+    "avaliacoes": "4,7 · 26 avaliações",
+    "estrelas": 5,
+    "cores": [
+      "areia",
+      "carvao"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
+  },
+  {
+    "slug": "saia-linho-cru",
+    "nome": "Saia Midi de Linho Cru",
+    "categoria": "Saias & Calças",
+    "categoria_slug": "saias-calcas",
+    "preco": "R$ 312,00",
+    "preco_de": "",
+    "tamanhos": "P · M · G · GG",
+    "img": "saia-cru.jpg",
+    "alt": "Saia midi feminina de linho cru com pregas",
+    "badge": "",
+    "avaliacoes": "4,8 · 12 avaliações",
+    "estrelas": 5,
+    "cores": [
+      "cru",
+      "areia"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
+  },
+  {
+    "slug": "calca-pantalona-salvia",
+    "nome": "Calça Pantalona Sálvia",
+    "categoria": "Saias & Calças",
+    "categoria_slug": "saias-calcas",
+    "preco": "R$ 459,00",
+    "preco_de": "",
+    "tamanhos": "P · M · G · GG",
+    "img": "pantalona-salvia.jpg",
+    "alt": "Calça pantalona feminina verde sálvia em linho",
+    "badge": "",
+    "avaliacoes": "4,7 · 21 avaliações",
+    "estrelas": 5,
+    "cores": [
+      "salvia"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
+  },
+  {
+    "slug": "blazer-linho-areia",
+    "nome": "Blazer de Linho Areia",
+    "categoria": "Terceiras Peças",
+    "categoria_slug": "terceiras-pecas",
+    "preco": "R$ 789,00",
+    "preco_de": "",
+    "tamanhos": "P · M · G · GG",
+    "img": "blazer-areia.jpg",
+    "alt": "Blazer feminino de linho areia com modelagem solta",
+    "badge": "Novo",
+    "avaliacoes": "5,0 · 8 avaliações",
+    "estrelas": 5,
+    "cores": [
+      "areia",
+      "cru"
+    ],
+    "tamanhos_slug": [
+      "p",
+      "m",
+      "g",
+      "gg"
+    ]
+  },
+  {
+    "slug": "colar-ceramica",
+    "nome": "Colar de Cerâmica",
+    "categoria": "Acessórios",
+    "categoria_slug": "acessorios",
+    "preco": "R$ 189,00",
+    "preco_de": "",
+    "tamanhos": "Peça única artesanal",
+    "img": "colar-ceramica.jpg",
+    "alt": "Colar feminino de contas de cerâmica esmaltadas em tom areia",
+    "badge": "",
+    "avaliacoes": "4,8 · 27 avaliações",
+    "estrelas": 5,
+    "cores": [
+      "terracota"
+    ],
+    "tamanhos_slug": [
+      "unico"
+    ]
+  },
+  {
+    "slug": "brinco-argila",
+    "nome": "Brinco de Argila Torneado",
+    "categoria": "Acessórios",
+    "categoria_slug": "acessorios",
+    "preco": "R$ 149,00",
+    "preco_de": "",
+    "tamanhos": "Par · gancho antialérgico",
+    "img": "brinco-argila.jpg",
+    "alt": "Brinco feminino de argila torneada em tom terracota",
+    "badge": "",
+    "avaliacoes": "4,9 · 18 avaliações",
+    "estrelas": 5,
+    "cores": [
+      "terracota",
+      "areia"
+    ],
+    "tamanhos_slug": [
+      "unico"
+    ]
+  },
+  {
+    "slug": "bolsa-palha",
+    "nome": "Bolsa Artesanal em Palha",
+    "categoria": "Bolsas",
+    "categoria_slug": "bolsas",
+    "preco": "R$ 429,00",
+    "preco_de": "",
+    "tamanhos": "Tamanho único",
+    "img": "bolsa-palha.jpg",
+    "alt": "Bolsa feminina artesanal trançada em palha natural",
+    "badge": "",
+    "avaliacoes": "4,8 · 22 avaliações",
+    "estrelas": 5,
+    "cores": [
+      "areia"
+    ],
+    "tamanhos_slug": [
+      "unico"
+    ]
+  },
+  {
+    "slug": "sandalia-couro",
+    "nome": "Sandália de Couro Natural",
+    "categoria": "Calçados",
+    "categoria_slug": "calcados",
+    "preco": "R$ 389,00",
+    "preco_de": "",
+    "tamanhos": "34 · 35 · 36 · 37 · 38",
+    "img": "sandalia-couro.jpg",
+    "alt": "Sandália feminina de couro natural com tiras finas",
+    "badge": "",
+    "avaliacoes": "4,7 · 14 avaliações",
+    "estrelas": 5,
+    "cores": [
+      "carvao",
+      "terracota"
+    ],
+    "tamanhos_slug": [
+      "unico"
+    ]
+  }
+]

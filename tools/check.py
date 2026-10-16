@@ -125,7 +125,10 @@ def main() -> int:
             problems += 1
             print(f"[ERRO] {page.name}: {inline_scripts} script inline (Bloco A usa só arquivos .js)")
 
-        if "—" in source:
+        # O travessão é proibido nos textos do site (regra do dossiê), não em
+        # comentários de código. Comentários são removidos antes da checagem.
+        sem_comentarios = re.sub(r"<!--.*?-->", "", source, flags=re.S)
+        if "—" in sem_comentarios:
             problems += 1
             print(f"[ERRO] {page.name}: travessão (—) encontrado; usar vírgula ou ponto")
 

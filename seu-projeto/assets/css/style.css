@@ -54,18 +54,38 @@
 
   /* Escala derivada [PROPOSTA] para o que o dossiê não cobre.
      Aguarda aprovação: títulos de página, seções e texto de blog. */
-  --fs-h1: clamp(30px, 5.2vw, 40px);
-  --fs-h2: clamp(22px, 3.4vw, 28px);
-  --fs-h3: 20px;
-  --fs-price: 18px;
+  /* v0.1.10 — os títulos desceram para a tabela do template do zip:
+     Display 24px (título de página, título de produto, hero e faixas) e
+     Heading 18px (títulos de seção e de card). Antes o h1 chegava a 40px e o
+     h2 a 28px, e a cliente pediu para não ficar grande. */
+  /* Escala de espaço do template (§2.5 do zip), com os mesmos nomes. Adotada na
+     v0.1.11 para o espaçamento entre blocos sair do HTML e ficar num lugar só. */
+  --iara-space-1: 4px;
+  --iara-space-2: 8px;
+  --iara-space-3: 12px;
+  --iara-space-4: 20px;
+  --iara-space-5: 24px;
+  --iara-space-6: 40px;
+  --iara-space-7: 56px;
+
+  --fs-h1: var(--fs-display);
+  --fs-h2: var(--fs-heading);
+  --fs-h3: var(--fs-heading);
+  --fs-price: var(--fs-heading);
 
   /* Layout */
-  --iara-container: 1280px;
-  --iara-header-max: 1688px; /* barra do topo, mais larga que a grade de conteúdo */
+  /* Largura única do site: a grade de conteúdo acompanha a barra do topo, para
+     logo, menu e produtos ficarem alinhados na mesma margem (pedido da cliente
+     em 16/10). Páginas de leitura estreitam de novo, mais abaixo. */
+  --iara-container: 1688px;
+  --iara-header-max: 1688px;
   --iara-gutter: clamp(20px, 5.3vw, 84px);
   --iara-gap: 20px;          /* "Space Between Widgets" do dossiê */
   --iara-radius: 2px;
   --iara-scroll-padding: 96px;
+  /* Distância em que o conteúdo gruda abaixo do cabeçalho fixo (o resumo
+     da sacola e a coluna de filtros usam este valor). */
+  --iara-sticky-top: calc(var(--iara-scroll-padding) + var(--iara-space-5));
 
   --iara-transition: 200ms ease;
 }
@@ -82,6 +102,11 @@
 html {
   scroll-padding-top: var(--iara-scroll-padding);
   scroll-behavior: smooth;
+  /* O espaço da barra de rolagem fica sempre reservado. Sem isso, a página
+     inteira anda para o lado quando a gaveta da sacola trava a rolagem
+     (body.is-locked). Vem da correção que o template do zip faz por script;
+     aqui dá para resolver em CSS. */
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -93,7 +118,17 @@ body {
   font-weight: 400;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden; /* nada de rolagem lateral (10.2) */
+  /* Nada de rolagem lateral (10.2). O valor é `clip`, e não `hidden`, de
+     propósito: `overflow-x: hidden` transforma o body numa caixa de rolagem e
+     com isso mata o `position: sticky` de tudo que está dentro dele, o que
+     acontecia com o cabeçalho e com o resumo da sacola (corrigido na v0.1.14).
+     `clip` corta o excesso sem criar caixa de rolagem. Navegador antigo que não
+     conhece `clip` fica com o `hidden` do @supports lá embaixo. */
+  overflow-x: clip;
+}
+
+@supports not (overflow: clip) {
+  body { overflow-x: hidden; }
 }
 
 img,
@@ -164,7 +199,10 @@ h1, h2, h3, h4 {
   line-height: 1.2;
 }
 
-h1 { font-family: var(--iara-font-display); font-size: var(--fs-h1); letter-spacing: 0.02em; }
+/* h1 é o Display do template do zip: Playfair 400, 24px, entrelinha 1.1 e
+   entreletra 0.105em (o mesmo tratamento do título de página, do hero e do
+   título de produto no zip). */
+h1 { font-family: var(--iara-font-display); font-size: var(--fs-h1); line-height: 1.1; letter-spacing: 0.105em; }
 h2 { font-family: var(--iara-font-display); font-size: var(--fs-h2); letter-spacing: 0.02em; }
 h3 { font-family: var(--iara-font-ui); font-size: var(--fs-h3); letter-spacing: 0.01em; }
 h4 { font-family: var(--iara-font-ui); font-size: var(--fs-heading); }
@@ -225,9 +263,28 @@ strong { font-weight: 600; }
   padding-inline: var(--iara-gutter);
 }
 
+/* v0.1.5 — todas as páginas usam a MESMA largura do header (1688px), como a
+   cliente pediu. O que continua limitado é a linha do texto corrido: 72
+   caracteres por linha é o limite confortável de leitura, então as páginas de
+   leitura alinham as caixas na largura do site e estreitam só o parágrafo. */
+body.page-legal          p, body.page-legal          li,
+body.page-faq            p, body.page-faq            li,
+body.page-size-guide     p, body.page-size-guide     li,
+body.page-shipping       p, body.page-shipping       li,
+body.page-returns        p, body.page-returns        li,
+body.page-contact        p, body.page-contact        li,
+body.page-about          p, body.page-about          li { max-width: 72ch; }
+
+/* Vale também para as caixas de aviso e os rascunhos legais, que têm texto
+   direto (sem <p>) e ficariam esticados na largura do header. */
+body.page-legal          .notice, body.page-legal          .legal-draft,
+body.page-faq            .notice,
+body.page-size-guide     .notice,
+body.page-shipping       .notice,
+body.page-returns        .notice, body.page-returns        .legal-draft { max-width: 72ch; }
+
 .section { padding-block: clamp(40px, 7vw, 80px); }
 .section--tight { padding-block: clamp(28px, 4vw, 48px); }
-.section--alt { background: var(--iara-hover-soft); }
 
 .section__head {
   display: flex;
@@ -240,7 +297,6 @@ strong { font-weight: 600; }
 
 .section__head p { margin: 0; }
 
-.stack > * + * { margin-top: var(--iara-gap); }
 
 .grid { display: grid; gap: var(--iara-gap); }
 
@@ -347,6 +403,13 @@ strong { font-weight: 600; }
   color: var(--iara-ink-soft);
 }
 
+/* Regiões de recado ficam no HTML desde o começo, vazias, para o leitor de tela
+   anunciar a mensagem quando ela chega. Vazias, não podem ocupar espaço: a
+   margem do campo criaria um vão sem nada dentro. */
+[data-cupom-msg]:empty,
+[data-frete-msg]:empty,
+[data-pay-note]:empty { margin: 0; }
+
 .field__error {
   margin: 6px 0 0;
   font-size: var(--fs-small);
@@ -357,11 +420,9 @@ strong { font-weight: 600; }
 .field--invalid .field__input,
 .field--invalid .field__select { border-color: var(--iara-accent); }
 
-.checkbox,
-.radio { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 14px; }
+.checkbox { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 14px; }
 
-.checkbox__input,
-.radio__input {
+.checkbox__input {
   width: 20px;
   height: 20px;
   margin: 2px 0 0;
@@ -369,8 +430,7 @@ strong { font-weight: 600; }
   flex: 0 0 auto;
 }
 
-.checkbox__label,
-.radio__label {
+.checkbox__label {
   font-size: var(--fs-small);
   color: var(--iara-ink-soft);
   line-height: 1.5;
@@ -397,48 +457,109 @@ strong { font-weight: 600; }
 @media (min-width: 721px) {
   .form-row--2 { grid-template-columns: 1fr 1fr; gap: 0 20px; }
   .form-row--3 { grid-template-columns: 1fr 1fr 1fr; gap: 0 20px; }
+
+  /* Campo que ocupa a linha inteira dentro de uma grade de duas colunas.
+     v0.1.11: antes isso era um style="grid-column: span 2" no HTML, que valia
+     também no celular e criava uma coluna fantasma (o campo do endereço ficava
+     com metade da largura na tela pequena). */
+  .field--wide { grid-column: span 2; }
 }
 
 /* ------------------------------------------------ 7. BREADCRUMBS E TÍTULOS */
+/* Migalha de pão (breadcrumb) no padrão de site de moda: caixa alta miúda,
+   com muito espaço em branco em volta, para ela desaparecer quando o olho
+   procura o título. Referências olhadas: COS, Massimo Dutti e Aritzia, que
+   usam a trilha discreta acima do nome da seção. */
+/* Trilha de navegação (todas as páginas internas).
+   v0.1.7 — o separador era um ponto em Accent Soft, que sobre o papel fica em
+   1,5:1 e praticamente desaparecia: as migalhas pareciam duas palavras soltas.
+   v0.1.8 — os links passaram de Muted (4,3:1, abaixo do mínimo de 4,5:1 para
+   texto pequeno) para Ink Soft (6,7:1), e a trilha agora mora dentro do
+   cabeçalho de página. O separador segue em Muted, que é elemento gráfico. */
 .breadcrumbs {
-  font-size: var(--fs-small);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--iara-ink-soft);
-  padding-block: 16px;
+  padding-block: clamp(16px, 2.2vw, 26px) 0;
 }
 
 .breadcrumbs ol {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
   margin: 0; padding: 0;
 }
 
 .breadcrumbs li + li::before {
-  content: "·";
-  color: var(--iara-accent-soft);
-  margin-right: 6px;
+  content: "/";
+  color: var(--iara-muted);
+  margin-right: 8px;
 }
 
 .breadcrumbs a { color: var(--iara-ink-soft); text-decoration: none; }
-.breadcrumbs a:hover { color: var(--iara-accent-dark); text-decoration: underline; }
+.breadcrumbs a:hover { color: var(--iara-accent-dark); text-decoration: underline; text-underline-offset: 3px; }
 .breadcrumbs [aria-current="page"] { color: var(--iara-ink); }
 
+/* Cabeçalho de página (todas as páginas internas).
+   v0.1.8 — faixa de fundo, fio curto e linha de olho.
+   v0.1.10 — pedido da cliente: o cabeçalho ficou limpo. Saiu o fundo, saíram a
+   linha de olho e o fio curto: sobraram a trilha de navegação, o nome da página
+   e um fio embaixo. O texto de apoio passou a abrir o conteúdo, logo abaixo do
+   fio (.page-intro), e o título segue a tabela do template do zip: 24px, o
+   mesmo tamanho do título de produto e do hero. */
 .page-head {
-  padding-block: clamp(16px, 3vw, 32px);
-  border-bottom: 1px solid var(--iara-hairline);
+  border-bottom: 1px solid var(--iara-line);
+  padding-block: clamp(20px, 2.4vw, 32px) clamp(22px, 2.8vw, 36px);
 }
 
-.page-head__inner { max-width: 62ch; }
-.page-head h1 { margin-bottom: 8px; }
-.page-head .lead { margin: 0; }
+.page-head .breadcrumbs { padding-block: 0; margin-bottom: clamp(14px, 1.8vw, 20px); }
+
+.page-head h1 {
+  font-size: var(--fs-display);
+  line-height: 1.1;
+  letter-spacing: 0.105em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+/* Texto de apoio da página: abre o conteúdo, abaixo do fio do cabeçalho. */
+.page-intro {
+  margin: clamp(18px, 2.4vw, 26px) 0 0;
+  max-width: 62ch;
+}
+
+/* A linha "Última atualização" das páginas legais acompanha o texto de apoio. */
+.page-intro + .muted-note { margin: 10px 0 0; }
+
+/* v0.1.15 — na coleção o texto de apoio virou a linha da listagem, como no zip:
+   faixa visível · recado de tamanhos · guia de medidas, em corpo pequeno. */
+.page-intro--meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  max-width: none;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+}
+
+.page-intro--meta a { color: var(--iara-accent-dark); }
+.page-intro--meta a:hover { color: var(--iara-accent); }
+
+.page-intro__range { color: var(--iara-ink); font-variant-numeric: tabular-nums; }
+.page-intro__dot { color: var(--iara-accent-soft); }
+
 
 /* ------------------------------------------------------ 8. CARDS DE PRODUTO */
 .product-grid {
   list-style: none;
   margin: 0; padding: 0;
   display: grid;
-  gap: clamp(20px, 3vw, 32px);
+  /* Espaçamento do zip: mais ar entre as linhas do que entre as colunas. */
+  gap: clamp(28px, 3vw, var(--iara-space-6)) var(--iara-gap);
   grid-template-columns: 1fr;          /* celular (dossiê 7.7) */
 }
 
@@ -446,12 +567,18 @@ strong { font-weight: 600; }
 @media (min-width: 1021px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 1021px) { .product-grid--four { grid-template-columns: repeat(4, 1fr); } }
 
-.card { position: relative; }
+/* Cartão em coluna, com 12px entre as partes: é o ritmo do cartão do zip. */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--iara-space-3);
+}
 
 .card__media {
   position: relative;
   display: block;
-  aspect-ratio: 1 / 1;               /* corte quadrado (seção 5) */
+  aspect-ratio: 4 / 5;               /* retrato, como no template aprovado */
   overflow: hidden;
   background: var(--iara-hover-soft);
   border: 1px solid var(--iara-hairline);
@@ -466,27 +593,25 @@ strong { font-weight: 600; }
   .card__media:hover .card__img { transform: none; }
 }
 
-.card__body { padding-top: 12px; }
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iara-space-3);
+}
 
-.card__name { margin: 0 0 4px; font-size: var(--fs-body); font-weight: 400; }
+.card__name { margin: 0; font-size: var(--fs-body); font-weight: 400; }
 .card__name a { color: var(--iara-ink); text-decoration: none; }
 .card__name a:hover { color: var(--iara-accent-dark); }
 
 .card__meta { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
 
 .card__price {
-  margin: 8px 0 0;
+  margin: 0;
   font-size: var(--fs-price);
   color: var(--iara-ink);
 }
 
 .card__price del { color: var(--iara-ink-soft); font-size: var(--fs-small); margin-right: 8px; }
-
-.card__installment {
-  margin: 2px 0 0;
-  font-size: var(--fs-small);
-  color: var(--iara-ink-soft);
-}
 
 .badge {
   position: absolute;
@@ -504,15 +629,6 @@ strong { font-weight: 600; }
 }
 
 .badge--out { background: var(--iara-ink); color: var(--iara-paper); border-color: var(--iara-ink); }
-.badge--sale { background: var(--iara-accent); color: var(--iara-paper); border-color: var(--iara-accent); }
-
-.card__swatches { display: flex; gap: 6px; margin-top: 10px; list-style: none; padding: 0; }
-
-.card__swatch {
-  width: 16px; height: 16px;
-  border-radius: 50%;
-  border: 1px solid var(--iara-line);
-}
 
 /* ------------------------------------------------------- 9. ESTADOS DE UI */
 .state {
@@ -637,8 +753,6 @@ thead th { background: var(--iara-hover-soft); font-size: var(--fs-micro); lette
 
 .pill--sage { border-color: var(--iara-sage); color: var(--iara-sage); }
 .pill--accent { border-color: var(--iara-accent); color: var(--iara-accent-dark); }
-
-.divider { height: 1px; background: var(--iara-hairline); border: 0; margin: 0; }
 
 .list-check { list-style: none; padding: 0; margin: 0; }
 

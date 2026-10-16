@@ -36,6 +36,142 @@ def load(name: str) -> str:
     return (ROOT / "partials" / name).read_text(encoding="utf-8")
 
 
+# --------------------------------------------------------------- CARDÚNICO
+# Uma loja repete o mesmo card de produto em várias páginas. Se o card fosse
+# copiado em cada arquivo, mudar o preço exigiria editar 8 lugares. Aqui o
+# desenho do card vive em tools/partials/card.html e os dados em
+# tools/produtos.json: a página escreve <!--CARD:slug--> e o gerador monta.
+
+def carregar_produtos() -> dict:
+    dados = json.loads((ROOT / "produtos.json").read_text(encoding="utf-8"))
+    catalogo = {}
+    for posicao, produto in enumerate(dados, start=1):
+        # "ordem" preserva a sequência de "Mais recentes" na loja (filtros.js
+        # usa data-ordem para esse critério).
+        produto["ordem"] = posicao
+        catalogo[produto["slug"]] = produto
+    return catalogo
+
+
+def estrelas(nota: int) -> str:
+    """Estrelas cheias e vazias. A última vazia vai com aria-hidden para o
+    leitor de tela não ler 'estrela estrela estrela'."""
+    cheias = max(0, min(5, int(nota)))
+    if cheias == 5:
+        return "★" * 5
+    return "★" * cheias + '<span aria-hidden="true">' + "★" * (5 - cheias) + "</span>"
+
+
+def preco_html(produto: dict) -> str:
+    de = produto.get("preco_de", "")
+    if de:
+        return f'<del>{de}</del>{produto["preco"]}'
+    return produto["preco"]
+
+
+def render_card(slug: str, produto: dict, nivel: str = "h3", capitulo: bool = False) -> str:
+    badge = ""
+    if produto.get("badge"):
+        classe = "badge badge--promo" if produto["badge"].lower() == "oferta" else "badge"
+        badge = f'\n          <span class="{classe}">{produto["badge"]}</span>'
+
+    promo = " card__price--promo" if produto.get("preco_de") else ""
+
+    preco_num = produto["preco"].replace("R$ ", "").replace(".", "").replace(",", ".")
+
+    cores = " ".join(produto.get("cores", []))
+    tamanhos = " ".join(produto.get("tamanhos_slug", []))
+
+    # A nota e o número de avaliações alimentam as ordenações "Melhor avaliados"
+    # e "Mais populares" (filtros.js), as mesmas duas do zip.
+    nota, _, quantidade = produto.get("avaliacoes", "").partition(" · ")
+    nota_num = nota.replace(",", ".") or "0"
+    avaliacoes_num = "".join(caractere for caractere in quantidade if caractere.isdigit()) or "0"
+
+    # Nos capítulos da coleção o cartão é enxuto, como no zip: foto, selo,
+    # coração, categoria, nome e preço. Sem nota, sem tamanhos e sem o convite
+    # da sacola (quem compra pelo capítulo abre a peça antes).
+    if capitulo:
+        return f"""<article class="card">
+          <a class="card__media" href="produto.html" aria-label="Ver {produto['nome']}">{badge}
+            <img class="card__img" src="assets/img/{produto['img']}" alt="{produto['alt']}"
+                 width="800" height="1000" loading="lazy" decoding="async">
+          </a>
+          <button class="card__wish" type="button" data-wish="{slug}" aria-pressed="false"
+                  aria-label="Salvar {produto['nome']} nos desejos">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9Z"></path></svg>
+          </button>
+          <div class="card__body">
+            <p class="card__cat">{produto['categoria']}</p>
+            <{nivel} class="card__name"><a href="produto.html">{produto['nome']}</a></{nivel}>
+            <p class="card__price{promo}">{preco_html(produto)}</p>
+          </div>
+        </article>"""
+
+    return f"""<li class="card" data-categoria="{produto['categoria_slug']}" data-cores="{cores}" data-tamanhos="{tamanhos}" data-preco="{preco_num}" data-nota="{nota_num}" data-avaliacoes="{avaliacoes_num}" data-ordem="{produto.get('ordem', 0)}">
+          <a class="card__media" href="produto.html" aria-label="Ver {produto['nome']}">{badge}
+            <img class="card__img" src="assets/img/{produto['img']}" alt="{produto['alt']}"
+                 width="800" height="1000" loading="lazy" decoding="async">
+          </a>
+          <button class="card__wish" type="button" data-wish="{slug}" aria-pressed="false"
+                  aria-label="Salvar {produto['nome']} nos desejos">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9Z"></path></svg>
+          </button>
+          <div class="card__body">
+            <p class="card__cat">{produto['categoria']}</p>
+            <{nivel} class="card__name"><a href="produto.html">{produto['nome']}</a></{nivel}>
+            <p class="card__rating">
+              <span class="stars" role="img" aria-label="Avaliação {produto['avaliacoes'].split(' · ')[0]} de 5">{estrelas(produto['estrelas'])}</span>
+              {produto['avaliacoes']}
+            </p>
+            <p class="card__price{promo}">{preco_html(produto)}</p>
+            <p class="card__sizes">{produto['tamanhos']}</p>
+            <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="{slug}">Adicionar à sacola</a></p>
+          </div>
+        </li>"""
+
+
+def expandir_cards(html: str, produtos: dict) -> str:
+    """Troca <!--CARD:slug--> e <!--CARD:slug:2--> pelo card montado."""
+    import re
+
+    def troca(match):
+        partes = match.group(1).split(":")
+        slug = partes[0]
+        nivel = "h" + partes[1] if len(partes) > 1 and partes[1] in "234" else "h3"
+
+        if slug not in produtos:
+            raise SystemExit(f"erro: produto '{slug}' não existe em tools/produtos.json")
+
+        return render_card(slug, produtos[slug], nivel)
+
+    html = re.sub(r"<!--CARD:([a-z0-9-]+(?::[234])?)-->", troca, html)
+
+    # <!--CARDS:a,b,c--> monta vários com indentação uniforme
+    def troca_varios(match):
+        slugs = [s.strip() for s in match.group(1).split(",") if s.strip()]
+        blocos = []
+        for slug in slugs:
+            if slug not in produtos:
+                raise SystemExit(f"erro: produto '{slug}' não existe em tools/produtos.json")
+            blocos.append(render_card(slug, produtos[slug], "h3"))
+        return "\n        ".join(blocos)
+
+    html = re.sub(r"<!--CARDS:([a-z0-9,\s-]+)-->", troca_varios, html)
+
+    # <!--CARDCAP:a,b--> monta os cartões enxutos dos capítulos da coleção
+    def troca_capitulo(match):
+        slugs = [s.strip() for s in match.group(1).split(",") if s.strip()]
+        blocos = []
+        for slug in slugs:
+            if slug not in produtos:
+                raise SystemExit(f"erro: produto '{slug}' não existe em tools/produtos.json")
+            blocos.append(render_card(slug, produtos[slug], "h3", capitulo=True))
+        return "\n            ".join(blocos)
+
+    return re.sub(r"<!--CARDCAP:([a-z0-9,\s-]+)-->", troca_capitulo, html)
+
+
 def nav_markup(header: str, nav_key: str) -> str:
     """Marca o item de menu da página atual com aria-current (o CSS usa isso)."""
     if not nav_key:
@@ -44,14 +180,75 @@ def nav_markup(header: str, nav_key: str) -> str:
 
 
 def cart_markup(header: str, count: int) -> str:
-    """Preenche o contador da sacola no header e no painel mobile."""
+    """Preenche os contadores da sacola e dos desejos no header e no menu mobile."""
     if count <= 0:
         label = "nenhum item"
     elif count == 1:
         label = "1 item"
     else:
         label = f"{count} itens"
-    return header.replace("{{CART_COUNT}}", str(count)).replace("{{CART_LABEL}}", label)
+    return (
+        header.replace("{{CART_COUNT}}", str(count))
+        .replace("{{CART_LABEL}}", label)
+        .replace("{{WISH_COUNT}}", "0")
+    )
+
+
+
+# ---------------------------------------------------------------- imagens
+# O atributo width/height de cada <img> precisa bater com o arquivo real: é ele
+# que reserva o espaço da imagem antes dela carregar. Quando não bate, o
+# navegador reserva a altura errada, o conteúdo é empurrado quando a foto
+# chega e o layout parece "invadido" pela seção seguinte (foi o que aconteceu
+# com os cartões do diário). Aqui a medida vem sempre do arquivo, então basta
+# trocar a foto para o HTML continuar correto.
+_DIMENSOES: dict = {}
+
+
+def dimensoes_jpg(caminho: pathlib.Path):
+    """Lê largura e altura de um JPEG pelo cabeçalho, sem dependência externa."""
+    if caminho in _DIMENSOES:
+        return _DIMENSOES[caminho]
+    medida = None
+    if caminho.exists():
+        dados = caminho.read_bytes()
+        if dados[:2] == b"\xff\xd8":
+            i = 2
+            while i < len(dados) - 9:
+                if dados[i] != 0xFF:
+                    i += 1
+                    continue
+                marca = dados[i + 1]
+                if marca in (0xC0, 0xC1, 0xC2, 0xC3):
+                    altura = int.from_bytes(dados[i + 5:i + 7], "big")
+                    largura = int.from_bytes(dados[i + 7:i + 9], "big")
+                    medida = (largura, altura)
+                    break
+                if marca in (0xD8, 0xD9) or 0xD0 <= marca <= 0xD7:
+                    i += 2
+                    continue
+                i += 2 + int.from_bytes(dados[i + 2:i + 4], "big")
+    _DIMENSOES[caminho] = medida
+    return medida
+
+
+def corrigir_dimensoes(html: str) -> str:
+    import re
+
+    def troca(match):
+        tag = match.group(0)
+        src = re.search(r'src="assets/img/([^"?]+)', tag)
+        if not src:
+            return tag
+        medida = dimensoes_jpg(PROJECT / "assets" / "img" / src.group(1))
+        if not medida:
+            return tag
+        largura, altura = medida
+        tag = re.sub(r'width="\d+"', f'width="{largura}"', tag, count=1)
+        tag = re.sub(r'height="\d+"', f'height="{altura}"', tag, count=1)
+        return tag
+
+    return re.sub(r"<img\b[^>]*>", troca, html)
 
 
 def asset_version(path: pathlib.Path) -> str:
@@ -65,12 +262,12 @@ def asset_version(path: pathlib.Path) -> str:
     return hashlib.md5(path.read_bytes()).hexdigest()[:8]
 
 
-def page_html(meta: dict, header: str, footer: str, content: str) -> str:
+def page_html(meta: dict, header: str, footer: str, content: str, drawer: str) -> str:
     extra_css = meta.get("extra_css", [])
     extra_js = meta.get("extra_js", [])
 
-    css_files = ["style.css", "header.css", "pages.css"] + extra_css
-    js_files = ["header.js"] + extra_js
+    css_files = ["style.css", "header.css", "pages.css", "comercio.css"] + extra_css
+    js_files = ["header.js", "loja.js"] + extra_js
 
     css_links = "\n".join(
         f'  <link rel="stylesheet" href="assets/css/{f}?v={asset_version(PROJECT / "assets" / "css" / f)}">'
@@ -104,6 +301,7 @@ def page_html(meta: dict, header: str, footer: str, content: str) -> str:
 {content}
   </main>
 {footer}
+{drawer}
 {js_tags}
 </body>
 </html>
@@ -119,6 +317,8 @@ def main() -> int:
     pages = json.loads((ROOT / "pages.json").read_text(encoding="utf-8"))
     header_tpl = load("header.html")
     footer_tpl = load("footer.html")
+    drawer_tpl = load("drawer.html")
+    produtos = carregar_produtos()
 
     built, skipped = [], []
     for meta in pages:
@@ -128,14 +328,16 @@ def main() -> int:
         if not content_path.exists():
             skipped.append(meta["file"])
             continue
-        content = content_path.read_text(encoding="utf-8")
+        content = expandir_cards(content_path.read_text(encoding="utf-8"), produtos)
         header = cart_markup(nav_markup(header_tpl, meta.get("nav", "")), meta.get("cart_count", 0))
         html = page_html(
             meta,
             header,
             footer_tpl,
             content,
+            drawer_tpl,
         )
+        html = corrigir_dimensoes(html)
         if not args.check:
             out = PROJECT / meta["file"]
             out.parent.mkdir(parents=True, exist_ok=True)

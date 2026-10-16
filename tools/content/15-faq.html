@@ -1,33 +1,38 @@
-    <div class="container">
-      <nav class="breadcrumbs" aria-label="Você está aqui">
+        <div class="container page-head">
+      <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Perguntas frequentes</span></li>
         </ol>
       </nav>
+
+      <h1>Perguntas frequentes</h1>
     </div>
 
-    <div class="container page-head">
-      <div class="page-head__inner">
-        <h1>Perguntas frequentes</h1>
-        <p class="lead">
-          As dúvidas que mais chegam no atendimento, respondidas de forma direta.
-          Se a sua não estiver aqui, fale com a gente.
-        </p>
-      </div>
+    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
+         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <div class="container">
+      <p class="lead page-intro">
+        As dúvidas que mais chegam no atendimento, respondidas de forma direta. Se a
+        sua não estiver aqui, fale com a gente.
+      </p>
     </div>
+
 
     <div class="container section--tight">
-      <nav class="anchor-nav" aria-label="Atalhos desta página">
-        <a href="#pedidos">Pedidos e pagamento</a>
-        <a href="#entrega">Entrega e frete</a>
-        <a href="#trocas">Trocas e devoluções</a>
-        <a href="#produtos">Produtos e tamanhos</a>
-        <a href="#atendimento">Atendimento e privacidade</a>
+      <div class="doc-layout">
+      <nav class="doc-index" aria-label="Atalhos desta página">
+        <p class="doc-index__title">Nesta página</p>
+        <ul>
+          <li><a href="#pedidos">Pedidos e pagamento</a></li>
+          <li><a href="#entrega">Entrega e frete</a></li>
+          <li><a href="#trocas">Trocas e devoluções</a></li>
+          <li><a href="#produtos">Produtos e tamanhos</a></li>
+          <li><a href="#atendimento">Atendimento e privacidade</a></li>
+        </ul>
       </nav>
-
-      <!-- PEDIDOS E PAGAMENTO -->
-      <section id="pedidos" aria-labelledby="faq-pedidos">
+      <div class="doc-body">
+<section id="pedidos" aria-labelledby="faq-pedidos">
         <h2 id="faq-pedidos">Pedidos e pagamento</h2>
         <div class="accordion" data-accordion>
 
@@ -40,11 +45,16 @@
             </h3>
             <div class="accordion__panel" id="f1">
               <p>
-                Pix, cartão de crédito e boleto.
-                <span class="placeholder">[CONFIRMAR COM A EMPRESA antes de publicar]</span>
-                As formas exibidas no site serão exatamente as que estiverem
-                contratadas e ativas no gateway. Parcelamento e desconto no Pix
-                seguem <span class="placeholder">[A DEFINIR]</span>.
+                Pix, cartão de crédito e boleto. O Pix tem <strong>5% de
+                desconto</strong> e o cartão pode ser dividido em <strong>até 6x
+                sem juros</strong>, com parcela mínima de R$ 50,00. O boleto vence
+                em 2 dias úteis e o pedido é liberado depois da compensação. O
+                processamento é todo do Mercado Pago, o gateway da loja.
+              </p>
+              <p class="muted-note">
+                Este texto precisa acompanhar o que estiver ativo na conta do
+                gateway no dia da publicação.
+                <span class="placeholder">[CONFERIR antes de publicar]</span>
               </p>
             </div>
           </div>
@@ -78,11 +88,15 @@
                 e clique em Aplicar. O desconto aparece no resumo antes de você
                 finalizar.
               </p>
+              <p>
+                O cupom vale para <strong>novos clientes, no primeiro pedido</strong>,
+                e não é cumulativo com outras ofertas ativas, cupons de troca ou
+                peças da categoria liquidação.
+              </p>
               <p class="muted-note">
-                Regras em definição: acumula com outras promoções? vale para
-                peças já em promoção? valor mínimo? validade?
-                <span class="placeholder">[A DEFINIR]</span> A resposta final
-                entra aqui depois da decisão da empresa.
+                Uso pessoal, no CPF ou CNPJ do próprio cliente; dados falsos para
+                burlar a regra de primeira compra permitem o cancelamento do
+                desconto, conforme os Termos de uso.
               </p>
             </div>
           </div>
@@ -111,7 +125,7 @@
       </section>
 
       <!-- ENTREGA -->
-      <section id="entrega" aria-labelledby="faq-entrega" style="margin-top:48px">
+      <section id="entrega" aria-labelledby="faq-entrega">
         <h2 id="faq-entrega">Entrega e frete</h2>
         <div class="accordion" data-accordion>
 
@@ -124,12 +138,15 @@
             </h3>
             <div class="accordion__panel" id="f5" hidden>
               <p>
-                O frete é calculado pelo CEP, na sacola, antes de você finalizar.
-                Acima de R$ 199 o frete é grátis para todo o Brasil.
+                O frete é calculado pelos Correios a partir do seu CEP, na sacola,
+                antes de você finalizar. Acima de R$ 299 o frete é grátis para
+                todo o Brasil.
               </p>
               <p>
-                Prazos e valores definitivos dependem da contratação da solução
-                de frete: <span class="placeholder">[A DEFINIR]</span>. Os detalhes
+                No <strong>Sudeste</strong> (SP, RJ, MG e ES), o PAC fica em
+                R$ 15,00. O SEDEX e as demais regiões saem pelo valor calculado
+                pelos Correios a partir do seu CEP. O frete grátis acima de
+                R$ 299 considera o valor dos produtos depois do cupom. Os detalhes
                 ficam em <a href="envio.html">Envio e entrega</a>.
               </p>
             </div>
@@ -144,8 +161,10 @@
             </h3>
             <div class="accordion__panel" id="f6" hidden>
               <p>
-                O código de rastreio chega por e-mail quando o pedido é
-                despachado. Você também acompanha em
+                A postagem sai em até 2 dias úteis depois da confirmação do
+                pagamento (peças sob encomenda levam de 5 a 7 dias úteis de
+                confecção no ateliê). O código de rastreio chega por e-mail quando
+                o pedido é despachado. Você também acompanha em
                 <a href="conta.html">Minha conta</a>, na seção Meus pedidos.
               </p>
             </div>
@@ -186,7 +205,7 @@
       </section>
 
       <!-- TROCAS -->
-      <section id="trocas" aria-labelledby="faq-trocas" style="margin-top:48px">
+      <section id="trocas" aria-labelledby="faq-trocas">
         <h2 id="faq-trocas">Trocas e devoluções</h2>
         <div class="accordion" data-accordion>
 
@@ -219,9 +238,15 @@
             </h3>
             <div class="accordion__panel" id="f10" hidden>
               <p>
-                <span class="placeholder">[A DEFINIR]</span> Esta resposta precisa
-                vir da empresa antes de publicar. Não prometemos frete grátis de
-                devolução sem confirmação, e não cobramos sem avisar.
+                <strong>A Iara Costa paga.</strong> Na desistência dentro dos 7
+                dias (CDC Art. 49) e na primeira troca por tamanho, o envio de
+                volta é por conta da loja, com autorização de postagem nos
+                Correios. Você recebe o código por e-mail e leva a peça em
+                qualquer agência.
+              </p>
+              <p class="muted-note">
+                A segunda troca em diante e a troca por outro modelo seguem a
+                política da página de <a href="trocas.html">Trocas e devoluções</a>.
               </p>
             </div>
           </div>
@@ -246,7 +271,7 @@
       </section>
 
       <!-- PRODUTOS -->
-      <section id="produtos" aria-labelledby="faq-produtos" style="margin-top:48px">
+      <section id="produtos" aria-labelledby="faq-produtos">
         <h2 id="faq-produtos">Produtos e tamanhos</h2>
         <div class="accordion" data-accordion>
 
@@ -324,7 +349,7 @@
       </section>
 
       <!-- ATENDIMENTO -->
-      <section id="atendimento" aria-labelledby="faq-atendimento" style="margin-top:48px">
+      <section id="atendimento" aria-labelledby="faq-atendimento">
         <h2 id="faq-atendimento">Atendimento e privacidade</h2>
         <div class="accordion" data-accordion>
 
@@ -378,17 +403,26 @@
               </p>
               <p>
                 Para exercer os seus direitos como titular de dados, use o canal
-                <span class="placeholder">[PREENCHER: e-mail do encarregado de dados]</span>.
+                <a href="mailto:dpo@iaracosta.com.br">dpo@iaracosta.com.br</a>,
+                do Departamento Jurídico da Iara Costa. Respondemos em até 24 horas
+                úteis, de segunda a sexta.
               </p>
             </div>
           </div>
 
         </div>
       </section>
-
-      <div class="promo" style="margin-top:48px">
-        <h2>Não encontrou a sua dúvida?</h2>
-        <p>Manda a pergunta para o atendimento. Se ela aparecer muito, entra aqui nesta página.</p>
-        <a class="btn btn--primary" href="contato.html">Falar com o atendimento</a>
+      </div>
       </div>
     </div>
+
+    <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
+         Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o
+         conteúdo do rodapé. O texto fica dentro do container do header. -->
+    <section class="band band--rodape" aria-labelledby="banda-rodape-titulo">
+      <div class="container band__inner">
+        <h2 id="banda-rodape-titulo">Não encontrou a sua dúvida?</h2>
+        <p>Manda a pergunta para o atendimento. Se ela aparecer muito, entra aqui nesta página.</p>
+        <a class="btn btn--paper" href="contato.html">Falar com o atendimento</a>
+      </div>
+    </section>

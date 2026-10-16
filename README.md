@@ -1,1 +1,75 @@
-# iaracostaoficial
+# Iara Costa · loja online
+
+Loja de moda feminina e acessorios da Iara Costa (Cerquilho, SP). O site e
+construido em **modo manual**: arquivos autocontidos, guias e verificacoes
+automaticas, sem acesso ao painel do WordPress e sem automacao externa.
+
+A entrega acontece em blocos. O Bloco A, que e o que existe hoje, e o
+**prototipo HTML estatico**: ele valida visual, conteudo e acessibilidade antes
+de qualquer coisa ir para o WordPress.
+
+---
+
+## Como o repositorio esta organizado
+
+| Pasta ou arquivo | O que e |
+|---|---|
+| `seu-projeto/` | A versao em desenvolvimento do template. E daqui que sai o site |
+| `template-v0.1.18/` | Copia congelada da versao 0.1.18, para conferencia. Uma pasta por versao fechada |
+| `tools/` | Gerador das paginas e as verificacoes (Python e Node) |
+| `VERSION` | Numero da versao atual do template |
+| `HISTORICO-DE-VERSOES.md` | O que mudou em cada versao, com a data e o pedido que originou |
+| `DIARIO-DE-BORDO.md` | Registro de cada rodada de trabalho |
+| `package.json` | Dependencias das verificacoes (jsdom). O site nao depende disto |
+
+Cada versao fechada tambem tem uma etiqueta (tag) no Git, de `v0.1.0` ate
+`v0.1.18`, que guarda os arquivos exatamente como estavam naquele dia.
+
+---
+
+## Como ver o site
+
+**Do jeito mais simples:** de dois cliques em `seu-projeto/index.html`.
+
+**Com servidor local** (recomendado):
+
+```bash
+python3 -m http.server 8080 --directory seu-projeto
+```
+
+Depois abra `http://localhost:8080`.
+
+Para abrir a versao congelada, troque a pasta:
+
+```bash
+python3 -m http.server 8080 --directory template-v0.1.18
+```
+
+---
+
+## Como rodar as verificacoes
+
+```bash
+python3 tools/build.py      # gera as 22 paginas em seu-projeto/
+python3 tools/check.py      # confere o que foi gerado
+node tools/test.js          # 997 verificacoes automaticas
+python3 tools/pente-fino.py # varredura de HTML, CSS e JavaScript
+```
+
+O `tools/test.js` precisa das dependencias instaladas uma vez:
+
+```bash
+npm install
+```
+
+---
+
+## Avisos
+
+- O prototipo **nao vai para producao** e nada dele e importado no WordPress.
+  Ele serve de referencia aprovada para a construcao no Elementor.
+- Textos legais (privacidade, termos e cookies) sao **rascunhos** para revisao
+  juridica.
+- As imagens sao de referencia, com direitos a conferir antes de publicar.
+- Nada aqui deve ser declarado como instalado, testado ou medido no WordPress
+  sem a verificacao da equipe.

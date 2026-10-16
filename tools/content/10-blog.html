@@ -1,21 +1,23 @@
-    <div class="container">
-      <nav class="breadcrumbs" aria-label="Você está aqui">
+        <div class="container page-head">
+      <nav class="breadcrumbs" aria-label="Trilha de navegação">
         <ol>
           <li><a href="index.html">Início</a></li>
           <li><span aria-current="page">Diário</span></li>
         </ol>
       </nav>
+
+      <h1>Diário</h1>
     </div>
 
-    <div class="container page-head">
-      <div class="page-head__inner">
-        <h1>Diário</h1>
-        <p class="lead">
-          Conteúdo para comprar melhor e cuidar das peças: caimento, tecidos,
-          medidas e combinações. Sem promessa de milagre.
-        </p>
-      </div>
+    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
+         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <div class="container">
+      <p class="lead page-intro">
+        Conteúdo para comprar melhor e cuidar das peças: caimento, tecidos, medidas
+        e combinações. Sem promessa de milagre.
+      </p>
     </div>
+
 
     <div class="container section--tight">
       <ul class="filter-list" aria-label="Filtrar o diário por tema">
@@ -28,7 +30,7 @@
       <!-- DESTAQUE -->
       <article class="post-feature">
         <a class="post-feature__media" href="post.html">
-          <img src="assets/img/blog-destaque-02.svg" alt="Guia de medidas aberto sobre a mesa" loading="lazy" width="1600" height="900">
+          <img src="assets/img/cap-salvia.jpg" alt="Peça verde sálvia de linho sobre superfície clara" loading="lazy" width="1600" height="900">
         </a>
         <div class="post-feature__body">
           <p class="post-card__eyebrow">Tamanhos e caimento</p>
@@ -38,64 +40,76 @@
             que já veste bem, compare com a tabela do produto e, na dúvida, fale
             com o atendimento antes de comprar.
           </p>
-          <p class="post-byline">Por <span class="placeholder">[PREENCHER: autoria]</span> · 6 min de leitura</p>
+          <p class="post-byline">Por Iara Costa e Equipe de Criação · 6 min de leitura</p>
         </div>
       </article>
 
       <ul class="post-grid">
         <li class="post-card">
           <a class="post-card__media" href="post.html">
-            <img src="assets/img/blog-destaque-01.svg" alt="Peças de linho dobradas sobre a mesa" loading="lazy" width="1600" height="900">
+            <img src="assets/img/lenco-algodao.jpg" alt="Lenço de algodão natural dobrado sobre superfície clara" loading="lazy" width="1600" height="900">
           </a>
-          <p class="post-card__eyebrow">Tecidos e cuidados</p>
-          <h3 class="post-card__title"><a href="post.html">Como lavar linho sem perder o caimento</a></h3>
-          <p class="post-card__excerpt">Água fria, pouca centrifugação e secagem na sombra resolvem quase tudo.</p>
-          <p class="post-byline">7 min de leitura</p>
+          <div class="post-card__body">
+            <p class="post-card__eyebrow">Tecidos e cuidados</p>
+            <h3 class="post-card__title"><a href="post.html">Como lavar linho sem perder o caimento</a></h3>
+            <p class="post-card__excerpt">Água fria, pouca centrifugação e secagem na sombra resolvem quase tudo.</p>
+            <p class="post-byline">7 min de leitura</p>
+          </div>
         </li>
         <li class="post-card">
           <a class="post-card__media" href="post.html">
-            <img src="assets/img/blog-destaque-03.svg" alt="Looks montados em cabides" loading="lazy" width="1600" height="900">
+            <img src="assets/img/blazer-areia.jpg" alt="Blazer de linho areia pendurado em cabide de madeira" loading="lazy" width="1600" height="900">
           </a>
-          <p class="post-card__eyebrow">Estilo</p>
-          <h3 class="post-card__title"><a href="post.html">Uma peça, três combinações: alfaiataria</a></h3>
-          <p class="post-card__excerpt">Do trabalho ao jantar, mudando só o sapato e o acessório.</p>
-          <p class="post-byline">5 min de leitura</p>
+          <div class="post-card__body">
+            <p class="post-card__eyebrow">Estilo</p>
+            <h3 class="post-card__title"><a href="post.html">Uma peça, três combinações: alfaiataria</a></h3>
+            <p class="post-card__excerpt">Do trabalho ao jantar, mudando só o sapato e o acessório.</p>
+            <p class="post-byline">5 min de leitura</p>
+          </div>
         </li>
         <li class="post-card">
           <a class="post-card__media" href="post.html">
-            <img src="assets/img/blog-destaque-01.svg" alt="Detalhe de costura de uma peça" loading="lazy" width="1600" height="900">
+            <img src="assets/img/kimono-fluido.jpg" alt="Kimono fluido de linho estendido sobre a mesa" loading="lazy" width="1600" height="900">
           </a>
-          <p class="post-card__eyebrow">Tamanhos e caimento</p>
-          <h3 class="post-card__title"><a href="post.html">Por que o mesmo tamanho veste diferente em cada marca</a></h3>
-          <p class="post-card__excerpt">Modelagem não é padrão: entenda o que olhar antes de comprar.</p>
-          <p class="post-byline">6 min de leitura</p>
+          <div class="post-card__body">
+            <p class="post-card__eyebrow">Tamanhos e caimento</p>
+            <h3 class="post-card__title"><a href="post.html">Por que o mesmo tamanho veste diferente em cada marca</a></h3>
+            <p class="post-card__excerpt">Modelagem não é padrão: entenda o que olhar antes de comprar.</p>
+            <p class="post-byline">6 min de leitura</p>
+          </div>
         </li>
         <li class="post-card">
           <a class="post-card__media" href="post.html">
-            <img src="assets/img/blog-destaque-02.svg" alt="Guia de medidas com fita métrica" loading="lazy" width="1600" height="900">
+            <img src="assets/img/cap-cru.jpg" alt="Peça de linho cru dobrada ao lado de fita métrica" loading="lazy" width="1600" height="900">
           </a>
-          <p class="post-card__eyebrow">Tamanhos e caimento</p>
-          <h3 class="post-card__title"><a href="post.html">Como medir o corpo em casa, sem erro</a></h3>
-          <p class="post-card__excerpt">Fita métrica paralela ao chão, sem apertar, e a ajuda de alguém para as costas.</p>
-          <p class="post-byline">4 min de leitura</p>
+          <div class="post-card__body">
+            <p class="post-card__eyebrow">Tamanhos e caimento</p>
+            <h3 class="post-card__title"><a href="post.html">Como medir o corpo em casa, sem erro</a></h3>
+            <p class="post-card__excerpt">Fita métrica paralela ao chão, sem apertar, e a ajuda de alguém para as costas.</p>
+            <p class="post-byline">4 min de leitura</p>
+          </div>
         </li>
         <li class="post-card">
           <a class="post-card__media" href="post.html">
-            <img src="assets/img/blog-destaque-03.svg" alt="Guarda-roupa organizado por peças" loading="lazy" width="1600" height="900">
+            <img src="assets/img/sandalia-couro.jpg" alt="Sandália de couro natural ao lado de peças de linho" loading="lazy" width="1600" height="900">
           </a>
-          <p class="post-card__eyebrow">Estilo</p>
-          <h3 class="post-card__title"><a href="post.html">Quatro peças que resolvem a semana inteira</a></h3>
-          <p class="post-card__excerpt">Combinações que funcionam para trabalho, almoço e imprevisto.</p>
-          <p class="post-byline">5 min de leitura</p>
+          <div class="post-card__body">
+            <p class="post-card__eyebrow">Estilo</p>
+            <h3 class="post-card__title"><a href="post.html">Quatro peças que resolvem a semana inteira</a></h3>
+            <p class="post-card__excerpt">Combinações que funcionam para trabalho, almoço e imprevisto.</p>
+            <p class="post-byline">5 min de leitura</p>
+          </div>
         </li>
         <li class="post-card">
           <a class="post-card__media" href="post.html">
-            <img src="assets/img/blog-destaque-01.svg" alt="Peças dobradas em uma gaveta" loading="lazy" width="1600" height="900">
+            <img src="assets/img/atelie-bancada.jpg" alt="Peças dobradas sobre a bancada do ateliê" loading="lazy" width="1600" height="900">
           </a>
-          <p class="post-card__eyebrow">Tecidos e cuidados</p>
-          <h3 class="post-card__title"><a href="post.html">Como guardar as peças para durarem mais</a></h3>
-          <p class="post-card__excerpt">Cabides certos, dobras e o que nunca deve ir para o sol direto.</p>
-          <p class="post-byline">4 min de leitura</p>
+          <div class="post-card__body">
+            <p class="post-card__eyebrow">Tecidos e cuidados</p>
+            <h3 class="post-card__title"><a href="post.html">Como guardar as peças para durarem mais</a></h3>
+            <p class="post-card__excerpt">Cabides certos, dobras e o que nunca deve ir para o sol direto.</p>
+            <p class="post-byline">4 min de leitura</p>
+          </div>
         </li>
       </ul>
 
@@ -106,9 +120,20 @@
         <a href="#">Próxima</a>
       </nav>
 
-      <p class="notice" style="margin-top:24px">
+      <p class="notice">
         Oito posts estão previstos para o lançamento (F6). Este índice mostra
-        seis exemplos. A paginação aparece só aqui no blog: a loja não tem
-        paginação, conforme o dossiê.
+        seis exemplos. A paginação do Diário e a da coleção seguem o mesmo
+        desenho, como no template de referência.
       </p>
     </div>
+
+    <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5)
+         Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o
+         conteúdo do rodapé. O texto fica dentro do container do header. -->
+    <section class="band band--rodape" aria-labelledby="banda-rodape-titulo">
+      <div class="container band__inner">
+        <h2 id="banda-rodape-titulo">Viu algo que gostou?</h2>
+        <p>As peças citadas nos textos estão todas na loja.</p>
+        <a class="btn btn--paper" href="loja.html">Ver a coleção</a>
+      </div>
+    </section>
