@@ -1,5 +1,33 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - PR #4 mergeado na main (registro)
+
+### O que aconteceu
+- O **PR #4** (branch de trabalho -> `main`) foi **mergeado** em 16/10/2026, às
+  16h37 (horário de Brasília), por Matheus Costa (`mdiascosta`).
+- **Commit de merge: `20112f2`.** Entraram os dois commits da v0.1.20: as 22
+  descrições de busca reescritas e os cinco alvos de toque ampliados, mais a
+  subida de versão de 0.1.19 para 0.1.20.
+- A `main` está com o `VERSION` em 0.1.20 e a etiqueta `v0.1.20` aponta para o
+  mesmo conteúdo que entrou (o histórico completo vai da `v0.1.0` à `v0.1.20`).
+- Antes do merge, o pull request foi liberado para a cliente abrir o protótipo no
+  navegador pela prévia do ambiente de trabalho.
+
+### Decisões tomadas
+- **Registro sem mudança de versão**, igual ao merge do PR #3: é documentação de
+  algo que já estava entregue. A versão continua 0.1.20 até o template mudar.
+- O trabalho seguinte continua nesta mesma branch, que abre um pull request novo
+  quando houver conteúdo novo para levar à `main`.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Conferência da cliente no navegador: acordeão do FAQ, formulário de contato e
+  seletor de cor da página de produto.
+- Composição exata por peça, tabela de medidas real, história da marca,
+  analytics, e a confirmação de "Outono · Inverno 2026" e "Terra & Linho".
+- Contraste dos ornamentos (`--iara-index` 3,17:1 e estrela 4,46:1): decidir se
+  entra na próxima rodada de acessibilidade.
+- Combinar se as próximas versões ganham pasta congelada a cada fechamento.
+
 ## [2026-10-16] - Segundo pente fino: descrições de busca e alvos de toque (v0.1.20)
 
 ### Como esta rodada funcionou
