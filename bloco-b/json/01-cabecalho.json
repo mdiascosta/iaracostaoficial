@@ -1,0 +1,286 @@
+{
+  "content": [
+    {
+      "id": "d8eeeca",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "0",
+          "column": "0",
+          "isLinked": true,
+          "unit": "px",
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        },
+        "_title": "Cabeçalho"
+      },
+      "elements": [
+        {
+          "id": "fce347a",
+          "elType": "container",
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_justify_content": "center",
+            "flex_align_items": "center",
+            "flex_gap": {
+              "row": "8",
+              "column": "8",
+              "isLinked": true,
+              "unit": "px",
+              "size": 8
+            },
+            "padding": {
+              "unit": "px",
+              "top": "10",
+              "right": "20",
+              "bottom": "10",
+              "left": "20",
+              "isLinked": false
+            },
+            "background_background": "classic",
+            "__globals__": {
+              "background_color": "globals/colors?id=secondary"
+            },
+            "_title": "Faixa de aviso"
+          },
+          "elements": [
+            {
+              "id": "c8eb2f2",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Frete grátis acima de R$ 299 · <a href=\"/sobre/\">Compra consciente</a> · <a href=\"/envio-e-entrega/\">Envio para todo o Brasil</a></p>",
+                "align": "center",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-faixa-texto",
+                  "typography": "globals/typography?id=iara-texto-micro"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": false
+        },
+        {
+          "id": "123a9f1",
+          "elType": "container",
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "padding": {
+              "unit": "px",
+              "top": "16",
+              "right": "0",
+              "bottom": "16",
+              "left": "0",
+              "isLinked": false
+            },
+            "background_background": "classic",
+            "border_border": "solid",
+            "border_width": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "1",
+              "left": "0",
+              "isLinked": false
+            },
+            "__globals__": {
+              "background_color": "globals/colors?id=iara-papel",
+              "border_color": "globals/colors?id=iara-fio"
+            },
+            "_title": "Barra do cabeçalho"
+          },
+          "elements": [
+            {
+              "id": "b30bbcc",
+              "elType": "container",
+              "settings": {
+                "content_width": "boxed",
+                "flex_direction": "row",
+                "flex_align_items": "center",
+                "flex_justify_content": "space-between",
+                "flex_gap": {
+                  "row": "24",
+                  "column": "24",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 24
+                },
+                "_title": "Linha do cabeçalho"
+              },
+              "elements": [
+                {
+                  "id": "b425ae5",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "row",
+                    "flex_align_items": "center",
+                    "flex_gap": {
+                      "row": "12",
+                      "column": "12",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 12
+                    },
+                    "_flex_size": "grow",
+                    "_flex_align_self": "center",
+                    "_title": "Marca"
+                  },
+                  "elements": [
+                    {
+                      "id": "588a1da",
+                      "elType": "widget",
+                      "widgetType": "theme-site-logo",
+                      "settings": {
+                        "_title": "Logo"
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "336d033",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "row",
+                    "flex_align_items": "center",
+                    "flex_justify_content": "center",
+                    "flex_gap": {
+                      "row": "28",
+                      "column": "28",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 28
+                    },
+                    "_title": "Navegação principal"
+                  },
+                  "elements": [
+                    {
+                      "id": "0c4fa0c",
+                      "elType": "widget",
+                      "widgetType": "nav-menu",
+                      "settings": {
+                        "_title": "Menu principal",
+                        "menu": "principal",
+                        "layout": "horizontal"
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "125d32b",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "row",
+                    "flex_justify_content": "flex-end",
+                    "flex_align_items": "center",
+                    "flex_gap": {
+                      "row": "14",
+                      "column": "14",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 14
+                    },
+                    "_flex_size": "grow",
+                    "_flex_align_self": "center",
+                    "_title": "Ações"
+                  },
+                  "elements": [
+                    {
+                      "id": "aad40a9",
+                      "elType": "widget",
+                      "widgetType": "search-form",
+                      "settings": {
+                        "_title": "Busca",
+                        "skin": "minimal",
+                        "placeholder": "O que você procura?"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "581e5ff",
+                      "elType": "widget",
+                      "widgetType": "icon",
+                      "settings": {
+                        "_title": "Minha conta",
+                        "selected_icon": {
+                          "value": "fas fa-user",
+                          "library": "fa-solid"
+                        },
+                        "link": {
+                          "url": "/minha-conta/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "size": {
+                          "unit": "px",
+                          "size": 21,
+                          "sizes": []
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "1a05351",
+                      "elType": "widget",
+                      "widgetType": "icon",
+                      "settings": {
+                        "_title": "Lista de desejos",
+                        "selected_icon": {
+                          "value": "fas fa-heart",
+                          "library": "fa-solid"
+                        },
+                        "link": {
+                          "url": "/lista-de-desejos/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "size": {
+                          "unit": "px",
+                          "size": 21,
+                          "sizes": []
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "188d5ad",
+                      "elType": "widget",
+                      "widgetType": "woocommerce-menu-cart",
+                      "settings": {
+                        "_title": "Sacola"
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                }
+              ],
+              "isInner": true
+            }
+          ],
+          "isInner": false
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": [],
+  "version": "0.4",
+  "title": "Cabeçalho do site",
+  "type": "header"
+}

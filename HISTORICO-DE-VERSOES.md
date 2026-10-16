@@ -61,6 +61,55 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.2.0 · 2026-10-16 · Bloco B, parte 1: cores, fontes, cabeçalho e rodapé
+
+**De onde veio:** o Bloco A foi fechado e congelado na v0.1.20, e a cliente pediu
+para seguir para o Bloco B. O Bloco B é a tradução do protótipo para o WordPress:
+templates do Elementor, entregues em partes, começando pelo que todas as páginas
+usam.
+
+**O que entrou nesta parte**
+
+| O que | Onde | Para que serve |
+|---|---|---|
+| As 15 cores e as 10 fontes do site, com nome e valor | `bloco-b/globais/cores-e-fontes.json` | é a base: todo template aponta para elas |
+| Cabeçalho do site (faixa verde, logo, menu e os quatro ícones) | `bloco-b/json/01-cabecalho.json` | aparece em todas as páginas |
+| Rodapé do site (newsletter, quatro colunas, segurança e formas de pagamento, base com CNPJ) | `bloco-b/json/02-rodape.json` | aparece em todas as páginas |
+| Guia de importação, com ordem de trabalho e o que conferir | `bloco-b/GUIA-IMPORTACAO.md` | é o documento que a equipe segue no staging |
+| Resumo de uma página | `bloco-b/LEIA-ME.txt` | orientação rápida de quem abre a pasta |
+| Gerador dos arquivos | `tools/blocob_gera.py` | escrever o layout uma vez e gerar de novo quando mudar |
+| Conferência automática dos arquivos | `tools/blocob_confere.py` | formato do Elementor, widgets permitidos, referências de cor |
+| Casamento dos ids das cores com os do site | `tools/ajusta-ids.py` | resolve a diferença entre o apelido da cor e o id que o Elementor sorteia |
+
+**O formato foi conferido no código-fonte do Elementor**, não em um site real: o
+envelope de importação (`content`, `page_settings`, `version` 0.4, `title`,
+`type`) vem de `includes/template-library/sources/local.php` e `includes/db.php`;
+o padrão das referências de cor e de fonte (`globals/colors?id=...`) vem de
+`core/files/css/base.php` e do editor; a forma das configurações de container veio
+dos próprios arquivos de teste do plugin. Os widgets do Elementor Pro não são de
+código aberto, então os ajustes deles ficaram fora do arquivo, com instrução no
+guia. Nome de ajuste desconhecido não quebra a importação: é simplesmente
+ignorado.
+
+**O que foi verificado aqui:** `tools/blocob_confere.py` passa nos dois templates
+(40 containers, 46 widgets, nenhum widget proibido, nenhuma cor escrita à mão,
+todas as referências de cor e de fonte existindo nas globais). O gerador é
+determinístico: rodar de novo produz exatamente os mesmos arquivos.
+
+**O que não foi verificado:** nenhuma importação, nenhuma renderização e nenhuma
+medida de desempenho, porque não há acesso ao WordPress, ao painel ou ao banco. A
+importação é da equipe, em staging, um arquivo por vez.
+
+**Decisão registrada sobre o número de arquivos:** o dossiê falava em 21 JSONs; a
+conta página por página dá 24 (duas partes do site mais as 22 páginas do
+protótipo). O guia traz a tabela completa (seção 5.2) e a alternativa de juntar as
+três páginas legais em um modelo único, se a equipe preferir ficar em 21.
+
+**Resultado das verificações:** `check.py` e o pente fino seguem em "tudo certo"
+nas 22 páginas do protótipo; `node tools/test.js` com 1.043 verificações sem
+falha; o Bloco B acrescenta a sua própria conferência, sem tocar no que já estava
+aprovado.
+
 ### v0.1.20 · 2026-10-16 · Descrições de busca e área de toque dos botões
 
 **De onde veio:** segunda rodada de pente fino no navegador de verdade. A v0.1.19
