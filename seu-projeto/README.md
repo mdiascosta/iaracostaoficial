@@ -41,6 +41,17 @@ Depois abra `http://localhost:8080` no navegador.
 | Institucional | `sobre.html`, `contato.html`, `faq.html`, `guia-medidas.html` |
 | Políticas | `trocas.html`, `envio.html`, `privacidade.html`, `termos.html`, `cookies.html` |
 
+### Novidades da v0.1.16 (coleção em capítulos, como o zip)
+
+| Peça | Como ficou |
+|---|---|
+| Capa da coleção | Centralizada, com trilha, nome da coleção, chamada e quatro fichas; a página deixou o cabeçalho de página das outras telas |
+| Capítulos | Três (Terracota, Sálvia e Cru), cada um com foto grande de um lado, texto e duas peças do catálogo do outro |
+| Convite | "Comprar o capítulo" leva para a loja |
+| Cartão do capítulo | Enxuto, como no zip: foto, selo, coração, categoria, nome e preço |
+| Layout | O capítulo do meio inverte os lados; abaixo de 1021px a foto vai para cima do texto |
+| Fichas e frases | As do zip que a empresa não confirmou (18 peças, tingimento natural, edições numeradas) não entraram |
+
 ### Novidades da v0.1.15 (coleção com a paginação e a ordenação do zip)
 
 | Peça | Como ficou |

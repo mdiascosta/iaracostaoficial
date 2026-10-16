@@ -1,5 +1,62 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Coleção em capítulos, como o zip (v0.1.16)
+
+### Pedido da cliente
+A cliente mandou a captura do primeiro capítulo do zip ("01 · Terracota / O barro
+que veste") e disse que a página de coleção do template não está igual. Estava
+certo: a nossa página da coleção ainda era uma grade de quatro looks com etiquetas
+de peças, e o zip tem três capítulos editoriais, cada um com uma foto grande, o
+texto do capítulo e duas peças à venda embaixo.
+
+### O que foi feito (IMPLEMENTADO)
+- **Capa da coleção**, como no zip: centralizada, com a trilha de navegação, o
+  nome "Terra & Linho", a chamada e quatro fichas (doze peças, do P ao GG, feito
+  no Brasil, modelagem autoral). Esta página deixou o cabeçalho de página das
+  outras telas e abre como editorial, do mesmo jeito que o produto e o artigo.
+- **Três capítulos**: 01 Terracota ("O barro que veste"), 02 Sálvia ("Verde que
+  acalma") e 03 Cru ("O branco que não é básico"). Cada um traz a foto grande de
+  um lado, o texto e duas peças do catálogo do outro, e o convite "Comprar o
+  capítulo". O capítulo do meio inverte os lados, como no zip, e abaixo de 1021px
+  a foto vai para cima e o texto desce.
+- **Cartão enxuto nos capítulos**, igual ao do zip: foto com selo, coração dos
+  desejos, categoria, nome e preço. Sem nota, sem tamanhos e sem o convite da
+  sacola. O cartão da loja continua completo.
+- **As peças de cada capítulo são as do catálogo real**, separadas por cor:
+  terracota (blusa de linho e vestido longo), sálvia (vestido midi e calça
+  pantalona) e cru (camisa de linho e saia midi).
+- **Verificações:** `build.py` e `check.py` com as 22 páginas certas; `test.js`
+  com 980 verificações e zero falhas (a seção 23 cobre capa, capítulos, cartões e
+  as regras de CSS); `pente-fino.py` com as 12 seções zeradas.
+
+### Afirmações do zip que saíram hoje (a empresa não confirmou)
+Ao revisar a página da coleção, apareceram frases que vieram do template e que
+ninguém confirmou. Elas saíram e entraram as informações que a empresa confirmou
+por escrito (linho, algodão egípcio e viscose de alta gramatura; modelagem, corte
+e confecção próprios; produção em Cerquilho, SP; troca em 30 dias):
+- "tingido com argila", "tingimento natural" (argila, casca de cebola, eucalipto);
+- "costura em pequenos lotes", "de 30 a 60 peças por edição", "remuneração justa
+  para costureiras parceiras";
+- "fornecedores certificados" e "origem declarada na etiqueta";
+- "18 peças" na vitrine da coleção (são doze);
+- "troca em 7 dias" no carrinho e na página Sobre (a troca é em 30 dias; 7 dias
+  é o direito de arrependimento do Código de Defesa do Consumidor).
+
+### Decisões tomadas
+- **A capa não leva estação.** O zip escreve "Outono · Inverno 2026"; nada disso
+  foi confirmado, então a capa abre direto no nome da coleção.
+- **As fichas do zip** (18 peças, tingimento natural, edições numeradas) foram
+  trocadas pelas fichas verdadeiras deste catálogo.
+- **A nota de produção das fotos** continua no fim da página, agora falando de
+  abertura de capítulo e fotos de peça em 4:5.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Confirmar o nome da coleção ("Terra & Linho"), que veio do template, e a
+  estação, se a coleção tiver uma.
+- Conferência no navegador: a página da coleção tem fotos muito altas (as
+  imagens são 9:16, como as do zip) e vale ver a proporção em tela grande.
+- Composição exata por peça, tabela de medidas real e história da marca.
+
 ## [2026-10-16] - Coleção com a paginação e a ordenação do zip (v0.1.15)
 
 ### Pedido da cliente

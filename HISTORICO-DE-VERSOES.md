@@ -61,6 +61,45 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.16 · 2026-10-16 · Página da coleção em capítulos, como o zip
+
+**Pedido da cliente:** "veja na imagem a pagina de coleção do template enviado
+nao esta igaul verifique". A imagem mostrava o capítulo 1 do zip ("01 · Terracota
+/ O barro que veste"), com foto grande de um lado, texto do outro, duas peças
+embaixo e o convite "Comprar o capítulo". A nossa página de coleção ainda era uma
+grade de quatro looks com etiquetas.
+
+| O que mudou | Onde |
+|---|---|
+| A coleção deixou o cabeçalho de página e passou a abrir como editorial: capa centralizada com a trilha, o nome da coleção, a chamada e quatro fichas | `17-lookbook.html`, `pages.css` |
+| Três capítulos, cada um com foto grande de um lado, texto e duas peças do catálogo do outro, e o convite "Comprar o capítulo" no fim | `17-lookbook.html` |
+| O capítulo do meio inverte os lados, como no zip; abaixo de 1021px a foto vai para cima e o texto desce | `pages.css` |
+| Cartão enxuto para os capítulos (foto, selo, coração, categoria, nome e preço), sem nota, tamanhos e convite da sacola, como no zip | `build.py` (`<!--CARDCAP:-->`) |
+| Título da página: "Coleção Terra & Linho", igual ao rótulo do menu e ao link do rodapé | `pages.json` |
+| Nota de produção das fotos reescrita para a estrutura de capítulos, no fim da página | `17-lookbook.html` |
+| Fichas do zip que a empresa não confirmou (18 peças, tingimento natural, edições numeradas) não entraram | `17-lookbook.html` |
+
+**Correções de conteúdo no mesmo dia (afirmações do zip sem confirmação):**
+
+| Antes | Agora | Onde |
+|---|---|---|
+| "tingido com argila e costurado em pequenos lotes no Brasil" | "em linho, algodão egípcio e viscose de alta gramatura. Modelagem, corte e confecção próprios, no ateliê em Cerquilho (SP)" | capa da home |
+| "Blusa de Linho Terracota, tingida com argila do Vale do Paraíba" | "de modelagem autoral, feita no ateliê" | selo da capa |
+| "Tingimento natural" (argila, casca de cebola, eucalipto) | "Modelagem autoral" | bloco do ateliê |
+| "Costura em pequenos lotes" (30 a 60 peças, remuneração justa) | "Tecidos de alta gramatura" | bloco do ateliê |
+| "Rastreio da fibra" (fornecedores certificados) | "Compra tranquila" (troca em 30 dias e 7 dias para desistir) | bloco do ateliê |
+| "Três capítulos em 18 peças" | "Três capítulos em doze peças" | vitrine da coleção na home |
+| "Peças em pequenos lotes" no rodapé | tecidos, modelagem e produção próprios em Cerquilho | rodapé de todas as páginas |
+| "troca em 7 dias" (carrinho e Sobre) | "troca em 30 dias" (7 dias é o arrependimento) | duas páginas |
+
+**Resultado das verificações:** `build.py` e `check.py` com as 22 páginas certas;
+`test.js` com 980 verificações e zero falhas (a seção 23 é nova e cobre os
+capítulos); `pente-fino.py` com as 12 seções zeradas.
+
+**Pontos que continuam como vieram do zip e merecem confirmação:** o nome da
+coleção ("Terra & Linho"), a estação ("Outono · Inverno 2026", que não entrou na
+capa) e os cenários sugeridos para as fotos.
+
 ### v0.1.15 · 2026-10-16 · Coleção com a paginação e a ordenação do zip
 
 **Pedido da cliente:** "a pagina de coleção tem que seguir a do template que

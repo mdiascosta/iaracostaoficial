@@ -1,6 +1,6 @@
 {
   "name": "iaracostaoficial",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "private": true,
   "description": "Ferramentas de verificação do protótipo do Bloco A. O site em seu-projeto/ não depende disto: são só os testes que a equipe roda na mão.",
   "scripts": {
