@@ -1,5 +1,81 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Minha conta, Contato e Sobre refeitos com as referências da cliente
+
+### Pedido da cliente
+Com cinco imagens do template em mãos: Minha conta adaptada às imagens 1 e 2,
+Contato adaptado às imagens 3, 4 e 5 ("do lado direito pode colocar bordas, veja
+no depoimento da home se fica bom; veja também os background de cada seção"),
+Sobre com o primeiro bloco em texto à esquerda e imagem à direita mais uma seção
+de missão, visão e compromisso, e a página de coleção verificada conforme o
+template sugerido.
+
+### O que foi feito (IMPLEMENTADO)
+- **Minha conta (imagens 1 e 2).** A página ganhou o que faltava: no topo, dois
+  cartões lado a lado, "Já sou cliente / Entrar" e "Primeira compra / Criar
+  conta", com e-mail, senha, "Manter conectada", aceite dos Termos e da Política
+  de Privacidade e botão de largura inteira em cada cartão. Abaixo, o painel da
+  cliente logada com navegação lateral (Painel, Meus pedidos, Lista de desejos,
+  Endereços, Meus tamanhos, Dados da conta e Sair) e os pedidos em tabela, com
+  colunas de pedido, data, peças, total e status em selo, mais o atalho
+  "Solicitar troca". A seção "Meus tamanhos" é nova e está marcada como
+  `[A DEFINIR]`: só faz sentido se a empresa decidir guardar as medidas da
+  cliente, e isso precisa entrar na Política de Privacidade.
+  Segurança: os formulários são demonstração e há aviso explícito para não digitar
+  senha de verdade; no site publicado, login e cadastro são do WooCommerce.
+- **Contato (imagens 3, 4 e 5).** O formulário passou a viver em um quadro de
+  papel e os canais de atendimento da direita viraram quadros com borda, a mesma
+  linguagem dos depoimentos da home, sobre uma seção com fundo Hover Soft. Os
+  campos obrigatórios ganharam asterisco e a linha "Campos com * são
+  obrigatórios". Fundos conferidos seção por seção: atendimento em fundo suave,
+  referência de estado em papel, mapa em fundo suave e dúvidas rápidas em papel.
+  A seção do mapa segue o template, mas com uma decisão: o endereço do ateliê
+  ainda não foi informado, e inventar um ponto no mapa seria pior do que não ter
+  mapa. No lugar dele ficou um quadro de exemplo com a instrução de onde o mapa
+  real entra, e a legenda marcada como `[PREENCHER]`. O bloco "Dúvidas rápidas"
+  traz quatro perguntas, com as respostas copiadas palavra por palavra da página
+  de Perguntas frequentes.
+- **Sobre.** O primeiro bloco passou a ser texto à esquerda e imagem à direita,
+  como pedido. Entrou a seção "Missão, visão e compromisso" em três cartões. Os
+  três textos são `[PROPOSTA]`: foram escritos a partir do que já estava nesta
+  página e no resto do site (informação antes da venda, curadoria pequena,
+  nenhuma pressa artificial), e cada cartão tem o selo para ninguém publicar sem
+  revisar, porque missão e visão são a voz da marca. A frase de posicionamento
+  saiu do meio do texto corrido e virou faixa com fundo suave, e entrou uma faixa
+  com três fotos do processo (costura, tingimento e cerâmica), todas imagens que
+  já estavam no projeto e previstas para esta página na SPECS-DE-IMAGEM.
+  A lista "O que a gente defende" saiu: o conteúdo dela está no cartão de
+  compromisso e na lista "Compromissos com o cliente", que continuam na página.
+- **Coleção.** O cabeçalho ganhou a linha de apoio do template: "Vestuário
+  feminino do P ao GG" e o atalho para o guia de medidas, ao lado da contagem de
+  peças que já existia.
+- **Limpeza de CSS.** Saíram da folha de estilo o bloco da galeria antiga do
+  Sobre (que a página não usa mais), os cartões de atalho da conta e a cabeça dos
+  cartões de pedido. Nada disso tinha uso no HTML depois da mudança.
+
+### O que ainda não entrou
+- Carrinho, checkout, desejos, busca, produto e a página do post seguem com o
+  layout anterior, e os espaçamentos escritos direto no HTML dessas telas
+  continuam anotados como limpeza pendente.
+- Telefone, e-mail, prazo de resposta e endereço do Contato seguem como
+  `[PREENCHER]`: são dados da empresa.
+
+### Verificação (VERIFICADO EM ARQUIVOS)
+- `python3 tools/build.py` e `python3 tools/check.py`: 22 páginas, "tudo certo".
+- Teste com jsdom: **527 verificações, nenhuma falha**. O bloco novo confere os
+  dois cartões da conta, os atalhos da navegação (nenhum apontando para lugar
+  nenhum), a tabela de pedidos com cinco colunas e três linhas, os selos de
+  status, o quadro do formulário de contato, os quadros dos canais, os asteriscos
+  dos campos obrigatórios, o quadro do mapa (e a ausência de mapa de endereço
+  inventado), as quatro dúvidas rápidas e a linha de apoio do cabeçalho da loja.
+- Servidor local no ar em `http://localhost:8080` para a conferência visual.
+- Não é medição de navegador real: navegador, leitor de tela, contraste em tela e
+  Lighthouse ficam por conta do time, como manda o dossiê.
+
+### Estado
+- `VERSION` = 0.1.9. Versão anterior preservada na etiqueta `v0.1.8`.
+- Branch `arena/e067653e-iaracostaoficial`, PR #2 aberto (não mergeado).
+
 ## [2026-10-16] - Rodapé com pagamento e segurança, cabeçalho de página e renovação das internas
 
 ### Pedido da cliente

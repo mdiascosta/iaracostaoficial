@@ -61,6 +61,38 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.9 · 2026-10-16 · Minha conta, Contato e Sobre refeitos com as referências da cliente
+
+**Pedido da cliente:** adaptar a página Minha conta às imagens 1 e 2, adaptar o
+Contato às imagens 3, 4 e 5 (com bordas na coluna da direita, como os
+depoimentos da home, e conferindo o fundo de cada seção), ajustar o Sobre com
+texto à esquerda e imagem à direita e uma seção de missão, visão e compromisso, e
+verificar a página de coleção conforme o template.
+
+| O que mudou | Onde |
+|---|---|
+| Minha conta com dois cartões (Entrar e Criar conta), painel com tabela de pedidos e seção de medidas salvas | `tools/content/07-conta.html`, `pages.css` §01 e §02 |
+| Contato com formulário em quadro de papel e canais de atendimento em quadros com borda, sobre fundo Hover Soft | `tools/content/14-contato.html`, `pages.css` §07 |
+| Seção "O ateliê no mapa" com quadro de exemplo no lugar de um mapa com endereço inventado | `tools/content/14-contato.html`, `pages.css` §03 |
+| Seção "Dúvidas rápidas" com quatro respostas copiadas da página de Perguntas frequentes | `tools/content/14-contato.html`, `pages.css` §04 |
+| Sobre com o primeiro bloco em texto à esquerda e imagem à direita | `tools/content/13-sobre.html`, `pages.css` §05 |
+| Seção "Missão, visão e compromisso" em três cartões, com selo [PROPOSTA] em cada texto | `tools/content/13-sobre.html`, `pages.css` §05 |
+| Faixa de frase de posicionamento e faixa com três fotos do processo | `tools/content/13-sobre.html`, `pages.css` §05 |
+| Cabeçalho da coleção com "Vestuário feminino do P ao GG" e atalho para o guia de medidas | `tools/content/02-loja.html`, `pages.css` §06 |
+| Limpeza: CSS da galeria antiga, dos cartões de conta e da cabeça dos cartões de pedido, que saíram de uso | `assets/css/pages.css` |
+
+**Regra cumprida:** telefone, e-mail, prazo de resposta, endereço e mapa seguem
+como `[PREENCHER]`/`[A DEFINIR]`. O mapa não foi inventado: no lugar dele ficou um
+quadro de exemplo com a instrução de onde o mapa real entra. Missão, visão e
+compromisso estão marcados como `[PROPOSTA]`, para a equipe ajustar com as
+próprias palavras antes de publicar.
+
+**Verificado em arquivo:** 22 páginas (`build.py` + `check.py`, "tudo certo") e
+teste de navegador com 527 verificações, nenhuma falha.
+
+**Não entrou nesta versão:** carrinho, checkout, desejos, busca, produto e a
+página do post seguem com o layout anterior.
+
 ### v0.1.8 · 2026-10-16 · Pagamento e segurança no rodapé, cabeçalho de página e internas renovadas
 
 **Pedido da cliente:** acrescentar no rodapé as formas de pagamento e a área de
