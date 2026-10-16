@@ -85,6 +85,13 @@ apenas mostra os arquivos como estavam naquele momento.
   com ícone: formas de pagamento, ambiente protegido, pedido rastreado e os
   7 dias do CDC Art. 49. Com aviso de que selos e bandeiras só entram no ar
   quando gateway e certificado estiverem contratados.
+- **Correção de base (achado na conferência).** 70 imagens tinham largura e
+  altura no HTML diferentes do arquivo real, herdadas das ilustrações antigas
+  em SVG. Era isso que fazia a faixa sálvia subir por cima dos cartões do
+  diário na imagem 3. O gerador passou a ler a medida de cada arquivo e a
+  reescrever o atributo; a caixa da foto do diário também ganhou altura
+  calculada pela largura, que nenhuma foto consegue estourar. Bônus: melhora a
+  estabilidade visual (CLS) exigida no go-live.
 - **Cabeçalhos de página (imagem 5).** Todos os 17 cabeçalhos internos foram
   refeitos: mais espaço em branco, título maior em serifa, texto de apoio mais
   estreito e a contagem de peças à direita na loja. A trilha de navegação virou

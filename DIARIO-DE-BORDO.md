@@ -26,6 +26,17 @@ ecommerce de marcas conhecidas como referência.
   texto embaixo, fundo de papel e borda. O bloco ganhou fim visível, e a faixa
   sálvia recebeu uma camada própria para pintar na frente de qualquer sobra de
   altura das seções de cima.
+- **Causa do "comendo tudo" encontrada.** Ao conferir a imagem 3, apareceu o
+  motivo real da sobreposição: 70 imagens do protótipo tinham largura e altura
+  escritas no HTML diferentes do arquivo de verdade (as medidas eram das
+  ilustrações antigas, em SVG). O navegador reserva o espaço pela medida
+  escrita, então a foto chegava, empurrava o layout e a seção seguinte subia
+  por cima do texto. O gerador agora lê a medida direto do arquivo e reescreve
+  o atributo de cada imagem; sobrou zero divergência. Isso também melhora a
+  nota de estabilidade visual (CLS) exigida no go-live.
+- **Caixa da foto garantida.** No cartão do diário, a altura passa a ser
+  calculada pela largura em vez de depender do arquivo da foto. Nenhuma foto,
+  em nenhum navegador, consegue mais empurrar a faixa de baixo.
 - **Rodapé.** Refeito na ordem da imagem: newsletter em uma linha, quatro
   colunas (marca, institucional, categorias, atendimento com redes sociais),
   faixa de segurança e pagamento, e a base com copyright, razão social, CNPJ,
@@ -45,6 +56,10 @@ ecommerce de marcas conhecidas como referência.
 
 ### O que foi verificado
 - Geração das 22 páginas sem erro de estrutura.
+- Medidas das imagens: 0 divergências entre o que o HTML declara e o arquivo
+  real.
+- Rodapé na mesma largura do header em todas as páginas, inclusive nas de
+  leitura.
 - Testes automatizados: 60 verificações passando, entre elas as rotinas de
   mini-sacola, desejos, busca, menu mobile, filtros da loja, gaveta, rodapé
   novo, cabeçalho de página, cartões e um H1 por página.
