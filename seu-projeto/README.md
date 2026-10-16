@@ -45,6 +45,23 @@ Depois abra `http://localhost:8080` no navegador.
 
 O dossiê pede que todos os estados de tela estejam representados. Onde procurar:
 
+### Novidades da v0.1.3 (ajustes pedidos pela cliente)
+
+| Ajuste | Como ficou |
+|---|---|
+| Faixa de benefícios | Os quatro itens ocupam a largura do container do header, com o ícone centralizado acima do texto e fio fino entre eles |
+| Depoimentos | Cada frase virou um cartão de papel com borda fina e aspas em serifa, sobre o fundo areia |
+| Diário | Cada post virou cartão fechado: foto 4:3 em cima, texto embaixo, fundo de papel e borda |
+| Rodapé | Newsletter em uma linha, quatro colunas, faixa de segurança e pagamento e a base com os dados da empresa |
+| Segurança e pagamento | Quatro informações com ícone: formas de pagamento, dados protegidos, pedido rastreado e os 7 dias do CDC Art. 49, com aviso de que os selos entram no go-live |
+| Cabeçalhos internos | Mais respiro, título maior em serifa, texto de apoio estreito e trilha em caixa alta miúda, em 17 páginas |
+| Loja | A contagem de peças subiu para o canto direito do cabeçalho da página |
+
+A newsletter voltou ao rodapé porque a referência enviada pela cliente mostra ela
+ali. Para não pedir o mesmo e-mail duas vezes na home, os dois convites ficaram
+com assuntos diferentes: a faixa sálvia é a lista de espera dos lançamentos e o
+rodapé é a assinatura do conteúdo do ateliê.
+
 ### Novidades da v0.1.2 (ajustes pedidos pela cliente)
 
 | Ajuste | Como ficou |
@@ -52,8 +69,8 @@ O dossiê pede que todos os estados de tela estejam representados. Onde procurar
 | Largura das seções | A grade acompanha a barra do header: 1688px. Páginas de leitura ficam em 1180px, para a linha não ficar longa demais |
 | Cores das seções | Três fundos da própria paleta: areia claríssimo (Hover Soft), terracota claro (Accent Soft, no editorial) e sálvia (na faixa da lista de espera) |
 | Loja | Filtro à esquerda em coluna de 240px: categorias, faixa de preço, cor e tamanho. No celular vira gaveta pelo botão "Filtros" |
-| Rodapé | Enxuto: quatro colunas curtas, identificação da empresa e links de política. Saíram a newsletter e a faixa de selos |
-| Newsletter | Ficou só na faixa verde sálvia da home, para não pedir o mesmo e-mail duas vezes na mesma página |
+| Rodapé | Enxuto: quatro colunas curtas, identificação da empresa e links de política. Saíram a newsletter e a faixa de selos (na v0.1.3 o rodapé foi refeito na estrutura da imagem enviada pela cliente) |
+| Newsletter | Ficou só na faixa verde sálvia da home, para não pedir o mesmo e-mail duas vezes na mesma página (na v0.1.3 voltou também ao rodapé, em forma de assinatura do conteúdo) |
 
 ### Novidades da v0.1.1 (super layout)
 

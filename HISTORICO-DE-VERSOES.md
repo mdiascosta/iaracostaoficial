@@ -61,6 +61,50 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.3 · 2026-10-16 · Refinamento de rodapé, cabeçalhos e cartões
+
+**O que mudou em relação à v0.1.2:**
+
+- **Faixa de benefícios (imagem 1 da cliente).** O grupo estreito e agrupado
+  no centro, feito na v0.1.1, deu lugar a quatro itens distribuídos por toda a
+  largura do container do header, cada um com ícone acima de um texto
+  centralizado. Retomada de direção pedida pela cliente com a imagem 1; o fio
+  fino entre os itens continua.
+- **Depoimentos (imagem 2).** Cada frase virou um cartão de papel com borda
+  fina e aspas em serifa, sobre o fundo areia. Antes eram três blocos de texto
+  soltos, sem moldura.
+- **Diário (imagem 3).** Cada post virou um cartão fechado: foto em cima,
+  texto embaixo, fundo de papel e borda. O fim da seção agora é evidente e
+  nada parece invadir o bloco seguinte. A faixa sálvia também ganhou uma
+  camada própria para pintar na frente de qualquer sobra de altura.
+- **Rodapé (imagem 4).** Reorganizado na estrutura da referência: newsletter
+  em uma linha (texto à esquerda, formulário à direita), quatro colunas,
+  faixa de segurança e pagamento, e a base com copyright, identificação da
+  empresa e links de política.
+- **Faixa de segurança e pagamento (pedido novo).** Quatro informações curtas
+  com ícone: formas de pagamento, ambiente protegido, pedido rastreado e os
+  7 dias do CDC Art. 49. Com aviso de que selos e bandeiras só entram no ar
+  quando gateway e certificado estiverem contratados.
+- **Cabeçalhos de página (imagem 5).** Todos os 17 cabeçalhos internos foram
+  refeitos: mais espaço em branco, título maior em serifa, texto de apoio mais
+  estreito e a contagem de peças à direita na loja. A trilha de navegação virou
+  caixa alta miúda, como em COS, Massimo Dutti e Aritzia.
+- **Newsletter de volta ao rodapé.** A referência enviada mostra a newsletter
+  ali. Para não repetir o mesmo convite duas vezes na home, os dois ficaram com
+  assuntos diferentes: a faixa verde sálvia é a lista de espera dos
+  lançamentos; o rodapé é o conteúdo do ateliê.
+
+**Verificado nesta versão:** 22 páginas sem erro de estrutura, 60 testes
+automatizados passando (mini-sacola, desejos, busca, menu mobile, filtros da
+loja, gaveta, rodapé novo, cabeçalho de página, cartões e 1 H1 por página),
+contraste conferido nos pares novos (aspas do depoimento, ícones de benefício
+e de segurança).
+
+**Ainda não verificado:** conferência visual em navegador e contraste medido
+por ferramenta (axe/WAVE).
+
+---
+
 ### v0.1.2 · 2026-10-16 · Ajustes de layout pedidos pela cliente
 
 **O que mudou em relação à v0.1.1:**
@@ -178,7 +222,7 @@ páginas legais.
 
 | Versão | Conteúdo esperado |
 |---|---|
-| v0.1.3 | Ajustes finos a partir da conferência visual da cliente |
+| v0.1.4 | Ajustes finos a partir da conferência visual da cliente |
 | v0.2.0 | Bloco B: JSONs de templates para Elementor |
 | v0.3.0 | Bloco C: kit ZIP, produtos.csv, posts.csv e guias de instalação |
 | v1.0.0 | Go-live: site publicado com dados reais e revisão jurídica concluída |

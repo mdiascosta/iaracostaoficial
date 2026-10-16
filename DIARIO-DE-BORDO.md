@@ -1,5 +1,66 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Rodapé, cabeçalhos de página, benefícios, depoimentos e diário
+
+### Pedido da cliente
+Cinco capturas de tela com ajustes: (1) a faixa de benefícios deve seguir a
+largura do header, com os ícones centralizados; (2) as caixas de depoimento
+precisam ficar mais bonitas, com fundo branco ou borda em destaque; (3) o fim
+da home, onde estão os cartões do diário, está "comendo tudo" e precisa
+melhorar muito; (4) o rodapé deve seguir a imagem enviada, com uma seção de
+segurança e pagamento; (5) os cabeçalhos internos precisam melhorar, usando
+ecommerce de marcas conhecidas como referência.
+
+### O que foi feito (IMPLEMENTADO)
+- **Referências olhadas.** Busca por páginas de categoria de moda: o padrão que
+  se repete é trilha de navegação discreta acima do título, título grande,
+  texto de apoio curto e a contagem de peças antes da grade. COS, Massimo
+  Dutti e Aritzia usam bastante espaço em branco e trilha em caixa alta miúda.
+- **Faixa de benefícios.** Os quatro itens agora se espalham pela largura do
+  container de 1688px, cada um com ícone acima do texto centralizado e fio fino
+  entre eles. Antes eram quatro itens agrupados no centro.
+- **Depoimentos.** Cada frase virou cartão de papel com borda fina, aspas
+  grandes em serifa e o nome separado por um fio. Sobre o fundo areia da seção
+  o cartão ganha relevo sem precisar de sombra.
+- **Diário.** Cada post virou cartão fechado: foto em cima na proporção 4:3,
+  texto embaixo, fundo de papel e borda. O bloco ganhou fim visível, e a faixa
+  sálvia recebeu uma camada própria para pintar na frente de qualquer sobra de
+  altura das seções de cima.
+- **Rodapé.** Refeito na ordem da imagem: newsletter em uma linha, quatro
+  colunas (marca, institucional, categorias, atendimento com redes sociais),
+  faixa de segurança e pagamento, e a base com copyright, razão social, CNPJ,
+  endereço e os links de política.
+- **Newsletter no rodapé.** Voltou, como a imagem pede. Para não repetir o
+  mesmo convite duas vezes na home, a faixa sálvia ficou como lista de espera
+  dos lançamentos e o rodapé como assinatura de conteúdo do ateliê. Se a
+  cliente preferir só um dos dois, é uma linha de mudança.
+- **Segurança e pagamento.** Quatro informações com ícone: formas de pagamento
+  (Pix, cartão e boleto), dados protegidos, pedido rastreado e os 7 dias do
+  CDC Art. 49. Sem bandeira de cartão e sem selo, com aviso escrito de que eles
+  só entram no ar quando o gateway e o certificado estiverem contratados.
+- **Cabeçalhos internos.** Aplicado em 17 páginas: mais respiro em cima e
+  embaixo, título maior em serifa, texto de apoio estreito e trilha em caixa
+  alta miúda. Na loja, a contagem de peças subiu para o canto direito do
+  cabeçalho.
+
+### O que foi verificado
+- Geração das 22 páginas sem erro de estrutura.
+- Testes automatizados: 60 verificações passando, entre elas as rotinas de
+  mini-sacola, desejos, busca, menu mobile, filtros da loja, gaveta, rodapé
+  novo, cabeçalho de página, cartões e um H1 por página.
+- Contraste dos pares novos conferido por cálculo: aspas do depoimento em
+  terracota sobre o papel, ícones de benefício e de segurança, textos de apoio.
+
+### O que ainda não foi verificado
+- Conferência visual em navegador e medição de contraste por ferramenta
+  (axe ou WAVE). O servidor local está no ar para isso.
+
+### Próximo passo sugerido
+Conferir as cinco telas no navegador e dizer o que ainda incomoda. Depois disso,
+seguimos para o Bloco B (Elementor) ou para os ajustes que aparecerem.
+
+---
+
 ## [2026-10-16] - Ajustes de layout: largura, cores, filtro da loja e rodapé
 
 ### Pedido da cliente
