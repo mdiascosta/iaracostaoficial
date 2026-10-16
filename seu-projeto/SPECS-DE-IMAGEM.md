@@ -113,7 +113,7 @@ prioridade é: foto principal de cada cor primeiro, detalhes depois.
 | Arquivo | Tamanho | Conteúdo |
 |---|---|---|
 | `cap-terracota.jpg` / `cap-cru.jpg` / `cap-salvia.jpg` | 1200x1500 | Campanhas da coleção. Sem texto dentro da foto |
-| `hero-editorial.jpg` | 1200x1400 | Foto principal da home, a que aparece primeiro |
+| `hero-editorial.jpg` | 1200x1200 (1:1) | Foto principal da home, a que aparece primeiro. Quadrada desde a v0.1.18, com a modelo centralizada e folga no topo |
 | `tingimento.jpg`, `costura.jpg`, `atelie-bancada.jpg`, `detalhe-botoes.jpg`, `ceramica-seca.jpg` | 1100x1300 | Ateliê e processo. Alimentam o editorial "Um ateliê, três gestos" |
 | *(a produzir)* imagem de compartilhamento | 1200x630 | Usada quando o site é compartilhado em redes e WhatsApp. Logo mais foto. Ainda não existe no protótipo |
 

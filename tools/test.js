@@ -1496,8 +1496,15 @@ console.log('\n=== 24. HERO DA HOME COM A FOTO INTEIRA E O SELO EM CIMA (v0.1.17
 
   const mediaCss = css.match(/\.hero__media img \{[^}]*\}/)[0];
   ok(/width: 100%/.test(mediaCss) && /height: auto/.test(mediaCss), 'a foto ocupa a coluna inteira');
-  ok(!/aspect-ratio|object-fit/.test(mediaCss),
-     'a foto entra inteira, sem moldura retrato e sem recorte (pedido da cliente)');
+  ok(/aspect-ratio:\s*1 \/ 1/.test(mediaCss),
+     'a foto entra quadrada, 1:1, como a cliente pediu (v0.1.18)');
+  ok(/object-fit:\s*cover/.test(mediaCss), 'a foto preenche o quadrado sem distorcer');
+  ok(/object-position:\s*center 50%/.test(mediaCss),
+     'o corte e centralizado, o enquadramento que mantem rosto e peca no quadro');
+  ok(!/aspect-ratio:\s*[56] \/ [67]/.test(css) && !/aspect-ratio:\s*4 \/ 5/.test(mediaCss),
+     'nao sobrou nenhuma moldura retrato antiga no hero');
+  ok(/@media \(min-width: 1021px\) \{\s*\.hero__media \{ max-width: 560px; justify-self: end; \}/.test(css),
+     'no desktop a foto fica com no maximo 560px, alinhada a direita');
 
   const seloCss = css.match(/\.hero__stamp \{[^}]*\}/)[0];
   ok(/position: absolute/.test(seloCss), 'o selo fica em cima da foto');

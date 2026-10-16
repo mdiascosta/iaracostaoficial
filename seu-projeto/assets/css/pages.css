@@ -53,16 +53,27 @@
   color: var(--iara-accent-soft);
 }
 
-/* Hero (v0.1.17). A foto entra inteira, na proporcao original (768x1376),
-   como no zip: sem moldura retrato e sem recorte. A moldura 4:5 e o corte
-   que existiam aqui sairam a pedido da cliente em 16/10/2026. */
+/* Hero (v0.1.18). A foto entra em 1:1, quadrada, com corte centralizado.
+   A cliente pediu em 16/10/2026 para reduzir a imagem e deixar quadrada, para
+   o hero nao esticar na vertical (a foto original e 768x1376, bem alta). O
+   enquadramento central foi conferido com a foto real: mantem o rosto e a peca
+   no quadro. Quando a foto definitiva chegar em 1:1, nao ha corte nenhum. */
 .hero__media { margin: 0; position: relative; }
 
 .hero__media img {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 50%;
   border: 1px solid var(--iara-hairline);
+}
+
+/* Em tela grande a imagem fica com no maximo 560px, alinhada a direita, para
+   o hero nao crescer demais em altura. */
+@media (min-width: 1021px) {
+  .hero__media { max-width: 560px; justify-self: end; }
 }
 
 /* Selo sobre a foto, no canto inferior direito, como no zip: fundo de papel,
