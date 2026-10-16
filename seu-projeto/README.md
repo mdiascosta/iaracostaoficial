@@ -45,6 +45,16 @@ Depois abra `http://localhost:8080` no navegador.
 
 O dossiê pede que todos os estados de tela estejam representados. Onde procurar:
 
+### Novidades da v0.1.2 (ajustes pedidos pela cliente)
+
+| Ajuste | Como ficou |
+|---|---|
+| Largura das seções | A grade acompanha a barra do header: 1688px. Páginas de leitura ficam em 1180px, para a linha não ficar longa demais |
+| Cores das seções | Três fundos da própria paleta: areia claríssimo (Hover Soft), terracota claro (Accent Soft, no editorial) e sálvia (na faixa da lista de espera) |
+| Loja | Filtro à esquerda em coluna de 240px: categorias, faixa de preço, cor e tamanho. No celular vira gaveta pelo botão "Filtros" |
+| Rodapé | Enxuto: quatro colunas curtas, identificação da empresa e links de política. Saíram a newsletter e a faixa de selos |
+| Newsletter | Ficou só na faixa verde sálvia da home, para não pedir o mesmo e-mail duas vezes na mesma página |
+
 ### Novidades da v0.1.1 (super layout)
 
 | Bloco | Onde está |
@@ -56,6 +66,7 @@ O dossiê pede que todos os estados de tela estejam representados. Onde procurar
 | Editorial "Um ateliê, três gestos" e coleção Terra & Linho | `index.html` |
 | Faixa verde sálvia de lista de espera e newsletter | `index.html` e rodapé de todas as páginas |
 | Mini-sacola lateral com barra do frete grátis | todas as páginas, ao clicar em "Adicionar à sacola" |
+| Filtro lateral da loja (categoria, preço, cor, tamanho) | `loja.html`, coluna à esquerda |
 | Aviso rápido (toast) ao salvar nos desejos | todas as páginas, ao clicar no coração |
 
 ### Estados de interface demonstrados
@@ -92,7 +103,7 @@ seu-projeto/
 │   ├── js/
 │   │   ├── header.js          (menu mobile e faixa de busca)
 │   │   ├── swatches.js        (galeria, variações, abas)
-│   │   ├── filtros.js         (filtro e ordenação da loja)
+│   │   ├── filtros.js         (filtro lateral e ordenação da loja)
 │   │   └── loja.js            (desejos, sacola e mini-sacola)
 │   ├── fonts/
 │   │   └── LEIA-ME.md         (instruções de hospedagem local das fontes)

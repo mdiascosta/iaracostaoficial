@@ -12,10 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- PRODUÇÃO: hospedar as fontes localmente (ver assets/fonts/LEIA-ME.md) -->
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&amp;family=Playfair+Display:wght@400&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=3a6dfbec">
-  <link rel="stylesheet" href="assets/css/header.css?v=d3571bb7">
-  <link rel="stylesheet" href="assets/css/pages.css?v=a3db9089">
-  <link rel="stylesheet" href="assets/css/comercio.css?v=3c490b56">
+  <link rel="stylesheet" href="assets/css/style.css?v=0175cbc2">
+  <link rel="stylesheet" href="assets/css/header.css?v=4106db95">
+  <link rel="stylesheet" href="assets/css/pages.css?v=8faba131">
+  <link rel="stylesheet" href="assets/css/comercio.css?v=db61b579">
 </head>
 <body class="page-shop">
 <div class="proto-banner" role="note">PROTÓTIPO · DADOS E TEXTOS DE EXEMPLO · NÃO PUBLICAR</div>
@@ -172,43 +172,163 @@
       <div class="page-head__inner">
         <h1>Todas as peças</h1>
         <p class="lead">
-          O catálogo inteiro em uma única grade, sem paginação e sem esconder
+          O catálogo inteiro em uma grade única, sem paginação e sem esconder
           nada. Cada foto é da peça, na proporção original.
         </p>
       </div>
     </div>
 
     <div class="container">
-      <div class="shop-toolbar">
-        <div>
-          <p class="field__label" id="filtro-rotulo">Filtrar por categoria</p>
-          <ul class="filter-list" aria-labelledby="filtro-rotulo">
-            <li><button class="filter-chip" type="button" data-filter="todas" aria-pressed="true">Todas (12)</button></li>
-            <li><button class="filter-chip" type="button" data-filter="vestidos" aria-pressed="false">Vestidos (2)</button></li>
-            <li><button class="filter-chip" type="button" data-filter="blusas" aria-pressed="false">Blusas &amp; Camisas (3)</button></li>
-            <li><button class="filter-chip" type="button" data-filter="saias-calcas" aria-pressed="false">Saias &amp; Calças (2)</button></li>
-            <li><button class="filter-chip" type="button" data-filter="terceiras-pecas" aria-pressed="false">Terceiras peças (1)</button></li>
-            <li><button class="filter-chip" type="button" data-filter="acessorios" aria-pressed="false">Acessórios (2)</button></li>
-            <li><button class="filter-chip" type="button" data-filter="bolsas" aria-pressed="false">Bolsas (1)</button></li>
-            <li><button class="filter-chip" type="button" data-filter="calcados" aria-pressed="false">Calçados (1)</button></li>
-          </ul>
-        </div>
+      <div class="shop">
 
-        <div class="shop-sort">
-          <label for="ordenar">Ordenar por</label>
-          <select id="ordenar" data-sort>
-            <option value="destaque">Destaques</option>
-            <option value="preco-asc">Menor preço</option>
-            <option value="preco-desc">Maior preço</option>
-            <option value="nome">Nome, de A a Z</option>
-          </select>
-        </div>
-      </div>
+        <!-- ==================================================================
+             FILTROS LATERAIS
+             Segue o template de referência: coluna de 240px à esquerda, com
+             categorias, faixa de preço, cor e tamanho.
 
-      <p class="shop-count" data-count role="status" aria-live="polite">12 peças encontradas</p>
+             O filtro funciona na hora, sem recarregar a página (é um protótipo
+             estático). No Bloco B, quem faz este trabalho é o widget de
+             filtragem do WooCommerce, com os mesmos campos.
 
-      <ul class="product-grid" data-shop-grid>
-        <li class="card" data-categoria="blusas" data-preco="348.00" data-nome="Blusa de Linho Terracota" data-ordem="1">
+             Acessibilidade: cada opção é uma linha clicável de 44px, o grupo
+             usa fieldset e legend de verdade, e a contagem de resultados é
+             anunciada por leitor de tela (aria-live).
+             ================================================================== -->
+        <aside class="filters" id="filtros-loja" aria-label="Filtros de produtos">
+          <div class="filters__head">
+            <h2 class="filters__heading">Filtros</h2>
+            <button class="filters__clear" type="button" data-filters-clear>Limpar</button>
+          </div>
+
+          <fieldset class="filters__group">
+            <legend class="filters__title">Categorias</legend>
+            <label class="filters__opt" for="f-cat-vestidos">
+              <input type="checkbox" id="f-cat-vestidos" name="categoria" value="vestidos" data-facet="categoria">
+              Vestidos <span class="filters__count">2</span>
+            </label>
+            <label class="filters__opt" for="f-cat-blusas">
+              <input type="checkbox" id="f-cat-blusas" name="categoria" value="blusas" data-facet="categoria">
+              Blusas &amp; Camisas <span class="filters__count">3</span>
+            </label>
+            <label class="filters__opt" for="f-cat-saias-calcas">
+              <input type="checkbox" id="f-cat-saias-calcas" name="categoria" value="saias-calcas" data-facet="categoria">
+              Saias &amp; Calças <span class="filters__count">2</span>
+            </label>
+            <label class="filters__opt" for="f-cat-terceiras">
+              <input type="checkbox" id="f-cat-terceiras" name="categoria" value="terceiras-pecas" data-facet="categoria">
+              Terceiras Peças <span class="filters__count">1</span>
+            </label>
+            <label class="filters__opt" for="f-cat-acessorios">
+              <input type="checkbox" id="f-cat-acessorios" name="categoria" value="acessorios" data-facet="categoria">
+              Acessórios <span class="filters__count">2</span>
+            </label>
+            <label class="filters__opt" for="f-cat-bolsas">
+              <input type="checkbox" id="f-cat-bolsas" name="categoria" value="bolsas" data-facet="categoria">
+              Bolsas <span class="filters__count">1</span>
+            </label>
+            <label class="filters__opt" for="f-cat-calcados">
+              <input type="checkbox" id="f-cat-calcados" name="categoria" value="calcados" data-facet="categoria">
+              Calçados <span class="filters__count">1</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="filters__group">
+            <legend class="filters__title">Faixa de preço</legend>
+            <div class="filters__price">
+              <label class="visually-hidden" for="f-preco-min">Preço mínimo, em reais</label>
+              <input class="field__input" id="f-preco-min" name="preco_min" type="number"
+                     min="0" step="10" inputmode="numeric" placeholder="mín."
+                     value="149" data-facet="preco-min">
+              <span aria-hidden="true">até</span>
+              <label class="visually-hidden" for="f-preco-max">Preço máximo, em reais</label>
+              <input class="field__input" id="f-preco-max" name="preco_max" type="number"
+                     min="0" step="10" inputmode="numeric" placeholder="máx."
+                     value="789" data-facet="preco-max">
+            </div>
+            <p class="filters__hint">Peças de R$ 149 a R$ 789.</p>
+          </fieldset>
+
+          <fieldset class="filters__group">
+            <legend class="filters__title">Cor</legend>
+            <div class="filters__swatches">
+              <label class="filters__swatch" for="f-cor-terracota">
+                <input type="checkbox" id="f-cor-terracota" name="cor" value="terracota" data-facet="cor">
+                <span class="swatch__dot sw-terracota" aria-hidden="true"></span>
+                Terracota <span class="filters__count">5</span>
+              </label>
+              <label class="filters__swatch" for="f-cor-salvia">
+                <input type="checkbox" id="f-cor-salvia" name="cor" value="salvia" data-facet="cor">
+                <span class="swatch__dot sw-salvia" aria-hidden="true"></span>
+                Sálvia <span class="filters__count">2</span>
+              </label>
+              <label class="filters__swatch" for="f-cor-areia">
+                <input type="checkbox" id="f-cor-areia" name="cor" value="areia" data-facet="cor">
+                <span class="swatch__dot sw-areia" aria-hidden="true"></span>
+                Areia <span class="filters__count">5</span>
+              </label>
+              <label class="filters__swatch" for="f-cor-cru">
+                <input type="checkbox" id="f-cor-cru" name="cor" value="cru" data-facet="cor">
+                <span class="swatch__dot sw-cru" aria-hidden="true"></span>
+                Cru <span class="filters__count">3</span>
+              </label>
+              <label class="filters__swatch" for="f-cor-carvao">
+                <input type="checkbox" id="f-cor-carvao" name="cor" value="carvao" data-facet="cor">
+                <span class="swatch__dot sw-carvao" aria-hidden="true"></span>
+                Carvão <span class="filters__count">4</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="filters__group">
+            <legend class="filters__title">Tamanho</legend>
+            <label class="filters__opt" for="f-tam-p">
+              <input type="checkbox" id="f-tam-p" name="tamanho" value="p" data-facet="tamanho">
+              P <span class="filters__count">8</span>
+            </label>
+            <label class="filters__opt" for="f-tam-m">
+              <input type="checkbox" id="f-tam-m" name="tamanho" value="m" data-facet="tamanho">
+              M <span class="filters__count">8</span>
+            </label>
+            <label class="filters__opt" for="f-tam-g">
+              <input type="checkbox" id="f-tam-g" name="tamanho" value="g" data-facet="tamanho">
+              G <span class="filters__count">8</span>
+            </label>
+            <label class="filters__opt" for="f-tam-gg">
+              <input type="checkbox" id="f-tam-gg" name="tamanho" value="gg" data-facet="tamanho">
+              GG <span class="filters__count">8</span>
+            </label>
+            <label class="filters__opt" for="f-tam-unico">
+              <input type="checkbox" id="f-tam-unico" name="tamanho" value="unico" data-facet="tamanho">
+              Único <span class="filters__count">4</span>
+            </label>
+          </fieldset>
+        </aside>
+
+        <!-- ==================================================================
+             GRADE DE PRODUTOS
+             ================================================================== -->
+        <div class="shop__main">
+          <div class="shop__toolbar">
+            <button class="btn btn--outline shop__toggle" type="button"
+                    data-filters-toggle aria-expanded="false" aria-controls="filtros-loja">
+              Filtros <span data-filters-badge hidden></span>
+            </button>
+
+            <p class="shop__count" data-count role="status" aria-live="polite">12 peças encontradas</p>
+
+            <div class="shop__sort">
+              <label for="ordenar">Ordenar por</label>
+              <select id="ordenar" data-sort>
+                <option value="destaque">Destaques</option>
+                <option value="preco-asc">Menor preço</option>
+                <option value="preco-desc">Maior preço</option>
+                <option value="nome">Nome, de A a Z</option>
+              </select>
+            </div>
+          </div>
+
+          <ul class="product-grid" data-shop-grid>
+            <li class="card" data-categoria="blusas" data-cores="terracota" data-tamanhos="p m g gg" data-preco="348.00" data-nome="Blusa de Linho Terracota" data-ordem="1">
           <a class="card__media" href="produto.html" aria-label="Ver Blusa de Linho Terracota">
           <span class="badge">Novo</span>
             <img class="card__img" src="assets/img/blusa-terracota.jpg" alt="Blusa feminina de linho terracota com botões de madeira"
@@ -230,7 +350,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="blusa-linho-terracota">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="vestidos" data-preco="596.00" data-nome="Vestido Midi Sálvia" data-ordem="2">
+        <li class="card" data-categoria="vestidos" data-cores="salvia" data-tamanhos="p m g gg" data-preco="596.00" data-nome="Vestido Midi Sálvia" data-ordem="2">
           <a class="card__media" href="produto.html" aria-label="Ver Vestido Midi Sálvia">
           <span class="badge">Mais vendida</span>
             <img class="card__img" src="assets/img/vestido-salvia.jpg" alt="Vestido midi feminino verde sálvia com mangas amplas"
@@ -252,7 +372,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="vestido-midi-salvia">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="blusas" data-preco="389.00" data-nome="Camisa Branca de Linho" data-ordem="3">
+        <li class="card" data-categoria="blusas" data-cores="cru carvao" data-tamanhos="p m g gg" data-preco="389.00" data-nome="Camisa Branca de Linho" data-ordem="3">
           <a class="card__media" href="produto.html" aria-label="Ver Camisa Branca de Linho">
             <img class="card__img" src="assets/img/camisa-branca.jpg" alt="Camisa branca feminina de linho lavado com bolso frontal"
                  width="800" height="1000" loading="lazy" decoding="async">
@@ -273,7 +393,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="camisa-linho-branca">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="vestidos" data-preco="684.00" data-nome="Vestido Longo Cerrado" data-ordem="4">
+        <li class="card" data-categoria="vestidos" data-cores="terracota carvao" data-tamanhos="p m g gg" data-preco="684.00" data-nome="Vestido Longo Cerrado" data-ordem="4">
           <a class="card__media" href="produto.html" aria-label="Ver Vestido Longo Cerrado">
             <img class="card__img" src="assets/img/vestido-cerrado.jpg" alt="Vestido longo feminino estampado em tom natural"
                  width="800" height="1000" loading="lazy" decoding="async">
@@ -294,7 +414,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="vestido-longo-cerrado">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="blusas" data-preco="249.00" data-nome="Cropped de Tricot Areia" data-ordem="5">
+        <li class="card" data-categoria="blusas" data-cores="areia carvao" data-tamanhos="p m g gg" data-preco="249.00" data-nome="Cropped de Tricot Areia" data-ordem="5">
           <a class="card__media" href="produto.html" aria-label="Ver Cropped de Tricot Areia">
           <span class="badge badge--promo">Oferta</span>
             <img class="card__img" src="assets/img/cropped-tricot.jpg" alt="Cropped feminino de tricot areia com manga curta"
@@ -316,7 +436,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="cropped-tricot-areia">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="saias-calcas" data-preco="312.00" data-nome="Saia Midi de Linho Cru" data-ordem="6">
+        <li class="card" data-categoria="saias-calcas" data-cores="cru areia" data-tamanhos="p m g gg" data-preco="312.00" data-nome="Saia Midi de Linho Cru" data-ordem="6">
           <a class="card__media" href="produto.html" aria-label="Ver Saia Midi de Linho Cru">
             <img class="card__img" src="assets/img/saia-cru.jpg" alt="Saia midi feminina de linho cru com pregas"
                  width="800" height="1000" loading="lazy" decoding="async">
@@ -337,7 +457,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="saia-linho-cru">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="saias-calcas" data-preco="459.00" data-nome="Calça Pantalona Sálvia" data-ordem="7">
+        <li class="card" data-categoria="saias-calcas" data-cores="salvia" data-tamanhos="p m g gg" data-preco="459.00" data-nome="Calça Pantalona Sálvia" data-ordem="7">
           <a class="card__media" href="produto.html" aria-label="Ver Calça Pantalona Sálvia">
             <img class="card__img" src="assets/img/pantalona-salvia.jpg" alt="Calça pantalona feminina verde sálvia em linho"
                  width="800" height="1000" loading="lazy" decoding="async">
@@ -358,7 +478,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="calca-pantalona-salvia">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="terceiras-pecas" data-preco="789.00" data-nome="Blazer de Linho Areia" data-ordem="8">
+        <li class="card" data-categoria="terceiras-pecas" data-cores="areia cru" data-tamanhos="p m g gg" data-preco="789.00" data-nome="Blazer de Linho Areia" data-ordem="8">
           <a class="card__media" href="produto.html" aria-label="Ver Blazer de Linho Areia">
           <span class="badge">Novo</span>
             <img class="card__img" src="assets/img/blazer-areia.jpg" alt="Blazer feminino de linho areia com modelagem solta"
@@ -380,7 +500,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="blazer-linho-areia">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="acessorios" data-preco="189.00" data-nome="Colar de Cerâmica" data-ordem="9">
+        <li class="card" data-categoria="acessorios" data-cores="terracota" data-tamanhos="unico" data-preco="189.00" data-nome="Colar de Cerâmica" data-ordem="9">
           <a class="card__media" href="produto.html" aria-label="Ver Colar de Cerâmica">
             <img class="card__img" src="assets/img/colar-ceramica.jpg" alt="Colar feminino de contas de cerâmica esmaltadas em tom areia"
                  width="800" height="1000" loading="lazy" decoding="async">
@@ -401,7 +521,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="colar-ceramica">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="acessorios" data-preco="149.00" data-nome="Brinco de Argila Torneado" data-ordem="10">
+        <li class="card" data-categoria="acessorios" data-cores="terracota areia" data-tamanhos="unico" data-preco="149.00" data-nome="Brinco de Argila Torneado" data-ordem="10">
           <a class="card__media" href="produto.html" aria-label="Ver Brinco de Argila Torneado">
             <img class="card__img" src="assets/img/brinco-argila.jpg" alt="Brinco feminino de argila torneada em tom terracota"
                  width="800" height="1000" loading="lazy" decoding="async">
@@ -422,7 +542,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="brinco-argila">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="bolsas" data-preco="429.00" data-nome="Bolsa Artesanal em Palha" data-ordem="11">
+        <li class="card" data-categoria="bolsas" data-cores="areia" data-tamanhos="unico" data-preco="429.00" data-nome="Bolsa Artesanal em Palha" data-ordem="11">
           <a class="card__media" href="produto.html" aria-label="Ver Bolsa Artesanal em Palha">
             <img class="card__img" src="assets/img/bolsa-palha.jpg" alt="Bolsa feminina artesanal trançada em palha natural"
                  width="800" height="1000" loading="lazy" decoding="async">
@@ -443,7 +563,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="bolsa-palha">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="calcados" data-preco="389.00" data-nome="Sandália de Couro Natural" data-ordem="12">
+        <li class="card" data-categoria="calcados" data-cores="carvao terracota" data-tamanhos="unico" data-preco="389.00" data-nome="Sandália de Couro Natural" data-ordem="12">
           <a class="card__media" href="produto.html" aria-label="Ver Sandália de Couro Natural">
             <img class="card__img" src="assets/img/sandalia-couro.jpg" alt="Sandália feminina de couro natural com tiras finas"
                  width="800" height="1000" loading="lazy" decoding="async">
@@ -464,46 +584,45 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="sandalia-couro">Adicionar à sacola</a></p>
           </div>
         </li>
-      </ul>
+          </ul>
 
-      <!-- Estado: nenhum produto na categoria escolhida -->
-      <div class="state" data-shop-empty hidden>
-        <p class="state__title">Nenhuma peça nesta categoria</p>
-        <p class="state__text">Tente outra categoria ou veja o catálogo completo.</p>
-        <div class="state__actions">
-          <button class="btn btn--outline" type="button" data-filter="todas">Ver todas as peças</button>
+          <!-- Estado: nenhum produto com os filtros escolhidos -->
+          <div class="state" data-shop-empty hidden>
+            <p class="state__title">Nenhuma peça com esses filtros</p>
+            <p class="state__text">Tente tirar um filtro ou ver o catálogo completo.</p>
+            <div class="state__actions">
+              <button class="btn btn--outline" type="button" data-filters-clear>Ver todas as peças</button>
+            </div>
+          </div>
+
+          <p class="muted-note shop__note">
+            Sem paginação, conforme o dossiê: o catálogo visível de uma vez.
+            Quando passar de 30 peças, o layout precisa ser revisto.
+          </p>
         </div>
-      </div>
 
-      <p class="muted-note shop-note">
-        Sem paginação, conforme o dossiê: o catálogo visível de uma vez.
-        Quando passar de 30 peças, o layout precisa ser revisto.
-      </p>
+      </div>
     </div>
 
   </main>
   <footer class="site-footer">
     <div class="container">
 
-      <!-- NEWSLETTER · consentimento depois do envio, nunca pré-marcado (LGPD) -->
-      <section class="newsletter" aria-labelledby="newsletter-titulo">
-        <div>
-          <p class="eyebrow">Newsletter</p>
-          <p class="newsletter__lead" id="newsletter-titulo">
-            Cartas do ateliê: lançamentos, guia de medidas e cuidados com o linho.
-          </p>
-        </div>
-        <form class="newsletter__form" action="#" method="post">
-          <label class="visually-hidden" for="news-email">Seu e-mail</label>
-          <input class="field__input" id="news-email" name="email" type="email"
-                 placeholder="seu@email.com" autocomplete="email" required>
-          <button class="btn btn--primary" type="submit">Assinar</button>
-        </form>
-      </section>
-      <p class="newsletter__note">
-        Ao assinar, você concorda em receber e-mails e confirma que leu a
-        <a href="privacidade.html">Política de Privacidade</a>. Cancelamento em um clique.
-      </p>
+      <!-- ==================================================================
+           RODAPÉ ENXUTO (v0.1.2)
+
+           A versão anterior tinha quatro blocos empilhados (newsletter, selos
+           de pagamento, identificação da empresa e links), o que deixava o
+           rodapé pesado. Agora ele tem três partes e nada mais:
+
+             1. quatro colunas curtas;
+             2. nota de privacidade recolhida em uma linha;
+             3. identificação da empresa e links, na base.
+
+           A newsletter saiu daqui: ela já aparece na faixa verde sálvia da
+           home ("Cada coleção nasce uma vez"). Pedir o mesmo e-mail duas vezes
+           na mesma página era o principal motivo da poluição.
+           ================================================================== -->
 
       <div class="site-footer__columns">
 
@@ -511,9 +630,36 @@
           <p class="site-footer__brand">IARA COSTA</p>
           <p class="site-footer__tagline">Moda &amp; Acessórios</p>
           <p class="site-footer__about">
-            Vestuário feminino autoral em linho e fibras naturais. Peças em
-            pequenos lotes, feitas para durar mais de uma estação.
+            Vestuário feminino em linho e fibras naturais, feito em pequenos
+            lotes no Brasil.
           </p>
+          <ul class="social" aria-label="Redes sociais da marca">
+            <li>
+              <a class="social__link" href="#" aria-label="Instagram (endereço a preencher)">
+                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.25"></rect>
+                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.25"></circle>
+                  <circle cx="17" cy="7" r="0.9" fill="currentColor"></circle>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="social__link" href="#" aria-label="Pinterest (endereço a preencher)">
+                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.25"></circle>
+                  <path d="M10.5 18.5c.6-1.5 1.6-4.3 2-6.2M9.6 10.9c0-1.9 1.3-3.4 3.1-3.4 1.8 0 2.9 1.2 2.9 2.8 0 2-1.1 3.6-2.6 3.6-.9 0-1.6-.7-1.4-1.6" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="social__link" href="#" aria-label="WhatsApp (número a preencher)">
+                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                  <path d="M20 11.7a8 8 0 0 1-11.8 7.1L4 20l1.3-4.1A8 8 0 1 1 20 11.7Z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"></path>
+                  <path d="M9.3 9.4c.3 2 2.1 3.8 4.2 4.2l.9-1.1 1.5.8c-.4 1.1-1.6 1.6-2.8 1.3-1.9-.5-3.6-2.3-4-4.2-.2-1.1.3-2.2 1.4-2.6l.8 1.5-1 .8Z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"></path>
+                </svg>
+              </a>
+            </li>
+          </ul>
         </div>
 
         <nav class="site-footer__col" aria-labelledby="footer-institucional">
@@ -543,90 +689,35 @@
           <ul class="site-footer__list">
             <li><span class="placeholder">[PREENCHER: e-mail]</span></li>
             <li><span class="placeholder">[PREENCHER: WhatsApp]</span></li>
-            <li><span class="placeholder">[PREENCHER: horário]</span></li>
-            <li><span class="placeholder">[PREENCHER: endereço]</span></li>
-            <li>
-              <a href="conta.html">Minha conta</a> ·
-              <a href="desejos.html">Desejos</a> ·
-              <a href="carrinho.html">Sacola</a>
-            </li>
+            <li><span class="placeholder">[PREENCHER: horário de atendimento]</span></li>
           </ul>
-
-          <ul class="social" aria-label="Redes sociais">
-            <li>
-              <a class="social__link" href="#">
-                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-                  <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.25"></rect>
-                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.25"></circle>
-                  <circle cx="17" cy="7" r="0.9" fill="currentColor"></circle>
-                </svg>
-                <span class="visually-hidden">Instagram (endereço a preencher)</span>
-              </a>
-            </li>
-            <li>
-              <a class="social__link" href="#">
-                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-                  <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.25"></circle>
-                  <path d="M10.5 18.5c.6-1.5 1.6-4.3 2-6.2M9.6 10.9c0-1.9 1.3-3.4 3.1-3.4 1.8 0 2.9 1.2 2.9 2.8 0 2-1.1 3.6-2.6 3.6-.9 0-1.6-.7-1.4-1.6" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"></path>
-                </svg>
-                <span class="visually-hidden">Pinterest (endereço a preencher)</span>
-              </a>
-            </li>
-            <li>
-              <a class="social__link" href="#">
-                <svg class="social__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-                  <path d="M20 11.7a8 8 0 0 1-11.8 7.1L4 20l1.3-4.1A8 8 0 1 1 20 11.7Z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"></path>
-                  <path d="M9.3 9.4c.3 2 2.1 3.8 4.2 4.2l.9-1.1 1.5.8c-.4 1.1-1.6 1.6-2.8 1.3-1.9-.5-3.6-2.3-4-4.2-.2-1.1.3-2.2 1.4-2.6l.8 1.5-1 .8Z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"></path>
-                </svg>
-                <span class="visually-hidden">WhatsApp (número a preencher)</span>
-              </a>
-            </li>
-          </ul>
+          <p class="site-footer__list site-footer__list--last">
+            <a href="trocas.html">Trocas e devoluções</a>
+          </p>
         </div>
 
       </div>
 
-      <!-- TRUST BAR · selos e bandeiras somente se verdadeiros (seção 7.5) -->
-      <section class="trust" aria-labelledby="trust-titulo">
-        <h2 class="visually-hidden" id="trust-titulo">Formas de pagamento e segurança</h2>
-        <ul class="trust__list">
-          <li class="trust__item"><span class="trust__flag">Pix</span></li>
-          <li class="trust__item"><span class="trust__flag">Cartão de crédito</span></li>
-          <li class="trust__item"><span class="trust__flag">Boleto</span></li>
-          <li class="trust__item"><span class="trust__flag">Site seguro · HTTPS</span></li>
-        </ul>
-        <p class="trust__note">
-          Ilustrativo. Bandeiras, selos e métodos só entram no ar depois de contratados
-          <span class="placeholder">[CONFIRMAR COM A EMPRESA]</span>.
-        </p>
-        <ul class="trust__links">
-          <li><a href="trocas.html">Trocas e devoluções (7 dias, CDC Art. 49)</a></li>
-          <li><a href="privacidade.html">Política de Privacidade</a></li>
-          <li><a href="termos.html">Termos de uso</a></li>
-          <li><a href="envio.html">Envio e entrega</a></li>
-        </ul>
-      </section>
-
-      <!-- IDENTIFICAÇÃO DA EMPRESA · Decreto 7.962/2013 (obrigatório no ar) -->
-      <section class="company" aria-labelledby="empresa-titulo">
-        <h2 class="visually-hidden" id="empresa-titulo">Identificação da empresa</h2>
-        <p class="company__line">
+      <!-- Identificação da empresa: obrigatória no ar (Decreto 7.962/2013).
+           Enquanto os dados não chegarem, fica como [PREENCHER]. -->
+      <div class="site-footer__legal">
+        <p class="site-footer__copy">
           <span class="placeholder">[PREENCHER: razão social]</span> ·
           CNPJ <span class="placeholder">[PREENCHER]</span> ·
           <span class="placeholder">[PREENCHER: endereço completo]</span>
         </p>
-        <p class="company__line">
-          Atendimento: <span class="placeholder">[PREENCHER: e-mail]</span> ·
-          <span class="placeholder">[PREENCHER: telefone ou WhatsApp]</span>
+        <p class="site-footer__copy">
+          Preços com impostos incluídos. Frete grátis acima de R$ 299 para todo o Brasil.
         </p>
-      </section>
+      </div>
 
       <div class="site-footer__bottom">
         <p class="site-footer__copy">© 2026 Iara Costa. Todos os direitos reservados.</p>
         <ul class="site-footer__meta">
-          <li><a href="privacidade.html">Política de privacidade</a></li>
-          <li><a href="trocas.html">Trocas e devoluções</a></li>
-          <li><a href="cookies.html">Preferências de cookies</a></li>
+          <li><a href="privacidade.html">Privacidade</a></li>
+          <li><a href="termos.html">Termos de uso</a></li>
+          <li><a href="trocas.html">Desistência em 7 dias (CDC Art. 49)</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
         </ul>
       </div>
 
@@ -696,6 +787,6 @@
 
 <script src="assets/js/header.js?v=01af3b8f" defer></script>
 <script src="assets/js/loja.js?v=6f942b54" defer></script>
-<script src="assets/js/filtros.js?v=0e7c69fb" defer></script>
+<script src="assets/js/filtros.js?v=1b882121" defer></script>
 </body>
 </html>
