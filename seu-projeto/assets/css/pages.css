@@ -108,15 +108,25 @@
   overflow: hidden;
 }
 
+/* A altura da foto é calculada pela largura (75% dela). Assim a caixa nasce
+   com a altura certa e nenhuma imagem consegue empurrar o que vem depois. */
 .post-card__media {
   display: block;
-  aspect-ratio: 4 / 3;
+  position: relative;
+  padding-top: 75%;
   overflow: hidden;
   border-bottom: 1px solid var(--iara-hairline);
   background: var(--iara-hover-soft);
 }
 
-.post-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
+.post-card__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
 .post-card:hover .post-card__media img { transform: scale(1.02); }
 
 @media (prefers-reduced-motion: reduce) {
@@ -138,8 +148,6 @@
 .post-card__excerpt { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); max-width: 46ch; }
 .post-byline { margin: 0; font-size: var(--fs-micro); color: var(--iara-ink-soft); }
 
-/* O destaque do blog ocupa a largura toda e mantém a proporção larga */
-.post-feature__media { aspect-ratio: 16 / 9; }
 
 /* ============================================================== LOJA (E1) */
 .shop-toolbar {

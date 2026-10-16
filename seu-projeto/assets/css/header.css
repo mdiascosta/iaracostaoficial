@@ -551,6 +551,11 @@ body.is-locked { overflow: hidden; }
    lançamentos.
    ========================================================================= */
 
+/* O rodapé segue a largura da barra do header em todas as páginas, inclusive
+   nas de leitura (nelas o miolo do texto é mais estreito por conforto de
+   leitura, mas o rodapé continua alinhado com o resto do site). */
+.site-footer > .container { max-width: var(--iara-header-max); }
+
 .newsletter {
   display: grid;
   grid-template-columns: 1fr;
