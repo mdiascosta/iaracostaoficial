@@ -385,47 +385,39 @@
 
 body.is-locked { overflow: hidden; }
 
-/* --------------------------------------------------------------- 10. FOOTER */
+/* --------------------------------------------------------------- 10. FOOTER
+   v0.1.2: rodapé enxuto. Saiu a newsletter (duplicava a faixa da home) e saiu
+   a faixa de selos de pagamento (nada foi contratado ainda, então selo ali era
+   promessa vazia). Ficaram as quatro colunas, a identificação da empresa
+   exigida por lei e a base com os links de política. */
 .site-footer {
   margin-top: clamp(48px, 8vw, 96px);
-  padding-block: clamp(40px, 6vw, 64px) 24px;
+  padding-block: clamp(44px, 6vw, 72px) 24px;
   border-top: 1px solid var(--iara-line);
   background: var(--iara-paper);
 }
 
-.newsletter {
-  display: grid;
-  gap: 20px;
-  padding-bottom: clamp(28px, 4vw, 44px);
-  border-bottom: 1px solid var(--iara-hairline);
-  margin-bottom: clamp(28px, 4vw, 44px);
-}
 
-@media (min-width: 1021px) {
-  .newsletter { grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
-}
 
-.newsletter__title { font-size: var(--fs-h3); font-family: var(--iara-font-display); margin-bottom: 6px; }
-.newsletter__lead { color: var(--iara-ink-soft); max-width: 46ch; margin: 0; }
 
-.newsletter__form { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; }
-.newsletter__form .field__input { flex: 1 1 220px; }
-.newsletter__form .btn { margin-top: 0; }
-
-.newsletter__note {
-  margin: -20px 0 clamp(28px, 4vw, 44px);
-  padding-bottom: clamp(28px, 4vw, 44px);
-  border-bottom: 1px solid var(--iara-hairline);
-  font-size: var(--fs-micro);
-  color: var(--iara-ink-soft);
-  max-width: 74ch;
-}
 
 .site-footer__columns {
   display: grid;
-  gap: clamp(24px, 4vw, 40px);
+  gap: clamp(28px, 4vw, 56px);
   grid-template-columns: 1fr;
+  padding-bottom: clamp(28px, 4vw, 44px);
+  border-bottom: 1px solid var(--iara-hairline);
 }
+
+/* Última linha da coluna de atendimento, sem a lista completa */
+.site-footer__list--last { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
+
+.site-footer__legal {
+  padding-block: clamp(20px, 3vw, 28px);
+  border-bottom: 1px solid var(--iara-hairline);
+}
+
+.site-footer__legal .site-footer__copy + .site-footer__copy { margin-top: 6px; }
 
 @media (min-width: 721px) { .site-footer__columns { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1021px) { .site-footer__columns { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; } }
@@ -486,64 +478,15 @@ body.is-locked { overflow: hidden; }
 }
 
 /* ------------------------------------------------------------ 11. TRUST BAR */
-.trust {
-  margin-top: clamp(28px, 4vw, 44px);
-  padding-top: clamp(24px, 4vw, 36px);
-  border-top: 1px solid var(--iara-hairline);
-  text-align: center;
-}
 
-.trust__list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin: 0 0 14px;
-  padding: 0;
-}
 
-.trust__flag {
-  display: inline-block;
-  border: 1px solid var(--iara-line);
-  border-radius: var(--iara-radius);
-  background: var(--iara-white);
-  padding: 8px 16px;
-  font-size: var(--fs-micro);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--iara-ink-soft);
-}
 
-.trust__note { font-size: var(--fs-micro); color: var(--iara-ink-soft); margin: 0 0 16px; }
 
-.trust__links {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 20px;
-  margin: 0;
-  padding: 0;
-}
 
-.trust__links a {
-  font-size: var(--fs-small);
-  color: var(--iara-ink-soft);
-  text-decoration: underline;
-}
 
-.trust__links a:hover { color: var(--iara-accent-dark); }
 
 /* ------------------------------------------------- 12. IDENTIFICAÇÃO / BASE */
-.company {
-  margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid var(--iara-hairline);
-  text-align: center;
-}
 
-.company__line { font-size: var(--fs-micro); color: var(--iara-ink-soft); margin: 0 0 6px; }
 
 .site-footer__bottom {
   margin-top: 20px;

@@ -44,9 +44,11 @@
 .link-underline { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ------------------------------------------- 01. FAIXA DE BENEFÍCIOS (4x) */
+/* Faixa de benefícios: fundo areia claríssimo para ela se destacar do hero
+   sem competir com ele. O fio de cima e de baixo dá o acabamento de faixa. */
 .benefits {
   border-block: 1px solid var(--iara-hairline);
-  background: var(--iara-paper);
+  background: var(--iara-hover-soft);
 }
 
 /* Ajuste pedido pela cliente em 16/10: os quatro itens ficam centralizados no
@@ -458,4 +460,243 @@
   display: flex;
   width: 100%;
   justify-content: center;
+}
+
+/* ============================================================================
+   12. CORES DAS SEÇÕES (v0.1.2)
+
+   A cliente pediu seções com fundos diferentes para dar ritmo à página, sem
+   sair da paleta. Não há cor nova aqui: só a alternância dos tokens do dossiê.
+
+     .section--soft  → Hover Soft #f7f4ef (areia claríssimo)
+     .section--warm  → Accent Soft #e4cbb5 (terracota claro, o "barro" da marca)
+     .section--sage  → Sálvia #546858 (fundo escuro, texto Paper)
+
+   Contraste conferido (WCAG 2.2 AA):
+     Ink sobre Accent Soft 9,3:1 · Ink Soft sobre Hover Soft 6,2:1
+     Accent Dark sobre Accent Soft 5,0:1 · Announcement Ink sobre Sálvia 5,9:1
+
+   Atenção em dois pontos, que é onde quase todo site erra:
+   - Accent (#a45f43) sobre Hover Soft dá 4,46:1 e REPROVA por pouco em texto
+     pequeno. Por isso o eyebrow das seções claras usa Accent Dark (7,1:1).
+   - Ink Soft sobre Accent Soft dá 4,35:1 e também reprova. Nas seções quentes
+     o texto corrido volta para o Ink, que dá 9,3:1.
+   ========================================================================= */
+
+.section--soft { background: var(--iara-hover-soft); }
+.section--warm { background: var(--iara-accent-soft); }
+.section--sage { background: var(--iara-sage); color: var(--iara-paper); }
+
+.section--alt { background: var(--iara-hover-soft); } /* nome antigo, mantido */
+
+.section--soft .eyebrow,
+.section--warm .eyebrow { color: var(--iara-accent-dark); }
+
+.section--warm .lead,
+.section--warm p,
+.section--warm .muted-note,
+.section--warm .editorial__item p,
+.section--warm .duo__actions a.btn--outline { color: var(--iara-ink); }
+
+.section--warm .editorial__item { border-top-color: rgba(45, 41, 37, 0.16); }
+
+/* Botão de contorno sobre fundo quente: o contorno terracota some no terracota
+   claro, então escurece para Accent Dark. */
+.section--warm .btn--outline { border-color: var(--iara-accent-dark); color: var(--iara-accent-dark); }
+.section--warm .btn--outline:hover { background: var(--iara-accent-dark); color: var(--iara-paper); }
+
+/* Texto claro sobre Sálvia, com foco visível que não desaparece no fundo */
+.section--sage h2,
+.section--sage h3,
+.section--sage .lead,
+.section--sage p { color: var(--iara-paper); }
+.section--sage .eyebrow { color: var(--iara-accent-soft); }
+.section--sage :focus-visible { outline-color: var(--iara-accent-soft); }
+
+/* Separadores entre faixas ficam mais discretos sobre fundo colorido */
+.section--soft + .section--soft,
+.section--warm + .section--warm { border-top: 1px solid var(--iara-line); }
+
+.section--warm .quote blockquote,
+.section--warm .quote__name { color: var(--iara-ink); }
+.section--warm .quote__role { color: var(--iara-ink); opacity: 0.75; }
+
+/* ============================================================================
+   13. LOJA COM FILTRO LATERAL (v0.1.2)
+
+   Segue o template de referência: coluna de filtros à esquerda (240px) e grade
+   de produtos de 3 colunas à direita. No celular e no tablet a coluna vira uma
+   gaveta aberta pelo botão "Filtros", como no template.
+
+   Ao publicar no WooCommerce, esta coluna é o widget de filtragem e a grade é
+   o widget de arquivo de produtos. Nada deste CSS vai para o WordPress.
+   ========================================================================= */
+
+.shop {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+  padding-block: 8px 64px;
+}
+
+/* ---------------------------------------------------------- 13.1 PAINEL */
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filters__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--iara-line);
+}
+
+.filters__heading {
+  font-family: var(--iara-font-display);
+  font-size: var(--fs-heading);
+  margin: 0;
+}
+
+.filters__clear {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+  background: none;
+  border: 0;
+  padding: 10px 0;
+  min-height: 44px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.filters__clear:hover { color: var(--iara-accent-dark); }
+
+.filters__group {
+  margin: 0;
+  padding: 20px 0;
+  border: 0;
+  border-bottom: 1px solid var(--iara-hairline);
+}
+
+.filters__group:last-of-type { border-bottom: 0; }
+
+.filters__title {
+  display: block;
+  padding: 0;
+  margin-bottom: 10px;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--iara-ink);
+}
+
+/* Cada opção é uma linha inteira clicável de 44px, para o alvo de toque
+   atender a 2.5.8 sem apertar o layout. */
+.filters__opt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+  cursor: pointer;
+}
+
+.filters__opt:hover { color: var(--iara-ink); }
+
+.filters__opt input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  accent-color: var(--iara-accent);
+  cursor: pointer;
+}
+
+.filters__count {
+  margin-left: auto;
+  font-size: var(--fs-micro);
+  color: var(--iara-ink-soft);
+}
+
+.filters__price { display: flex; align-items: center; gap: 10px; }
+.filters__price .field__input { text-align: center; }
+.filters__price span { color: var(--iara-ink-soft); font-size: var(--fs-small); }
+.filters__hint { margin: 10px 0 0; font-size: var(--fs-micro); color: var(--iara-ink-soft); }
+
+.filters__swatches { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+
+.filters__swatch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+  cursor: pointer;
+}
+
+.filters__swatch input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.filters__swatch .swatch__dot {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--iara-line);
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+
+/* Estado marcado: anel terracota em volta da bolinha de cor */
+.filters__swatch input:checked + .swatch__dot {
+  box-shadow: 0 0 0 2px var(--iara-paper), 0 0 0 4px var(--iara-accent);
+}
+
+.filters__swatch input:focus-visible + .swatch__dot {
+  outline: 2px solid var(--iara-accent-dark);
+  outline-offset: 3px;
+}
+
+/* -------------------------------------------------------- 13.2 CONTEÚDO */
+.shop__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 20px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--iara-hairline);
+}
+
+.shop__count { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
+
+.shop__sort { display: flex; align-items: center; gap: 10px; }
+.shop__sort label { font-size: var(--fs-micro); letter-spacing: 0.12em; text-transform: uppercase; color: var(--iara-ink-soft); }
+.shop__sort select { width: auto; min-width: 190px; }
+
+.shop__toggle { display: none; }
+
+.shop__note { margin-top: 32px; }
+
+@media (max-width: 1020px) {
+  .shop { grid-template-columns: 1fr; gap: 20px; }
+
+  /* Gaveta: fechada por padrão, aberta pelo botão Filtros */
+  .filters {
+    display: none;
+    padding: 20px 20px 8px;
+    background: var(--iara-paper);
+    border: 1px solid var(--iara-line);
+  }
+
+  .filters--open { display: flex; }
+
+  .shop__toggle { display: inline-flex; }
 }
