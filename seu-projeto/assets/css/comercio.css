@@ -739,8 +739,6 @@
 
 .shop__toggle { display: none; }
 
-.shop__note { margin-top: 32px; }
-
 @media (max-width: 1020px) {
   .shop { grid-template-columns: 1fr; gap: 20px; }
 
@@ -899,10 +897,70 @@ main:has(> .band:last-child) + .site-footer {
   .shop__sort select { flex: 1 1 auto; min-width: 0; }
 }
 
-/* A contagem e o recado de tamanhos (v0.1.10). No desktop ficam empilhados na
-   coluna da esquerda; abaixo de 1021px descem para uma linha própria, alinhados
-   pelo fio, porque o botão Filtros e o seletor já ocupam a primeira linha. */
+/* A contagem (v0.1.10). Abaixo de 1021px ela desce para uma linha própria,
+   alinhada pelo fio, porque o botão Filtros e o seletor já ocupam a primeira. */
 @media (max-width: 1020px) {
-  .shop__meta { flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; }
-  .shop__sizes { margin-top: 0; }
+  .shop__count { flex: 1 1 100%; }
+}
+
+/* v0.1.15 — paginação no rodapé da grade, com o desenho do zip: quadrados de
+   44px, centrados, número da página atual com fio de tinta e setas que
+   desligam no começo e no fim da lista. */
+.shop__pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--iara-space-2);
+  margin-top: var(--iara-space-7);
+}
+
+.shop__pagination[hidden] { display: none; }
+
+.shop__page {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding-inline: 12px;
+  font-family: var(--iara-font-ui);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  color: var(--iara-ink-soft);
+  background: none;
+  border: 1px solid transparent;
+  border-radius: var(--iara-radius);
+  cursor: pointer;
+  transition: color var(--iara-transition), border-color var(--iara-transition), background var(--iara-transition);
+}
+
+.shop__page:hover,
+.shop__page:focus-visible {
+  color: var(--iara-accent-dark);
+  border-color: var(--iara-line);
+  background: var(--iara-hover-soft);
+}
+
+.shop__page:focus-visible { outline: 2px solid var(--iara-accent-dark); outline-offset: 2px; }
+
+.shop__page[aria-current="page"] {
+  color: var(--iara-ink);
+  border-color: var(--iara-ink);
+  cursor: default;
+}
+
+.shop__page[aria-current="page"]:hover { background: none; }
+
+/* Setas desligadas nas pontas: cinza claro, sem alvo de toque falso. */
+.shop__page[disabled] {
+  color: var(--iara-line);
+  border-color: transparent;
+  cursor: default;
+}
+
+.shop__page[disabled]:hover { color: var(--iara-line); border-color: transparent; background: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .shop__page { transition: none; }
 }

@@ -193,7 +193,7 @@ console.log('\n=== 7. FILTROS DA LOJA (coluna à esquerda) ===');
 
   ok(!!doc.querySelector('.shop') && !!doc.querySelector('.filters'), 'loja tem a coluna de filtros e a grade');
   ok(cards.length === 12, 'a grade começa com 12 peças');
-  ok(visiveis() === 12, '12 peças visíveis sem filtro');
+  ok(visiveis() === 9, 'a primeira página mostra 9 das 12 peças (achou ' + visiveis() + ')');
 
   const catVestidos = doc.querySelector('[data-facet="categoria"][value="vestidos"]');
   catVestidos.checked = true;
@@ -219,7 +219,7 @@ console.log('\n=== 7. FILTROS DA LOJA (coluna à esquerda) ===');
   // limpar filtros volta tudo
   tamUnico.checked = false;
   doc.querySelector('.filters [data-filters-clear]').dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
-  ok(visiveis() === 12, 'Limpar filtros traz as 12 peças de volta');
+  ok(visiveis() === 9, 'Limpar filtros traz a primeira página de volta (9 de 12)');
   ok(doc.querySelector('[data-shop-empty]').hasAttribute('hidden'), 'aviso some ao limpar');
 
   // faixa de preço
@@ -241,7 +241,7 @@ console.log('\n=== 7. FILTROS DA LOJA (coluna à esquerda) ===');
   // ordenação
   doc.querySelector('[data-filters-clear]').dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
   const select = doc.querySelector('[data-sort]');
-  select.value = 'preco-asc';
+  select.value = 'price';
   select.dispatchEvent(new dom.window.Event('change', { bubbles: true }));
   const primeiro = doc.querySelector('[data-shop-grid] .card:not(.is-hidden)');
   ok(parseFloat(primeiro.dataset.preco) === 149, 'ordenação por menor preço começa em R$ 149 (achou ' + primeiro.dataset.preco + ')');
@@ -402,13 +402,15 @@ console.log('\n=== 14. CABECALHO DA LOJA, ORDENACAO E TRILHA (v0.1.7) ===');
 
   const cabeca = doc.querySelector('.page-head');
   ok(!!cabeca && !!cabeca.querySelector('h1'), 'cabeçalho com título');
-  ok(!!doc.querySelector('.page-intro'), 'texto de apoio abaixo do fio do cabeçalho');
+  ok(!!doc.querySelector('.page-intro--meta'), 'linha da coleção logo abaixo do fio do cabeçalho');
+  ok(!!doc.querySelector('[data-shop-range]'), 'a linha da coleção traz a faixa de peças visíveis');
   ok(!!doc.querySelector('.shop__count[data-count]'), 'contagem de peças na barra da coleção (loja)');
+  ok(!!doc.querySelector('[data-shop-pagination]'), 'a coleção tem a barra de paginação do zip');
 
   const seletor = doc.querySelector('.shop__sort select[data-sort]');
   ok(!!seletor, 'seletor de ordenação existe');
   ok(seletor.classList.contains('field__select'), 'seletor usa a classe de campo do site');
-  ok(seletor.querySelectorAll('option').length === 4, 'quatro formas de ordenar');
+  ok(seletor.querySelectorAll('option').length === 5, 'cinco formas de ordenar, como no zip');
 
   ok(!!doc.querySelector('.filters__heading'), 'coluna de filtros mantém o título para a gaveta e para leitor de tela');
   ok(!!doc.querySelector('[data-filters-apply]'), 'coluna de filtros tem o botão Aplicar filtros no fim, como no zip');
@@ -637,12 +639,14 @@ console.log('\n=== 16. MINHA CONTA, CONTATO E COLECAO (v0.1.9) ===');
   ok(!!contato.querySelector('.qa-list__more a[href="faq.html"]'), 'link para a página completa de perguntas');
 
   // --- 16.6 Coleção: linha de apoio do cabeçalho (template)
+  // v0.1.15 — o recado de tamanhos e o guia de medidas subiram da barra de
+  // ferramentas para a linha da coleção, logo abaixo do fio, como no zip.
   const loja = carregar('loja.html').window.document;
-  const apoio = loja.querySelector('.shop__toolbar .shop__meta');
-  ok(!!apoio, 'barra da coleção com a contagem e o recado de tamanhos');
+  const apoio = loja.querySelector('.page-intro--meta');
+  ok(!!apoio, 'linha da coleção com a faixa de peças e o recado de tamanhos');
   ok(/P ao GG/.test(apoio.textContent), 'recado diz a variação de tamanhos');
   const guia = apoio.querySelector('a[href="guia-medidas.html"]');
-  ok(!!guia, 'atalho para o guia de medidas na barra');
+  ok(!!guia, 'atalho para o guia de medidas na linha da coleção');
   ok(!!loja.querySelector('.shop__count[data-count]'), 'contagem de peças na barra da coleção');
   ok(!loja.querySelector('.page-head .lead'), 'cabeçalho da loja sem texto de apoio dentro');
   ok(!!loja.querySelector('.page-intro'), 'texto de apoio da loja abaixo do fio');
@@ -700,9 +704,9 @@ console.log('\n=== 17. ESCALA TIPOGRÁFICA E CABEÇALHO LIMPO (v0.1.10) ===');
        pagina + ': linha de última atualização preservada fora do cabeçalho');
   });
   const lojaDoc = carregar('loja.html').window.document;
-  ok(!!lojaDoc.querySelector('.shop__sizes a[href="guia-medidas.html"]'),
-     'loja: recado de tamanhos com o guia de medidas, agora na barra da coleção');
-  ok(/P ao GG/.test(lojaDoc.querySelector('.shop__sizes').textContent.replace(/\s+/g, ' ')),
+  ok(!!lojaDoc.querySelector('.page-intro--meta a[href="guia-medidas.html"]'),
+     'loja: guia de medidas na linha da coleção, como no zip');
+  ok(/P ao GG/.test(lojaDoc.querySelector('.page-intro--meta').textContent.replace(/\s+/g, ' ')),
      'loja: recado de tamanhos preservado');
 
   // 17.5 — as faixas e o hero seguem a mesma escala
@@ -1316,6 +1320,76 @@ console.log('\n=== 21. RESUMO FIXO, BOLETO, RETIRADA, COLECAO DO ZIP E NOVO ARTI
   ok(/IntersectionObserver/.test(artigo), 'artigo.js marca a seção atual no índice');
   ok(/clipboard/.test(artigo), 'artigo.js copia o link do artigo');
   ok(/catch \(erro\)/.test(artigo), 'artigo.js falha em silêncio se algo der errado');
+}
+
+console.log('\n=== 22. PAGINACAO DA COLECAO E ORDENACAO DO ZIP (v0.1.15) ===');
+{
+  const dom = carregar('loja.html');
+  const doc = dom.window.document;
+  const grid = doc.querySelector('[data-shop-grid]');
+  const cards = grid.querySelectorAll('.card');
+  const visiveis = () => Array.prototype.filter.call(grid.children, (c) => !c.classList.contains('is-hidden'));
+  const nav = doc.querySelector('[data-shop-pagination]');
+  const faixa = () => doc.querySelector('[data-shop-range]').textContent;
+  const controles = () => Array.prototype.map.call(nav.querySelectorAll('.shop__page'), (b) => b.textContent).join(' ');
+  const ordinal = (n) => Array.prototype.filter.call(nav.querySelectorAll('.shop__page'), (b) => b.getAttribute('aria-current') === 'page')[0];
+
+  ok(cards.length === 12, 'a grade traz as 12 peças no HTML (sem JavaScript aparece tudo)');
+  ok(visiveis().length === 9, 'a primeira página mostra 9 peças (achou ' + visiveis().length + ')');
+  ok(faixa() === 'Mostrando 1–9 de 12 peças', 'faixa da coleção conta as peças da página ("' + faixa() + '")');
+  ok(!nav.hasAttribute('hidden'), 'paginacao aparece quando a selecao passa de uma pagina');
+  ok(nav.getAttribute('aria-label') === 'Paginação de produtos', 'paginacao com rotulo proprio');
+  ok(controles() === '← 1 2 →', 'paginacao com setas e as duas paginas ("' + controles() + '")');
+  ok(!!ordinal(1), 'a pagina atual marcada com aria-current');
+  ok(ordinal(1).tagName.toLowerCase() === 'span', 'a pagina atual nao e clicavel (texto marcado, como no zip)');
+  ok(!!nav.querySelector('[data-pagina="1"]') && !!nav.querySelector('[data-pagina="2"]'),
+     'cada pagina tem seu gancho numerado');
+  ok(nav.querySelector('[aria-label="Página anterior"]').disabled, 'seta anterior desligada na primeira pagina');
+  ok(!nav.querySelector('[aria-label="Próxima página"]').disabled, 'seta proxima ativa na primeira pagina');
+
+  // segunda página
+  nav.querySelector('[data-pagina="2"]').dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
+  ok(visiveis().length === 3, 'a segunda pagina mostra as 3 peças restantes (achou ' + visiveis().length + ')');
+  ok(faixa() === 'Mostrando 10–12 de 12 peças', 'faixa acompanha a segunda pagina ("' + faixa() + '")');
+  ok(!!ordinal(2), 'a segunda pagina passa a ser a atual');
+  ok(nav.querySelector('[aria-label="Próxima página"]').disabled, 'seta proxima desliga na ultima pagina');
+  ok(doc.activeElement && doc.activeElement.getAttribute('aria-label') === 'Página 2',
+     'o foco acompanha a troca de pagina (leitor de tela anuncia a nova pagina)');
+
+  // filtro que cabe em uma página só
+  const cat = doc.querySelector('[data-facet="categoria"][value="vestidos"]');
+  cat.checked = true;
+  cat.dispatchEvent(new dom.window.Event('change', { bubbles: true }));
+  ok(visiveis().length === 2, 'filtro reduz a grade para 2 peças');
+  ok(faixa() === 'Mostrando 1–2 de 2 peças', 'faixa conta o resultado do filtro ("' + faixa() + '")');
+  ok(nav.hasAttribute('hidden'), 'paginacao some quando a selecao cabe em uma pagina');
+  cat.checked = false;
+  cat.dispatchEvent(new dom.window.Event('change', { bubbles: true }));
+
+  // as cinco ordenações do zip
+  const select = doc.querySelector('[data-sort]');
+  const rotulos = Array.prototype.map.call(select.options, (o) => o.textContent).join(' / ');
+  ok(select.options.length === 5, 'cinco formas de ordenar, como no zip (tem ' + select.options.length + ')');
+  ok(rotulos === 'Mais recentes / Mais populares / Menor preço / Maior preço / Melhor avaliados',
+     'rotulos da ordenacao iguais aos do zip ("' + rotulos + '")');
+  ok(Array.prototype.every.call(select.options, (o) => ['date', 'popularity', 'price', 'price-desc', 'rating'].indexOf(o.value) >= 0),
+     'valores da ordenacao sao os mesmos do WooCommerce');
+  ok(rotulos.indexOf('Nome, de A a Z') < 0, 'a ordenacao por nome saiu: ficaram as cinco do zip');
+
+  const ordenarPor = (valor) => {
+    select.value = valor;
+    select.dispatchEvent(new dom.window.Event('change', { bubbles: true }));
+    return visiveis()[0].querySelector('.card__name').textContent;
+  };
+
+  ok(ordenarPor('price').indexOf('Brinco') === 0, 'menor preço começa no brinco de R$ 149');
+  ok(ordenarPor('price-desc').indexOf('Blazer') === 0, 'maior preço começa no blazer de R$ 789');
+  ok(ordenarPor('popularity').indexOf('Vestido Midi') === 0, 'mais populares começa na peça com 48 avaliações');
+  ok(ordenarPor('rating').indexOf('Vestido Midi') === 0, 'melhor avaliados começa na peça de nota 5,0');
+  ok(ordenarPor('date').indexOf('Blusa') === 0, 'mais recentes volta para a ordem do catálogo');
+
+  ok(doc.querySelectorAll('[data-shop-grid] .card[data-nota]').length === 12, 'todo cartao traz a nota para a ordenacao');
+  ok(doc.querySelectorAll('[data-shop-grid] .card[data-avaliacoes]').length === 12, 'todo cartao traz o numero de avaliacoes');
 }
 
 console.log('\n========================================');

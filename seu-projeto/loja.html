@@ -12,10 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- PRODUÇÃO: hospedar as fontes localmente (ver assets/fonts/LEIA-ME.md) -->
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&amp;family=Playfair+Display:wght@400&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=2a34c4fc">
+  <link rel="stylesheet" href="assets/css/style.css?v=9f39c382">
   <link rel="stylesheet" href="assets/css/header.css?v=13cb981f">
-  <link rel="stylesheet" href="assets/css/pages.css?v=ba14674a">
-  <link rel="stylesheet" href="assets/css/comercio.css?v=416baa63">
+  <link rel="stylesheet" href="assets/css/pages.css?v=3a444424">
+  <link rel="stylesheet" href="assets/css/comercio.css?v=8237fdd1">
 </head>
 <body class="page-shop">
 <div class="proto-banner" role="note">PROTÓTIPO · DADOS E TEXTOS DE EXEMPLO · NÃO PUBLICAR</div>
@@ -170,12 +170,18 @@
       <h1>Todas as peças</h1>
     </div>
 
-    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
-         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <!-- Linha da coleção, como no zip: logo abaixo do fio do cabeçalho, reúne a
+         faixa de peças visíveis, o recado de tamanhos e o atalho do guia de
+         medidas. Saiu de dentro do cabeçalho na v0.1.10 e abre o conteúdo aqui.
+         A faixa é atualizada pelo filtros.js conforme os filtros e a página. -->
     <div class="container">
-      <p class="lead page-intro">
-        O catálogo inteiro em uma grade única, sem paginação e sem esconder nada.
-        Cada foto é da peça, na proporção original.
+      <p class="page-intro page-intro--meta">
+        <!-- [CONFERIR] no WooCommerce a faixa e a contagem saem do próprio tema -->
+        <span class="page-intro__range" data-shop-range>Mostrando 1–12 de 12 peças</span>
+        <span class="page-intro__dot" aria-hidden="true">·</span>
+        <span>Vestuário feminino do P ao GG</span>
+        <span class="page-intro__dot" aria-hidden="true">·</span>
+        <a href="guia-medidas.html">Guia de medidas</a>
       </p>
     </div>
 
@@ -322,31 +328,28 @@
               Filtros <span data-filters-badge hidden></span>
             </button>
 
-            <!-- Contagem e recado de tamanho. Saíram do cabeçalho na v0.1.10,
-                 quando o cabeçalho ficou só com a trilha e o nome da página: é
-                 aqui que a contagem pertence, junto da ordenação. -->
-            <div class="shop__meta">
-              <!-- [CONFERIR] no WooCommerce a contagem vem do próprio tema -->
-              <p class="shop__count" data-count role="status" aria-live="polite" tabindex="-1">12 peças nesta seleção</p>
-              <p class="shop__sizes">
-                Vestuário feminino do P ao GG ·
-                <a href="guia-medidas.html">Guia de medidas</a>
-              </p>
-            </div>
+            <!-- Contagem da seleção, como no zip: é ela que muda quando um
+                 filtro entra. O recado de tamanhos ficou na linha da coleção,
+                 logo abaixo do fio do cabeçalho. -->
+            <!-- [CONFERIR] no WooCommerce a contagem vem do próprio tema -->
+            <p class="shop__count" data-count role="status" aria-live="polite" tabindex="-1">12 peças nesta seleção</p>
 
+            <!-- As cinco formas de ordenar do zip. Os valores são os mesmos do
+                 WooCommerce (orderby), para o Bloco B não precisar de tradução. -->
             <div class="shop__sort">
               <label for="ordenar">Ordenar por</label>
               <select class="field__select" id="ordenar" data-sort>
-                <option value="destaque">Destaques</option>
-                <option value="preco-asc">Menor preço</option>
-                <option value="preco-desc">Maior preço</option>
-                <option value="nome">Nome, de A a Z</option>
+                <option value="date">Mais recentes</option>
+                <option value="popularity">Mais populares</option>
+                <option value="price">Menor preço</option>
+                <option value="price-desc">Maior preço</option>
+                <option value="rating">Melhor avaliados</option>
               </select>
             </div>
           </div>
 
           <ul class="product-grid" data-shop-grid>
-            <li class="card" data-categoria="blusas" data-cores="terracota" data-tamanhos="p m g gg" data-preco="348.00" data-nome="Blusa de Linho Terracota" data-ordem="1">
+            <li class="card" data-categoria="blusas" data-cores="terracota" data-tamanhos="p m g gg" data-preco="348.00" data-nota="4.9" data-avaliacoes="32" data-ordem="1">
           <a class="card__media" href="produto.html" aria-label="Ver Blusa de Linho Terracota">
           <span class="badge">Novo</span>
             <img class="card__img" src="assets/img/blusa-terracota.jpg" alt="Blusa feminina de linho terracota com botões de madeira"
@@ -368,7 +371,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="blusa-linho-terracota">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="vestidos" data-cores="salvia" data-tamanhos="p m g gg" data-preco="596.00" data-nome="Vestido Midi Sálvia" data-ordem="2">
+        <li class="card" data-categoria="vestidos" data-cores="salvia" data-tamanhos="p m g gg" data-preco="596.00" data-nota="5.0" data-avaliacoes="48" data-ordem="2">
           <a class="card__media" href="produto.html" aria-label="Ver Vestido Midi Sálvia">
           <span class="badge">Mais vendida</span>
             <img class="card__img" src="assets/img/vestido-salvia.jpg" alt="Vestido midi feminino verde sálvia com mangas amplas"
@@ -390,7 +393,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="vestido-midi-salvia">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="blusas" data-cores="cru carvao" data-tamanhos="p m g gg" data-preco="389.00" data-nome="Camisa Branca de Linho" data-ordem="3">
+        <li class="card" data-categoria="blusas" data-cores="cru carvao" data-tamanhos="p m g gg" data-preco="389.00" data-nota="4.8" data-avaliacoes="19" data-ordem="3">
           <a class="card__media" href="produto.html" aria-label="Ver Camisa Branca de Linho">
             <img class="card__img" src="assets/img/camisa-branca.jpg" alt="Camisa branca feminina de linho lavado com bolso frontal"
                  width="768" height="1376" loading="lazy" decoding="async">
@@ -411,7 +414,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="camisa-linho-branca">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="vestidos" data-cores="terracota carvao" data-tamanhos="p m g gg" data-preco="684.00" data-nome="Vestido Longo Cerrado" data-ordem="4">
+        <li class="card" data-categoria="vestidos" data-cores="terracota carvao" data-tamanhos="p m g gg" data-preco="684.00" data-nota="4.9" data-avaliacoes="15" data-ordem="4">
           <a class="card__media" href="produto.html" aria-label="Ver Vestido Longo Cerrado">
             <img class="card__img" src="assets/img/vestido-cerrado.jpg" alt="Vestido longo feminino estampado em tom natural"
                  width="768" height="1376" loading="lazy" decoding="async">
@@ -432,7 +435,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="vestido-longo-cerrado">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="blusas" data-cores="areia carvao" data-tamanhos="p m g gg" data-preco="249.00" data-nome="Cropped de Tricot Areia" data-ordem="5">
+        <li class="card" data-categoria="blusas" data-cores="areia carvao" data-tamanhos="p m g gg" data-preco="249.00" data-nota="4.7" data-avaliacoes="26" data-ordem="5">
           <a class="card__media" href="produto.html" aria-label="Ver Cropped de Tricot Areia">
           <span class="badge badge--promo">Oferta</span>
             <img class="card__img" src="assets/img/cropped-tricot.jpg" alt="Cropped feminino de tricot areia com manga curta"
@@ -454,7 +457,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="cropped-tricot-areia">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="saias-calcas" data-cores="cru areia" data-tamanhos="p m g gg" data-preco="312.00" data-nome="Saia Midi de Linho Cru" data-ordem="6">
+        <li class="card" data-categoria="saias-calcas" data-cores="cru areia" data-tamanhos="p m g gg" data-preco="312.00" data-nota="4.8" data-avaliacoes="12" data-ordem="6">
           <a class="card__media" href="produto.html" aria-label="Ver Saia Midi de Linho Cru">
             <img class="card__img" src="assets/img/saia-cru.jpg" alt="Saia midi feminina de linho cru com pregas"
                  width="768" height="1376" loading="lazy" decoding="async">
@@ -475,7 +478,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="saia-linho-cru">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="saias-calcas" data-cores="salvia" data-tamanhos="p m g gg" data-preco="459.00" data-nome="Calça Pantalona Sálvia" data-ordem="7">
+        <li class="card" data-categoria="saias-calcas" data-cores="salvia" data-tamanhos="p m g gg" data-preco="459.00" data-nota="4.7" data-avaliacoes="21" data-ordem="7">
           <a class="card__media" href="produto.html" aria-label="Ver Calça Pantalona Sálvia">
             <img class="card__img" src="assets/img/pantalona-salvia.jpg" alt="Calça pantalona feminina verde sálvia em linho"
                  width="768" height="1376" loading="lazy" decoding="async">
@@ -496,7 +499,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="calca-pantalona-salvia">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="terceiras-pecas" data-cores="areia cru" data-tamanhos="p m g gg" data-preco="789.00" data-nome="Blazer de Linho Areia" data-ordem="8">
+        <li class="card" data-categoria="terceiras-pecas" data-cores="areia cru" data-tamanhos="p m g gg" data-preco="789.00" data-nota="5.0" data-avaliacoes="8" data-ordem="8">
           <a class="card__media" href="produto.html" aria-label="Ver Blazer de Linho Areia">
           <span class="badge">Novo</span>
             <img class="card__img" src="assets/img/blazer-areia.jpg" alt="Blazer feminino de linho areia com modelagem solta"
@@ -518,7 +521,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="blazer-linho-areia">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="acessorios" data-cores="terracota" data-tamanhos="unico" data-preco="189.00" data-nome="Colar de Cerâmica" data-ordem="9">
+        <li class="card" data-categoria="acessorios" data-cores="terracota" data-tamanhos="unico" data-preco="189.00" data-nota="4.8" data-avaliacoes="27" data-ordem="9">
           <a class="card__media" href="produto.html" aria-label="Ver Colar de Cerâmica">
             <img class="card__img" src="assets/img/colar-ceramica.jpg" alt="Colar feminino de contas de cerâmica esmaltadas em tom areia"
                  width="848" height="1264" loading="lazy" decoding="async">
@@ -539,7 +542,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="colar-ceramica">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="acessorios" data-cores="terracota areia" data-tamanhos="unico" data-preco="149.00" data-nome="Brinco de Argila Torneado" data-ordem="10">
+        <li class="card" data-categoria="acessorios" data-cores="terracota areia" data-tamanhos="unico" data-preco="149.00" data-nota="4.9" data-avaliacoes="18" data-ordem="10">
           <a class="card__media" href="produto.html" aria-label="Ver Brinco de Argila Torneado">
             <img class="card__img" src="assets/img/brinco-argila.jpg" alt="Brinco feminino de argila torneada em tom terracota"
                  width="768" height="1376" loading="lazy" decoding="async">
@@ -560,7 +563,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="brinco-argila">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="bolsas" data-cores="areia" data-tamanhos="unico" data-preco="429.00" data-nome="Bolsa Artesanal em Palha" data-ordem="11">
+        <li class="card" data-categoria="bolsas" data-cores="areia" data-tamanhos="unico" data-preco="429.00" data-nota="4.8" data-avaliacoes="22" data-ordem="11">
           <a class="card__media" href="produto.html" aria-label="Ver Bolsa Artesanal em Palha">
             <img class="card__img" src="assets/img/bolsa-palha.jpg" alt="Bolsa feminina artesanal trançada em palha natural"
                  width="768" height="1376" loading="lazy" decoding="async">
@@ -581,7 +584,7 @@
             <p class="card__add"><a class="link-underline" href="carrinho.html" data-add="bolsa-palha">Adicionar à sacola</a></p>
           </div>
         </li>
-        <li class="card" data-categoria="calcados" data-cores="carvao terracota" data-tamanhos="unico" data-preco="389.00" data-nome="Sandália de Couro Natural" data-ordem="12">
+        <li class="card" data-categoria="calcados" data-cores="carvao terracota" data-tamanhos="unico" data-preco="389.00" data-nota="4.7" data-avaliacoes="14" data-ordem="12">
           <a class="card__media" href="produto.html" aria-label="Ver Sandália de Couro Natural">
             <img class="card__img" src="assets/img/sandalia-couro.jpg" alt="Sandália feminina de couro natural com tiras finas"
                  width="768" height="1376" loading="lazy" decoding="async">
@@ -613,10 +616,12 @@
             </div>
           </div>
 
-          <p class="muted-note shop__note">
-            Sem paginação, conforme o dossiê: o catálogo visível de uma vez.
-            Quando passar de 30 peças, o layout precisa ser revisto.
-          </p>
+          <!-- Paginação, como no zip: nove peças por página (é a conta do zip,
+               52 peças em 6 páginas). O filtros.js monta os botões e a esconde
+               quando a seleção cabe em uma página só. Sem JavaScript, a grade
+               mostra o catálogo inteiro e esta barra não aparece. -->
+          <nav class="shop__pagination" data-shop-pagination
+               aria-label="Paginação de produtos" hidden></nav>
         </div>
 
       </div>
@@ -952,6 +957,6 @@
 
 <script src="assets/js/header.js?v=379ac46d" defer></script>
 <script src="assets/js/loja.js?v=2aac383e" defer></script>
-<script src="assets/js/filtros.js?v=91fcf2a0" defer></script>
+<script src="assets/js/filtros.js?v=3b9b8c51" defer></script>
 </body>
 </html>

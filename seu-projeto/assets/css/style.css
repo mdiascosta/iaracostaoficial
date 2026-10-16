@@ -534,6 +534,24 @@ body.page-returns        .notice, body.page-returns        .legal-draft { max-wi
 /* A linha "Última atualização" das páginas legais acompanha o texto de apoio. */
 .page-intro + .muted-note { margin: 10px 0 0; }
 
+/* v0.1.15 — na coleção o texto de apoio virou a linha da listagem, como no zip:
+   faixa visível · recado de tamanhos · guia de medidas, em corpo pequeno. */
+.page-intro--meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  max-width: none;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+}
+
+.page-intro--meta a { color: var(--iara-accent-dark); }
+.page-intro--meta a:hover { color: var(--iara-accent); }
+
+.page-intro__range { color: var(--iara-ink); font-variant-numeric: tabular-nums; }
+.page-intro__dot { color: var(--iara-accent-soft); }
+
 
 /* ------------------------------------------------------ 8. CARDS DE PRODUTO */
 .product-grid {

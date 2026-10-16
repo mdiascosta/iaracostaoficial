@@ -1475,21 +1475,17 @@ form + h3,
 
 .gallery-strip figcaption { font-size: var(--fs-small); color: var(--iara-ink-soft); margin-top: 8px; }
 
-/* --------------------------------- 06. BARRA DA COLEÇÃO (CONTAGEM E RECADO) */
-/* v0.1.10 — a contagem de peças e o recado de tamanhos saíram do cabeçalho
-   (que ficou só com a trilha e o nome da página) e passaram para a barra de
-   ferramentas da loja, ao lado da ordenação. */
-.shop__meta { min-width: 0; }
-
+/* --------------------------------- 06. BARRA DA COLEÇÃO (CONTAGEM E ORDEM) */
+/* v0.1.10 — a contagem de peças saiu do cabeçalho e passou para a barra de
+   ferramentas da loja, ao lado da ordenação.
+   v0.1.15 — o recado de tamanhos e o guia de medidas subiram para a linha da
+   coleção, logo abaixo do fio, como no zip. */
 .shop__count {
   margin: 0;
   font-size: var(--fs-small);
   color: var(--iara-ink);
   font-variant-numeric: tabular-nums;
 }
-
-.shop__sizes { margin: 4px 0 0; font-size: var(--fs-micro); color: var(--iara-ink-soft); }
-.shop__sizes a { color: var(--iara-accent-dark); }
 
 /* ------------------------------------------ 07. ATENDIMENTO (CONTATO) */
 /* O formulário virou um quadro de papel, como os cartões de depoimento, e os

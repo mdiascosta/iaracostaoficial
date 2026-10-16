@@ -347,7 +347,9 @@ print('\n--- 10. Ganchos lidos pelo JS que não existem no HTML')
 # data-drawer-open é a porta de entrada da mini-sacola: existe no loja.js para
 # qualquer botão que queira abrir a gaveta. No protótipo o ícone do cabeçalho
 # continua levando para a página da sacola, então nenhuma tela usa o gancho.
-GANCHOS_LIDOS_OK = {'data-drawer-open'}
+# data-pagina é escrito e lido pelo próprio filtros.js: os botões da paginação
+# nascem no JavaScript, então não existem no HTML entregue.
+GANCHOS_LIDOS_OK = {'data-drawer-open', 'data-pagina'}
 fantasmas = sorted(g for g in (lidos - ganchos_html)
                    if g.startswith('data-') and g not in GANCHOS_LIDOS_OK)
 for g in fantasmas:

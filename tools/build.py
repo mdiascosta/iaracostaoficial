@@ -46,8 +46,8 @@ def carregar_produtos() -> dict:
     dados = json.loads((ROOT / "produtos.json").read_text(encoding="utf-8"))
     catalogo = {}
     for posicao, produto in enumerate(dados, start=1):
-        # "ordem" preserva a sequência de Destaques na loja (filtros.js usa
-        # data-ordem para o critério "Destaques").
+        # "ordem" preserva a sequência de "Mais recentes" na loja (filtros.js
+        # usa data-ordem para esse critério).
         produto["ordem"] = posicao
         catalogo[produto["slug"]] = produto
     return catalogo
@@ -82,7 +82,13 @@ def render_card(slug: str, produto: dict, nivel: str = "h3") -> str:
     cores = " ".join(produto.get("cores", []))
     tamanhos = " ".join(produto.get("tamanhos_slug", []))
 
-    return f"""<li class="card" data-categoria="{produto['categoria_slug']}" data-cores="{cores}" data-tamanhos="{tamanhos}" data-preco="{preco_num}" data-nome="{produto['nome']}" data-ordem="{produto.get('ordem', 0)}">
+    # A nota e o número de avaliações alimentam as ordenações "Melhor avaliados"
+    # e "Mais populares" (filtros.js), as mesmas duas do zip.
+    nota, _, quantidade = produto.get("avaliacoes", "").partition(" · ")
+    nota_num = nota.replace(",", ".") or "0"
+    avaliacoes_num = "".join(caractere for caractere in quantidade if caractere.isdigit()) or "0"
+
+    return f"""<li class="card" data-categoria="{produto['categoria_slug']}" data-cores="{cores}" data-tamanhos="{tamanhos}" data-preco="{preco_num}" data-nota="{nota_num}" data-avaliacoes="{avaliacoes_num}" data-ordem="{produto.get('ordem', 0)}">
           <a class="card__media" href="produto.html" aria-label="Ver {produto['nome']}">{badge}
             <img class="card__img" src="assets/img/{produto['img']}" alt="{produto['alt']}"
                  width="800" height="1000" loading="lazy" decoding="async">

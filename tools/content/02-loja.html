@@ -9,12 +9,18 @@
       <h1>Todas as peças</h1>
     </div>
 
-    <!-- Texto de apoio da página. Saiu de dentro do cabeçalho na v0.1.10:
-         o cabeçalho ficou só com a trilha de navegação e o nome da página. -->
+    <!-- Linha da coleção, como no zip: logo abaixo do fio do cabeçalho, reúne a
+         faixa de peças visíveis, o recado de tamanhos e o atalho do guia de
+         medidas. Saiu de dentro do cabeçalho na v0.1.10 e abre o conteúdo aqui.
+         A faixa é atualizada pelo filtros.js conforme os filtros e a página. -->
     <div class="container">
-      <p class="lead page-intro">
-        O catálogo inteiro em uma grade única, sem paginação e sem esconder nada.
-        Cada foto é da peça, na proporção original.
+      <p class="page-intro page-intro--meta">
+        <!-- [CONFERIR] no WooCommerce a faixa e a contagem saem do próprio tema -->
+        <span class="page-intro__range" data-shop-range>Mostrando 1–12 de 12 peças</span>
+        <span class="page-intro__dot" aria-hidden="true">·</span>
+        <span>Vestuário feminino do P ao GG</span>
+        <span class="page-intro__dot" aria-hidden="true">·</span>
+        <a href="guia-medidas.html">Guia de medidas</a>
       </p>
     </div>
 
@@ -161,25 +167,22 @@
               Filtros <span data-filters-badge hidden></span>
             </button>
 
-            <!-- Contagem e recado de tamanho. Saíram do cabeçalho na v0.1.10,
-                 quando o cabeçalho ficou só com a trilha e o nome da página: é
-                 aqui que a contagem pertence, junto da ordenação. -->
-            <div class="shop__meta">
-              <!-- [CONFERIR] no WooCommerce a contagem vem do próprio tema -->
-              <p class="shop__count" data-count role="status" aria-live="polite" tabindex="-1">12 peças nesta seleção</p>
-              <p class="shop__sizes">
-                Vestuário feminino do P ao GG ·
-                <a href="guia-medidas.html">Guia de medidas</a>
-              </p>
-            </div>
+            <!-- Contagem da seleção, como no zip: é ela que muda quando um
+                 filtro entra. O recado de tamanhos ficou na linha da coleção,
+                 logo abaixo do fio do cabeçalho. -->
+            <!-- [CONFERIR] no WooCommerce a contagem vem do próprio tema -->
+            <p class="shop__count" data-count role="status" aria-live="polite" tabindex="-1">12 peças nesta seleção</p>
 
+            <!-- As cinco formas de ordenar do zip. Os valores são os mesmos do
+                 WooCommerce (orderby), para o Bloco B não precisar de tradução. -->
             <div class="shop__sort">
               <label for="ordenar">Ordenar por</label>
               <select class="field__select" id="ordenar" data-sort>
-                <option value="destaque">Destaques</option>
-                <option value="preco-asc">Menor preço</option>
-                <option value="preco-desc">Maior preço</option>
-                <option value="nome">Nome, de A a Z</option>
+                <option value="date">Mais recentes</option>
+                <option value="popularity">Mais populares</option>
+                <option value="price">Menor preço</option>
+                <option value="price-desc">Maior preço</option>
+                <option value="rating">Melhor avaliados</option>
               </select>
             </div>
           </div>
@@ -197,10 +200,12 @@
             </div>
           </div>
 
-          <p class="muted-note shop__note">
-            Sem paginação, conforme o dossiê: o catálogo visível de uma vez.
-            Quando passar de 30 peças, o layout precisa ser revisto.
-          </p>
+          <!-- Paginação, como no zip: nove peças por página (é a conta do zip,
+               52 peças em 6 páginas). O filtros.js monta os botões e a esconde
+               quando a seleção cabe em uma página só. Sem JavaScript, a grade
+               mostra o catálogo inteiro e esta barra não aparece. -->
+          <nav class="shop__pagination" data-shop-pagination
+               aria-label="Paginação de produtos" hidden></nav>
         </div>
 
       </div>
