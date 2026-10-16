@@ -363,11 +363,6 @@
 .band .eyebrow { color: var(--iara-announcement-ink); }
 .band .lead { opacity: 0.94; max-width: 52ch; }
 
-.band__form { display: flex; flex-wrap: wrap; gap: 12px; }
-.band__form .field__input { flex: 1 1 220px; background: var(--iara-white); }
-.band__form .btn--paper { background: var(--iara-paper); color: var(--iara-accent-dark); }
-.band__form .btn--paper:hover { background: var(--iara-accent-soft); color: var(--iara-ink); }
-
 /* --------------------------------------------------------- 08. MINI-SACOLA */
 .drawer-backdrop {
   position: fixed;
@@ -489,7 +484,6 @@
   text-align: center;
 }
 
-.icon-btn--hidden-count[data-empty="true"] .icon-count { display: none; }
 
 /* --------------------------------------------- 11. BOTÃO DE LARGURA TOTAL */
 .btn--block {
@@ -523,7 +517,6 @@
 .section--warm { background: var(--iara-accent-soft); }
 .section--sage { background: var(--iara-sage); color: var(--iara-paper); }
 
-.section--alt { background: var(--iara-hover-soft); } /* nome antigo, mantido */
 
 .section--soft .eyebrow,
 .section--warm .eyebrow { color: var(--iara-accent-dark); }
@@ -711,8 +704,6 @@
   border-bottom: 1px solid var(--iara-hairline);
 }
 
-.shop__count { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
-
 .shop__sort { display: flex; align-items: center; gap: 10px; }
 .shop__sort label { font-size: var(--fs-micro); letter-spacing: 0.12em; text-transform: uppercase; color: var(--iara-ink-soft); }
 .shop__sort select { width: auto; min-width: 190px; }
@@ -738,36 +729,14 @@
 }
 
 /* ============================================================================
-   14. FAIXAS SÁLVIA DA HOME (v0.1.4)
+   14. FAIXA SÁLVIA DA HOME (v0.1.4, ajustada em v0.1.5)
 
-   A mesma cor sálvia aparece duas vezes na home: uma faixa compacta no meio da
-   página, com a lista de espera, e a faixa de perguntas frequentes antes do
-   rodapé. A segunda encosta no rodapé e passa a ser o separador verde entre o
-   conteúdo e o fim da página, sem o vão branco que existia antes.
+   A home fecha com a faixa de perguntas frequentes: é a última coisa antes do
+   rodapé e vira o separador verde entre o conteúdo e o fim da página, sem o vão
+   branco que existia antes. A faixa compacta de lista de espera que ficava no
+   meio da home saiu em 16/10, no mesmo dia em que a mesma faixa passou a fechar
+   todas as páginas.
    ========================================================================= */
-
-.band--compact .band__inner {
-  align-items: center;
-  gap: 18px 40px;
-  padding-block: clamp(24px, 3vw, 34px);
-}
-
-.band--compact h2 { margin: 0; font-size: clamp(22px, 2.4vw, 32px); }
-
-@media (min-width: 721px) {
-  .band--compact .band__inner { grid-template-columns: minmax(0, 1fr) minmax(280px, 400px); }
-  .band--compact .band__form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; }
-  .band--compact .band__form .field__input { min-width: 0; }
-}
-
-.band__note {
-  /* respiro embaixo: sem isso o verde termina colado na última linha */
-  margin: 12px 0 clamp(18px, 2.2vw, 26px);
-  font-size: var(--fs-small);
-  color: var(--iara-paper);
-  opacity: 0.9;
-  max-width: 84ch;
-}
 
 .band--faq .band__inner {
   align-items: start;
@@ -797,8 +766,38 @@
 .action-link--paper span { color: var(--iara-paper); }
 .action-link--paper:hover { color: var(--iara-paper); opacity: 0.88; }
 
-/* A faixa de perguntas encosta no rodapé: o verde vira o separador. */
-main:has(> .band--faq) + .site-footer {
+/* ------------------------------------------------- 15. FAIXA ANTES DO RODAPÉ
+   Em todas as páginas o conteúdo fecha com uma faixa sálvia de largura total,
+   que separa a página do rodapé. O texto fica centralizado, como no bloco que
+   a cliente aprovou no lookbook. A largura é a mesma do header: o fundo vai de
+   ponta a ponta da tela e o texto fica no container do site. */
+.band--rodape .band__inner {
+  display: block;
+  text-align: center;
+  padding-block: clamp(40px, 5vw, 64px);
+}
+
+.band--rodape h2 {
+  font-size: clamp(24px, 2.8vw, 34px);
+  margin: 0 0 8px;
+}
+
+.band--rodape p {
+  margin: 0 auto;
+  max-width: 52ch;
+  opacity: 0.94;
+}
+
+.band--rodape .btn { margin-top: 22px; }
+
+/* Botão claro usado dentro das faixas sálvia. Papel sobre sálvia = 5,9:1, o
+   que passa em AA para texto de botão pequeno; Accent Soft na hover é só
+   fundo, o texto continua em Ink ou Accent Dark. */
+.btn--paper { background: var(--iara-paper); color: var(--iara-accent-dark); }
+.btn--paper:hover { background: var(--iara-accent-soft); color: var(--iara-ink); }
+
+/* O rodapé encosta na faixa em todas as páginas: o verde é o separador. */
+main:has(> .band:last-child) + .site-footer {
   margin-top: 0;
   border-top: 0;
   padding-top: clamp(32px, 4vw, 52px);

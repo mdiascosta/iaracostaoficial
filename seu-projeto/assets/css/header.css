@@ -220,7 +220,6 @@
 
 /* Desejos e conta saem da barra no celular: eles ficam no painel do menu */
 @media (max-width: 720px) {
-  .icon-btn--desktop { display: none; }
 }
 
 .icon-btn--cart { margin-left: 0; }
@@ -381,8 +380,6 @@
   color: var(--iara-ink-soft);
 }
 
-.mobile-nav__icon { flex: 0 0 auto; color: var(--iara-ink-soft); }
-
 body.is-locked { overflow: hidden; }
 
 /* --------------------------------------------------------------- 10. FOOTER
@@ -397,10 +394,6 @@ body.is-locked { overflow: hidden; }
   background: var(--iara-paper);
 }
 
-
-
-
-
 .site-footer__columns {
   display: grid;
   gap: clamp(28px, 4vw, 56px);
@@ -410,8 +403,6 @@ body.is-locked { overflow: hidden; }
 }
 
 /* Última linha da coluna de atendimento, sem a lista completa */
-
-
 
 @media (min-width: 721px) { .site-footer__columns { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1021px) { .site-footer__columns { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; } }
@@ -447,7 +438,6 @@ body.is-locked { overflow: hidden; }
 
 .site-footer__list li { margin-bottom: 10px; font-size: var(--fs-small); color: var(--iara-ink-soft); }
 
-
 .site-footer__list a { color: var(--iara-ink-soft); text-decoration: none; }
 .site-footer__list a:hover { color: var(--iara-accent-dark); text-decoration: underline; }
 
@@ -472,14 +462,7 @@ body.is-locked { overflow: hidden; }
 
 /* ------------------------------------------------------------ 11. TRUST BAR */
 
-
-
-
-
-
-
 /* ------------------------------------------------- 12. IDENTIFICAÇÃO / BASE */
-
 
 .site-footer__bottom {
   margin-top: 20px;
@@ -674,7 +657,6 @@ body.is-locked { overflow: hidden; }
   gap: 16px 40px;
   padding-top: clamp(20px, 2.6vw, 28px);
 }
-
 
 /* Identificação da empresa em duas linhas curtas: a segunda respira um pouco */
 .site-footer__bottom .site-footer__copy + .site-footer__copy { margin-top: 6px; }

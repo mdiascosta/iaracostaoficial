@@ -228,20 +228,28 @@ strong { font-weight: 600; }
   padding-inline: var(--iara-gutter);
 }
 
-/* Páginas de leitura (legais, FAQ, guias) mantêm a coluna de texto estreita:
-   72 caracteres é o limite confortável de leitura, e uma linha de 1688px
-   deixaria o texto ilegível. O resto do site segue a largura do header. */
-body.page-legal,
-body.page-faq,
-body.page-size-guide,
-body.page-shipping,
-body.page-returns,
-body.page-contact,
-body.page-about { --iara-container: 1180px; }
+/* v0.1.5 — todas as páginas usam a MESMA largura do header (1688px), como a
+   cliente pediu. O que continua limitado é a linha do texto corrido: 72
+   caracteres por linha é o limite confortável de leitura, então as páginas de
+   leitura alinham as caixas na largura do site e estreitam só o parágrafo. */
+body.page-legal          p, body.page-legal          li,
+body.page-faq            p, body.page-faq            li,
+body.page-size-guide     p, body.page-size-guide     li,
+body.page-shipping       p, body.page-shipping       li,
+body.page-returns        p, body.page-returns        li,
+body.page-contact        p, body.page-contact        li,
+body.page-about          p, body.page-about          li { max-width: 72ch; }
+
+/* Vale também para as caixas de aviso e os rascunhos legais, que têm texto
+   direto (sem <p>) e ficariam esticados na largura do header. */
+body.page-legal          .notice, body.page-legal          .legal-draft,
+body.page-faq            .notice,
+body.page-size-guide     .notice,
+body.page-shipping       .notice,
+body.page-returns        .notice, body.page-returns        .legal-draft { max-width: 72ch; }
 
 .section { padding-block: clamp(40px, 7vw, 80px); }
 .section--tight { padding-block: clamp(28px, 4vw, 48px); }
-.section--alt { background: var(--iara-hover-soft); }
 
 .section__head {
   display: flex;
@@ -254,7 +262,6 @@ body.page-about { --iara-container: 1180px; }
 
 .section__head p { margin: 0; }
 
-.stack > * + * { margin-top: var(--iara-gap); }
 
 .grid { display: grid; gap: var(--iara-gap); }
 
@@ -531,12 +538,6 @@ body.page-about { --iara-container: 1180px; }
 
 .card__price del { color: var(--iara-ink-soft); font-size: var(--fs-small); margin-right: 8px; }
 
-.card__installment {
-  margin: 2px 0 0;
-  font-size: var(--fs-small);
-  color: var(--iara-ink-soft);
-}
-
 .badge {
   position: absolute;
   top: 12px; left: 12px;
@@ -553,15 +554,6 @@ body.page-about { --iara-container: 1180px; }
 }
 
 .badge--out { background: var(--iara-ink); color: var(--iara-paper); border-color: var(--iara-ink); }
-.badge--sale { background: var(--iara-accent); color: var(--iara-paper); border-color: var(--iara-accent); }
-
-.card__swatches { display: flex; gap: 6px; margin-top: 10px; list-style: none; padding: 0; }
-
-.card__swatch {
-  width: 16px; height: 16px;
-  border-radius: 50%;
-  border: 1px solid var(--iara-line);
-}
 
 /* ------------------------------------------------------- 9. ESTADOS DE UI */
 .state {
@@ -686,8 +678,6 @@ thead th { background: var(--iara-hover-soft); font-size: var(--fs-micro); lette
 
 .pill--sage { border-color: var(--iara-sage); color: var(--iara-sage); }
 .pill--accent { border-color: var(--iara-accent); color: var(--iara-accent-dark); }
-
-.divider { height: 1px; background: var(--iara-hairline); border: 0; margin: 0; }
 
 .list-check { list-style: none; padding: 0; margin: 0; }
 
