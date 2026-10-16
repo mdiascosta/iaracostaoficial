@@ -61,6 +61,53 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.1.5 · 2026-10-16 · Faixa verde antes do rodapé em todas as páginas
+
+**O que mudou em relação à v0.1.4:**
+
+- **Faixa sálvia em todas as páginas (pedido da cliente).** Antes só a home
+  fechava com uma faixa verde antes do rodapé; as outras páginas tinham uma
+  caixa arredondada dentro do container. Agora as 22 páginas terminam com a
+  mesma faixa de largura total: o fundo vai de ponta a ponta da tela e o texto
+  fica na largura do header. Nas seis páginas que já tinham a caixa (lookbook,
+  sobre, perguntas frequentes, guia de medidas, trocas e envio) o texto foi
+  mantido; nas outras 15 a faixa entrou com um convite curto, ligado ao assunto
+  da própria página.
+- **Faixa compacta de lista de espera saiu.** A faixa curta criada na v0.1.4 no
+  meio da home foi removida a pedido da cliente. A home fica com uma única
+  faixa sálvia, a de perguntas frequentes, antes do rodapé. A newsletter do
+  rodapé continua, como na referência enviada na v0.1.3.
+- **Mesma largura do header em todas as páginas.** As páginas de leitura
+  (legais, perguntas frequentes, guia de medidas, trocas, envio, contato e
+  sobre) usavam um container de 1180px, mais estreito que o header de 1688px.
+  Agora todas usam 1688px; o que continua limitado é a linha do texto corrido,
+  em 72 caracteres, incluindo as caixas de aviso e os rascunhos legais.
+- **Revisão de CSS (pedido da cliente).** Correções e limpeza:
+  - a amostra de cor "carvão" aparecia sem cor: o CSS tinha `.sw-carvalho` e o
+    HTML usa `.sw-carvao`;
+  - os passos do pedido (página Pedido recebido) não tinham estilo nenhum e o
+    número escrito aparecia ao lado do número da lista do navegador;
+  - a caixa `.promo` saiu do CSS junto com as seis ocorrências no HTML,
+    substituídas pela faixa de largura total;
+  - o botão claro das faixas virou uma classe de verdade (`.btn--paper`), em vez
+    de funcionar só dentro de um seletor específico;
+  - saíram as regras que nenhuma página usava: contador antigo da loja, tabela
+    antiga de carrinho, cartões de avaliação, esqueletos de carregamento,
+    utilitários de margem, régua solta e uma variante antiga de seção.
+- **Rodapé alinhado ao header**, com o verde encostando nele em todas as
+  páginas, sem vão branco.
+
+**Verificado nesta versão:** 22 páginas sem erro de estrutura; 189 verificações
+automatizadas passando, incluindo as novas (uma única faixa na home, a faixa
+fechando cada uma das 22 páginas e a newsletter presente no rodapé de todas
+elas); a varredura de classes não encontrou nenhuma classe usada no HTML sem
+estilo no CSS.
+
+**Ainda não verificado:** conferência visual em navegador e contraste medido por
+ferramenta (axe ou WAVE).
+
+---
+
 ### v0.1.4 · 2026-10-16 · Perguntas frequentes na home e faixas verdes
 
 **O que mudou em relação à v0.1.3:**

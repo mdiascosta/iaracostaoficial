@@ -1,5 +1,71 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Faixa verde antes do rodapé em todas as páginas e revisão de CSS
+
+### Pedido da cliente
+Com a captura da caixa verde do lookbook em mãos: analisar a home de novo e
+tirar a seção de newsletter criada na v0.1.4 (não gostou); ajustar todos os
+arquivos do template para pegar a mesma largura do header; todas as páginas com
+uma seção antes do rodapé, com esse fundo, ocupando 100% da largura; e analisar
+todas as páginas para revisar e melhorar o CSS.
+
+### O que foi feito (IMPLEMENTADO)
+- **Faixa sálvia antes do rodapé nas 22 páginas.** O fundo ocupa a largura
+  inteira da tela e o conteúdo fica na largura do header, igual à barra do topo.
+  Nas seis páginas que tinham a caixa arredondada (lookbook, sobre, perguntas
+  frequentes, guia de medidas, trocas e envio) o texto foi mantido; nas outras
+  15 a faixa entrou com um convite curto e ligado ao assunto da página.
+- **Faixa compacta da home removida.** Saiu a faixa de lista de espera que
+  ficava no meio da home desde a v0.1.4. A home fica com uma única faixa sálvia,
+  a de perguntas frequentes, antes do rodapé. A newsletter do rodapé continua.
+- **Mesma largura do header em todas as páginas.** As páginas de leitura usavam
+  um container de 1180px; agora todas usam 1688px, como o header. O que continua
+  limitado é só a linha do texto corrido, em 72 caracteres, para não virar uma
+  linha longa demais em tela grande (vale também para as caixas de aviso e os
+  rascunhos legais).
+- **Revisão de CSS.** A bolinha da cor "carvão" não aparecia porque o CSS tinha
+  `.sw-carvalho` e o HTML usa `.sw-carvao`; os passos do pedido estavam sem
+  estilo nenhum (o número escrito aparecia ao lado do número do navegador) e
+  agora ficam em três colunas; a caixa `.promo` saiu do CSS e do HTML; o botão
+  claro das faixas virou a classe `.btn--paper`; e saíram as regras que nenhuma
+  página usava. A varredura final não achou nenhuma classe usada no HTML sem
+  estilo.
+
+### Decisões e observações
+- **A newsletter do rodapé continua.** Ela foi pedida na v0.1.3, a partir da
+  imagem de referência do rodapé, e é o convite para as cartas do ateliê. O que
+  saiu foi a faixa de lista de espera criada na v0.1.4 no meio da home, que era
+  o segundo pedido de e-mail da mesma página. Se o pedido era tirar a linha de
+  newsletter do rodapé, é um ajuste de dois minutos.
+- **Um convite por página.** Cada faixa usa um texto curto ligado ao assunto da
+  página (medidas na página do produto, prazos no pedido recebido, dúvidas nas
+  páginas legais), sem repetir o mesmo bloco em todas.
+- **Contraste da faixa:** texto Paper sobre Sálvia 5,9:1 (AA); botão claro com
+  texto Accent Dark 7,7:1; no hover, texto Ink sobre Accent Soft 9,3:1.
+
+### O que foi verificado
+- Geração das 22 páginas sem erro de estrutura e sem tag aberta.
+- 189 verificações automatizadas passando, entre elas as novas: uma única faixa
+  sálvia na home, a faixa fechando cada uma das 22 páginas e a newsletter
+  presente no rodapé de todas elas.
+- Varredura de classes: nenhuma classe usada no HTML ficou sem estilo no CSS.
+
+### O que ainda não foi verificado
+- Conferência visual em navegador das 22 páginas e contraste medido por
+  ferramenta (axe ou WAVE).
+
+### Pendências que continuam abertas
+- Frete grátis: acima de R$ 199 (texto do briefing) ou R$ 299 (texto que está no
+  site hoje)? [A DEFINIR]
+- Catálogo com 10 ou 12 peças visíveis? [A DEFINIR]
+
+### Próximo passo sugerido
+Abrir a home e o lookbook no navegador e conferir a faixa verde antes do rodapé
+nas duas pontas: fundo de ponta a ponta, texto alinhado com o header e o rodapé
+encostando na faixa sem vão branco.
+
+---
+
 ## [2026-10-16] - Perguntas frequentes na home e uso da cor sálvia
 
 ### Pedido da cliente
