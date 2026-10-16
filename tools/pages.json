@@ -5,9 +5,11 @@
     "nav": "inicio",
     "body_class": "page-home",
     "title": "Iara Costa | Moda feminina e acessórios",
-    "desc": "Roupas e acessórios femininos com curadoria: peças casuais, alinhadas e de tendência. Frete grátis acima de R$ 199 para todo o Brasil.",
+    "desc": "Vestuário feminino autoral em linho e fibras naturais: vestidos, blusas, saias e acessórios do P ao GG. Frete grátis acima de R$ 299 para todo o Brasil.",
     "content": "01-home.html",
-    "extra_js": ["swatches.js"]
+    "extra_js": [
+      "swatches.js"
+    ]
   },
   {
     "file": "loja.html",
@@ -17,19 +19,22 @@
     "title": "Loja | Iara Costa",
     "desc": "Todas as peças da coleção Iara Costa em uma única grade, com filtros por categoria e ordenação.",
     "content": "02-loja.html",
-    "extra_js": ["filtros.js"]
+    "extra_js": [
+      "filtros.js"
+    ]
   },
   {
     "file": "produto.html",
     "part": 1,
     "nav": "loja",
     "body_class": "page-product",
-    "title": "Vestido Midi Linho Terracota | Iara Costa",
+    "title": "Vestido Midi Sálvia | Iara Costa",
     "desc": "Vestido midi em linho na cor terracota, com modelagem fluida e forro. Disponível em P, M, G e GG.",
     "content": "03-produto.html",
-    "extra_js": ["swatches.js"]
+    "extra_js": [
+      "swatches.js"
+    ]
   },
-
   {
     "file": "carrinho.html",
     "part": 2,
@@ -111,7 +116,6 @@
     "desc": "A página que você procurava não está aqui. Use a busca ou vá para a loja.",
     "content": "12-404.html"
   },
-
   {
     "file": "sobre.html",
     "part": 3,

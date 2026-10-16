@@ -1,0 +1,51 @@
+  <!-- ==========================================================================
+       MINI-SACOLA (drawer) + aviso rápido (toast)
+
+       Por que existe: quem clica em "Adicionar à sacola" precisa de uma
+       confirmação imediata sem sair da página. O drawer mostra o item, o
+       subtotal e, principalmente, quanto falta para o frete grátis, que é o
+       empurrão honesto para completar o pedido (nada de contador falso).
+
+       No Bloco B isto é o widget "Menu Cart" / mini-carrinho do Elementor Pro.
+       Aqui é uma demonstração em HTML, com os valores de exemplo.
+       ======================================================================= -->
+  <div class="drawer-backdrop" data-drawer-backdrop hidden></div>
+
+  <aside class="drawer" data-drawer role="dialog" aria-modal="true"
+         aria-labelledby="drawer-titulo" hidden>
+    <div class="drawer__head">
+      <h2 class="drawer__title" id="drawer-titulo">Sua sacola</h2>
+      <button class="icon-btn drawer__close" type="button" data-drawer-close aria-label="Fechar a sacola">
+        <svg class="icon-btn__svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+          <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer__body" data-drawer-body>
+      <!-- Preenchido pelo loja.js com os itens escolhidos -->
+    </div>
+
+    <div class="drawer__foot">
+      <div class="ship-progress">
+        <p class="ship-progress__text" data-ship-text>Faltam R$ 299,00 para o frete grátis.</p>
+        <div class="ship-progress__bar" aria-hidden="true">
+          <span class="ship-progress__fill" data-ship-fill style="width: 0%"></span>
+        </div>
+      </div>
+
+      <div class="drawer__total">
+        <span>Subtotal</span>
+        <strong data-drawer-total>R$ 0,00</strong>
+      </div>
+
+      <a class="btn btn--primary btn--block" href="carrinho.html">Ver sacola</a>
+      <a class="btn btn--outline btn--block" href="checkout.html">Finalizar compra</a>
+      <p class="drawer__note">
+        Frete calculado pelo CEP no carrinho. Impostos incluídos no preço.
+      </p>
+    </div>
+  </aside>
+
+  <!-- Aviso rápido: usado quando o cliente salva uma peça nos desejos -->
+  <p class="toast" data-toast role="status" aria-live="polite"></p>
