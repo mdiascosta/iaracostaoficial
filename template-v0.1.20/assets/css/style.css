@@ -1,0 +1,800 @@
+/* ============================================================================
+   IARA COSTA · BLOCO A (Etapa E1) · style.css
+   Base do sistema visual: tokens, tipografia, botões, formulários, cards,
+   grades, estados de interface.
+   ----------------------------------------------------------------------------
+   REGRAS DESTE ARQUIVO
+   1. Cores: sempre pelas var(--iara-*). Nenhum HEX solto fora de :root.
+   2. Cores pontuais do dossiê (seção 2.3) entram como tokens aqui, porque no
+      Bloco A não existe Elementor. No Bloco B elas viram Custom Colors globais.
+   3. Mobile-first: o CSS base atende o celular; os @media sobem para tablet
+      (721px) e desktop (1021px), espelhando os breakpoints 720/1020 do dossiê.
+   4. Este CSS NÃO vai para o WordPress. No Bloco B tudo vem de Global Colors
+      e Global Fonts do Elementor.
+   ========================================================================= */
+
+/* ---------------------------------------------------------------- 1. TOKENS */
+:root {
+  /* Cores de sistema (Elementor Global Colors) */
+  --iara-accent:        #a45f43; /* Primary · Terracota */
+  --iara-sage:          #546858; /* Secondary · Verde Sálvia */
+  --iara-ink:           #2d2925; /* Text · Carvão */
+  --iara-accent-dark:   #78452f; /* Accent · Terracota Escuro */
+
+  /* Cores customizadas (Elementor Custom Colors) */
+  --iara-paper:         #fffdf9;
+  --iara-ink-soft:      #625a52;
+  /* v0.1.19: era #81786e, que dava 4,27:1 no papel e não passava em AA para
+     texto de 11px (o rótulo .eyebrow--muted é 11px). O tom abaixo dá 4,92:1 no
+     papel, 4,56:1 no hover soft e 5,00:1 no branco. */
+  --iara-muted:         #776e64;
+  --iara-line:          #ded8ce;
+  --iara-hover-soft:    #f7f4ef;
+  --iara-hairline:      #eee9e1;
+  --iara-index:         #9c8d7e;
+  --iara-announcement-ink: #fffdf8;
+  --iara-accent-soft:   #e4cbb5;
+
+  /* Cores pontuais (2.3) */
+  --iara-nav-link:      #554f49;
+  --iara-white:         #ffffff;
+
+  /* Tipografia */
+  --iara-font-ui:      "Jost", "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", sans-serif;
+  --iara-font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+
+  /* Escala do dossiê (Caption/Tagline/Anúncio ajustados para 11-12px
+     conforme decisão D3 da seção 2.7: nada abaixo de 11px) */
+  --fs-display: 24px;   /* Display */
+  --fs-heading: 18px;   /* Heading */
+  --fs-body:    15px;   /* Body */
+  --fs-small:   12px;   /* Small */
+  --fs-micro:   11px;   /* Micro */
+  --fs-caption: 11px;   /* Caption (era 9px) */
+  --fs-tagline: 11px;   /* Tagline (era 8px) */
+  --fs-announcement: 12px; /* Anúncio (era 9px) */
+  --fs-nav:     12px;
+
+  /* Escala derivada [PROPOSTA] para o que o dossiê não cobre.
+     Aguarda aprovação: títulos de página, seções e texto de blog. */
+  /* v0.1.10 — os títulos desceram para a tabela do template do zip:
+     Display 24px (título de página, título de produto, hero e faixas) e
+     Heading 18px (títulos de seção e de card). Antes o h1 chegava a 40px e o
+     h2 a 28px, e a cliente pediu para não ficar grande. */
+  /* Escala de espaço do template (§2.5 do zip), com os mesmos nomes. Adotada na
+     v0.1.11 para o espaçamento entre blocos sair do HTML e ficar num lugar só. */
+  --iara-space-1: 4px;
+  --iara-space-2: 8px;
+  --iara-space-3: 12px;
+  --iara-space-4: 20px;
+  --iara-space-5: 24px;
+  --iara-space-6: 40px;
+  --iara-space-7: 56px;
+
+  --fs-h1: var(--fs-display);
+  --fs-h2: var(--fs-heading);
+  --fs-h3: var(--fs-heading);
+  --fs-price: var(--fs-heading);
+
+  /* Layout */
+  /* Largura única do site: a grade de conteúdo acompanha a barra do topo, para
+     logo, menu e produtos ficarem alinhados na mesma margem (pedido da cliente
+     em 16/10). Páginas de leitura estreitam de novo, mais abaixo. */
+  --iara-container: 1688px;
+  --iara-header-max: 1688px;
+  --iara-gutter: clamp(20px, 5.3vw, 84px);
+  --iara-gap: 20px;          /* "Space Between Widgets" do dossiê */
+  --iara-radius: 2px;
+  --iara-scroll-padding: 96px;
+  /* Distância em que o conteúdo gruda abaixo do cabeçalho fixo (o resumo
+     da sacola e a coluna de filtros usam este valor). */
+  --iara-sticky-top: calc(var(--iara-scroll-padding) + var(--iara-space-5));
+
+  --iara-transition: 200ms ease;
+}
+
+@media (max-width: 720px) {
+  :root { --iara-scroll-padding: 82px; }
+}
+
+/* ------------------------------------------------------------------ 2. BASE */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-padding-top: var(--iara-scroll-padding);
+  scroll-behavior: smooth;
+  /* O espaço da barra de rolagem fica sempre reservado. Sem isso, a página
+     inteira anda para o lado quando a gaveta da sacola trava a rolagem
+     (body.is-locked). Vem da correção que o template do zip faz por script;
+     aqui dá para resolver em CSS. */
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  background: var(--iara-paper);
+  color: var(--iara-ink);
+  font-family: var(--iara-font-ui);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  /* Nada de rolagem lateral (10.2). O valor é `clip`, e não `hidden`, de
+     propósito: `overflow-x: hidden` transforma o body numa caixa de rolagem e
+     com isso mata o `position: sticky` de tudo que está dentro dele, o que
+     acontecia com o cabeçalho e com o resumo da sacola (corrigido na v0.1.14).
+     `clip` corta o excesso sem criar caixa de rolagem. Navegador antigo que não
+     conhece `clip` fica com o `hidden` do @supports lá embaixo. */
+  overflow-x: clip;
+}
+
+@supports not (overflow: clip) {
+  body { overflow-x: hidden; }
+}
+
+img,
+svg,
+video { max-width: 100%; height: auto; display: block; }
+
+figure { margin: 0; }
+
+a {
+  color: var(--iara-accent-dark);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--iara-accent); }
+
+/* Foco visível único do sistema (10.2). Terracota escuro funciona sobre papel,
+   sobre terracota e sobre verde sálvia. */
+:focus-visible {
+  outline: 2px solid var(--iara-accent-dark);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -100px;
+  z-index: 1000;
+  background: var(--iara-ink);
+  color: var(--iara-paper);
+  padding: 10px 16px;
+  font-size: var(--fs-small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--iara-radius);
+  transition: top var(--iara-transition);
+}
+
+.skip-link:focus { top: 12px; color: var(--iara-paper); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ------------------------------------------------------------ 3. TIPOGRAFIA */
+h1, h2, h3, h4 {
+  margin: 0 0 12px;
+  color: var(--iara-ink);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* h1 é o Display do template do zip: Playfair 400, 24px, entrelinha 1.1 e
+   entreletra 0.105em (o mesmo tratamento do título de página, do hero e do
+   título de produto no zip). */
+h1 { font-family: var(--iara-font-display); font-size: var(--fs-h1); line-height: 1.1; letter-spacing: 0.105em; }
+h2 { font-family: var(--iara-font-display); font-size: var(--fs-h2); letter-spacing: 0.02em; }
+h3 { font-family: var(--iara-font-ui); font-size: var(--fs-h3); letter-spacing: 0.01em; }
+h4 { font-family: var(--iara-font-ui); font-size: var(--fs-heading); }
+
+p { margin: 0 0 16px; }
+p:last-child { margin-bottom: 0; }
+
+strong { font-weight: 600; }
+
+.eyebrow {
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+  margin: 0 0 10px;
+}
+
+.lead {
+  font-size: var(--fs-body);
+  color: var(--iara-ink-soft);
+  max-width: 62ch;
+}
+
+.muted-note {
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+}
+
+.index-number {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.2em;
+  color: var(--iara-index);
+}
+
+.placeholder {
+  color: var(--iara-accent-dark);
+  border-bottom: 1px dashed var(--iara-accent);
+  /* v0.1.19: o marcador quebrava linha nunca (white-space: nowrap) e os textos
+     de instrucao, que sao longos, estouravam a largura da tela no celular e no
+     tablet. Agora quebram como texto normal. */
+  overflow-wrap: break-word;
+}
+
+.proto-banner {
+  background: var(--iara-hairline);
+  border-bottom: 1px dashed var(--iara-accent-soft);
+  color: var(--iara-ink-soft);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.14em;
+  text-align: center;
+  padding: 6px 16px;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------- 4. LAYOUT */
+.container {
+  width: 100%;
+  max-width: var(--iara-container);
+  margin-inline: auto;
+  padding-inline: var(--iara-gutter);
+}
+
+/* v0.1.5 — todas as páginas usam a MESMA largura do header (1688px), como a
+   cliente pediu. O que continua limitado é a linha do texto corrido: 72
+   caracteres por linha é o limite confortável de leitura, então as páginas de
+   leitura alinham as caixas na largura do site e estreitam só o parágrafo. */
+body.page-legal          p, body.page-legal          li,
+body.page-faq            p, body.page-faq            li,
+body.page-size-guide     p, body.page-size-guide     li,
+body.page-shipping       p, body.page-shipping       li,
+body.page-returns        p, body.page-returns        li,
+body.page-contact        p, body.page-contact        li,
+body.page-about          p, body.page-about          li { max-width: 72ch; }
+
+/* Vale também para as caixas de aviso e os rascunhos legais, que têm texto
+   direto (sem <p>) e ficariam esticados na largura do header. */
+body.page-legal          .notice, body.page-legal          .legal-draft,
+body.page-faq            .notice,
+body.page-size-guide     .notice,
+body.page-shipping       .notice,
+body.page-returns        .notice, body.page-returns        .legal-draft { max-width: 72ch; }
+
+.section { padding-block: clamp(40px, 7vw, 80px); }
+.section--tight { padding-block: clamp(28px, 4vw, 48px); }
+
+.section__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--iara-gap);
+  margin-bottom: clamp(20px, 3vw, 36px);
+}
+
+.section__head p { margin: 0; }
+
+
+.grid { display: grid; gap: var(--iara-gap); }
+
+/* --------------------------------------------------------------- 5. BOTÕES */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;              /* área de toque (10.2) */
+  padding: 12px 24px;
+  border: 1px solid transparent;
+  border-radius: var(--iara-radius);
+  background: transparent;
+  color: var(--iara-ink);
+  font-family: var(--iara-font-ui);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--iara-transition), color var(--iara-transition), border-color var(--iara-transition);
+}
+
+.btn--primary {
+  background: var(--iara-accent);
+  color: var(--iara-paper);
+}
+
+.btn--primary:hover { background: var(--iara-accent-dark); color: var(--iara-paper); }
+
+.btn--outline {
+  border-color: var(--iara-line);
+  background: var(--iara-white);
+  color: var(--iara-ink);
+}
+
+.btn--outline:hover { border-color: var(--iara-accent); color: var(--iara-accent-dark); background: var(--iara-hover-soft); }
+
+.btn--quiet {
+  padding: 8px 4px;
+  min-height: 44px;
+  color: var(--iara-accent-dark);
+  text-decoration: underline;
+}
+
+.btn--quiet:hover { color: var(--iara-accent); }
+
+.btn--block { width: 100%; }
+
+.btn[disabled],
+.btn[aria-disabled="true"] {
+  background: var(--iara-hairline);
+  border-color: var(--iara-line);
+  color: var(--iara-ink-soft);
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+/* ----------------------------------------------------------- 6. FORMULÁRIOS */
+.field { margin-bottom: 16px; }
+
+.field__label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--iara-ink);
+}
+
+.field__input,
+.field__select,
+.field__textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-white);
+  color: var(--iara-ink);
+  font-family: var(--iara-font-ui);
+  font-size: var(--fs-body);
+  line-height: 1.4;
+}
+
+.field__textarea { min-height: 140px; resize: vertical; }
+
+.field__input::placeholder,
+.field__textarea::placeholder { color: var(--iara-ink-soft); opacity: 0.8; }
+
+/* Evita o zoom automático do iOS (10.2) */
+@media (max-width: 720px) {
+  .field__input,
+  .field__select,
+  .field__textarea { font-size: 16px; }
+}
+
+.field__hint {
+  margin: 6px 0 0;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+}
+
+/* Regiões de recado ficam no HTML desde o começo, vazias, para o leitor de tela
+   anunciar a mensagem quando ela chega. Vazias, não podem ocupar espaço: a
+   margem do campo criaria um vão sem nada dentro. */
+[data-cupom-msg]:empty,
+[data-frete-msg]:empty,
+[data-pay-note]:empty { margin: 0; }
+
+.field__error {
+  margin: 6px 0 0;
+  font-size: var(--fs-small);
+  color: var(--iara-accent-dark);
+  font-weight: 600;
+}
+
+.field--invalid .field__input,
+.field--invalid .field__select { border-color: var(--iara-accent); }
+
+.checkbox { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 14px; }
+
+.checkbox__input {
+  width: 20px;
+  height: 20px;
+  margin: 2px 0 0;
+  accent-color: var(--iara-accent);
+  flex: 0 0 auto;
+}
+
+.checkbox__label {
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+  line-height: 1.5;
+}
+
+.fieldset {
+  border: 1px solid var(--iara-line);
+  border-radius: var(--iara-radius);
+  padding: 18px;
+  margin: 0 0 20px;
+  background: var(--iara-white);
+}
+
+.fieldset__legend {
+  padding: 0 8px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.form-row { display: grid; gap: 0; }
+
+@media (min-width: 721px) {
+  .form-row--2 { grid-template-columns: 1fr 1fr; gap: 0 20px; }
+  .form-row--3 { grid-template-columns: 1fr 1fr 1fr; gap: 0 20px; }
+
+  /* Campo que ocupa a linha inteira dentro de uma grade de duas colunas.
+     v0.1.11: antes isso era um style="grid-column: span 2" no HTML, que valia
+     também no celular e criava uma coluna fantasma (o campo do endereço ficava
+     com metade da largura na tela pequena). */
+  .field--wide { grid-column: span 2; }
+}
+
+/* ------------------------------------------------ 7. BREADCRUMBS E TÍTULOS */
+/* Migalha de pão (breadcrumb) no padrão de site de moda: caixa alta miúda,
+   com muito espaço em branco em volta, para ela desaparecer quando o olho
+   procura o título. Referências olhadas: COS, Massimo Dutti e Aritzia, que
+   usam a trilha discreta acima do nome da seção. */
+/* Trilha de navegação (todas as páginas internas).
+   v0.1.7 — o separador era um ponto em Accent Soft, que sobre o papel fica em
+   1,5:1 e praticamente desaparecia: as migalhas pareciam duas palavras soltas.
+   v0.1.8 — os links passaram de Muted (4,3:1, abaixo do mínimo de 4,5:1 para
+   texto pequeno) para Ink Soft (6,7:1), e a trilha agora mora dentro do
+   cabeçalho de página. O separador segue em Muted, que é elemento gráfico. */
+.breadcrumbs {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+  padding-block: clamp(16px, 2.2vw, 26px) 0;
+}
+
+.breadcrumbs ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0; padding: 0;
+}
+
+.breadcrumbs li + li::before {
+  content: "/";
+  color: var(--iara-muted);
+  margin-right: 8px;
+}
+
+.breadcrumbs a { color: var(--iara-ink-soft); text-decoration: none; }
+.breadcrumbs a:hover { color: var(--iara-accent-dark); text-decoration: underline; text-underline-offset: 3px; }
+.breadcrumbs [aria-current="page"] { color: var(--iara-ink); }
+
+/* Cabeçalho de página (todas as páginas internas).
+   v0.1.8 — faixa de fundo, fio curto e linha de olho.
+   v0.1.10 — pedido da cliente: o cabeçalho ficou limpo. Saiu o fundo, saíram a
+   linha de olho e o fio curto: sobraram a trilha de navegação, o nome da página
+   e um fio embaixo. O texto de apoio passou a abrir o conteúdo, logo abaixo do
+   fio (.page-intro), e o título segue a tabela do template do zip: 24px, o
+   mesmo tamanho do título de produto e do hero. */
+.page-head {
+  border-bottom: 1px solid var(--iara-line);
+  padding-block: clamp(20px, 2.4vw, 32px) clamp(22px, 2.8vw, 36px);
+}
+
+.page-head .breadcrumbs { padding-block: 0; margin-bottom: clamp(14px, 1.8vw, 20px); }
+
+.page-head h1 {
+  font-size: var(--fs-display);
+  line-height: 1.1;
+  letter-spacing: 0.105em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+/* Texto de apoio da página: abre o conteúdo, abaixo do fio do cabeçalho. */
+.page-intro {
+  margin: clamp(18px, 2.4vw, 26px) 0 0;
+  max-width: 62ch;
+}
+
+/* A linha "Última atualização" das páginas legais acompanha o texto de apoio. */
+.page-intro + .muted-note { margin: 10px 0 0; }
+
+/* v0.1.15 — na coleção o texto de apoio virou a linha da listagem, como no zip:
+   faixa visível · recado de tamanhos · guia de medidas, em corpo pequeno. */
+.page-intro--meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  max-width: none;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+}
+
+.page-intro--meta a { color: var(--iara-accent-dark); }
+.page-intro--meta a:hover { color: var(--iara-accent); }
+
+.page-intro__range { color: var(--iara-ink); font-variant-numeric: tabular-nums; }
+.page-intro__dot { color: var(--iara-accent-soft); }
+
+
+/* ------------------------------------------------------ 8. CARDS DE PRODUTO */
+.product-grid {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: grid;
+  /* Espaçamento do zip: mais ar entre as linhas do que entre as colunas. */
+  gap: clamp(28px, 3vw, var(--iara-space-6)) var(--iara-gap);
+  grid-template-columns: 1fr;          /* celular (dossiê 7.7) */
+}
+
+@media (min-width: 721px)  { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1021px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1021px) { .product-grid--four { grid-template-columns: repeat(4, 1fr); } }
+
+/* Cartão em coluna, com 12px entre as partes: é o ritmo do cartão do zip. */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--iara-space-3);
+}
+
+.card__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;               /* retrato, como no template aprovado */
+  overflow: hidden;
+  background: var(--iara-hover-soft);
+  border: 1px solid var(--iara-hairline);
+  border-radius: var(--iara-radius);
+}
+
+.card__img { width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
+
+.card__media:hover .card__img { transform: scale(1.03); }
+
+@media (prefers-reduced-motion: reduce) {
+  .card__media:hover .card__img { transform: none; }
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iara-space-3);
+}
+
+.card__name { margin: 0; font-size: var(--fs-body); font-weight: 400; }
+.card__name a { color: var(--iara-ink); text-decoration: none; }
+.card__name a:hover { color: var(--iara-accent-dark); }
+
+.card__meta { margin: 0; font-size: var(--fs-small); color: var(--iara-ink-soft); }
+
+.card__price {
+  margin: 0;
+  font-size: var(--fs-price);
+  color: var(--iara-ink);
+}
+
+.card__price del { color: var(--iara-ink-soft); font-size: var(--fs-small); margin-right: 8px; }
+
+.badge {
+  position: absolute;
+  top: 12px; left: 12px;
+  z-index: 2;
+  background: var(--iara-paper);
+  border: 1px solid var(--iara-line);
+  color: var(--iara-ink);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: var(--iara-radius);
+}
+
+.badge--out { background: var(--iara-ink); color: var(--iara-paper); border-color: var(--iara-ink); }
+
+/* ------------------------------------------------------- 9. ESTADOS DE UI */
+.state {
+  border: 1px dashed var(--iara-line);
+  border-radius: var(--iara-radius);
+  background: var(--iara-white);
+  padding: clamp(24px, 4vw, 40px);
+  text-align: center;
+}
+
+.state__title { font-family: var(--iara-font-display); font-size: var(--fs-heading); margin-bottom: 6px; }
+.state__text { color: var(--iara-ink-soft); max-width: 46ch; margin: 0 auto 18px; }
+.state__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+.notice {
+  border-left: 3px solid var(--iara-sage);
+  background: var(--iara-hover-soft);
+  padding: 14px 16px;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+  border-radius: var(--iara-radius);
+}
+
+.notice--attention { border-left-color: var(--iara-accent); }
+.notice--error { border-left-color: var(--iara-accent-dark); background: #fbf3ef; }
+
+.skeleton {
+  background: linear-gradient(90deg, var(--iara-hover-soft) 25%, var(--iara-hairline) 50%, var(--iara-hover-soft) 75%);
+  background-size: 200% 100%;
+  animation: iara-skeleton 1.4s ease-in-out infinite;
+  border-radius: var(--iara-radius);
+}
+
+@keyframes iara-skeleton {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton--media { aspect-ratio: 1 / 1; }
+.skeleton--line { height: 12px; margin-top: 12px; }
+.skeleton--line-short { width: 55%; }
+
+/* --------------------------------------------------------- 10. ACORDEÃO/FAQ */
+.accordion { border-top: 1px solid var(--iara-hairline); }
+
+.accordion__item { border-bottom: 1px solid var(--iara-hairline); }
+
+.accordion__button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 56px;
+  padding: 16px 0;
+  background: none;
+  border: 0;
+  text-align: left;
+  font-family: var(--iara-font-ui);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--iara-ink);
+  cursor: pointer;
+}
+
+.accordion__button:hover { color: var(--iara-accent-dark); }
+
+.accordion__icon {
+  flex: 0 0 auto;
+  width: 14px; height: 14px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform var(--iara-transition);
+}
+
+.accordion__button[aria-expanded="true"] .accordion__icon { transform: rotate(-135deg); }
+
+.accordion__panel { padding: 0 0 20px; color: var(--iara-ink-soft); max-width: 72ch; }
+.accordion__panel p { margin-bottom: 12px; }
+
+/* ------------------------------------------------------------ 11. DIVERSOS */
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--iara-line); margin-bottom: 24px; }
+
+.tabs__tab {
+  min-height: 44px;
+  padding: 12px 14px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--iara-ink-soft);
+  font-family: var(--iara-font-ui);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.tabs__tab[aria-selected="true"] { color: var(--iara-accent-dark); border-bottom-color: var(--iara-accent); }
+
+table { border-collapse: collapse; width: 100%; font-size: var(--fs-small); }
+
+caption { text-align: left; padding-bottom: 10px; color: var(--iara-ink-soft); font-size: var(--fs-small); }
+
+th, td { border-bottom: 1px solid var(--iara-hairline); padding: 12px 10px; text-align: left; }
+
+thead th { background: var(--iara-hover-soft); font-size: var(--fs-micro); letter-spacing: 0.1em; text-transform: uppercase; }
+
+.table-scroll { overflow-x: auto; }
+
+.pill {
+  display: inline-block;
+  border: 1px solid var(--iara-line);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--iara-ink-soft);
+}
+
+.pill--sage { border-color: var(--iara-sage); color: var(--iara-sage); }
+.pill--accent { border-color: var(--iara-accent); color: var(--iara-accent-dark); }
+
+.list-check { list-style: none; padding: 0; margin: 0; }
+
+.list-check li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 10px;
+  color: var(--iara-ink-soft);
+}
+
+.list-check li::before {
+  content: "·";
+  position: absolute;
+  left: 6px;
+  color: var(--iara-accent-soft);
+  font-size: 20px;
+  line-height: 1;
+  top: 0;
+}
+
+/* Texto longo (blog e páginas legais) */
+.prose { max-width: 72ch; }
+.prose h2 { margin-top: 36px; }
+.prose h3 { margin-top: 28px; }
+.prose ul, .prose ol { padding-left: 22px; color: var(--iara-ink-soft); }
+.prose li { margin-bottom: 8px; }
+.prose a { color: var(--iara-accent-dark); }
+
+.legal-draft {
+  border: 1px solid var(--iara-accent);
+  background: #fdf6f0;
+  padding: 16px;
+  border-radius: var(--iara-radius);
+  margin-bottom: 32px;
+  font-size: var(--fs-small);
+  color: var(--iara-ink-soft);
+}
+
+.legal-draft strong { color: var(--iara-accent-dark); }
