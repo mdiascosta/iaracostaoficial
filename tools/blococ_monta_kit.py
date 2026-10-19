@@ -54,6 +54,8 @@ def arquivos():
     itens.append((RAIZ / 'bloco-b' / 'GUIA-IMPORTACAO.md', 'bloco-b/GUIA-IMPORTACAO.md'))
     for nome in ('produtos.csv', 'posts.csv', 'pages-conteudo.md', 'IMPORTACAO-CSV.md'):
         itens.append((RAIZ / 'bloco-c' / nome, f'bloco-c/{nome}'))
+    for caminho in sorted((RAIZ / 'bloco-c' / 'guias').glob('*.md')):
+        itens.append((caminho, f'bloco-c/guias/{caminho.name}'))
     return itens
 
 

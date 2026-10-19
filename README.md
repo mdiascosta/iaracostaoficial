@@ -13,10 +13,12 @@ antes de qualquer coisa ir para o WordPress. Ele fica congelado em
 O **Bloco B esta completo na versao 0.2.5**: os 24 templates do
 Elementor em `bloco-b/`, com as cores e as fontes globais do site.
 
-O **Bloco C esta em andamento (versao 0.3.1)**: comeca pelos arquivos que
+O **Bloco C esta completo na versao 0.3.3**: comeca pelos arquivos que
 alimentam a loja e o diario (`bloco-c/produtos.csv` e `bloco-c/posts.csv`),
-o conteudo das paginas em `bloco-c/pages-conteudo.md` e o kit da equipe em
-`bloco-c/iara-costa-kit.zip`. O guia de importacao
+o conteudo das paginas em `bloco-c/pages-conteudo.md`, os oito guias da
+equipe em `bloco-c/guias/` e o kit completo em `bloco-c/iara-costa-kit.zip`.
+Instalar, testar, medir e publicar sao a etapa seguinte, executada pela
+equipe com esses guias. O guia de importacao
 do Bloco B esta em `bloco-b/GUIA-IMPORTACAO.md`.
 
 ---
