@@ -61,6 +61,30 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.2 · 2026-10-19 · Bloco C, parte 3: guias de instalação, segurança e SEO
+
+**O que entrou**
+
+| O que | Onde |
+|---|---|
+| A montagem completa em staging, do ambiente ao conteúdo, costurando Blocos B e C | `bloco-c/guias/GUIA-INSTALACAO.md` |
+| O mínimo sério de segurança: acessos, backup com teste de restauração, servidor, LGPD e rotina | `bloco-c/guias/GUIA-SEGURANCA.md` |
+| SEO com Yoast por tipo de página, dados estruturados e medição depois do go-live | `bloco-c/guias/GUIA-SEO-YOAST.md` |
+| Os três guias dentro do kit (agora com 34 arquivos) | `bloco-c/iara-costa-kit.zip` |
+
+**Decisões**
+
+- **Guia é instrução, não declaração**: nenhum item aparece como feito. O que
+  depende do ambiente está `[CONFERIR]` e o que é da empresa, `[PREENCHER]`.
+- **Segurança sem teatro**: backup só vale com restauração testada, dado de
+  cartão nunca passa pelo site e credencial nunca entra em documento.
+- **SEO sem promessa**: o guia confere o técnico e organiza a medição; posição
+  em buscador não é garantida.
+
+**Verificado:** os arquivos e as referências entre guias, kit e repositório
+pelas conferências do projeto. **Não verificado:** nenhuma instalação,
+configuração ou medição, sem acesso ao WordPress e ao servidor.
+
 ### v0.3.1 · 2026-10-19 · Bloco C, parte 2: conteúdo das páginas e o kit
 
 **O que entrou**

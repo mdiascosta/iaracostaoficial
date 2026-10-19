@@ -1,4 +1,4 @@
-BLOCO C · DADOS E GUIAS DE INSTALACAO · PARTE 2 · 19/10/2026
+BLOCO C · DADOS E GUIAS DE INSTALACAO · PARTE 3 · 19/10/2026
 
 
 O QUE E ESTA PASTA
@@ -16,6 +16,9 @@ O QUE TEM AQUI DENTRO
   posts.csv           8 posts do diario, em rascunho, com blocos do Gutenberg
   pages-conteudo.md   o texto aprovado das 10 paginas institucionais e legais,
                       com os marcadores mantidos para revisao
+  guias/              GUIA-INSTALACAO, GUIA-SEGURANCA e GUIA-SEO-YOAST: a
+                      montagem do zero, o minimo de seguranca e o SEO pagina
+                      por pagina (os proximos guias entram nesta pasta)
   iara-costa-kit.zip  o pacote completo: os 24 templates do Elementor, as
                       globais, os guias e os CSVs, prontos para a equipe
 

@@ -154,6 +154,9 @@ estiverem habilitadas na conta do Mercado Pago.
 | Revisar o `pages-conteudo.md` página por página | `bloco-c/pages-conteudo.md` | empresa aprova institucionais; jurídico aprova privacidade, termos e cookies antes de publicar |
 | Abrir o kit em staging e conferir os 31 arquivos | `bloco-c/iara-costa-kit.zip` | comparar com as somas impressas por `tools/blococ_monta_kit.py` |
 
+| Executar os guias do Bloco C em staging, item a item | `bloco-c/guias/` | instalação, segurança e SEO primeiro; cada item com data e responsável |
+| Ferramenta de backup e de duas etapas | guia de segurança, seções 1 e 2 | da hospedagem ou plugin aprovado; plugin novo pede aprovação |
+
 ## Como usar este documento
 
 - **Nada aqui foi inventado para preencher espaço.** Onde não havia informação

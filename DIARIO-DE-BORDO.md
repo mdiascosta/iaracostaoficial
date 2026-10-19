@@ -1,5 +1,47 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Bloco C, parte 3: guias de instalação, segurança e SEO (v0.3.2)
+
+### Pedido da cliente
+"pode contunuar" (sic), depois do merge do PR #8. Segui com os guias do
+Bloco C, começando por instalação, segurança e SEO.
+
+### O que foi feito (IMPLEMENTADO como instrução)
+- **`bloco-c/guias/GUIA-INSTALACAO.md`**: a montagem do zero em staging:
+  ambiente, tema e plugins na ordem com teste a cada um, Site Settings com
+  `ajusta-ids.py`, os 24 templates e suas condições, WooCommerce (Brasil,
+  BRL, páginas da loja, visitante, estoque, BEMVINDO10 com a limitação real
+  registrada, Mercado Pago sem pagamento real, frete e CSV) e conteúdo.
+- **`bloco-c/guias/GUIA-SEGURANCA.md`**: acessos individuais e duas etapas,
+  atualização com teste em staging, backup com restauração testada de
+  verdade, HTTPS e servidor, LGPD e rotina depois do go-live.
+- **`bloco-c/guias/GUIA-SEO-YOAST.md`**: base do Yoast, o que conferir em
+  páginas, produtos e posts, funil fora do sitemap com `noindex`, dados
+  estruturados e a medição no Search Console sem promessa de posição.
+- **Kit remontado** com os três guias (34 arquivos) e a conferência do kit
+  ajustada para contar os guias da pasta.
+
+### Decisões tomadas
+- **Nenhum item de guia nasce marcado como feito**: é lista para a equipe
+  executar e registrar com data e responsável.
+- **Sem plugin novo nestes guias**: backup e duas etapas aparecem como
+  recurso da hospedagem ou plugin aprovado, porque plugin pede aprovação.
+- O limite real do cupom de primeira compra (por e-mail e conta) está
+  escrito no guia de instalação, para ninguém prometer o que a ferramenta
+  não faz.
+
+### O que foi verificado aqui
+- Referências entre guias, kit e repositório; `tools/blococ_confere.py`,
+  `tools/blocob_confere.py` e `tools/check.py` verdes.
+
+### O que não foi verificado
+- **Nenhuma instalação, configuração, restauração de backup ou medição.**
+  Tudo depende do staging, que segue sem versões informadas.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Guias restantes: testes, desempenho, e-mail/SMTP, nota fiscal e go-live.
+- Todo o resto: staging, plugins aprovados, catálogo real, textos e jurídico.
+
 ## [2026-10-19] - Bloco C, parte 2: conteúdo das páginas e o kit (v0.3.1)
 
 ### Pedido da cliente

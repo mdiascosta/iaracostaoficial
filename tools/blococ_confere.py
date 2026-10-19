@@ -120,10 +120,14 @@ def main():
         import zipfile
         with zipfile.ZipFile(kit) as z:
             nomes = z.namelist()
-        if len(nomes) != 31 or 'LEIA-ME.txt' not in nomes:
-            problemas.append(f'iara-costa-kit.zip: {len(nomes)} arquivos (esperado 31 com LEIA-ME)')
+        guias_repo = sorted((PASTA / 'guias').glob('*.md')) if (PASTA / 'guias').exists() else []
+        esperado = 31 + len(guias_repo)
+        if len(nomes) != esperado or 'LEIA-ME.txt' not in nomes:
+            problemas.append(f'iara-costa-kit.zip: {len(nomes)} arquivos (esperado {esperado} com LEIA-ME); remonte o kit')
         if sum(1 for n in nomes if n.startswith('bloco-b/json/')) != 24:
             problemas.append('iara-costa-kit.zip: templates do Bloco B incompletos')
+        if sum(1 for n in nomes if n.startswith('bloco-c/guias/')) != len(guias_repo):
+            problemas.append('iara-costa-kit.zip: guias do Bloco C incompletos; remonte o kit')
 
     n_var = sum(1 for l in produtos if l['Type'] == 'variable')
     n_variacoes = len(variacoes)
