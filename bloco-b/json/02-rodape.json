@@ -162,7 +162,7 @@
               "settings": {
                 "content_width": "full",
                 "flex_direction": "row",
-                "flex_wrap": "wrap",
+                "flex_wrap": "nowrap",
                 "flex_gap": {
                   "row": "24",
                   "column": "24",
@@ -702,7 +702,7 @@
                   "settings": {
                     "content_width": "full",
                     "flex_direction": "row",
-                    "flex_wrap": "wrap",
+                    "flex_wrap": "nowrap",
                     "flex_gap": {
                       "row": "20",
                       "column": "20",
@@ -1098,7 +1098,7 @@
                   "settings": {
                     "content_width": "full",
                     "flex_direction": "row",
-                    "flex_wrap": "wrap",
+                    "flex_wrap": "nowrap",
                     "flex_gap": {
                       "row": "24",
                       "column": "24",

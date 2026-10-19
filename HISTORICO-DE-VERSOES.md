@@ -61,6 +61,41 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.15 · 2026-10-19 · Hero sem quebra de coluna, menu ativo de verdade e links do WooCommerce
+
+**Relato da cliente:** links ok, mas "o layout da home ainda continua
+errado" e "o menu ativo, com a linha embaixo, não tem". Pedido de nova
+verificação minuciosa dos templates e dos JSONs.
+
+**O que a verificação achou (três causas distintas)**
+
+1. **Hero partido em dois andares**: as colunas do hero somam 52% + 44%
+   e, com 40px de respiro, passam de 100% da linha. Com quebra de linha
+   ligada (`wrap`), a foto caía para baixo do texto. O mesmo defeito
+   morava em editorial, coleção, capítulos do lookbook e produto.
+2. **Item ativo do menu impossível**: o menu em lista de ícones é texto
+   fixo, não tem como saber a página atual. Quem sabe é o WordPress, no
+   widget de menu (classe `elementor-item-active`).
+3. **Links rosa na Minha Conta**: são desenhados pelo WooCommerce com a
+   cor de link do tema, fora de qualquer widget dos templates.
+
+**O que mudou**
+
+- Regra na geração: linha de colunas cuja soma passa de ~88% nasce
+  `nowrap`. As duas colunas voltam a ficar lado a lado.
+- O menu do cabeçalho volta ao **widget de menu do WordPress** (slug
+  `principal`, horizontal, sublinhado), com Jost, cores e a linha do
+  item ativo definidos no CSS geral que viaja dentro do kit (classe
+  `iara-menu-nav`). A contrapartida, registrada no guia: o menu
+  `principal` precisa existir em Aparência > Menus.
+- O CSS do kit ganhou a seção da conta do WooCommerce: navegação sem
+  marcador, links em Terracota Escuro e item atual sublinhado, cobrindo
+  também carrinho e checkout.
+
+**Verificado aqui:** três conferências verdes, hero impresso com
+`nowrap` e o widget de menu no JSON. **Não verificado:** a renderização
+no staging, incluindo o menu `principal` existir no site.
+
 ### v0.3.14 · 2026-10-19 · CSS do link do menu: hover no widget e CSS dentro do kit
 
 **Pergunta da cliente:** "você chegou a verificar se o menu não tem nem

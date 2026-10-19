@@ -65,3 +65,47 @@
 /* Ícones da direita: carvão, terracota escuro no hover, sem caixa */
 .iara-acoes .elementor-icon { color: #2d2925; background: none; border: 0; }
 .iara-acoes .elementor-icon:hover { color: #78452f; }
+
+/* --- Menu principal (widget de menu do WordPress, classe iara-menu-nav) ---
+   A fonte e Jost por este CSS (o widget Pro herda a serifada do tema) e o
+   item da pagina atual ganha o sublinhado do prototipo: quem marca o item
+   atual e o WordPress (classe elementor-item-active), nao o template. */
+.iara-menu-nav .elementor-nav-menu--layout-horizontal .elementor-nav-menu {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: clamp(12px, 1.6vw, 28px);
+}
+.iara-menu-nav .elementor-nav-menu--main .elementor-item {
+  font-family: "Jost", sans-serif !important;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #554f49;
+  padding: 6px 0;
+  white-space: nowrap;
+}
+.iara-menu-nav .elementor-nav-menu--main .elementor-item:hover { color: #78452f; }
+.iara-menu-nav .elementor-nav-menu--main .elementor-item.elementor-item-active {
+  color: #78452f;
+  box-shadow: inset 0 -1px 0 #e4cbb5;
+}
+
+/* --- Minha conta e links do WooCommerce (o rosa da captura e do tema) --- */
+.woocommerce-MyAccount-navigation ul { list-style: none; margin: 0; padding: 0; }
+.woocommerce-MyAccount-navigation li { margin-bottom: 6px; }
+.woocommerce-MyAccount-navigation a,
+.woocommerce-MyAccount-content a,
+.woocommerce-cart-form a,
+.woocommerce-checkout a {
+  color: #78452f;
+  font-family: "Jost", sans-serif;
+  text-decoration: none;
+}
+.woocommerce-MyAccount-navigation a:hover,
+.woocommerce-MyAccount-content a:hover { text-decoration: underline; }
+.woocommerce-MyAccount-navigation .is-active a {
+  color: #78452f;
+  font-weight: 600;
+  box-shadow: inset 0 -1px 0 #e4cbb5;
+}

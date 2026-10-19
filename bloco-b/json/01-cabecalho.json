@@ -232,90 +232,15 @@
         {
           "id": "0c4fa0c",
           "elType": "widget",
-          "widgetType": "icon-list",
+          "widgetType": "nav-menu",
           "settings": {
             "_title": "Menu principal",
-            "css_classes": "iara-menu",
-            "view": "inline",
-            "icon_list": [
-              {
-                "text": "Home",
-                "link": {
-                  "url": "https://oeemax.com.br/iaracosta/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "_id": "a4a8b09",
-                "selected_icon": {
-                  "value": "",
-                  "library": ""
-                }
-              },
-              {
-                "text": "Loja",
-                "link": {
-                  "url": "https://oeemax.com.br/iaracosta/loja/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "_id": "202a911",
-                "selected_icon": {
-                  "value": "",
-                  "library": ""
-                }
-              },
-              {
-                "text": "Coleção",
-                "link": {
-                  "url": "https://oeemax.com.br/iaracosta/colecao/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "_id": "832c6a9",
-                "selected_icon": {
-                  "value": "",
-                  "library": ""
-                }
-              },
-              {
-                "text": "Sobre",
-                "link": {
-                  "url": "https://oeemax.com.br/iaracosta/sobre/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "_id": "e4c6d44",
-                "selected_icon": {
-                  "value": "",
-                  "library": ""
-                }
-              },
-              {
-                "text": "Contato",
-                "link": {
-                  "url": "https://oeemax.com.br/iaracosta/contato/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "_id": "cde3a60",
-                "selected_icon": {
-                  "value": "",
-                  "library": ""
-                }
-              }
-            ],
-            "space_between": {
-              "unit": "px",
-              "size": 28,
-              "sizes": []
-            },
+            "css_classes": "iara-menu-nav",
+            "menu": "principal",
+            "layout": "horizontal",
+            "pointer": "underline",
             "_flex_size": "grow",
-            "_flex_align_self": "center",
-            "__globals__": {
-              "text_color": "globals/colors?id=iara-menu",
-              "icon_typography": "globals/typography?id=iara-menu",
-              "text_color_hover": "globals/colors?id=accent"
-            }
+            "_flex_align_self": "center"
           },
           "elements": []
         },

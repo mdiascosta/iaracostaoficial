@@ -1,5 +1,36 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Hero, menu ativo e links do WooCommerce (v0.3.15)
+
+### Relato da cliente
+Links ok. Mas "o layout da home ainda continua errado" (foto do hero
+embaixo do texto) e "o menu ativo, com a linha embaixo, não tem".
+De quebra, a captura da Minha Conta mostra os links do WooCommerce em
+rosa choque, que não são de template nenhum.
+
+### Análise (IMPLEMENTADO)
+Três causas separadas, nenhuma delas "o template inteiro errado":
+o hero quebrava porque 52% + 44% + 40px de respiro estouram a linha com
+`wrap` ligado (a mesma conta morava em mais quatro páginas); o item
+ativo não existia porque texto fixo não sabe a página atual, e eu tinha
+trocado o widget que sabe (o menu do WordPress) pela lista de ícones
+para fugir da fonte do tema, briga que o CSS dentro do kit agora
+resolve; e o rosa é a cor de link do tema nos desenhos do WooCommerce,
+que só CSS alcança.
+
+### O que foi feito
+- `nowrap` automático em linha de colunas cheias, na geração dos 24.
+- Menu volta ao widget do WordPress com slug `principal`; fonte, cores
+  e sublinhado do ativo no CSS do kit. O pré-requisito do menu existir
+  voltou para o guia em destaque, porque sem ele o widget não desenha
+  nada (foi a captura do "cadê o menu" ao contrário).
+- Seção WooCommerce no CSS do kit (conta, carrinho, checkout).
+
+### O que continua por verificar
+- A home lado a lado no staging e o sublinhado andando de item em item
+  conforme a página. Se o menu vier vazio, é o menu `principal` que não
+  existe no WordPress, e a captura confirma em um olhar.
+
 ## [2026-10-19] - O CSS do link do menu, verificado (v0.3.14)
 
 ### Pergunta da cliente

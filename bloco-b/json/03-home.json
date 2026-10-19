@@ -6,7 +6,7 @@
       "settings": {
         "content_width": "boxed",
         "flex_direction": "row",
-        "flex_wrap": "wrap",
+        "flex_wrap": "nowrap",
         "flex_align_items": "center",
         "flex_gap": {
           "row": "40",
@@ -263,7 +263,7 @@
       "settings": {
         "content_width": "boxed",
         "flex_direction": "row",
-        "flex_wrap": "wrap",
+        "flex_wrap": "nowrap",
         "flex_gap": {
           "row": "20",
           "column": "20",
@@ -587,7 +587,7 @@
           "settings": {
             "content_width": "full",
             "flex_direction": "row",
-            "flex_wrap": "wrap",
+            "flex_wrap": "nowrap",
             "flex_gap": {
               "row": "20",
               "column": "20",
@@ -1052,7 +1052,7 @@
           "settings": {
             "content_width": "full",
             "flex_direction": "row",
-            "flex_wrap": "wrap",
+            "flex_wrap": "nowrap",
             "flex_gap": {
               "row": "20",
               "column": "20",
@@ -1215,7 +1215,7 @@
       "settings": {
         "content_width": "boxed",
         "flex_direction": "row",
-        "flex_wrap": "wrap",
+        "flex_wrap": "nowrap",
         "flex_gap": {
           "row": "40",
           "column": "40",
@@ -1403,7 +1403,7 @@
       "settings": {
         "content_width": "boxed",
         "flex_direction": "row",
-        "flex_wrap": "wrap",
+        "flex_wrap": "nowrap",
         "flex_gap": {
           "row": "40",
           "column": "40",
@@ -1704,7 +1704,7 @@
           "settings": {
             "content_width": "full",
             "flex_direction": "row",
-            "flex_wrap": "wrap",
+            "flex_wrap": "nowrap",
             "flex_gap": {
               "row": "20",
               "column": "20",
@@ -1957,7 +1957,7 @@
       "settings": {
         "content_width": "boxed",
         "flex_direction": "row",
-        "flex_wrap": "wrap",
+        "flex_wrap": "nowrap",
         "flex_gap": {
           "row": "40",
           "column": "40",

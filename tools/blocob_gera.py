@@ -337,23 +337,21 @@ def cabecalho():
             caminho='barra/marca-tagline'),
     ], caminho='barra/marca', interno=True)
 
-    # menu: lista de icones em linha, sem icone, so os rotulos com link.
-    # Nao depende do menu do WordPress nem da fonte do tema.
-    menu = d.widget('icon-list', juntar_globais({
+    # menu: o widget de menu do WordPress (v0.3.15). A lista de icones nao
+    # tem como marcar a pagina atual, e o prototipo tem item ativo com
+    # sublinhado: quem marca o item atual e o WordPress, neste widget.
+    # A fonte Jost e o sublinhado vem do CSS geral que viaja no kit
+    # (classe iara-menu-nav), nao da fonte do tema. Pre-requisito: existir
+    # o menu de slug "principal" em Aparencia > Menus (guia, secao 2).
+    menu = d.widget('nav-menu', {
         '_title': 'Menu principal',
-        'css_classes': 'iara-menu',
-        'view': 'inline',
-        'icon_list': [
-            d.item({'text': 'Home', 'link': {'url': PAGINAS['home'], 'is_external': '', 'nofollow': ''}}, 'menu/home'),
-            d.item({'text': 'Loja', 'link': {'url': PAGINAS['loja'], 'is_external': '', 'nofollow': ''}}, 'menu/loja'),
-            d.item({'text': 'Coleção', 'link': {'url': PAGINAS['colecao'], 'is_external': '', 'nofollow': ''}}, 'menu/colecao'),
-            d.item({'text': 'Sobre', 'link': {'url': PAGINAS['sobre'], 'is_external': '', 'nofollow': ''}}, 'menu/sobre'),
-            d.item({'text': 'Contato', 'link': {'url': PAGINAS['contato'], 'is_external': '', 'nofollow': ''}}, 'menu/contato'),
-        ],
-        'space_between': medida(28),
+        'css_classes': 'iara-menu-nav',
+        'menu': 'principal',
+        'layout': 'horizontal',
+        'pointer': 'underline',
         '_flex_size': 'grow',
         '_flex_align_self': 'center',
-    }, {'text_color': cor('iara-menu'), 'typography': fonte('iara-menu')}), caminho='barra/menu')
+    }, caminho='barra/menu')
 
     def acao(titulo, icone, url, caminho, biblioteca='fa-regular'):
         return d.widget('icon', juntar_globais({
@@ -2109,6 +2107,19 @@ def _achata(el):
 
 
 def _ajusta_widget(el):
+    if el['elType'] == 'container':
+        st = el['settings']
+        if st.get('flex_direction') == 'row' and st.get('flex_wrap') == 'wrap':
+            soma = 0
+            for filho in el.get('elements', []):
+                base = (filho.get('settings', {}) or {}).get('_flex_basis', {})
+                if base.get('unit') == '%':
+                    soma += base.get('size', 0)
+            if soma >= 88:
+                # colunas que somam ~100% + o respiro estouram a linha e a
+                # segunda coluna cai para baixo (hero da home, v0.3.15)
+                st['flex_wrap'] = 'nowrap'
+        return
     if el['elType'] != 'widget':
         return
     globais = el['settings'].get('__globals__', {})

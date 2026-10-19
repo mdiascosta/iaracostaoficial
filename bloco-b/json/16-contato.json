@@ -61,7 +61,7 @@
       "settings": {
         "content_width": "boxed",
         "flex_direction": "row",
-        "flex_wrap": "wrap",
+        "flex_wrap": "nowrap",
         "flex_gap": {
           "row": "32",
           "column": "32",
