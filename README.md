@@ -15,9 +15,8 @@ Elementor em `bloco-b/`, com as cores e as fontes globais do site.
 
 O **Bloco C esta em andamento (versao 0.3.0)**: comeca pelos arquivos que
 alimentam a loja e o diario, `bloco-c/produtos.csv` e `bloco-c/posts.csv`,
-com o passo a passo em `bloco-c/IMPORTACAO-CSV.md`. Ja estao prontas as cores e as fontes globais
-do site, o cabecalho, o rodape, a pagina inicial, a loja, a pagina do produto e o funil de compra. O guia de importacao esta em
-`bloco-b/GUIA-IMPORTACAO.md`.
+com o passo a passo em `bloco-c/IMPORTACAO-CSV.md`. O guia de importacao
+do Bloco B esta em `bloco-b/GUIA-IMPORTACAO.md`.
 
 ---
 
