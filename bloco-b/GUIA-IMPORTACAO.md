@@ -283,13 +283,17 @@ entra se o teste mostrar falta real, com nova aprovação.
 
 ### 5.2 As páginas (próximas partes)
 
-**O Bloco B está completo: os 24 arquivos estão gerados.** A tabela abaixo fica como registro do que foi entregue em cada parte (2 a 5):
+**O Bloco B está completo: os 24 arquivos foram entregues.** Cada página do
+protótipo virou um arquivo, nos mesmos endereços do protótipo, para o site nascer
+com os links certos:
 
-Cada página do protótipo vira um arquivo. Os endereços sugeridos são os mesmos do
-protótipo, para o site nascer com os links certos.
-
-| # | Página | Arquivo previsto | Tipo no Elementor | Endereço |
-|---|---|---|---|---|
+| Parte | Arquivos | O que é |
+|---|---|---|
+| 1 | `01` e `02`, mais as globais | cabeçalho, rodapé, cores e fontes do site |
+| 2 | `03` | página inicial |
+| 3 | `04` e `05` | loja e página do produto |
+| 4 | `06` a `10` | sacola, finalizar compra, pedido recebido, minha conta e desejos |
+| 5 | `11` a `24` | diário, artigo, busca, 404, sobre, contato, perguntas, guia de medidas, coleção, trocas, envio e as três páginas legais |
 
 **Sobre o número de arquivos.** O dossiê falava em 21 arquivos JSON. A conta
 página por página dá 24: as duas partes do site (cabeçalho e rodapé) mais as 22
