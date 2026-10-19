@@ -1,0 +1,45 @@
+BLOCO C · DADOS E GUIAS DE INSTALACAO · PARTE 2 · 19/10/2026
+
+
+O QUE E ESTA PASTA
+
+E o material que alimenta e documenta a instalacao do site: arquivos de
+importacao, o kit e os guias. Esta primeira parte traz os dados de exemplo
+do prototipo em formato de importacao.
+
+
+O QUE TEM AQUI DENTRO
+
+  IMPORTACAO-CSV.md   como importar produtos e posts, e o que conferir
+  produtos.csv        12 produtos e 56 variacoes do catalogo de exemplo,
+                      tudo em rascunho, no formato do WooCommerce
+  posts.csv           8 posts do diario, em rascunho, com blocos do Gutenberg
+  pages-conteudo.md   o texto aprovado das 10 paginas institucionais e legais,
+                      com os marcadores mantidos para revisao
+  iara-costa-kit.zip  o pacote completo: os 24 templates do Elementor, as
+                      globais, os guias e os CSVs, prontos para a equipe
+
+
+ORDEM DE TRABALHO
+
+  1. Importar os produtos em staging e conferir produtos e variacoes.
+  2. Criar os 8 posts a partir do posts.csv (caminho manual, secao 2 do guia).
+  3. Revisar o pages-conteudo.md pagina por pagina; as legais sao rascunho
+     para o juridico e nao se publicam sem revisao.
+  4. So publicar depois de trocar foto, descricao, peso, dimensoes e estoque
+     pelos dados reais. Nada deste lote vai ao ar como esta.
+
+
+AVISO IMPORTANTE
+
+Nenhuma importacao foi testada: este trabalho e feito sem acesso ao WordPress,
+ao painel ou ao banco de dados. Os produtos e os textos sao os de exemplo do
+prototipo aprovado, e nascem em rascunho de proposito.
+
+
+ONDE ESTA A VERSAO MAIS NOVA
+
+Os arquivos desta pasta sao gerados por tools/blococ_gera_csv.py e conferidos
+por tools/blococ_confere.py. O historico de cada rodada esta em
+HISTORICO-DE-VERSOES.md e DIARIO-DE-BORDO.md; o que ainda depende de
+informacao da empresa esta em PENDENCIAS.md.

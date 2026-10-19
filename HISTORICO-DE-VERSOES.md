@@ -61,6 +61,59 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.1 · 2026-10-19 · Bloco C, parte 2: conteúdo das páginas e o kit
+
+**O que entrou**
+
+| O que | Onde |
+|---|---|
+| O texto aprovado das 10 páginas institucionais e legais em Markdown, com endereço, template e situação de cada uma | `bloco-c/pages-conteudo.md` |
+| O pacote da equipe: 24 templates, globais, guias e CSVs (31 arquivos) | `bloco-c/iara-costa-kit.zip` |
+| Geradores do conteúdo e do kit; conferência ampliada | `tools/blococ_gera_conteudo.py`, `tools/blococ_monta_kit.py`, `tools/blococ_confere.py` |
+
+**Decisões**
+
+- **O texto não foi reescrito**: ele é extraído das páginas aprovadas do
+  protótipo por script, com os 36 marcadores (`[PREENCHER]`, `[PROPOSTA]`,
+  `[CONFIRMAR]`) mantidos. Quem revisa lê exatamente o que foi aprovado.
+- **As três páginas legais seguem como rascunho para o jurídico**, mesmo com
+  o texto completo do protótipo: estrutura boa não é aprovação legal.
+- **O kit é gerado, não montado à mão**: data e ordem fixas, com a soma de
+  cada arquivo impressa na geração, para a equipe conferir o que recebeu.
+
+**Verificado:** `tools/blococ_confere.py` passa em CSVs, conteúdo (10
+páginas, sem travessão) e kit (31 arquivos, 24 templates).
+**Não verificado:** nenhuma importação e nenhuma instalação, sem WordPress.
+
+### v0.3.0 · 2026-10-19 · Bloco C, parte 1: produtos e posts em CSV
+
+**De onde veio:** o Bloco B fechou na v0.2.5 com os 24 templates na `main`
+(PR #7). O Bloco C é o material que alimenta e documenta a instalação.
+
+**O que entrou**
+
+| O que | Onde |
+|---|---|
+| 12 produtos e 56 variações do catálogo de exemplo, no formato do importador do WooCommerce, tudo em rascunho | `bloco-c/produtos.csv` |
+| 8 posts do diário em rascunho, com blocos do Gutenberg | `bloco-c/posts.csv` |
+| Como importar e o que conferir, incluindo por que peso, dimensões e estoque não vêm preenchidos | `bloco-c/IMPORTACAO-CSV.md` |
+| Gerador e conferência dos CSVs | `tools/blococ_gera_csv.py`, `tools/blococ_confere.py` |
+
+**Decisões**
+
+- **Nada nasce publicado.** Os dados são os de exemplo do protótipo (decisão
+  D5 da fase E0); publicar sem trocar foto, descrição, peso, dimensões e
+  estoque seria colocar catálogo fictício no ar.
+- **Peso e dimensões vazios de propósito**: são `[PREENCHER]` com os dados
+  reais, e o frete depende deles.
+- **Post não tem importador de CSV nativo**, então o caminho indicado é o
+  manual (são 8 posts); plugin importador só com aprovação prévia.
+
+**Verificado:** `tools/blococ_confere.py` confere SKU único, variação com pai
+existente, combinações cor e tamanho sem repetição, preço válido, tudo em
+rascunho e os blocos do Gutenberg abrindo e fechando. **Não verificado:**
+nenhuma importação, sem acesso ao WordPress.
+
 ### v0.2.5 · 2026-10-16 · Bloco B, parte 5 (final): editorial, institucional e legal
 
 **O que entrou:** os últimos 14 arquivos do Bloco B, de `11-blog.json` a
