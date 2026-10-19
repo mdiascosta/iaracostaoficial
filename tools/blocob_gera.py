@@ -1660,6 +1660,335 @@ def desejos():
     return d
 
 
+
+def cab_pagina(d, titulo, intro, caminho, rotulo_texto=None):
+    filhos = []
+    if rotulo_texto:
+        filhos.append(rotulo(d, rotulo_texto, caminho + '/rotulo', 'primary'))
+    filhos.append(d.widget('heading', juntar_globais({
+        '_title': titulo, 'title': titulo, 'header_size': 'h1',
+    }, {'title_color': cor('text'), 'typography': fonte('primary')}), caminho=caminho + '/titulo'))
+    if intro:
+        filhos.append(paragrafo(d, intro, caminho + '/intro'))
+    return d.container('Cabecalho da pagina', {
+        'content_width': 'boxed', 'flex_direction': 'column',
+        'flex_gap': lacuna(12, 12), 'padding': dimensoes(40, 0, 8, 0),
+    }, filhos, caminho=caminho, interno=True)
+
+
+def secao_texto(d, titulo, texto, caminho):
+    return d.container(titulo, {
+        'content_width': 'boxed', 'flex_direction': 'column',
+        'flex_gap': lacuna(10, 10), 'padding': dimensoes(24, 0, 24, 0),
+    }, [
+        titulo_secao(d, titulo, caminho + '/titulo'),
+        paragrafo(d, texto, caminho + '/texto'),
+    ], caminho=caminho, interno=True)
+
+
+def pagina_documento(titulo_doc, intro, secoes, caminho, aviso=None):
+    """Pagina de texto longo: titulo e secoes numeradas, texto revisado."""
+    d = Documento(titulo_doc, 'page')
+    filhos = [cab_pagina(d, titulo_doc, intro, caminho + '/cab')]
+    if aviso:
+        filhos.append(d.container('Aviso de revisao', {
+            'content_width': 'boxed', 'padding': dimensoes(16, 0, 16, 0),
+        }, [paragrafo(d, aviso, caminho + '/aviso', 'iara-texto-micro')], caminho=caminho + '/aviso-box', interno=True))
+    for i, (titulo, texto) in enumerate(secoes, 1):
+        filhos.append(secao_texto(d, titulo, texto, caminho + '/s' + str(i)))
+    raiz = d.container(titulo_doc, {
+        'content_width': 'full', 'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0), 'padding': dimensoes(0, 0, 40, 0),
+    }, filhos, caminho='raiz')
+    d.content = [raiz]
+    return d
+
+
+def blog():
+    """11. Diario: arquivo de posts (textos nascem no Gutenberg)."""
+    d = Documento('Diário', 'archive')
+    raiz = d.container('Diário', {
+        'content_width': 'full', 'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0), 'padding': dimensoes(0, 0, 0, 0),
+    }, [
+        cab_pagina(d, 'Diário', 'Cartas do ateliê: tecidos, cuidados, tamanhos e bastidores da produção em Cerquilho.', 'blog/cab', 'Do ateliê'),
+        d.container('Lista de textos', {
+            'content_width': 'boxed', 'flex_direction': 'column',
+            'flex_gap': lacuna(12, 12), 'padding': dimensoes(24, 0, 56, 0),
+        }, [
+            d.widget('archive-posts', {'_title': 'Textos do diário (dinâmico)', 'posts_per_page': '9', 'columns': '3'}, caminho='blog/posts'),
+            paragrafo(d, 'Grade dinâmica de posts. Os textos são escritos e publicados no Gutenberg, nunca no Elementor; este arquivo só desenha a vitrine.', 'blog/nota', 'iara-texto-micro'),
+        ], caminho='blog/lista', interno=True),
+    ], caminho='raiz')
+    d.content = [raiz]
+    return d
+
+
+def post():
+    """12. Artigo: post unico com cabecalho, texto Gutenberg e relacionados."""
+    d = Documento('Artigo do diário', 'single')
+    raiz = d.container('Artigo do diário', {
+        'content_width': 'full', 'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0), 'padding': dimensoes(0, 0, 0, 0),
+    }, [
+        d.container('Cabecalho do artigo', {
+            'content_width': 'boxed', 'flex_direction': 'column',
+            'flex_gap': lacuna(12, 12), 'padding': dimensoes(40, 0, 16, 0),
+        }, [
+            d.widget('theme-post-title', juntar_globais({'_title': 'Titulo do artigo (dinamico)', 'header_size': 'h1'}, {'title_color': cor('text'), 'typography': fonte('primary')}), caminho='post/titulo'),
+            d.widget('theme-post-info', {'_title': 'Data e autor (dinamico)'}, caminho='post/info'),
+            d.widget('theme-post-featured-image', {'_title': 'Imagem de capa (dinamica)'}, caminho='post/capa'),
+        ], caminho='post/cab', interno=True),
+        d.container('Texto do artigo', {
+            'content_width': 'boxed', 'padding': dimensoes(16, 0, 40, 0),
+        }, [
+            d.widget('theme-post-content', {'_title': 'Conteudo do Gutenberg (dinamico)'}, caminho='post/conteudo'),
+        ], caminho='post/texto', interno=True),
+        d.container('Continue lendo', {
+            'content_width': 'boxed', 'flex_direction': 'column',
+            'flex_gap': lacuna(8, 8), 'padding': dimensoes(40, 0, 56, 0),
+            'background_background': 'classic', '__globals__': {'background_color': cor('iara-fundo-suave')},
+        }, [
+            titulo_secao(d, 'Continue lendo', 'post/continue-titulo'),
+            d.widget('posts', {'_title': 'Outros textos (dinamico)', 'posts_per_page': '3', 'columns': '3'}, caminho='post/relacionados'),
+        ], caminho='post/continue', interno=True),
+    ], caminho='raiz')
+    d.content = [raiz]
+    return d
+
+
+def busca():
+    """13. Resultados de busca de produtos e textos."""
+    d = Documento('Busca', 'search-results')
+    raiz = d.container('Busca', {
+        'content_width': 'full', 'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0), 'padding': dimensoes(0, 0, 0, 0),
+    }, [
+        cab_pagina(d, 'Busca', 'Resultados para a sua busca em peças e textos do diário.', 'busca/cab'),
+        d.container('Campo e resultados', {
+            'content_width': 'boxed', 'flex_direction': 'column',
+            'flex_gap': lacuna(20, 20), 'padding': dimensoes(24, 0, 56, 0),
+        }, [
+            d.widget('search-form', {'_title': 'Buscar de novo', 'placeholder': 'O que você procura?'}, caminho='busca/campo'),
+            d.widget('archive-posts', {'_title': 'Resultados (dinâmico)', 'posts_per_page': '9', 'columns': '3'}, caminho='busca/resultados'),
+            paragrafo(d, 'Sem resultado, confira a grafia ou tente uma palavra mais geral, como linho, vestido ou cerâmica. A loja completa está a um clique.', 'busca/sem-resultado'),
+            botao(d, 'Ver todas as peças', PAGINAS['loja'], 'busca/botao'),
+        ], caminho='busca/miolo', interno=True),
+    ], caminho='raiz')
+    d.content = [raiz]
+    return d
+
+
+def erro404():
+    """14. Pagina nao encontrada."""
+    d = Documento('Página não encontrada', 'error-404')
+    raiz = d.container('Página não encontrada', {
+        'content_width': 'full', 'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0), 'padding': dimensoes(0, 0, 0, 0),
+    }, [
+        d.container('Mensagem', {
+            'content_width': 'boxed', 'flex_direction': 'column',
+            'flex_align_items': 'center', 'flex_gap': lacuna(16, 16),
+            'padding': dimensoes(72, 0, 72, 0),
+        }, [
+            rotulo(d, '404', '404/rotulo', 'primary'),
+            d.widget('heading', juntar_globais({'_title': 'Esta página não está mais aqui', 'title': 'Esta página não está mais aqui', 'header_size': 'h1', 'align': 'center'}, {'title_color': cor('text'), 'typography': fonte('primary')}), caminho='404/titulo'),
+            paragrafo(d, 'Talvez o endereço tenha mudado ou a página tenha saído do ar. As peças e os textos continuam por aqui:', '404/texto'),
+            d.container('Saidas', {'content_width': 'full', 'flex_direction': 'row', 'flex_wrap': 'wrap', 'flex_gap': lacuna(12, 12)}, [
+                botao(d, 'Ver a loja', PAGINAS['loja'], '404/botao-loja'),
+                botao(d, 'Voltar para o início', PAGINAS['home'], '404/botao-home', 'outline'),
+                botao(d, 'Falar com o ateliê', PAGINAS['contato'], '404/botao-contato', 'outline'),
+            ], caminho='404/saidas', interno=True),
+        ], caminho='404/miolo', interno=True),
+    ], caminho='raiz')
+    d.content = [raiz]
+    return d
+
+
+def sobre():
+    """15. Sobre a marca."""
+    return pagina_documento('Sobre a Iara Costa',
+        'Vestuário feminino autoral em linho, algodão egípcio e viscose de alta gramatura, feito no ateliê em Cerquilho (SP).',
+        [
+            ('Como começou', '[PROPOSTA] Texto de abertura aguardando a história real da marca. O protótipo aprovado traz a versão de referência: quem escreve o texto final é a empresa.'),
+            ('Missão, visão e compromisso', '[PROPOSTA] Missão, visão e compromisso aguardando aprovação da empresa, sem inventar promessa, selo ou garantia.'),
+            ('O ateliê e o processo', 'Modelagem, corte e confecção próprios. O processo completo, da escolha do tecido à peça pronta, entra aqui com os detalhes reais do ateliê [PREENCHER].'),
+            ('Como escolhemos as peças', 'Tecidos escolhidos pela gramatura e pelo toque, em três famílias: linho, algodão egípcio e viscose de alta gramatura. Do P ao GG, com guia de medidas por peça.'),
+        ], 'sobre',
+        aviso='Página com textos [PROPOSTA] do protótipo: publicar só depois da aprovação da empresa.')
+
+
+def contato():
+    """16. Contato: formulario, canais e atalhos."""
+    d = Documento('Contato', 'page')
+    formulario = d.widget('form', {
+        '_title': 'Formulario de contato',
+        'form_name': 'Contato do site',
+        'form_fields': [
+            d.item({'custom_id': 'nome', 'field_type': 'text', 'field_label': 'Nome', 'placeholder': 'Seu nome', 'required': 'true', 'width': '100'}, 'contato/f-nome'),
+            d.item({'custom_id': 'email', 'field_type': 'email', 'field_label': 'E-mail', 'placeholder': 'seu@email.com', 'required': 'true', 'width': '100'}, 'contato/f-email'),
+            d.item({'custom_id': 'assunto', 'field_type': 'text', 'field_label': 'Assunto', 'placeholder': 'Sobre o que você quer falar?', 'required': 'true', 'width': '100'}, 'contato/f-assunto'),
+            d.item({'custom_id': 'mensagem', 'field_type': 'textarea', 'field_label': 'Mensagem', 'placeholder': 'Conte para a gente', 'required': 'true', 'width': '100', 'rows': '5'}, 'contato/f-mensagem'),
+        ],
+        'button_text': 'Enviar mensagem',
+        'email_to': '[CONFERIR: e-mail de destino]',
+        'form_id': 'contato',
+    }, caminho='contato/formulario')
+    raiz = d.container('Contato', {
+        'content_width': 'full', 'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0), 'padding': dimensoes(0, 0, 0, 0),
+    }, [
+        cab_pagina(d, 'Fale com a gente', 'Envie uma mensagem ou use um dos canais abaixo. Respondemos em dias úteis, das 9h às 18h.', 'contato/cab'),
+        d.container('Formulario e canais', {
+            'content_width': 'boxed', 'flex_direction': 'row', 'flex_wrap': 'wrap',
+            'flex_gap': lacuna(32, 32), 'padding': dimensoes(24, 0, 56, 0),
+        }, [
+            d.container('Envie uma mensagem', {'flex_direction': 'column', 'flex_gap': lacuna(12, 12), '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(56, '%')}, [
+                titulo_secao(d, 'Envie uma mensagem', 'contato/form-titulo'), formulario,
+                paragrafo(d, 'Ao enviar, você concorda com a Política de Privacidade. O campo de consentimento entra no editor conforme a ferramenta de formulários usada.', 'contato/consent', 'iara-texto-micro'),
+            ], caminho='contato/col-form', interno=True),
+            d.container('Outros canais', {'flex_direction': 'column', 'flex_gap': lacuna(12, 12), '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(38, '%')}, [
+                titulo_secao(d, 'Outros canais', 'contato/canais-titulo'),
+                d.widget('icon-list', juntar_globais({'_title': 'Canais', 'icon_list': [
+                    d.item({'text': 'contato@iaracosta.com.br', 'link': {'url': 'mailto:contato@iaracosta.com.br', 'is_external': '', 'nofollow': ''}}, 'contato/canais/1'),
+                    d.item({'text': '(15) 99123-4567, telefone e WhatsApp', 'link': {'url': 'https://wa.me/5515991234567', 'is_external': 'on', 'nofollow': ''}}, 'contato/canais/2'),
+                    d.item({'text': 'Segunda a sexta, das 9h às 18h'}, 'contato/canais/3'),
+                    d.item({'text': 'Cerquilho, interior de São Paulo'}, 'contato/canais/4'),
+                ], 'space_between': medida(10)}, {'text_color': cor('iara-texto-suave'), 'typography': fonte('text')}), caminho='contato/canais'),
+                paragrafo(d, 'O endereço completo para devolução entra na confirmação com a empresa [PREENCHER]. O mapa, se for usado, entra como bloco do editor, sem widget de HTML.', 'contato/mapa', 'iara-texto-micro'),
+                botao(d, 'Perguntas frequentes', PAGINAS['faq'], 'contato/botao-faq', 'outline'),
+            ], caminho='contato/col-canais', interno=True),
+        ], caminho='contato/miolo', interno=True),
+    ], caminho='raiz')
+    d.content = [raiz]
+    return d
+
+
+def faq_pagina():
+    """17. Perguntas frequentes completas."""
+    grupos = [
+        ('Pedidos e pagamento', 'Compra como visitante, Pix com 5% de desconto, cartão em até 6x sem juros e boleto pelo Mercado Pago.'),
+        ('Entrega e frete', 'Envio para todo o Brasil pelos Correios, frete grátis acima de R$ 299 e código de rastreio por e-mail.'),
+        ('Trocas e devoluções', '7 dias para desistir (CDC, Art. 49) e 30 dias para trocar de tamanho, com a primeira troca por nossa conta.'),
+        ('Produtos e tamanhos', 'Cada peça traz a própria tabela de medidas; o Guia de Medidas ensina a medir uma peça sua e comparar.'),
+        ('Atendimento e privacidade', 'Atendimento de segunda a sexta, das 9h às 18h. Seus dados seguem a Política de Privacidade.'),
+    ]
+    d = Documento('Perguntas frequentes', 'page')
+    raiz = d.container('Perguntas frequentes', {
+        'content_width': 'full', 'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0), 'padding': dimensoes(0, 0, 0, 0),
+    }, [
+        cab_pagina(d, 'Perguntas frequentes', 'As dúvidas que mais chegam no ateliê, organizadas por assunto.', 'faq/cab'),
+        d.container('Grupos de perguntas', {
+            'content_width': 'boxed', 'flex_direction': 'column',
+            'flex_gap': lacuna(12, 12), 'padding': dimensoes(24, 0, 40, 0),
+        }, [
+            d.widget('accordion', juntar_globais({'_title': 'Perguntas por assunto', 'tabs': [
+                d.item({'tab_title': titulo, 'tab_content': '<p>' + texto + '</p>'}, 'faq-pagina/item-' + str(i))
+                for i, (titulo, texto) in enumerate(grupos, 1)
+            ]}, {'text_color': cor('iara-texto-suave'), 'typography': fonte('text')}), caminho='faq-pagina/sanfona'),
+            paragrafo(d, 'As perguntas e respostas completas, iguais às do protótipo aprovado, entram aba por aba no editor a partir do texto final aprovado. Não inventar prazo, garantia ou política nova aqui.', 'faq-pagina/nota', 'iara-texto-micro'),
+        ], caminho='faq-pagina/miolo', interno=True),
+        faixa_ajuda(d, 'Não encontrou a sua dúvida?', 'Fale com o ateliê e a gente responde em dias úteis.', 'Falar com o ateliê', PAGINAS['contato'], 'faq-pagina/ajuda'),
+    ], caminho='raiz')
+    d.content = [raiz]
+    return d
+
+
+def guia_medidas():
+    """18. Guia de medidas."""
+    return pagina_documento('Guia de medidas',
+        'Meça uma peça que já veste bem e compare com a tabela de cada produto.',
+        [
+            ('Como medir em casa', 'Estique a peça sobre a mesa, sem puxar. Meça busto, cintura, quadril e comprimento com a fita sem apertar, e anote em centímetros.'),
+            ('Tabela de medidas', '[PREENCHER] A tabela geral entra com as medidas reais da modelagem da marca. Cada página de produto traz a tabela daquela peça, que é a que vale na hora de escolher.'),
+            ('Dúvidas comuns sobre tamanho', 'Na dúvida entre dois tamanhos, compare as medidas com a peça medida em casa. Se ainda assim ficar em dúvida, fale com o atendimento antes de fechar: a troca de tamanho em 30 dias existe, mas acertar de primeira é melhor.'),
+        ], 'guia-medidas',
+        aviso='A tabela desta página depende das medidas reais da modelagem [PREENCHER]: não publicar com valores de exemplo.')
+
+
+def lookbook():
+    """19. Colecao Terra e Linho: editorial em capitulos."""
+    d = Documento('Coleção Terra & Linho', 'page')
+    capitulos = [
+        ('Capítulo 01', 'O barro que veste', 'Terracota em linho e algodão, nas peças de abertura da coleção.'),
+        ('Capítulo 02', 'Verde que acalma', 'Sálvia em vestidos e pantalona, para o dia inteiro.'),
+        ('Capítulo 03', 'O branco que não é básico', 'Cru e areia em camadas leves, com acessórios de cerâmica.'),
+    ]
+    filhos = [cab_pagina(d, 'Terra & Linho', 'Três capítulos em doze peças: terracota do barro, sálvia da mata, cru do linho.', 'lookbook/cab', 'Coleção')]
+    for i, (rotulo_cap, titulo, texto) in enumerate(capitulos, 1):
+        filhos.append(d.container(titulo, {
+            'content_width': 'boxed', 'flex_direction': 'row', 'flex_wrap': 'wrap',
+            'flex_gap': lacuna(32, 32), 'padding': dimensoes(40, 0, 40, 0),
+            **({'background_background': 'classic', '__globals__': {'background_color': cor('iara-fundo-suave')}} if i % 2 == 0 else {}),
+        }, [
+            d.container('Foto do capitulo', {'flex_direction': 'column', '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(48, '%')}, [
+                d.widget('image', {'_title': 'Foto do capítulo (escolher no editor)', 'image': {'url': '', 'id': ''}, 'image_size': 'full', 'caption_source': 'none', 'link_to': 'none'}, caminho='lookbook/foto-' + str(i)),
+            ], caminho='lookbook/midia-' + str(i), interno=True),
+            d.container('Texto do capitulo', {'flex_direction': 'column', 'flex_gap': lacuna(12, 12), '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(48, '%'), '_flex_align_self': 'center'}, [
+                rotulo(d, rotulo_cap, 'lookbook/rotulo-' + str(i), 'primary'),
+                titulo_secao(d, titulo, 'lookbook/titulo-' + str(i)),
+                paragrafo(d, texto, 'lookbook/texto-' + str(i)),
+                botao(d, 'Comprar as peças do capítulo', PAGINAS['loja'], 'lookbook/botao-' + str(i)),
+            ], caminho='lookbook/texto-box-' + str(i), interno=True),
+        ], caminho='lookbook/cap-' + str(i), interno=True))
+    filhos.append(faixa_ajuda(d, 'Viu algo que gostou?', 'Todas as peças do editorial estão à venda na loja.', 'Ir para a loja', PAGINAS['loja'], 'lookbook/ajuda'))
+    raiz = d.container('Coleção Terra & Linho', {'content_width': 'full', 'flex_direction': 'column', 'flex_gap': lacuna(0, 0), 'padding': dimensoes(0, 0, 0, 0)}, filhos, caminho='raiz')
+    d.content = [raiz]
+    return d
+
+
+def trocas():
+    return pagina_documento('Trocas e devoluções',
+        'Trocar ou devolver uma peça é simples. Os prazos abaixo seguem o Código de Defesa do Consumidor.',
+        [
+            ('Desistência em 7 dias (direito de arrependimento)', 'Você tem 7 dias corridos, contando do recebimento, para desistir da compra sem precisar justificar, conforme o Art. 49 do CDC. A peça precisa voltar sem uso, com as etiquetas.'),
+            ('Troca por tamanho ou por outra peça', 'Em até 30 dias do recebimento, a primeira troca de tamanho é por nossa conta, pelo código de postagem dos Correios. [CONFIRMAR COM A EMPRESA: peças de bazar e peças íntimas entram nesta regra?]'),
+            ('Peça com defeito de fabricação', 'Se a peça chegar com defeito, fale com o atendimento com fotos do problema. Defeito de fabricação tem o tratamento previsto no CDC.'),
+            ('Como solicitar', 'Pela Minha conta ou pelo atendimento, informando o número do pedido. Você recebe as instruções e o código de postagem.'),
+            ('Reembolso', 'Depois que a peça chega e é conferida, o reembolso segue a forma de pagamento original, nos prazos do gateway.'),
+        ], 'trocas', aviso='Rascunho para revisão: confirmar as regras marcadas antes de publicar.')
+
+
+def envio():
+    return pagina_documento('Envio e entrega',
+        'Enviamos para todo o Brasil pelos Correios, com rastreio em todos os pedidos.',
+        [
+            ('Prazos e valores', 'O prazo e o valor do frete são calculados pelo seu CEP na sacola e no fechamento, antes do pagamento. Postagem em até 2 dias úteis depois da confirmação.'),
+            ('Frete grátis acima de R$ 299', 'Pedidos a partir de R$ 299 têm frete grátis no PAC para todo o Brasil.'),
+            ('Como acompanhar o pedido', 'Assim que a peça é postada, o código de rastreio vai para o seu e-mail e fica na Minha conta.'),
+            ('Se algo der errado', 'Se o pedido atrasar, voltar ou chegar danificado, fale com o atendimento com o número do pedido que a gente resolve com a transportadora.'),
+        ], 'envio')
+
+
+def privacidade():
+    return pagina_documento('Política de Privacidade',
+        'Como tratamos os seus dados, em linguagem direta.',
+        [(t, '[PREENCHER: texto jurídico aprovado] Este é o esqueleto da seção. O texto final vem da revisão jurídica e entra aqui antes de publicar.') for t in (
+            '1. Quem é o controlador dos seus dados', '2. Quais dados coletamos', '3. Com quem compartilhamos',
+            '4. Transferência internacional', '5. Por quanto tempo guardamos', '6. Seus direitos como titular',
+            '7. Segurança', '8. Encarregado e contato')],
+        'privacidade', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão. Os dados da empresa entram como [PREENCHER].')
+
+
+def termos():
+    return pagina_documento('Termos de uso',
+        'As regras de uso desta loja.',
+        [(t, '[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão jurídica; o texto final entra aqui antes de publicar.') for t in (
+            '1. Aceitação', '2. Identificação da empresa', '3. Uso do site', '4. Cadastro e conta',
+            '5. Produtos, preços e disponibilidade', '6. Pagamento', '7. Entrega', '8. Trocas e devoluções')],
+        'termos', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão.')
+
+
+def cookies():
+    return pagina_documento('Política de Cookies',
+        'Quais cookies usamos e como você controla isso.',
+        [(t, '[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão; o banner de cookies da LGPD é configurado no go-live e precisa apontar para esta página.') for t in (
+            '1. O que são cookies', '2. Categorias de cookies', '3. Cookies de terceiros',
+            '4. Como controlar os cookies', '5. Alterações nesta política', '6. Dúvidas')],
+        'cookies', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão. O banner de consentimento é item de aceitação do go-live.')
+
+
 # --------------------------------------------------------------------------
 # 4. ARQUIVOS GLOBAIS (Site Settings)
 # --------------------------------------------------------------------------
@@ -1717,6 +2046,20 @@ FABRICAS = [
     ('08-pedido-recebido.json', pedido_recebido),
     ('09-conta.json', conta),
     ('10-desejos.json', desejos),
+    ('11-blog.json', blog),
+    ('12-post.json', post),
+    ('13-busca.json', busca),
+    ('14-404.json', erro404),
+    ('15-sobre.json', sobre),
+    ('16-contato.json', contato),
+    ('17-faq.json', faq_pagina),
+    ('18-guia-medidas.json', guia_medidas),
+    ('19-lookbook.json', lookbook),
+    ('20-trocas.json', trocas),
+    ('21-envio.json', envio),
+    ('22-privacidade.json', privacidade),
+    ('23-termos.json', termos),
+    ('24-cookies.json', cookies),
 ]
 
 

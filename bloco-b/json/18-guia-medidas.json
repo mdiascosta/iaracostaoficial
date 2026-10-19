@@ -1,0 +1,287 @@
+{
+  "content": [
+    {
+      "id": "f8d0614",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "0",
+          "column": "0",
+          "isLinked": true,
+          "unit": "px",
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "40",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "Guia de medidas"
+      },
+      "elements": [
+        {
+          "id": "400f2f6",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "12",
+              "column": "12",
+              "isLinked": true,
+              "unit": "px",
+              "size": 12
+            },
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "8",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Cabecalho da pagina"
+          },
+          "elements": [
+            {
+              "id": "3028b88",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Guia de medidas",
+                "title": "Guia de medidas",
+                "header_size": "h1",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=primary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "8c883ce",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Meça uma peça que já veste bem e compare com a tabela de cada produto.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "92b0aaf",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "padding": {
+              "unit": "px",
+              "top": "16",
+              "right": "0",
+              "bottom": "16",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Aviso de revisao"
+          },
+          "elements": [
+            {
+              "id": "d1db9df",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>A tabela desta página depende das medidas reais da modelagem [PREENCHER]: não publicar com valores de exemplo.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=iara-texto-micro"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "ff6f8d2",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Como medir em casa"
+          },
+          "elements": [
+            {
+              "id": "8712c98",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Como medir em casa",
+                "title": "Como medir em casa",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "388b5f4",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Estique a peça sobre a mesa, sem puxar. Meça busto, cintura, quadril e comprimento com a fita sem apertar, e anote em centímetros.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "2cb4f5e",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Tabela de medidas"
+          },
+          "elements": [
+            {
+              "id": "55c477c",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Tabela de medidas",
+                "title": "Tabela de medidas",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "132f410",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[PREENCHER] A tabela geral entra com as medidas reais da modelagem da marca. Cada página de produto traz a tabela daquela peça, que é a que vale na hora de escolher.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "57a1901",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Dúvidas comuns sobre tamanho"
+          },
+          "elements": [
+            {
+              "id": "7e94cdb",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Dúvidas comuns sobre tamanho",
+                "title": "Dúvidas comuns sobre tamanho",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "2a32643",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Na dúvida entre dois tamanhos, compare as medidas com a peça medida em casa. Se ainda assim ficar em dúvida, fale com o atendimento antes de fechar: a troca de tamanho em 30 dias existe, mas acertar de primeira é melhor.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": [],
+  "version": "0.4",
+  "title": "Guia de medidas",
+  "type": "page"
+}

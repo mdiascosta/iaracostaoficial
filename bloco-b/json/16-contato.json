@@ -1,0 +1,342 @@
+{
+  "content": [
+    {
+      "id": "8e06a05",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "0",
+          "column": "0",
+          "isLinked": true,
+          "unit": "px",
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        },
+        "_title": "Contato"
+      },
+      "elements": [
+        {
+          "id": "52edfdb",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "12",
+              "column": "12",
+              "isLinked": true,
+              "unit": "px",
+              "size": 12
+            },
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "8",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Cabecalho da pagina"
+          },
+          "elements": [
+            {
+              "id": "25b176e",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Fale com a gente",
+                "title": "Fale com a gente",
+                "header_size": "h1",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=primary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "0e8aeb6",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Envie uma mensagem ou use um dos canais abaixo. Respondemos em dias úteis, das 9h às 18h.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "359dfcb",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "row",
+            "flex_wrap": "wrap",
+            "flex_gap": {
+              "row": "32",
+              "column": "32",
+              "isLinked": true,
+              "unit": "px",
+              "size": 32
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "56",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Formulario e canais"
+          },
+          "elements": [
+            {
+              "id": "970f52b",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "flex_gap": {
+                  "row": "12",
+                  "column": "12",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 12
+                },
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 56,
+                  "sizes": []
+                },
+                "_title": "Envie uma mensagem"
+              },
+              "elements": [
+                {
+                  "id": "d94284d",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Envie uma mensagem",
+                    "title": "Envie uma mensagem",
+                    "header_size": "h2",
+                    "__globals__": {
+                      "title_color": "globals/colors?id=text",
+                      "typography": "globals/typography?id=secondary"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "ba5c192",
+                  "elType": "widget",
+                  "widgetType": "form",
+                  "settings": {
+                    "_title": "Formulario de contato",
+                    "form_name": "Contato do site",
+                    "form_fields": [
+                      {
+                        "custom_id": "nome",
+                        "field_type": "text",
+                        "field_label": "Nome",
+                        "placeholder": "Seu nome",
+                        "required": "true",
+                        "width": "100",
+                        "_id": "277381f"
+                      },
+                      {
+                        "custom_id": "email",
+                        "field_type": "email",
+                        "field_label": "E-mail",
+                        "placeholder": "seu@email.com",
+                        "required": "true",
+                        "width": "100",
+                        "_id": "80ee5cb"
+                      },
+                      {
+                        "custom_id": "assunto",
+                        "field_type": "text",
+                        "field_label": "Assunto",
+                        "placeholder": "Sobre o que você quer falar?",
+                        "required": "true",
+                        "width": "100",
+                        "_id": "0329981"
+                      },
+                      {
+                        "custom_id": "mensagem",
+                        "field_type": "textarea",
+                        "field_label": "Mensagem",
+                        "placeholder": "Conte para a gente",
+                        "required": "true",
+                        "width": "100",
+                        "rows": "5",
+                        "_id": "fa6d1d3"
+                      }
+                    ],
+                    "button_text": "Enviar mensagem",
+                    "email_to": "[CONFERIR: e-mail de destino]",
+                    "form_id": "contato"
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "2785e10",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Ao enviar, você concorda com a Política de Privacidade. O campo de consentimento entra no editor conforme a ferramenta de formulários usada.</p>",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-suave",
+                      "typography": "globals/typography?id=iara-texto-micro"
+                    }
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "e952019",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "flex_gap": {
+                  "row": "12",
+                  "column": "12",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 12
+                },
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 38,
+                  "sizes": []
+                },
+                "_title": "Outros canais"
+              },
+              "elements": [
+                {
+                  "id": "38444e9",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Outros canais",
+                    "title": "Outros canais",
+                    "header_size": "h2",
+                    "__globals__": {
+                      "title_color": "globals/colors?id=text",
+                      "typography": "globals/typography?id=secondary"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "af3a9a1",
+                  "elType": "widget",
+                  "widgetType": "icon-list",
+                  "settings": {
+                    "_title": "Canais",
+                    "icon_list": [
+                      {
+                        "text": "contato@iaracosta.com.br",
+                        "link": {
+                          "url": "mailto:contato@iaracosta.com.br",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "_id": "e89f943"
+                      },
+                      {
+                        "text": "(15) 99123-4567, telefone e WhatsApp",
+                        "link": {
+                          "url": "https://wa.me/5515991234567",
+                          "is_external": "on",
+                          "nofollow": ""
+                        },
+                        "_id": "e38bc52"
+                      },
+                      {
+                        "text": "Segunda a sexta, das 9h às 18h",
+                        "_id": "da779cf"
+                      },
+                      {
+                        "text": "Cerquilho, interior de São Paulo",
+                        "_id": "2185c8f"
+                      }
+                    ],
+                    "space_between": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-suave",
+                      "typography": "globals/typography?id=text"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "a304446",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>O endereço completo para devolução entra na confirmação com a empresa [PREENCHER]. O mapa, se for usado, entra como bloco do editor, sem widget de HTML.</p>",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-suave",
+                      "typography": "globals/typography?id=iara-texto-micro"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "ed185c2",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "_title": "Perguntas frequentes",
+                    "text": "Perguntas frequentes",
+                    "link": {
+                      "url": "/perguntas-frequentes/",
+                      "is_external": "",
+                      "nofollow": ""
+                    },
+                    "size": "md",
+                    "__globals__": {
+                      "typography": "globals/typography?id=accent",
+                      "text_color": "globals/colors?id=text"
+                    }
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            }
+          ],
+          "isInner": true
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": [],
+  "version": "0.4",
+  "title": "Contato",
+  "type": "page"
+}

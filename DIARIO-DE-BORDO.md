@@ -1,5 +1,63 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Bloco B, parte 5 (final): editorial, institucional e legal (v0.2.5)
+
+### Pedido da cliente
+"pode continuar", depois da aprovação dos plugins de desejos e de swatches.
+Fechei o Bloco B com o último lote.
+
+### O que foi feito (IMPLEMENTADO)
+- **`11-blog.json`** (arquivo de posts) e **`12-post.json`** (post único):
+  vitrine dinâmica e artigo com título, capa, conteúdo do Gutenberg e
+  "Continue lendo". Post nunca é escrito no Elementor.
+- **`13-busca.json`** (resultados de busca) e **`14-404.json`**: campo de
+  busca, resultados, estado sem resultado com saída para a loja; 404 com
+  botões para loja, início e contato.
+- **`15-sobre.json`**, **`16-contato.json`** (formulário com nome, e-mail,
+  assunto e mensagem, mais os canais), **`17-faq.json`** (cinco grupos de
+  perguntas e a faixa de ajuda), **`18-guia-medidas.json`** (como medir,
+  tabela marcada `[PREENCHER]` e dúvidas) e **`19-lookbook.json`** (coleção
+  em três capítulos com foto, texto e botão de compra).
+- **`20-trocas.json`** e **`21-envio.json`** com as seções aprovadas no
+  protótipo, incluindo a marca `[CONFIRMAR COM A EMPRESA]` nas peças de
+  bazar e íntimas.
+- **`22-privacidade.json`**, **`23-termos.json`** e **`24-cookies.json`**:
+  esqueleto das seções com `[PREENCHER: texto jurídico aprovado]` e o aviso
+  de rascunho para o jurídico.
+- **Documentos**: guia e `LEIA-ME.txt` fechados com os 24 arquivos, a ordem
+  de trabalho completa e o aviso de que o próximo bloco é o Bloco C.
+
+### Decisões tomadas
+- **Os 24 arquivos ficaram como contados**, sem juntar as páginas legais:
+  a alternativa de 21 era juntar as três políticas em um modelo só, e a
+  contagem página por página venceu. Registro para a equipe: se um dia
+  quiserem enxugar, o caminho continua descrito no guia.
+- **Nada de texto inventado para preencher página**: onde o dado é da
+  empresa ou do jurídico, o arquivo carrega a marca, não um chute.
+
+### O que foi verificado aqui
+- `python3 tools/blocob_confere.py`: **24 arquivos conferidos, resultado:
+  tudo certo** (15 cores, 10 fontes).
+- `python3 tools/blocob_gera.py` regenera os 24 arquivos e as globais sem
+  mudar nada além do esperado.
+- `python3 tools/check.py`: o protótipo do Bloco A segue intacto.
+
+### O que não foi verificado
+- **Nenhuma importação e nenhuma renderização** de nenhum dos 24 arquivos
+  (sem WordPress, painel ou banco). Esta é a maior pendência do Bloco B e só
+  o staging resolve.
+- Compatibilidade dos widgets Pro com a versão licenciada do staging.
+- Desempenho, acessibilidade em site real e pedido de teste: Bloco C e
+  staging.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Importação em staging, um arquivo por vez, com a conferência do guia.
+- Versões do staging, fotos reais, depoimentos reais, tabela de medidas,
+  textos [PROPOSTA] da Sobre, textos jurídicos, e-mail dos formulários e
+  redes sociais.
+- Instalação e teste dos dois plugins aprovados (TI Wishlist e Variation
+  Swatches), um por vez, medindo o peso.
+
 ## [2026-10-16] - Decisão: plugins de desejos e de swatches aprovados (v0.2.4)
 
 ### Pedido da cliente

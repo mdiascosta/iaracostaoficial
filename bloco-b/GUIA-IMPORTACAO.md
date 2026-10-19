@@ -211,6 +211,10 @@ monta. São rápidos:
 | Pedido recebido | conferir se o resumo aparece depois de um pedido de teste e se o e-mail de confirmação sai com o remetente da loja |
 | Conta, sacola e checkout fora do Google | marcar `noindex` no Yoast nestas três páginas e deixar fora do sitemap |
 | Desejos | instalar o **TI WooCommerce Wishlist** (aprovado), gerar a página da lista com o endereço `/lista-de-desejos/` e conferir o contador do coração no cabeçalho; só publicar depois desse teste |
+| Diário e artigo | textos escritos no Gutenberg; o template só desenha a capa, o título e a vitrine. Nunca escrever post no Elementor |
+| Coleção | escolher as fotos reais dos três capítulos e apontar cada botão para a categoria certa |
+| Páginas legais | substituir todos os `[PREENCHER]` pelo texto aprovado pelo jurídico antes de publicar; elas nascem como rascunho |
+| Busca e 404 | conferir a busca com e sem resultado, e abrir um endereço inexistente para ver a página 404 no ar |
 | Site inteiro: botão do WhatsApp | usar **Floating Elements** do Elementor (Site Settings), com o número (15) 99123-4567 e a entrada depois de rolar a página, como no protótipo |
 
 ### 4.4 Uma decisão pendente: os filtros da loja
@@ -262,30 +266,30 @@ entra se o teste mostrar falta real, com nova aprovação.
 | `08-pedido-recebido.json` | Pedido recebido | Página | resumo dinâmico do pedido e os botões para pedidos e loja |
 | `09-conta.json` | Minha conta | Página | título e o widget My Account, com pedidos, endereços e dados |
 | `10-desejos.json` | Lista de desejos | Página | título e aviso de pendência: a lista em si depende de plugin aprovado |
+| `11-blog.json` | Diário | Arquivo de posts | vitrine dinâmica dos textos do Gutenberg |
+| `12-post.json` | Artigo do diário | Post único | capa, título, texto do Gutenberg e "Continue lendo" |
+| `13-busca.json` | Busca | Resultados de busca | campo de busca, resultados e saída para a loja |
+| `14-404.json` | Página não encontrada | Página 404 | mensagem e os botões para loja, início e contato |
+| `15-sobre.json` | Sobre a Iara Costa | Página | história, missão, ateliê e escolha das peças (textos [PROPOSTA]) |
+| `16-contato.json` | Contato | Página | formulário, canais de atendimento e atalho do FAQ |
+| `17-faq.json` | Perguntas frequentes | Página | perguntas por assunto e a faixa de ajuda |
+| `18-guia-medidas.json` | Guia de medidas | Página | como medir, tabela [PREENCHER] e dúvidas de tamanho |
+| `19-lookbook.json` | Coleção Terra & Linho | Página | editorial em três capítulos, com foto, texto e compra |
+| `20-trocas.json` | Trocas e devoluções | Página | desistência, troca, defeito, solicitação e reembolso |
+| `21-envio.json` | Envio e entrega | Página | prazos, frete grátis, rastreio e problemas de entrega |
+| `22-privacidade.json` | Política de Privacidade | Página | esqueleto das 8 seções para o jurídico |
+| `23-termos.json` | Termos de uso | Página | esqueleto das 8 seções para o jurídico |
+| `24-cookies.json` | Política de Cookies | Página | esqueleto das 6 seções para o jurídico e o banner LGPD |
 
 ### 5.2 As páginas (próximas partes)
 
-A página inicial (`03-home.json`) foi entregue na parte 2, e a loja e a página do produto (`04-loja.json` e `05-produto.json`) na parte 3. O funil de compra (`06` a `10`) entrou na parte 4. Faltam:
+**O Bloco B está completo: os 24 arquivos estão gerados.** A tabela abaixo fica como registro do que foi entregue em cada parte (2 a 5):
 
 Cada página do protótipo vira um arquivo. Os endereços sugeridos são os mesmos do
 protótipo, para o site nascer com os links certos.
 
 | # | Página | Arquivo previsto | Tipo no Elementor | Endereço |
 |---|---|---|---|---|
-| 11 | Diário | `11-blog.json` | arquivo de posts | `/diario/` |
-| 12 | Artigo | `12-post.json` | post único | `/diario/<artigo>/` |
-| 13 | Busca | `13-busca.json` | resultados de busca | `/busca/` |
-| 14 | Página não encontrada | `14-404.json` | página 404 | 404 |
-| 15 | Sobre | `15-sobre.json` | página | `/sobre/` |
-| 16 | Contato | `16-contato.json` | página | `/contato/` |
-| 17 | Perguntas frequentes | `17-faq.json` | página | `/perguntas-frequentes/` |
-| 18 | Guia de medidas | `18-guia-medidas.json` | página | `/guia-de-medidas/` |
-| 19 | Coleção | `19-lookbook.json` | página | `/colecao/` |
-| 20 | Trocas e devoluções | `20-trocas.json` | página | `/trocas-e-devolucoes/` |
-| 21 | Envio e entrega | `21-envio.json` | página | `/envio-e-entrega/` |
-| 22 | Política de privacidade | `22-privacidade.json` | página | `/politica-de-privacidade/` |
-| 23 | Termos de uso | `23-termos.json` | página | `/termos-de-uso/` |
-| 24 | Política de cookies | `24-cookies.json` | página | `/politica-de-cookies/` |
 
 **Sobre o número de arquivos.** O dossiê falava em 21 arquivos JSON. A conta
 página por página dá 24: as duas partes do site (cabeçalho e rodapé) mais as 22
@@ -350,6 +354,11 @@ Todas conferidas por `python3 tools/blocob_confere.py`:
     cada uma no WooCommerce (Configurações > Avançado). Não publicar a lista de
     desejos até o plugin ser aprovado.
 
-Quando o funil estiver no ar, o próximo lote é o conteúdo editorial e
-institucional: diário, artigo, busca, 404, sobre, contato, perguntas frequentes,
-guia de medidas e coleção.
+11. Importar o lote editorial e institucional (`11` a `24`), criar cada página
+    no endereço da tabela 5.2 e deixar as legais como rascunho.
+12. Conferir o site inteiro no celular e no computador: nenhuma página sem
+    cabeçalho e rodapé, nenhum `[PREENCHER]` publicado.
+
+Com os 24 arquivos no ar e conferidos, o Bloco B está fechado. O próximo bloco
+é o Bloco C: o kit de instalação, os CSVs de produtos e posts e os guias de
+segurança, SEO, testes, desempenho, e-mail e go-live.

@@ -61,6 +61,33 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.2.5 · 2026-10-16 · Bloco B, parte 5 (final): editorial, institucional e legal
+
+**O que entrou:** os últimos 14 arquivos do Bloco B, de `11-blog.json` a
+`24-cookies.json`: diário, artigo, busca, 404, sobre, contato, perguntas
+frequentes, guia de medidas, coleção em três capítulos, trocas, envio e as
+três páginas legais como esqueleto para o jurídico.
+
+**Com isso, o Bloco B está completo: 24 arquivos**, as duas partes do site
+mais as 22 páginas do protótipo, todos gerados por `tools/blocob_gera.py` e
+conferidos por `tools/blocob_confere.py`.
+
+**Decisões desta parte**
+
+- **Post nunca nasce no Elementor**: o artigo usa o conteúdo do Gutenberg e o
+  diário é só a vitrine dinâmica.
+- **Página legal é rascunho**: privacidade, termos e cookies entram com o
+  esqueleto das seções e `[PREENCHER: texto jurídico aprovado]`; publicar sem
+  revisão está fora de questão.
+- **O que depende de dado real ficou marcado**: tabela de medidas da marca,
+  fotos da coleção, e-mail de destino do contato e textos [PROPOSTA] da página
+  Sobre.
+
+**Verificado:** `tools/blocob_confere.py` passa nos **24 templates** (24
+arquivos, 15 cores, 10 fontes). **Não verificado:** nenhuma importação e
+nenhuma renderização, sem acesso ao WordPress. A importação em staging, um
+arquivo por vez, é o que destrava a conferência de verdade.
+
 ### v0.2.4 · 2026-10-16 · Decisão: plugins de desejos e de swatches aprovados
 
 **Decisão da cliente:** instalar, nas versões gratuitas, o **TI WooCommerce

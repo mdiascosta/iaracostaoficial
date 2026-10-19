@@ -129,7 +129,7 @@ estiverem habilitadas na conta do Mercado Pago.
 | Nome do menu principal | cabeçalho, widget Menu | o template aponta para o menu de slug `principal` |
 | Logo do site | cabeçalho, widget Site Logo | entra em Aparência > Personalizar > Identidade do site |
 | Página da lista de desejos gerada pelo TI WooCommerce Wishlist | página de desejos e ícone do coração | plugin aprovado; gerar a página em `/lista-de-desejos/` e só publicar depois do teste no staging |
-| Número final de arquivos do Bloco B (24 ou 21) | `bloco-b/GUIA-IMPORTACAO.md`, seção 5.2 | a conta página por página dá 24; juntar as três páginas políticas levaria a 21 |
+| Número final de arquivos do Bloco B: **fechado em 24** | `bloco-b/GUIA-IMPORTACAO.md`, seção 5.2 | os 24 foram entregues na v0.2.5; juntar as três páginas políticas em 21 continua possível se a equipe quiser |
 
 | Fotos reais da home (hero, editorial, coleção, categorias, ocasiões) | `bloco-b/json/03-home.json` | os widgets de imagem entram vazios de propósito: imagem entra pela biblioteca de mídia |
 | Depoimentos reais da home | `bloco-b/json/03-home.json`, seção Depoimentos | os 3 textos são os de exemplo do protótipo; publicar só os reais, com autorização |
@@ -142,6 +142,10 @@ estiverem habilitadas na conta do Mercado Pago.
 | Apontar as telas do funil no WooCommerce | sacola, finalizar compra, pedido recebido e minha conta | Configurações > Avançado do WooCommerce, depois de publicar as páginas |
 | Pedido de teste com BEMVINDO10 e transferência | staging, sem pagamento real | depois do teste, apagar o pedido (aceitação do dossiê) |
 | `noindex` e fora do sitemap: sacola, checkout e conta | Yoast, nas três páginas | conferir antes do go-live e de novo depois dele |
+
+| Importar os 24 arquivos do Bloco B em staging, um por vez | `bloco-b/json/` e o guia, seção 8 | é a conferência que falta: nenhuma importação foi testada aqui |
+| Textos jurídicos finais (privacidade, termos e cookies) | `bloco-b/json/22 a 24` | os arquivos são esqueleto com `[PREENCHER]`; nascem como rascunho |
+| Fotos dos três capítulos da coleção e da home | `19-lookbook.json` e `03-home.json` | widgets de imagem vazios de propósito |
 
 ## Como usar este documento
 
