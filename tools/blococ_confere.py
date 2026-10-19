@@ -99,6 +99,32 @@ def main():
         if '—' in l['post_content'] or '–' in l['post_content']:
             problemas.append(f'posts.csv: travessao em "{l["post_name"]}"')
 
+    conteudo = PASTA / 'pages-conteudo.md'
+    if not conteudo.exists():
+        problemas.append('pages-conteudo.md nao existe (rode tools/blococ_gera_conteudo.py)')
+    else:
+        texto = conteudo.read_text(encoding='utf-8')
+        templates = re.findall(r'Template: `bloco-b/json/(\d\d-[a-z-]+\.json)`', texto)
+        if len(templates) != 10:
+            problemas.append(f'pages-conteudo.md: {len(templates)} paginas (esperado 10)')
+        if '—' in texto or '–' in texto:
+            problemas.append('pages-conteudo.md: travessao no texto')
+        for obrigatorio in ('RASCUNHO PARA O JURIDICO', '[PREENCHER', '[PROPOSTA]'):
+            if obrigatorio not in texto:
+                problemas.append(f'pages-conteudo.md: marcador {obrigatorio} sumiu')
+
+    kit = PASTA / 'iara-costa-kit.zip'
+    if not kit.exists():
+        problemas.append('iara-costa-kit.zip nao existe (rode tools/blococ_monta_kit.py)')
+    else:
+        import zipfile
+        with zipfile.ZipFile(kit) as z:
+            nomes = z.namelist()
+        if len(nomes) != 31 or 'LEIA-ME.txt' not in nomes:
+            problemas.append(f'iara-costa-kit.zip: {len(nomes)} arquivos (esperado 31 com LEIA-ME)')
+        if sum(1 for n in nomes if n.startswith('bloco-b/json/')) != 24:
+            problemas.append('iara-costa-kit.zip: templates do Bloco B incompletos')
+
     n_var = sum(1 for l in produtos if l['Type'] == 'variable')
     n_variacoes = len(variacoes)
     print(f'  produtos.csv: {len(produtos)} linhas ({n_var} variaveis, {n_variacoes} variacoes)')

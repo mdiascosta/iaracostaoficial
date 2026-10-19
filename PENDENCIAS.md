@@ -151,6 +151,9 @@ estiverem habilitadas na conta do Mercado Pago.
 | Revisao e assinatura dos 8 posts | `bloco-c/posts.csv` | textos em rascunho com `[PREENCHER: quem assina]`; publicar so aprovados |
 | Importar os CSVs em staging e conferir | WooCommerce > Produtos > Importar | nenhuma importacao foi testada aqui |
 
+| Revisar o `pages-conteudo.md` página por página | `bloco-c/pages-conteudo.md` | empresa aprova institucionais; jurídico aprova privacidade, termos e cookies antes de publicar |
+| Abrir o kit em staging e conferir os 31 arquivos | `bloco-c/iara-costa-kit.zip` | comparar com as somas impressas por `tools/blococ_monta_kit.py` |
+
 ## Como usar este documento
 
 - **Nada aqui foi inventado para preencher espaço.** Onde não havia informação

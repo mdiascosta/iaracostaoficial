@@ -1,5 +1,47 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Bloco C, parte 2: conteúdo das páginas e o kit (v0.3.1)
+
+### Pedido da cliente
+"pode continuar", depois dos CSVs (parte 1, PR #8 aberto). Entreguei o
+conteúdo das páginas em Markdown e o kit de instalação.
+
+### O que foi feito (IMPLEMENTADO)
+- **`bloco-c/pages-conteudo.md`**: as 10 páginas institucionais e legais
+  (sobre, contato, perguntas, guia de medidas, coleção, trocas, envio,
+  privacidade, termos e cookies) com o texto extraído por script das páginas
+  aprovadas do protótipo, cada uma com endereço, template correspondente e
+  situação. 36 marcadores mantidos, nenhum travessão.
+- **`bloco-c/iara-costa-kit.zip`**: 31 arquivos (os 24 templates e as
+  globais do Bloco B, o guia de importação, os dois CSVs, o conteúdo das
+  páginas e um LEIA-ME com a ordem de uso), gerado com data e ordem fixas.
+- **`tools/blococ_gera_conteudo.py`** (extrator HTML para Markdown) e
+  **`tools/blococ_monta_kit.py`** (monta o zip e imprime a soma de cada
+  arquivo). O `blococ_confere.py` agora confere também o conteúdo e o kit.
+
+### Decisões tomadas
+- **Extrair, não reescrever**: texto aprovado se move por script, para
+  ninguém "melhorar" uma política ou uma promessa sem perceber.
+- **Legal continua rascunho**: privacidade, termos e cookies trazem o texto
+  de estrutura do protótipo, mas a publicação exige o jurídico.
+- **Kit com soma de verificação**: quem recebe confere arquivo por arquivo.
+
+### O que foi verificado aqui
+- `python3 tools/blococ_confere.py`: CSVs, conteúdo e kit, "tudo certo".
+- `python3 tools/blocob_confere.py` e `tools/check.py`: blocos anteriores
+  intactos.
+
+### O que não foi verificado
+- **Nenhuma importação, instalação ou abertura do kit em WordPress real.**
+- A leitura do jurídico sobre as três páginas legais.
+- Nenhuma medida de desempenho.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Revisão e aprovação de textos: empresa (institucionais) e jurídico (legais).
+- Próximas partes do Bloco C: os guias de instalação, segurança, SEO,
+  testes, desempenho, e-mail/SMTP, go-live e nota fiscal. Plugin próprio só
+  se for indispensável; nada até aqui mostrou que seja.
+
 ## [2026-10-19] - Bloco C, parte 1: produtos e posts em CSV (v0.3.0)
 
 ### Registro anterior

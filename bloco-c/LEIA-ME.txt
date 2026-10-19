@@ -1,4 +1,4 @@
-BLOCO C · DADOS E GUIAS DE INSTALACAO · PARTE 1 · 19/10/2026
+BLOCO C · DADOS E GUIAS DE INSTALACAO · PARTE 2 · 19/10/2026
 
 
 O QUE E ESTA PASTA
@@ -14,13 +14,19 @@ O QUE TEM AQUI DENTRO
   produtos.csv        12 produtos e 56 variacoes do catalogo de exemplo,
                       tudo em rascunho, no formato do WooCommerce
   posts.csv           8 posts do diario, em rascunho, com blocos do Gutenberg
+  pages-conteudo.md   o texto aprovado das 10 paginas institucionais e legais,
+                      com os marcadores mantidos para revisao
+  iara-costa-kit.zip  o pacote completo: os 24 templates do Elementor, as
+                      globais, os guias e os CSVs, prontos para a equipe
 
 
 ORDEM DE TRABALHO
 
   1. Importar os produtos em staging e conferir produtos e variacoes.
   2. Criar os 8 posts a partir do posts.csv (caminho manual, secao 2 do guia).
-  3. So publicar depois de trocar foto, descricao, peso, dimensoes e estoque
+  3. Revisar o pages-conteudo.md pagina por pagina; as legais sao rascunho
+     para o juridico e nao se publicam sem revisao.
+  4. So publicar depois de trocar foto, descricao, peso, dimensoes e estoque
      pelos dados reais. Nada deste lote vai ao ar como esta.
 
 
