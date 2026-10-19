@@ -68,6 +68,44 @@ Esta é a etapa mais importante do Bloco B. Todo o resto aponta para estas cores
 fontes pelo **id** do Elementor. Se elas não existirem com o id certo, o estilo do
 template simplesmente não aparece (não quebra a página, mas fica sem cor).
 
+### 3.0 O jeito rápido: importar o pacote de configurações (recomendado)
+
+> **Atenção, erro comum:** o arquivo `cores-e-fontes.json` **não é um template**.
+> Importá-lo em Templates > Importar dá o erro **"Tipo de modelo inválido"**, e é
+> assim mesmo: ele é só a referência dos valores. Quem se importa é o pacote
+> abaixo, e por outro caminho, o Importar/Exportar **Kit**.
+
+O pacote é `bloco-b/globais/iara-costa-globais.zip` (também vai dentro do
+`iara-costa-kit.zip` do Bloco C). Ele foi montado no formato que o Elementor
+espera de um kit, conferido no código-fonte do plugin: `manifest.json` com
+`version: "2.0"` e `site-settings.json` com as configurações.
+
+1. **Antes, exporte o que já existe** (Elementor > Ferramentas > Importar /
+   Exportar Kit > Exportar, só "Configurações do site") e guarde o `.zip`: é o
+   seu caminho de volta. A importação **cria um kit novo e mistura** as
+   configurações antigas com as novas, então isto é a rede de segurança.
+2. Na mesma tela, use **Importar**, escolha o `iara-costa-globais.zip` e avance.
+3. Quando ele perguntar o que importar, marque **Configurações do site**
+   (Settings) e conclua.
+4. Confira: abra uma página no Elementor > Configurações do site > Cores globais.
+   Precisam estar lá as 15 cores (4 do sistema com os valores novos e 11
+   personalizadas, incluindo "Papel" e "Linha") e, em Fontes globais, as 10
+   fontes.
+
+**Por que os templates nascem certos neste caminho:** na importação de kit, o
+Elementor mantém o `_id` de cada cor e fonte personalizada, e neste pacote os
+ids já são `iara-papel`, `iara-linha` e os demais que os 24 templates usam.
+Conferido no código-fonte do plugin; **não testado em site real**. Se depois de
+importar alguma cor não aparecer na lista, ou aparecer duplicada, use o plano B
+da seção 3.3 (criar à mão e rodar o `ajusta-ids.py`).
+
+Faça isso **num site ainda sem cores próprias** (staging novo é o ideal). Se o
+site já tiver cores personalizadas, a importação **acrescenta** as novas sem
+apagar as antigas: sobra cor duplicada para limpar depois.
+
+Se preferir criar à mão, ou se a importação não funcionar na sua versão, as
+tabelas das seções 3.1 e 3.2 são o plano B completo.
+
 ### 3.1 Cores
 
 Quatro lugares são fixos no Elementor (as "cores do sistema"). Os outros onze
@@ -127,15 +165,16 @@ Observação: as duas famílias são do Google Fonts. A regra do projeto é hosp
 as fontes localmente antes do go-live, pela velocidade e pela privacidade
 (`[CONFERIR]` no Bloco C).
 
-### 3.3 Acertar os ids (script de uma linha)
+### 3.3 Plano B: criar à mão e acertar os ids (script de uma linha)
 
-O Elementor sorteia um id próprio quando a cor é criada na tela. Como os
-arquivos precisam apontar para o id real, existe um script que faz esse
+Este caminho só é necessário se você criou as cores na tela (seções 3.1 e 3.2)
+ou se a importação da seção 3.0 não trouxe os ids certos. Criando na tela, o
+Elementor sorteia um id próprio para cada cor, e o script abaixo faz o
 casamento sozinho:
 
 1. **Exportar** as configurações do site: Elementor > Ferramentas > Importar /
    Exportar Kit > Exportar > marcar **somente** "Configurações do site". Sai um
-   `.zip`; dentro dele está `site-settings/site-settings.json`.
+   `.zip`; dentro dele está o `site-settings.json`.
 2. **Rodar** o script (primeiro em modo de conferência):
 
    ```bash
@@ -148,12 +187,9 @@ O script casa cor por cor pelo **título**, mostra uma tabela do que muda e
 reescreve as referências nos arquivos. Se alguma cor ainda não existir no site,
 ele avisa em vez de adivinhar.
 
-Alternativa, se preferir não rodar o script: o arquivo
-`bloco-b/globais/cores-e-fontes.json` traz as cores e as fontes com os ids já
-escritos (`iara-papel`, `iara-linha`, e assim por diante). Ele pode ser usado como
-referência para criar as cores com calma e depois ajustar os arquivos à mão.
-**Não** recomendamos importar esse arquivo pelo Importar/Exportar Kit sem antes
-testar: a importação de kit substitui as configurações do site.
+O arquivo `bloco-b/globais/cores-e-fontes.json` continua sendo a referência dos
+valores e dos ids (`iara-papel`, `iara-linha`, e assim por diante). Ele **não se
+importa em lugar nenhum**: quem se importa é o pacote da seção 3.0.
 
 ---
 
@@ -343,8 +379,9 @@ Todas conferidas por `python3 tools/blocob_confere.py`:
 ## 8. Ordem recomendada de trabalho
 
 1. Confirmar versões e tema no staging (seção 2).
-2. Criar as cores e as fontes globais (seção 3).
-3. Rodar o `ajusta-ids.py` (seção 3.3) e conferir com o `blocob_confere.py`.
+2. Importar as cores e as fontes globais com o pacote da seção 3.0
+   (`ajusta-ids.py` da seção 3.3 só no plano B) e conferir com o
+   `blocob_confere.py`.
 4. Importar o cabeçalho, definir a condição e ajustar o menu.
 5. Importar o rodapé, definir a condição e ajustar a newsletter.
 6. Conferir o site no navegador: cabeçalho e rodapé aparecendo em todas as páginas.

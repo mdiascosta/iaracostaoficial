@@ -61,6 +61,32 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.4 · 2026-10-19 · Correção: pacote para importar cores e fontes
+
+**De onde veio:** na primeira tentativa de importação, o arquivo
+`cores-e-fontes.json` foi enviado ao importador de **templates** e o Elementor
+respondeu "Tipo de modelo inválido". O erro é do material, não de quem tentou:
+faltava o arquivo certo para importar configurações.
+
+**O que entrou**
+
+| O que | Onde |
+|---|---|
+| Pacote de configurações no formato Kit do Elementor (`manifest.json` versão 2.0 + `site-settings.json`), pronto para importar | `bloco-b/globais/iara-costa-globais.zip` |
+| Gerador do pacote, a partir da mesma fonte das cores e fontes | `tools/blocob_gera_kit_globais.py` |
+| Guia com o passo a passo de importação (seção 3.0), o erro explicado na abertura da seção 3 e o caminho manual rebaixado a plano B (3.3) | `bloco-b/GUIA-IMPORTACAO.md`, `bloco-b/LEIA-ME.txt` |
+| O pacote também dentro do `iara-costa-kit.zip` (40 arquivos) e conferido pelas duas conferências | `bloco-c/iara-costa-kit.zip` |
+
+**Por que funciona (conferido no código-fonte, não em site real):** a
+importação de kit cria um kit novo misturando o antigo com o novo e **mantém o
+`_id`** de cada cor e fonte personalizada; como o pacote já traz `iara-papel`,
+`iara-linha` e os demais ids que os templates usam, eles nascem apontando
+certo, sem o `ajusta-ids.py`. Esse script continua existindo como plano B.
+
+**Não verificado:** a importação em si. É o primeiro teste real do projeto e
+quem faz é a equipe no staging, com a exportação das configurações atuais
+guardada antes, como o guia manda.
+
 ### v0.3.3 · 2026-10-19 · Bloco C, parte 4 (final): testes, desempenho, e-mail, nota fiscal e go-live
 
 **O que entrou**

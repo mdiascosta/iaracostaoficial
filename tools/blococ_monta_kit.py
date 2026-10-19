@@ -51,6 +51,8 @@ def arquivos():
         itens.append((caminho, f'bloco-b/json/{caminho.name}'))
     itens.append((RAIZ / 'bloco-b' / 'globais' / 'cores-e-fontes.json',
                   'bloco-b/globais/cores-e-fontes.json'))
+    itens.append((RAIZ / 'bloco-b' / 'globais' / 'iara-costa-globais.zip',
+                  'bloco-b/globais/iara-costa-globais.zip'))
     itens.append((RAIZ / 'bloco-b' / 'GUIA-IMPORTACAO.md', 'bloco-b/GUIA-IMPORTACAO.md'))
     for nome in ('produtos.csv', 'posts.csv', 'pages-conteudo.md', 'IMPORTACAO-CSV.md'):
         itens.append((RAIZ / 'bloco-c' / nome, f'bloco-c/{nome}'))

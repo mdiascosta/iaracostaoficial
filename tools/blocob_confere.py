@@ -219,9 +219,34 @@ def conferir_arquivo(caminho, cores, fontes, problemas, resumo):
     return None
 
 
+def conferir_kit_globais(cores, fontes, problemas):
+    """O pacote de importacao das configuracoes (Kit do Elementor)."""
+    import zipfile
+    caminho = PASTA_BLOCO_B / 'globais' / 'iara-costa-globais.zip'
+    if not caminho.exists():
+        problemas.append('globais/iara-costa-globais.zip nao existe (rode tools/blocob_gera_kit_globais.py)')
+        return
+    with zipfile.ZipFile(caminho) as z:
+        nomes = z.namelist()
+        if nomes != ['manifest.json', 'site-settings.json']:
+            problemas.append(f'kit de globais: arquivos {nomes} (esperado manifest.json e site-settings.json)')
+            return
+        manifesto = json.loads(z.read('manifest.json'))
+        settings = json.loads(z.read('site-settings.json')).get('settings', {})
+    if manifesto.get('version') != '2.0':
+        problemas.append('kit de globais: manifest sem version "2.0" (FORMAT_VERSION do Elementor)')
+    ids_cores = {c['_id'] for c in settings.get('system_colors', []) + settings.get('custom_colors', [])}
+    ids_fontes = {f['_id'] for f in settings.get('system_typography', []) + settings.get('custom_typography', [])}
+    if ids_cores != cores:
+        problemas.append('kit de globais: cores diferentes do arquivo de globais')
+    if ids_fontes != fontes:
+        problemas.append('kit de globais: fontes diferentes do arquivo de globais')
+
+
 def main():
     problemas = []
     cores, fontes = carregar_globais(problemas)
+    conferir_kit_globais(cores, fontes, problemas)
 
     arquivos = sorted(PASTA_JSON.glob('*.json')) if PASTA_JSON.exists() else []
     if not arquivos:

@@ -1,5 +1,58 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Correção: pacote para importar cores e fontes (v0.3.4)
+
+### O que aconteceu
+Na primeira importação tentada pela cliente, o `cores-e-fontes.json` foi para
+o importador de Templates e o Elementor respondeu **"Tipo de modelo
+inválido"**. Diagnóstico: o arquivo nunca foi um template, é a referência de
+valores das globais; faltava entregar o arquivo importável de configurações.
+A cliente pediu então para **importar** as configurações em vez de criar cor
+por cor na tela.
+
+### O que foi feito (IMPLEMENTADO)
+- **`bloco-b/globais/iara-costa-globais.zip`**: pacote no formato Kit do
+  Elementor, com `manifest.json` (`version: "2.0"`, o FORMAT_VERSION atual) e
+  `site-settings.json` na raiz, contendo só cores, fontes, largura de
+  conteúdo, espaçamento e fundo do corpo. Nome do site e logo ficam fora de
+  propósito.
+- **`tools/blocob_gera_kit_globais.py`**: gera o pacote da mesma fonte única
+  das cores e fontes (`site_settings()` do gerador do Bloco B).
+- **Formato reconferido no código-fonte do Elementor**:
+  `app/modules/import-export/processes/export.php` (o arquivo entra na raiz
+  do zip como `site-settings.json`), `module.php` (FORMAT_VERSION 2.0) e
+  `runners/import/site-settings.php` (a importação cria kit novo, mistura
+  com o antigo com `array_replace_recursive` e anexa `custom_colors` e
+  `custom_typography` **mantendo o `_id`**). É essa última parte que faz os
+  templates nascerem certos sem o `ajusta-ids.py`.
+- **Guia corrigido**: seção 3.0 nova com o passo a passo (exportar antes por
+  segurança, importar marcando Configurações do site, conferir as 15 cores e
+  10 fontes), o erro "Tipo de modelo inválido" explicado onde ele acontece e
+  a seção 3.3 rebaixada a plano B. `bloco-b/LEIA-ME.txt` com o aviso no nome
+  de cada arquivo.
+- **Kit e conferências**: o pacote entrou no `iara-costa-kit.zip` (40
+  arquivos); `blocob_confere.py` passou a conferir o zip (arquivos,
+  `version` e ids iguais aos das globais) e `blococ_confere.py` ajustou a
+  contagem esperada.
+
+### Decisões tomadas
+- **Recomendado importar em staging novo, sem cores próprias**: a importação
+  acrescenta sem apagar; num site que já tem cores, sobra duplicada para
+  limpar. Está escrito no guia.
+- **O `ajusta-ids.py` não foi aposentado**: é o plano B se a versão do
+  Elementor do staging se comportar diferente do código-fonte conferido.
+
+### O que foi verificado aqui
+- Estrutura do zip (2 arquivos, manifest 2.0, os 11 ids de cor e os 6 de
+  fonte personalizadas iguais aos dos templates).
+- `tools/blocob_confere.py`, `tools/blococ_confere.py` e `tools/check.py`
+  verdes.
+
+### O que não foi verificado
+- **A importação de verdade**: continua sendo o primeiro teste real, feito
+  pela equipe no staging. Se a tela de importação pedir algo diferente do
+  guia, o caso volta para cá com a captura e o guia é corrigido.
+
 ## [2026-10-19] - Bloco C, parte 4 (final): testes, desempenho, e-mail, nota fiscal e go-live (v0.3.3)
 
 ### Pedido da cliente
