@@ -1,5 +1,40 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - PR #7 mergeado na main e Bloco B fechado (registro)
+
+### O que aconteceu
+- O **PR #7** (branch de trabalho -> `main`) foi **mergeado** em 19/10/2026, às
+  08h26 (horario de Brasilia), por Matheus Costa (`mdiascosta`).
+- **Commit de merge: `ec200d7`.** Entraram os seis commits da serie 0.2.x a
+  partir da v0.2.1: a pagina inicial (v0.2.1), a loja e a pagina do produto
+  (v0.2.2), o funil de compra (v0.2.3), a decisao dos plugins aprovados
+  (v0.2.4) e o lote final editorial, institucional e legal (v0.2.5), mais o
+  ajuste da tabela final do guia.
+- A `main` esta com o `VERSION` em 0.2.5, com os **24 arquivos** do Bloco B em
+  `bloco-b/json/`, as globais, o guia de importacao e o `LEIA-ME.txt`.
+- As etiquetas `v0.2.0` a `v0.2.5` apontam para os commits que entraram.
+- Com este merge, **o Bloco B esta fechado**: cores e fontes globais,
+  cabecalho, rodape e as 22 paginas do prototipo em templates do Elementor.
+
+### Decisoes tomadas
+- **Registro sem mudanca de versao**, igual aos merges anteriores: e anotacao
+  sobre algo que ja estava entregue. A versao continua 0.2.5.
+- O Bloco B so se prova de verdade na importacao em staging: nenhum dos 24
+  arquivos foi importado ou renderizado aqui (sem WordPress, painel ou banco).
+
+### O que continua em aberto (AGUARDA INFORMACAO)
+- Importacao dos 24 arquivos em staging, um por vez, com a conferencia do guia.
+- Versoes do staging (WordPress, PHP, Elementor, Elementor Pro, WooCommerce) e
+  instalacao e teste dos dois plugins aprovados (TI WooCommerce Wishlist e
+  Variation Swatches for WooCommerce), um por vez, medindo o peso.
+- Decisao sobre os filtros da loja e sobre o `sitemap`/robots das paginas do
+  funil (guia, secoes 4.3 e 4.4).
+- Conteudo que so a empresa fecha: textos juridicos, tabela de medidas real,
+  fotos, depoimentos, historia da marca, e-mail dos formularios, redes sociais.
+- Proximo entregavel: **Bloco C** (kit de instalacao, CSVs de produtos e
+  posts, conteudos das paginas e os guias de seguranca, SEO, testes,
+  desempenho, e-mail e go-live).
+
 ## [2026-10-16] - Bloco B, parte 5 (final): editorial, institucional e legal (v0.2.5)
 
 ### Pedido da cliente
