@@ -61,7 +61,7 @@ def manifesto():
         'name': 'iara-costa-globais',
         'title': 'Iara Costa: cores e fontes',
         'description': ('Cores e fontes globais do site da Iara Costa '
-                        '(15 cores e 10 fontes), para importar pelo '
+                        '(15 cores e 11 fontes), para importar pelo '
                         'Importar/Exportar Kit do Elementor.'),
         'version': '2.0',
         'site-settings': ABAS,

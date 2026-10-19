@@ -58,6 +58,8 @@ def arquivos():
                   'bloco-b/css/iara-cabecalho.css'))
     itens.append((RAIZ / 'bloco-b' / 'imagens' / 'iara-costa-imagens.zip',
                   'bloco-b/imagens/iara-costa-imagens.zip'))
+    itens.append((RAIZ / 'bloco-b' / 'iara-costa-kit-completo.zip',
+                  'bloco-b/iara-costa-kit-completo.zip'))
     for nome in ('produtos.csv', 'posts.csv', 'pages-conteudo.md', 'IMPORTACAO-CSV.md'):
         itens.append((RAIZ / 'bloco-c' / nome, f'bloco-c/{nome}'))
     for caminho in sorted((RAIZ / 'bloco-c' / 'guias').glob('*.md')):

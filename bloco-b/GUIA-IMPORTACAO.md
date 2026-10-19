@@ -64,6 +64,40 @@ Nada de plugin nulo ou pirata, conforme a regra do projeto.
 
 ---
 
+## 2.9 O jeito de uma vez só: o kit completo (recomendado, v0.3.12)
+
+> **Pedido que originou esta seção:** "não tem como criar algo que possa
+> apenas importar, pois cada alteração tenho que ficar fazendo isso".
+> Tem: o `bloco-b/iara-costa-kit-completo.zip` é um **Kit do Elementor**
+> de verdade (o mesmo formato que o botão Exportar Kit gera), com as
+> configurações globais **e os 24 templates de uma vez**, cabeçalho e
+> rodapé já com a condição Entire Site e os templates da loja, do produto,
+> do blog, da busca e do 404 já com as condições deles. Um arquivo, uma
+> importação. Ele também vai dentro do `iara-costa-kit.zip` do Bloco C.
+
+Como importar:
+
+1. **Segurança primeiro:** Elementor > Ferramentas > Importar/Exportar
+   Kit > Exportar (o kit atual inteiro) e guarde o `.zip`.
+2. Na mesma tela, **Importar** e escolha o `iara-costa-kit-completo.zip`.
+3. Marque **Templates** e **Configurações do site** (Settings) e conclua.
+   (Templates de kit pedem Elementor Pro ativo, que é o seu caso.)
+4. Confira em **Templates**: os 24 arquivos da Iara Costa, o cabeçalho já
+   valendo para o site inteiro. Depois siga da seção 5 deste guia em
+   diante (criar as páginas e apontar cada uma para o template dela).
+
+**Nas próximas correções, é este arquivo que você importa de novo.** Um
+aviso honesto sobre como o Elementor funciona com qualquer kit: cada
+importação **cria cópias novas** dos templates, ela não atualiza os
+existentes. Então, antes de importar uma versão nova, apague em Templates
+os 24 templates da Iara Costa da versão anterior (filtre por "Iara" /
+pelos títulos), senão ficam duplicados e a condição Entire Site pode
+continuar apontando para o antigo. Apagar os antigos e importar o kit:
+dois gestos, em vez de 24 importações.
+
+Os caminhos antigos continuam neste guia como alternativa e plano B: o
+pacote só de globais (seção 3.0) e os JSONs um por um (seção 4).
+
 ## 3. Passo 1: cores e fontes globais
 
 Esta é a etapa mais importante do Bloco B. Todo o resto aponta para estas cores e
@@ -91,7 +125,7 @@ espera de um kit, conferido no código-fonte do plugin: `manifest.json` com
    (Settings) e conclua.
 4. Confira: abra uma página no Elementor > Configurações do site > Cores globais.
    Precisam estar lá as 15 cores (4 do sistema com os valores novos e 11
-   personalizadas, incluindo "Papel" e "Linha") e, em Fontes globais, as 10
+   personalizadas, incluindo "Papel" e "Linha") e, em Fontes globais, as 11
    fontes.
 
 **Por que os templates nascem certos neste caminho:** na importação de kit, o

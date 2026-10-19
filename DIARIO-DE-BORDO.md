@@ -1,5 +1,39 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Kit completo de importação única (v0.3.12)
+
+### Pedido da cliente
+"Não tem como criar algo que possa apenas importar? Pois cada alteração
+tenho que ficar fazendo isso." A frustração é legítima: foram seis
+rodadas de "apague, reimporte, capture" no cabeçalho, e cada rodada
+custava importar arquivo solto na mão. O formato certo para isso existe
+no Elementor e a gente ainda não tinha usado para os templates: o Kit.
+
+### O que foi feito (IMPLEMENTADO)
+- `tools/blocob_gera_kit_completo.py` gera o `iara-costa-kit-completo.zip`
+  no formato oficial do Kit (conferido no código-fonte do Elementor e no
+  espelho público do Pro): manifesto 2.0 com a seção de templates,
+  site-settings com as globais e 24 arquivos em `templates/<id>.json`.
+- A parte delicada era a condição do Theme Builder: li o
+  `get_export_summary()`/`import()` do documento de tema no Pro e as
+  classes de condição. Sem `conditions` no manifesto, a importação de
+  header/footer/archive/single quebra em PHP 8; com ela, o cabeçalho já
+  nasce Entire Site. Loja, produto, blog, post, busca e 404 ganharam as
+  condições correspondentes (`product_archive`, `singular/product`,
+  `post_archive`, `singular/post`, `archive/search`,
+  `singular/not_found404`).
+- Conferência nova valida o kit inteiro contra os JSONs; guia ganhou a
+  seção 2.9 (importação única como caminho principal) com o aviso de que
+  kit cria cópias novas a cada importação, então a rotina de correção
+  vira: apagar os templates Iara anteriores e importar o kit novo.
+- De quebra, o "10 fontes" que tinha ficado no gerador do pacote de
+  globais virou 11.
+
+### O que continua por verificar
+- A importação do kit no staging é o primeiro teste real deste formato
+  com os nossos arquivos. O resultado (sucesso por runner ou a mensagem
+  de erro) diz onde ajustar, se precisar: é um arquivo só para corrigir.
+
 ## [2026-10-19] - Causa raiz das fontes: chaves de tipografia por widget (v0.3.11)
 
 ### Pedido da cliente

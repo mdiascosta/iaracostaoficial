@@ -61,6 +61,36 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.12 · 2026-10-19 · Kit completo: uma importação só para tudo
+
+**Pedido da cliente:** "não tem como criar algo que possa apenas importar,
+pois cada alteração tenho que ficar fazendo isso". Justo: importar 24
+JSONs um por um a cada correção não se sustenta.
+
+**O que foi criado**
+
+- `bloco-b/iara-costa-kit-completo.zip` (novo, gerado por
+  `tools/blocob_gera_kit_completo.py` e dentro do kit do Bloco C): um Kit
+  do Elementor no formato oficial, com `manifest.json` (version "2.0"), o
+  `site-settings.json` das globais (15 cores, 11 fontes) e os 24 templates
+  em `templates/<id>.json` ({content, settings, metadata}).
+- Os templates de tema já nascem **com condição**: cabeçalho e rodapé
+  Entire Site, loja (arquivo de produtos), produto, blog, post, busca e
+  404, cada um com a sua. Formato das condições conferido linha a linha
+  no código do Theme Builder (theme-document.php e conditions/*.php):
+  sem `conditions` no manifesto, a importação desses templates falha.
+- `blocob_confere.py` valida o kit: 24 ids no manifesto = 24 arquivos,
+  conteúdo idêntico ao dos JSONs de `bloco-b/json`, doc_type e metadata
+  certos e conditions presentes em todo documento de tema.
+- Guia: seção 2.9 nova com a importação única como caminho principal,
+  incluindo o aviso de que kit cria cópias (apagar os templates antigos
+  antes de reimportar) e de que templates de kit pedem o Pro ativo.
+
+**Verificado aqui:** três conferências verdes e o zip inspecionado.
+**Não verificado:** a importação no staging, que é o teste real deste
+arquivo. Se a importação recusar algo, a captura da mensagem do Elementor
+diz exatamente qual runner falhou, e a correção é no gerador do kit.
+
 ### v0.3.11 · 2026-10-19 · Causa raiz das fontes erradas: chaves de tipografia por widget
 
 **Pedido da cliente:** "analise novamente": o menu apareceu com um check na

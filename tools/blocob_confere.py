@@ -264,10 +264,74 @@ def conferir_kit_globais(cores, fontes, problemas):
         problemas.append('kit de globais: fontes diferentes do arquivo de globais')
 
 
+# Tipos de documento de tema: sem conditions no manifesto, a importacao
+# do kit falha para eles (theme-document.php do Pro le conditions[0]).
+TIPOS_DE_TEMA = {'header', 'footer', 'archive', 'single',
+                 'search-results', 'error-404'}
+
+
+def conferir_kit_completo(problemas):
+    """O kit completo de importacao unica (v0.3.12)."""
+    import zipfile
+    caminho = PASTA_BLOCO_B / 'iara-costa-kit-completo.zip'
+    if not caminho.exists():
+        problemas.append('iara-costa-kit-completo.zip nao existe '
+                         '(rode tools/blocob_gera_kit_completo.py)')
+        return
+    originais = {}
+    for arq in sorted(PASTA_JSON.glob('*.json')):
+        originais[arq.name] = json.loads(arq.read_text(encoding='utf-8'))
+    with zipfile.ZipFile(caminho) as z:
+        nomes = z.namelist()
+        manifesto = json.loads(z.read('manifest.json'))
+        settings = json.loads(z.read('site-settings.json')).get('settings', {})
+        templates = {}
+        for nome in nomes:
+            if nome.startswith('templates/'):
+                doc_id = nome[len('templates/'):-len('.json')]
+                templates[doc_id] = json.loads(z.read(nome))
+    if manifesto.get('version') != '2.0':
+        problemas.append('kit completo: manifest sem version "2.0"')
+    if not settings.get('system_colors') or not settings.get('custom_typography'):
+        problemas.append('kit completo: site-settings sem cores ou fontes')
+    manifest_templates = manifesto.get('templates', {})
+    if len(manifest_templates) != 24 or len(templates) != 24:
+        problemas.append(f'kit completo: {len(manifest_templates)} no manifesto e '
+                         f'{len(templates)} arquivos (esperado 24 e 24)')
+        return
+    if set(manifest_templates) != set(templates):
+        problemas.append('kit completo: ids do manifesto diferentes dos arquivos')
+    titulos_originais = {d['title']: d for d in originais.values()}
+    for doc_id, resumo_tpl in manifest_templates.items():
+        dados = templates[doc_id]
+        original = titulos_originais.get(resumo_tpl.get('title'))
+        if original is None:
+            problemas.append(f'kit completo: template "{resumo_tpl.get("title")}" '
+                             f'sem correspondente em bloco-b/json')
+            continue
+        if resumo_tpl.get('doc_type') != original['type']:
+            problemas.append(f'kit completo: doc_type de "{original["title"]}" '
+                             f'diferente do JSON original')
+        if dados.get('content') != original['content']:
+            problemas.append(f'kit completo: conteudo de "{original["title"]}" '
+                             f'diferente do JSON original')
+        if dados.get('metadata', {}).get('_elementor_template_type') != original['type']:
+            problemas.append(f'kit completo: metadata de "{original["title"]}" '
+                             f'sem _elementor_template_type certo')
+        if original['type'] in TIPOS_DE_TEMA:
+            conds = resumo_tpl.get('conditions') or []
+            if not conds or conds[0].get('type') != 'include' or not conds[0].get('name'):
+                problemas.append(f'kit completo: "{original["title"]}" e documento '
+                                 f'de tema e esta sem conditions (a importacao falha)')
+            if not resumo_tpl.get('location'):
+                problemas.append(f'kit completo: "{original["title"]}" sem location')
+
+
 def main():
     problemas = []
     cores, fontes = carregar_globais(problemas)
     conferir_kit_globais(cores, fontes, problemas)
+    conferir_kit_completo(problemas)
 
     arquivos = sorted(PASTA_JSON.glob('*.json')) if PASTA_JSON.exists() else []
     if not arquivos:
