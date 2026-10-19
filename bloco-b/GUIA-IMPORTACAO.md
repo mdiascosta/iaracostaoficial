@@ -98,6 +98,14 @@ dois gestos, em vez de 24 importações.
 Os caminhos antigos continuam neste guia como alternativa e plano B: o
 pacote só de globais (seção 3.0) e os JSONs um por um (seção 4).
 
+**O CSS geral agora viaja dentro do kit (v0.3.14).** O arquivo
+`bloco-b/css/iara-cabecalho.css` entra no `site-settings.json` do kit
+completo (chave `custom_css` das Configurações do site): importar o kit
+já aplica o CSS no site inteiro, sem colar nada na mão. Era esse o furo
+das rodadas anteriores: o CSS ia num arquivo separado, fora de qualquer
+importação, então "o CSS não pegava". Se um dia precisar mexer no CSS,
+é em Elementor > Configurações do site > CSS personalizado que ele está.
+
 **Endereço dos links (v0.3.13):** o site está em
 `https://oeemax.com.br/iaracosta/` (subpasta). Todos os links internos
 dos templates nascem desse endereço, porque link que começa com `/`
@@ -347,6 +355,7 @@ importe o `01-cabecalho.json` novo:
 | Caixa de busca aberta na barra ("O que você procura?") e sacola com caixa e "R$ 0,00" | o protótipo aprovado não tem nada disso: busca é só a lupa, sacola é só o ícone com o contador | corrigido na v0.3.8: lupa (ícone) que leva à página de busca, conta e desejos em ícone de traço (contorno), sacola sem mostrar o valor (`show_subtotal` desligado). Quem quiser a busca que abre em painel troca o ícone pelo widget Search no editor (ajuste 4.3) |
 | Faixa verde com ícones (caminhão, folha, globo) | a cliente comparou com o protótipo: lá a faixa é texto em caixa alta separado por pontos, sem ícone | corrigido na v0.3.8: texto igual ao do protótipo, com a fonte global nova **Texto da faixa** (Jost 12px, caixa alta). A lista de ícones da v0.3.6 saiu |
 | Containers demais nos outros 23 arquivos | embrulhos de um elemento só, sem fundo, borda nem respiro | a v0.3.8 achata esses embrulhos na geração: de **216 para 176 containers** nos 24 arquivos, sem mudar o desenho (a largura do embrulho passa para o elemento de dentro) |
+| Link do menu sem efeito ao passar o mouse (sem cor de hover nem sublinhado) | o widget de lista de ícones só tinha a cor normal pelas globais; o hover existia só no CSS separado, que nenhuma importação carregava | corrigido na v0.3.14 nas duas pontas: o widget ganhou a cor de hover pela global de destaque (`text_color_hover`) e o CSS geral, com as regras do link do menu, passou a viajar **dentro** do kit completo (chave `custom_css`) |
 | Menu continua serifado e a sacola continua com caixa, mesmo com o JSON novo | a tipografia e o botão do carrinho são do tema/widgets Pro, e o JSON não vence essa briga sozinho | **v0.3.9, com autorização da cliente:** cole o conteúdo de `bloco-b/css/iara-cabecalho.css` em **Elementor > Configurações do site > CSS personalizado** (se a opção não existir, em Personalizar > CSS adicional). É o CSS do protótipo mirando nas classes `iara-*` do cabeçalho: menu em Jost 12px em linha, sacola sem caixa e sem valor, faixa e ícones conferidos |
 | Marca voltou ao retângulo gigante "Logo." | o widget Logo do site está sem imagem definida | na v0.3.9 a marca é o **logotipo que a cliente subiu**: antes de importar, defina essa imagem como logo do site (Personalizar > Identidade do site, ou Elementor > Configurações do site > Logo do site). O CSS limita a altura a 54px, mas sem logo definido o placeholder volta |
 | **Cabeçalho "completamente errado" de novo: imagem genérica no lugar da marca, menu serifado, sacola com caixa, e o CSS "não pegou"** | análise minuciosa da v0.3.10: três provas na captura. (1) A imagem de montanhas é o placeholder do widget Logo do site: o logotipo subido na mídia **não estava definido como logo do site**. (2) Menu serifado mesmo com CSS que força Jost com prioridade: esse CSS **não estava ativo na página** (não colado, não salvo ou cache). (3) A caixa da sacola é o botão padrão do widget de carrinho do WooCommerce. Causa comum: o cabeçalho dependia de widgets que o tema e o WooCommerce estilizam por conta própria | **correção estrutural na v0.3.10, sem depender de CSS nem de mídia:** saem Logo do site, Menu de navegação e Carrinho do WooCommerce. Ficam só widgets básicos com fonte/cor das globais: marca em **texto** (igual ao protótipo, que é texto), faixa e menu em **lista de ícones em linha** (pedido da cliente: lista de ícones em vez de elemento de texto), e busca/conta/desejos/sacola como **ícones** simples com link. O CSS vira reforço opcional (mesmo arquivo, atualizado). Quem quiser o logotipo em imagem troca os dois títulos pelo widget Logo do site no editor, DEPOIS de definir a imagem como logo do site |

@@ -119,9 +119,14 @@ def main():
             'metadata': {'_elementor_template_type': dados['type']},
         }))
 
-    # site-settings: o mesmo conteúdo do pacote de globais
+    # site-settings: o mesmo conteúdo do pacote de globais, mais o CSS
+    # geral do cabecalho. A chave e "custom_css" (documento kit, modulo
+    # custom-css do Pro): importa junto e vale para o site inteiro, sem
+    # ninguem precisar colar CSS na mao (era por isso que "o CSS nao
+    # pegava": ele ia num arquivo separado, fora de qualquer importacao).
     completas = blocob_gera.site_settings()['settings']
     settings = {chave: completas[chave] for chave in kit_globais.CHAVES}
+    settings['custom_css'] = (RAIZ / 'bloco-b' / 'css' / 'iara-cabecalho.css').read_text(encoding='utf-8')
     site_settings = {'content': [], 'settings': settings}
 
     manifesto = {
@@ -134,7 +139,7 @@ def main():
                         'Ferramentas > Importar/Exportar Kit.'),
         'author': 'Iara Costa',
         'version': '2.0',
-        'site-settings': kit_globais.ABAS,
+        'site-settings': kit_globais.ABAS + ['settings-custom-css'],
         'templates': templates_manifest,
     }
 

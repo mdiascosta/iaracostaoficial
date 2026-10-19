@@ -333,6 +333,12 @@ def conferir_kit_completo(problemas):
         problemas.append('kit completo: manifest sem version "2.0"')
     if not settings.get('system_colors') or not settings.get('custom_typography'):
         problemas.append('kit completo: site-settings sem cores ou fontes')
+    css_kit = settings.get('custom_css', '')
+    if '.iara-menu' not in css_kit or 'elementor-icon-list-item a' not in css_kit:
+        problemas.append('kit completo: site-settings sem o CSS geral do '
+                         'cabecalho (custom_css com as regras de link do menu)')
+    if 'settings-custom-css' not in (manifesto.get('site-settings') or []):
+        problemas.append('kit completo: manifesto sem a aba settings-custom-css')
     manifest_templates = manifesto.get('templates', {})
     if len(manifest_templates) != 24 or len(templates) != 24:
         problemas.append(f'kit completo: {len(manifest_templates)} no manifesto e '

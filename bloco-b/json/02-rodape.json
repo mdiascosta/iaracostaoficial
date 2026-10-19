@@ -365,7 +365,8 @@
                           "sizes": []
                         },
                         "__globals__": {
-                          "text_color": "globals/colors?id=iara-texto-suave"
+                          "text_color": "globals/colors?id=iara-texto-suave",
+                          "text_color_hover": "globals/colors?id=accent"
                         }
                       },
                       "elements": []
@@ -489,7 +490,8 @@
                           "sizes": []
                         },
                         "__globals__": {
-                          "text_color": "globals/colors?id=iara-texto-suave"
+                          "text_color": "globals/colors?id=iara-texto-suave",
+                          "text_color_hover": "globals/colors?id=accent"
                         }
                       },
                       "elements": []
@@ -582,7 +584,8 @@
                           "sizes": []
                         },
                         "__globals__": {
-                          "text_color": "globals/colors?id=iara-texto-suave"
+                          "text_color": "globals/colors?id=iara-texto-suave",
+                          "text_color_hover": "globals/colors?id=accent"
                         }
                       },
                       "elements": []
@@ -645,7 +648,8 @@
                           "sizes": []
                         },
                         "__globals__": {
-                          "text_color": "globals/colors?id=iara-texto-suave"
+                          "text_color": "globals/colors?id=iara-texto-suave",
+                          "text_color_hover": "globals/colors?id=accent"
                         }
                       },
                       "elements": []
@@ -1766,7 +1770,8 @@
                       "sizes": []
                     },
                     "__globals__": {
-                      "text_color": "globals/colors?id=iara-texto-discreto"
+                      "text_color": "globals/colors?id=iara-texto-discreto",
+                      "text_color_hover": "globals/colors?id=accent"
                     }
                   },
                   "elements": []

@@ -81,7 +81,8 @@
             "__globals__": {
               "text_color": "globals/colors?id=iara-faixa-texto",
               "icon_color": "globals/colors?id=iara-faixa-texto",
-              "icon_typography": "globals/typography?id=iara-faixa"
+              "icon_typography": "globals/typography?id=iara-faixa",
+              "text_color_hover": "globals/colors?id=accent"
             }
           },
           "elements": []
@@ -312,7 +313,8 @@
             "_flex_align_self": "center",
             "__globals__": {
               "text_color": "globals/colors?id=iara-menu",
-              "icon_typography": "globals/typography?id=iara-menu"
+              "icon_typography": "globals/typography?id=iara-menu",
+              "text_color_hover": "globals/colors?id=accent"
             }
           },
           "elements": []

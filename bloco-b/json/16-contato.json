@@ -279,7 +279,8 @@
                 },
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave",
-                  "icon_typography": "globals/typography?id=text"
+                  "icon_typography": "globals/typography?id=text",
+                  "text_color_hover": "globals/colors?id=accent"
                 }
               },
               "elements": []

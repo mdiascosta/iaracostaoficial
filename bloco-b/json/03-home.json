@@ -571,7 +571,8 @@
                 ],
                 "__globals__": {
                   "text_color": "globals/colors?id=primary",
-                  "icon_typography": "globals/typography?id=iara-rotulo"
+                  "icon_typography": "globals/typography?id=iara-rotulo",
+                  "text_color_hover": "globals/colors?id=accent"
                 },
                 "_flex_align_self": "center"
               },
@@ -871,7 +872,8 @@
                 ],
                 "__globals__": {
                   "text_color": "globals/colors?id=primary",
-                  "icon_typography": "globals/typography?id=iara-rotulo"
+                  "icon_typography": "globals/typography?id=iara-rotulo",
+                  "text_color_hover": "globals/colors?id=accent"
                 },
                 "_flex_align_self": "center"
               },
@@ -1034,7 +1036,8 @@
                 ],
                 "__globals__": {
                   "text_color": "globals/colors?id=primary",
-                  "icon_typography": "globals/typography?id=iara-rotulo"
+                  "icon_typography": "globals/typography?id=iara-rotulo",
+                  "text_color_hover": "globals/colors?id=accent"
                 },
                 "_flex_align_self": "center"
               },
@@ -1911,7 +1914,8 @@
                 ],
                 "__globals__": {
                   "text_color": "globals/colors?id=primary",
-                  "icon_typography": "globals/typography?id=iara-rotulo"
+                  "icon_typography": "globals/typography?id=iara-rotulo",
+                  "text_color_hover": "globals/colors?id=accent"
                 },
                 "_flex_align_self": "center"
               },

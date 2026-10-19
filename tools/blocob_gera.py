@@ -2115,6 +2115,10 @@ def _ajusta_widget(el):
     if el['widgetType'] == 'icon-list':
         if 'typography' in globais:
             globais['icon_typography'] = globais.pop('typography')
+        # link sem cor de hover nasce "sem CSS de link" (foi a v0.3.14):
+        # o controle text_color_hover do widget recebe a global de destaque
+        if any('link' in item for item in el['settings'].get('icon_list', [])):
+            globais.setdefault('text_color_hover', cor('accent'))
         for item in el['settings'].get('icon_list', []):
             if 'selected_icon' not in item:
                 item['selected_icon'] = {'value': '', 'library': ''}

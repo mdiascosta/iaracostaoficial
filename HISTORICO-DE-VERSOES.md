@@ -61,6 +61,40 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.14 · 2026-10-19 · CSS do link do menu: hover no widget e CSS dentro do kit
+
+**Pergunta da cliente:** "você chegou a verificar se o menu não tem nem
+CSS do link?" Não tinha, e ela tinha razão.
+
+**Verificação (no arquivo e no código do widget)**
+
+- O menu tinha, pelas globais, a cor e a fonte normais do texto. Não
+  tinha: cor de **hover**, sublinhado e respiro do link, que no protótipo
+  são o `.main-nav__link` (muda para Terracota Escuro e sublinha ao
+  passar o mouse). Essas regras só existiam no `iara-cabecalho.css`
+  solto.
+- E o kit completo **não carregava CSS nenhum**: importar o kit nunca
+  aplicou aquele arquivo. Era esse o furo por trás do "o CSS não pegou"
+  das rodadas anteriores.
+
+**O que mudou**
+
+- Toda lista de ícones com link (menu, "VER TUDO", listas do rodapé)
+  ganhou a cor de hover pela global de destaque, no próprio widget
+  (controle `text_color_hover`, conferido no código do widget).
+- O kit completo agora leva o CSS geral **dentro** do
+  `site-settings.json`, na chave `custom_css` das Configurações do site
+  (conferido no módulo custom-css do Elementor Pro: é essa chave que o
+  kit lê e imprime no site). Importar o kit passa a aplicar o CSS junto,
+  sem colar nada na mão.
+- O CSS ganhou as regras do link do menu (respiro de 6px, sublinhado
+  terracota claro no hover e no foco pelo teclado).
+- A conferência reprova kit completo sem o `custom_css` ou sem a aba
+  `settings-custom-css` no manifesto.
+
+**Verificado aqui:** três conferências verdes. **Não verificado:** a
+renderização no staging (hover se vê passando o mouse no menu).
+
 ### v0.3.13 · 2026-10-19 · Pente fino: links no endereço real do site (subpasta)
 
 **Relato da cliente:** "os links estão todos quebrados" (o site é

@@ -1,5 +1,30 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - O CSS do link do menu, verificado (v0.3.14)
+
+### Pergunta da cliente
+"Você chegou a verificar o menu? Não tem nem CSS do link." Direta e
+certa. Eu tinha conferido fonte e cor do texto do menu, mas o link em
+si (hover, sublinhado, respiro) só existia num arquivo CSS que nenhuma
+importação carregava. Verificar era abrir o widget e o código dele:
+o controle de hover da lista de ícones (`text_color_hover`) existia e
+estava vazio nos nossos arquivos.
+
+### O que foi feito (IMPLEMENTADO)
+- Hover pela global de destaque em toda lista de ícones com link,
+  direto na geração.
+- A descoberta maior: o kit completo não levava CSS. Li o módulo
+  custom-css do Pro e a chave é `custom_css` nas configurações do kit;
+  o CSS geral agora viaja dentro do `site-settings.json` do kit
+  completo, com a aba `settings-custom-css` declarada no manifesto.
+  Importar o kit passa a ser, de fato, importar tudo.
+- Regras do link do menu completadas no CSS (respiro, sublinhado,
+  foco visível) e trava na conferência para o CSS não sair do kit.
+
+### O que continua por verificar
+- Passar o mouse no menu depois de importar o kit novo e ver o
+  sublinhado. É o teste de dez segundos que fecha esta rodada.
+
 ## [2026-10-19] - Pente fino dos links: o site é subpasta (v0.3.13)
 
 ### Relato da cliente

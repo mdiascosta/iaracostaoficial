@@ -48,6 +48,20 @@
   text-underline-offset: 4px;
 }
 
+/* O link do menu em si (prototipo: .main-nav__link): area de clique com
+   respiro, sublinhado discreto no hover e no foco pelo teclado */
+.iara-menu .elementor-icon-list-item a {
+  color: #554f49;
+  text-decoration: none;
+  padding: 6px 0;
+  border-bottom: 1px solid transparent;
+}
+.iara-menu .elementor-icon-list-item a:hover,
+.iara-menu .elementor-icon-list-item a:focus-visible {
+  color: #78452f;
+  border-bottom-color: #e4cbb5;
+}
+
 /* Ícones da direita: carvão, terracota escuro no hover, sem caixa */
 .iara-acoes .elementor-icon { color: #2d2925; background: none; border: 0; }
 .iara-acoes .elementor-icon:hover { color: #78452f; }
