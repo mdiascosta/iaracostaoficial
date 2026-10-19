@@ -236,7 +236,11 @@
                       "is_external": "",
                       "nofollow": ""
                     },
-                    "_id": "e89f943"
+                    "_id": "e89f943",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
                   },
                   {
                     "text": "(15) 99123-4567, telefone e WhatsApp",
@@ -245,15 +249,27 @@
                       "is_external": "on",
                       "nofollow": ""
                     },
-                    "_id": "e38bc52"
+                    "_id": "e38bc52",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
                   },
                   {
                     "text": "Segunda a sexta, das 9h às 18h",
-                    "_id": "da779cf"
+                    "_id": "da779cf",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
                   },
                   {
                     "text": "Cerquilho, interior de São Paulo",
-                    "_id": "2185c8f"
+                    "_id": "2185c8f",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
                   }
                 ],
                 "space_between": {
@@ -263,7 +279,7 @@
                 },
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "icon_typography": "globals/typography?id=text"
                 }
               },
               "elements": []

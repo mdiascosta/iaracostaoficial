@@ -234,15 +234,27 @@
                 "icon_list": [
                   {
                     "text": "PAC pelos Correios, com frete grátis acima de R$ 299. Postagem em até 2 dias úteis.",
-                    "_id": "76dc8c4"
+                    "_id": "76dc8c4",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
                   },
                   {
                     "text": "7 dias para desistir da compra (CDC, Art. 49) e 30 dias para trocar de tamanho, com a primeira troca por nossa conta.",
-                    "_id": "b4040fc"
+                    "_id": "b4040fc",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
                   },
                   {
                     "text": "Pagamento processado por gateway com antifraude. Não guardamos dados do seu cartão.",
-                    "_id": "4a6d7b3"
+                    "_id": "4a6d7b3",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
                   }
                 ],
                 "space_between": {
@@ -252,7 +264,7 @@
                 },
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "icon_typography": "globals/typography?id=text"
                 }
               },
               "elements": []

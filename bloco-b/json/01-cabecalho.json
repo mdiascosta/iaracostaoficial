@@ -81,7 +81,7 @@
             "__globals__": {
               "text_color": "globals/colors?id=iara-faixa-texto",
               "icon_color": "globals/colors?id=iara-faixa-texto",
-              "typography": "globals/typography?id=iara-faixa"
+              "icon_typography": "globals/typography?id=iara-faixa"
             }
           },
           "elements": []
@@ -209,7 +209,11 @@
                   "is_external": "",
                   "nofollow": ""
                 },
-                "_id": "a4a8b09"
+                "_id": "a4a8b09",
+                "selected_icon": {
+                  "value": "",
+                  "library": ""
+                }
               },
               {
                 "text": "Loja",
@@ -218,7 +222,11 @@
                   "is_external": "",
                   "nofollow": ""
                 },
-                "_id": "202a911"
+                "_id": "202a911",
+                "selected_icon": {
+                  "value": "",
+                  "library": ""
+                }
               },
               {
                 "text": "Coleção",
@@ -227,7 +235,11 @@
                   "is_external": "",
                   "nofollow": ""
                 },
-                "_id": "832c6a9"
+                "_id": "832c6a9",
+                "selected_icon": {
+                  "value": "",
+                  "library": ""
+                }
               },
               {
                 "text": "Sobre",
@@ -236,7 +248,11 @@
                   "is_external": "",
                   "nofollow": ""
                 },
-                "_id": "e4c6d44"
+                "_id": "e4c6d44",
+                "selected_icon": {
+                  "value": "",
+                  "library": ""
+                }
               },
               {
                 "text": "Contato",
@@ -245,7 +261,11 @@
                   "is_external": "",
                   "nofollow": ""
                 },
-                "_id": "cde3a60"
+                "_id": "cde3a60",
+                "selected_icon": {
+                  "value": "",
+                  "library": ""
+                }
               }
             ],
             "space_between": {
@@ -257,7 +277,7 @@
             "_flex_align_self": "center",
             "__globals__": {
               "text_color": "globals/colors?id=iara-menu",
-              "typography": "globals/typography?id=iara-menu"
+              "icon_typography": "globals/typography?id=iara-menu"
             }
           },
           "elements": []

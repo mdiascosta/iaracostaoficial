@@ -818,12 +818,14 @@ def cabecalho_secao(d, rotulo_texto, titulo, caminho, link_texto=None, link_url=
             'flex_align_items': 'flex-end',
             '_flex_align_self': 'center',
         }, [
-            d.widget('button', juntar_globais({
+            d.widget('icon-list', juntar_globais({
                 '_title': link_texto,
-                'text': link_texto,
-                'link': {'url': link_url, 'is_external': '', 'nofollow': ''},
-                'size': 'sm',
-                'button_type': 'text',
+                'view': 'inline',
+                'icon_list': [
+                    d.item({'text': link_texto,
+                            'link': {'url': link_url, 'is_external': '', 'nofollow': ''}},
+                           caminho + '/link-item'),
+                ],
             }, {'text_color': cor('primary'), 'typography': fonte('iara-rotulo')}),
                 caminho=caminho + '/link'),
         ], caminho=caminho + '/direita', interno=True))
@@ -948,10 +950,11 @@ def home():
         'flex_direction': 'row',
         'flex_wrap': 'wrap',
         'flex_gap': lacuna(20, 20),
-        'padding': dimensoes(24, 0, 24, 0),
+        'padding': dimensoes(34, 0, 34, 0),
+        'background_background': 'classic',
         'border_border': 'solid',
         'border_width': {'unit': 'px', 'top': '1', 'right': '0', 'bottom': '1', 'left': '0', 'isLinked': False},
-        '__globals__': {'border_color': cor('iara-fio')},
+        '__globals__': {'border_color': cor('iara-fio'), 'background_color': cor('iara-fundo-suave')},
     }, [
         d.container(titulo, {
             'flex_direction': 'column',
@@ -966,12 +969,14 @@ def home():
                 'description_text': texto,
                 'position': 'top',
                 'title_tag': 'p',
+                'text_align': 'center',
+                'icon_size': medida(26),
             }, {
                 'primary_color': cor('primary'),
                 'title_color': cor('text'),
                 'description_color': cor('iara-texto-suave'),
-                'typography_title': fonte('iara-titulo-h3'),
-                'typography_description': fonte('text'),
+                'title_typography': fonte('iara-rotulo'),
+                'description_typography': fonte('text'),
             }), caminho='beneficios/' + str(i)),
         ], caminho='beneficios/caixa-' + str(i), interno=True)
         for i, (titulo, texto, icone) in enumerate(beneficios_itens, 1)
@@ -2090,7 +2095,32 @@ def _achata(el):
     return el
 
 
+def _ajusta_widget(el):
+    if el['elType'] != 'widget':
+        return
+    globais = el['settings'].get('__globals__', {})
+    if el['widgetType'] == 'icon-list':
+        if 'typography' in globais:
+            globais['icon_typography'] = globais.pop('typography')
+        for item in el['settings'].get('icon_list', []):
+            if 'selected_icon' not in item:
+                item['selected_icon'] = {'value': '', 'library': ''}
+    if el['widgetType'] in ('icon-box', 'image-box'):
+        if 'typography_title' in globais:
+            globais['title_typography'] = globais.pop('typography_title')
+        if 'typography_description' in globais:
+            globais['description_typography'] = globais.pop('typography_description')
+
+
+def _percorre(el):
+    _ajusta_widget(el)
+    for filho in el.get('elements', []):
+        _percorre(filho)
+
+
 def achata_documento(doc):
+    for el in doc.content:
+        _percorre(el)
     doc.content = [_achata(el) for el in doc.content]
     # raiz que so empilha secoes, sem fundo nem respiro, tambem sai
     while (len(doc.content) == 1 and doc.content[0]['elType'] == 'container'

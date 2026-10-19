@@ -61,6 +61,36 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.11 · 2026-10-19 · Causa raiz das fontes erradas: chaves de tipografia por widget
+
+**Pedido da cliente:** "analise novamente": o menu apareceu com um check na
+frente de cada item, e a home com fontes serifadas nos benefícios e nos
+títulos de seção.
+
+**Causa raiz (confirmada no código-fonte do Elementor, não é palpite)**
+
+- Item de lista de ícones sem `selected_icon` definido: o Elementor usa o
+  ícone padrão do repetidor, `fa fa-check`. Era o ✓ do menu.
+- A tipografia global da lista de ícones se chama **`icon_typography`**, e
+  a de icon-box/image-box é **`title_typography`/`description_typography`**.
+  O gerador usava `typography` e `typography_title`: o Elementor ignorava
+  a fonte global e o tema impunha a serifada (benefícios, cartões, menu).
+
+**O que mudou**
+
+- Ajuste automático no gerador, aplicado aos 24 arquivos: renomeia as
+  chaves certas por tipo de widget e define `selected_icon` vazio em todo
+  item de lista sem ícone (some o check).
+- `blocob_confere.py` ganhou a trava: chave errada ou item sem
+  `selected_icon` reprova a conferência.
+- Home: benefícios como no protótipo (rótulo em caixa alta, ícone 26px
+  centralizado, fundo suave) e o link "VER TUDO" das seções como texto
+  puro, sem o preenchimento que o botão do tema impunha.
+
+**Verificado aqui:** três conferências verdes e o JSON do cabeçalho
+impresso (menu com ícones vazios e `icon_typography`). **Não verificado:**
+a renderização no staging.
+
 ### v0.3.10 · 2026-10-19 · Cabeçalho sem depender de tema, CSS ou mídia; imagens nos templates
 
 **Pedido da cliente:** "analise minuciosamente o que está ocorrendo", "a

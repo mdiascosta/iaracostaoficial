@@ -1,5 +1,36 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Causa raiz das fontes: chaves de tipografia por widget (v0.3.11)
+
+### Pedido da cliente
+"Analise novamente": menu com check na frente de cada item (e a caixa rosa
+da seleção do editor na captura) e a home com serifadas onde o protótipo é
+Jost. O "cade o menu?" era isso: o menu estava lá, disfarçado de lista de
+checks.
+
+### Análise (IMPLEMENTADO, com fonte conferida)
+Baixei o código dos widgets no repositório do Elementor e li os controles:
+o repetidor da lista de ícones tem `fas fa-check` como ícone padrão de
+item sem ícone, e os grupos de tipografia têm nomes próprios por widget
+(`icon_typography` na lista, `title_typography` nos cartões). O gerador
+usava os nomes genéricos, o Elementor ignorava, e o tema mandava. Isso
+explica também a tagline serifada das capturas anteriores melhor do que a
+hipótese do kit não importado: onde a chave estava certa (títulos), a
+fonte entrava; onde estava errada (listas e cartões), não.
+
+### O que foi feito
+- Ajuste por tipo de widget na geração dos 24 arquivos (renomear chaves e
+  zerar o ícone de item sem ícone), trava nova na conferência, benefícios
+  da home igualados ao CSS do protótipo e "VER TUDO" sem preenchimento.
+- Fica a lição registrada: chave de controle de widget Pro continua não
+  verificável aqui (o Pro é fechado), mas a dos widgets gratuitos agora é
+  conferida na fonte, não de memória.
+
+### O que continua por verificar
+- A mesma reimportação de sempre. Com a chave certa, a fonte global entra
+  mesmo se o tema tentar impor a dele, porque quem manda no seletor é o
+  grupo de tipografia do widget.
+
 ## [2026-10-19] - Cabeçalho sem depender de tema, CSS ou mídia; imagens nos templates (v0.3.10)
 
 ### Pedido da cliente

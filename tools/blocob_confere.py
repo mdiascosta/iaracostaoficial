@@ -210,6 +210,27 @@ def conferir_arquivo(caminho, cores, fontes, problemas, resumo):
                 problemas.append(f'{nome}: fonte global "{apelido}" nao existe nas globais '
                                  f'(em {caminho_el})')
 
+    # 4b. chaves de estilo por widget (conferidas no codigo-fonte do
+    # Elementor; chave errada = tema impoe a fonte dele, foi a v0.3.11)
+    for caminho_el, el in elementos:
+        if el.get('elType') != 'widget':
+            continue
+        wt = el.get('widgetType', '')
+        globais = (el.get('settings', {}) or {}).get('__globals__', {}) or {}
+        if wt == 'icon-list':
+            if 'typography' in globais:
+                problemas.append(f'{nome}: icon-list com chave "typography" em {caminho_el}; '
+                                 f'a certa e "icon_typography"')
+            for item in (el.get('settings', {}) or {}).get('icon_list', []):
+                if 'selected_icon' not in item:
+                    problemas.append(f'{nome}: item de icon-list sem selected_icon em '
+                                     f'{caminho_el} (o Elementor desenha o check padrao)')
+        if wt in ('icon-box', 'image-box'):
+            for errada in ('typography_title', 'typography_description'):
+                if errada in globais:
+                    problemas.append(f'{nome}: {wt} com chave "{errada}" em {caminho_el}; '
+                                     f'as certas sao title_typography/description_typography')
+
     # 5. nada de link do prototipo
     texto = caminho.read_text(encoding='utf-8')
     if '.html' in texto:

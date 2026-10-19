@@ -162,15 +162,27 @@
                 "icon_list": [
                   {
                     "text": "Vestidos, blusas e saias",
-                    "_id": "6142cbf"
+                    "_id": "6142cbf",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
                   },
                   {
                     "text": "Do P ao GG",
-                    "_id": "aa591eb"
+                    "_id": "aa591eb",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
                   },
                   {
                     "text": "Troca fácil em 30 dias",
-                    "_id": "061840a"
+                    "_id": "061840a",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
                   }
                 ],
                 "space_between": {
@@ -180,7 +192,7 @@
                 },
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-discreto",
-                  "typography": "globals/typography?id=iara-texto-micro"
+                  "icon_typography": "globals/typography?id=iara-texto-micro"
                 }
               },
               "elements": []
@@ -261,12 +273,13 @@
         },
         "padding": {
           "unit": "px",
-          "top": "24",
+          "top": "34",
           "right": "0",
-          "bottom": "24",
+          "bottom": "34",
           "left": "0",
           "isLinked": false
         },
+        "background_background": "classic",
         "border_border": "solid",
         "border_width": {
           "unit": "px",
@@ -277,7 +290,8 @@
           "isLinked": false
         },
         "__globals__": {
-          "border_color": "globals/colors?id=iara-fio"
+          "border_color": "globals/colors?id=iara-fio",
+          "background_color": "globals/colors?id=iara-fundo-suave"
         },
         "_title": "Faixa de beneficios"
       },
@@ -296,12 +310,18 @@
             "description_text": "Para todo o Brasil, com rastreio.",
             "position": "top",
             "title_tag": "p",
+            "text_align": "center",
+            "icon_size": {
+              "unit": "px",
+              "size": 26,
+              "sizes": []
+            },
             "__globals__": {
               "primary_color": "globals/colors?id=primary",
               "title_color": "globals/colors?id=text",
               "description_color": "globals/colors?id=iara-texto-suave",
-              "typography_title": "globals/typography?id=iara-titulo-h3",
-              "typography_description": "globals/typography?id=text"
+              "title_typography": "globals/typography?id=iara-rotulo",
+              "description_typography": "globals/typography?id=text"
             },
             "_flex_size": "custom",
             "_flex_basis": {
@@ -327,12 +347,18 @@
             "description_text": "Primeira troca com frete nosso, pelo código de postagem dos Correios.",
             "position": "top",
             "title_tag": "p",
+            "text_align": "center",
+            "icon_size": {
+              "unit": "px",
+              "size": 26,
+              "sizes": []
+            },
             "__globals__": {
               "primary_color": "globals/colors?id=primary",
               "title_color": "globals/colors?id=text",
               "description_color": "globals/colors?id=iara-texto-suave",
-              "typography_title": "globals/typography?id=iara-titulo-h3",
-              "typography_description": "globals/typography?id=text"
+              "title_typography": "globals/typography?id=iara-rotulo",
+              "description_typography": "globals/typography?id=text"
             },
             "_flex_size": "custom",
             "_flex_basis": {
@@ -358,12 +384,18 @@
             "description_text": "No cartão, em até 6x; boleto também aceito.",
             "position": "top",
             "title_tag": "p",
+            "text_align": "center",
+            "icon_size": {
+              "unit": "px",
+              "size": 26,
+              "sizes": []
+            },
             "__globals__": {
               "primary_color": "globals/colors?id=primary",
               "title_color": "globals/colors?id=text",
               "description_color": "globals/colors?id=iara-texto-suave",
-              "typography_title": "globals/typography?id=iara-titulo-h3",
-              "typography_description": "globals/typography?id=text"
+              "title_typography": "globals/typography?id=iara-rotulo",
+              "description_typography": "globals/typography?id=text"
             },
             "_flex_size": "custom",
             "_flex_basis": {
@@ -389,12 +421,18 @@
             "description_text": "Guia de medidas por peça, na página de cada produto.",
             "position": "top",
             "title_tag": "p",
+            "text_align": "center",
+            "icon_size": {
+              "unit": "px",
+              "size": 26,
+              "sizes": []
+            },
             "__globals__": {
               "primary_color": "globals/colors?id=primary",
               "title_color": "globals/colors?id=text",
               "description_color": "globals/colors?id=iara-texto-suave",
-              "typography_title": "globals/typography?id=iara-titulo-h3",
-              "typography_description": "globals/typography?id=text"
+              "title_typography": "globals/typography?id=iara-rotulo",
+              "description_typography": "globals/typography?id=text"
             },
             "_flex_size": "custom",
             "_flex_basis": {
@@ -512,20 +550,28 @@
             {
               "id": "c5709c8",
               "elType": "widget",
-              "widgetType": "button",
+              "widgetType": "icon-list",
               "settings": {
                 "_title": "Ver tudo",
-                "text": "Ver tudo",
-                "link": {
-                  "url": "/loja/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "size": "sm",
-                "button_type": "text",
+                "view": "inline",
+                "icon_list": [
+                  {
+                    "text": "Ver tudo",
+                    "link": {
+                      "url": "/loja/",
+                      "is_external": "",
+                      "nofollow": ""
+                    },
+                    "_id": "48db9ac",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
+                  }
+                ],
                 "__globals__": {
                   "text_color": "globals/colors?id=primary",
-                  "typography": "globals/typography?id=iara-rotulo"
+                  "icon_typography": "globals/typography?id=iara-rotulo"
                 },
                 "_flex_align_self": "center"
               },
@@ -573,8 +619,8 @@
                 "__globals__": {
                   "title_color": "globals/colors?id=text",
                   "description_color": "globals/colors?id=iara-texto-suave",
-                  "typography_title": "globals/typography?id=iara-titulo-h3",
-                  "typography_description": "globals/typography?id=text"
+                  "title_typography": "globals/typography?id=iara-titulo-h3",
+                  "description_typography": "globals/typography?id=text"
                 },
                 "_flex_size": "custom",
                 "_flex_basis": {
@@ -608,8 +654,8 @@
                 "__globals__": {
                   "title_color": "globals/colors?id=text",
                   "description_color": "globals/colors?id=iara-texto-suave",
-                  "typography_title": "globals/typography?id=iara-titulo-h3",
-                  "typography_description": "globals/typography?id=text"
+                  "title_typography": "globals/typography?id=iara-titulo-h3",
+                  "description_typography": "globals/typography?id=text"
                 },
                 "_flex_size": "custom",
                 "_flex_basis": {
@@ -643,8 +689,8 @@
                 "__globals__": {
                   "title_color": "globals/colors?id=text",
                   "description_color": "globals/colors?id=iara-texto-suave",
-                  "typography_title": "globals/typography?id=iara-titulo-h3",
-                  "typography_description": "globals/typography?id=text"
+                  "title_typography": "globals/typography?id=iara-titulo-h3",
+                  "description_typography": "globals/typography?id=text"
                 },
                 "_flex_size": "custom",
                 "_flex_basis": {
@@ -678,8 +724,8 @@
                 "__globals__": {
                   "title_color": "globals/colors?id=text",
                   "description_color": "globals/colors?id=iara-texto-suave",
-                  "typography_title": "globals/typography?id=iara-titulo-h3",
-                  "typography_description": "globals/typography?id=text"
+                  "title_typography": "globals/typography?id=iara-titulo-h3",
+                  "description_typography": "globals/typography?id=text"
                 },
                 "_flex_size": "custom",
                 "_flex_basis": {
@@ -804,20 +850,28 @@
             {
               "id": "0f6004c",
               "elType": "widget",
-              "widgetType": "button",
+              "widgetType": "icon-list",
               "settings": {
                 "_title": "Ver a loja",
-                "text": "Ver a loja",
-                "link": {
-                  "url": "/loja/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "size": "sm",
-                "button_type": "text",
+                "view": "inline",
+                "icon_list": [
+                  {
+                    "text": "Ver a loja",
+                    "link": {
+                      "url": "/loja/",
+                      "is_external": "",
+                      "nofollow": ""
+                    },
+                    "_id": "b920d2f",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
+                  }
+                ],
                 "__globals__": {
                   "text_color": "globals/colors?id=primary",
-                  "typography": "globals/typography?id=iara-rotulo"
+                  "icon_typography": "globals/typography?id=iara-rotulo"
                 },
                 "_flex_align_self": "center"
               },
@@ -959,20 +1013,28 @@
             {
               "id": "7fc5942",
               "elType": "widget",
-              "widgetType": "button",
+              "widgetType": "icon-list",
               "settings": {
                 "_title": "Ver tudo",
-                "text": "Ver tudo",
-                "link": {
-                  "url": "/loja/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "size": "sm",
-                "button_type": "text",
+                "view": "inline",
+                "icon_list": [
+                  {
+                    "text": "Ver tudo",
+                    "link": {
+                      "url": "/loja/",
+                      "is_external": "",
+                      "nofollow": ""
+                    },
+                    "_id": "516081d",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
+                  }
+                ],
                 "__globals__": {
                   "text_color": "globals/colors?id=primary",
-                  "typography": "globals/typography?id=iara-rotulo"
+                  "icon_typography": "globals/typography?id=iara-rotulo"
                 },
                 "_flex_align_self": "center"
               },
@@ -1020,8 +1082,8 @@
                 "__globals__": {
                   "title_color": "globals/colors?id=text",
                   "description_color": "globals/colors?id=iara-texto-suave",
-                  "typography_title": "globals/typography?id=iara-titulo-h3",
-                  "typography_description": "globals/typography?id=text"
+                  "title_typography": "globals/typography?id=iara-titulo-h3",
+                  "description_typography": "globals/typography?id=text"
                 },
                 "_flex_size": "custom",
                 "_flex_basis": {
@@ -1055,8 +1117,8 @@
                 "__globals__": {
                   "title_color": "globals/colors?id=text",
                   "description_color": "globals/colors?id=iara-texto-suave",
-                  "typography_title": "globals/typography?id=iara-titulo-h3",
-                  "typography_description": "globals/typography?id=text"
+                  "title_typography": "globals/typography?id=iara-titulo-h3",
+                  "description_typography": "globals/typography?id=text"
                 },
                 "_flex_size": "custom",
                 "_flex_basis": {
@@ -1090,8 +1152,8 @@
                 "__globals__": {
                   "title_color": "globals/colors?id=text",
                   "description_color": "globals/colors?id=iara-texto-suave",
-                  "typography_title": "globals/typography?id=iara-titulo-h3",
-                  "typography_description": "globals/typography?id=text"
+                  "title_typography": "globals/typography?id=iara-titulo-h3",
+                  "description_typography": "globals/typography?id=text"
                 },
                 "_flex_size": "custom",
                 "_flex_basis": {
@@ -1125,8 +1187,8 @@
                 "__globals__": {
                   "title_color": "globals/colors?id=text",
                   "description_color": "globals/colors?id=iara-texto-suave",
-                  "typography_title": "globals/typography?id=iara-titulo-h3",
-                  "typography_description": "globals/typography?id=text"
+                  "title_typography": "globals/typography?id=iara-titulo-h3",
+                  "description_typography": "globals/typography?id=text"
                 },
                 "_flex_size": "custom",
                 "_flex_basis": {
@@ -1270,15 +1332,27 @@
                 "icon_list": [
                   {
                     "text": "01 · Modelagem autoral. Desenho, corte e confecção próprios, no ateliê em Cerquilho (SP).",
-                    "_id": "1ea8297"
+                    "_id": "1ea8297",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
                   },
                   {
                     "text": "02 · Tecidos de alta gramatura. Linho, algodão egípcio e viscose escolhidos pela gramatura e pelo toque.",
-                    "_id": "5f7c381"
+                    "_id": "5f7c381",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
                   },
                   {
                     "text": "03 · Compra tranquila. Troca em 30 dias, a primeira por nossa conta, e 7 dias para desistir da compra.",
-                    "_id": "6213ee3"
+                    "_id": "6213ee3",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
                   }
                 ],
                 "space_between": {
@@ -1288,7 +1362,7 @@
                 },
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "icon_typography": "globals/typography?id=text"
                 }
               },
               "elements": []
@@ -1816,20 +1890,28 @@
             {
               "id": "9408d88",
               "elType": "widget",
-              "widgetType": "button",
+              "widgetType": "icon-list",
               "settings": {
                 "_title": "Ver todos os textos",
-                "text": "Ver todos os textos",
-                "link": {
-                  "url": "/diario/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "size": "sm",
-                "button_type": "text",
+                "view": "inline",
+                "icon_list": [
+                  {
+                    "text": "Ver todos os textos",
+                    "link": {
+                      "url": "/diario/",
+                      "is_external": "",
+                      "nofollow": ""
+                    },
+                    "_id": "b399ccb",
+                    "selected_icon": {
+                      "value": "",
+                      "library": ""
+                    }
+                  }
+                ],
                 "__globals__": {
                   "text_color": "globals/colors?id=primary",
-                  "typography": "globals/typography?id=iara-rotulo"
+                  "icon_typography": "globals/typography?id=iara-rotulo"
                 },
                 "_flex_align_self": "center"
               },

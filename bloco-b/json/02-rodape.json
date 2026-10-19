@@ -300,7 +300,11 @@
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "bbf8cb5"
+                            "_id": "bbf8cb5",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Coleção Terra & Linho",
@@ -309,7 +313,11 @@
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "620fd35"
+                            "_id": "620fd35",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Guia de medidas",
@@ -318,7 +326,11 @@
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "ab0046f"
+                            "_id": "ab0046f",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Trocas e devoluções",
@@ -327,7 +339,11 @@
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "1c7676a"
+                            "_id": "1c7676a",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Contato",
@@ -336,7 +352,11 @@
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "ac8ec6c"
+                            "_id": "ac8ec6c",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           }
                         ],
                         "space_between": {
@@ -404,7 +424,11 @@
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "097c1a1"
+                            "_id": "097c1a1",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Blusas & Camisas",
@@ -413,7 +437,11 @@
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "fc1fccb"
+                            "_id": "fc1fccb",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Saias & Calças",
@@ -422,7 +450,11 @@
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "747c9f7"
+                            "_id": "747c9f7",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Acessórios",
@@ -431,7 +463,11 @@
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "d75d51f"
+                            "_id": "d75d51f",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Ver tudo",
@@ -440,7 +476,11 @@
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "90bccb2"
+                            "_id": "90bccb2",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           }
                         ],
                         "space_between": {
@@ -508,7 +548,11 @@
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "415069a"
+                            "_id": "415069a",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "(15) 99123-4567",
@@ -517,11 +561,19 @@
                               "is_external": "on",
                               "nofollow": ""
                             },
-                            "_id": "2007f5d"
+                            "_id": "2007f5d",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Segunda a sexta, das 9h às 18h",
-                            "_id": "31caed5"
+                            "_id": "31caed5",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           }
                         ],
                         "space_between": {
@@ -1662,7 +1714,11 @@
                           "is_external": "",
                           "nofollow": ""
                         },
-                        "_id": "77b5eda"
+                        "_id": "77b5eda",
+                        "selected_icon": {
+                          "value": "",
+                          "library": ""
+                        }
                       },
                       {
                         "text": "Termos de uso",
@@ -1671,7 +1727,11 @@
                           "is_external": "",
                           "nofollow": ""
                         },
-                        "_id": "aa475ab"
+                        "_id": "aa475ab",
+                        "selected_icon": {
+                          "value": "",
+                          "library": ""
+                        }
                       },
                       {
                         "text": "Trocas e devoluções",
@@ -1680,7 +1740,11 @@
                           "is_external": "",
                           "nofollow": ""
                         },
-                        "_id": "b4046d2"
+                        "_id": "b4046d2",
+                        "selected_icon": {
+                          "value": "",
+                          "library": ""
+                        }
                       },
                       {
                         "text": "Cookies",
@@ -1689,7 +1753,11 @@
                           "is_external": "",
                           "nofollow": ""
                         },
-                        "_id": "e10848b"
+                        "_id": "e10848b",
+                        "selected_icon": {
+                          "value": "",
+                          "library": ""
+                        }
                       }
                     ],
                     "space_between": {
