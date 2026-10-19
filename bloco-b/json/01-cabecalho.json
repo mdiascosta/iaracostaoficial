@@ -63,6 +63,7 @@
                 "align": "center",
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-faixa-texto",
+                  "link_color": "globals/colors?id=iara-faixa-texto",
                   "typography": "globals/typography?id=iara-texto-micro"
                 }
               },
@@ -124,14 +125,13 @@
                   "id": "b425ae5",
                   "elType": "container",
                   "settings": {
-                    "flex_direction": "row",
-                    "flex_align_items": "center",
+                    "flex_direction": "column",
                     "flex_gap": {
-                      "row": "12",
-                      "column": "12",
+                      "row": "2",
+                      "column": "2",
                       "isLinked": true,
                       "unit": "px",
-                      "size": 12
+                      "size": 2
                     },
                     "_flex_size": "grow",
                     "_flex_align_self": "center",
@@ -139,11 +139,37 @@
                   },
                   "elements": [
                     {
-                      "id": "588a1da",
+                      "id": "c9a5c5b",
                       "elType": "widget",
-                      "widgetType": "theme-site-logo",
+                      "widgetType": "heading",
                       "settings": {
-                        "_title": "Logo"
+                        "_title": "IARA COSTA",
+                        "title": "IARA COSTA",
+                        "header_size": "p",
+                        "link": {
+                          "url": "/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "typography": "globals/typography?id=primary"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "96172d8",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Moda e acessorios",
+                        "title": "Moda & Acessórios",
+                        "header_size": "p",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=iara-texto-discreto",
+                          "typography": "globals/typography?id=iara-assinatura"
+                        }
                       },
                       "elements": []
                     }

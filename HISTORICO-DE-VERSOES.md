@@ -61,6 +61,30 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.5 · 2026-10-19 · Correção do cabeçalho a partir da primeira importação real
+
+**De onde veio:** o cabeçalho foi importado no staging e a captura mostrou
+três problemas: um retângulo gigante "Logo.", os links da faixa verde em
+rosa e o menu ausente. Dois eram defeito do template; um era configuração
+que faltava no site.
+
+**O que mudou**
+
+| Problema | Correção |
+|---|---|
+| Widget Site Logo sem logo virava um placeholder enorme | a marca virou **texto** ("IARA COSTA" + "Moda & Acessórios"), que é como o protótipo aprovado sempre foi; guia e seção 2.2 atualizados |
+| Links herdavam a cor padrão do tema | os widgets de texto com link agora definem `link_color` (controle próprio do Elementor, conferido em `includes/widgets/text-editor.php`) igual à cor do texto; vale para a faixa do cabeçalho e para qualquer `paragrafo()` com link |
+| Menu vazio | não é defeito do arquivo: é o menu `principal` que ainda não existe; entrou na tabela de diagnóstico do guia |
+
+**Entrou também** a seção 4.6 no guia de importação, com a tabela de
+diagnóstico da primeira importação (incluindo o rodapé genérico do tema,
+que aparece enquanto o `02-rodape.json` não é importado com a condição).
+
+**Verificado aqui:** gerador regenerado, `blocob_confere.py` nos 24
+templates e a marca em texto presente no JSON. **Não verificado:** a nova
+renderização, que depende de reimportar no staging apagando o template
+antigo.
+
 ### v0.3.4 · 2026-10-19 · Correção: pacote para importar cores e fontes
 
 **De onde veio:** na primeira tentativa de importação, o arquivo

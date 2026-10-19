@@ -54,8 +54,10 @@ Nada de plugin nulo ou pirata, conforme a regra do projeto.
 
 - **Permalink** em "Nome do post" (o endereço com o nome da página, sem número).
 - **Staging com `noindex`** ligado, para nada aparecer no Google antes do go-live.
-- **Logo do site** em Aparência > Personalizar > Identidade do site. O template do
-  cabeçalho usa o widget "Site Logo", que pega o logo dali.
+- **Marca do cabeçalho**: a marca deste projeto é **texto** ("IARA COSTA" com a
+  assinatura "Moda & Acessórios"), como no protótipo, e já vai escrita no
+  template. Não é preciso subir imagem de logo. Se um dia a empresa tiver um
+  logotipo em imagem, ele substitui a marca em texto no editor.
 - Menu **principal** criado em Aparência > Menus, com os itens: Início, Loja,
   Coleção, Sobre, Contato. O template aponta para o menu de slug `principal`.
   Se o menu tiver outro slug, troque no editor do cabeçalho (widget Menu).
@@ -225,7 +227,7 @@ monta. São rápidos:
 | Onde | O que ajustar |
 |---|---|
 | Cabeçalho: widget Menu | apontar para o menu `principal`; ligar o menu sanfona no celular e escolher o ponto de quebra (sugestão: 1020px, igual ao protótipo) |
-| Cabeçalho: widget Site Logo | conferir tamanho do logo e o espaço ao lado |
+| Cabeçalho: marca em texto | a marca já vai escrita; trocar por imagem de logotipo só se a empresa tiver um |
 | Cabeçalho: widget Busca | escolher a pele "Minimal" (aparece só a lupa e abre ao clique) |
 | Cabeçalho: widget Sacola | conferir se some o texto e fica só o ícone com o contador |
 | Rodapé: formulário da newsletter | escolher o destino do e-mail e o serviço de newsletter (o campo está como `[PREENCHER]`) |
@@ -283,6 +285,20 @@ Os dois começam na **versão gratuita**, instalada pela equipe no staging:
 Regras de uso: instalar um por vez, testar a loja depois de cada um e medir o
 peso da página antes e depois (meta de desempenho do dossiê). Versão Pro só
 entra se o teste mostrar falta real, com nova aprovação.
+
+### 4.6 Se o cabeçalho importou torto (diagnóstico da primeira importação real)
+
+A primeira importação de verdade mostrou três problemas, já corrigidos na
+v0.3.5. Se você importou uma versão anterior, apague o template antigo e
+importe o `01-cabecalho.json` novo:
+
+| O que aparece | Causa | Correção |
+|---|---|---|
+| Um retângulo gigante escrito "Logo." | versões antigas usavam o widget Site Logo sem logo definido | corrigido: a marca agora é texto, como no protótipo |
+| Links da faixa verde em rosa ou vermelho | a cor do link não estava definida e herdou o padrão do tema | corrigido: `link_color` igual à cor do texto nos widgets de texto com link |
+| Menu não aparece | o menu `principal` ainda não existe no site | criar em Aparência > Menus (Início, Loja, Coleção, Sobre, Contato) e conferir o slug |
+| Ícones da direita apertados ou sumidos | com o "Logo." gigante, a linha estourava | some junto com a correção da marca; conferir também em tela estreita |
+| Embaixo do cabeçalho aparece um rodapé genérico do tema | o rodapé do projeto ainda não foi importado ou está sem condição | importar o `02-rodape.json` e definir **Entire Site** no Theme Builder |
 
 ---
 

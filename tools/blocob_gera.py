@@ -256,7 +256,8 @@ def cabecalho():
     aviso = d.widget('text-editor', juntar_globais({
         'editor': '<p>' + aviso_texto + '</p>',
         'align': 'center',
-    }, {'text_color': cor('iara-faixa-texto'), 'typography': fonte('iara-texto-micro')}),
+    }, {'text_color': cor('iara-faixa-texto'), 'link_color': cor('iara-faixa-texto'),
+        'typography': fonte('iara-texto-micro')}),
         caminho='faixa/aviso')
 
     faixa = d.container('Faixa de aviso', {
@@ -272,13 +273,23 @@ def cabecalho():
 
     # --- barra principal
     marca = d.container('Marca', {
-        'flex_direction': 'row',
-        'flex_align_items': 'center',
-        'flex_gap': lacuna(12, 12),
+        'flex_direction': 'column',
+        'flex_gap': lacuna(2, 2),
         '_flex_size': 'grow',
         '_flex_align_self': 'center',
     }, [
-        d.widget('theme-site-logo', {'_title': 'Logo'}, caminho='barra/logo'),
+        d.widget('heading', juntar_globais({
+            '_title': 'IARA COSTA',
+            'title': 'IARA COSTA',
+            'header_size': 'p',
+            'link': {'url': PAGINAS['home'], 'is_external': '', 'nofollow': ''},
+        }, {'title_color': cor('text'), 'typography': fonte('primary')}), caminho='barra/marca-nome'),
+        d.widget('heading', juntar_globais({
+            '_title': 'Moda e acessorios',
+            'title': 'Moda & Acessórios',
+            'header_size': 'p',
+        }, {'title_color': cor('iara-texto-discreto'), 'typography': fonte('iara-assinatura')}),
+            caminho='barra/marca-tagline'),
     ], caminho='barra/marca', interno=True)
 
     navegacao = d.container('Navegação principal', {
@@ -743,9 +754,14 @@ def titulo_secao(d, texto, caminho, nivel='h2'):
 
 
 def paragrafo(d, texto, caminho, fonte_apelido='text', cor_apelido='iara-texto-suave'):
+    globais = {'text_color': cor(cor_apelido), 'typography': fonte(fonte_apelido)}
+    if '<a ' in texto:
+        # o Elementor tem controle proprio de cor de link; sem ele, o link
+        # herda a cor padrao do tema (foi o rosa da primeira importacao)
+        globais['link_color'] = cor(cor_apelido)
     return d.widget('text-editor', juntar_globais({
         'editor': '<p>' + texto + '</p>',
-    }, {'text_color': cor(cor_apelido), 'typography': fonte(fonte_apelido)}), caminho=caminho)
+    }, globais), caminho=caminho)
 
 
 def botao(d, texto, url, caminho, estilo='primary'):

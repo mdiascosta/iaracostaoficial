@@ -1,5 +1,46 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Correção do cabeçalho pela primeira importação real (v0.3.5)
+
+### O que aconteceu
+A cliente importou o cabeçalho e mandou a captura: "importei o cabecalho e
+ficou ruim, nada a ver com nosso template". Ela tinha razão. Na tela: a
+faixa verde entrou (as cores globais importadas funcionaram), mas com os
+links em rosa; um retângulo gigante "Logo." ocupava a barra; o menu não
+aparecia; e embaixo havia o rodapé genérico do tema.
+
+### Diagnóstico
+- **"Logo." gigante**: o template usava o widget Site Logo e, sem logo
+  definido no Personalizar, o Elementor desenha o placeholder em tamanho
+  cheio. Defeito de desenho meu: a marca aprovada no protótipo é
+  **tipográfica**, nunca foi uma imagem.
+- **Links rosas**: os widgets de texto com link não definiam a cor do link,
+  que é um controle próprio do widget (`link_color` em
+  `includes/widgets/text-editor.php`, conferido no código-fonte), e o tema
+  pintou com o padrão dele.
+- **Menu ausente**: o widget aponta para o menu de slug `principal`, que
+  ainda não existe no site. Não é defeito do arquivo, mas o guia tratava
+  isso como detalhe e virou item de diagnóstico.
+- **Rodapé genérico**: é o rodapé do tema enquanto o `02-rodape.json` não é
+  importado com condição Entire Site.
+
+### Correções (IMPLEMENTADO)
+- Marca em texto no `01-cabecalho.json`: "IARA COSTA" na fonte de título
+  com link para a home e "Moda & Acessórios" na fonte da assinatura, em
+  coluna, como no rodapé.
+- `link_color` igual à cor do texto na faixa do cabeçalho e no ajudante
+  `paragrafo()` sempre que o texto tiver link (vale para todos os
+  templates, não só o cabeçalho).
+- Guia: seção 2.2 sem a exigência de logo em imagem; ajuste do editor
+  atualizado; **seção 4.6 nova** com a tabela de diagnóstico (sintoma, causa
+  e correção), incluindo apagar o template antigo e reimportar.
+- Kit do Bloco C remontado com o cabeçalho novo.
+
+### O que continua por verificar
+- A reimportação no staging: apagar o template antigo, importar o novo,
+  criar o menu `principal` e conferir a barra completa (marca, menu e os
+  quatro ícones). A captura dessa tela fecha o diagnóstico.
+
 ## [2026-10-19] - Correção: pacote para importar cores e fontes (v0.3.4)
 
 ### O que aconteceu
