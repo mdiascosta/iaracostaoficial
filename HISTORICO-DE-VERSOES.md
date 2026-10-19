@@ -61,6 +61,33 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.2.3 · 2026-10-16 · Bloco B, parte 4: o funil de compra
+
+**O que entrou**
+
+| O que | Onde |
+|---|---|
+| Sacola, com o widget clássico de carrinho e o campo de cupom | `bloco-b/json/06-carrinho.json` |
+| Finalizar compra, com o widget clássico de checkout | `bloco-b/json/07-checkout.json` |
+| Pedido recebido, com o resumo dinâmico do pedido | `bloco-b/json/08-pedido-recebido.json` |
+| Minha conta, com pedidos, endereços e dados | `bloco-b/json/09-conta.json` |
+| Lista de desejos, com o aviso de pendência do plugin | `bloco-b/json/10-desejos.json` |
+| Ajustes do funil no WooCommerce (endereços das telas, compra como visitante, cupom, noindex) | `bloco-b/GUIA-IMPORTACAO.md`, seção 4.3 |
+
+**Decisões**
+
+- **Carrinho e checkout clássicos**, como pede a aceitação do dossiê: nada de
+  blocos novos de carrinho e checkout nestas páginas.
+- **A lista de desejos não finge que funciona.** Sem plugin aprovado, a página
+  traz o aviso da pendência e o botão para a loja, e fica sem publicar.
+- **Configuração de loja não vai em arquivo de template**: compra como
+  visitante, cupom, endereços das telas e noindex são ajustes do WooCommerce e
+  do Yoast, listados no guia.
+
+**Verificado:** `tools/blocob_confere.py` passa nos 10 templates.
+**Não verificado:** importação, renderização e qualquer pedido de teste, sem
+WordPress. Pedido de teste de verdade só no staging, sem pagamento real.
+
 ### v0.2.2 · 2026-10-16 · Bloco B, parte 3: loja e página do produto
 
 **O que entrou**

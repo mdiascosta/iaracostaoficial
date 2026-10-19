@@ -203,6 +203,13 @@ monta. São rápidos:
 | Produto: galeria | ligar zoom e lightbox nativos do WooCommerce e conferir o corte 1:1 das fotos |
 | Produto: variações | cor e tamanho nascem dos atributos do produto variável; o seletor em botões (swatches) **não** é nativo e depende de plugin aprovado |
 | Produto: tabela de medidas | preencher com as medidas reais de cada peça (nada de tabela de exemplo) |
+| Sacola: cupom | deixar o campo de cupom visível: é por ele que entra o BEMVINDO10 |
+| Sacola, checkout e conta: endereços do WooCommerce | em WooCommerce > Configurações > Avançado, apontar cada tela para a página certa (sacola, finalizar compra e minha conta) |
+| Checkout: compra como visitante | ligar em WooCommerce > Configurações > Contas e privacidade, como pede o dossiê |
+| Checkout: pagamento | conferir Pix, cartão e boleto ativos na conta do Mercado Pago antes de qualquer teste |
+| Pedido recebido | conferir se o resumo aparece depois de um pedido de teste e se o e-mail de confirmação sai com o remetente da loja |
+| Conta, sacola e checkout fora do Google | marcar `noindex` no Yoast nestas três páginas e deixar fora do sitemap |
+| Desejos | não publicar até o plugin de lista de desejos ser aprovado; hoje a página traz só o aviso |
 | Site inteiro: botão do WhatsApp | usar **Floating Elements** do Elementor (Site Settings), com o número (15) 99123-4567 e a entrada depois de rolar a página, como no protótipo |
 
 ### 4.4 Uma decisão pendente: os filtros da loja
@@ -235,21 +242,21 @@ publica com categoria, ordenação e paginação, que já vêm do WooCommerce.
 | `03-home.json` | Página inicial | Página | hero, faixa de benefícios, categorias, produtos em destaque, ocasiões, editorial do ateliê, coleção, depoimentos, posts recentes e perguntas frequentes |
 | `04-loja.json` | Arquivo da loja | Arquivo de produtos | cabeçalho da loja, coluna de filtros, grade dinâmica com ordenação e paginação e a faixa verde de ajuda |
 | `05-produto.json` | Página do produto | Produto único | trilha, galeria, nome, avaliação, preço, descrição curta, variações e compra, garantias, abas do produto, relacionados e a faixa de ajuda de tamanho |
+| `06-carrinho.json` | Sacola | Página | título e o widget clássico de carrinho do WooCommerce, com campo de cupom |
+| `07-checkout.json` | Finalizar compra | Página | título e o widget clássico de checkout, com compra como visitante |
+| `08-pedido-recebido.json` | Pedido recebido | Página | resumo dinâmico do pedido e os botões para pedidos e loja |
+| `09-conta.json` | Minha conta | Página | título e o widget My Account, com pedidos, endereços e dados |
+| `10-desejos.json` | Lista de desejos | Página | título e aviso de pendência: a lista em si depende de plugin aprovado |
 
 ### 5.2 As páginas (próximas partes)
 
-A página inicial (`03-home.json`) foi entregue na parte 2, e a loja e a página do produto (`04-loja.json` e `05-produto.json`) na parte 3. Faltam:
+A página inicial (`03-home.json`) foi entregue na parte 2, e a loja e a página do produto (`04-loja.json` e `05-produto.json`) na parte 3. O funil de compra (`06` a `10`) entrou na parte 4. Faltam:
 
 Cada página do protótipo vira um arquivo. Os endereços sugeridos são os mesmos do
 protótipo, para o site nascer com os links certos.
 
 | # | Página | Arquivo previsto | Tipo no Elementor | Endereço |
 |---|---|---|---|---|
-| 06 | Sacola | `06-carrinho.json` | página (widget Cart) | `/sacola/` |
-| 07 | Finalizar compra | `07-checkout.json` | página (widget Checkout) | `/finalizar-compra/` |
-| 08 | Pedido recebido | `08-pedido-recebido.json` | página (widget Purchase Summary) | `/pedido-recebido/` |
-| 09 | Minha conta | `09-conta.json` | página (widget My Account) | `/minha-conta/` |
-| 10 | Lista de desejos | `10-desejos.json` | página | `/lista-de-desejos/` |
 | 11 | Diário | `11-blog.json` | arquivo de posts | `/diario/` |
 | 12 | Artigo | `12-post.json` | post único | `/diario/<artigo>/` |
 | 13 | Busca | `13-busca.json` | resultados de busca | `/busca/` |
@@ -324,6 +331,10 @@ Todas conferidas por `python3 tools/blocob_confere.py`:
    condições: arquivo de produtos (loja e categorias) e produto único (todas as
    peças). Decidir o caminho dos filtros (seção 4.4).
 
-Quando a loja e a página do produto estiverem no ar, o próximo lote é sacola,
-finalizar compra, pedido recebido, minha conta e desejos, que fecham o funil de
-compra.
+10. Importar as cinco páginas do funil como páginas comuns, publicar e apontar
+    cada uma no WooCommerce (Configurações > Avançado). Não publicar a lista de
+    desejos até o plugin ser aprovado.
+
+Quando o funil estiver no ar, o próximo lote é o conteúdo editorial e
+institucional: diário, artigo, busca, 404, sobre, contato, perguntas frequentes,
+guia de medidas e coleção.

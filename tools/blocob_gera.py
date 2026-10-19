@@ -227,6 +227,8 @@ PAGINAS = {
     'conta': '/minha-conta/',
     'desejos': '/lista-de-desejos/',
     'sacola': '/sacola/',
+    'checkout': '/finalizar-compra/',
+    'pedido': '/pedido-recebido/',
     'guia': '/guia-de-medidas/',
     'trocas': '/trocas-e-devolucoes/',
     'envio': '/envio-e-entrega/',
@@ -1530,6 +1532,134 @@ def produto():
     return d
 
 
+
+def pagina_compra(titulo_doc, titulo_pagina, intro, widget_tipo, widget_titulo,
+                  nota, caminho):
+    """Base das paginas do funil: titulo, avisos e um widget do WooCommerce."""
+    d = Documento(titulo_doc, 'page')
+    raiz = d.container(titulo_doc, {
+        'content_width': 'full', 'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0), 'padding': dimensoes(0, 0, 0, 0),
+    }, [
+        d.container('Cabecalho da pagina', {
+            'content_width': 'boxed', 'flex_direction': 'column',
+            'flex_gap': lacuna(12, 12), 'padding': dimensoes(40, 0, 8, 0),
+        }, [
+            d.widget('heading', juntar_globais({
+                '_title': titulo_pagina, 'title': titulo_pagina, 'header_size': 'h1',
+            }, {'title_color': cor('text'), 'typography': fonte('primary')}),
+                caminho=caminho + '/titulo'),
+            paragrafo(d, intro, caminho + '/intro'),
+        ], caminho=caminho + '/cabecalho', interno=True),
+        d.container('Conteudo da pagina', {
+            'content_width': 'boxed', 'flex_direction': 'column',
+            'flex_gap': lacuna(16, 16), 'padding': dimensoes(16, 0, 56, 0),
+        }, [
+            d.widget('woocommerce-notices', {'_title': 'Avisos do WooCommerce'},
+                     caminho=caminho + '/avisos'),
+            d.widget(widget_tipo, {'_title': widget_titulo}, caminho=caminho + '/widget'),
+            paragrafo(d, nota, caminho + '/nota', 'iara-texto-micro'),
+        ], caminho=caminho + '/conteudo', interno=True),
+    ], caminho='raiz')
+    d.content = [raiz]
+    return d
+
+
+def carrinho():
+    """06. Sacola: widget classico Cart do WooCommerce/Elementor Pro."""
+    return pagina_compra(
+        'Sacola', 'Sacola',
+        'Confira as peças, ajuste as quantidades e use o seu cupom antes de seguir. '
+        'O frete é calculado pelo CEP aqui mesmo.',
+        'woocommerce-cart', 'Sacola (dinâmica)',
+        'Widget clássico de carrinho do WooCommerce. No editor, conferir o campo de '
+        'cupom ativo: é por ele que entra o BEMVINDO10, com a limitação de primeira '
+        'compra registrada no guia. Nada de carrinho em blocos novos nesta página.',
+        'sacola')
+
+
+def checkout():
+    """07. Finalizar compra: widget classico Checkout."""
+    return pagina_compra(
+        'Finalizar compra', 'Finalizar compra',
+        'Preencha os seus dados e escolha a forma de pagamento. Você pode comprar '
+        'como visitante, sem criar conta.',
+        'woocommerce-checkout', 'Finalizar compra (dinâmico)',
+        'Widget clássico de checkout do WooCommerce. Compra como visitante, campos '
+        'e formas de pagamento são configurados no WooCommerce e no Mercado Pago, '
+        'não neste arquivo: o guia traz a lista de conferência.',
+        'checkout')
+
+
+def pedido_recebido():
+    """08. Pedido recebido: resumo da compra depois do pagamento."""
+    d = pagina_compra(
+        'Pedido recebido', 'Pedido recebido',
+        'Obrigada pela sua compra. Assim que o pagamento for confirmado, você '
+        'recebe os detalhes por e-mail.',
+        'woocommerce-purchase-summary', 'Resumo do pedido (dinâmico)',
+        'Este resumo mostra o pedido real de quem acabou de comprar. Os e-mails de '
+        'confirmação são do WooCommerce: remetente, SPF, DKIM e DMARC entram na '
+        'lista de conferência do go-live, no Bloco C.',
+        'pedido')
+    # botoes de saida, depois do resumo
+    conteudo = d.content[0]['elements'][1]
+    conteudo['elements'].append(
+        d.container('Saidas do pedido', {
+            'content_width': 'full', 'flex_direction': 'row', 'flex_wrap': 'wrap',
+            'flex_gap': lacuna(12, 12),
+        }, [
+            botao(d, 'Acompanhar meus pedidos', PAGINAS['conta'], 'pedido/botao-pedidos'),
+            botao(d, 'Continuar comprando', PAGINAS['loja'], 'pedido/botao-loja', 'outline'),
+        ], caminho='pedido/saidas', interno=True))
+    return d
+
+
+def conta():
+    """09. Minha conta: pedidos, enderecos e dados, pelo WooCommerce."""
+    return pagina_compra(
+        'Minha conta', 'Minha conta',
+        'Acompanhe os seus pedidos, guarde endereços e atualize os seus dados.',
+        'woocommerce-my-account', 'Minha conta (dinâmica)',
+        'Pedidos, downloads desligados, endereços e detalhes da conta são as telas '
+        'nativas do WooCommerce. Esta página fica fora do sitemap e com noindex, '
+        'como pede o dossiê.',
+        'conta')
+
+
+def desejos():
+    """10. Lista de desejos: depende de plugin aprovado."""
+    d = Documento('Lista de desejos', 'page')
+    raiz = d.container('Lista de desejos', {
+        'content_width': 'full', 'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0), 'padding': dimensoes(0, 0, 0, 0),
+    }, [
+        d.container('Cabecalho da pagina', {
+            'content_width': 'boxed', 'flex_direction': 'column',
+            'flex_gap': lacuna(12, 12), 'padding': dimensoes(40, 0, 8, 0),
+        }, [
+            d.widget('heading', juntar_globais({
+                '_title': 'Lista de desejos', 'title': 'Lista de desejos',
+                'header_size': 'h1',
+            }, {'title_color': cor('text'), 'typography': fonte('primary')}),
+                caminho='desejos/titulo'),
+            paragrafo(d, 'As peças que você salvou ficam guardadas aqui.', 'desejos/intro'),
+        ], caminho='desejos/cabecalho', interno=True),
+        d.container('Conteudo da pagina', {
+            'content_width': 'boxed', 'flex_direction': 'column',
+            'flex_gap': lacuna(16, 16), 'padding': dimensoes(16, 0, 56, 0),
+        }, [
+            paragrafo(d, ('[A DEFINIR] Esta página depende do plugin de lista de desejos, '
+                          'que ainda não foi aprovado. Quando ele for escolhido, o bloco de '
+                          'produtos salvos entra aqui, no lugar deste aviso, e o coração do '
+                          'cabeçalho passa a apontar para esta lista.'), 'desejos/aviso'),
+            botao(d, 'Ver a loja', PAGINAS['loja'], 'desejos/botao'),
+        ], caminho='desejos/conteudo', interno=True),
+    ], caminho='raiz')
+    d.content = [raiz]
+    return d
+
+
 # --------------------------------------------------------------------------
 # 4. ARQUIVOS GLOBAIS (Site Settings)
 # --------------------------------------------------------------------------
@@ -1582,6 +1712,11 @@ FABRICAS = [
     ('03-home.json', home),
     ('04-loja.json', loja),
     ('05-produto.json', produto),
+    ('06-carrinho.json', carrinho),
+    ('07-checkout.json', checkout),
+    ('08-pedido-recebido.json', pedido_recebido),
+    ('09-conta.json', conta),
+    ('10-desejos.json', desejos),
 ]
 
 

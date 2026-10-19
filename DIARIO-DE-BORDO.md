@@ -1,5 +1,52 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Bloco B, parte 4: o funil de compra (v0.2.3)
+
+### Pedido da cliente
+"Pode continuar", depois da loja e da página do produto (parte 3, PR #7).
+Segui para o funil: sacola, finalizar compra, pedido recebido, minha conta e
+desejos.
+
+### O que foi feito (IMPLEMENTADO)
+- **`bloco-b/json/06-carrinho.json`** e **`07-checkout.json`**: título, avisos do
+  WooCommerce e os widgets clássicos Cart e Checkout do Elementor Pro.
+- **`bloco-b/json/08-pedido-recebido.json`**: resumo dinâmico do pedido
+  (Purchase Summary) e os botões "Acompanhar meus pedidos" e "Continuar
+  comprando".
+- **`bloco-b/json/09-conta.json`**: widget My Account, com pedidos, endereços e
+  dados nas telas nativas do WooCommerce.
+- **`bloco-b/json/10-desejos.json`**: título, aviso `[A DEFINIR]` da pendência
+  do plugin e botão para a loja.
+- **`tools/blocob_gera.py`**: ajudante `pagina_compra()` para as páginas que são
+  um widget do WooCommerce com título e nota.
+- **Documentos**: ajustes do funil no guia (endereços das telas no
+  WooCommerce, compra como visitante, cupom visível, noindex nas três páginas
+  do funil), tabelas e ordem de trabalho.
+
+### Decisões tomadas
+- **Clássico, não blocos**: a aceitação do dossiê pede carrinho e checkout
+  clássicos, então os widgets são os clássicos do Elementor Pro.
+- **Desejos sem publicar**: sem plugin aprovado, a página é um aviso honesto.
+  Publicar uma lista vazia quebrada seria pior.
+- **O que é ajuste de painel ficou no guia**, não no arquivo: endereços das
+  telas, compra como visitante, cupom BEMVINDO10 com limitação de primeira
+  compra documentada, e noindex de sacola, checkout e conta fora do sitemap.
+
+### O que foi verificado aqui
+- `python3 tools/blocob_confere.py`: 10 templates, "resultado: tudo certo".
+- `python3 tools/check.py`: o protótipo segue em "tudo certo".
+
+### O que não foi verificado
+- **Nenhuma importação, renderização ou pedido de teste** (sem WordPress).
+- **Pedido de teste com BEMVINDO10 e transferência** é da equipe no staging,
+  sem pagamento real, e depois o pedido é apagado (aceitação do dossiê).
+- **E-mails transacionais** (remetente, SPF, DKIM, DMARC) são do Bloco C.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Plugin de lista de desejos e plugin de swatches, os dois com aprovação prévia.
+- Caminho dos filtros da loja (seção 4.4 do guia).
+- Todo o resto das partes anteriores.
+
 ## [2026-10-16] - Bloco B, parte 3: loja e página do produto (v0.2.2)
 
 ### Pedido da cliente

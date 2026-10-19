@@ -1,4 +1,4 @@
-BLOCO B · TEMPLATES DO ELEMENTOR · PARTE 3 · 16/10/2026
+BLOCO B · TEMPLATES DO ELEMENTOR · PARTE 4 · 16/10/2026
 
 
 O QUE E ESTA PASTA
@@ -18,6 +18,11 @@ O QUE TEM AQUI DENTRO
   json/04-loja.json         loja (filtros, grade de produtos, ordenacao e paginacao)
   json/05-produto.json      pagina da peca (galeria, variacoes, compra, abas e
                             produtos relacionados)
+  json/06-carrinho.json     sacola (carrinho classico do WooCommerce, com cupom)
+  json/07-checkout.json     finalizar compra (checkout classico, como visitante)
+  json/08-pedido-recebido.json   resumo do pedido depois da compra
+  json/09-conta.json        minha conta (pedidos, enderecos e dados)
+  json/10-desejos.json      lista de desejos (aguarda o plugin ser aprovado)
   globais/cores-e-fontes.json   as 15 cores e as 10 fontes do site, por nome
 
 
@@ -35,6 +40,9 @@ ORDEM DE TRABALHO
      inicial do site; depois fazer os ajustes da secao 4.3 do guia.
   6. Importar a loja e a pagina da peca pelo Theme Builder, com as condicoes de
      exibicao da secao 8, e decidir o caminho dos filtros (secao 4.4).
+  7. Importar as paginas do funil (sacola, finalizar compra, pedido recebido e
+     minha conta), publicar e apontar cada uma no WooCommerce. A lista de
+     desejos fica sem publicar ate o plugin ser aprovado.
 
 
 AVISO IMPORTANTE

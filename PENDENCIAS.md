@@ -139,6 +139,10 @@ estiverem habilitadas na conta do Mercado Pago.
 | Plugin de swatches (cor e tamanho em botões) | página do produto | sem plugin, o WooCommerce usa o seletor padrão; precisa de aprovação prévia |
 | Widgets de produto do Elementor Pro no staging | `bloco-b/json/05-produto.json` | conferir na instalação se a versão licenciada traz todos os widgets usados |
 
+| Apontar as telas do funil no WooCommerce | sacola, finalizar compra, pedido recebido e minha conta | Configurações > Avançado do WooCommerce, depois de publicar as páginas |
+| Pedido de teste com BEMVINDO10 e transferência | staging, sem pagamento real | depois do teste, apagar o pedido (aceitação do dossiê) |
+| `noindex` e fora do sitemap: sacola, checkout e conta | Yoast, nas três páginas | conferir antes do go-live e de novo depois dele |
+
 ## Como usar este documento
 
 - **Nada aqui foi inventado para preencher espaço.** Onde não havia informação

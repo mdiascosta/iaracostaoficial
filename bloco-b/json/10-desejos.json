@@ -1,0 +1,151 @@
+{
+  "content": [
+    {
+      "id": "f863b75",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "0",
+          "column": "0",
+          "isLinked": true,
+          "unit": "px",
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        },
+        "_title": "Lista de desejos"
+      },
+      "elements": [
+        {
+          "id": "d97b27e",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "12",
+              "column": "12",
+              "isLinked": true,
+              "unit": "px",
+              "size": 12
+            },
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "8",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Cabecalho da pagina"
+          },
+          "elements": [
+            {
+              "id": "b54c5ae",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Lista de desejos",
+                "title": "Lista de desejos",
+                "header_size": "h1",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=primary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "2da1ee0",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>As peças que você salvou ficam guardadas aqui.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "6bcdc1b",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "16",
+              "column": "16",
+              "isLinked": true,
+              "unit": "px",
+              "size": 16
+            },
+            "padding": {
+              "unit": "px",
+              "top": "16",
+              "right": "0",
+              "bottom": "56",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Conteudo da pagina"
+          },
+          "elements": [
+            {
+              "id": "c1b8d47",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[A DEFINIR] Esta página depende do plugin de lista de desejos, que ainda não foi aprovado. Quando ele for escolhido, o bloco de produtos salvos entra aqui, no lugar deste aviso, e o coração do cabeçalho passa a apontar para esta lista.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "4ce8364",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "_title": "Ver a loja",
+                "text": "Ver a loja",
+                "link": {
+                  "url": "/loja/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "size": "md",
+                "__globals__": {
+                  "typography": "globals/typography?id=accent",
+                  "button_background_color": "globals/colors?id=primary",
+                  "text_color": "globals/colors?id=iara-branco"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": [],
+  "version": "0.4",
+  "title": "Lista de desejos",
+  "type": "page"
+}
