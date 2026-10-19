@@ -147,6 +147,10 @@ estiverem habilitadas na conta do Mercado Pago.
 | Textos jurídicos finais (privacidade, termos e cookies) | `bloco-b/json/22 a 24` | os arquivos são esqueleto com `[PREENCHER]`; nascem como rascunho |
 | Fotos dos três capítulos da coleção e da home | `19-lookbook.json` e `03-home.json` | widgets de imagem vazios de propósito |
 
+| Catalogo real para substituir o de exemplo | `bloco-c/produtos.csv` | descricoes, composicao, fotos, peso (kg), dimensoes (cm), estoque por variacao e numeracao de calcados |
+| Revisao e assinatura dos 8 posts | `bloco-c/posts.csv` | textos em rascunho com `[PREENCHER: quem assina]`; publicar so aprovados |
+| Importar os CSVs em staging e conferir | WooCommerce > Produtos > Importar | nenhuma importacao foi testada aqui |
+
 ## Como usar este documento
 
 - **Nada aqui foi inventado para preencher espaço.** Onde não havia informação

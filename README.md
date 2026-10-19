@@ -10,8 +10,12 @@ antes de qualquer coisa ir para o WordPress. Ele fica congelado em
 `template-v0.1.20/`, e o que ainda depende de informacao da empresa esta em
 `PENDENCIAS.md`.
 
-O **Bloco B esta em andamento (versao 0.2.5)**: sao os templates do Elementor em
-`bloco-b/`, entregues em partes. Ja estao prontas as cores e as fontes globais
+O **Bloco B esta completo na versao 0.2.5**: os 24 templates do
+Elementor em `bloco-b/`, com as cores e as fontes globais do site.
+
+O **Bloco C esta em andamento (versao 0.3.0)**: comeca pelos arquivos que
+alimentam a loja e o diario, `bloco-c/produtos.csv` e `bloco-c/posts.csv`,
+com o passo a passo em `bloco-c/IMPORTACAO-CSV.md`. Ja estao prontas as cores e as fontes globais
 do site, o cabecalho, o rodape, a pagina inicial, a loja, a pagina do produto e o funil de compra. O guia de importacao esta em
 `bloco-b/GUIA-IMPORTACAO.md`.
 
@@ -26,6 +30,7 @@ do site, o cabecalho, o rodape, a pagina inicial, a loja, a pagina do produto e 
 | `template-v0.1.18/` | Copia congelada da versao 0.1.18, guardada tambem. Uma pasta por versao fechada |
 | `PENDENCIAS.md` | O que ainda depende de informacao da empresa, por assunto |
 | `bloco-b/` | Templates do Elementor (Bloco B): os `.json` de importacao e o guia |
+| `bloco-c/` | Dados e guias de instalacao (Bloco C): CSVs, kit e guias |
 | `tools/` | Gerador das paginas e as verificacoes (Python e Node) |
 | `VERSION` | Numero da versao atual do template |
 | `HISTORICO-DE-VERSOES.md` | O que mudou em cada versao, com a data e o pedido que originou |

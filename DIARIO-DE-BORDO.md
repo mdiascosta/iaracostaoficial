@@ -1,5 +1,62 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Bloco C, parte 1: produtos e posts em CSV (v0.3.0)
+
+### Registro anterior
+O PR #7 foi mergeado em 19/10/2026 (merge `ec200d7`) e o Bloco B ficou
+fechado na main na v0.2.5, com os 24 templates. Registro sem mudanca de versao,
+como nos merges anteriores.
+
+### Pedido da cliente
+"pode continuar". Comecei o Bloco C pelos arquivos que alimentam a loja e o
+diario.
+
+### O que foi feito (IMPLEMENTADO)
+- **`bloco-c/produtos.csv`**: os 12 produtos de exemplo do prototipo
+  (`tools/produtos.json`) no formato do importador do WooCommerce: 10
+  variaveis com 56 variacoes (1 linha por combinacao de cor e tamanho, ligada
+  ao pai pelo SKU), 2 simples, atributos Cor e Tamanho globais, os 4 destaques
+  da home marcados, tudo com Published = 0.
+- **`bloco-c/posts.csv`**: 8 posts em rascunho com blocos do Gutenberg. Os
+  titulos e resumos sao os cartoes aprovados do blog; o corpo e rascunho de
+  trabalho a partir deles, com o fecho lembrando a revisao e o autor como
+  `[PREENCHER: quem assina]`.
+- **`bloco-c/IMPORTACAO-CSV.md`** e **`bloco-c/LEIA-ME.txt`**: como importar,
+  o que conferir e o que estes arquivos nao resolvem.
+- **`tools/blococ_gera_csv.py`** e **`tools/blococ_confere.py`**: gerador
+  deterministico e conferencia (SKU unico, pai de variacao, combinacoes sem
+  repeticao, preco, rascunho e pares de blocos).
+
+### Decisoes tomadas
+- **Tudo em rascunho, sem excecao**: e catalogo e texto de exemplo.
+- **Peso, dimensoes e quantidade de estoque vazios**: inventar esses numeros
+  quebraria o calculo de frete e venderia o que nao existe. Entram com o
+  cadastro real.
+- **Sem plugin importador de posts**: o WordPress nao importa CSV de posts
+  nativamente; o caminho honesto para 8 posts e o manual, e plugin novo so
+  com aprovacao.
+- A sandalia ficou com tamanho "Unico", como esta no prototipo: registrei no
+  guia para conferir a numeracao real de calcados antes de publicar.
+
+### O que foi verificado aqui
+- `python3 tools/blococ_confere.py`: produtos e posts, "resultado: tudo certo".
+- `python3 tools/blocob_confere.py`: os 24 templates seguem conferidos.
+- `python3 tools/check.py`: o prototipo do Bloco A segue intacto.
+
+### O que nao foi verificado
+- **Nenhuma importacao** (sem WordPress, painel ou banco).
+- Se o importador do staging aceita o mapeamento de colunas sem ajuste.
+- Nenhuma medida de desempenho.
+
+### O que continua em aberto (AGUARDA INFORMACAO)
+- Catalogo real: descricoes, composicao, fotos, peso, dimensoes, estoque e
+  numeracao de calcados.
+- Quem assina os posts e a revisao dos 8 textos.
+- Proximas partes do Bloco C: `pages-conteudo.md`, o kit de instalacao e os
+  guias (instalacao, seguranca, SEO, testes, desempenho, e-mail, go-live e
+  nota fiscal). Plugin proprio (`plugin-iara-custom.zip`) so se for
+  indispensavel, e nada ate aqui mostrou que seja.
+
 ## [2026-10-16] - Bloco B, parte 5 (final): editorial, institucional e legal (v0.2.5)
 
 ### Pedido da cliente
