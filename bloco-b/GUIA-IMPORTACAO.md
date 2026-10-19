@@ -58,9 +58,12 @@ Nada de plugin nulo ou pirata, conforme a regra do projeto.
   assinatura "Moda & Acessórios"), como no protótipo, e já vai escrita no
   template. Não é preciso subir imagem de logo. Se um dia a empresa tiver um
   logotipo em imagem, ele substitui a marca em texto no editor.
-- Menu **principal** criado em Aparência > Menus, com os itens: Início, Loja,
-  Coleção, Sobre, Contato. O template aponta para o menu de slug `principal`.
-  Se o menu tiver outro slug, troque no editor do cabeçalho (widget Menu).
+- Menu **Menu Principal** criado em Aparência > Menus, com os itens: Início,
+  Loja, Coleção, Sobre, Contato. O widget identifica o menu pelo **slug**:
+  o menu chamado "Menu Principal" tem o slug automático `menu-principal`,
+  e é para ele que o cabeçalho aponta desde a v0.3.16. Se um dia o menu
+  for renomeado, confira o slug (ele aparece na tela de edição do menu)
+  e troque no editor do cabeçalho (widget Menu).
 
 ---
 
@@ -356,7 +359,7 @@ importe o `01-cabecalho.json` novo:
 | Faixa verde com ícones (caminhão, folha, globo) | a cliente comparou com o protótipo: lá a faixa é texto em caixa alta separado por pontos, sem ícone | corrigido na v0.3.8: texto igual ao do protótipo, com a fonte global nova **Texto da faixa** (Jost 12px, caixa alta). A lista de ícones da v0.3.6 saiu |
 | Containers demais nos outros 23 arquivos | embrulhos de um elemento só, sem fundo, borda nem respiro | a v0.3.8 achata esses embrulhos na geração: de **216 para 176 containers** nos 24 arquivos, sem mudar o desenho (a largura do embrulho passa para o elemento de dentro) |
 | Hero da home com a foto embaixo do texto (e duas colunas quebrando em outras páginas) | as colunas somavam 52% + 44% e, com o respiro de 40px, passavam de 100%: a linha quebrava e a foto caía | corrigido na v0.3.15 na geração: linha de colunas que somam ~100% nasce **sem quebra** (`nowrap`). Vale para hero, editorial, coleção, lookbook e produto |
-| Menu sem a linha embaixo do item atual (página ativa) | menu em lista de ícones não tem como saber em que página a pessoa está; quem marca o item atual é o WordPress | na v0.3.15 o menu voltou a ser o **widget de menu do WordPress** (slug `principal`), com a fonte Jost e o sublinhado do item ativo pelo CSS geral do kit (classe `iara-menu-nav`). Pré-requisito que voltou a valer: o menu `principal` precisa existir em Aparência > Menus com Início, Loja, Coleção, Sobre, Contato |
+| Menu sem a linha embaixo do item atual (página ativa) | menu em lista de ícones não tem como saber em que página a pessoa está; quem marca o item atual é o WordPress | na v0.3.15 o menu voltou a ser o **widget de menu do WordPress** (slug `menu-principal`), com a fonte Jost e o sublinhado do item ativo pelo CSS geral do kit (classe `iara-menu-nav`). Pré-requisito que voltou a valer: o menu **Menu Principal** precisa existir em Aparência > Menus com Início, Loja, Coleção, Sobre, Contato |
 | Links rosas/magenta na Minha Conta (e no carrinho/checkout) | são os links que o WooCommerce desenha, com a cor de link do tema; não passam por nenhum widget nosso | corrigidos no CSS geral que viaja no kit (v0.3.15): navegação da conta sem marcador, links em Terracota Escuro, item atual sublinhado. Se ainda sobrar rosa, é a cor de link do tema falando mais alto: conferir Personalizar > cores do tema |
 | Link do menu sem efeito ao passar o mouse (sem cor de hover nem sublinhado) | o widget de lista de ícones só tinha a cor normal pelas globais; o hover existia só no CSS separado, que nenhuma importação carregava | corrigido na v0.3.14 nas duas pontas: o widget ganhou a cor de hover pela global de destaque (`text_color_hover`) e o CSS geral, com as regras do link do menu, passou a viajar **dentro** do kit completo (chave `custom_css`) |
 | Menu continua serifado e a sacola continua com caixa, mesmo com o JSON novo | a tipografia e o botão do carrinho são do tema/widgets Pro, e o JSON não vence essa briga sozinho | **v0.3.9, com autorização da cliente:** cole o conteúdo de `bloco-b/css/iara-cabecalho.css` em **Elementor > Configurações do site > CSS personalizado** (se a opção não existir, em Personalizar > CSS adicional). É o CSS do protótipo mirando nas classes `iara-*` do cabeçalho: menu em Jost 12px em linha, sacola sem caixa e sem valor, faixa e ícones conferidos |

@@ -341,12 +341,15 @@ def cabecalho():
     # tem como marcar a pagina atual, e o prototipo tem item ativo com
     # sublinhado: quem marca o item atual e o WordPress, neste widget.
     # A fonte Jost e o sublinhado vem do CSS geral que viaja no kit
-    # (classe iara-menu-nav), nao da fonte do tema. Pre-requisito: existir
-    # o menu de slug "principal" em Aparencia > Menus (guia, secao 2).
+    # (classe iara-menu-nav), nao da fonte do tema. O widget identifica o
+    # menu pelo SLUG (conferido no codigo do widget: as opcoes sao
+    # $menu->slug). A cliente criou o menu "Menu Principal" em Aparencia >
+    # Menus, cujo slug automatico e "menu-principal": e para ele que o
+    # widget aponta (v0.3.16).
     menu = d.widget('nav-menu', {
         '_title': 'Menu principal',
         'css_classes': 'iara-menu-nav',
-        'menu': 'principal',
+        'menu': 'menu-principal',
         'layout': 'horizontal',
         'pointer': 'underline',
         '_flex_size': 'grow',

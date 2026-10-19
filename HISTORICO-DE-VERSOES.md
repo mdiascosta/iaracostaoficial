@@ -61,6 +61,24 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.16 · 2026-10-19 · Menu do cabeçalho aponta para o "Menu Principal" criado
+
+**Pedido da cliente:** trocar o menu em lista de ícones pelo menu do
+WordPress que ela já fez, chamado **Menu Principal**. (O widget já tinha
+voltado a ser o de menu na v0.3.15; faltava o endereço certo.)
+
+**Verificação:** no código do widget de menu (Nav Menu do Pro), as
+opções do controle são gravadas pelo **slug** do menu
+(`$options[$menu->slug]`). Um menu criado com o nome "Menu Principal"
+ganha o slug automático `menu-principal`, e o template apontava para
+`principal`: menu certo, endereço errado, e o widget não desenharia
+nada. O cabeçalho agora aponta para `menu-principal`, e o guia registra
+onde conferir o slug se o menu for renomeado.
+
+**Verificado aqui:** três conferências verdes e o slug impresso no JSON
+do cabeçalho. **Não verificado:** os itens do menu criado pela cliente
+(Início, Loja, Coleção, Sobre, Contato) e a renderização no staging.
+
 ### v0.3.15 · 2026-10-19 · Hero sem quebra de coluna, menu ativo de verdade e links do WooCommerce
 
 **Relato da cliente:** links ok, mas "o layout da home ainda continua

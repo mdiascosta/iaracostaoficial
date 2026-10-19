@@ -1,5 +1,24 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Menu aponta para o "Menu Principal" da cliente (v0.3.16)
+
+### Pedido da cliente
+"o menu em lista de ícones -> coloca o menu do wordpress que ja fiz,
+chama Menu Principal". O widget já tinha voltado a ser o do WordPress
+na v0.3.15; o que faltava era apontar para o menu dela.
+
+### O que foi feito (IMPLEMENTADO)
+Conferi no código do widget como ele identifica o menu: pelo slug. O
+menu "Menu Principal" tem slug automático `menu-principal`, e o nosso
+apontava para `principal`. Troquei o slug no gerador (uma linha, com o
+motivo comentado), atualizei o guia onde ele citava o slug antigo e
+registrei. Menu em lista de ícones, agora, só onde a lista é fixa por
+desenho (faixa de recados, benefícios, links do rodapé).
+
+### O que continua por verificar
+- O menu aparecer com os itens dela e a linha andando no item ativo,
+  na próxima importação do kit.
+
 ## [2026-10-19] - Hero, menu ativo e links do WooCommerce (v0.3.15)
 
 ### Relato da cliente
