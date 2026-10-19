@@ -121,7 +121,7 @@ def main():
         with zipfile.ZipFile(kit) as z:
             nomes = z.namelist()
         guias_repo = sorted((PASTA / 'guias').glob('*.md')) if (PASTA / 'guias').exists() else []
-        esperado = 33 + len(guias_repo)
+        esperado = 34 + len(guias_repo)
         if len(nomes) != esperado or 'LEIA-ME.txt' not in nomes:
             problemas.append(f'iara-costa-kit.zip: {len(nomes)} arquivos (esperado {esperado} com LEIA-ME); remonte o kit')
         if sum(1 for n in nomes if n.startswith('bloco-b/json/')) != 24:

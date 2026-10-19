@@ -102,7 +102,7 @@
           "settings": {
             "_title": "Foto do capítulo (escolher no editor)",
             "image": {
-              "url": "",
+              "url": "https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/cap-terracota.jpg",
               "id": ""
             },
             "image_size": "full",
@@ -247,7 +247,7 @@
           "settings": {
             "_title": "Foto do capítulo (escolher no editor)",
             "image": {
-              "url": "",
+              "url": "https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/cap-salvia.jpg",
               "id": ""
             },
             "image_size": "full",
@@ -388,7 +388,7 @@
           "settings": {
             "_title": "Foto do capítulo (escolher no editor)",
             "image": {
-              "url": "",
+              "url": "https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/cap-cru.jpg",
               "id": ""
             },
             "image_size": "full",

@@ -9,13 +9,6 @@
         "flex_direction": "row",
         "flex_justify_content": "center",
         "flex_align_items": "center",
-        "flex_gap": {
-          "row": "8",
-          "column": "8",
-          "isLinked": true,
-          "unit": "px",
-          "size": 8
-        },
         "padding": {
           "unit": "px",
           "top": "9",
@@ -34,14 +27,60 @@
         {
           "id": "c8eb2f2",
           "elType": "widget",
-          "widgetType": "text-editor",
+          "widgetType": "icon-list",
           "settings": {
             "_title": "Recados da faixa",
-            "editor": "<p>FRETE GRÁTIS ACIMA DE R$ 299 &nbsp;·&nbsp; <a href=\"/sobre/\">COMPRA CONSCIENTE</a> &nbsp;·&nbsp; <a href=\"/envio-e-entrega/\">ENVIO PARA TODO O BRASIL</a></p>",
-            "align": "center",
+            "css_classes": "iara-faixa-lista",
+            "view": "inline",
+            "icon_list": [
+              {
+                "text": "FRETE GRÁTIS ACIMA DE R$ 299",
+                "selected_icon": {
+                  "value": "fas fa-truck",
+                  "library": "fa-solid"
+                },
+                "_id": "739539a"
+              },
+              {
+                "text": "COMPRA CONSCIENTE",
+                "selected_icon": {
+                  "value": "fas fa-leaf",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "/sobre/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "_id": "55d76bc"
+              },
+              {
+                "text": "ENVIO PARA TODO O BRASIL",
+                "selected_icon": {
+                  "value": "fas fa-globe-americas",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "/envio-e-entrega/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "_id": "26f088d"
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 22,
+              "sizes": []
+            },
+            "icon_size": {
+              "unit": "px",
+              "size": 12,
+              "sizes": []
+            },
             "__globals__": {
               "text_color": "globals/colors?id=iara-faixa-texto",
-              "link_color": "globals/colors?id=iara-faixa-texto",
+              "icon_color": "globals/colors?id=iara-faixa-texto",
               "typography": "globals/typography?id=iara-faixa"
             }
           },
@@ -68,9 +107,9 @@
         },
         "padding": {
           "unit": "px",
-          "top": "14",
+          "top": "13",
           "right": "0",
-          "bottom": "14",
+          "bottom": "13",
           "left": "0",
           "isLinked": false
         },
@@ -92,49 +131,133 @@
       },
       "elements": [
         {
-          "id": "f000335",
-          "elType": "widget",
-          "widgetType": "theme-site-logo",
+          "id": "b425ae5",
+          "elType": "container",
           "settings": {
-            "_title": "Logotipo",
-            "css_classes": "iara-marca",
-            "link_to": "custom",
-            "link": {
-              "url": "/",
-              "is_external": "",
-              "nofollow": ""
-            },
-            "align": "left",
-            "width": {
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "2",
+              "column": "2",
+              "isLinked": true,
               "unit": "px",
-              "size": 190,
-              "sizes": []
+              "size": 2
             },
             "_flex_size": "custom",
+            "_flex_basis_type": "custom",
             "_flex_basis": {
               "unit": "%",
               "size": 24,
               "sizes": []
             },
-            "_flex_basis_type": "custom",
-            "_flex_align_self": "center"
+            "_flex_align_self": "center",
+            "_title": "Marca"
           },
-          "elements": []
+          "elements": [
+            {
+              "id": "c9a5c5b",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "IARA COSTA",
+                "title": "IARA COSTA",
+                "header_size": "p",
+                "css_classes": "iara-marca-nome",
+                "link": {
+                  "url": "/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=primary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "96172d8",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Moda e acessorios",
+                "title": "MODA & ACESSÓRIOS",
+                "header_size": "p",
+                "css_classes": "iara-marca-tagline",
+                "__globals__": {
+                  "title_color": "globals/colors?id=iara-texto-discreto",
+                  "typography": "globals/typography?id=iara-assinatura"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
         },
         {
           "id": "0c4fa0c",
           "elType": "widget",
-          "widgetType": "nav-menu",
+          "widgetType": "icon-list",
           "settings": {
             "_title": "Menu principal",
-            "menu": "principal",
-            "layout": "horizontal",
-            "pointer": "underline",
             "css_classes": "iara-menu",
+            "view": "inline",
+            "icon_list": [
+              {
+                "text": "Home",
+                "link": {
+                  "url": "/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "_id": "a4a8b09"
+              },
+              {
+                "text": "Loja",
+                "link": {
+                  "url": "/loja/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "_id": "202a911"
+              },
+              {
+                "text": "Coleção",
+                "link": {
+                  "url": "/colecao/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "_id": "832c6a9"
+              },
+              {
+                "text": "Sobre",
+                "link": {
+                  "url": "/sobre/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "_id": "e4c6d44"
+              },
+              {
+                "text": "Contato",
+                "link": {
+                  "url": "/contato/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "_id": "cde3a60"
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 28,
+              "sizes": []
+            },
             "_flex_size": "grow",
             "_flex_align_self": "center",
             "__globals__": {
-              "menu_item_color": "globals/colors?id=iara-menu"
+              "text_color": "globals/colors?id=iara-menu",
+              "typography": "globals/typography?id=iara-menu"
             }
           },
           "elements": []
@@ -246,17 +369,26 @@
             {
               "id": "188d5ad",
               "elType": "widget",
-              "widgetType": "woocommerce-menu-cart",
+              "widgetType": "icon",
               "settings": {
                 "_title": "Sacola",
-                "css_classes": "iara-sacola",
-                "menu_cart_icon": {
+                "selected_icon": {
                   "value": "fas fa-shopping-bag",
                   "library": "fa-solid"
                 },
-                "items_indicator": "bubble",
-                "show_subtotal": "",
-                "show_remove_icon": ""
+                "link": {
+                  "url": "/sacola/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "size": {
+                  "unit": "px",
+                  "size": 20,
+                  "sizes": []
+                },
+                "__globals__": {
+                  "primary_color": "globals/colors?id=text"
+                }
               },
               "elements": []
             }

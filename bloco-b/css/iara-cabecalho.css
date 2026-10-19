@@ -1,82 +1,53 @@
 /* ==========================================================================
-   IARA COSTA · CSS do cabecalho para o Elementor (v0.3.9)
-   Fonte: o CSS aprovado do prototipo (seu-projeto/assets/css/header.css).
-   Onde colar: Elementor > Configuracoes do site > CSS personalizado
-   (ou Personalizar > CSS adicional). Vale para o site inteiro e mira so
-   nas classes iara-* do template 01-cabecalho.json. Nao mexe no tema.
+   IARA COSTA · CSS de reforco do cabecalho (v0.3.10)
+   Fonte: seu-projeto/assets/css/header.css (prototipo aprovado).
+
+   Desde a v0.3.10 o cabecalho NAO depende deste arquivo: ele usa so
+   widgets basicos (titulo, lista de icones e icone) com fonte e cor das
+   globais. Este CSS e um reforco para o caso de o tema tentar impor a
+   fonte dele nos titulos e nas listas: cole em Elementor >
+   Configuracoes do site > CSS personalizado (Elementor Pro) e salve.
+   Mira apenas nas classes iara-* do template 01-cabecalho.json.
    ========================================================================== */
 
-/* --- Faixa verde: texto em caixa alta, igual ao prototipo --- */
-.iara-faixa p {
-  font-family: "Jost", sans-serif;
+/* Faixa verde: caixa alta espaçada, como no prototipo */
+.iara-faixa-lista .elementor-icon-list-text {
+  font-family: "Jost", sans-serif !important;
   font-size: 12px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  line-height: 1.4;
-  margin: 0;
-  text-align: center;
 }
-.iara-faixa a { color: inherit; text-decoration: none; }
-.iara-faixa a:hover { text-decoration: underline; }
 
-/* --- Barra: respiro vertical do prototipo (13px) --- */
-.iara-barra { padding-top: 13px; padding-bottom: 13px; }
-
-/* --- Logotipo: nunca estoura a barra --- */
-.iara-marca img { max-height: 54px; width: auto; display: block; }
-
-/* --- Menu: Jost pequena, em linha, sublinhado no item atual/hover ---
-   E a correcao do menu serifado da captura: a fonte do tema vencia o
-   widget, entao aqui a familia esta declarada na classe do menu. */
-.iara-menu .elementor-nav-menu {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  gap: clamp(12px, 1.6vw, 28px);
+/* Marca: nome em Playfair, tagline em Jost caixa alta miúda */
+.iara-marca-nome .elementor-heading-title {
+  font-family: "Playfair Display", serif !important;
+  font-size: 20px;
+  letter-spacing: 0.105em;
+  line-height: 1.15;
+  color: #2d2925;
 }
-.iara-menu .elementor-nav-menu--main .elementor-item,
-.iara-menu .elementor-nav-menu--main .elementor-item:hover,
-.iara-menu .elementor-nav-menu--main .elementor-item.elementor-item-active {
+.iara-marca-tagline .elementor-heading-title {
+  font-family: "Jost", sans-serif !important;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #625a52;
+}
+
+/* Menu (lista de icones em linha): Jost 12px, nunca a serifada do tema */
+.iara-menu .elementor-icon-list-text {
   font-family: "Jost", sans-serif !important;
   font-size: 12px;
-  font-weight: 400;
   letter-spacing: 0.06em;
-  text-transform: none;
   color: #554f49;
-  padding: 6px 0;
   white-space: nowrap;
 }
-.iara-menu .elementor-nav-menu--main .elementor-item:hover { color: #78452f; }
-.iara-menu .elementor-nav-menu--main .elementor-item.elementor-item-active {
+.iara-menu .elementor-icon-list-item:hover .elementor-icon-list-text {
   color: #78452f;
-  box-shadow: inset 0 -1px 0 #e4cbb5;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-/* --- Icones da direita: sem caixa, alvo de toque confortavel --- */
-.iara-acoes .elementor-icon {
-  color: #2d2925;
-  background: none;
-  border: 0;
-  padding: 10px;
-}
+/* Ícones da direita: carvão, terracota escuro no hover, sem caixa */
+.iara-acoes .elementor-icon { color: #2d2925; background: none; border: 0; }
 .iara-acoes .elementor-icon:hover { color: #78452f; }
-
-/* --- Sacola: so o icone com o contador, sem caixa e sem "R$ 0,00" --- */
-.iara-sacola .elementor-menu-cart__toggle_button,
-.iara-sacola .elementor-menu-cart__toggle .elementor-button {
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  color: #2d2925 !important;
-  padding: 10px !important;
-}
-.iara-sacola .elementor-menu-cart__subtotal { display: none !important; }
-.iara-sacola .elementor-button-icon-qty {
-  background: #a45f43;
-  color: #fffdf8;
-  font-family: "Jost", sans-serif;
-  font-size: 10px;
-  min-width: 16px;
-  height: 16px;
-  border-radius: 999px;
-}

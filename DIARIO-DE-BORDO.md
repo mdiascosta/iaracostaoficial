@@ -1,5 +1,46 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Cabeçalho sem depender de tema, CSS ou mídia; imagens nos templates (v0.3.10)
+
+### Pedido da cliente
+"Está completamente errado, o CSS não pegou, está completamente diferente
+da versão do template. Veja minuciosamente o que está ocorrendo." E mais:
+a home sem imagens, "chegar 100% no HTML das páginas", "na importação já
+quero que importe tudo" e "sempre usar lista de ícones em vez de elemento
+texto ou HTML".
+
+### Análise minuciosa (IMPLEMENTADO o diagnóstico)
+A captura traz três provas: a imagem de montanhas é o placeholder do Logo
+do site (a cliente subiu o arquivo na mídia, mas não o definiu como logo
+do site); o menu serifado prova que o CSS não estava ativo na página
+(com a declaração forçada, a serifada do tema não apareceria); e a caixa
+da sacola é o botão padrão do Carrinho do WooCommerce. O fio comum das
+seis capturas: o cabeçalho dependia de widgets que o tema/WooCommerce
+estilizam e de passos manuais fora do arquivo. Remendo em cima de remendo
+não resolve isso; a estrutura é que tinha que mudar.
+
+### O que foi feito
+- Cabeçalho refeito só com widgets básicos de estilo global: marca em
+  texto (o protótipo é texto), faixa e menu em lista de ícones em linha,
+  quatro ícones de ação com link. Saiu a dependência de menu do WordPress,
+  de logo definido e de CSS colado. O CSS continua no pacote como reforço
+  opcional, reescrito para as classes novas.
+- Imagens: nenhum widget de imagem vazio nos 24 arquivos. Hero,
+  categorias, ocasiões, editorial, coleção e lookbook apontam para as
+  fotos do protótipo no repositório público, e o zip com os 39 arquivos
+  entrou no kit para a mídia local. Limite honesto, registrado para a
+  cliente: JSON de template não embute arquivo de imagem; ou aponta para
+  endereço (o que fizemos) ou a imagem é escolhida na mídia depois.
+- "100% do HTML": o que o template controla (estrutura, fonte, cor,
+  imagem, espaçamento) agora nasce do arquivo. O que é do WordPress
+  (produtos, posts, foto do produto, menu do rodapé transacional) continua
+  dinâmico por natureza, como no Bloco B aprovado.
+
+### O que continua por verificar
+- Reimportar globais e cabeçalho e comparar com a imagem 2. Se a marca em
+  texto e o menu em lista entrarem certos, a mesma receita (só widget
+  básico) vira o padrão para qualquer ajuste futuro.
+
 ## [2026-10-19] - CSS do protótipo no geral do Elementor e logotipo (v0.3.9)
 
 ### Pedido da cliente

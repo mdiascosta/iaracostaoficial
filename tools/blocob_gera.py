@@ -97,6 +97,19 @@ FONTES_CUSTOM = [
 ]
 
 
+# Imagens do prototipo aprovado. O JSON do Elementor nao carrega arquivo de
+# imagem dentro dele: ou a imagem esta na midia do WordPress, ou o template
+# aponta para um endereco. Para a importacao ja nascer com as fotos, os
+# widgets apontam para as imagens do prototipo neste repositorio (publico).
+# O pacote bloco-b/imagens/iara-costa-imagens.zip leva os mesmos arquivos
+# para a equipe subir na midia e, se quiser, trocar o endereco pela midia.
+IMAGENS_BASE = 'https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/'
+
+
+def img(nome):
+    return {'url': IMAGENS_BASE + nome, 'id': ''}
+
+
 def cor(apelido):
     """Referencia a uma Global Color."""
     return 'globals/colors?id=' + apelido
@@ -247,56 +260,95 @@ PAGINAS = {
 
 
 def cabecalho():
-    """01. Cabecalho do site: faixa de aviso, marca, menu e acoes."""
+    """01. Cabecalho: faixa, marca em texto, menu e acoes em lista de icones.
+
+    v0.3.10: saem os widgets que o tema estiliza por conta propria (menu de
+    navegacao, carrinho do WooCommerce e logo do site), que eram a causa de
+    todas as capturas tortas: menu serifado e empilhado, sacola com caixa e
+    valor, logo virando placeholder. Ficam so widgets basicos, cuja fonte e
+    cor vem das globais: titulo (marca), lista de icones (faixa e menu) e
+    icone (busca, conta, desejos, sacola). O logotipo em imagem a cliente
+    troca no editor, se quiser, quando ele estiver definido como logo do
+    site (guia, secao 4.6).
+    """
     d = Documento('Cabeçalho do site', 'header')
 
-    # --- faixa de aviso: texto em caixa alta separado por pontos, como no
-    # prototipo (assets/css/header.css, .announcement). Sem icones.
-    aviso = d.widget('text-editor', juntar_globais({
-        '_title': 'Recados da faixa',
-        'editor': ('<p>FRETE GRÁTIS ACIMA DE R$ 299 &nbsp;·&nbsp; '
-                   '<a href="' + PAGINAS['sobre'] + '">COMPRA CONSCIENTE</a> &nbsp;·&nbsp; '
-                   '<a href="' + PAGINAS['envio'] + '">ENVIO PARA TODO O BRASIL</a></p>'),
-        'align': 'center',
-    }, {'text_color': cor('iara-faixa-texto'), 'link_color': cor('iara-faixa-texto'),
-        'typography': fonte('iara-faixa')}),
-        caminho='faixa/aviso')
-
+    # faixa: lista de icones em linha (pedido da cliente: lista de icones,
+    # nao elemento de texto)
     faixa = d.container('Faixa de aviso', {
         'css_classes': 'iara-faixa',
         'content_width': 'full',
         'flex_direction': 'row',
         'flex_justify_content': 'center',
         'flex_align_items': 'center',
-        'flex_gap': lacuna(8, 8),
         'padding': dimensoes(9, 20, 9, 20),
         'background_background': 'classic',
         '__globals__': {'background_color': cor('secondary')},
-    }, [aviso], caminho='faixa')
+    }, [
+        d.widget('icon-list', juntar_globais({
+            '_title': 'Recados da faixa',
+            'css_classes': 'iara-faixa-lista',
+            'view': 'inline',
+            'icon_list': [
+                d.item({'text': 'FRETE GRÁTIS ACIMA DE R$ 299',
+                        'selected_icon': {'value': 'fas fa-truck', 'library': 'fa-solid'}}, 'faixa/item-1'),
+                d.item({'text': 'COMPRA CONSCIENTE',
+                        'selected_icon': {'value': 'fas fa-leaf', 'library': 'fa-solid'},
+                        'link': {'url': PAGINAS['sobre'], 'is_external': '', 'nofollow': ''}}, 'faixa/item-2'),
+                d.item({'text': 'ENVIO PARA TODO O BRASIL',
+                        'selected_icon': {'value': 'fas fa-globe-americas', 'library': 'fa-solid'},
+                        'link': {'url': PAGINAS['envio'], 'is_external': '', 'nofollow': ''}}, 'faixa/item-3'),
+            ],
+            'space_between': medida(22),
+            'icon_size': medida(12),
+        }, {'text_color': cor('iara-faixa-texto'), 'icon_color': cor('iara-faixa-texto'),
+            'typography': fonte('iara-faixa')}), caminho='faixa/aviso'),
+    ], caminho='faixa')
 
-    # --- barra principal
-    # Marca: o logotipo que a cliente subiu na midia (v0.3.9). O widget Logo
-    # do site puxa a imagem definida como logo do site; sem ela, ele mostra
-    # o placeholder "Logo." (foi o erro da primeira importacao). A classe
-    # iara-marca e o CSS geral (bloco-b/css/iara-cabecalho.css) seguram a
-    # altura maxima para a imagem nunca estourar a barra.
+    # marca em texto: igual ao prototipo e nao depende de midia nenhuma
     marca = d.container('Marca', {
-        'flex_direction': 'row',
-        'flex_align_items': 'center',
-        '_flex_size': 'custom',
-        '_flex_basis_type': 'custom',
-        '_flex_basis': medida(24, '%'),
+        'flex_direction': 'column',
+        'flex_gap': lacuna(2, 2),
+        '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(24, '%'),
         '_flex_align_self': 'center',
     }, [
-        d.widget('theme-site-logo', {
-            '_title': 'Logotipo',
-            'css_classes': 'iara-marca',
-            'link_to': 'custom',
+        d.widget('heading', juntar_globais({
+            '_title': 'IARA COSTA', 'title': 'IARA COSTA', 'header_size': 'p',
+            'css_classes': 'iara-marca-nome',
             'link': {'url': PAGINAS['home'], 'is_external': '', 'nofollow': ''},
-            'align': 'left',
-            'width': medida(190),
-        }, caminho='barra/marca-logo'),
+        }, {'title_color': cor('text'), 'typography': fonte('primary')}), caminho='barra/marca-nome'),
+        d.widget('heading', juntar_globais({
+            '_title': 'Moda e acessorios', 'title': 'MODA & ACESSÓRIOS', 'header_size': 'p',
+            'css_classes': 'iara-marca-tagline',
+        }, {'title_color': cor('iara-texto-discreto'), 'typography': fonte('iara-assinatura')}),
+            caminho='barra/marca-tagline'),
     ], caminho='barra/marca', interno=True)
+
+    # menu: lista de icones em linha, sem icone, so os rotulos com link.
+    # Nao depende do menu do WordPress nem da fonte do tema.
+    menu = d.widget('icon-list', juntar_globais({
+        '_title': 'Menu principal',
+        'css_classes': 'iara-menu',
+        'view': 'inline',
+        'icon_list': [
+            d.item({'text': 'Home', 'link': {'url': PAGINAS['home'], 'is_external': '', 'nofollow': ''}}, 'menu/home'),
+            d.item({'text': 'Loja', 'link': {'url': PAGINAS['loja'], 'is_external': '', 'nofollow': ''}}, 'menu/loja'),
+            d.item({'text': 'Coleção', 'link': {'url': PAGINAS['colecao'], 'is_external': '', 'nofollow': ''}}, 'menu/colecao'),
+            d.item({'text': 'Sobre', 'link': {'url': PAGINAS['sobre'], 'is_external': '', 'nofollow': ''}}, 'menu/sobre'),
+            d.item({'text': 'Contato', 'link': {'url': PAGINAS['contato'], 'is_external': '', 'nofollow': ''}}, 'menu/contato'),
+        ],
+        'space_between': medida(28),
+        '_flex_size': 'grow',
+        '_flex_align_self': 'center',
+    }, {'text_color': cor('iara-menu'), 'typography': fonte('iara-menu')}), caminho='barra/menu')
+
+    def acao(titulo, icone, url, caminho, biblioteca='fa-regular'):
+        return d.widget('icon', juntar_globais({
+            '_title': titulo,
+            'selected_icon': {'value': icone, 'library': biblioteca},
+            'link': {'url': url, 'is_external': '', 'nofollow': ''},
+            'size': medida(20),
+        }, {'primary_color': cor('text')}), caminho=caminho)
 
     acoes = d.container('Ações', {
         'css_classes': 'iara-acoes',
@@ -304,37 +356,13 @@ def cabecalho():
         'flex_justify_content': 'flex-end',
         'flex_align_items': 'center',
         'flex_gap': lacuna(18, 18),
-        '_flex_size': 'custom',
-        '_flex_basis_type': 'custom',
-        '_flex_basis': medida(24, '%'),
+        '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(24, '%'),
         '_flex_align_self': 'center',
     }, [
-        d.widget('icon', juntar_globais({
-            '_title': 'Busca',
-            'selected_icon': {'value': 'fas fa-search', 'library': 'fa-solid'},
-            'link': {'url': PAGINAS['busca'] if 'busca' in PAGINAS else '/busca/', 'is_external': '', 'nofollow': ''},
-            'size': medida(20),
-        }, {'primary_color': cor('text')}), caminho='barra/busca'),
-        d.widget('icon', juntar_globais({
-            '_title': 'Minha conta',
-            'selected_icon': {'value': 'far fa-user', 'library': 'fa-regular'},
-            'link': {'url': PAGINAS['conta'], 'is_external': '', 'nofollow': ''},
-            'size': medida(20),
-        }, {'primary_color': cor('text')}), caminho='barra/conta'),
-        d.widget('icon', juntar_globais({
-            '_title': 'Lista de desejos',
-            'selected_icon': {'value': 'far fa-heart', 'library': 'fa-regular'},
-            'link': {'url': PAGINAS['desejos'], 'is_external': '', 'nofollow': ''},
-            'size': medida(20),
-        }, {'primary_color': cor('text')}), caminho='barra/desejos'),
-        d.widget('woocommerce-menu-cart', {
-            '_title': 'Sacola',
-            'css_classes': 'iara-sacola',
-            'menu_cart_icon': {'value': 'fas fa-shopping-bag', 'library': 'fa-solid'},
-            'items_indicator': 'bubble',
-            'show_subtotal': '',
-            'show_remove_icon': '',
-        }, caminho='barra/sacola'),
+        acao('Busca', 'fas fa-search', PAGINAS['busca'], 'barra/busca', 'fa-solid'),
+        acao('Minha conta', 'far fa-user', PAGINAS['conta'], 'barra/conta'),
+        acao('Lista de desejos', 'far fa-heart', PAGINAS['desejos'], 'barra/desejos'),
+        acao('Sacola', 'fas fa-shopping-bag', PAGINAS['sacola'], 'barra/sacola', 'fa-solid'),
     ], caminho='barra/acoes', interno=True)
 
     barra = d.container('Barra do cabeçalho', {
@@ -344,24 +372,13 @@ def cabecalho():
         'flex_align_items': 'center',
         'flex_justify_content': 'space-between',
         'flex_gap': lacuna(24, 24),
-        'padding': dimensoes(14, 0, 14, 0),
+        'padding': dimensoes(13, 0, 13, 0),
         'background_background': 'classic',
         'border_border': 'solid',
         'border_width': {'unit': 'px', 'top': '0', 'right': '0', 'bottom': '1', 'left': '0', 'isLinked': False},
         '__globals__': {'background_color': cor('iara-papel'), 'border_color': cor('iara-fio')},
-    }, [marca,
-        d.widget('nav-menu', juntar_globais({
-            '_title': 'Menu principal',
-            'menu': 'principal',
-            'layout': 'horizontal',
-            'pointer': 'underline',
-            'css_classes': 'iara-menu',
-            '_flex_size': 'grow',
-            '_flex_align_self': 'center',
-        }, {'menu_item_color': cor('iara-menu')}), caminho='barra/menu'),
-        acoes], caminho='barra')
+    }, [marca, menu, acoes], caminho='barra')
 
-    # Sem container raiz: a faixa e a barra sao os dois blocos do topo.
     d.content = [faixa, barra]
     return d
 
@@ -821,10 +838,17 @@ def cabecalho_secao(d, rotulo_texto, titulo, caminho, link_texto=None, link_url=
     }, filhos, caminho=caminho, interno=True)
 
 
-def cartao_imagem(d, titulo, descricao, caminho, url):
+FOTOS_CATEGORIAS = {'vestidos': 'cat-vestidos.jpg', 'blusas': 'cat-blusas.jpg',
+                    'saias-calcas': 'cat-saias-calcas.jpg', 'acessorios': 'oc-acessorios.jpg'}
+FOTOS_OCASIOES = {'dia-a-dia': 'oc-diadia.jpg', 'trabalho': 'oc-trabalho.jpg',
+                  'festa': 'oc-festa.jpg', 'acessorios': 'oc-acessorios.jpg'}
+
+
+def cartao_imagem(d, titulo, descricao, caminho, url, imagem=None):
     """Cartao de categoria/ocasiao: imagem, titulo e texto, tudo clicavel."""
     return d.widget('image-box', juntar_globais({
         '_title': titulo,
+        'image': img(imagem) if imagem else {'url': '', 'id': ''},
         'title_text': titulo,
         'description_text': descricao,
         'link': {'url': url, 'is_external': '', 'nofollow': ''},
@@ -891,7 +915,7 @@ def home():
     }, [
         d.widget('image', {
             '_title': 'Foto principal (escolher no editor)',
-            'image': {'url': '', 'id': ''},
+            'image': img('hero-editorial.jpg'),
             'image_size': 'full',
             'caption_source': 'none',
             'link_to': 'none',
@@ -973,7 +997,7 @@ def home():
                 '_flex_size': 'custom',
                 '_flex_basis_type': 'custom',
                 '_flex_basis': medida(23, '%'),
-            }, [cartao_imagem(d, titulo, texto, 'categorias/' + slug, PAGINAS['loja'])],
+            }, [cartao_imagem(d, titulo, texto, 'categorias/' + slug, PAGINAS['loja'], FOTOS_CATEGORIAS[slug])],
                 caminho='categorias/caixa-' + slug, interno=True)
             for titulo, texto, slug in [
                 ('Vestidos', 'Midi, longos e curtos, do P ao GG.', 'vestidos'),
@@ -1028,7 +1052,7 @@ def home():
                 '_flex_size': 'custom',
                 '_flex_basis_type': 'custom',
                 '_flex_basis': medida(23, '%'),
-            }, [cartao_imagem(d, titulo, '', 'ocasiões/' + slug, PAGINAS['loja'])],
+            }, [cartao_imagem(d, titulo, '', 'ocasiões/' + slug, PAGINAS['loja'], FOTOS_OCASIOES[slug])],
                 caminho='ocasiões/caixa-' + slug, interno=True)
             for titulo, slug in [
                 ('Dia a dia', 'dia-a-dia'), ('Trabalho', 'trabalho'),
@@ -1060,7 +1084,7 @@ def home():
         }, [
             d.widget('image', {
                 '_title': 'Foto do ateliê (escolher no editor)',
-                'image': {'url': '', 'id': ''},
+                'image': img('tingimento.jpg'),
                 'image_size': 'full',
                 'caption_source': 'none',
                 'link_to': 'none',
@@ -1113,7 +1137,7 @@ def home():
         }, [
             d.widget('image', {
                 '_title': 'Foto da colecao (escolher no editor)',
-                'image': {'url': '', 'id': ''},
+                'image': img('cap-terracota.jpg'),
                 'image_size': 'full',
                 'caption_source': 'none',
                 'link_to': 'none',
@@ -1945,7 +1969,7 @@ def lookbook():
             **({'background_background': 'classic', '__globals__': {'background_color': cor('iara-fundo-suave')}} if i % 2 == 0 else {}),
         }, [
             d.container('Foto do capitulo', {'flex_direction': 'column', '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(48, '%')}, [
-                d.widget('image', {'_title': 'Foto do capítulo (escolher no editor)', 'image': {'url': '', 'id': ''}, 'image_size': 'full', 'caption_source': 'none', 'link_to': 'none'}, caminho='lookbook/foto-' + str(i)),
+                d.widget('image', {'_title': 'Foto do capítulo (escolher no editor)', 'image': img(['cap-terracota.jpg', 'cap-salvia.jpg', 'cap-cru.jpg'][i - 1]), 'image_size': 'full', 'caption_source': 'none', 'link_to': 'none'}, caminho='lookbook/foto-' + str(i)),
             ], caminho='lookbook/midia-' + str(i), interno=True),
             d.container('Texto do capitulo', {'flex_direction': 'column', 'flex_gap': lacuna(12, 12), '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(48, '%'), '_flex_align_self': 'center'}, [
                 rotulo(d, rotulo_cap, 'lookbook/rotulo-' + str(i), 'primary'),

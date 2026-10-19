@@ -217,7 +217,7 @@
               "settings": {
                 "_title": "Foto principal (escolher no editor)",
                 "image": {
-                  "url": "",
+                  "url": "https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/hero-editorial.jpg",
                   "id": ""
                 },
                 "image_size": "full",
@@ -557,6 +557,10 @@
               "widgetType": "image-box",
               "settings": {
                 "_title": "Vestidos",
+                "image": {
+                  "url": "https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/cat-vestidos.jpg",
+                  "id": ""
+                },
                 "title_text": "Vestidos",
                 "description_text": "Midi, longos e curtos, do P ao GG.",
                 "link": {
@@ -588,6 +592,10 @@
               "widgetType": "image-box",
               "settings": {
                 "_title": "Blusas & Camisas",
+                "image": {
+                  "url": "https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/cat-blusas.jpg",
+                  "id": ""
+                },
                 "title_text": "Blusas & Camisas",
                 "description_text": "Linho lavado, cropped e tricô de algodão.",
                 "link": {
@@ -619,6 +627,10 @@
               "widgetType": "image-box",
               "settings": {
                 "_title": "Saias & Calças",
+                "image": {
+                  "url": "https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/cat-saias-calcas.jpg",
+                  "id": ""
+                },
                 "title_text": "Saias & Calças",
                 "description_text": "Cintura alta, pregas e alfaiataria leve.",
                 "link": {
@@ -650,6 +662,10 @@
               "widgetType": "image-box",
               "settings": {
                 "_title": "Acessórios",
+                "image": {
+                  "url": "https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/oc-acessorios.jpg",
+                  "id": ""
+                },
                 "title_text": "Acessórios",
                 "description_text": "Cerâmica, argila e fibras naturais.",
                 "link": {
@@ -988,6 +1004,10 @@
               "widgetType": "image-box",
               "settings": {
                 "_title": "Dia a dia",
+                "image": {
+                  "url": "https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/oc-diadia.jpg",
+                  "id": ""
+                },
                 "title_text": "Dia a dia",
                 "description_text": "",
                 "link": {
@@ -1019,6 +1039,10 @@
               "widgetType": "image-box",
               "settings": {
                 "_title": "Trabalho",
+                "image": {
+                  "url": "https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/oc-trabalho.jpg",
+                  "id": ""
+                },
                 "title_text": "Trabalho",
                 "description_text": "",
                 "link": {
@@ -1050,6 +1074,10 @@
               "widgetType": "image-box",
               "settings": {
                 "_title": "Festa",
+                "image": {
+                  "url": "https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/oc-festa.jpg",
+                  "id": ""
+                },
                 "title_text": "Festa",
                 "description_text": "",
                 "link": {
@@ -1081,6 +1109,10 @@
               "widgetType": "image-box",
               "settings": {
                 "_title": "Acessórios",
+                "image": {
+                  "url": "https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/oc-acessorios.jpg",
+                  "id": ""
+                },
                 "title_text": "Acessórios",
                 "description_text": "",
                 "link": {
@@ -1148,7 +1180,7 @@
           "settings": {
             "_title": "Foto do ateliê (escolher no editor)",
             "image": {
-              "url": "",
+              "url": "https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/tingimento.jpg",
               "id": ""
             },
             "image_size": "full",
@@ -1320,7 +1352,7 @@
           "settings": {
             "_title": "Foto da colecao (escolher no editor)",
             "image": {
-              "url": "",
+              "url": "https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/cap-terracota.jpg",
               "id": ""
             },
             "image_size": "full",

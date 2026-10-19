@@ -61,6 +61,50 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.10 · 2026-10-19 · Cabeçalho sem depender de tema, CSS ou mídia; imagens nos templates
+
+**Pedido da cliente:** "analise minuciosamente o que está ocorrendo", "a
+página inicial está totalmente errada, sem as imagens", "quero chegar
+100% no HTML das páginas que criamos", "na importação já quero que importe
+tudo" e "sempre usar lista de ícones em vez de elemento texto ou HTML".
+
+**Análise minuciosa da captura (três provas)**
+
+1. A imagem de montanhas é o placeholder do widget Logo do site: subir o
+   logotipo na mídia não basta, ele precisava estar **definido como logo
+   do site**, e não estava.
+2. O menu continuou serifado mesmo com o CSS forçando Jost com
+   prioridade: esse CSS **não estava ativo na página**. Se estivesse, a
+   serifada do tema não apareceria.
+3. A caixa com o contador é o botão padrão do widget Carrinho do
+   WooCommerce, outro widget que o tema estiliza.
+
+Causa comum: o cabeçalho dependia de três widgets que terceiros estilizam
+(tema, WooCommerce) e de dois passos manuais (definir logo, colar CSS).
+Cada uma das seis capturas desta conversa quebrou num desses pontos.
+
+**A correção é estrutural, não é outro remendo**
+
+- Cabeçalho só com widgets básicos, de fonte e cor globais: marca em texto
+  (o protótipo é texto), faixa e menu como **lista de ícones em linha**
+  (o menu não depende mais do menu do WordPress nem da fonte do tema),
+  ações como ícones com link, incluindo a sacola. 4 containers.
+- O CSS `iara-cabecalho.css` vira reforço opcional e foi reescrito para as
+  classes novas.
+- **Imagens**: todos os widgets de imagem que estavam vazios passam a
+  apontar para as fotos do protótipo (hero, categorias, ocasiões,
+  editorial, coleção e os três capítulos do lookbook), então a importação
+  já nasce com as imagens. Novo pacote `bloco-b/imagens/
+  iara-costa-imagens.zip` com os 39 arquivos do protótipo, dentro do kit
+  (34 + guias), para a equipe subir na Mídia quando quiser trocar o
+  endereço externo pela mídia local.
+- Regra registrada: **lista de ícones** para faixa, menu, benefícios,
+  links e listas curtas; parágrafo corrido continua em texto, porque lista
+  de ícones não é parágrafo (fonte e leitura quebrariam).
+
+**Verificado aqui:** três conferências verdes, nenhum widget de imagem
+vazio nos 24 arquivos. **Não verificado:** a renderização no staging.
+
 ### v0.3.9 · 2026-10-19 · CSS do protótipo no geral do Elementor e logotipo da cliente
 
 **Pedido da cliente:** "veja o CSS do template e aplique; pode colocar o CSS
