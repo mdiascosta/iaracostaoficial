@@ -1,0 +1,397 @@
+{
+  "content": [
+    {
+      "id": "b5d729d",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "0",
+          "column": "0",
+          "isLinked": true,
+          "unit": "px",
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "40",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "Trocas e devoluções"
+      },
+      "elements": [
+        {
+          "id": "20a06a4",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "12",
+              "column": "12",
+              "isLinked": true,
+              "unit": "px",
+              "size": 12
+            },
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "8",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Cabecalho da pagina"
+          },
+          "elements": [
+            {
+              "id": "de4faac",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Trocas e devoluções",
+                "title": "Trocas e devoluções",
+                "header_size": "h1",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=primary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "db46f62",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Trocar ou devolver uma peça é simples. Os prazos abaixo seguem o Código de Defesa do Consumidor.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "be2686e",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "padding": {
+              "unit": "px",
+              "top": "16",
+              "right": "0",
+              "bottom": "16",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Aviso de revisao"
+          },
+          "elements": [
+            {
+              "id": "0039340",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Rascunho para revisão: confirmar as regras marcadas antes de publicar.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=iara-texto-micro"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "07a56c2",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Desistência em 7 dias (direito de arrependimento)"
+          },
+          "elements": [
+            {
+              "id": "55f3822",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Desistência em 7 dias (direito de arrependimento)",
+                "title": "Desistência em 7 dias (direito de arrependimento)",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "79a53a0",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Você tem 7 dias corridos, contando do recebimento, para desistir da compra sem precisar justificar, conforme o Art. 49 do CDC. A peça precisa voltar sem uso, com as etiquetas.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "5bc10cc",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Troca por tamanho ou por outra peça"
+          },
+          "elements": [
+            {
+              "id": "590ff65",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Troca por tamanho ou por outra peça",
+                "title": "Troca por tamanho ou por outra peça",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "170d2cf",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Em até 30 dias do recebimento, a primeira troca de tamanho é por nossa conta, pelo código de postagem dos Correios. [CONFIRMAR COM A EMPRESA: peças de bazar e peças íntimas entram nesta regra?]</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "1028990",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Peça com defeito de fabricação"
+          },
+          "elements": [
+            {
+              "id": "63f3a94",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Peça com defeito de fabricação",
+                "title": "Peça com defeito de fabricação",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "5575b23",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Se a peça chegar com defeito, fale com o atendimento com fotos do problema. Defeito de fabricação tem o tratamento previsto no CDC.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "f1fb363",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Como solicitar"
+          },
+          "elements": [
+            {
+              "id": "dda1270",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Como solicitar",
+                "title": "Como solicitar",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "ede9525",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Pela Minha conta ou pelo atendimento, informando o número do pedido. Você recebe as instruções e o código de postagem.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "ab96c2b",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Reembolso"
+          },
+          "elements": [
+            {
+              "id": "29aa773",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Reembolso",
+                "title": "Reembolso",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "957cfde",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Depois que a peça chega e é conferida, o reembolso segue a forma de pagamento original, nos prazos do gateway.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": [],
+  "version": "0.4",
+  "title": "Trocas e devoluções",
+  "type": "page"
+}

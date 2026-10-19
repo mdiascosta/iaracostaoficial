@@ -1,0 +1,172 @@
+{
+  "content": [
+    {
+      "id": "f1e5e5e",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "0",
+          "column": "0",
+          "isLinked": true,
+          "unit": "px",
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        },
+        "_title": "Busca"
+      },
+      "elements": [
+        {
+          "id": "664a162",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "12",
+              "column": "12",
+              "isLinked": true,
+              "unit": "px",
+              "size": 12
+            },
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "8",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Cabecalho da pagina"
+          },
+          "elements": [
+            {
+              "id": "5651c08",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Busca",
+                "title": "Busca",
+                "header_size": "h1",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=primary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "d4e40e3",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Resultados para a sua busca em peças e textos do diário.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "2c1964d",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "20",
+              "column": "20",
+              "isLinked": true,
+              "unit": "px",
+              "size": 20
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "56",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Campo e resultados"
+          },
+          "elements": [
+            {
+              "id": "f399b10",
+              "elType": "widget",
+              "widgetType": "search-form",
+              "settings": {
+                "_title": "Buscar de novo",
+                "placeholder": "O que você procura?"
+              },
+              "elements": []
+            },
+            {
+              "id": "b248b18",
+              "elType": "widget",
+              "widgetType": "archive-posts",
+              "settings": {
+                "_title": "Resultados (dinâmico)",
+                "posts_per_page": "9",
+                "columns": "3"
+              },
+              "elements": []
+            },
+            {
+              "id": "458999a",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Sem resultado, confira a grafia ou tente uma palavra mais geral, como linho, vestido ou cerâmica. A loja completa está a um clique.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "268c044",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "_title": "Ver todas as peças",
+                "text": "Ver todas as peças",
+                "link": {
+                  "url": "/loja/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "size": "md",
+                "__globals__": {
+                  "typography": "globals/typography?id=accent",
+                  "button_background_color": "globals/colors?id=primary",
+                  "text_color": "globals/colors?id=iara-branco"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": [],
+  "version": "0.4",
+  "title": "Busca",
+  "type": "search-results"
+}

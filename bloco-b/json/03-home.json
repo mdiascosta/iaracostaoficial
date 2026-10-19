@@ -1,0 +1,2282 @@
+{
+  "content": [
+    {
+      "id": "75663e1",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "0",
+          "column": "0",
+          "isLinked": true,
+          "unit": "px",
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        },
+        "_title": "Página inicial"
+      },
+      "elements": [
+        {
+          "id": "a589fea",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "row",
+            "flex_wrap": "wrap",
+            "flex_align_items": "center",
+            "flex_gap": {
+              "row": "40",
+              "column": "40",
+              "isLinked": true,
+              "unit": "px",
+              "size": 40
+            },
+            "padding": {
+              "unit": "px",
+              "top": "56",
+              "right": "0",
+              "bottom": "56",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Hero"
+          },
+          "elements": [
+            {
+              "id": "845d6e1",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "flex_gap": {
+                  "row": "20",
+                  "column": "20",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 20
+                },
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 52,
+                  "sizes": []
+                },
+                "_flex_align_self": "center",
+                "_title": "Texto do hero"
+              },
+              "elements": [
+                {
+                  "id": "68fdf9e",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Coleção Terra & Linho",
+                    "title": "Coleção Terra & Linho",
+                    "header_size": "p",
+                    "__globals__": {
+                      "title_color": "globals/colors?id=primary",
+                      "typography": "globals/typography?id=iara-rotulo"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "4766608",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Vestir o barro, habitar a natureza",
+                    "title": "Vestir o barro, habitar a natureza",
+                    "header_size": "h1",
+                    "__globals__": {
+                      "title_color": "globals/colors?id=text",
+                      "typography": "globals/typography?id=primary"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "e719b89",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Vestuário feminino autoral em linho, algodão egípcio e viscose de alta gramatura. Modelagem, corte e confecção próprios, no ateliê em Cerquilho, no interior de São Paulo.</p>",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-suave",
+                      "typography": "globals/typography?id=text"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "1b7a287",
+                  "elType": "container",
+                  "settings": {
+                    "content_width": "full",
+                    "flex_direction": "row",
+                    "flex_wrap": "wrap",
+                    "flex_gap": {
+                      "row": "12",
+                      "column": "12",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 12
+                    },
+                    "_title": "Botões do hero"
+                  },
+                  "elements": [
+                    {
+                      "id": "6015847",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "_title": "Ver a colecao",
+                        "text": "Ver a colecao",
+                        "link": {
+                          "url": "/loja/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "size": "md",
+                        "__globals__": {
+                          "typography": "globals/typography?id=accent",
+                          "button_background_color": "globals/colors?id=primary",
+                          "text_color": "globals/colors?id=iara-branco"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "6497d98",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "_title": "Nossa historia",
+                        "text": "Nossa historia",
+                        "link": {
+                          "url": "/sobre/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "size": "md",
+                        "__globals__": {
+                          "typography": "globals/typography?id=accent",
+                          "text_color": "globals/colors?id=text"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "e842f42",
+                  "elType": "widget",
+                  "widgetType": "icon-list",
+                  "settings": {
+                    "_title": "Resumo do hero",
+                    "icon_list": [
+                      {
+                        "text": "Vestidos, blusas e saias",
+                        "_id": "6142cbf"
+                      },
+                      {
+                        "text": "Do P ao GG",
+                        "_id": "aa591eb"
+                      },
+                      {
+                        "text": "Troca fácil em 30 dias",
+                        "_id": "061840a"
+                      }
+                    ],
+                    "space_between": {
+                      "unit": "px",
+                      "size": 8,
+                      "sizes": []
+                    },
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-discreto",
+                      "typography": "globals/typography?id=iara-texto-micro"
+                    }
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "b219f17",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "flex_gap": {
+                  "row": "8",
+                  "column": "8",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 8
+                },
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 44,
+                  "sizes": []
+                },
+                "_title": "Foto do hero"
+              },
+              "elements": [
+                {
+                  "id": "551e530",
+                  "elType": "widget",
+                  "widgetType": "image",
+                  "settings": {
+                    "_title": "Foto principal (escolher no editor)",
+                    "image": {
+                      "url": "",
+                      "id": ""
+                    },
+                    "image_size": "full",
+                    "caption_source": "none",
+                    "link_to": "none"
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "20d93fc",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>01 · Blusa de Linho Terracota, tingida com argila do Vale do Paraíba. Legenda da foto: conferir posição no editor.</p>",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-numeral",
+                      "typography": "globals/typography?id=iara-texto-micro"
+                    }
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "2b5460b",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "row",
+            "flex_wrap": "wrap",
+            "flex_gap": {
+              "row": "20",
+              "column": "20",
+              "isLinked": true,
+              "unit": "px",
+              "size": 20
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "border_border": "solid",
+            "border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "0",
+              "bottom": "1",
+              "left": "0",
+              "isLinked": false
+            },
+            "__globals__": {
+              "border_color": "globals/colors?id=iara-fio"
+            },
+            "_title": "Faixa de beneficios"
+          },
+          "elements": [
+            {
+              "id": "695564b",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 23,
+                  "sizes": []
+                },
+                "_title": "Frete grátis acima de R$ 299"
+              },
+              "elements": [
+                {
+                  "id": "cb3ad2a",
+                  "elType": "widget",
+                  "widgetType": "icon-box",
+                  "settings": {
+                    "_title": "Frete grátis acima de R$ 299",
+                    "selected_icon": {
+                      "value": "fas fa-truck",
+                      "library": "fa-solid"
+                    },
+                    "title_text": "Frete grátis acima de R$ 299",
+                    "description_text": "Para todo o Brasil, com rastreio.",
+                    "position": "top",
+                    "title_tag": "p",
+                    "__globals__": {
+                      "primary_color": "globals/colors?id=primary",
+                      "title_color": "globals/colors?id=text",
+                      "description_color": "globals/colors?id=iara-texto-suave",
+                      "typography_title": "globals/typography?id=iara-titulo-h3",
+                      "typography_description": "globals/typography?id=text"
+                    }
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "ad82e5e",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 23,
+                  "sizes": []
+                },
+                "_title": "Troca fácil em 30 dias"
+              },
+              "elements": [
+                {
+                  "id": "6e72303",
+                  "elType": "widget",
+                  "widgetType": "icon-box",
+                  "settings": {
+                    "_title": "Troca fácil em 30 dias",
+                    "selected_icon": {
+                      "value": "fas fa-shield-alt",
+                      "library": "fa-solid"
+                    },
+                    "title_text": "Troca fácil em 30 dias",
+                    "description_text": "Primeira troca com frete nosso, pelo código de postagem dos Correios.",
+                    "position": "top",
+                    "title_tag": "p",
+                    "__globals__": {
+                      "primary_color": "globals/colors?id=primary",
+                      "title_color": "globals/colors?id=text",
+                      "description_color": "globals/colors?id=iara-texto-suave",
+                      "typography_title": "globals/typography?id=iara-titulo-h3",
+                      "typography_description": "globals/typography?id=text"
+                    }
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "a619126",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 23,
+                  "sizes": []
+                },
+                "_title": "5% off no Pix e 6x sem juros"
+              },
+              "elements": [
+                {
+                  "id": "a5732e7",
+                  "elType": "widget",
+                  "widgetType": "icon-box",
+                  "settings": {
+                    "_title": "5% off no Pix e 6x sem juros",
+                    "selected_icon": {
+                      "value": "fas fa-credit-card",
+                      "library": "fa-solid"
+                    },
+                    "title_text": "5% off no Pix e 6x sem juros",
+                    "description_text": "No cartão, em até 6x; boleto também aceito.",
+                    "position": "top",
+                    "title_tag": "p",
+                    "__globals__": {
+                      "primary_color": "globals/colors?id=primary",
+                      "title_color": "globals/colors?id=text",
+                      "description_color": "globals/colors?id=iara-texto-suave",
+                      "typography_title": "globals/typography?id=iara-titulo-h3",
+                      "typography_description": "globals/typography?id=text"
+                    }
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "5bc1008",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 23,
+                  "sizes": []
+                },
+                "_title": "Do P ao GG"
+              },
+              "elements": [
+                {
+                  "id": "03b314c",
+                  "elType": "widget",
+                  "widgetType": "icon-box",
+                  "settings": {
+                    "_title": "Do P ao GG",
+                    "selected_icon": {
+                      "value": "fas fa-ruler",
+                      "library": "fa-solid"
+                    },
+                    "title_text": "Do P ao GG",
+                    "description_text": "Guia de medidas por peça, na página de cada produto.",
+                    "position": "top",
+                    "title_tag": "p",
+                    "__globals__": {
+                      "primary_color": "globals/colors?id=primary",
+                      "title_color": "globals/colors?id=text",
+                      "description_color": "globals/colors?id=iara-texto-suave",
+                      "typography_title": "globals/typography?id=iara-titulo-h3",
+                      "typography_description": "globals/typography?id=text"
+                    }
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "8949689",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "0",
+              "column": "0",
+              "isLinked": true,
+              "unit": "px",
+              "size": 0
+            },
+            "padding": {
+              "unit": "px",
+              "top": "56",
+              "right": "0",
+              "bottom": "56",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Categorias"
+          },
+          "elements": [
+            {
+              "id": "b994b59",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "flex_direction": "row",
+                "flex_wrap": "wrap",
+                "flex_justify_content": "space-between",
+                "flex_align_items": "flex-end",
+                "flex_gap": {
+                  "row": "16",
+                  "column": "16",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 16
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "24",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "_title": "Cabecalho da secao"
+              },
+              "elements": [
+                {
+                  "id": "d6c893e",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "row": "8",
+                      "column": "8",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 8
+                    },
+                    "_flex_size": "grow",
+                    "_title": "Titulo da secao"
+                  },
+                  "elements": [
+                    {
+                      "id": "8267df4",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Navegue por",
+                        "title": "Navegue por",
+                        "header_size": "p",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=iara-texto-discreto",
+                          "typography": "globals/typography?id=iara-rotulo"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "acc2b68",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Categorias",
+                        "title": "Categorias",
+                        "header_size": "h2",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "typography": "globals/typography?id=secondary"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "949228a",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "row",
+                    "flex_align_items": "flex-end",
+                    "_flex_align_self": "center",
+                    "_title": "Link da secao"
+                  },
+                  "elements": [
+                    {
+                      "id": "c5709c8",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "_title": "Ver tudo",
+                        "text": "Ver tudo",
+                        "link": {
+                          "url": "/loja/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "size": "sm",
+                        "button_type": "text",
+                        "__globals__": {
+                          "text_color": "globals/colors?id=primary",
+                          "typography": "globals/typography?id=iara-rotulo"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "9745e42",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "flex_direction": "row",
+                "flex_wrap": "wrap",
+                "flex_gap": {
+                  "row": "20",
+                  "column": "20",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 20
+                },
+                "_title": "Grade de categorias"
+              },
+              "elements": [
+                {
+                  "id": "9a703d7",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 23,
+                      "sizes": []
+                    },
+                    "_title": "Vestidos"
+                  },
+                  "elements": [
+                    {
+                      "id": "635d8fc",
+                      "elType": "widget",
+                      "widgetType": "image-box",
+                      "settings": {
+                        "_title": "Vestidos",
+                        "title_text": "Vestidos",
+                        "description_text": "Midi, longos e curtos, do P ao GG.",
+                        "link": {
+                          "url": "/loja/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "image_size": "large",
+                        "title_tag": "h3",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "description_color": "globals/colors?id=iara-texto-suave",
+                          "typography_title": "globals/typography?id=iara-titulo-h3",
+                          "typography_description": "globals/typography?id=text"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "85bd6f2",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 23,
+                      "sizes": []
+                    },
+                    "_title": "Blusas & Camisas"
+                  },
+                  "elements": [
+                    {
+                      "id": "8c9e2d5",
+                      "elType": "widget",
+                      "widgetType": "image-box",
+                      "settings": {
+                        "_title": "Blusas & Camisas",
+                        "title_text": "Blusas & Camisas",
+                        "description_text": "Linho lavado, cropped e tricô de algodão.",
+                        "link": {
+                          "url": "/loja/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "image_size": "large",
+                        "title_tag": "h3",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "description_color": "globals/colors?id=iara-texto-suave",
+                          "typography_title": "globals/typography?id=iara-titulo-h3",
+                          "typography_description": "globals/typography?id=text"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "ebdbea3",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 23,
+                      "sizes": []
+                    },
+                    "_title": "Saias & Calças"
+                  },
+                  "elements": [
+                    {
+                      "id": "1f73ebc",
+                      "elType": "widget",
+                      "widgetType": "image-box",
+                      "settings": {
+                        "_title": "Saias & Calças",
+                        "title_text": "Saias & Calças",
+                        "description_text": "Cintura alta, pregas e alfaiataria leve.",
+                        "link": {
+                          "url": "/loja/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "image_size": "large",
+                        "title_tag": "h3",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "description_color": "globals/colors?id=iara-texto-suave",
+                          "typography_title": "globals/typography?id=iara-titulo-h3",
+                          "typography_description": "globals/typography?id=text"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "1776256",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 23,
+                      "sizes": []
+                    },
+                    "_title": "Acessórios"
+                  },
+                  "elements": [
+                    {
+                      "id": "5808ab4",
+                      "elType": "widget",
+                      "widgetType": "image-box",
+                      "settings": {
+                        "_title": "Acessórios",
+                        "title_text": "Acessórios",
+                        "description_text": "Cerâmica, argila e fibras naturais.",
+                        "link": {
+                          "url": "/loja/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "image_size": "large",
+                        "title_tag": "h3",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "description_color": "globals/colors?id=iara-texto-suave",
+                          "typography_title": "globals/typography?id=iara-titulo-h3",
+                          "typography_description": "globals/typography?id=text"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                }
+              ],
+              "isInner": true
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "bc86f4a",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "0",
+              "column": "0",
+              "isLinked": true,
+              "unit": "px",
+              "size": 0
+            },
+            "padding": {
+              "unit": "px",
+              "top": "56",
+              "right": "0",
+              "bottom": "56",
+              "left": "0",
+              "isLinked": false
+            },
+            "background_background": "classic",
+            "__globals__": {
+              "background_color": "globals/colors?id=iara-fundo-suave"
+            },
+            "_title": "Em destaque"
+          },
+          "elements": [
+            {
+              "id": "255ea49",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "flex_direction": "row",
+                "flex_wrap": "wrap",
+                "flex_justify_content": "space-between",
+                "flex_align_items": "flex-end",
+                "flex_gap": {
+                  "row": "16",
+                  "column": "16",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 16
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "24",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "_title": "Cabecalho da secao"
+              },
+              "elements": [
+                {
+                  "id": "f4ef983",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "row": "8",
+                      "column": "8",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 8
+                    },
+                    "_flex_size": "grow",
+                    "_title": "Titulo da secao"
+                  },
+                  "elements": [
+                    {
+                      "id": "82bf5d2",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Seleção da semana",
+                        "title": "Seleção da semana",
+                        "header_size": "p",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=iara-texto-discreto",
+                          "typography": "globals/typography?id=iara-rotulo"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "cdeb9df",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Em destaque",
+                        "title": "Em destaque",
+                        "header_size": "h2",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "typography": "globals/typography?id=secondary"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "16efa36",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "row",
+                    "flex_align_items": "flex-end",
+                    "_flex_align_self": "center",
+                    "_title": "Link da secao"
+                  },
+                  "elements": [
+                    {
+                      "id": "0f6004c",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "_title": "Ver a loja",
+                        "text": "Ver a loja",
+                        "link": {
+                          "url": "/loja/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "size": "sm",
+                        "button_type": "text",
+                        "__globals__": {
+                          "text_color": "globals/colors?id=primary",
+                          "typography": "globals/typography?id=iara-rotulo"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "be57196",
+              "elType": "widget",
+              "widgetType": "woocommerce-products",
+              "settings": {
+                "_title": "Produtos em destaque (configurar no editor)",
+                "columns": "4",
+                "rows": "1",
+                "paginate": "no",
+                "orderby": "menu_order",
+                "order": "ASC"
+              },
+              "elements": []
+            },
+            {
+              "id": "5f7ad0c",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Bloco dinâmico: no editor, escolher a fonte de produtos \"Em destaque\" e 4 colunas. Nada de produto escrito à mão aqui.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=iara-texto-micro"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "751d962",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "0",
+              "column": "0",
+              "isLinked": true,
+              "unit": "px",
+              "size": 0
+            },
+            "padding": {
+              "unit": "px",
+              "top": "56",
+              "right": "0",
+              "bottom": "56",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Compre por ocasião"
+          },
+          "elements": [
+            {
+              "id": "a66fe55",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "flex_direction": "row",
+                "flex_wrap": "wrap",
+                "flex_justify_content": "space-between",
+                "flex_align_items": "flex-end",
+                "flex_gap": {
+                  "row": "16",
+                  "column": "16",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 16
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "24",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "_title": "Cabecalho da secao"
+              },
+              "elements": [
+                {
+                  "id": "45e14dd",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "row": "8",
+                      "column": "8",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 8
+                    },
+                    "_flex_size": "grow",
+                    "_title": "Titulo da secao"
+                  },
+                  "elements": [
+                    {
+                      "id": "504b406",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Para cada momento",
+                        "title": "Para cada momento",
+                        "header_size": "p",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=iara-texto-discreto",
+                          "typography": "globals/typography?id=iara-rotulo"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "e7b2d8d",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Compre por ocasião",
+                        "title": "Compre por ocasião",
+                        "header_size": "h2",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "typography": "globals/typography?id=secondary"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "2e32b78",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "row",
+                    "flex_align_items": "flex-end",
+                    "_flex_align_self": "center",
+                    "_title": "Link da secao"
+                  },
+                  "elements": [
+                    {
+                      "id": "7fc5942",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "_title": "Ver tudo",
+                        "text": "Ver tudo",
+                        "link": {
+                          "url": "/loja/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "size": "sm",
+                        "button_type": "text",
+                        "__globals__": {
+                          "text_color": "globals/colors?id=primary",
+                          "typography": "globals/typography?id=iara-rotulo"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "15b04bd",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "flex_direction": "row",
+                "flex_wrap": "wrap",
+                "flex_gap": {
+                  "row": "20",
+                  "column": "20",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 20
+                },
+                "_title": "Grade de ocasiões"
+              },
+              "elements": [
+                {
+                  "id": "c4f699e",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 23,
+                      "sizes": []
+                    },
+                    "_title": "Dia a dia"
+                  },
+                  "elements": [
+                    {
+                      "id": "c729c9c",
+                      "elType": "widget",
+                      "widgetType": "image-box",
+                      "settings": {
+                        "_title": "Dia a dia",
+                        "title_text": "Dia a dia",
+                        "description_text": "",
+                        "link": {
+                          "url": "/loja/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "image_size": "large",
+                        "title_tag": "h3",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "description_color": "globals/colors?id=iara-texto-suave",
+                          "typography_title": "globals/typography?id=iara-titulo-h3",
+                          "typography_description": "globals/typography?id=text"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "d5bf30c",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 23,
+                      "sizes": []
+                    },
+                    "_title": "Trabalho"
+                  },
+                  "elements": [
+                    {
+                      "id": "ad9a05f",
+                      "elType": "widget",
+                      "widgetType": "image-box",
+                      "settings": {
+                        "_title": "Trabalho",
+                        "title_text": "Trabalho",
+                        "description_text": "",
+                        "link": {
+                          "url": "/loja/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "image_size": "large",
+                        "title_tag": "h3",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "description_color": "globals/colors?id=iara-texto-suave",
+                          "typography_title": "globals/typography?id=iara-titulo-h3",
+                          "typography_description": "globals/typography?id=text"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "ce972da",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 23,
+                      "sizes": []
+                    },
+                    "_title": "Festa"
+                  },
+                  "elements": [
+                    {
+                      "id": "2c4dfff",
+                      "elType": "widget",
+                      "widgetType": "image-box",
+                      "settings": {
+                        "_title": "Festa",
+                        "title_text": "Festa",
+                        "description_text": "",
+                        "link": {
+                          "url": "/loja/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "image_size": "large",
+                        "title_tag": "h3",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "description_color": "globals/colors?id=iara-texto-suave",
+                          "typography_title": "globals/typography?id=iara-titulo-h3",
+                          "typography_description": "globals/typography?id=text"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "6ef927c",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 23,
+                      "sizes": []
+                    },
+                    "_title": "Acessórios"
+                  },
+                  "elements": [
+                    {
+                      "id": "97db913",
+                      "elType": "widget",
+                      "widgetType": "image-box",
+                      "settings": {
+                        "_title": "Acessórios",
+                        "title_text": "Acessórios",
+                        "description_text": "",
+                        "link": {
+                          "url": "/loja/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "image_size": "large",
+                        "title_tag": "h3",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "description_color": "globals/colors?id=iara-texto-suave",
+                          "typography_title": "globals/typography?id=iara-titulo-h3",
+                          "typography_description": "globals/typography?id=text"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                }
+              ],
+              "isInner": true
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "3f60a07",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "row",
+            "flex_wrap": "wrap",
+            "flex_gap": {
+              "row": "40",
+              "column": "40",
+              "isLinked": true,
+              "unit": "px",
+              "size": 40
+            },
+            "padding": {
+              "unit": "px",
+              "top": "56",
+              "right": "0",
+              "bottom": "56",
+              "left": "0",
+              "isLinked": false
+            },
+            "background_background": "classic",
+            "__globals__": {
+              "background_color": "globals/colors?id=iara-terracota-claro"
+            },
+            "_title": "Editorial do atelie"
+          },
+          "elements": [
+            {
+              "id": "fad6fab",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 44,
+                  "sizes": []
+                },
+                "_title": "Foto do editorial"
+              },
+              "elements": [
+                {
+                  "id": "94e2410",
+                  "elType": "widget",
+                  "widgetType": "image",
+                  "settings": {
+                    "_title": "Foto do ateliê (escolher no editor)",
+                    "image": {
+                      "url": "",
+                      "id": ""
+                    },
+                    "image_size": "full",
+                    "caption_source": "none",
+                    "link_to": "none"
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "fc92019",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "flex_gap": {
+                  "row": "16",
+                  "column": "16",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 16
+                },
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 52,
+                  "sizes": []
+                },
+                "_title": "Texto do editorial"
+              },
+              "elements": [
+                {
+                  "id": "0d53928",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Da terra à peça",
+                    "title": "Da terra à peça",
+                    "header_size": "p",
+                    "__globals__": {
+                      "title_color": "globals/colors?id=primary",
+                      "typography": "globals/typography?id=iara-rotulo"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "3eeea95",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Um ateliê, três gestos",
+                    "title": "Um ateliê, três gestos",
+                    "header_size": "h2",
+                    "__globals__": {
+                      "title_color": "globals/colors?id=text",
+                      "typography": "globals/typography?id=secondary"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "a9630f4",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Três coisas sustentam cada peça: modelagem propria, tecidos escolhidos pela gramatura e produção no Brasil.</p>",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-suave",
+                      "typography": "globals/typography?id=text"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "98ef62e",
+                  "elType": "widget",
+                  "widgetType": "icon-list",
+                  "settings": {
+                    "_title": "Três gestos",
+                    "icon_list": [
+                      {
+                        "text": "01 · Modelagem autoral. Desenho, corte e confecção próprios, no ateliê em Cerquilho (SP).",
+                        "_id": "1ea8297"
+                      },
+                      {
+                        "text": "02 · Tecidos de alta gramatura. Linho, algodão egípcio e viscose escolhidos pela gramatura e pelo toque.",
+                        "_id": "5f7c381"
+                      },
+                      {
+                        "text": "03 · Compra tranquila. Troca em 30 dias, a primeira por nossa conta, e 7 dias para desistir da compra.",
+                        "_id": "6213ee3"
+                      }
+                    ],
+                    "space_between": {
+                      "unit": "px",
+                      "size": 12,
+                      "sizes": []
+                    },
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-suave",
+                      "typography": "globals/typography?id=text"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "64dfe36",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "_title": "Conhecer o atelie",
+                    "text": "Conhecer o atelie",
+                    "link": {
+                      "url": "/sobre/",
+                      "is_external": "",
+                      "nofollow": ""
+                    },
+                    "size": "sm",
+                    "button_type": "text",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=primary",
+                      "typography": "globals/typography?id=iara-rotulo"
+                    }
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "02cb2d7",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "row",
+            "flex_wrap": "wrap",
+            "flex_gap": {
+              "row": "40",
+              "column": "40",
+              "isLinked": true,
+              "unit": "px",
+              "size": 40
+            },
+            "padding": {
+              "unit": "px",
+              "top": "56",
+              "right": "0",
+              "bottom": "56",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Coleção Terra e Linho"
+          },
+          "elements": [
+            {
+              "id": "3a06371",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 44,
+                  "sizes": []
+                },
+                "_title": "Foto da colecao"
+              },
+              "elements": [
+                {
+                  "id": "226bdd5",
+                  "elType": "widget",
+                  "widgetType": "image",
+                  "settings": {
+                    "_title": "Foto da colecao (escolher no editor)",
+                    "image": {
+                      "url": "",
+                      "id": ""
+                    },
+                    "image_size": "full",
+                    "caption_source": "none",
+                    "link_to": "none"
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "e28aa8c",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "flex_gap": {
+                  "row": "16",
+                  "column": "16",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 16
+                },
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 52,
+                  "sizes": []
+                },
+                "_flex_align_self": "center",
+                "_title": "Texto da colecao"
+              },
+              "elements": [
+                {
+                  "id": "ef0c009",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Outono e Inverno 2026",
+                    "title": "Outono e Inverno 2026",
+                    "header_size": "p",
+                    "__globals__": {
+                      "title_color": "globals/colors?id=primary",
+                      "typography": "globals/typography?id=iara-rotulo"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "3ddf54b",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Coleção Terra & Linho",
+                    "title": "Coleção Terra & Linho",
+                    "header_size": "h2",
+                    "__globals__": {
+                      "title_color": "globals/colors?id=text",
+                      "typography": "globals/typography?id=secondary"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "6f1570c",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Três capítulos em doze peças: terracota do barro, sálvia da mata, cru do linho. Veja o editorial completo e monte seus looks com as peças à venda.</p>",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-suave",
+                      "typography": "globals/typography?id=text"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "7e2ec07",
+                  "elType": "container",
+                  "settings": {
+                    "content_width": "full",
+                    "flex_direction": "row",
+                    "flex_wrap": "wrap",
+                    "flex_gap": {
+                      "row": "12",
+                      "column": "12",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 12
+                    },
+                    "_title": "Botões da coleção"
+                  },
+                  "elements": [
+                    {
+                      "id": "aa49a0e",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "_title": "Ver o editorial",
+                        "text": "Ver o editorial",
+                        "link": {
+                          "url": "/colecao/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "size": "md",
+                        "__globals__": {
+                          "typography": "globals/typography?id=accent",
+                          "button_background_color": "globals/colors?id=primary",
+                          "text_color": "globals/colors?id=iara-branco"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "3293e83",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "_title": "Comprar a colecao",
+                        "text": "Comprar a colecao",
+                        "link": {
+                          "url": "/loja/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "size": "md",
+                        "__globals__": {
+                          "typography": "globals/typography?id=accent",
+                          "text_color": "globals/colors?id=text"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                }
+              ],
+              "isInner": true
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "171ffef",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "0",
+              "column": "0",
+              "isLinked": true,
+              "unit": "px",
+              "size": 0
+            },
+            "padding": {
+              "unit": "px",
+              "top": "56",
+              "right": "0",
+              "bottom": "56",
+              "left": "0",
+              "isLinked": false
+            },
+            "background_background": "classic",
+            "__globals__": {
+              "background_color": "globals/colors?id=iara-fundo-suave"
+            },
+            "_title": "Depoimentos"
+          },
+          "elements": [
+            {
+              "id": "1c87b17",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "flex_direction": "row",
+                "flex_wrap": "wrap",
+                "flex_justify_content": "space-between",
+                "flex_align_items": "flex-end",
+                "flex_gap": {
+                  "row": "16",
+                  "column": "16",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 16
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "24",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "_title": "Cabecalho da secao"
+              },
+              "elements": [
+                {
+                  "id": "fc6cdf2",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "row": "8",
+                      "column": "8",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 8
+                    },
+                    "_flex_size": "grow",
+                    "_title": "Titulo da secao"
+                  },
+                  "elements": [
+                    {
+                      "id": "9d1f4eb",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Quem veste",
+                        "title": "Quem veste",
+                        "header_size": "p",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=iara-texto-discreto",
+                          "typography": "globals/typography?id=iara-rotulo"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "3ab7a2d",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Palavras de quem usa",
+                        "title": "Palavras de quem usa",
+                        "header_size": "h2",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "typography": "globals/typography?id=secondary"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "a5596c8",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Depoimentos de exemplo no prototipo. Publicar apenas os reais.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=iara-texto-micro"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "09b5f6e",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "flex_direction": "row",
+                "flex_wrap": "wrap",
+                "flex_gap": {
+                  "row": "20",
+                  "column": "20",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 20
+                },
+                "_title": "Grade de depoimentos"
+              },
+              "elements": [
+                {
+                  "id": "4393741",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 31,
+                      "sizes": []
+                    },
+                    "_title": "Depoimento de exemplo 1"
+                  },
+                  "elements": [
+                    {
+                      "id": "976095a",
+                      "elType": "widget",
+                      "widgetType": "testimonial",
+                      "settings": {
+                        "_title": "Depoimento de exemplo 1 (substituir)",
+                        "testimonial_content": "A blusa de linho é a peça que mais uso. O terracota não desbotou depois de um ano de lavagens.",
+                        "testimonial_name": "Exemplo, substituir",
+                        "testimonial_job": "[PREENCHER: cidade e estado]",
+                        "__globals__": {
+                          "text_color": "globals/colors?id=iara-texto-suave",
+                          "typography": "globals/typography?id=text"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "4c66797",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 31,
+                      "sizes": []
+                    },
+                    "_title": "Depoimento de exemplo 2"
+                  },
+                  "elements": [
+                    {
+                      "id": "89cc34c",
+                      "elType": "widget",
+                      "widgetType": "testimonial",
+                      "settings": {
+                        "_title": "Depoimento de exemplo 2 (substituir)",
+                        "testimonial_content": "Comprei o vestido midi sálvia pelo guia de medidas e acertou. Caiu como se fosse feito para mim.",
+                        "testimonial_name": "Exemplo, substituir",
+                        "testimonial_job": "[PREENCHER: cidade e estado]",
+                        "__globals__": {
+                          "text_color": "globals/colors?id=iara-texto-suave",
+                          "typography": "globals/typography?id=text"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "35bf9b0",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 31,
+                      "sizes": []
+                    },
+                    "_title": "Depoimento de exemplo 3"
+                  },
+                  "elements": [
+                    {
+                      "id": "7d2be4f",
+                      "elType": "widget",
+                      "widgetType": "testimonial",
+                      "settings": {
+                        "_title": "Depoimento de exemplo 3 (substituir)",
+                        "testimonial_content": "Gosto de saber de onde vem o tecido. A etiqueta diz a origem da fibra, e isso faz diferença para mim.",
+                        "testimonial_name": "Exemplo, substituir",
+                        "testimonial_job": "[PREENCHER: cidade e estado]",
+                        "__globals__": {
+                          "text_color": "globals/colors?id=iara-texto-suave",
+                          "typography": "globals/typography?id=text"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                }
+              ],
+              "isInner": true
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "99916f7",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "0",
+              "column": "0",
+              "isLinked": true,
+              "unit": "px",
+              "size": 0
+            },
+            "padding": {
+              "unit": "px",
+              "top": "56",
+              "right": "0",
+              "bottom": "56",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Do diário"
+          },
+          "elements": [
+            {
+              "id": "1abce36",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "flex_direction": "row",
+                "flex_wrap": "wrap",
+                "flex_justify_content": "space-between",
+                "flex_align_items": "flex-end",
+                "flex_gap": {
+                  "row": "16",
+                  "column": "16",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 16
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "24",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "_title": "Cabecalho da secao"
+              },
+              "elements": [
+                {
+                  "id": "2a66148",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "row": "8",
+                      "column": "8",
+                      "isLinked": true,
+                      "unit": "px",
+                      "size": 8
+                    },
+                    "_flex_size": "grow",
+                    "_title": "Titulo da secao"
+                  },
+                  "elements": [
+                    {
+                      "id": "df1b4b6",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Do diário",
+                        "title": "Do diário",
+                        "header_size": "p",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=iara-texto-discreto",
+                          "typography": "globals/typography?id=iara-rotulo"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "5cc831e",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Cartas do ateliê",
+                        "title": "Cartas do ateliê",
+                        "header_size": "h2",
+                        "__globals__": {
+                          "title_color": "globals/colors?id=text",
+                          "typography": "globals/typography?id=secondary"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                },
+                {
+                  "id": "991a577",
+                  "elType": "container",
+                  "settings": {
+                    "flex_direction": "row",
+                    "flex_align_items": "flex-end",
+                    "_flex_align_self": "center",
+                    "_title": "Link da secao"
+                  },
+                  "elements": [
+                    {
+                      "id": "9408d88",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "_title": "Ver todos os textos",
+                        "text": "Ver todos os textos",
+                        "link": {
+                          "url": "/diario/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "size": "sm",
+                        "button_type": "text",
+                        "__globals__": {
+                          "text_color": "globals/colors?id=primary",
+                          "typography": "globals/typography?id=iara-rotulo"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ],
+                  "isInner": true
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "a1a490b",
+              "elType": "widget",
+              "widgetType": "posts",
+              "settings": {
+                "_title": "Posts recentes (configurar no editor)",
+                "posts_per_page": "3",
+                "columns": "3"
+              },
+              "elements": []
+            },
+            {
+              "id": "1d4837f",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Bloco dinâmico de posts: no editor, escolher os 3 posts mais recentes. Os textos do blog sao escritos no Gutenberg, nunca no Elementor.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=iara-texto-micro"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "1366462",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "row",
+            "flex_wrap": "wrap",
+            "flex_gap": {
+              "row": "40",
+              "column": "40",
+              "isLinked": true,
+              "unit": "px",
+              "size": 40
+            },
+            "padding": {
+              "unit": "px",
+              "top": "56",
+              "right": "0",
+              "bottom": "56",
+              "left": "0",
+              "isLinked": false
+            },
+            "background_background": "classic",
+            "__globals__": {
+              "background_color": "globals/colors?id=secondary"
+            },
+            "_title": "Perguntas frequentes da home"
+          },
+          "elements": [
+            {
+              "id": "09debc3",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "flex_gap": {
+                  "row": "16",
+                  "column": "16",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 16
+                },
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 38,
+                  "sizes": []
+                },
+                "_title": "Introdução das perguntas"
+              },
+              "elements": [
+                {
+                  "id": "e190a07",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Perguntas frequentes",
+                    "title": "Perguntas frequentes",
+                    "header_size": "p",
+                    "__globals__": {
+                      "title_color": "globals/colors?id=iara-terracota-claro",
+                      "typography": "globals/typography?id=iara-rotulo"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "e9e6973",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Dúvidas antes de escolher",
+                    "title": "Dúvidas antes de escolher",
+                    "header_size": "h2",
+                    "__globals__": {
+                      "title_color": "globals/colors?id=iara-faixa-texto",
+                      "typography": "globals/typography?id=secondary"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "509debc",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>As perguntas que mais chegam no ateliê, respondidas direto ao ponto.</p>",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-faixa-texto",
+                      "typography": "globals/typography?id=text"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "370a948",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "_title": "Ver todas as perguntas",
+                    "text": "Ver todas as perguntas",
+                    "link": {
+                      "url": "/perguntas-frequentes/",
+                      "is_external": "",
+                      "nofollow": ""
+                    },
+                    "size": "sm",
+                    "button_type": "text",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-faixa-texto",
+                      "typography": "globals/typography?id=iara-rotulo"
+                    }
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "ec1cb45",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 56,
+                  "sizes": []
+                },
+                "_title": "Sanfona de perguntas"
+              },
+              "elements": [
+                {
+                  "id": "1ec1cb4",
+                  "elType": "widget",
+                  "widgetType": "accordion",
+                  "settings": {
+                    "_title": "Perguntas e respostas",
+                    "tabs": [
+                      {
+                        "tab_title": "Preciso criar conta para comprar?",
+                        "tab_content": "<p>Nao. Voce pode comprar como visitante. Criar conta ajuda a acompanhar pedidos e guardar enderecos, mas e opcional e nao muda o preco nem o prazo.</p>",
+                        "_id": "8a3620c"
+                      },
+                      {
+                        "tab_title": "As peças vêm com a tabela de medidas?",
+                        "tab_content": "<p>Sim, cada página de produto traz a tabela daquela peça. Meça uma peca que ja veste bem e compare com a tabela. O passo a passo está no Guia de Medidas. Na duvida entre dois tamanhos, fale com o atendimento.</p>",
+                        "_id": "a2e4a67"
+                      },
+                      {
+                        "tab_title": "A peça não serviu. Posso trocar?",
+                        "tab_content": "<p>Sim. Você tem 7 dias corridos, contando do recebimento, para desistir da compra sem precisar justificar, conforme o Art. 49 do Codigo de Defesa do Consumidor. Os prazos e as condicoes de troca estao em Trocas e devolucoes.</p>",
+                        "_id": "2a9a912"
+                      },
+                      {
+                        "tab_title": "Vocês entregam em todo o Brasil?",
+                        "tab_content": "<p>Sim, enviamos para todo o território nacional. Antes de finalizar, confira o prazo calculado para o seu CEP.</p>",
+                        "_id": "7804c20"
+                      },
+                      {
+                        "tab_title": "Como vocês tratam os meus dados?",
+                        "tab_content": "<p>Usamos os seus dados para entregar o pedido, emitir nota fiscal e responder ao seu contato. O detalhamento esta na Politica de Privacidade.</p>",
+                        "_id": "fae3f38"
+                      }
+                    ],
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-faixa-texto",
+                      "typography": "globals/typography?id=text"
+                    }
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            }
+          ],
+          "isInner": true
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": [],
+  "version": "0.4",
+  "title": "Página inicial",
+  "type": "page"
+}

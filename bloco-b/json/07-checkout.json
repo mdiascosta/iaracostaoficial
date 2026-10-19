@@ -1,0 +1,148 @@
+{
+  "content": [
+    {
+      "id": "8011113",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "0",
+          "column": "0",
+          "isLinked": true,
+          "unit": "px",
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        },
+        "_title": "Finalizar compra"
+      },
+      "elements": [
+        {
+          "id": "f589896",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "12",
+              "column": "12",
+              "isLinked": true,
+              "unit": "px",
+              "size": 12
+            },
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "8",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Cabecalho da pagina"
+          },
+          "elements": [
+            {
+              "id": "ea7dc16",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Finalizar compra",
+                "title": "Finalizar compra",
+                "header_size": "h1",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=primary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "d0348f7",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Preencha os seus dados e escolha a forma de pagamento. Você pode comprar como visitante, sem criar conta.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "57fff3f",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "16",
+              "column": "16",
+              "isLinked": true,
+              "unit": "px",
+              "size": 16
+            },
+            "padding": {
+              "unit": "px",
+              "top": "16",
+              "right": "0",
+              "bottom": "56",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Conteudo da pagina"
+          },
+          "elements": [
+            {
+              "id": "6f602d2",
+              "elType": "widget",
+              "widgetType": "woocommerce-notices",
+              "settings": {
+                "_title": "Avisos do WooCommerce"
+              },
+              "elements": []
+            },
+            {
+              "id": "464dda5",
+              "elType": "widget",
+              "widgetType": "woocommerce-checkout",
+              "settings": {
+                "_title": "Finalizar compra (dinâmico)"
+              },
+              "elements": []
+            },
+            {
+              "id": "7dab55d",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Widget clássico de checkout do WooCommerce. Compra como visitante, campos e formas de pagamento são configurados no WooCommerce e no Mercado Pago, não neste arquivo: o guia traz a lista de conferência.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=iara-texto-micro"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": [],
+  "version": "0.4",
+  "title": "Finalizar compra",
+  "type": "page"
+}

@@ -1,4 +1,4 @@
-BLOCO B · TEMPLATES DO ELEMENTOR · PARTE 1 · 16/10/2026
+BLOCO B · TEMPLATES DO ELEMENTOR · COMPLETO · 16/10/2026
 
 
 O QUE E ESTA PASTA
@@ -13,6 +13,30 @@ O QUE TEM AQUI DENTRO
   GUIA-IMPORTACAO.md        leia este primeiro: ordem, cuidados e o que fazer
   json/01-cabecalho.json    cabecalho do site (faixa verde, logo, menu, icones)
   json/02-rodape.json       rodape do site (newsletter, colunas, seguranca, base)
+  json/03-home.json         pagina inicial (hero, categorias, destaques, editorial,
+                            colecao, depoimentos, diario e perguntas frequentes)
+  json/04-loja.json         loja (filtros, grade de produtos, ordenacao e paginacao)
+  json/05-produto.json      pagina da peca (galeria, variacoes, compra, abas e
+                            produtos relacionados)
+  json/06-carrinho.json     sacola (carrinho classico do WooCommerce, com cupom)
+  json/07-checkout.json     finalizar compra (checkout classico, como visitante)
+  json/08-pedido-recebido.json   resumo do pedido depois da compra
+  json/09-conta.json        minha conta (pedidos, enderecos e dados)
+  json/10-desejos.json      lista de desejos (plugin TI Wishlist aprovado)
+  json/11-blog.json         diario (vitrine dos textos do Gutenberg)
+  json/12-post.json         artigo (capa, titulo, texto e continue lendo)
+  json/13-busca.json        resultados de busca
+  json/14-404.json          pagina nao encontrada
+  json/15-sobre.json        sobre a marca
+  json/16-contato.json      contato (formulario e canais)
+  json/17-faq.json          perguntas frequentes
+  json/18-guia-medidas.json guia de medidas
+  json/19-lookbook.json     colecao Terra e Linho em tres capitulos
+  json/20-trocas.json       trocas e devolucoes
+  json/21-envio.json        envio e entrega
+  json/22-privacidade.json  politica de privacidade (rascunho para o juridico)
+  json/23-termos.json       termos de uso (rascunho para o juridico)
+  json/24-cookies.json      politica de cookies (rascunho para o juridico)
   globais/cores-e-fontes.json   as 15 cores e as 10 fontes do site, por nome
 
 
@@ -26,6 +50,14 @@ ORDEM DE TRABALHO
          python3 tools/blocob_confere.py
   4. Importar os dois templates e definir a condicao de exibicao
      (Entire Site, nos dois).
+  5. Importar a pagina inicial, criar a pagina Inicio e defini-la como pagina
+     inicial do site; depois fazer os ajustes da secao 4.3 do guia.
+  6. Importar a loja e a pagina da peca pelo Theme Builder, com as condicoes de
+     exibicao da secao 8, e decidir o caminho dos filtros (secao 4.4).
+  7. Importar as paginas do funil (sacola, finalizar compra, pedido recebido e
+     minha conta), publicar e apontar cada uma no WooCommerce.
+  8. Importar o lote editorial e institucional (11 a 24), criar cada pagina no
+     endereco certo e deixar as paginas legais como rascunho, sem publicar.
 
 
 AVISO IMPORTANTE

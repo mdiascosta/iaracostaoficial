@@ -1,5 +1,249 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Bloco B, parte 5 (final): editorial, institucional e legal (v0.2.5)
+
+### Pedido da cliente
+"pode continuar", depois da aprovação dos plugins de desejos e de swatches.
+Fechei o Bloco B com o último lote.
+
+### O que foi feito (IMPLEMENTADO)
+- **`11-blog.json`** (arquivo de posts) e **`12-post.json`** (post único):
+  vitrine dinâmica e artigo com título, capa, conteúdo do Gutenberg e
+  "Continue lendo". Post nunca é escrito no Elementor.
+- **`13-busca.json`** (resultados de busca) e **`14-404.json`**: campo de
+  busca, resultados, estado sem resultado com saída para a loja; 404 com
+  botões para loja, início e contato.
+- **`15-sobre.json`**, **`16-contato.json`** (formulário com nome, e-mail,
+  assunto e mensagem, mais os canais), **`17-faq.json`** (cinco grupos de
+  perguntas e a faixa de ajuda), **`18-guia-medidas.json`** (como medir,
+  tabela marcada `[PREENCHER]` e dúvidas) e **`19-lookbook.json`** (coleção
+  em três capítulos com foto, texto e botão de compra).
+- **`20-trocas.json`** e **`21-envio.json`** com as seções aprovadas no
+  protótipo, incluindo a marca `[CONFIRMAR COM A EMPRESA]` nas peças de
+  bazar e íntimas.
+- **`22-privacidade.json`**, **`23-termos.json`** e **`24-cookies.json`**:
+  esqueleto das seções com `[PREENCHER: texto jurídico aprovado]` e o aviso
+  de rascunho para o jurídico.
+- **Documentos**: guia e `LEIA-ME.txt` fechados com os 24 arquivos, a ordem
+  de trabalho completa e o aviso de que o próximo bloco é o Bloco C.
+
+### Decisões tomadas
+- **Os 24 arquivos ficaram como contados**, sem juntar as páginas legais:
+  a alternativa de 21 era juntar as três políticas em um modelo só, e a
+  contagem página por página venceu. Registro para a equipe: se um dia
+  quiserem enxugar, o caminho continua descrito no guia.
+- **Nada de texto inventado para preencher página**: onde o dado é da
+  empresa ou do jurídico, o arquivo carrega a marca, não um chute.
+
+### O que foi verificado aqui
+- `python3 tools/blocob_confere.py`: **24 arquivos conferidos, resultado:
+  tudo certo** (15 cores, 10 fontes).
+- `python3 tools/blocob_gera.py` regenera os 24 arquivos e as globais sem
+  mudar nada além do esperado.
+- `python3 tools/check.py`: o protótipo do Bloco A segue intacto.
+
+### O que não foi verificado
+- **Nenhuma importação e nenhuma renderização** de nenhum dos 24 arquivos
+  (sem WordPress, painel ou banco). Esta é a maior pendência do Bloco B e só
+  o staging resolve.
+- Compatibilidade dos widgets Pro com a versão licenciada do staging.
+- Desempenho, acessibilidade em site real e pedido de teste: Bloco C e
+  staging.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Importação em staging, um arquivo por vez, com a conferência do guia.
+- Versões do staging, fotos reais, depoimentos reais, tabela de medidas,
+  textos [PROPOSTA] da Sobre, textos jurídicos, e-mail dos formulários e
+  redes sociais.
+- Instalação e teste dos dois plugins aprovados (TI Wishlist e Variation
+  Swatches), um por vez, medindo o peso.
+
+## [2026-10-16] - Decisão: plugins de desejos e de swatches aprovados (v0.2.4)
+
+### Pedido da cliente
+"lista de desejos e swatches de cor/tamanho, qual plugin instalar?" Apresentei
+a comparação das opções atuais do repositório oficial do WordPress e a cliente
+aprovou as duas indicações na versão gratuita.
+
+### Decisão (APROVADO pela cliente)
+- **TI WooCommerce Wishlist** para a lista de desejos: 100 mil instalações
+  ativas ou mais e nota 4.7 no WordPress.org. A versão gratuita traz uma lista
+  por cliente, lista para visitante e página própria; listas múltiplas e
+  analytics ficam no Premium, que esta loja não precisa agora.
+- **Variation Swatches for WooCommerce** (GetWooPlugins) para cor e tamanho
+  em botões: 300 mil instalações ativas ou mais e nota 4.8. A versão gratuita
+  troca o seletor padrão por cor, imagem e botão, e trata a variação esgotada
+  até 30 variações por produto; o catálogo previsto (4 tamanhos nas cores da
+  peça) fica bem abaixo disso. Swatches na grade da loja são do Pro.
+- A alternativa pesada (YITH) ficou de fora pelo custo anual e pelo peso
+  relatado em comparativos; o WooCommerce novo até traz atributo visual
+  nativo, mas só em tema de blocos, e o tema deste projeto é o Hello
+  Elementor.
+
+### O que mudou nos arquivos
+- `10-desejos.json`: o aviso `[A DEFINIR]` virou `[CONFIGURAR NO EDITOR]` com
+  o nome do plugin aprovado e o endereço da página da lista.
+- `GUIA-IMPORTACAO.md`: seção 4.5 nova com a decisão, os limites da versão
+  gratuita e as regras de instalação; linhas de desejos e de variações
+  atualizadas nas seções 2.1 e 4.3.
+- `PENDENCIAS.md`: as pendências de aprovação viraram tarefa de instalar e
+  testar no staging, um por vez, medindo o peso antes e depois.
+
+### O que não foi feito
+- **Nada foi instalado** (sem acesso ao WordPress): quem instala é a equipe.
+- **Nenhum teste de compatibilidade** com o staging: versões do WordPress e do
+  WooCommerce do ambiente seguem `[CONFERIR]`.
+- Versão Pro dos dois: só com falta real no teste e nova aprovação.
+
+## [2026-10-16] - Bloco B, parte 4: o funil de compra (v0.2.3)
+
+### Pedido da cliente
+"Pode continuar", depois da loja e da página do produto (parte 3, PR #7).
+Segui para o funil: sacola, finalizar compra, pedido recebido, minha conta e
+desejos.
+
+### O que foi feito (IMPLEMENTADO)
+- **`bloco-b/json/06-carrinho.json`** e **`07-checkout.json`**: título, avisos do
+  WooCommerce e os widgets clássicos Cart e Checkout do Elementor Pro.
+- **`bloco-b/json/08-pedido-recebido.json`**: resumo dinâmico do pedido
+  (Purchase Summary) e os botões "Acompanhar meus pedidos" e "Continuar
+  comprando".
+- **`bloco-b/json/09-conta.json`**: widget My Account, com pedidos, endereços e
+  dados nas telas nativas do WooCommerce.
+- **`bloco-b/json/10-desejos.json`**: título, aviso `[A DEFINIR]` da pendência
+  do plugin e botão para a loja.
+- **`tools/blocob_gera.py`**: ajudante `pagina_compra()` para as páginas que são
+  um widget do WooCommerce com título e nota.
+- **Documentos**: ajustes do funil no guia (endereços das telas no
+  WooCommerce, compra como visitante, cupom visível, noindex nas três páginas
+  do funil), tabelas e ordem de trabalho.
+
+### Decisões tomadas
+- **Clássico, não blocos**: a aceitação do dossiê pede carrinho e checkout
+  clássicos, então os widgets são os clássicos do Elementor Pro.
+- **Desejos sem publicar**: sem plugin aprovado, a página é um aviso honesto.
+  Publicar uma lista vazia quebrada seria pior.
+- **O que é ajuste de painel ficou no guia**, não no arquivo: endereços das
+  telas, compra como visitante, cupom BEMVINDO10 com limitação de primeira
+  compra documentada, e noindex de sacola, checkout e conta fora do sitemap.
+
+### O que foi verificado aqui
+- `python3 tools/blocob_confere.py`: 10 templates, "resultado: tudo certo".
+- `python3 tools/check.py`: o protótipo segue em "tudo certo".
+
+### O que não foi verificado
+- **Nenhuma importação, renderização ou pedido de teste** (sem WordPress).
+- **Pedido de teste com BEMVINDO10 e transferência** é da equipe no staging,
+  sem pagamento real, e depois o pedido é apagado (aceitação do dossiê).
+- **E-mails transacionais** (remetente, SPF, DKIM, DMARC) são do Bloco C.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Plugin de lista de desejos e plugin de swatches, os dois com aprovação prévia.
+- Caminho dos filtros da loja (seção 4.4 do guia).
+- Todo o resto das partes anteriores.
+
+## [2026-10-16] - Bloco B, parte 3: loja e página do produto (v0.2.2)
+
+### Pedido da cliente
+"continue", depois da entrega da home (parte 2, PR #7 aberto). Segui a ordem
+combinada: loja e página da peça, onde o WooCommerce entra de verdade.
+
+### O que foi feito (IMPLEMENTADO)
+- **`bloco-b/json/04-loja.json`** (arquivo de produtos): cabeçalho com trilha,
+  título e atalho do guia de medidas; coluna de filtros com categorias
+  dinâmicas e os três grupos marcados para configurar (preço, cor e tamanho);
+  grade dinâmica de 9 peças com as 5 ordenações do protótipo e paginação; e a
+  faixa verde de ajuda antes do rodapé. 10 containers e 19 widgets.
+- **`bloco-b/json/05-produto.json`** (produto único): trilha, galeria nativa,
+  nome, avaliação, preço, parcela, descrição curta, variações e botão de
+  compra, estoque, atalho do guia de medidas, código e categorias, as três
+  garantias da compra, abas do produto, relacionados e sugestões, e a faixa
+  "Ficou em dúvida no tamanho?". 8 containers e 21 widgets.
+- **Documentos**: guia com os ajustes de loja e produto (4.3), a decisão dos
+  filtros (4.4 nova), a tabela do que está pronto e a ordem de trabalho;
+  `LEIA-ME.txt` na parte 3.
+
+### Decisões tomadas
+- **Tudo que muda com o catálogo é dinâmico**: nome, preço, foto, estoque,
+  variação, avaliação, relacionado. Nenhum produto, preço ou nota foi escrito
+  nos arquivos.
+- **Filtros de preço, cor e tamanho ficaram como decisão aberta.** O Elementor
+  Pro não tem filtro por atributo no canvas; fingir que tem seria entregar um
+  arquivo que não funciona. O guia traz os três caminhos com custo de cada um,
+  e a escolha é da equipe, porque um deles pede plugin (aprovação prévia).
+- **Swatches dependem de plugin aprovado.** Sem ele, variação aparece no
+  seletor padrão do WooCommerce, que funciona, só não tem a bolinha de cor.
+
+### O que foi verificado aqui
+- `python3 tools/blocob_confere.py`: 5 templates, 111 containers, 145 widgets,
+  15 cores, 10 fontes, "resultado: tudo certo".
+- `python3 tools/check.py`: o protótipo segue em "tudo certo".
+
+### O que não foi verificado
+- **Nenhuma importação e nenhuma renderização** (sem WordPress, painel ou banco).
+- **Se a versão do Elementor Pro do staging traz todos os widgets de produto**
+  usados aqui (`[CONFERIR]` na instalação).
+- Nenhuma medida de desempenho.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- **Caminho dos filtros da loja** (blocos, plugin ou links por atributo).
+- **Plugin de swatches** para cor e tamanho em botões, se a equipe quiser o
+  comportamento do protótipo.
+- Tabela de medidas real por peça, fotos e descrições do catálogo.
+- Todo o resto: versões do staging, fotos e depoimentos da home, newsletter,
+  redes sociais, plugin de desejos e o número final de arquivos.
+
+## [2026-10-16] - Bloco B, parte 2: página inicial (v0.2.1)
+
+### Pedido da cliente
+"Começar pela home". A parte 1 do Bloco B (cores, fontes, cabeçalho e rodapé)
+entrou na `main` pelo PR #6, e a cliente escolheu a página inicial antes da loja.
+
+### O que foi feito (IMPLEMENTADO)
+- **`bloco-b/json/03-home.json`** (tipo página): as dez seções da home aprovada no
+  protótipo, na mesma ordem: hero, faixa de benefícios, categorias, produtos em
+  destaque, ocasiões, editorial do ateliê, coleção, depoimentos, posts recentes e
+  perguntas frequentes em faixa verde. 53 containers e 59 widgets.
+- **`tools/blocob_gera.py`**: ganhou a fábrica `home()` e os ajudantes de página
+  (`rotulo`, `titulo_secao`, `paragrafo`, `botao`, `cabecalho_secao`,
+  `cartao_imagem`).
+- **`bloco-b/GUIA-IMPORTACAO.md`**: a home entrou na lista do que está pronto
+  (seção 5.1), saiu da lista de páginas futuras (5.2) e ganhou ajustes de editor
+  na seção 4.3; a ordem de trabalho (seção 8) agora inclui importar a home.
+- **`bloco-b/LEIA-ME.txt`**: atualizado para a parte 2.
+
+### Decisões tomadas
+- **Produtos em destaque e posts recentes são blocos dinâmicos** (widgets
+  `woocommerce-products` e `posts`), configurados no editor. Escrever produto à
+  mão na home criaria preço e estoque falsos assim que o catálogo mudasse.
+- **Legenda do hero abaixo da foto**, e não sobreposta: sobrepor sem CSS livre
+  não é confiável no Elementor. Fica como ajuste opcional no editor.
+- **Depoimentos marcados como exemplo** no próprio título do widget, com cidade
+  em `[PREENCHER]`: são os textos de exemplo do protótipo (decisão D5 da fase E0)
+  e só podem ser publicados quando forem reais.
+- Cartões de categoria e de ocasião apontam todos para `/loja/` por enquanto,
+  porque as categorias reais do WooCommerce ainda não existem; o guia manda
+  apontar cada um para a sua categoria depois do cadastro.
+
+### O que foi verificado aqui
+- `python3 tools/blocob_gera.py`: gera os 4 arquivos.
+- `python3 tools/blocob_confere.py`: 3 templates, 93 containers, 105 widgets,
+  15 cores, 10 fontes, "resultado: tudo certo". Nenhum travessão no arquivo gerado.
+
+### O que não foi verificado
+- **Nenhuma importação e nenhuma renderização** (sem WordPress, painel ou banco).
+- **Os nomes de ajuste dos widgets Pro** (`woocommerce-products`, `posts`,
+  `testimonial`) seguem a documentação; nome diferente é ignorado na importação
+  e escolhido no editor.
+- Nenhuma medida de desempenho.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Fotos reais da home (hero, editorial, coleção, categorias e ocasiões).
+- Depoimentos reais, com autorização de uso.
+- Categorias reais do WooCommerce, para apontar os cartões.
+- Todo o resto da lista da parte 1: versões do staging, newsletter, redes
+  sociais, plugin de desejos e o número final de arquivos.
+
 ## [2026-10-16] - Bloco B, parte 1: cores, fontes, cabeçalho e rodapé (v0.2.0)
 
 ### Pedido da cliente

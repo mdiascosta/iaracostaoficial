@@ -61,6 +61,133 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.2.5 · 2026-10-16 · Bloco B, parte 5 (final): editorial, institucional e legal
+
+**O que entrou:** os últimos 14 arquivos do Bloco B, de `11-blog.json` a
+`24-cookies.json`: diário, artigo, busca, 404, sobre, contato, perguntas
+frequentes, guia de medidas, coleção em três capítulos, trocas, envio e as
+três páginas legais como esqueleto para o jurídico.
+
+**Com isso, o Bloco B está completo: 24 arquivos**, as duas partes do site
+mais as 22 páginas do protótipo, todos gerados por `tools/blocob_gera.py` e
+conferidos por `tools/blocob_confere.py`.
+
+**Decisões desta parte**
+
+- **Post nunca nasce no Elementor**: o artigo usa o conteúdo do Gutenberg e o
+  diário é só a vitrine dinâmica.
+- **Página legal é rascunho**: privacidade, termos e cookies entram com o
+  esqueleto das seções e `[PREENCHER: texto jurídico aprovado]`; publicar sem
+  revisão está fora de questão.
+- **O que depende de dado real ficou marcado**: tabela de medidas da marca,
+  fotos da coleção, e-mail de destino do contato e textos [PROPOSTA] da página
+  Sobre.
+
+**Verificado:** `tools/blocob_confere.py` passa nos **24 templates** (24
+arquivos, 15 cores, 10 fontes). **Não verificado:** nenhuma importação e
+nenhuma renderização, sem acesso ao WordPress. A importação em staging, um
+arquivo por vez, é o que destrava a conferência de verdade.
+
+### v0.2.4 · 2026-10-16 · Decisão: plugins de desejos e de swatches aprovados
+
+**Decisão da cliente:** instalar, nas versões gratuitas, o **TI WooCommerce
+Wishlist** (lista de desejos) e o **Variation Swatches for WooCommerce**, da
+GetWooPlugins (cor e tamanho em botões). Os dois foram escolhidos pela base
+instalada e pelas avaliações no repositório oficial do WordPress, e porque a
+versão gratuita dos dois cobre o que esta loja precisa: uma lista por cliente
+e variação esgotada tratada até 30 variações por produto.
+
+**O que mudou:** a página de desejos (`10-desejos.json`) deixou de dizer que o
+plugin não foi aprovado e passou a indicar a configuração; o guia ganhou a
+seção 4.5 com a decisão, os limites da versão gratuita e a regra de medir o
+peso da página antes e depois; `PENDENCIAS.md` trocou as duas pendências de
+aprovação pela tarefa de instalar e testar.
+
+**Regra registrada:** versão Pro só entra se o teste no staging mostrar falta
+real, e com nova aprovação. Nada foi instalado: quem instala é a equipe, no
+staging, um plugin por vez.
+
+### v0.2.3 · 2026-10-16 · Bloco B, parte 4: o funil de compra
+
+**O que entrou**
+
+| O que | Onde |
+|---|---|
+| Sacola, com o widget clássico de carrinho e o campo de cupom | `bloco-b/json/06-carrinho.json` |
+| Finalizar compra, com o widget clássico de checkout | `bloco-b/json/07-checkout.json` |
+| Pedido recebido, com o resumo dinâmico do pedido | `bloco-b/json/08-pedido-recebido.json` |
+| Minha conta, com pedidos, endereços e dados | `bloco-b/json/09-conta.json` |
+| Lista de desejos, com o aviso de pendência do plugin | `bloco-b/json/10-desejos.json` |
+| Ajustes do funil no WooCommerce (endereços das telas, compra como visitante, cupom, noindex) | `bloco-b/GUIA-IMPORTACAO.md`, seção 4.3 |
+
+**Decisões**
+
+- **Carrinho e checkout clássicos**, como pede a aceitação do dossiê: nada de
+  blocos novos de carrinho e checkout nestas páginas.
+- **A lista de desejos não finge que funciona.** Sem plugin aprovado, a página
+  traz o aviso da pendência e o botão para a loja, e fica sem publicar.
+- **Configuração de loja não vai em arquivo de template**: compra como
+  visitante, cupom, endereços das telas e noindex são ajustes do WooCommerce e
+  do Yoast, listados no guia.
+
+**Verificado:** `tools/blocob_confere.py` passa nos 10 templates.
+**Não verificado:** importação, renderização e qualquer pedido de teste, sem
+WordPress. Pedido de teste de verdade só no staging, sem pagamento real.
+
+### v0.2.2 · 2026-10-16 · Bloco B, parte 3: loja e página do produto
+
+**O que entrou**
+
+| O que | Onde |
+|---|---|
+| Arquivo da loja: cabeçalho, coluna de filtros, grade dinâmica com ordenação e paginação, faixa verde de ajuda | `bloco-b/json/04-loja.json` |
+| Página do produto: trilha, galeria, nome, avaliação, preço, descrição curta, variações e compra, garantias, abas, relacionados e faixa de ajuda | `bloco-b/json/05-produto.json` |
+| Decisão pendente dos filtros da loja, com os três caminhos possíveis | `bloco-b/GUIA-IMPORTACAO.md`, seção 4.4 |
+
+**Decisões**
+
+- **Nada de produto escrito à mão, também aqui.** Nome, preço, foto, estoque,
+  variações e relacionados são widgets dinâmicos do WooCommerce.
+- **Os filtros de preço, cor e tamanho não foram travados no arquivo.** O
+  Elementor Pro não traz filtro por atributo dentro do canvas, então o arquivo
+  marca o que configurar e o guia apresenta os três caminhos (blocos do
+  WooCommerce, plugin aprovado ou links por atributo) para a equipe decidir.
+- **Swatches não são nativos.** O seletor de cor e tamanho em botões, como o do
+  protótipo, depende de plugin aprovado; sem ele, o WooCommerce mostra os
+  seletores padrão.
+
+**Verificado:** `tools/blocob_confere.py` passa nos 5 templates (111 containers,
+145 widgets). **Não verificado:** importação e renderização, sem WordPress.
+
+### v0.2.1 · 2026-10-16 · Bloco B, parte 2: página inicial
+
+**De onde veio:** a cliente pediu para começar a segunda parte do Bloco B pela
+home, e não pela loja.
+
+**O que entrou**
+
+| O que | Onde |
+|---|---|
+| Página inicial completa: hero, faixa de benefícios, categorias, produtos em destaque, ocasiões, editorial do ateliê, coleção, depoimentos, posts recentes e perguntas frequentes | `bloco-b/json/03-home.json` |
+| Ajustes da home no editor (fotos, produtos em destaque, posts, links de categoria, depoimentos reais) | `bloco-b/GUIA-IMPORTACAO.md`, seção 4.3 |
+| A home sai da lista de páginas futuras e entra na lista do que está pronto | `bloco-b/GUIA-IMPORTACAO.md`, seção 5 |
+
+**Decisões**
+
+- **Produto e post não são escritos à mão.** A seção Em destaque usa o widget de
+  produtos do WooCommerce e a seção Do diário usa o widget de posts: os dois são
+  dinâmicos e nascem do cadastro real.
+- **A legenda do hero não foi sobreposta à foto.** No protótipo ela fica sobre a
+  imagem; no Elementor, sobrepor texto à imagem sem CSS livre não é confiável,
+  então a legenda entra abaixo da foto e a sobreposição fica como ajuste opcional
+  no editor.
+- **Os depoimentos continuam marcados como exemplo**, com o campo de cidade como
+  `[PREENCHER]`, para ninguém publicar depoimento fictício sem perceber.
+
+**Verificado:** `tools/blocob_confere.py` passa nos 3 templates (93 containers,
+105 widgets, 15 cores, 10 fontes). **Não verificado:** importação e renderização,
+sem acesso ao WordPress.
+
 ### v0.2.0 · 2026-10-16 · Bloco B, parte 1: cores, fontes, cabeçalho e rodapé
 
 **De onde veio:** o Bloco A foi fechado e congelado na v0.1.20, e a cliente pediu

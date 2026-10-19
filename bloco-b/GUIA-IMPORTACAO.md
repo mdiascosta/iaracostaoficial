@@ -45,7 +45,8 @@ python3 tools/ajusta-ids.py        # casa os ids das cores com os do site (passo
 | **Elementor** (versão gratuita) | construtor de base | [CONFERIR] |
 | **Elementor Pro** com licença oficial | Theme Builder, widgets de WooCommerce e formulário | decisão D1 |
 | **WooCommerce** | catálogo, sacola, checkout e conta | [CONFERIR] |
-| Plugin de lista de desejos | só se a página de desejos for usada | aguardando aprovação |
+| **TI WooCommerce Wishlist** (gratuito) | lista de desejos | aprovado em 16/10/2026; a equipe instala no staging |
+| **Variation Swatches for WooCommerce**, da GetWooPlugins (gratuito) | seletor de cor e tamanho em botões | aprovado em 16/10/2026; a equipe instala no staging |
 
 Nada de plugin nulo ou pirata, conforme a regra do projeto.
 
@@ -193,48 +194,106 @@ monta. São rápidos:
 | Cabeçalho: widget Sacola | conferir se some o texto e fica só o ícone com o contador |
 | Rodapé: formulário da newsletter | escolher o destino do e-mail e o serviço de newsletter (o campo está como `[PREENCHER]`) |
 | Rodapé: links de redes sociais | trocar os `[PREENCHER]` pelos endereços reais |
+| Home: fotos do hero, do editorial e da coleção | escolher as imagens reais na biblioteca de mídia; a legenda do hero entra sobre a foto no editor, se a equipe quiser manter o selo do protótipo |
+| Home: bloco Em destaque | escolher a fonte de produtos "Em destaque" do WooCommerce, 4 colunas e 1 linha; nenhum produto é escrito à mão no template |
+| Home: bloco Do diário | escolher os 3 posts mais recentes; os textos nascem no Gutenberg, nunca no Elementor |
+| Home: categorias e ocasiões | apontar cada cartão para a categoria certa da loja (hoje todos apontam para `/loja/`) |
+| Home: depoimentos | substituir os 3 depoimentos de exemplo pelos reais, com autorização de uso |
+| Loja: grade de produtos | 9 peças por página, 3 colunas e as 5 ordenações do protótipo (mais recentes, mais populares, menor preço, maior preço, melhor avaliados) |
+| Loja: filtros de preço, cor e tamanho | ver a decisão abaixo: o Elementor não traz filtro de atributo pronto, e este item precisa de definição da equipe |
+| Produto: galeria | ligar zoom e lightbox nativos do WooCommerce e conferir o corte 1:1 das fotos |
+| Produto: variações | cor e tamanho nascem dos atributos globais Cor (tipo cor) e Tamanho (tipo botão); o plugin **Variation Swatches for WooCommerce** (aprovado) troca os seletores padrão pelos botões do protótipo. Conferir esgotado riscado ou esmaecido, como no protótipo |
+| Produto: tabela de medidas | preencher com as medidas reais de cada peça (nada de tabela de exemplo) |
+| Sacola: cupom | deixar o campo de cupom visível: é por ele que entra o BEMVINDO10 |
+| Sacola, checkout e conta: endereços do WooCommerce | em WooCommerce > Configurações > Avançado, apontar cada tela para a página certa (sacola, finalizar compra e minha conta) |
+| Checkout: compra como visitante | ligar em WooCommerce > Configurações > Contas e privacidade, como pede o dossiê |
+| Checkout: pagamento | conferir Pix, cartão e boleto ativos na conta do Mercado Pago antes de qualquer teste |
+| Pedido recebido | conferir se o resumo aparece depois de um pedido de teste e se o e-mail de confirmação sai com o remetente da loja |
+| Conta, sacola e checkout fora do Google | marcar `noindex` no Yoast nestas três páginas e deixar fora do sitemap |
+| Desejos | instalar o **TI WooCommerce Wishlist** (aprovado), gerar a página da lista com o endereço `/lista-de-desejos/` e conferir o contador do coração no cabeçalho; só publicar depois desse teste |
+| Diário e artigo | textos escritos no Gutenberg; o template só desenha a capa, o título e a vitrine. Nunca escrever post no Elementor |
+| Coleção | escolher as fotos reais dos três capítulos e apontar cada botão para a categoria certa |
+| Páginas legais | substituir todos os `[PREENCHER]` pelo texto aprovado pelo jurídico antes de publicar; elas nascem como rascunho |
+| Busca e 404 | conferir a busca com e sem resultado, e abrir um endereço inexistente para ver a página 404 no ar |
 | Site inteiro: botão do WhatsApp | usar **Floating Elements** do Elementor (Site Settings), com o número (15) 99123-4567 e a entrada depois de rolar a página, como no protótipo |
+
+### 4.4 Uma decisão pendente: os filtros da loja
+
+O protótipo tem filtros por categoria, faixa de preço, cor e tamanho. No arquivo
+`04-loja.json`, a **categoria** já entra dinâmica (widget de categorias do
+WooCommerce). Os outros três filtros estão marcados como
+`[CONFIGURAR NO EDITOR]`, porque o Elementor Pro não traz filtro por atributo
+pronto dentro do canvas. Caminhos possíveis, para a equipe decidir:
+
+| Caminho | Como funciona | Custo |
+|---|---|---|
+| Blocos de filtro do próprio WooCommerce | são blocos do Gutenberg (filtrar por preço, por atributo e por estoque) | funcionam na página da loja montada com blocos, não dentro do template do Elementor |
+| Plugin de filtros para WooCommerce | entra como widget no template e filtra sem recarregar a página | precisa de aprovação prévia, pela regra do projeto |
+| Links por atributo | cada cor e tamanho vira um link com o atributo no endereço (o WooCommerce entende `?filter_cor=...`) | sem plugin, mas sem contagem dinâmica nem limpar filtros elegante |
+
+Nenhum caminho foi escolhido neste arquivo. Enquanto a decisão não sai, a loja
+publica com categoria, ordenação e paginação, que já vêm do WooCommerce.
+
+### 4.5 Plugins aprovados (decisão de 16/10/2026)
+
+Dois plugins foram aprovados para funções que o WooCommerce não traz prontas.
+Os dois começam na **versão gratuita**, instalada pela equipe no staging:
+
+| Função | Plugin | Por que ele | Limite da versão gratuita |
+|---|---|---|---|
+| Lista de desejos | **TI WooCommerce Wishlist** | bem avaliado, lista para visitante e logado, página própria da lista | uma lista por cliente (basta para esta loja); listas múltiplas e analytics são do Premium |
+| Cor e tamanho em botões (swatches) | **Variation Swatches for WooCommerce** (GetWooPlugins) | é o mais usado da categoria, troca o seletor padrão por cor, imagem e botão, e trata variação esgotada | esgotado tratado até 30 variações por produto (basta para o catálogo previsto); swatches na grade da loja são do Pro |
+
+Regras de uso: instalar um por vez, testar a loja depois de cada um e medir o
+peso da página antes e depois (meta de desempenho do dossiê). Versão Pro só
+entra se o teste mostrar falta real, com nova aprovação.
 
 ---
 
 ## 5. As partes e as páginas
 
-### 5.1 As duas partes do site (prontas nesta parte)
+### 5.1 O que já está pronto
 
 | Arquivo | Título | Tipo | O que é |
 |---|---|---|---|
 | `01-cabecalho.json` | Cabeçalho do site | Header | faixa verde do topo, logo, menu e os quatro ícones (busca, conta, desejos, sacola) |
 | `02-rodape.json` | Rodapé do site | Footer | newsletter, quatro colunas, faixa de segurança e formas de pagamento, base com CNPJ e links de política |
+| `03-home.json` | Página inicial | Página | hero, faixa de benefícios, categorias, produtos em destaque, ocasiões, editorial do ateliê, coleção, depoimentos, posts recentes e perguntas frequentes |
+| `04-loja.json` | Arquivo da loja | Arquivo de produtos | cabeçalho da loja, coluna de filtros, grade dinâmica com ordenação e paginação e a faixa verde de ajuda |
+| `05-produto.json` | Página do produto | Produto único | trilha, galeria, nome, avaliação, preço, descrição curta, variações e compra, garantias, abas do produto, relacionados e a faixa de ajuda de tamanho |
+| `06-carrinho.json` | Sacola | Página | título e o widget clássico de carrinho do WooCommerce, com campo de cupom |
+| `07-checkout.json` | Finalizar compra | Página | título e o widget clássico de checkout, com compra como visitante |
+| `08-pedido-recebido.json` | Pedido recebido | Página | resumo dinâmico do pedido e os botões para pedidos e loja |
+| `09-conta.json` | Minha conta | Página | título e o widget My Account, com pedidos, endereços e dados |
+| `10-desejos.json` | Lista de desejos | Página | título e aviso de pendência: a lista em si depende de plugin aprovado |
+| `11-blog.json` | Diário | Arquivo de posts | vitrine dinâmica dos textos do Gutenberg |
+| `12-post.json` | Artigo do diário | Post único | capa, título, texto do Gutenberg e "Continue lendo" |
+| `13-busca.json` | Busca | Resultados de busca | campo de busca, resultados e saída para a loja |
+| `14-404.json` | Página não encontrada | Página 404 | mensagem e os botões para loja, início e contato |
+| `15-sobre.json` | Sobre a Iara Costa | Página | história, missão, ateliê e escolha das peças (textos [PROPOSTA]) |
+| `16-contato.json` | Contato | Página | formulário, canais de atendimento e atalho do FAQ |
+| `17-faq.json` | Perguntas frequentes | Página | perguntas por assunto e a faixa de ajuda |
+| `18-guia-medidas.json` | Guia de medidas | Página | como medir, tabela [PREENCHER] e dúvidas de tamanho |
+| `19-lookbook.json` | Coleção Terra & Linho | Página | editorial em três capítulos, com foto, texto e compra |
+| `20-trocas.json` | Trocas e devoluções | Página | desistência, troca, defeito, solicitação e reembolso |
+| `21-envio.json` | Envio e entrega | Página | prazos, frete grátis, rastreio e problemas de entrega |
+| `22-privacidade.json` | Política de Privacidade | Página | esqueleto das 8 seções para o jurídico |
+| `23-termos.json` | Termos de uso | Página | esqueleto das 8 seções para o jurídico |
+| `24-cookies.json` | Política de Cookies | Página | esqueleto das 6 seções para o jurídico e o banner LGPD |
 
 ### 5.2 As páginas (próximas partes)
 
-Cada página do protótipo vira um arquivo. Os endereços sugeridos são os mesmos do
-protótipo, para o site nascer com os links certos.
+**O Bloco B está completo: os 24 arquivos foram entregues.** Cada página do
+protótipo virou um arquivo, nos mesmos endereços do protótipo, para o site nascer
+com os links certos:
 
-| # | Página | Arquivo previsto | Tipo no Elementor | Endereço |
-|---|---|---|---|---|
-| 03 | Início | `03-home.json` | página | `/` |
-| 04 | Loja | `04-loja.json` | arquivo de produtos | `/loja/` |
-| 05 | Página da peça | `05-produto.json` | produto único | `/produto/<peça>/` |
-| 06 | Sacola | `06-carrinho.json` | página (widget Cart) | `/sacola/` |
-| 07 | Finalizar compra | `07-checkout.json` | página (widget Checkout) | `/finalizar-compra/` |
-| 08 | Pedido recebido | `08-pedido-recebido.json` | página (widget Purchase Summary) | `/pedido-recebido/` |
-| 09 | Minha conta | `09-conta.json` | página (widget My Account) | `/minha-conta/` |
-| 10 | Lista de desejos | `10-desejos.json` | página | `/lista-de-desejos/` |
-| 11 | Diário | `11-blog.json` | arquivo de posts | `/diario/` |
-| 12 | Artigo | `12-post.json` | post único | `/diario/<artigo>/` |
-| 13 | Busca | `13-busca.json` | resultados de busca | `/busca/` |
-| 14 | Página não encontrada | `14-404.json` | página 404 | 404 |
-| 15 | Sobre | `15-sobre.json` | página | `/sobre/` |
-| 16 | Contato | `16-contato.json` | página | `/contato/` |
-| 17 | Perguntas frequentes | `17-faq.json` | página | `/perguntas-frequentes/` |
-| 18 | Guia de medidas | `18-guia-medidas.json` | página | `/guia-de-medidas/` |
-| 19 | Coleção | `19-lookbook.json` | página | `/colecao/` |
-| 20 | Trocas e devoluções | `20-trocas.json` | página | `/trocas-e-devolucoes/` |
-| 21 | Envio e entrega | `21-envio.json` | página | `/envio-e-entrega/` |
-| 22 | Política de privacidade | `22-privacidade.json` | página | `/politica-de-privacidade/` |
-| 23 | Termos de uso | `23-termos.json` | página | `/termos-de-uso/` |
-| 24 | Política de cookies | `24-cookies.json` | página | `/politica-de-cookies/` |
+| Parte | Arquivos | O que é |
+|---|---|---|
+| 1 | `01` e `02`, mais as globais | cabeçalho, rodapé, cores e fontes do site |
+| 2 | `03` | página inicial |
+| 3 | `04` e `05` | loja e página do produto |
+| 4 | `06` a `10` | sacola, finalizar compra, pedido recebido, minha conta e desejos |
+| 5 | `11` a `24` | diário, artigo, busca, 404, sobre, contato, perguntas, guia de medidas, coleção, trocas, envio e as três páginas legais |
 
 **Sobre o número de arquivos.** O dossiê falava em 21 arquivos JSON. A conta
 página por página dá 24: as duas partes do site (cabeçalho e rodapé) mais as 22
@@ -289,7 +348,21 @@ Todas conferidas por `python3 tools/blocob_confere.py`:
 4. Importar o cabeçalho, definir a condição e ajustar o menu.
 5. Importar o rodapé, definir a condição e ajustar a newsletter.
 6. Conferir o site no navegador: cabeçalho e rodapé aparecendo em todas as páginas.
-7. Avisar para seguir para a próxima parte (as páginas de loja e produto).
+7. Importar a página inicial (`03-home.json`), criar a página Início, definir como página inicial do site e fazer os ajustes da seção 4.3.
+8. Conferir a home no celular e no computador antes de seguir.
+9. Importar a loja e a página do produto pelo Theme Builder e definir as
+   condições: arquivo de produtos (loja e categorias) e produto único (todas as
+   peças). Decidir o caminho dos filtros (seção 4.4).
 
-Quando o cabeçalho e o rodapé estiverem no ar e conferidos, o próximo lote é
-loja, produto e busca, que é onde o WooCommerce entra de verdade.
+10. Importar as cinco páginas do funil como páginas comuns, publicar e apontar
+    cada uma no WooCommerce (Configurações > Avançado). Não publicar a lista de
+    desejos até o plugin ser aprovado.
+
+11. Importar o lote editorial e institucional (`11` a `24`), criar cada página
+    no endereço da tabela 5.2 e deixar as legais como rascunho.
+12. Conferir o site inteiro no celular e no computador: nenhuma página sem
+    cabeçalho e rodapé, nenhum `[PREENCHER]` publicado.
+
+Com os 24 arquivos no ar e conferidos, o Bloco B está fechado. O próximo bloco
+é o Bloco C: o kit de instalação, os CSVs de produtos e posts e os guias de
+segurança, SEO, testes, desempenho, e-mail e go-live.

@@ -1,0 +1,452 @@
+{
+  "content": [
+    {
+      "id": "06d3b44",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "0",
+          "column": "0",
+          "isLinked": true,
+          "unit": "px",
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "40",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "Política de Cookies"
+      },
+      "elements": [
+        {
+          "id": "66f7630",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "12",
+              "column": "12",
+              "isLinked": true,
+              "unit": "px",
+              "size": 12
+            },
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "8",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Cabecalho da pagina"
+          },
+          "elements": [
+            {
+              "id": "b5ec14c",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Política de Cookies",
+                "title": "Política de Cookies",
+                "header_size": "h1",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=primary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "a25f30c",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Quais cookies usamos e como você controla isso.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "e265f5b",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "padding": {
+              "unit": "px",
+              "top": "16",
+              "right": "0",
+              "bottom": "16",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Aviso de revisao"
+          },
+          "elements": [
+            {
+              "id": "a3e08d3",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>RASCUNHO PARA O JURÍDICO: não publicar sem revisão. O banner de consentimento é item de aceitação do go-live.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=iara-texto-micro"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "9058bd2",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "1. O que são cookies"
+          },
+          "elements": [
+            {
+              "id": "66300e3",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "1. O que são cookies",
+                "title": "1. O que são cookies",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "da7d7fe",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão; o banner de cookies da LGPD é configurado no go-live e precisa apontar para esta página.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "a92d542",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "2. Categorias de cookies"
+          },
+          "elements": [
+            {
+              "id": "1c4858b",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "2. Categorias de cookies",
+                "title": "2. Categorias de cookies",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "c4c51c0",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão; o banner de cookies da LGPD é configurado no go-live e precisa apontar para esta página.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "7af6d36",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "3. Cookies de terceiros"
+          },
+          "elements": [
+            {
+              "id": "df9ae4d",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "3. Cookies de terceiros",
+                "title": "3. Cookies de terceiros",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "12d96f4",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão; o banner de cookies da LGPD é configurado no go-live e precisa apontar para esta página.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "151e59c",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "4. Como controlar os cookies"
+          },
+          "elements": [
+            {
+              "id": "c96dbc5",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "4. Como controlar os cookies",
+                "title": "4. Como controlar os cookies",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "6e3f92f",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão; o banner de cookies da LGPD é configurado no go-live e precisa apontar para esta página.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "31fae8d",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "5. Alterações nesta política"
+          },
+          "elements": [
+            {
+              "id": "71f4652",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "5. Alterações nesta política",
+                "title": "5. Alterações nesta política",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "f73efdc",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão; o banner de cookies da LGPD é configurado no go-live e precisa apontar para esta página.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "5c7f23e",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "6. Dúvidas"
+          },
+          "elements": [
+            {
+              "id": "d765aa6",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "6. Dúvidas",
+                "title": "6. Dúvidas",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "0584d43",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão; o banner de cookies da LGPD é configurado no go-live e precisa apontar para esta página.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": [],
+  "version": "0.4",
+  "title": "Política de Cookies",
+  "type": "page"
+}

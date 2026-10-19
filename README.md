@@ -10,9 +10,9 @@ antes de qualquer coisa ir para o WordPress. Ele fica congelado em
 `template-v0.1.20/`, e o que ainda depende de informacao da empresa esta em
 `PENDENCIAS.md`.
 
-O **Bloco B esta em andamento (versao 0.2.0)**: sao os templates do Elementor em
-`bloco-b/`, entregues em partes. A primeira parte traz as cores e as fontes
-globais do site, o cabecalho e o rodape. O guia de importacao esta em
+O **Bloco B esta em andamento (versao 0.2.5)**: sao os templates do Elementor em
+`bloco-b/`, entregues em partes. Ja estao prontas as cores e as fontes globais
+do site, o cabecalho, o rodape, a pagina inicial, a loja, a pagina do produto e o funil de compra. O guia de importacao esta em
 `bloco-b/GUIA-IMPORTACAO.md`.
 
 ---

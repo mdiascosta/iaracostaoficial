@@ -1,0 +1,562 @@
+{
+  "content": [
+    {
+      "id": "7ccccdf",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "0",
+          "column": "0",
+          "isLinked": true,
+          "unit": "px",
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "40",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "Termos de uso"
+      },
+      "elements": [
+        {
+          "id": "f34eba8",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "12",
+              "column": "12",
+              "isLinked": true,
+              "unit": "px",
+              "size": 12
+            },
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "8",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Cabecalho da pagina"
+          },
+          "elements": [
+            {
+              "id": "b162959",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Termos de uso",
+                "title": "Termos de uso",
+                "header_size": "h1",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=primary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "8dd3392",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>As regras de uso desta loja.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "f7bc748",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "padding": {
+              "unit": "px",
+              "top": "16",
+              "right": "0",
+              "bottom": "16",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Aviso de revisao"
+          },
+          "elements": [
+            {
+              "id": "7d44349",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>RASCUNHO PARA O JURÍDICO: não publicar sem revisão.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=iara-texto-micro"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "e932ff4",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "1. Aceitação"
+          },
+          "elements": [
+            {
+              "id": "8bb66e6",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "1. Aceitação",
+                "title": "1. Aceitação",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "265a001",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão jurídica; o texto final entra aqui antes de publicar.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "df5bfbe",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "2. Identificação da empresa"
+          },
+          "elements": [
+            {
+              "id": "50b27c9",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "2. Identificação da empresa",
+                "title": "2. Identificação da empresa",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "74c3051",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão jurídica; o texto final entra aqui antes de publicar.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "63c4f5e",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "3. Uso do site"
+          },
+          "elements": [
+            {
+              "id": "3e20af5",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "3. Uso do site",
+                "title": "3. Uso do site",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "1081baf",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão jurídica; o texto final entra aqui antes de publicar.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "d8e8152",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "4. Cadastro e conta"
+          },
+          "elements": [
+            {
+              "id": "8108ba3",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "4. Cadastro e conta",
+                "title": "4. Cadastro e conta",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "c70ea64",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão jurídica; o texto final entra aqui antes de publicar.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "4f1eb08",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "5. Produtos, preços e disponibilidade"
+          },
+          "elements": [
+            {
+              "id": "ac02195",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "5. Produtos, preços e disponibilidade",
+                "title": "5. Produtos, preços e disponibilidade",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "c6d920c",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão jurídica; o texto final entra aqui antes de publicar.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "ba496e1",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "6. Pagamento"
+          },
+          "elements": [
+            {
+              "id": "60911e1",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "6. Pagamento",
+                "title": "6. Pagamento",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "e4171fd",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão jurídica; o texto final entra aqui antes de publicar.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "25f67d3",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "7. Entrega"
+          },
+          "elements": [
+            {
+              "id": "4d96670",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "7. Entrega",
+                "title": "7. Entrega",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "7fb716f",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão jurídica; o texto final entra aqui antes de publicar.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "b4c4d68",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "8. Trocas e devoluções"
+          },
+          "elements": [
+            {
+              "id": "7f5990a",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "8. Trocas e devoluções",
+                "title": "8. Trocas e devoluções",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "6033bad",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão jurídica; o texto final entra aqui antes de publicar.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": [],
+  "version": "0.4",
+  "title": "Termos de uso",
+  "type": "page"
+}
