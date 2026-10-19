@@ -1,152 +1,125 @@
 {
   "content": [
     {
-      "id": "cb4f6ac",
+      "id": "89b36b4",
       "elType": "container",
       "settings": {
-        "content_width": "full",
+        "content_width": "boxed",
         "flex_direction": "column",
         "flex_gap": {
-          "row": "0",
-          "column": "0",
+          "row": "12",
+          "column": "12",
           "isLinked": true,
           "unit": "px",
-          "size": 0
+          "size": 12
         },
         "padding": {
           "unit": "px",
-          "top": "0",
+          "top": "40",
           "right": "0",
-          "bottom": "0",
+          "bottom": "8",
           "left": "0",
-          "isLinked": true
+          "isLinked": false
         },
-        "_title": "Diário"
+        "_title": "Cabecalho da pagina"
       },
       "elements": [
         {
-          "id": "89b36b4",
-          "elType": "container",
+          "id": "1bb91c5",
+          "elType": "widget",
+          "widgetType": "heading",
           "settings": {
-            "content_width": "boxed",
-            "flex_direction": "column",
-            "flex_gap": {
-              "row": "12",
-              "column": "12",
-              "isLinked": true,
-              "unit": "px",
-              "size": 12
-            },
-            "padding": {
-              "unit": "px",
-              "top": "40",
-              "right": "0",
-              "bottom": "8",
-              "left": "0",
-              "isLinked": false
-            },
-            "_title": "Cabecalho da pagina"
-          },
-          "elements": [
-            {
-              "id": "1bb91c5",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "_title": "Do ateliê",
-                "title": "Do ateliê",
-                "header_size": "p",
-                "__globals__": {
-                  "title_color": "globals/colors?id=primary",
-                  "typography": "globals/typography?id=iara-rotulo"
-                }
-              },
-              "elements": []
-            },
-            {
-              "id": "6f0f425",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "_title": "Diário",
-                "title": "Diário",
-                "header_size": "h1",
-                "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=primary"
-                }
-              },
-              "elements": []
-            },
-            {
-              "id": "60e082b",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p>Cartas do ateliê: tecidos, cuidados, tamanhos e bastidores da produção em Cerquilho.</p>",
-                "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
-                }
-              },
-              "elements": []
+            "_title": "Do ateliê",
+            "title": "Do ateliê",
+            "header_size": "p",
+            "__globals__": {
+              "title_color": "globals/colors?id=primary",
+              "typography": "globals/typography?id=iara-rotulo"
             }
-          ],
-          "isInner": true
+          },
+          "elements": []
         },
         {
-          "id": "0a66666",
-          "elType": "container",
+          "id": "6f0f425",
+          "elType": "widget",
+          "widgetType": "heading",
           "settings": {
-            "content_width": "boxed",
-            "flex_direction": "column",
-            "flex_gap": {
-              "row": "12",
-              "column": "12",
-              "isLinked": true,
-              "unit": "px",
-              "size": 12
-            },
-            "padding": {
-              "unit": "px",
-              "top": "24",
-              "right": "0",
-              "bottom": "56",
-              "left": "0",
-              "isLinked": false
-            },
-            "_title": "Lista de textos"
-          },
-          "elements": [
-            {
-              "id": "d099736",
-              "elType": "widget",
-              "widgetType": "archive-posts",
-              "settings": {
-                "_title": "Textos do diário (dinâmico)",
-                "posts_per_page": "9",
-                "columns": "3"
-              },
-              "elements": []
-            },
-            {
-              "id": "7ee0cb9",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p>Grade dinâmica de posts. Os textos são escritos e publicados no Gutenberg, nunca no Elementor; este arquivo só desenha a vitrine.</p>",
-                "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=iara-texto-micro"
-                }
-              },
-              "elements": []
+            "_title": "Diário",
+            "title": "Diário",
+            "header_size": "h1",
+            "__globals__": {
+              "title_color": "globals/colors?id=text",
+              "typography": "globals/typography?id=primary"
             }
-          ],
-          "isInner": true
+          },
+          "elements": []
+        },
+        {
+          "id": "60e082b",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Cartas do ateliê: tecidos, cuidados, tamanhos e bastidores da produção em Cerquilho.</p>",
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave",
+              "typography": "globals/typography?id=text"
+            }
+          },
+          "elements": []
         }
       ],
-      "isInner": false
+      "isInner": true
+    },
+    {
+      "id": "0a66666",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "12",
+          "column": "12",
+          "isLinked": true,
+          "unit": "px",
+          "size": 12
+        },
+        "padding": {
+          "unit": "px",
+          "top": "24",
+          "right": "0",
+          "bottom": "56",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "Lista de textos"
+      },
+      "elements": [
+        {
+          "id": "d099736",
+          "elType": "widget",
+          "widgetType": "archive-posts",
+          "settings": {
+            "_title": "Textos do diário (dinâmico)",
+            "posts_per_page": "9",
+            "columns": "3"
+          },
+          "elements": []
+        },
+        {
+          "id": "7ee0cb9",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Grade dinâmica de posts. Os textos são escritos e publicados no Gutenberg, nunca no Elementor; este arquivo só desenha a vitrine.</p>",
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave",
+              "typography": "globals/typography?id=iara-texto-micro"
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": true
     }
   ],
   "page_settings": [],

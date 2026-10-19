@@ -1,5 +1,41 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Todos os JSONs alinhados ao protótipo, com menos containers (v0.3.8)
+
+### Pedido da cliente
+Duas imagens: a 1 é o cabeçalho importado no WordPress, a 2 é o cabeçalho
+do protótipo que criamos. "Está diferente, preciso que ajuste todos os
+JSONs criados para seguir igual às telas do nosso template criado" e
+"trabalhe com o menor número de containers possível".
+
+### Leitura das imagens (o que estava torto)
+Menu empilhado e serifado (fonte do tema, sem largura na barra), caixa de
+busca aberta onde o protótipo só tem a lupa, sacola com caixa e "R$ 0,00"
+onde o protótipo só tem o ícone com contador, conta e desejos cheios e
+terracota em vez do traço fino, tagline serifada (global não aplicada) e a
+faixa com ícones onde o protótipo é texto em caixa alta com pontos. A
+decisão desta rodada segue a imagem 2: onde a faixa de ícones da v0.3.6
+brigava com o protótipo, o protótipo venceu.
+
+### O que foi feito (IMPLEMENTADO)
+- Cabeçalho refeito nesses pontos (ver histórico de versões), incluindo a
+  fonte global nova "Texto da faixa" (11 fontes no total) e o pacote
+  `iara-costa-globais.zip` regenerado.
+- Achatamento genérico no gerador: container que só embrulha um elemento e
+  não tem fundo, borda, sombra, respiro nem largura em caixa sai da árvore,
+  e a largura dele passa para o elemento de dentro. 216 para 176 containers
+  nos 24 arquivos, sem mudar o desenho. O rodapé ficou com 33 porque ali
+  quase todo container desenha algo (quadros de pagamento com borda, colunas
+  com respiro, faixas com fio).
+- Guia: quatro linhas novas na tabela de diagnóstico (4.6), incluindo o
+  aviso de ordem (globais ANTES do cabeçalho).
+
+### O que continua por verificar
+- A reimportação no staging na ordem certa e a captura lado a lado com o
+  protótipo. Se o menu continuar serifado mesmo com as globais importadas,
+  a causa é a tipografia do widget de menu no tema, e o ajuste é no editor
+  (guia, ajuste 4.3), não no arquivo.
+
 ## [2026-10-19] - Cabeçalho com menos containers e espaçamento revisto (v0.3.7)
 
 ### Pedido da cliente

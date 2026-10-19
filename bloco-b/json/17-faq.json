@@ -1,249 +1,222 @@
 {
   "content": [
     {
-      "id": "edf77c9",
+      "id": "abe3ea7",
       "elType": "container",
       "settings": {
-        "content_width": "full",
+        "content_width": "boxed",
         "flex_direction": "column",
         "flex_gap": {
-          "row": "0",
-          "column": "0",
+          "row": "12",
+          "column": "12",
           "isLinked": true,
           "unit": "px",
-          "size": 0
+          "size": 12
         },
         "padding": {
           "unit": "px",
-          "top": "0",
+          "top": "40",
           "right": "0",
-          "bottom": "0",
+          "bottom": "8",
           "left": "0",
-          "isLinked": true
+          "isLinked": false
         },
-        "_title": "Perguntas frequentes"
+        "_title": "Cabecalho da pagina"
       },
       "elements": [
         {
-          "id": "abe3ea7",
-          "elType": "container",
+          "id": "be6f716",
+          "elType": "widget",
+          "widgetType": "heading",
           "settings": {
-            "content_width": "boxed",
-            "flex_direction": "column",
-            "flex_gap": {
-              "row": "12",
-              "column": "12",
-              "isLinked": true,
-              "unit": "px",
-              "size": 12
-            },
-            "padding": {
-              "unit": "px",
-              "top": "40",
-              "right": "0",
-              "bottom": "8",
-              "left": "0",
-              "isLinked": false
-            },
-            "_title": "Cabecalho da pagina"
-          },
-          "elements": [
-            {
-              "id": "be6f716",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "_title": "Perguntas frequentes",
-                "title": "Perguntas frequentes",
-                "header_size": "h1",
-                "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=primary"
-                }
-              },
-              "elements": []
-            },
-            {
-              "id": "e9a577c",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p>As dúvidas que mais chegam no ateliê, organizadas por assunto.</p>",
-                "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
-                }
-              },
-              "elements": []
-            }
-          ],
-          "isInner": true
-        },
-        {
-          "id": "477b3c1",
-          "elType": "container",
-          "settings": {
-            "content_width": "boxed",
-            "flex_direction": "column",
-            "flex_gap": {
-              "row": "12",
-              "column": "12",
-              "isLinked": true,
-              "unit": "px",
-              "size": 12
-            },
-            "padding": {
-              "unit": "px",
-              "top": "24",
-              "right": "0",
-              "bottom": "40",
-              "left": "0",
-              "isLinked": false
-            },
-            "_title": "Grupos de perguntas"
-          },
-          "elements": [
-            {
-              "id": "a0a292f",
-              "elType": "widget",
-              "widgetType": "accordion",
-              "settings": {
-                "_title": "Perguntas por assunto",
-                "tabs": [
-                  {
-                    "tab_title": "Pedidos e pagamento",
-                    "tab_content": "<p>Compra como visitante, Pix com 5% de desconto, cartão em até 6x sem juros e boleto pelo Mercado Pago.</p>",
-                    "_id": "d44a61a"
-                  },
-                  {
-                    "tab_title": "Entrega e frete",
-                    "tab_content": "<p>Envio para todo o Brasil pelos Correios, frete grátis acima de R$ 299 e código de rastreio por e-mail.</p>",
-                    "_id": "d6de978"
-                  },
-                  {
-                    "tab_title": "Trocas e devoluções",
-                    "tab_content": "<p>7 dias para desistir (CDC, Art. 49) e 30 dias para trocar de tamanho, com a primeira troca por nossa conta.</p>",
-                    "_id": "1c5b853"
-                  },
-                  {
-                    "tab_title": "Produtos e tamanhos",
-                    "tab_content": "<p>Cada peça traz a própria tabela de medidas; o Guia de Medidas ensina a medir uma peça sua e comparar.</p>",
-                    "_id": "b84f57c"
-                  },
-                  {
-                    "tab_title": "Atendimento e privacidade",
-                    "tab_content": "<p>Atendimento de segunda a sexta, das 9h às 18h. Seus dados seguem a Política de Privacidade.</p>",
-                    "_id": "f04bcd0"
-                  }
-                ],
-                "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
-                }
-              },
-              "elements": []
-            },
-            {
-              "id": "b559310",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p>As perguntas e respostas completas, iguais às do protótipo aprovado, entram aba por aba no editor a partir do texto final aprovado. Não inventar prazo, garantia ou política nova aqui.</p>",
-                "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=iara-texto-micro"
-                }
-              },
-              "elements": []
-            }
-          ],
-          "isInner": true
-        },
-        {
-          "id": "67b26aa",
-          "elType": "container",
-          "settings": {
-            "content_width": "boxed",
-            "flex_direction": "column",
-            "flex_align_items": "center",
-            "flex_gap": {
-              "row": "16",
-              "column": "16",
-              "isLinked": true,
-              "unit": "px",
-              "size": 16
-            },
-            "padding": {
-              "unit": "px",
-              "top": "48",
-              "right": "0",
-              "bottom": "48",
-              "left": "0",
-              "isLinked": false
-            },
-            "background_background": "classic",
+            "_title": "Perguntas frequentes",
+            "title": "Perguntas frequentes",
+            "header_size": "h1",
             "__globals__": {
-              "background_color": "globals/colors?id=secondary"
-            },
-            "_title": "Faixa de ajuda"
-          },
-          "elements": [
-            {
-              "id": "90a03fc",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "_title": "Não encontrou a sua dúvida?",
-                "title": "Não encontrou a sua dúvida?",
-                "header_size": "h2",
-                "align": "center",
-                "__globals__": {
-                  "title_color": "globals/colors?id=iara-faixa-texto",
-                  "typography": "globals/typography?id=secondary"
-                }
-              },
-              "elements": []
-            },
-            {
-              "id": "fc3511c",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p>Fale com o ateliê e a gente responde em dias úteis.</p>",
-                "align": "center",
-                "__globals__": {
-                  "text_color": "globals/colors?id=iara-faixa-texto",
-                  "typography": "globals/typography?id=text"
-                }
-              },
-              "elements": []
-            },
-            {
-              "id": "0a2e695",
-              "elType": "widget",
-              "widgetType": "button",
-              "settings": {
-                "_title": "Falar com o ateliê",
-                "text": "Falar com o ateliê",
-                "link": {
-                  "url": "/contato/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "size": "md",
-                "__globals__": {
-                  "typography": "globals/typography?id=accent",
-                  "button_background_color": "globals/colors?id=primary",
-                  "text_color": "globals/colors?id=iara-branco"
-                }
-              },
-              "elements": []
+              "title_color": "globals/colors?id=text",
+              "typography": "globals/typography?id=primary"
             }
-          ],
-          "isInner": true
+          },
+          "elements": []
+        },
+        {
+          "id": "e9a577c",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>As dúvidas que mais chegam no ateliê, organizadas por assunto.</p>",
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave",
+              "typography": "globals/typography?id=text"
+            }
+          },
+          "elements": []
         }
       ],
-      "isInner": false
+      "isInner": true
+    },
+    {
+      "id": "477b3c1",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "12",
+          "column": "12",
+          "isLinked": true,
+          "unit": "px",
+          "size": 12
+        },
+        "padding": {
+          "unit": "px",
+          "top": "24",
+          "right": "0",
+          "bottom": "40",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "Grupos de perguntas"
+      },
+      "elements": [
+        {
+          "id": "a0a292f",
+          "elType": "widget",
+          "widgetType": "accordion",
+          "settings": {
+            "_title": "Perguntas por assunto",
+            "tabs": [
+              {
+                "tab_title": "Pedidos e pagamento",
+                "tab_content": "<p>Compra como visitante, Pix com 5% de desconto, cartão em até 6x sem juros e boleto pelo Mercado Pago.</p>",
+                "_id": "d44a61a"
+              },
+              {
+                "tab_title": "Entrega e frete",
+                "tab_content": "<p>Envio para todo o Brasil pelos Correios, frete grátis acima de R$ 299 e código de rastreio por e-mail.</p>",
+                "_id": "d6de978"
+              },
+              {
+                "tab_title": "Trocas e devoluções",
+                "tab_content": "<p>7 dias para desistir (CDC, Art. 49) e 30 dias para trocar de tamanho, com a primeira troca por nossa conta.</p>",
+                "_id": "1c5b853"
+              },
+              {
+                "tab_title": "Produtos e tamanhos",
+                "tab_content": "<p>Cada peça traz a própria tabela de medidas; o Guia de Medidas ensina a medir uma peça sua e comparar.</p>",
+                "_id": "b84f57c"
+              },
+              {
+                "tab_title": "Atendimento e privacidade",
+                "tab_content": "<p>Atendimento de segunda a sexta, das 9h às 18h. Seus dados seguem a Política de Privacidade.</p>",
+                "_id": "f04bcd0"
+              }
+            ],
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave",
+              "typography": "globals/typography?id=text"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "b559310",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>As perguntas e respostas completas, iguais às do protótipo aprovado, entram aba por aba no editor a partir do texto final aprovado. Não inventar prazo, garantia ou política nova aqui.</p>",
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave",
+              "typography": "globals/typography?id=iara-texto-micro"
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": true
+    },
+    {
+      "id": "67b26aa",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "flex_gap": {
+          "row": "16",
+          "column": "16",
+          "isLinked": true,
+          "unit": "px",
+          "size": 16
+        },
+        "padding": {
+          "unit": "px",
+          "top": "48",
+          "right": "0",
+          "bottom": "48",
+          "left": "0",
+          "isLinked": false
+        },
+        "background_background": "classic",
+        "__globals__": {
+          "background_color": "globals/colors?id=secondary"
+        },
+        "_title": "Faixa de ajuda"
+      },
+      "elements": [
+        {
+          "id": "90a03fc",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Não encontrou a sua dúvida?",
+            "title": "Não encontrou a sua dúvida?",
+            "header_size": "h2",
+            "align": "center",
+            "__globals__": {
+              "title_color": "globals/colors?id=iara-faixa-texto",
+              "typography": "globals/typography?id=secondary"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "fc3511c",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Fale com o ateliê e a gente responde em dias úteis.</p>",
+            "align": "center",
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-faixa-texto",
+              "typography": "globals/typography?id=text"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "0a2e695",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "_title": "Falar com o ateliê",
+            "text": "Falar com o ateliê",
+            "link": {
+              "url": "/contato/",
+              "is_external": "",
+              "nofollow": ""
+            },
+            "size": "md",
+            "__globals__": {
+              "typography": "globals/typography?id=accent",
+              "button_background_color": "globals/colors?id=primary",
+              "text_color": "globals/colors?id=iara-branco"
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": true
     }
   ],
   "page_settings": [],

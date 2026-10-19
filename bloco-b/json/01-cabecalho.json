@@ -17,9 +17,9 @@
         },
         "padding": {
           "unit": "px",
-          "top": "10",
+          "top": "9",
           "right": "20",
-          "bottom": "10",
+          "bottom": "9",
           "left": "20",
           "isLinked": false
         },
@@ -33,60 +33,15 @@
         {
           "id": "c8eb2f2",
           "elType": "widget",
-          "widgetType": "icon-list",
+          "widgetType": "text-editor",
           "settings": {
             "_title": "Recados da faixa",
-            "view": "inline",
-            "icon_list": [
-              {
-                "text": "Frete grátis acima de R$ 299",
-                "selected_icon": {
-                  "value": "fas fa-truck",
-                  "library": "fa-solid"
-                },
-                "_id": "739539a"
-              },
-              {
-                "text": "Compra consciente",
-                "selected_icon": {
-                  "value": "fas fa-leaf",
-                  "library": "fa-solid"
-                },
-                "link": {
-                  "url": "/sobre/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "_id": "55d76bc"
-              },
-              {
-                "text": "Envio para todo o Brasil",
-                "selected_icon": {
-                  "value": "fas fa-globe-americas",
-                  "library": "fa-solid"
-                },
-                "link": {
-                  "url": "/envio-e-entrega/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "_id": "26f088d"
-              }
-            ],
-            "space_between": {
-              "unit": "px",
-              "size": 18,
-              "sizes": []
-            },
-            "icon_size": {
-              "unit": "px",
-              "size": 13,
-              "sizes": []
-            },
+            "editor": "<p>FRETE GRÁTIS ACIMA DE R$ 299 &nbsp;·&nbsp; <a href=\"/sobre/\">COMPRA CONSCIENTE</a> &nbsp;·&nbsp; <a href=\"/envio-e-entrega/\">ENVIO PARA TODO O BRASIL</a></p>",
+            "align": "center",
             "__globals__": {
               "text_color": "globals/colors?id=iara-faixa-texto",
-              "icon_color": "globals/colors?id=iara-faixa-texto",
-              "typography": "globals/typography?id=iara-texto-micro"
+              "link_color": "globals/colors?id=iara-faixa-texto",
+              "typography": "globals/typography?id=iara-faixa"
             }
           },
           "elements": []
@@ -203,7 +158,12 @@
             "_title": "Menu principal",
             "menu": "principal",
             "layout": "horizontal",
-            "_flex_align_self": "center"
+            "pointer": "underline",
+            "_flex_size": "grow",
+            "_flex_align_self": "center",
+            "__globals__": {
+              "menu_item_color": "globals/colors?id=iara-menu"
+            }
           },
           "elements": []
         },
@@ -235,11 +195,26 @@
             {
               "id": "aad40a9",
               "elType": "widget",
-              "widgetType": "search-form",
+              "widgetType": "icon",
               "settings": {
                 "_title": "Busca",
-                "skin": "minimal",
-                "placeholder": "O que você procura?"
+                "selected_icon": {
+                  "value": "fas fa-search",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "/busca/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "size": {
+                  "unit": "px",
+                  "size": 20,
+                  "sizes": []
+                },
+                "__globals__": {
+                  "primary_color": "globals/colors?id=text"
+                }
               },
               "elements": []
             },
@@ -250,8 +225,8 @@
               "settings": {
                 "_title": "Minha conta",
                 "selected_icon": {
-                  "value": "fas fa-user",
-                  "library": "fa-solid"
+                  "value": "far fa-user",
+                  "library": "fa-regular"
                 },
                 "link": {
                   "url": "/minha-conta/",
@@ -260,8 +235,11 @@
                 },
                 "size": {
                   "unit": "px",
-                  "size": 21,
+                  "size": 20,
                   "sizes": []
+                },
+                "__globals__": {
+                  "primary_color": "globals/colors?id=text"
                 }
               },
               "elements": []
@@ -273,8 +251,8 @@
               "settings": {
                 "_title": "Lista de desejos",
                 "selected_icon": {
-                  "value": "fas fa-heart",
-                  "library": "fa-solid"
+                  "value": "far fa-heart",
+                  "library": "fa-regular"
                 },
                 "link": {
                   "url": "/lista-de-desejos/",
@@ -283,8 +261,11 @@
                 },
                 "size": {
                   "unit": "px",
-                  "size": 21,
+                  "size": 20,
                   "sizes": []
+                },
+                "__globals__": {
+                  "primary_color": "globals/colors?id=text"
                 }
               },
               "elements": []
@@ -294,7 +275,14 @@
               "elType": "widget",
               "widgetType": "woocommerce-menu-cart",
               "settings": {
-                "_title": "Sacola"
+                "_title": "Sacola",
+                "menu_cart_icon": {
+                  "value": "fas fa-shopping-bag",
+                  "library": "fa-solid"
+                },
+                "items_indicator": "bubble",
+                "show_subtotal": "",
+                "show_remove_icon": ""
               },
               "elements": []
             }

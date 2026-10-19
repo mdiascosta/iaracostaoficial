@@ -1,175 +1,148 @@
 {
   "content": [
     {
-      "id": "640e3a2",
+      "id": "effe632",
       "elType": "container",
       "settings": {
-        "content_width": "full",
+        "content_width": "boxed",
         "flex_direction": "column",
         "flex_gap": {
-          "row": "0",
-          "column": "0",
+          "row": "12",
+          "column": "12",
           "isLinked": true,
           "unit": "px",
-          "size": 0
+          "size": 12
         },
         "padding": {
           "unit": "px",
-          "top": "0",
+          "top": "40",
           "right": "0",
-          "bottom": "0",
+          "bottom": "16",
           "left": "0",
-          "isLinked": true
+          "isLinked": false
         },
-        "_title": "Artigo do diário"
+        "_title": "Cabecalho do artigo"
       },
       "elements": [
         {
-          "id": "effe632",
-          "elType": "container",
+          "id": "d544115",
+          "elType": "widget",
+          "widgetType": "theme-post-title",
           "settings": {
-            "content_width": "boxed",
-            "flex_direction": "column",
-            "flex_gap": {
-              "row": "12",
-              "column": "12",
-              "isLinked": true,
-              "unit": "px",
-              "size": 12
-            },
-            "padding": {
-              "unit": "px",
-              "top": "40",
-              "right": "0",
-              "bottom": "16",
-              "left": "0",
-              "isLinked": false
-            },
-            "_title": "Cabecalho do artigo"
-          },
-          "elements": [
-            {
-              "id": "d544115",
-              "elType": "widget",
-              "widgetType": "theme-post-title",
-              "settings": {
-                "_title": "Titulo do artigo (dinamico)",
-                "header_size": "h1",
-                "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=primary"
-                }
-              },
-              "elements": []
-            },
-            {
-              "id": "ce99767",
-              "elType": "widget",
-              "widgetType": "theme-post-info",
-              "settings": {
-                "_title": "Data e autor (dinamico)"
-              },
-              "elements": []
-            },
-            {
-              "id": "cee61fa",
-              "elType": "widget",
-              "widgetType": "theme-post-featured-image",
-              "settings": {
-                "_title": "Imagem de capa (dinamica)"
-              },
-              "elements": []
-            }
-          ],
-          "isInner": true
-        },
-        {
-          "id": "63f62e6",
-          "elType": "container",
-          "settings": {
-            "content_width": "boxed",
-            "padding": {
-              "unit": "px",
-              "top": "16",
-              "right": "0",
-              "bottom": "40",
-              "left": "0",
-              "isLinked": false
-            },
-            "_title": "Texto do artigo"
-          },
-          "elements": [
-            {
-              "id": "1debb4e",
-              "elType": "widget",
-              "widgetType": "theme-post-content",
-              "settings": {
-                "_title": "Conteudo do Gutenberg (dinamico)"
-              },
-              "elements": []
-            }
-          ],
-          "isInner": true
-        },
-        {
-          "id": "53d51e2",
-          "elType": "container",
-          "settings": {
-            "content_width": "boxed",
-            "flex_direction": "column",
-            "flex_gap": {
-              "row": "8",
-              "column": "8",
-              "isLinked": true,
-              "unit": "px",
-              "size": 8
-            },
-            "padding": {
-              "unit": "px",
-              "top": "40",
-              "right": "0",
-              "bottom": "56",
-              "left": "0",
-              "isLinked": false
-            },
-            "background_background": "classic",
+            "_title": "Titulo do artigo (dinamico)",
+            "header_size": "h1",
             "__globals__": {
-              "background_color": "globals/colors?id=iara-fundo-suave"
-            },
-            "_title": "Continue lendo"
-          },
-          "elements": [
-            {
-              "id": "f640683",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "_title": "Continue lendo",
-                "title": "Continue lendo",
-                "header_size": "h2",
-                "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=secondary"
-                }
-              },
-              "elements": []
-            },
-            {
-              "id": "31b257d",
-              "elType": "widget",
-              "widgetType": "posts",
-              "settings": {
-                "_title": "Outros textos (dinamico)",
-                "posts_per_page": "3",
-                "columns": "3"
-              },
-              "elements": []
+              "title_color": "globals/colors?id=text",
+              "typography": "globals/typography?id=primary"
             }
-          ],
-          "isInner": true
+          },
+          "elements": []
+        },
+        {
+          "id": "ce99767",
+          "elType": "widget",
+          "widgetType": "theme-post-info",
+          "settings": {
+            "_title": "Data e autor (dinamico)"
+          },
+          "elements": []
+        },
+        {
+          "id": "cee61fa",
+          "elType": "widget",
+          "widgetType": "theme-post-featured-image",
+          "settings": {
+            "_title": "Imagem de capa (dinamica)"
+          },
+          "elements": []
         }
       ],
-      "isInner": false
+      "isInner": true
+    },
+    {
+      "id": "63f62e6",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "padding": {
+          "unit": "px",
+          "top": "16",
+          "right": "0",
+          "bottom": "40",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "Texto do artigo"
+      },
+      "elements": [
+        {
+          "id": "1debb4e",
+          "elType": "widget",
+          "widgetType": "theme-post-content",
+          "settings": {
+            "_title": "Conteudo do Gutenberg (dinamico)"
+          },
+          "elements": []
+        }
+      ],
+      "isInner": true
+    },
+    {
+      "id": "53d51e2",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "8",
+          "column": "8",
+          "isLinked": true,
+          "unit": "px",
+          "size": 8
+        },
+        "padding": {
+          "unit": "px",
+          "top": "40",
+          "right": "0",
+          "bottom": "56",
+          "left": "0",
+          "isLinked": false
+        },
+        "background_background": "classic",
+        "__globals__": {
+          "background_color": "globals/colors?id=iara-fundo-suave"
+        },
+        "_title": "Continue lendo"
+      },
+      "elements": [
+        {
+          "id": "f640683",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Continue lendo",
+            "title": "Continue lendo",
+            "header_size": "h2",
+            "__globals__": {
+              "title_color": "globals/colors?id=text",
+              "typography": "globals/typography?id=secondary"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "31b257d",
+          "elType": "widget",
+          "widgetType": "posts",
+          "settings": {
+            "_title": "Outros textos (dinamico)",
+            "posts_per_page": "3",
+            "columns": "3"
+          },
+          "elements": []
+        }
+      ],
+      "isInner": true
     }
   ],
   "page_settings": [],

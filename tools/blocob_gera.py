@@ -93,6 +93,7 @@ FONTES_CUSTOM = [
     ('iara-texto-micro','Texto miudo',      'Jost', '400', 11, 1.45, 0.06, None),
     ('iara-preco',      'Preco',            'Jost', '400', 18, 1.20, 0.0,  None),
     ('iara-assinatura', 'Assinatura (tagline)', 'Jost', '400', 11, 1.40, 0.2, 'uppercase'),
+    ('iara-faixa',      'Texto da faixa',   'Jost', '400', 12, 1.40, 0.15, 'uppercase'),
 ]
 
 
@@ -241,6 +242,7 @@ PAGINAS = {
     'faq': '/perguntas-frequentes/',
     'guia-medidas': '/guia-de-medidas/',
     'post': '/diario/',
+    'busca': '/busca/',
 }
 
 
@@ -248,27 +250,16 @@ def cabecalho():
     """01. Cabecalho do site: faixa de aviso, marca, menu e acoes."""
     d = Documento('Cabeçalho do site', 'header')
 
-    # --- faixa de aviso: lista de icones em linha (nao e texto corrido)
-    aviso = d.widget('icon-list', juntar_globais({
+    # --- faixa de aviso: texto em caixa alta separado por pontos, como no
+    # prototipo (assets/css/header.css, .announcement). Sem icones.
+    aviso = d.widget('text-editor', juntar_globais({
         '_title': 'Recados da faixa',
-        'view': 'inline',
-        'icon_list': [
-            d.item({'text': 'Frete grátis acima de R$ 299',
-                    'selected_icon': {'value': 'fas fa-truck', 'library': 'fa-solid'}},
-                   'faixa/item-1'),
-            d.item({'text': 'Compra consciente',
-                    'selected_icon': {'value': 'fas fa-leaf', 'library': 'fa-solid'},
-                    'link': {'url': PAGINAS['sobre'], 'is_external': '', 'nofollow': ''}},
-                   'faixa/item-2'),
-            d.item({'text': 'Envio para todo o Brasil',
-                    'selected_icon': {'value': 'fas fa-globe-americas', 'library': 'fa-solid'},
-                    'link': {'url': PAGINAS['envio'], 'is_external': '', 'nofollow': ''}},
-                   'faixa/item-3'),
-        ],
-        'space_between': medida(18),
-        'icon_size': medida(13),
-    }, {'text_color': cor('iara-faixa-texto'), 'icon_color': cor('iara-faixa-texto'),
-        'typography': fonte('iara-texto-micro')}),
+        'editor': ('<p>FRETE GRÁTIS ACIMA DE R$ 299 &nbsp;·&nbsp; '
+                   '<a href="' + PAGINAS['sobre'] + '">COMPRA CONSCIENTE</a> &nbsp;·&nbsp; '
+                   '<a href="' + PAGINAS['envio'] + '">ENVIO PARA TODO O BRASIL</a></p>'),
+        'align': 'center',
+    }, {'text_color': cor('iara-faixa-texto'), 'link_color': cor('iara-faixa-texto'),
+        'typography': fonte('iara-faixa')}),
         caminho='faixa/aviso')
 
     faixa = d.container('Faixa de aviso', {
@@ -277,7 +268,7 @@ def cabecalho():
         'flex_justify_content': 'center',
         'flex_align_items': 'center',
         'flex_gap': lacuna(8, 8),
-        'padding': dimensoes(10, 20, 10, 20),
+        'padding': dimensoes(9, 20, 9, 20),
         'background_background': 'classic',
         '__globals__': {'background_color': cor('secondary')},
     }, [aviso], caminho='faixa')
@@ -315,22 +306,31 @@ def cabecalho():
         '_flex_basis': medida(24, '%'),
         '_flex_align_self': 'center',
     }, [
-        d.widget('search-form', {'_title': 'Busca', 'skin': 'minimal',
-                                 'placeholder': 'O que você procura?'},
-                 caminho='barra/busca'),
-        d.widget('icon', {
+        d.widget('icon', juntar_globais({
+            '_title': 'Busca',
+            'selected_icon': {'value': 'fas fa-search', 'library': 'fa-solid'},
+            'link': {'url': PAGINAS['busca'] if 'busca' in PAGINAS else '/busca/', 'is_external': '', 'nofollow': ''},
+            'size': medida(20),
+        }, {'primary_color': cor('text')}), caminho='barra/busca'),
+        d.widget('icon', juntar_globais({
             '_title': 'Minha conta',
-            'selected_icon': {'value': 'fas fa-user', 'library': 'fa-solid'},
+            'selected_icon': {'value': 'far fa-user', 'library': 'fa-regular'},
             'link': {'url': PAGINAS['conta'], 'is_external': '', 'nofollow': ''},
-            'size': medida(21),
-        }, caminho='barra/conta'),
-        d.widget('icon', {
+            'size': medida(20),
+        }, {'primary_color': cor('text')}), caminho='barra/conta'),
+        d.widget('icon', juntar_globais({
             '_title': 'Lista de desejos',
-            'selected_icon': {'value': 'fas fa-heart', 'library': 'fa-solid'},
+            'selected_icon': {'value': 'far fa-heart', 'library': 'fa-regular'},
             'link': {'url': PAGINAS['desejos'], 'is_external': '', 'nofollow': ''},
-            'size': medida(21),
-        }, caminho='barra/desejos'),
-        d.widget('woocommerce-menu-cart', {'_title': 'Sacola'}, caminho='barra/sacola'),
+            'size': medida(20),
+        }, {'primary_color': cor('text')}), caminho='barra/desejos'),
+        d.widget('woocommerce-menu-cart', {
+            '_title': 'Sacola',
+            'menu_cart_icon': {'value': 'fas fa-shopping-bag', 'library': 'fa-solid'},
+            'items_indicator': 'bubble',
+            'show_subtotal': '',
+            'show_remove_icon': '',
+        }, caminho='barra/sacola'),
     ], caminho='barra/acoes', interno=True)
 
     barra = d.container('Barra do cabeçalho', {
@@ -345,12 +345,14 @@ def cabecalho():
         'border_width': {'unit': 'px', 'top': '0', 'right': '0', 'bottom': '1', 'left': '0', 'isLinked': False},
         '__globals__': {'background_color': cor('iara-papel'), 'border_color': cor('iara-fio')},
     }, [marca,
-        d.widget('nav-menu', {
+        d.widget('nav-menu', juntar_globais({
             '_title': 'Menu principal',
             'menu': 'principal',
             'layout': 'horizontal',
+            'pointer': 'underline',
+            '_flex_size': 'grow',
             '_flex_align_self': 'center',
-        }, caminho='barra/menu'),
+        }, {'menu_item_color': cor('iara-menu')}), caminho='barra/menu'),
         acoes], caminho='barra')
 
     # Sem container raiz: a faixa e a barra sao os dois blocos do topo.
@@ -2004,6 +2006,70 @@ def cookies():
 
 
 # --------------------------------------------------------------------------
+# 3b. MENOS CONTAINERS (pedido da cliente na v0.3.8)
+# Um container que so embrulha UM elemento e nao tem fundo, borda, sombra,
+# respiro nem largura em caixa nao desenha nada: ele so polui a arvore.
+# Esta passada tira esses embrulhos de todos os arquivos de uma vez, levando
+# junto a largura que o embrulho tinha (_flex_basis e afins), para o desenho
+# nao mudar. Container com 2+ filhos, com fundo/borda/respiro ou com largura
+# em caixa (boxed, que centraliza) continua existindo.
+# --------------------------------------------------------------------------
+
+_CHAVES_VISUAIS = ('background', 'border', 'box_shadow', 'mask', 'css_filter')
+_LARGURAS = ('_flex_size', '_flex_basis', '_flex_basis_type', '_flex_align_self')
+
+
+def _sem_visual(settings):
+    for chave, valor in settings.items():
+        if chave.startswith(_CHAVES_VISUAIS):
+            return False
+        if chave in ('padding', 'margin') and isinstance(valor, dict):
+            if any(str(valor.get(lado, '0')) not in ('0', '') for lado in ('top', 'right', 'bottom', 'left')):
+                return False
+    return True
+
+
+def _embrulho_vazio(el):
+    """True se o container so embrulha um elemento, sem desenhar nada."""
+    if el['elType'] != 'container' or len(el.get('elements', [])) != 1:
+        return False
+    if not _sem_visual(el['settings']):
+        return False
+    # largura em caixa centraliza o conteudo: so tira se o filho tambem for em caixa
+    filho = el['elements'][0]
+    if el['settings'].get('content_width') == 'boxed' and filho['settings'].get('content_width') != 'boxed':
+        return False
+    return True
+
+
+def _achata(el):
+    if el['elType'] != 'container':
+        return el
+    filhos = []
+    for filho in el.get('elements', []):
+        filho = _achata(filho)
+        if _embrulho_vazio(filho):
+            unico = filho['elements'][0]
+            for chave in _LARGURAS:
+                if chave in filho['settings'] and chave not in unico['settings']:
+                    unico['settings'][chave] = filho['settings'][chave]
+            filhos.append(unico)
+        else:
+            filhos.append(filho)
+    el['elements'] = filhos
+    return el
+
+
+def achata_documento(doc):
+    doc.content = [_achata(el) for el in doc.content]
+    # raiz que so empilha secoes, sem fundo nem respiro, tambem sai
+    while (len(doc.content) == 1 and doc.content[0]['elType'] == 'container'
+           and _sem_visual(doc.content[0]['settings'])
+           and doc.content[0]['settings'].get('content_width') != 'boxed'):
+        doc.content = doc.content[0]['elements']
+
+
+# --------------------------------------------------------------------------
 # 4. ARQUIVOS GLOBAIS (Site Settings)
 # --------------------------------------------------------------------------
 
@@ -2085,6 +2151,7 @@ def main():
     total = 0
     for nome, fabrica in FABRICAS:
         doc = fabrica()
+        achata_documento(doc)
         dados = doc.dados()
         if args.lista:
             print(f'  {nome:24s} {doc.titulo:24s} tipo={doc.tipo:14s} {len(json.dumps(dados))} bytes')

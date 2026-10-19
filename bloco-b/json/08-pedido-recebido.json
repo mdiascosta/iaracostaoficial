@@ -1,35 +1,122 @@
 {
   "content": [
     {
-      "id": "db1f0e9",
+      "id": "5428298",
       "elType": "container",
       "settings": {
-        "content_width": "full",
+        "content_width": "boxed",
         "flex_direction": "column",
         "flex_gap": {
-          "row": "0",
-          "column": "0",
+          "row": "12",
+          "column": "12",
           "isLinked": true,
           "unit": "px",
-          "size": 0
+          "size": 12
         },
         "padding": {
           "unit": "px",
-          "top": "0",
+          "top": "40",
           "right": "0",
-          "bottom": "0",
+          "bottom": "8",
           "left": "0",
-          "isLinked": true
+          "isLinked": false
         },
-        "_title": "Pedido recebido"
+        "_title": "Cabecalho da pagina"
       },
       "elements": [
         {
-          "id": "5428298",
+          "id": "149d8e8",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Pedido recebido",
+            "title": "Pedido recebido",
+            "header_size": "h1",
+            "__globals__": {
+              "title_color": "globals/colors?id=text",
+              "typography": "globals/typography?id=primary"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "05816bf",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Obrigada pela sua compra. Assim que o pagamento for confirmado, você recebe os detalhes por e-mail.</p>",
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave",
+              "typography": "globals/typography?id=text"
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": true
+    },
+    {
+      "id": "7bc7003",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "16",
+          "column": "16",
+          "isLinked": true,
+          "unit": "px",
+          "size": 16
+        },
+        "padding": {
+          "unit": "px",
+          "top": "16",
+          "right": "0",
+          "bottom": "56",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "Conteudo da pagina"
+      },
+      "elements": [
+        {
+          "id": "e5d4f20",
+          "elType": "widget",
+          "widgetType": "woocommerce-notices",
+          "settings": {
+            "_title": "Avisos do WooCommerce"
+          },
+          "elements": []
+        },
+        {
+          "id": "046ebb9",
+          "elType": "widget",
+          "widgetType": "woocommerce-purchase-summary",
+          "settings": {
+            "_title": "Resumo do pedido (dinâmico)"
+          },
+          "elements": []
+        },
+        {
+          "id": "2349bd0",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Este resumo mostra o pedido real de quem acabou de comprar. Os e-mails de confirmação são do WooCommerce: remetente, SPF, DKIM e DMARC entram na lista de conferência do go-live, no Bloco C.</p>",
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave",
+              "typography": "globals/typography?id=iara-texto-micro"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "3ef1489",
           "elType": "container",
           "settings": {
-            "content_width": "boxed",
-            "flex_direction": "column",
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_wrap": "wrap",
             "flex_gap": {
               "row": "12",
               "column": "12",
@@ -37,169 +124,55 @@
               "unit": "px",
               "size": 12
             },
-            "padding": {
-              "unit": "px",
-              "top": "40",
-              "right": "0",
-              "bottom": "8",
-              "left": "0",
-              "isLinked": false
-            },
-            "_title": "Cabecalho da pagina"
+            "_title": "Saidas do pedido"
           },
           "elements": [
             {
-              "id": "149d8e8",
+              "id": "390b5be",
               "elType": "widget",
-              "widgetType": "heading",
+              "widgetType": "button",
               "settings": {
-                "_title": "Pedido recebido",
-                "title": "Pedido recebido",
-                "header_size": "h1",
-                "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=primary"
-                }
-              },
-              "elements": []
-            },
-            {
-              "id": "05816bf",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p>Obrigada pela sua compra. Assim que o pagamento for confirmado, você recebe os detalhes por e-mail.</p>",
-                "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
-                }
-              },
-              "elements": []
-            }
-          ],
-          "isInner": true
-        },
-        {
-          "id": "7bc7003",
-          "elType": "container",
-          "settings": {
-            "content_width": "boxed",
-            "flex_direction": "column",
-            "flex_gap": {
-              "row": "16",
-              "column": "16",
-              "isLinked": true,
-              "unit": "px",
-              "size": 16
-            },
-            "padding": {
-              "unit": "px",
-              "top": "16",
-              "right": "0",
-              "bottom": "56",
-              "left": "0",
-              "isLinked": false
-            },
-            "_title": "Conteudo da pagina"
-          },
-          "elements": [
-            {
-              "id": "e5d4f20",
-              "elType": "widget",
-              "widgetType": "woocommerce-notices",
-              "settings": {
-                "_title": "Avisos do WooCommerce"
-              },
-              "elements": []
-            },
-            {
-              "id": "046ebb9",
-              "elType": "widget",
-              "widgetType": "woocommerce-purchase-summary",
-              "settings": {
-                "_title": "Resumo do pedido (dinâmico)"
-              },
-              "elements": []
-            },
-            {
-              "id": "2349bd0",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p>Este resumo mostra o pedido real de quem acabou de comprar. Os e-mails de confirmação são do WooCommerce: remetente, SPF, DKIM e DMARC entram na lista de conferência do go-live, no Bloco C.</p>",
-                "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=iara-texto-micro"
-                }
-              },
-              "elements": []
-            },
-            {
-              "id": "3ef1489",
-              "elType": "container",
-              "settings": {
-                "content_width": "full",
-                "flex_direction": "row",
-                "flex_wrap": "wrap",
-                "flex_gap": {
-                  "row": "12",
-                  "column": "12",
-                  "isLinked": true,
-                  "unit": "px",
-                  "size": 12
+                "_title": "Acompanhar meus pedidos",
+                "text": "Acompanhar meus pedidos",
+                "link": {
+                  "url": "/minha-conta/",
+                  "is_external": "",
+                  "nofollow": ""
                 },
-                "_title": "Saidas do pedido"
-              },
-              "elements": [
-                {
-                  "id": "390b5be",
-                  "elType": "widget",
-                  "widgetType": "button",
-                  "settings": {
-                    "_title": "Acompanhar meus pedidos",
-                    "text": "Acompanhar meus pedidos",
-                    "link": {
-                      "url": "/minha-conta/",
-                      "is_external": "",
-                      "nofollow": ""
-                    },
-                    "size": "md",
-                    "__globals__": {
-                      "typography": "globals/typography?id=accent",
-                      "button_background_color": "globals/colors?id=primary",
-                      "text_color": "globals/colors?id=iara-branco"
-                    }
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "5656ef6",
-                  "elType": "widget",
-                  "widgetType": "button",
-                  "settings": {
-                    "_title": "Continuar comprando",
-                    "text": "Continuar comprando",
-                    "link": {
-                      "url": "/loja/",
-                      "is_external": "",
-                      "nofollow": ""
-                    },
-                    "size": "md",
-                    "__globals__": {
-                      "typography": "globals/typography?id=accent",
-                      "text_color": "globals/colors?id=text"
-                    }
-                  },
-                  "elements": []
+                "size": "md",
+                "__globals__": {
+                  "typography": "globals/typography?id=accent",
+                  "button_background_color": "globals/colors?id=primary",
+                  "text_color": "globals/colors?id=iara-branco"
                 }
-              ],
-              "isInner": true
+              },
+              "elements": []
+            },
+            {
+              "id": "5656ef6",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "_title": "Continuar comprando",
+                "text": "Continuar comprando",
+                "link": {
+                  "url": "/loja/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "size": "md",
+                "__globals__": {
+                  "typography": "globals/typography?id=accent",
+                  "text_color": "globals/colors?id=text"
+                }
+              },
+              "elements": []
             }
           ],
           "isInner": true
         }
       ],
-      "isInner": false
+      "isInner": true
     }
   ],
   "page_settings": [],

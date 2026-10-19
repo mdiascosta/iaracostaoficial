@@ -1,34 +1,127 @@
 {
   "content": [
     {
-      "id": "6c1e0f0",
+      "id": "5405a75",
       "elType": "container",
       "settings": {
-        "content_width": "full",
+        "content_width": "boxed",
         "flex_direction": "column",
         "flex_gap": {
-          "row": "0",
-          "column": "0",
+          "row": "12",
+          "column": "12",
           "isLinked": true,
           "unit": "px",
-          "size": 0
+          "size": 12
         },
         "padding": {
           "unit": "px",
-          "top": "0",
+          "top": "40",
           "right": "0",
-          "bottom": "0",
+          "bottom": "8",
           "left": "0",
-          "isLinked": true
+          "isLinked": false
         },
-        "_title": "Coleção Terra & Linho"
+        "_title": "Cabecalho da pagina"
       },
       "elements": [
         {
-          "id": "5405a75",
+          "id": "dd3b7c6",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Coleção",
+            "title": "Coleção",
+            "header_size": "p",
+            "__globals__": {
+              "title_color": "globals/colors?id=primary",
+              "typography": "globals/typography?id=iara-rotulo"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "590c298",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Terra & Linho",
+            "title": "Terra & Linho",
+            "header_size": "h1",
+            "__globals__": {
+              "title_color": "globals/colors?id=text",
+              "typography": "globals/typography?id=primary"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "3bd2cec",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Três capítulos em doze peças: terracota do barro, sálvia da mata, cru do linho.</p>",
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave",
+              "typography": "globals/typography?id=text"
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": true
+    },
+    {
+      "id": "60a6150",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "row",
+        "flex_wrap": "wrap",
+        "flex_gap": {
+          "row": "32",
+          "column": "32",
+          "isLinked": true,
+          "unit": "px",
+          "size": 32
+        },
+        "padding": {
+          "unit": "px",
+          "top": "40",
+          "right": "0",
+          "bottom": "40",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "O barro que veste"
+      },
+      "elements": [
+        {
+          "id": "f809efe",
+          "elType": "widget",
+          "widgetType": "image",
+          "settings": {
+            "_title": "Foto do capítulo (escolher no editor)",
+            "image": {
+              "url": "",
+              "id": ""
+            },
+            "image_size": "full",
+            "caption_source": "none",
+            "link_to": "none",
+            "_flex_size": "custom",
+            "_flex_basis": {
+              "unit": "%",
+              "size": 48,
+              "sizes": []
+            },
+            "_flex_basis_type": "custom"
+          },
+          "elements": []
+        },
+        {
+          "id": "4c4a2be",
           "elType": "container",
           "settings": {
-            "content_width": "boxed",
             "flex_direction": "column",
             "flex_gap": {
               "row": "12",
@@ -37,24 +130,24 @@
               "unit": "px",
               "size": 12
             },
-            "padding": {
-              "unit": "px",
-              "top": "40",
-              "right": "0",
-              "bottom": "8",
-              "left": "0",
-              "isLinked": false
+            "_flex_size": "custom",
+            "_flex_basis_type": "custom",
+            "_flex_basis": {
+              "unit": "%",
+              "size": 48,
+              "sizes": []
             },
-            "_title": "Cabecalho da pagina"
+            "_flex_align_self": "center",
+            "_title": "Texto do capitulo"
           },
           "elements": [
             {
-              "id": "dd3b7c6",
+              "id": "eaacad7",
               "elType": "widget",
               "widgetType": "heading",
               "settings": {
-                "_title": "Coleção",
-                "title": "Coleção",
+                "_title": "Capítulo 01",
+                "title": "Capítulo 01",
                 "header_size": "p",
                 "__globals__": {
                   "title_color": "globals/colors?id=primary",
@@ -64,562 +157,40 @@
               "elements": []
             },
             {
-              "id": "590c298",
+              "id": "20009d8",
               "elType": "widget",
               "widgetType": "heading",
               "settings": {
-                "_title": "Terra & Linho",
-                "title": "Terra & Linho",
-                "header_size": "h1",
+                "_title": "O barro que veste",
+                "title": "O barro que veste",
+                "header_size": "h2",
                 "__globals__": {
                   "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=primary"
-                }
-              },
-              "elements": []
-            },
-            {
-              "id": "3bd2cec",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p>Três capítulos em doze peças: terracota do barro, sálvia da mata, cru do linho.</p>",
-                "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
-                }
-              },
-              "elements": []
-            }
-          ],
-          "isInner": true
-        },
-        {
-          "id": "60a6150",
-          "elType": "container",
-          "settings": {
-            "content_width": "boxed",
-            "flex_direction": "row",
-            "flex_wrap": "wrap",
-            "flex_gap": {
-              "row": "32",
-              "column": "32",
-              "isLinked": true,
-              "unit": "px",
-              "size": 32
-            },
-            "padding": {
-              "unit": "px",
-              "top": "40",
-              "right": "0",
-              "bottom": "40",
-              "left": "0",
-              "isLinked": false
-            },
-            "_title": "O barro que veste"
-          },
-          "elements": [
-            {
-              "id": "f50a645",
-              "elType": "container",
-              "settings": {
-                "flex_direction": "column",
-                "_flex_size": "custom",
-                "_flex_basis_type": "custom",
-                "_flex_basis": {
-                  "unit": "%",
-                  "size": 48,
-                  "sizes": []
-                },
-                "_title": "Foto do capitulo"
-              },
-              "elements": [
-                {
-                  "id": "f809efe",
-                  "elType": "widget",
-                  "widgetType": "image",
-                  "settings": {
-                    "_title": "Foto do capítulo (escolher no editor)",
-                    "image": {
-                      "url": "",
-                      "id": ""
-                    },
-                    "image_size": "full",
-                    "caption_source": "none",
-                    "link_to": "none"
-                  },
-                  "elements": []
-                }
-              ],
-              "isInner": true
-            },
-            {
-              "id": "4c4a2be",
-              "elType": "container",
-              "settings": {
-                "flex_direction": "column",
-                "flex_gap": {
-                  "row": "12",
-                  "column": "12",
-                  "isLinked": true,
-                  "unit": "px",
-                  "size": 12
-                },
-                "_flex_size": "custom",
-                "_flex_basis_type": "custom",
-                "_flex_basis": {
-                  "unit": "%",
-                  "size": 48,
-                  "sizes": []
-                },
-                "_flex_align_self": "center",
-                "_title": "Texto do capitulo"
-              },
-              "elements": [
-                {
-                  "id": "eaacad7",
-                  "elType": "widget",
-                  "widgetType": "heading",
-                  "settings": {
-                    "_title": "Capítulo 01",
-                    "title": "Capítulo 01",
-                    "header_size": "p",
-                    "__globals__": {
-                      "title_color": "globals/colors?id=primary",
-                      "typography": "globals/typography?id=iara-rotulo"
-                    }
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "20009d8",
-                  "elType": "widget",
-                  "widgetType": "heading",
-                  "settings": {
-                    "_title": "O barro que veste",
-                    "title": "O barro que veste",
-                    "header_size": "h2",
-                    "__globals__": {
-                      "title_color": "globals/colors?id=text",
-                      "typography": "globals/typography?id=secondary"
-                    }
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "0fa1a5f",
-                  "elType": "widget",
-                  "widgetType": "text-editor",
-                  "settings": {
-                    "editor": "<p>Terracota em linho e algodão, nas peças de abertura da coleção.</p>",
-                    "__globals__": {
-                      "text_color": "globals/colors?id=iara-texto-suave",
-                      "typography": "globals/typography?id=text"
-                    }
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "eb06517",
-                  "elType": "widget",
-                  "widgetType": "button",
-                  "settings": {
-                    "_title": "Comprar as peças do capítulo",
-                    "text": "Comprar as peças do capítulo",
-                    "link": {
-                      "url": "/loja/",
-                      "is_external": "",
-                      "nofollow": ""
-                    },
-                    "size": "md",
-                    "__globals__": {
-                      "typography": "globals/typography?id=accent",
-                      "button_background_color": "globals/colors?id=primary",
-                      "text_color": "globals/colors?id=iara-branco"
-                    }
-                  },
-                  "elements": []
-                }
-              ],
-              "isInner": true
-            }
-          ],
-          "isInner": true
-        },
-        {
-          "id": "37927ae",
-          "elType": "container",
-          "settings": {
-            "content_width": "boxed",
-            "flex_direction": "row",
-            "flex_wrap": "wrap",
-            "flex_gap": {
-              "row": "32",
-              "column": "32",
-              "isLinked": true,
-              "unit": "px",
-              "size": 32
-            },
-            "padding": {
-              "unit": "px",
-              "top": "40",
-              "right": "0",
-              "bottom": "40",
-              "left": "0",
-              "isLinked": false
-            },
-            "background_background": "classic",
-            "__globals__": {
-              "background_color": "globals/colors?id=iara-fundo-suave"
-            },
-            "_title": "Verde que acalma"
-          },
-          "elements": [
-            {
-              "id": "fc39a65",
-              "elType": "container",
-              "settings": {
-                "flex_direction": "column",
-                "_flex_size": "custom",
-                "_flex_basis_type": "custom",
-                "_flex_basis": {
-                  "unit": "%",
-                  "size": 48,
-                  "sizes": []
-                },
-                "_title": "Foto do capitulo"
-              },
-              "elements": [
-                {
-                  "id": "152db4e",
-                  "elType": "widget",
-                  "widgetType": "image",
-                  "settings": {
-                    "_title": "Foto do capítulo (escolher no editor)",
-                    "image": {
-                      "url": "",
-                      "id": ""
-                    },
-                    "image_size": "full",
-                    "caption_source": "none",
-                    "link_to": "none"
-                  },
-                  "elements": []
-                }
-              ],
-              "isInner": true
-            },
-            {
-              "id": "7c47915",
-              "elType": "container",
-              "settings": {
-                "flex_direction": "column",
-                "flex_gap": {
-                  "row": "12",
-                  "column": "12",
-                  "isLinked": true,
-                  "unit": "px",
-                  "size": 12
-                },
-                "_flex_size": "custom",
-                "_flex_basis_type": "custom",
-                "_flex_basis": {
-                  "unit": "%",
-                  "size": 48,
-                  "sizes": []
-                },
-                "_flex_align_self": "center",
-                "_title": "Texto do capitulo"
-              },
-              "elements": [
-                {
-                  "id": "172a7ec",
-                  "elType": "widget",
-                  "widgetType": "heading",
-                  "settings": {
-                    "_title": "Capítulo 02",
-                    "title": "Capítulo 02",
-                    "header_size": "p",
-                    "__globals__": {
-                      "title_color": "globals/colors?id=primary",
-                      "typography": "globals/typography?id=iara-rotulo"
-                    }
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "7771a03",
-                  "elType": "widget",
-                  "widgetType": "heading",
-                  "settings": {
-                    "_title": "Verde que acalma",
-                    "title": "Verde que acalma",
-                    "header_size": "h2",
-                    "__globals__": {
-                      "title_color": "globals/colors?id=text",
-                      "typography": "globals/typography?id=secondary"
-                    }
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "012c3af",
-                  "elType": "widget",
-                  "widgetType": "text-editor",
-                  "settings": {
-                    "editor": "<p>Sálvia em vestidos e pantalona, para o dia inteiro.</p>",
-                    "__globals__": {
-                      "text_color": "globals/colors?id=iara-texto-suave",
-                      "typography": "globals/typography?id=text"
-                    }
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "d7a2ca1",
-                  "elType": "widget",
-                  "widgetType": "button",
-                  "settings": {
-                    "_title": "Comprar as peças do capítulo",
-                    "text": "Comprar as peças do capítulo",
-                    "link": {
-                      "url": "/loja/",
-                      "is_external": "",
-                      "nofollow": ""
-                    },
-                    "size": "md",
-                    "__globals__": {
-                      "typography": "globals/typography?id=accent",
-                      "button_background_color": "globals/colors?id=primary",
-                      "text_color": "globals/colors?id=iara-branco"
-                    }
-                  },
-                  "elements": []
-                }
-              ],
-              "isInner": true
-            }
-          ],
-          "isInner": true
-        },
-        {
-          "id": "4999f04",
-          "elType": "container",
-          "settings": {
-            "content_width": "boxed",
-            "flex_direction": "row",
-            "flex_wrap": "wrap",
-            "flex_gap": {
-              "row": "32",
-              "column": "32",
-              "isLinked": true,
-              "unit": "px",
-              "size": 32
-            },
-            "padding": {
-              "unit": "px",
-              "top": "40",
-              "right": "0",
-              "bottom": "40",
-              "left": "0",
-              "isLinked": false
-            },
-            "_title": "O branco que não é básico"
-          },
-          "elements": [
-            {
-              "id": "2d8cdc7",
-              "elType": "container",
-              "settings": {
-                "flex_direction": "column",
-                "_flex_size": "custom",
-                "_flex_basis_type": "custom",
-                "_flex_basis": {
-                  "unit": "%",
-                  "size": 48,
-                  "sizes": []
-                },
-                "_title": "Foto do capitulo"
-              },
-              "elements": [
-                {
-                  "id": "b265956",
-                  "elType": "widget",
-                  "widgetType": "image",
-                  "settings": {
-                    "_title": "Foto do capítulo (escolher no editor)",
-                    "image": {
-                      "url": "",
-                      "id": ""
-                    },
-                    "image_size": "full",
-                    "caption_source": "none",
-                    "link_to": "none"
-                  },
-                  "elements": []
-                }
-              ],
-              "isInner": true
-            },
-            {
-              "id": "b538c0c",
-              "elType": "container",
-              "settings": {
-                "flex_direction": "column",
-                "flex_gap": {
-                  "row": "12",
-                  "column": "12",
-                  "isLinked": true,
-                  "unit": "px",
-                  "size": 12
-                },
-                "_flex_size": "custom",
-                "_flex_basis_type": "custom",
-                "_flex_basis": {
-                  "unit": "%",
-                  "size": 48,
-                  "sizes": []
-                },
-                "_flex_align_self": "center",
-                "_title": "Texto do capitulo"
-              },
-              "elements": [
-                {
-                  "id": "1d404e5",
-                  "elType": "widget",
-                  "widgetType": "heading",
-                  "settings": {
-                    "_title": "Capítulo 03",
-                    "title": "Capítulo 03",
-                    "header_size": "p",
-                    "__globals__": {
-                      "title_color": "globals/colors?id=primary",
-                      "typography": "globals/typography?id=iara-rotulo"
-                    }
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "b4c2e5e",
-                  "elType": "widget",
-                  "widgetType": "heading",
-                  "settings": {
-                    "_title": "O branco que não é básico",
-                    "title": "O branco que não é básico",
-                    "header_size": "h2",
-                    "__globals__": {
-                      "title_color": "globals/colors?id=text",
-                      "typography": "globals/typography?id=secondary"
-                    }
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "da63dc9",
-                  "elType": "widget",
-                  "widgetType": "text-editor",
-                  "settings": {
-                    "editor": "<p>Cru e areia em camadas leves, com acessórios de cerâmica.</p>",
-                    "__globals__": {
-                      "text_color": "globals/colors?id=iara-texto-suave",
-                      "typography": "globals/typography?id=text"
-                    }
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "8ff3740",
-                  "elType": "widget",
-                  "widgetType": "button",
-                  "settings": {
-                    "_title": "Comprar as peças do capítulo",
-                    "text": "Comprar as peças do capítulo",
-                    "link": {
-                      "url": "/loja/",
-                      "is_external": "",
-                      "nofollow": ""
-                    },
-                    "size": "md",
-                    "__globals__": {
-                      "typography": "globals/typography?id=accent",
-                      "button_background_color": "globals/colors?id=primary",
-                      "text_color": "globals/colors?id=iara-branco"
-                    }
-                  },
-                  "elements": []
-                }
-              ],
-              "isInner": true
-            }
-          ],
-          "isInner": true
-        },
-        {
-          "id": "9041c9e",
-          "elType": "container",
-          "settings": {
-            "content_width": "boxed",
-            "flex_direction": "column",
-            "flex_align_items": "center",
-            "flex_gap": {
-              "row": "16",
-              "column": "16",
-              "isLinked": true,
-              "unit": "px",
-              "size": 16
-            },
-            "padding": {
-              "unit": "px",
-              "top": "48",
-              "right": "0",
-              "bottom": "48",
-              "left": "0",
-              "isLinked": false
-            },
-            "background_background": "classic",
-            "__globals__": {
-              "background_color": "globals/colors?id=secondary"
-            },
-            "_title": "Faixa de ajuda"
-          },
-          "elements": [
-            {
-              "id": "0f60891",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "_title": "Viu algo que gostou?",
-                "title": "Viu algo que gostou?",
-                "header_size": "h2",
-                "align": "center",
-                "__globals__": {
-                  "title_color": "globals/colors?id=iara-faixa-texto",
                   "typography": "globals/typography?id=secondary"
                 }
               },
               "elements": []
             },
             {
-              "id": "08c92d3",
+              "id": "0fa1a5f",
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>Todas as peças do editorial estão à venda na loja.</p>",
-                "align": "center",
+                "editor": "<p>Terracota em linho e algodão, nas peças de abertura da coleção.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-faixa-texto",
+                  "text_color": "globals/colors?id=iara-texto-suave",
                   "typography": "globals/typography?id=text"
                 }
               },
               "elements": []
             },
             {
-              "id": "93947b7",
+              "id": "eb06517",
               "elType": "widget",
               "widgetType": "button",
               "settings": {
-                "_title": "Ir para a loja",
-                "text": "Ir para a loja",
+                "_title": "Comprar as peças do capítulo",
+                "text": "Comprar as peças do capítulo",
                 "link": {
                   "url": "/loja/",
                   "is_external": "",
@@ -638,7 +209,376 @@
           "isInner": true
         }
       ],
-      "isInner": false
+      "isInner": true
+    },
+    {
+      "id": "37927ae",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "row",
+        "flex_wrap": "wrap",
+        "flex_gap": {
+          "row": "32",
+          "column": "32",
+          "isLinked": true,
+          "unit": "px",
+          "size": 32
+        },
+        "padding": {
+          "unit": "px",
+          "top": "40",
+          "right": "0",
+          "bottom": "40",
+          "left": "0",
+          "isLinked": false
+        },
+        "background_background": "classic",
+        "__globals__": {
+          "background_color": "globals/colors?id=iara-fundo-suave"
+        },
+        "_title": "Verde que acalma"
+      },
+      "elements": [
+        {
+          "id": "152db4e",
+          "elType": "widget",
+          "widgetType": "image",
+          "settings": {
+            "_title": "Foto do capítulo (escolher no editor)",
+            "image": {
+              "url": "",
+              "id": ""
+            },
+            "image_size": "full",
+            "caption_source": "none",
+            "link_to": "none",
+            "_flex_size": "custom",
+            "_flex_basis": {
+              "unit": "%",
+              "size": 48,
+              "sizes": []
+            },
+            "_flex_basis_type": "custom"
+          },
+          "elements": []
+        },
+        {
+          "id": "7c47915",
+          "elType": "container",
+          "settings": {
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "12",
+              "column": "12",
+              "isLinked": true,
+              "unit": "px",
+              "size": 12
+            },
+            "_flex_size": "custom",
+            "_flex_basis_type": "custom",
+            "_flex_basis": {
+              "unit": "%",
+              "size": 48,
+              "sizes": []
+            },
+            "_flex_align_self": "center",
+            "_title": "Texto do capitulo"
+          },
+          "elements": [
+            {
+              "id": "172a7ec",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Capítulo 02",
+                "title": "Capítulo 02",
+                "header_size": "p",
+                "__globals__": {
+                  "title_color": "globals/colors?id=primary",
+                  "typography": "globals/typography?id=iara-rotulo"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "7771a03",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Verde que acalma",
+                "title": "Verde que acalma",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "012c3af",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Sálvia em vestidos e pantalona, para o dia inteiro.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "d7a2ca1",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "_title": "Comprar as peças do capítulo",
+                "text": "Comprar as peças do capítulo",
+                "link": {
+                  "url": "/loja/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "size": "md",
+                "__globals__": {
+                  "typography": "globals/typography?id=accent",
+                  "button_background_color": "globals/colors?id=primary",
+                  "text_color": "globals/colors?id=iara-branco"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        }
+      ],
+      "isInner": true
+    },
+    {
+      "id": "4999f04",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "row",
+        "flex_wrap": "wrap",
+        "flex_gap": {
+          "row": "32",
+          "column": "32",
+          "isLinked": true,
+          "unit": "px",
+          "size": 32
+        },
+        "padding": {
+          "unit": "px",
+          "top": "40",
+          "right": "0",
+          "bottom": "40",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "O branco que não é básico"
+      },
+      "elements": [
+        {
+          "id": "b265956",
+          "elType": "widget",
+          "widgetType": "image",
+          "settings": {
+            "_title": "Foto do capítulo (escolher no editor)",
+            "image": {
+              "url": "",
+              "id": ""
+            },
+            "image_size": "full",
+            "caption_source": "none",
+            "link_to": "none",
+            "_flex_size": "custom",
+            "_flex_basis": {
+              "unit": "%",
+              "size": 48,
+              "sizes": []
+            },
+            "_flex_basis_type": "custom"
+          },
+          "elements": []
+        },
+        {
+          "id": "b538c0c",
+          "elType": "container",
+          "settings": {
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "12",
+              "column": "12",
+              "isLinked": true,
+              "unit": "px",
+              "size": 12
+            },
+            "_flex_size": "custom",
+            "_flex_basis_type": "custom",
+            "_flex_basis": {
+              "unit": "%",
+              "size": 48,
+              "sizes": []
+            },
+            "_flex_align_self": "center",
+            "_title": "Texto do capitulo"
+          },
+          "elements": [
+            {
+              "id": "1d404e5",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Capítulo 03",
+                "title": "Capítulo 03",
+                "header_size": "p",
+                "__globals__": {
+                  "title_color": "globals/colors?id=primary",
+                  "typography": "globals/typography?id=iara-rotulo"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "b4c2e5e",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "O branco que não é básico",
+                "title": "O branco que não é básico",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "da63dc9",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Cru e areia em camadas leves, com acessórios de cerâmica.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "8ff3740",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "_title": "Comprar as peças do capítulo",
+                "text": "Comprar as peças do capítulo",
+                "link": {
+                  "url": "/loja/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "size": "md",
+                "__globals__": {
+                  "typography": "globals/typography?id=accent",
+                  "button_background_color": "globals/colors?id=primary",
+                  "text_color": "globals/colors?id=iara-branco"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        }
+      ],
+      "isInner": true
+    },
+    {
+      "id": "9041c9e",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "flex_gap": {
+          "row": "16",
+          "column": "16",
+          "isLinked": true,
+          "unit": "px",
+          "size": 16
+        },
+        "padding": {
+          "unit": "px",
+          "top": "48",
+          "right": "0",
+          "bottom": "48",
+          "left": "0",
+          "isLinked": false
+        },
+        "background_background": "classic",
+        "__globals__": {
+          "background_color": "globals/colors?id=secondary"
+        },
+        "_title": "Faixa de ajuda"
+      },
+      "elements": [
+        {
+          "id": "0f60891",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Viu algo que gostou?",
+            "title": "Viu algo que gostou?",
+            "header_size": "h2",
+            "align": "center",
+            "__globals__": {
+              "title_color": "globals/colors?id=iara-faixa-texto",
+              "typography": "globals/typography?id=secondary"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "08c92d3",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Todas as peças do editorial estão à venda na loja.</p>",
+            "align": "center",
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-faixa-texto",
+              "typography": "globals/typography?id=text"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "93947b7",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "_title": "Ir para a loja",
+            "text": "Ir para a loja",
+            "link": {
+              "url": "/loja/",
+              "is_external": "",
+              "nofollow": ""
+            },
+            "size": "md",
+            "__globals__": {
+              "typography": "globals/typography?id=accent",
+              "button_background_color": "globals/colors?id=primary",
+              "text_color": "globals/colors?id=iara-branco"
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": true
     }
   ],
   "page_settings": [],

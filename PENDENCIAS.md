@@ -157,7 +157,7 @@ estiverem habilitadas na conta do Mercado Pago.
 | Executar os guias do Bloco C em staging, item a item | `bloco-c/guias/` | instalação, segurança e SEO primeiro; cada item com data e responsável |
 | Ferramenta de backup e de duas etapas | guia de segurança, seções 1 e 2 | da hospedagem ou plugin aprovado; plugin novo pede aprovação |
 
-| Importar o pacote de cores e fontes e conferir os ids | `bloco-b/globais/iara-costa-globais.zip`; guia do Bloco B, seção 3.0 | primeiro teste real do projeto: exportar as configurações atuais antes e conferir as 15 cores e 10 fontes depois |
+| Importar o pacote de cores e fontes e conferir os ids | `bloco-b/globais/iara-costa-globais.zip`; guia do Bloco B, seção 3.0 | primeiro teste real do projeto: exportar as configurações atuais antes e conferir as 15 cores e 11 fontes depois |
 
 ## Como usar este documento
 

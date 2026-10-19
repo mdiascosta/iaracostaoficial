@@ -50,7 +50,7 @@ ORDEM DE TRABALHO
      globais/iara-costa-globais.zip, pelo Importar/Exportar Kit do Elementor
      (passo a passo na secao 3.0 do GUIA-IMPORTACAO.md). Antes, exportar as
      configuracoes atuais do site como seguranca.
-  2. Conferir no editor se as 15 cores e as 10 fontes entraram.
+  2. Conferir no editor se as 15 cores e as 11 fontes entraram.
      (Criar na mao pelas tabelas 3.1 e 3.2 e rodar o tools/ajusta-ids.py so e
      necessario se a importacao nao trouxer os ids certos: secao 3.3.)
   3. Conferir os arquivos:

@@ -1,430 +1,258 @@
 {
   "content": [
     {
-      "id": "dcfd100",
+      "id": "e00ac76",
       "elType": "container",
       "settings": {
-        "content_width": "full",
+        "content_width": "boxed",
         "flex_direction": "column",
         "flex_gap": {
-          "row": "0",
-          "column": "0",
+          "row": "12",
+          "column": "12",
           "isLinked": true,
           "unit": "px",
-          "size": 0
+          "size": 12
         },
         "padding": {
           "unit": "px",
-          "top": "0",
+          "top": "40",
           "right": "0",
-          "bottom": "0",
+          "bottom": "8",
           "left": "0",
-          "isLinked": true
+          "isLinked": false
         },
-        "_title": "Arquivo da loja"
+        "_title": "Cabecalho da loja"
       },
       "elements": [
         {
-          "id": "e00ac76",
+          "id": "c82e6f3",
+          "elType": "widget",
+          "widgetType": "woocommerce-breadcrumbs",
+          "settings": {
+            "_title": "Trilha de navegacao"
+          },
+          "elements": []
+        },
+        {
+          "id": "b7088f6",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Todas as pecas",
+            "title": "Todas as peças",
+            "header_size": "h1",
+            "__globals__": {
+              "title_color": "globals/colors?id=text",
+              "typography": "globals/typography?id=primary"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "085ff07",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Vestuário feminino do P ao GG, em linho, algodão egípcio e viscose de alta gramatura. A contagem de peças, a ordenação e a paginação vêm do próprio WooCommerce, conforme os filtros escolhidos.</p>",
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave",
+              "typography": "globals/typography?id=text"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "61ebf24",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "_title": "Guia de medidas",
+            "text": "Guia de medidas",
+            "link": {
+              "url": "/guia-de-medidas/",
+              "is_external": "",
+              "nofollow": ""
+            },
+            "size": "sm",
+            "button_type": "text",
+            "__globals__": {
+              "text_color": "globals/colors?id=primary",
+              "typography": "globals/typography?id=iara-rotulo"
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": true
+    },
+    {
+      "id": "dca2cdd",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "row",
+        "flex_wrap": "wrap",
+        "flex_gap": {
+          "row": "32",
+          "column": "32",
+          "isLinked": true,
+          "unit": "px",
+          "size": 32
+        },
+        "padding": {
+          "unit": "px",
+          "top": "24",
+          "right": "0",
+          "bottom": "56",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "Loja com filtros"
+      },
+      "elements": [
+        {
+          "id": "b1b3c87",
           "elType": "container",
           "settings": {
-            "content_width": "boxed",
             "flex_direction": "column",
             "flex_gap": {
-              "row": "12",
-              "column": "12",
+              "row": "0",
+              "column": "0",
               "isLinked": true,
               "unit": "px",
-              "size": 12
+              "size": 0
             },
-            "padding": {
-              "unit": "px",
-              "top": "40",
-              "right": "0",
-              "bottom": "8",
-              "left": "0",
-              "isLinked": false
+            "_flex_size": "custom",
+            "_flex_basis_type": "custom",
+            "_flex_basis": {
+              "unit": "%",
+              "size": 23,
+              "sizes": []
             },
-            "_title": "Cabecalho da loja"
+            "_title": "Filtros da loja"
           },
           "elements": [
             {
-              "id": "c82e6f3",
-              "elType": "widget",
-              "widgetType": "woocommerce-breadcrumbs",
-              "settings": {
-                "_title": "Trilha de navegacao"
-              },
-              "elements": []
-            },
-            {
-              "id": "b7088f6",
+              "id": "e268b79",
               "elType": "widget",
               "widgetType": "heading",
               "settings": {
-                "_title": "Todas as pecas",
-                "title": "Todas as peças",
-                "header_size": "h1",
+                "_title": "Filtros",
+                "title": "Filtros",
+                "header_size": "h2",
                 "__globals__": {
                   "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=primary"
+                  "typography": "globals/typography?id=secondary"
                 }
               },
               "elements": []
             },
             {
-              "id": "085ff07",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p>Vestuário feminino do P ao GG, em linho, algodão egípcio e viscose de alta gramatura. A contagem de peças, a ordenação e a paginação vêm do próprio WooCommerce, conforme os filtros escolhidos.</p>",
-                "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
-                }
-              },
-              "elements": []
-            },
-            {
-              "id": "61ebf24",
-              "elType": "widget",
-              "widgetType": "button",
-              "settings": {
-                "_title": "Guia de medidas",
-                "text": "Guia de medidas",
-                "link": {
-                  "url": "/guia-de-medidas/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "size": "sm",
-                "button_type": "text",
-                "__globals__": {
-                  "text_color": "globals/colors?id=primary",
-                  "typography": "globals/typography?id=iara-rotulo"
-                }
-              },
-              "elements": []
-            }
-          ],
-          "isInner": true
-        },
-        {
-          "id": "dca2cdd",
-          "elType": "container",
-          "settings": {
-            "content_width": "boxed",
-            "flex_direction": "row",
-            "flex_wrap": "wrap",
-            "flex_gap": {
-              "row": "32",
-              "column": "32",
-              "isLinked": true,
-              "unit": "px",
-              "size": 32
-            },
-            "padding": {
-              "unit": "px",
-              "top": "24",
-              "right": "0",
-              "bottom": "56",
-              "left": "0",
-              "isLinked": false
-            },
-            "_title": "Loja com filtros"
-          },
-          "elements": [
-            {
-              "id": "b1b3c87",
+              "id": "1ca61da",
               "elType": "container",
               "settings": {
                 "flex_direction": "column",
                 "flex_gap": {
-                  "row": "0",
-                  "column": "0",
+                  "row": "8",
+                  "column": "8",
                   "isLinked": true,
                   "unit": "px",
-                  "size": 0
+                  "size": 8
                 },
-                "_flex_size": "custom",
-                "_flex_basis_type": "custom",
-                "_flex_basis": {
-                  "unit": "%",
-                  "size": 23,
-                  "sizes": []
+                "padding": {
+                  "unit": "px",
+                  "top": "16",
+                  "right": "0",
+                  "bottom": "16",
+                  "left": "0",
+                  "isLinked": false
                 },
-                "_title": "Filtros da loja"
+                "_title": "Categorias"
               },
               "elements": [
                 {
-                  "id": "e268b79",
+                  "id": "721c56a",
                   "elType": "widget",
                   "widgetType": "heading",
                   "settings": {
-                    "_title": "Filtros",
-                    "title": "Filtros",
-                    "header_size": "h2",
+                    "_title": "Categorias",
+                    "title": "Categorias",
+                    "header_size": "p",
                     "__globals__": {
                       "title_color": "globals/colors?id=text",
-                      "typography": "globals/typography?id=secondary"
+                      "typography": "globals/typography?id=iara-rotulo"
                     }
                   },
                   "elements": []
                 },
                 {
-                  "id": "1ca61da",
-                  "elType": "container",
+                  "id": "01c9b04",
+                  "elType": "widget",
+                  "widgetType": "woocommerce-product-categories",
                   "settings": {
-                    "flex_direction": "column",
-                    "flex_gap": {
-                      "row": "8",
-                      "column": "8",
-                      "isLinked": true,
-                      "unit": "px",
-                      "size": 8
-                    },
-                    "padding": {
-                      "unit": "px",
-                      "top": "16",
-                      "right": "0",
-                      "bottom": "16",
-                      "left": "0",
-                      "isLinked": false
-                    },
-                    "_title": "Categorias"
+                    "_title": "Categorias de produtos (dinamico)"
                   },
-                  "elements": [
-                    {
-                      "id": "721c56a",
-                      "elType": "widget",
-                      "widgetType": "heading",
-                      "settings": {
-                        "_title": "Categorias",
-                        "title": "Categorias",
-                        "header_size": "p",
-                        "__globals__": {
-                          "title_color": "globals/colors?id=text",
-                          "typography": "globals/typography?id=iara-rotulo"
-                        }
-                      },
-                      "elements": []
-                    },
-                    {
-                      "id": "01c9b04",
-                      "elType": "widget",
-                      "widgetType": "woocommerce-product-categories",
-                      "settings": {
-                        "_title": "Categorias de produtos (dinamico)"
-                      },
-                      "elements": []
-                    }
-                  ],
-                  "isInner": true
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "1d6fde2",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "flex_gap": {
+                  "row": "8",
+                  "column": "8",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 8
                 },
+                "padding": {
+                  "unit": "px",
+                  "top": "16",
+                  "right": "0",
+                  "bottom": "16",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "__globals__": {
+                  "border_color": "globals/colors?id=iara-fio"
+                },
+                "_title": "Faixa de preço"
+              },
+              "elements": [
                 {
-                  "id": "1d6fde2",
-                  "elType": "container",
+                  "id": "25e8dab",
+                  "elType": "widget",
+                  "widgetType": "heading",
                   "settings": {
-                    "flex_direction": "column",
-                    "flex_gap": {
-                      "row": "8",
-                      "column": "8",
-                      "isLinked": true,
-                      "unit": "px",
-                      "size": 8
-                    },
-                    "padding": {
-                      "unit": "px",
-                      "top": "16",
-                      "right": "0",
-                      "bottom": "16",
-                      "left": "0",
-                      "isLinked": false
-                    },
-                    "border_border": "solid",
-                    "border_width": {
-                      "unit": "px",
-                      "top": "1",
-                      "right": "0",
-                      "bottom": "0",
-                      "left": "0",
-                      "isLinked": false
-                    },
+                    "_title": "Faixa de preço",
+                    "title": "Faixa de preço",
+                    "header_size": "p",
                     "__globals__": {
-                      "border_color": "globals/colors?id=iara-fio"
-                    },
-                    "_title": "Faixa de preço"
-                  },
-                  "elements": [
-                    {
-                      "id": "25e8dab",
-                      "elType": "widget",
-                      "widgetType": "heading",
-                      "settings": {
-                        "_title": "Faixa de preço",
-                        "title": "Faixa de preço",
-                        "header_size": "p",
-                        "__globals__": {
-                          "title_color": "globals/colors?id=text",
-                          "typography": "globals/typography?id=iara-rotulo"
-                        }
-                      },
-                      "elements": []
-                    },
-                    {
-                      "id": "5d67254",
-                      "elType": "widget",
-                      "widgetType": "text-editor",
-                      "settings": {
-                        "editor": "<p>[CONFIGURAR NO EDITOR] Filtro de preço do WooCommerce, com os valores mínimo e máximo do catálogo real.</p>",
-                        "__globals__": {
-                          "text_color": "globals/colors?id=iara-texto-suave",
-                          "typography": "globals/typography?id=iara-texto-micro"
-                        }
-                      },
-                      "elements": []
+                      "title_color": "globals/colors?id=text",
+                      "typography": "globals/typography?id=iara-rotulo"
                     }
-                  ],
-                  "isInner": true
+                  },
+                  "elements": []
                 },
                 {
-                  "id": "b26250c",
-                  "elType": "container",
-                  "settings": {
-                    "flex_direction": "column",
-                    "flex_gap": {
-                      "row": "8",
-                      "column": "8",
-                      "isLinked": true,
-                      "unit": "px",
-                      "size": 8
-                    },
-                    "padding": {
-                      "unit": "px",
-                      "top": "16",
-                      "right": "0",
-                      "bottom": "16",
-                      "left": "0",
-                      "isLinked": false
-                    },
-                    "border_border": "solid",
-                    "border_width": {
-                      "unit": "px",
-                      "top": "1",
-                      "right": "0",
-                      "bottom": "0",
-                      "left": "0",
-                      "isLinked": false
-                    },
-                    "__globals__": {
-                      "border_color": "globals/colors?id=iara-fio"
-                    },
-                    "_title": "Cor"
-                  },
-                  "elements": [
-                    {
-                      "id": "02ec737",
-                      "elType": "widget",
-                      "widgetType": "heading",
-                      "settings": {
-                        "_title": "Cor",
-                        "title": "Cor",
-                        "header_size": "p",
-                        "__globals__": {
-                          "title_color": "globals/colors?id=text",
-                          "typography": "globals/typography?id=iara-rotulo"
-                        }
-                      },
-                      "elements": []
-                    },
-                    {
-                      "id": "a456372",
-                      "elType": "widget",
-                      "widgetType": "text-editor",
-                      "settings": {
-                        "editor": "<p>[CONFIGURAR NO EDITOR] Filtro pelo atributo Cor cadastrado nos produtos (terracota, sálvia, areia, cru e carvão).</p>",
-                        "__globals__": {
-                          "text_color": "globals/colors?id=iara-texto-suave",
-                          "typography": "globals/typography?id=iara-texto-micro"
-                        }
-                      },
-                      "elements": []
-                    }
-                  ],
-                  "isInner": true
-                },
-                {
-                  "id": "fec41f1",
-                  "elType": "container",
-                  "settings": {
-                    "flex_direction": "column",
-                    "flex_gap": {
-                      "row": "8",
-                      "column": "8",
-                      "isLinked": true,
-                      "unit": "px",
-                      "size": 8
-                    },
-                    "padding": {
-                      "unit": "px",
-                      "top": "16",
-                      "right": "0",
-                      "bottom": "16",
-                      "left": "0",
-                      "isLinked": false
-                    },
-                    "border_border": "solid",
-                    "border_width": {
-                      "unit": "px",
-                      "top": "1",
-                      "right": "0",
-                      "bottom": "0",
-                      "left": "0",
-                      "isLinked": false
-                    },
-                    "__globals__": {
-                      "border_color": "globals/colors?id=iara-fio"
-                    },
-                    "_title": "Tamanho"
-                  },
-                  "elements": [
-                    {
-                      "id": "3bec14f",
-                      "elType": "widget",
-                      "widgetType": "heading",
-                      "settings": {
-                        "_title": "Tamanho",
-                        "title": "Tamanho",
-                        "header_size": "p",
-                        "__globals__": {
-                          "title_color": "globals/colors?id=text",
-                          "typography": "globals/typography?id=iara-rotulo"
-                        }
-                      },
-                      "elements": []
-                    },
-                    {
-                      "id": "787c454",
-                      "elType": "widget",
-                      "widgetType": "text-editor",
-                      "settings": {
-                        "editor": "<p>[CONFIGURAR NO EDITOR] Filtro pelo atributo Tamanho cadastrado nos produtos (P, M, G, GG e Único).</p>",
-                        "__globals__": {
-                          "text_color": "globals/colors?id=iara-texto-suave",
-                          "typography": "globals/typography?id=iara-texto-micro"
-                        }
-                      },
-                      "elements": []
-                    }
-                  ],
-                  "isInner": true
-                },
-                {
-                  "id": "9de537f",
+                  "id": "5d67254",
                   "elType": "widget",
                   "widgetType": "text-editor",
                   "settings": {
-                    "editor": "<p>Os três filtros de atributo e de preço não foram travados neste arquivo porque dependem dos atributos reais do catálogo. O guia de importação traz as opções e o que precisa de aprovação.</p>",
+                    "editor": "<p>[CONFIGURAR NO EDITOR] Filtro de preço do WooCommerce, com os valores mínimo e máximo do catálogo real.</p>",
                     "__globals__": {
                       "text_color": "globals/colors?id=iara-texto-suave",
                       "typography": "globals/typography?id=iara-texto-micro"
@@ -436,61 +264,158 @@
               "isInner": true
             },
             {
-              "id": "3663cfa",
+              "id": "b26250c",
               "elType": "container",
               "settings": {
                 "flex_direction": "column",
                 "flex_gap": {
-                  "row": "16",
-                  "column": "16",
+                  "row": "8",
+                  "column": "8",
                   "isLinked": true,
                   "unit": "px",
-                  "size": 16
+                  "size": 8
                 },
-                "_flex_size": "grow",
-                "_title": "Grade de produtos"
+                "padding": {
+                  "unit": "px",
+                  "top": "16",
+                  "right": "0",
+                  "bottom": "16",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "__globals__": {
+                  "border_color": "globals/colors?id=iara-fio"
+                },
+                "_title": "Cor"
               },
               "elements": [
                 {
-                  "id": "075d769",
+                  "id": "02ec737",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Cor",
+                    "title": "Cor",
+                    "header_size": "p",
+                    "__globals__": {
+                      "title_color": "globals/colors?id=text",
+                      "typography": "globals/typography?id=iara-rotulo"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "a456372",
                   "elType": "widget",
                   "widgetType": "text-editor",
                   "settings": {
-                    "editor": "<p>Grade dinâmica do WooCommerce: 9 peças por página, com ordenação por mais recentes, mais populares, menor preço, maior preço e melhor avaliados, igual ao protótipo aprovado.</p>",
+                    "editor": "<p>[CONFIGURAR NO EDITOR] Filtro pelo atributo Cor cadastrado nos produtos (terracota, sálvia, areia, cru e carvão).</p>",
                     "__globals__": {
                       "text_color": "globals/colors?id=iara-texto-suave",
                       "typography": "globals/typography?id=iara-texto-micro"
                     }
                   },
                   "elements": []
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "fec41f1",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "flex_gap": {
+                  "row": "8",
+                  "column": "8",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 8
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "16",
+                  "right": "0",
+                  "bottom": "16",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "__globals__": {
+                  "border_color": "globals/colors?id=iara-fio"
+                },
+                "_title": "Tamanho"
+              },
+              "elements": [
+                {
+                  "id": "3bec14f",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Tamanho",
+                    "title": "Tamanho",
+                    "header_size": "p",
+                    "__globals__": {
+                      "title_color": "globals/colors?id=text",
+                      "typography": "globals/typography?id=iara-rotulo"
+                    }
+                  },
+                  "elements": []
                 },
                 {
-                  "id": "de87dee",
+                  "id": "787c454",
                   "elType": "widget",
-                  "widgetType": "woocommerce-archive-products",
+                  "widgetType": "text-editor",
                   "settings": {
-                    "_title": "Produtos da loja (configurar no editor)",
-                    "columns": "3",
-                    "rows": "3",
-                    "paginate": "yes",
-                    "orderby": "date",
-                    "order": "DESC"
+                    "editor": "<p>[CONFIGURAR NO EDITOR] Filtro pelo atributo Tamanho cadastrado nos produtos (P, M, G, GG e Único).</p>",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-suave",
+                      "typography": "globals/typography?id=iara-texto-micro"
+                    }
                   },
                   "elements": []
                 }
               ],
               "isInner": true
+            },
+            {
+              "id": "9de537f",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Os três filtros de atributo e de preço não foram travados neste arquivo porque dependem dos atributos reais do catálogo. O guia de importação traz as opções e o que precisa de aprovação.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=iara-texto-micro"
+                }
+              },
+              "elements": []
             }
           ],
           "isInner": true
         },
         {
-          "id": "18e1597",
+          "id": "3663cfa",
           "elType": "container",
           "settings": {
-            "content_width": "boxed",
             "flex_direction": "column",
-            "flex_align_items": "center",
             "flex_gap": {
               "row": "16",
               "column": "16",
@@ -498,69 +423,34 @@
               "unit": "px",
               "size": 16
             },
-            "padding": {
-              "unit": "px",
-              "top": "48",
-              "right": "0",
-              "bottom": "48",
-              "left": "0",
-              "isLinked": false
-            },
-            "background_background": "classic",
-            "__globals__": {
-              "background_color": "globals/colors?id=secondary"
-            },
-            "_title": "Faixa de ajuda"
+            "_flex_size": "grow",
+            "_title": "Grade de produtos"
           },
           "elements": [
             {
-              "id": "8433937",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "_title": "Quer uma ajuda para escolher?",
-                "title": "Quer uma ajuda para escolher?",
-                "header_size": "h2",
-                "align": "center",
-                "__globals__": {
-                  "title_color": "globals/colors?id=iara-faixa-texto",
-                  "typography": "globals/typography?id=secondary"
-                }
-              },
-              "elements": []
-            },
-            {
-              "id": "e640da4",
+              "id": "075d769",
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>Fale com o ateliê e a gente indica o tamanho e a peça certa.</p>",
-                "align": "center",
+                "editor": "<p>Grade dinâmica do WooCommerce: 9 peças por página, com ordenação por mais recentes, mais populares, menor preço, maior preço e melhor avaliados, igual ao protótipo aprovado.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-faixa-texto",
-                  "typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=iara-texto-micro"
                 }
               },
               "elements": []
             },
             {
-              "id": "e2ef5fc",
+              "id": "de87dee",
               "elType": "widget",
-              "widgetType": "button",
+              "widgetType": "woocommerce-archive-products",
               "settings": {
-                "_title": "Falar com o ateliê",
-                "text": "Falar com o ateliê",
-                "link": {
-                  "url": "/contato/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "size": "md",
-                "__globals__": {
-                  "typography": "globals/typography?id=accent",
-                  "button_background_color": "globals/colors?id=primary",
-                  "text_color": "globals/colors?id=iara-branco"
-                }
+                "_title": "Produtos da loja (configurar no editor)",
+                "columns": "3",
+                "rows": "3",
+                "paginate": "yes",
+                "orderby": "date",
+                "order": "DESC"
               },
               "elements": []
             }
@@ -568,7 +458,90 @@
           "isInner": true
         }
       ],
-      "isInner": false
+      "isInner": true
+    },
+    {
+      "id": "18e1597",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_align_items": "center",
+        "flex_gap": {
+          "row": "16",
+          "column": "16",
+          "isLinked": true,
+          "unit": "px",
+          "size": 16
+        },
+        "padding": {
+          "unit": "px",
+          "top": "48",
+          "right": "0",
+          "bottom": "48",
+          "left": "0",
+          "isLinked": false
+        },
+        "background_background": "classic",
+        "__globals__": {
+          "background_color": "globals/colors?id=secondary"
+        },
+        "_title": "Faixa de ajuda"
+      },
+      "elements": [
+        {
+          "id": "8433937",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Quer uma ajuda para escolher?",
+            "title": "Quer uma ajuda para escolher?",
+            "header_size": "h2",
+            "align": "center",
+            "__globals__": {
+              "title_color": "globals/colors?id=iara-faixa-texto",
+              "typography": "globals/typography?id=secondary"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "e640da4",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Fale com o ateliê e a gente indica o tamanho e a peça certa.</p>",
+            "align": "center",
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-faixa-texto",
+              "typography": "globals/typography?id=text"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "e2ef5fc",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "_title": "Falar com o ateliê",
+            "text": "Falar com o ateliê",
+            "link": {
+              "url": "/contato/",
+              "is_external": "",
+              "nofollow": ""
+            },
+            "size": "md",
+            "__globals__": {
+              "typography": "globals/typography?id=accent",
+              "button_background_color": "globals/colors?id=primary",
+              "text_color": "globals/colors?id=iara-branco"
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": true
     }
   ],
   "page_settings": [],

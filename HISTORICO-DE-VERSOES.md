@@ -61,6 +61,44 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.8 · 2026-10-19 · Todos os JSONs alinhados ao protótipo, com menos containers
+
+**Pedido da cliente:** a imagem 1 (cabeçalho importado) está diferente da
+imagem 2 (o nosso protótipo). "Preciso que ajuste todos os JSONs criados
+para seguir igual às telas do nosso template criado" e "trabalhe com o
+menor número de containers possível".
+
+**Diagnóstico da imagem 1, item a item**
+
+- Menu empilhado (Home em cima, Loja embaixo), serifado e gigante: o widget
+  de menu herdou a fonte do tema e não tinha largura definida na barra.
+- Caixa de busca aberta ("O que você procura?") na barra: o protótipo
+  aprovado tem só a lupa.
+- Sacola dentro de uma caixa com "R$ 0,00": o protótipo tem só o ícone com
+  o contador.
+- Conta e desejos em ícone cheio e terracota: o protótipo usa traço fino
+  (contorno) em carvão.
+- Tagline "Moda & Acessórios" serifada e grande: fonte global não aplicada
+  (caiu na fonte do tema).
+- Faixa verde com ícones: o protótipo é texto em caixa alta com pontos.
+
+**O que mudou**
+
+- **Cabeçalho**: faixa como texto do protótipo (fonte global nova "Texto da
+  faixa", Jost 12px caixa alta, total 11 fontes); menu com `grow` no miolo
+  da barra e sublinhado; busca vira ícone de lupa para `/busca/`; conta e
+  desejos em `far` (contorno) na cor do texto; sacola sem subtotal, com
+  ícone de sacola e contador em bolha. Segue com 4 containers.
+- **Todos os 24 arquivos**: passada de achatamento no gerador tira o
+  container que só embrulha um elemento e não desenha nada, herdando a
+  largura para o elemento de dentro. Total: **216 para 176 containers**,
+  mesmo desenho. Home caiu de 53 para 30; páginas do funil, de 3 para 2.
+- Pacote de globais regenerado (11 fontes) e kit do Bloco C remontado.
+
+**Verificado aqui:** três conferências verdes e as árvores impressas.
+**Não verificado:** a renderização. A conferência é a reimportação no
+staging, com o pacote de globais importado ANTES do cabeçalho.
+
 ### v0.3.7 · 2026-10-19 · Cabeçalho com menos containers e espaçamento revisto
 
 **Pedido da cliente:** "tente usar menos container, pode ajustar isso também
