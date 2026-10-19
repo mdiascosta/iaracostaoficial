@@ -135,7 +135,7 @@
                 "_title": "Acompanhar meus pedidos",
                 "text": "Acompanhar meus pedidos",
                 "link": {
-                  "url": "/minha-conta/",
+                  "url": "https://oeemax.com.br/iaracosta/minha-conta/",
                   "is_external": "",
                   "nofollow": ""
                 },
@@ -156,7 +156,7 @@
                 "_title": "Continuar comprando",
                 "text": "Continuar comprando",
                 "link": {
-                  "url": "/loja/",
+                  "url": "https://oeemax.com.br/iaracosta/loja/",
                   "is_external": "",
                   "nofollow": ""
                 },

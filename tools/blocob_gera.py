@@ -234,28 +234,39 @@ LINKS_MENU = [
     ('Contato', '/contato/'),
 ]
 
+# Endereco onde o site esta hoje (confirmado pela cliente em 2026-10-19:
+# https://oeemax.com.br/iaracosta/). TODOS os links internos dos templates
+# nascem daqui. Os arquivos nasciam com "/loja/", "/sobre/" e quebravam
+# todos, porque o site nao esta na raiz do dominio, e sim na subpasta
+# /iaracosta/. Quando o site ganhar dominio proprio, a troca e uma vez so:
+# Elementor > Ferramentas > Substituir URL (deste endereco para o novo),
+# que e a ferramenta oficial do Elementor para migracao.
+SITE_BASE = 'https://oeemax.com.br/iaracosta'
+
 PAGINAS = {
-    'home': '/',
-    'loja': '/loja/',
-    'colecao': '/colecao/',
-    'conta': '/minha-conta/',
-    'desejos': '/lista-de-desejos/',
-    'sacola': '/sacola/',
-    'checkout': '/finalizar-compra/',
-    'pedido': '/pedido-recebido/',
-    'guia': '/guia-de-medidas/',
-    'trocas': '/trocas-e-devolucoes/',
-    'envio': '/envio-e-entrega/',
-    'privacidade': '/politica-de-privacidade/',
-    'termos': '/termos-de-uso/',
-    'cookies': '/politica-de-cookies/',
-    'sobre': '/sobre/',
-    'contato': '/contato/',
-    'blog': '/diario/',
-    'faq': '/perguntas-frequentes/',
-    'guia-medidas': '/guia-de-medidas/',
-    'post': '/diario/',
-    'busca': '/busca/',
+    'home': SITE_BASE + '/',
+    'loja': SITE_BASE + '/loja/',
+    'colecao': SITE_BASE + '/colecao/',
+    'conta': SITE_BASE + '/minha-conta/',
+    'desejos': SITE_BASE + '/lista-de-desejos/',
+    'sacola': SITE_BASE + '/sacola/',
+    'checkout': SITE_BASE + '/finalizar-compra/',
+    'pedido': SITE_BASE + '/pedido-recebido/',
+    'guia': SITE_BASE + '/guia-de-medidas/',
+    'trocas': SITE_BASE + '/trocas-e-devolucoes/',
+    'envio': SITE_BASE + '/envio-e-entrega/',
+    'privacidade': SITE_BASE + '/politica-de-privacidade/',
+    'termos': SITE_BASE + '/termos-de-uso/',
+    'cookies': SITE_BASE + '/politica-de-cookies/',
+    'sobre': SITE_BASE + '/sobre/',
+    'contato': SITE_BASE + '/contato/',
+    'blog': SITE_BASE + '/diario/',
+    'faq': SITE_BASE + '/perguntas-frequentes/',
+    'guia-medidas': SITE_BASE + '/guia-de-medidas/',
+    'post': SITE_BASE + '/diario/',
+    # busca do WordPress e /?s= (chama o template 13 de resultados);
+    # /busca/ seria uma pagina que nao existe e o link nasceria quebrado
+    'busca': SITE_BASE + '/?s=',
 }
 
 
@@ -316,11 +327,13 @@ def cabecalho():
             '_title': 'IARA COSTA', 'title': 'IARA COSTA', 'header_size': 'p',
             'css_classes': 'iara-marca-nome',
             'link': {'url': PAGINAS['home'], 'is_external': '', 'nofollow': ''},
-        }, {'title_color': cor('text'), 'typography': fonte('primary')}), caminho='barra/marca-nome'),
+            **tipografia('Playfair Display', '400', 20, 1.15, 0.105),
+        }, {'title_color': cor('text')}), caminho='barra/marca-nome'),
         d.widget('heading', juntar_globais({
             '_title': 'Moda e acessorios', 'title': 'MODA & ACESSÓRIOS', 'header_size': 'p',
             'css_classes': 'iara-marca-tagline',
-        }, {'title_color': cor('iara-texto-discreto'), 'typography': fonte('iara-assinatura')}),
+            **tipografia('Jost', '400', 11, 1.40, 0.18, 'uppercase'),
+        }, {'title_color': cor('iara-texto-suave')}),
             caminho='barra/marca-tagline'),
     ], caminho='barra/marca', interno=True)
 

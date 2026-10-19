@@ -94,7 +94,7 @@
                 "_title": "Ver a loja",
                 "text": "Ver a loja",
                 "link": {
-                  "url": "/loja/",
+                  "url": "https://oeemax.com.br/iaracosta/loja/",
                   "is_external": "",
                   "nofollow": ""
                 },
@@ -115,7 +115,7 @@
                 "_title": "Voltar para o início",
                 "text": "Voltar para o início",
                 "link": {
-                  "url": "/",
+                  "url": "https://oeemax.com.br/iaracosta/",
                   "is_external": "",
                   "nofollow": ""
                 },
@@ -135,7 +135,7 @@
                 "_title": "Falar com o ateliê",
                 "text": "Falar com o ateliê",
                 "link": {
-                  "url": "/contato/",
+                  "url": "https://oeemax.com.br/iaracosta/contato/",
                   "is_external": "",
                   "nofollow": ""
                 },

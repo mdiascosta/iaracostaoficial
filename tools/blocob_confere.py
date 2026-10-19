@@ -231,6 +231,45 @@ def conferir_arquivo(caminho, cores, fontes, problemas, resumo):
                     problemas.append(f'{nome}: {wt} com chave "{errada}" em {caminho_el}; '
                                      f'as certas sao title_typography/description_typography')
 
+    # 4c. pente fino de links e imagens (v0.3.13): o site esta em subpasta
+    # (oeemax.com.br/iaracosta/), entao link interno que comeca com "/" cai
+    # fora do site e quebra. Todo link interno precisa nascer de SITE_BASE.
+    SITE_BASE = 'https://oeemax.com.br/iaracosta'
+
+    def url_ok(url):
+        return (url.startswith(SITE_BASE) or url.startswith('#')
+                or url.startswith('mailto:') or url.startswith('tel:')
+                or url.startswith('https://wa.me/')
+                or url == '[PREENCHER]')
+
+    def pente_fino(valor, caminho_el):
+        if isinstance(valor, dict):
+            if isinstance(valor.get('url'), str) and ('is_external' in valor or 'nofollow' in valor):
+                url = valor['url']
+                if not url:
+                    problemas.append(f'{nome}: link sem endereco em {caminho_el}')
+                elif not url_ok(url):
+                    problemas.append(f'{nome}: link "{url}" fora do endereco do site '
+                                     f'em {caminho_el} (site em subpasta: usar {SITE_BASE}/...)')
+            for filho in valor.values():
+                pente_fino(filho, caminho_el)
+        elif isinstance(valor, list):
+            for filho in valor:
+                pente_fino(filho, caminho_el)
+        elif isinstance(valor, str):
+            for url in re.findall(r'href="([^"]+)"', valor):
+                if not url_ok(url):
+                    problemas.append(f'{nome}: link "{url}" dentro de texto em '
+                                     f'{caminho_el} (fora do endereco do site)')
+
+    for caminho_el, el in elementos:
+        pente_fino(el.get('settings', {}) or {}, caminho_el)
+        if el.get('widgetType') in ('image', 'image-box'):
+            url_img = (el.get('settings', {}).get('image') or {}).get('url', '')
+            if not url_img.startswith('http'):
+                problemas.append(f'{nome}: widget de imagem sem foto em {caminho_el} '
+                                 f'(a importacao mostra espaco vazio)')
+
     # 5. nada de link do prototipo
     texto = caminho.read_text(encoding='utf-8')
     if '.html' in texto:

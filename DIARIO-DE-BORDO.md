@@ -1,5 +1,40 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Pente fino dos links: o site é subpasta (v0.3.13)
+
+### Relato da cliente
+"Olha, os links estão todos quebrados. O site é
+https://oeemax.com.br/iaracosta/. Verifique, faça um pente fino novamente
+em cada template, pois o site está quebrado ainda." A captura, aliás,
+mostra o salto: cabeçalho igual ao protótipo (menu Jost, ícones, faixa),
+hero com foto, botões e textos certos. O que quebrou foi a navegação.
+
+### Causa raiz
+Uma só, e era endereço: todos os links internos nasciam `/loja/`,
+`/sobre/` (raiz do domínio), mas o WordPress mora em `/iaracosta/`.
+Cada clique saía do site. Ninguém tinha me passado o endereço real até
+hoje; com ele, a correção é central: uma constante `SITE_BASE` no
+gerador, de onde nascem os 61 links internos dos 24 arquivos.
+
+### O que foi feito (IMPLEMENTADO)
+- `SITE_BASE` no gerador e todos os links refeitos; a busca virou `/?s=`
+  (a página `/busca/` não existe; quem responde é o template de
+  resultados).
+- O pente fino virou conferência permanente (seção 4c do
+  `blocob_confere.py`): link fora do endereço, link vazio, link dentro de
+  texto e imagem sem foto reprovam a entrega. Rodei a contagem: 61 links
+  internos no endereço certo, 0 na raiz.
+- Tagline da marca com a fonte declarada no arquivo, já que a global não
+  estava vencendo o tema nas capturas.
+- Kit completo e kit do Bloco C regenerados: a importação continua sendo
+  um arquivo só (e a rotina de apagar os templates antigos antes).
+
+### O que continua por verificar
+- Clicar nos links no site real. Template garante o endereço; a página
+  de destino existir com o slug certo (loja, colecao, sobre, contato...)
+  é o passo de criação de páginas do guia. Se algum destino der 404, é
+  página faltando, não link errado, e a captura diz qual.
+
 ## [2026-10-19] - Kit completo de importação única (v0.3.12)
 
 ### Pedido da cliente

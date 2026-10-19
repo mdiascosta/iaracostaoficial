@@ -61,6 +61,39 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.13 · 2026-10-19 · Pente fino: links no endereço real do site (subpasta)
+
+**Relato da cliente:** "os links estão todos quebrados" (o site é
+https://oeemax.com.br/iaracosta/) e "faça um pente fino novamente em cada
+template, pois o site está quebrado ainda".
+
+**Causa raiz (uma só, para os 61 links internos):** os templates nasciam
+com links da raiz do domínio (`/loja/`, `/sobre/`...). Como o WordPress
+está na subpasta `/iaracosta/`, cada link caía fora do site. A captura
+também mostrou o avanço: cabeçalho certo (menu em Jost, ícones, faixa) e
+a home com foto e textos no lugar.
+
+**O que mudou**
+
+- `SITE_BASE = 'https://oeemax.com.br/iaracosta'` no gerador: os 61 links
+  internos dos 24 templates nascem do endereço real. Migração futura:
+  Elementor > Ferramentas > Substituir URL (registrado no guia).
+- A lupa de busca apontava para `/busca/`, página que não existe: agora é
+  `/?s=`, que chama o template de resultados de busca.
+- A conferência ganhou o pente fino permanente (seção 4c): reprova link
+  interno fora do endereço do site, link sem endereço, link de texto fora
+  do endereço e widget de imagem sem foto. Nada disso passa mais.
+- Marca do cabeçalho: nome e tagline com a tipografia declarada no
+  próprio arquivo (a tagline continuava serifada nas capturas, com a
+  global não vencendo a fonte do tema).
+
+**Verificado aqui:** três conferências verdes, com a contagem de links
+impressa (61 internos no endereço certo, 0 na raiz). **Não verificado:**
+a navegação no site real, que depende de as páginas existirem com os
+slugs dos links (loja, colecao, sobre etc.), parte do passo a passo do
+guia. Os dois links `[PREENCHER]` das redes sociais e o WhatsApp de
+exemplo seguem como pendência registrada, não como erro de template.
+
 ### v0.3.12 · 2026-10-19 · Kit completo: uma importação só para tudo
 
 **Pedido da cliente:** "não tem como criar algo que possa apenas importar,

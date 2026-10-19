@@ -98,6 +98,17 @@ dois gestos, em vez de 24 importações.
 Os caminhos antigos continuam neste guia como alternativa e plano B: o
 pacote só de globais (seção 3.0) e os JSONs um por um (seção 4).
 
+**Endereço dos links (v0.3.13):** o site está em
+`https://oeemax.com.br/iaracosta/` (subpasta). Todos os links internos
+dos templates nascem desse endereço, porque link que começa com `/`
+apontaria para a raiz do domínio, fora do site (foi a causa dos "links
+todos quebrados"). A conferência reprova qualquer link interno fora do
+endereço. Quando o site ganhar o domínio próprio, a troca é uma vez só,
+com a ferramenta oficial: Elementor > Ferramentas > **Substituir URL**
+(de `https://oeemax.com.br/iaracosta` para o domínio novo), e os
+templates seguintes já devem nascer com o endereço novo: avise para
+atualizar o `SITE_BASE` do gerador.
+
 ## 3. Passo 1: cores e fontes globais
 
 Esta é a etapa mais importante do Bloco B. Todo o resto aponta para estas cores e
