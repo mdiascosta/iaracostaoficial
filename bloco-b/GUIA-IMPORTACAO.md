@@ -198,7 +198,29 @@ monta. São rápidos:
 | Home: bloco Do diário | escolher os 3 posts mais recentes; os textos nascem no Gutenberg, nunca no Elementor |
 | Home: categorias e ocasiões | apontar cada cartão para a categoria certa da loja (hoje todos apontam para `/loja/`) |
 | Home: depoimentos | substituir os 3 depoimentos de exemplo pelos reais, com autorização de uso |
+| Loja: grade de produtos | 9 peças por página, 3 colunas e as 5 ordenações do protótipo (mais recentes, mais populares, menor preço, maior preço, melhor avaliados) |
+| Loja: filtros de preço, cor e tamanho | ver a decisão abaixo: o Elementor não traz filtro de atributo pronto, e este item precisa de definição da equipe |
+| Produto: galeria | ligar zoom e lightbox nativos do WooCommerce e conferir o corte 1:1 das fotos |
+| Produto: variações | cor e tamanho nascem dos atributos do produto variável; o seletor em botões (swatches) **não** é nativo e depende de plugin aprovado |
+| Produto: tabela de medidas | preencher com as medidas reais de cada peça (nada de tabela de exemplo) |
 | Site inteiro: botão do WhatsApp | usar **Floating Elements** do Elementor (Site Settings), com o número (15) 99123-4567 e a entrada depois de rolar a página, como no protótipo |
+
+### 4.4 Uma decisão pendente: os filtros da loja
+
+O protótipo tem filtros por categoria, faixa de preço, cor e tamanho. No arquivo
+`04-loja.json`, a **categoria** já entra dinâmica (widget de categorias do
+WooCommerce). Os outros três filtros estão marcados como
+`[CONFIGURAR NO EDITOR]`, porque o Elementor Pro não traz filtro por atributo
+pronto dentro do canvas. Caminhos possíveis, para a equipe decidir:
+
+| Caminho | Como funciona | Custo |
+|---|---|---|
+| Blocos de filtro do próprio WooCommerce | são blocos do Gutenberg (filtrar por preço, por atributo e por estoque) | funcionam na página da loja montada com blocos, não dentro do template do Elementor |
+| Plugin de filtros para WooCommerce | entra como widget no template e filtra sem recarregar a página | precisa de aprovação prévia, pela regra do projeto |
+| Links por atributo | cada cor e tamanho vira um link com o atributo no endereço (o WooCommerce entende `?filter_cor=...`) | sem plugin, mas sem contagem dinâmica nem limpar filtros elegante |
+
+Nenhum caminho foi escolhido neste arquivo. Enquanto a decisão não sai, a loja
+publica com categoria, ordenação e paginação, que já vêm do WooCommerce.
 
 ---
 
@@ -211,18 +233,18 @@ monta. São rápidos:
 | `01-cabecalho.json` | Cabeçalho do site | Header | faixa verde do topo, logo, menu e os quatro ícones (busca, conta, desejos, sacola) |
 | `02-rodape.json` | Rodapé do site | Footer | newsletter, quatro colunas, faixa de segurança e formas de pagamento, base com CNPJ e links de política |
 | `03-home.json` | Página inicial | Página | hero, faixa de benefícios, categorias, produtos em destaque, ocasiões, editorial do ateliê, coleção, depoimentos, posts recentes e perguntas frequentes |
+| `04-loja.json` | Arquivo da loja | Arquivo de produtos | cabeçalho da loja, coluna de filtros, grade dinâmica com ordenação e paginação e a faixa verde de ajuda |
+| `05-produto.json` | Página do produto | Produto único | trilha, galeria, nome, avaliação, preço, descrição curta, variações e compra, garantias, abas do produto, relacionados e a faixa de ajuda de tamanho |
 
 ### 5.2 As páginas (próximas partes)
 
-A página inicial (`03-home.json`) já foi entregue na parte 2. Faltam:
+A página inicial (`03-home.json`) foi entregue na parte 2, e a loja e a página do produto (`04-loja.json` e `05-produto.json`) na parte 3. Faltam:
 
 Cada página do protótipo vira um arquivo. Os endereços sugeridos são os mesmos do
 protótipo, para o site nascer com os links certos.
 
 | # | Página | Arquivo previsto | Tipo no Elementor | Endereço |
 |---|---|---|---|---|
-| 04 | Loja | `04-loja.json` | arquivo de produtos | `/loja/` |
-| 05 | Página da peça | `05-produto.json` | produto único | `/produto/<peça>/` |
 | 06 | Sacola | `06-carrinho.json` | página (widget Cart) | `/sacola/` |
 | 07 | Finalizar compra | `07-checkout.json` | página (widget Checkout) | `/finalizar-compra/` |
 | 08 | Pedido recebido | `08-pedido-recebido.json` | página (widget Purchase Summary) | `/pedido-recebido/` |
@@ -298,6 +320,10 @@ Todas conferidas por `python3 tools/blocob_confere.py`:
 6. Conferir o site no navegador: cabeçalho e rodapé aparecendo em todas as páginas.
 7. Importar a página inicial (`03-home.json`), criar a página Início, definir como página inicial do site e fazer os ajustes da seção 4.3.
 8. Conferir a home no celular e no computador antes de seguir.
+9. Importar a loja e a página do produto pelo Theme Builder e definir as
+   condições: arquivo de produtos (loja e categorias) e produto único (todas as
+   peças). Decidir o caminho dos filtros (seção 4.4).
 
-Quando a home estiver no ar e conferida, o próximo lote é loja, produto e busca,
-que é onde o WooCommerce entra de verdade.
+Quando a loja e a página do produto estiverem no ar, o próximo lote é sacola,
+finalizar compra, pedido recebido, minha conta e desejos, que fecham o funil de
+compra.

@@ -135,6 +135,10 @@ estiverem habilitadas na conta do Mercado Pago.
 | Depoimentos reais da home | `bloco-b/json/03-home.json`, seção Depoimentos | os 3 textos são os de exemplo do protótipo; publicar só os reais, com autorização |
 | Categorias reais do WooCommerce | cartões de categoria e de ocasião da home | hoje todos apontam para `/loja/`; apontar cada um depois do cadastro |
 
+| Caminho dos filtros da loja (preço, cor e tamanho) | `bloco-b/json/04-loja.json`; guia, seção 4.4 | o Elementor não traz filtro de atributo: blocos do WooCommerce, plugin aprovado ou links por atributo |
+| Plugin de swatches (cor e tamanho em botões) | página do produto | sem plugin, o WooCommerce usa o seletor padrão; precisa de aprovação prévia |
+| Widgets de produto do Elementor Pro no staging | `bloco-b/json/05-produto.json` | conferir na instalação se a versão licenciada traz todos os widgets usados |
+
 ## Como usar este documento
 
 - **Nada aqui foi inventado para preencher espaço.** Onde não havia informação

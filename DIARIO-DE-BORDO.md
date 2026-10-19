@@ -1,5 +1,56 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Bloco B, parte 3: loja e página do produto (v0.2.2)
+
+### Pedido da cliente
+"continue", depois da entrega da home (parte 2, PR #7 aberto). Segui a ordem
+combinada: loja e página da peça, onde o WooCommerce entra de verdade.
+
+### O que foi feito (IMPLEMENTADO)
+- **`bloco-b/json/04-loja.json`** (arquivo de produtos): cabeçalho com trilha,
+  título e atalho do guia de medidas; coluna de filtros com categorias
+  dinâmicas e os três grupos marcados para configurar (preço, cor e tamanho);
+  grade dinâmica de 9 peças com as 5 ordenações do protótipo e paginação; e a
+  faixa verde de ajuda antes do rodapé. 10 containers e 19 widgets.
+- **`bloco-b/json/05-produto.json`** (produto único): trilha, galeria nativa,
+  nome, avaliação, preço, parcela, descrição curta, variações e botão de
+  compra, estoque, atalho do guia de medidas, código e categorias, as três
+  garantias da compra, abas do produto, relacionados e sugestões, e a faixa
+  "Ficou em dúvida no tamanho?". 8 containers e 21 widgets.
+- **Documentos**: guia com os ajustes de loja e produto (4.3), a decisão dos
+  filtros (4.4 nova), a tabela do que está pronto e a ordem de trabalho;
+  `LEIA-ME.txt` na parte 3.
+
+### Decisões tomadas
+- **Tudo que muda com o catálogo é dinâmico**: nome, preço, foto, estoque,
+  variação, avaliação, relacionado. Nenhum produto, preço ou nota foi escrito
+  nos arquivos.
+- **Filtros de preço, cor e tamanho ficaram como decisão aberta.** O Elementor
+  Pro não tem filtro por atributo no canvas; fingir que tem seria entregar um
+  arquivo que não funciona. O guia traz os três caminhos com custo de cada um,
+  e a escolha é da equipe, porque um deles pede plugin (aprovação prévia).
+- **Swatches dependem de plugin aprovado.** Sem ele, variação aparece no
+  seletor padrão do WooCommerce, que funciona, só não tem a bolinha de cor.
+
+### O que foi verificado aqui
+- `python3 tools/blocob_confere.py`: 5 templates, 111 containers, 145 widgets,
+  15 cores, 10 fontes, "resultado: tudo certo".
+- `python3 tools/check.py`: o protótipo segue em "tudo certo".
+
+### O que não foi verificado
+- **Nenhuma importação e nenhuma renderização** (sem WordPress, painel ou banco).
+- **Se a versão do Elementor Pro do staging traz todos os widgets de produto**
+  usados aqui (`[CONFERIR]` na instalação).
+- Nenhuma medida de desempenho.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- **Caminho dos filtros da loja** (blocos, plugin ou links por atributo).
+- **Plugin de swatches** para cor e tamanho em botões, se a equipe quiser o
+  comportamento do protótipo.
+- Tabela de medidas real por peça, fotos e descrições do catálogo.
+- Todo o resto: versões do staging, fotos e depoimentos da home, newsletter,
+  redes sociais, plugin de desejos e o número final de arquivos.
+
 ## [2026-10-16] - Bloco B, parte 2: página inicial (v0.2.1)
 
 ### Pedido da cliente

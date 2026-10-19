@@ -1,4 +1,4 @@
-BLOCO B · TEMPLATES DO ELEMENTOR · PARTE 2 · 16/10/2026
+BLOCO B · TEMPLATES DO ELEMENTOR · PARTE 3 · 16/10/2026
 
 
 O QUE E ESTA PASTA
@@ -15,6 +15,9 @@ O QUE TEM AQUI DENTRO
   json/02-rodape.json       rodape do site (newsletter, colunas, seguranca, base)
   json/03-home.json         pagina inicial (hero, categorias, destaques, editorial,
                             colecao, depoimentos, diario e perguntas frequentes)
+  json/04-loja.json         loja (filtros, grade de produtos, ordenacao e paginacao)
+  json/05-produto.json      pagina da peca (galeria, variacoes, compra, abas e
+                            produtos relacionados)
   globais/cores-e-fontes.json   as 15 cores e as 10 fontes do site, por nome
 
 
@@ -30,6 +33,8 @@ ORDEM DE TRABALHO
      (Entire Site, nos dois).
   5. Importar a pagina inicial, criar a pagina Inicio e defini-la como pagina
      inicial do site; depois fazer os ajustes da secao 4.3 do guia.
+  6. Importar a loja e a pagina da peca pelo Theme Builder, com as condicoes de
+     exibicao da secao 8, e decidir o caminho dos filtros (secao 4.4).
 
 
 AVISO IMPORTANTE

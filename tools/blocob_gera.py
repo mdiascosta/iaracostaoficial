@@ -1266,6 +1266,270 @@ def home():
     return d
 
 
+
+def faixa_ajuda(d, titulo, texto, botao_texto, url, caminho):
+    """Faixa verde antes do rodape, igual a do prototipo."""
+    return d.container('Faixa de ajuda', {
+        'content_width': 'boxed',
+        'flex_direction': 'column',
+        'flex_align_items': 'center',
+        'flex_gap': lacuna(16, 16),
+        'padding': dimensoes(48, 0, 48, 0),
+        'background_background': 'classic',
+        '__globals__': {'background_color': cor('secondary')},
+    }, [
+        d.widget('heading', juntar_globais({
+            '_title': titulo, 'title': titulo, 'header_size': 'h2', 'align': 'center',
+        }, {'title_color': cor('iara-faixa-texto'), 'typography': fonte('secondary')}),
+            caminho=caminho + '/titulo'),
+        d.widget('text-editor', juntar_globais({
+            'editor': '<p>' + texto + '</p>', 'align': 'center',
+        }, {'text_color': cor('iara-faixa-texto'), 'typography': fonte('text')}),
+            caminho=caminho + '/texto'),
+        botao(d, botao_texto, url, caminho + '/botao'),
+    ], caminho=caminho, interno=True)
+
+
+def loja():
+    """04. Arquivo da loja: cabecalho, filtros, grade de produtos e paginacao."""
+    d = Documento('Arquivo da loja', 'archive')
+
+    cabecalho_loja = d.container('Cabecalho da loja', {
+        'content_width': 'boxed',
+        'flex_direction': 'column',
+        'flex_gap': lacuna(12, 12),
+        'padding': dimensoes(40, 0, 8, 0),
+    }, [
+        d.widget('woocommerce-breadcrumbs', {'_title': 'Trilha de navegacao'},
+                 caminho='loja/trilha'),
+        d.widget('heading', juntar_globais({
+            '_title': 'Todas as pecas', 'title': 'Todas as peças', 'header_size': 'h1',
+        }, {'title_color': cor('text'), 'typography': fonte('primary')}),
+            caminho='loja/titulo'),
+        paragrafo(d, ('Vestuário feminino do P ao GG, em linho, algodão egípcio e viscose de alta '
+                      'gramatura. A contagem de peças, a ordenação e a paginação vêm do próprio '
+                      'WooCommerce, conforme os filtros escolhidos.'), 'loja/intro'),
+        d.widget('button', juntar_globais({
+            '_title': 'Guia de medidas', 'text': 'Guia de medidas',
+            'link': {'url': PAGINAS['guia'], 'is_external': '', 'nofollow': ''},
+            'size': 'sm', 'button_type': 'text',
+        }, {'text_color': cor('primary'), 'typography': fonte('iara-rotulo')}),
+            caminho='loja/guia'),
+    ], caminho='loja/cabecalho', interno=True)
+
+    def grupo_filtro(titulo, texto, caminho):
+        return d.container(titulo, {
+            'flex_direction': 'column', 'flex_gap': lacuna(8, 8),
+            'padding': dimensoes(16, 0, 16, 0),
+            'border_border': 'solid',
+            'border_width': {'unit': 'px', 'top': '1', 'right': '0', 'bottom': '0', 'left': '0', 'isLinked': False},
+            '__globals__': {'border_color': cor('iara-fio')},
+        }, [
+            d.widget('heading', juntar_globais({
+                '_title': titulo, 'title': titulo, 'header_size': 'p',
+            }, {'title_color': cor('text'), 'typography': fonte('iara-rotulo')}),
+                caminho=caminho + '/titulo'),
+            paragrafo(d, texto, caminho + '/texto', 'iara-texto-micro'),
+        ], caminho=caminho, interno=True)
+
+    filtros = d.container('Filtros da loja', {
+        'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0),
+        '_flex_size': 'custom', '_flex_basis_type': 'custom',
+        '_flex_basis': medida(23, '%'),
+    }, [
+        d.widget('heading', juntar_globais({
+            '_title': 'Filtros', 'title': 'Filtros', 'header_size': 'h2',
+        }, {'title_color': cor('text'), 'typography': fonte('secondary')}),
+            caminho='filtros/titulo'),
+        d.container('Categorias', {
+            'flex_direction': 'column', 'flex_gap': lacuna(8, 8),
+            'padding': dimensoes(16, 0, 16, 0),
+        }, [
+            d.widget('heading', juntar_globais({
+                '_title': 'Categorias', 'title': 'Categorias', 'header_size': 'p',
+            }, {'title_color': cor('text'), 'typography': fonte('iara-rotulo')}),
+                caminho='filtros/categorias/titulo'),
+            d.widget('woocommerce-product-categories', {
+                '_title': 'Categorias de produtos (dinamico)',
+            }, caminho='filtros/categorias/lista'),
+        ], caminho='filtros/categorias', interno=True),
+        grupo_filtro('Faixa de preço',
+                     '[CONFIGURAR NO EDITOR] Filtro de preço do WooCommerce, com os valores '
+                     'mínimo e máximo do catálogo real.', 'filtros/preco'),
+        grupo_filtro('Cor',
+                     '[CONFIGURAR NO EDITOR] Filtro pelo atributo Cor cadastrado nos produtos '
+                     '(terracota, sálvia, areia, cru e carvão).', 'filtros/cor'),
+        grupo_filtro('Tamanho',
+                     '[CONFIGURAR NO EDITOR] Filtro pelo atributo Tamanho cadastrado nos '
+                     'produtos (P, M, G, GG e Único).', 'filtros/tamanho'),
+        paragrafo(d, ('Os três filtros de atributo e de preço não foram travados neste arquivo '
+                      'porque dependem dos atributos reais do catálogo. O guia de importação '
+                      'traz as opções e o que precisa de aprovação.'), 'filtros/nota',
+                  'iara-texto-micro'),
+    ], caminho='filtros', interno=True)
+
+    grade = d.container('Grade de produtos', {
+        'flex_direction': 'column',
+        'flex_gap': lacuna(16, 16),
+        '_flex_size': 'grow',
+    }, [
+        paragrafo(d, ('Grade dinâmica do WooCommerce: 9 peças por página, com ordenação por '
+                      'mais recentes, mais populares, menor preço, maior preço e melhor avaliados, '
+                      'igual ao protótipo aprovado.'), 'grade/nota', 'iara-texto-micro'),
+        d.widget('woocommerce-archive-products', {
+            '_title': 'Produtos da loja (configurar no editor)',
+            'columns': '3',
+            'rows': '3',
+            'paginate': 'yes',
+            'orderby': 'date',
+            'order': 'DESC',
+        }, caminho='grade/produtos'),
+    ], caminho='grade', interno=True)
+
+    miolo = d.container('Loja com filtros', {
+        'content_width': 'boxed',
+        'flex_direction': 'row',
+        'flex_wrap': 'wrap',
+        'flex_gap': lacuna(32, 32),
+        'padding': dimensoes(24, 0, 56, 0),
+    }, [filtros, grade], caminho='loja/miolo', interno=True)
+
+    ajuda = faixa_ajuda(d, 'Quer uma ajuda para escolher?',
+                        'Fale com o ateliê e a gente indica o tamanho e a peça certa.',
+                        'Falar com o ateliê', PAGINAS['contato'], 'loja/ajuda')
+
+    raiz = d.container('Arquivo da loja', {
+        'content_width': 'full', 'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0), 'padding': dimensoes(0, 0, 0, 0),
+    }, [cabecalho_loja, miolo, ajuda], caminho='raiz')
+    d.content = [raiz]
+    return d
+
+
+def produto():
+    """05. Pagina da peca: galeria, compra, abas e relacionados."""
+    d = Documento('Página do produto', 'single')
+
+    trilha = d.container('Trilha do produto', {
+        'content_width': 'boxed',
+        'padding': dimensoes(24, 0, 8, 0),
+    }, [
+        d.widget('woocommerce-breadcrumbs', {'_title': 'Trilha de navegacao'},
+                 caminho='produto/trilha'),
+    ], caminho='produto/cabecalho', interno=True)
+
+    galeria = d.container('Galeria do produto', {
+        'flex_direction': 'column',
+        '_flex_size': 'custom', '_flex_basis_type': 'custom',
+        '_flex_basis': medida(48, '%'),
+    }, [
+        d.widget('woocommerce-product-images', {
+            '_title': 'Galeria de fotos (dinamica)',
+        }, caminho='produto/galeria'),
+        paragrafo(d, ('Galeria nativa do WooCommerce, com zoom e lightbox. As fotos são as do '
+                      'cadastro de cada peça.'), 'produto/galeria-nota', 'iara-texto-micro'),
+    ], caminho='produto/coluna-galeria', interno=True)
+
+    compra = d.container('Informacoes e compra', {
+        'flex_direction': 'column',
+        'flex_gap': lacuna(16, 16),
+        '_flex_size': 'custom', '_flex_basis_type': 'custom',
+        '_flex_basis': medida(48, '%'),
+    }, [
+        d.widget('woocommerce-product-title', juntar_globais({
+            '_title': 'Nome da peca (dinamico)', 'header_size': 'h1',
+        }, {'title_color': cor('text'), 'typography': fonte('primary')}),
+            caminho='produto/nome'),
+        d.widget('woocommerce-product-rating', {'_title': 'Avaliacoes (dinamico)'},
+                 caminho='produto/avaliacao'),
+        d.widget('woocommerce-product-price', juntar_globais({
+            '_title': 'Preco (dinamico)',
+        }, {'text_color': cor('text'), 'typography': fonte('iara-preco')}),
+            caminho='produto/preco'),
+        paragrafo(d, ('Pix com 5% de desconto, cartão em até 6x sem juros e boleto. '
+                      'Confira no editor se o texto acompanha o que estiver ativo na conta '
+                      'do Mercado Pago.'), 'produto/parcelamento', 'iara-texto-micro'),
+        d.widget('woocommerce-product-short-description', juntar_globais({
+            '_title': 'Descricao curta (dinamica)',
+        }, {'text_color': cor('iara-texto-suave'), 'typography': fonte('text')}),
+            caminho='produto/descricao-curta'),
+        d.widget('woocommerce-add-to-cart', {
+            '_title': 'Variacoes, quantidade e botao de compra (dinamico)',
+        }, caminho='produto/comprar'),
+        d.widget('woocommerce-product-stock', {'_title': 'Estoque (dinamico)'},
+                 caminho='produto/estoque'),
+        d.widget('button', juntar_globais({
+            '_title': 'Ver o Guia de Medidas', 'text': 'Ver o Guia de Medidas',
+            'link': {'url': PAGINAS['guia'], 'is_external': '', 'nofollow': ''},
+            'size': 'sm', 'button_type': 'text',
+        }, {'text_color': cor('primary'), 'typography': fonte('iara-rotulo')}),
+            caminho='produto/guia'),
+        d.widget('woocommerce-product-meta', {'_title': 'Codigo e categorias (dinamico)'},
+                 caminho='produto/meta'),
+        d.widget('icon-list', juntar_globais({
+            '_title': 'Garantias da compra',
+            'icon_list': [
+                d.item({'text': 'PAC pelos Correios, com frete grátis acima de R$ 299. Postagem em até 2 dias úteis.'}, 'produto/garantias/1'),
+                d.item({'text': '7 dias para desistir da compra (CDC, Art. 49) e 30 dias para trocar de tamanho, com a primeira troca por nossa conta.'}, 'produto/garantias/2'),
+                d.item({'text': 'Pagamento processado por gateway com antifraude. Não guardamos dados do seu cartão.'}, 'produto/garantias/3'),
+            ],
+            'space_between': medida(10),
+        }, {'text_color': cor('iara-texto-suave'), 'typography': fonte('text')}),
+            caminho='produto/garantias'),
+    ], caminho='produto/coluna-compra', interno=True)
+
+    principal = d.container('Produto', {
+        'content_width': 'boxed',
+        'flex_direction': 'row',
+        'flex_wrap': 'wrap',
+        'flex_gap': lacuna(32, 32),
+        'padding': dimensoes(16, 0, 40, 0),
+    }, [galeria, compra], caminho='produto/principal', interno=True)
+
+    abas = d.container('Descricao e avaliacoes', {
+        'content_width': 'boxed',
+        'flex_direction': 'column',
+        'padding': dimensoes(0, 0, 40, 0),
+    }, [
+        d.widget('woocommerce-product-data-tabs', {
+            '_title': 'Abas do produto (dinamicas)',
+        }, caminho='produto/abas'),
+        paragrafo(d, ('As abas trazem a descrição, as informações adicionais e as avaliações de '
+                      'cada peça. A tabela de medidas da peça entra nas informações adicionais '
+                      'ou na descrição, com os valores reais do fornecedor.'), 'produto/abas-nota',
+                  'iara-texto-micro'),
+    ], caminho='produto/secao-abas', interno=True)
+
+    relacionados = d.container('Combina com', {
+        'content_width': 'boxed',
+        'flex_direction': 'column',
+        'flex_gap': lacuna(8, 8),
+        'padding': dimensoes(40, 0, 56, 0),
+        'background_background': 'classic',
+        '__globals__': {'background_color': cor('iara-fundo-suave')},
+    }, [
+        titulo_secao(d, 'Combina com', 'produto/relacionados-titulo'),
+        d.widget('woocommerce-product-related', {
+            '_title': 'Produtos relacionados (dinamico)', 'posts_per_page': '4', 'columns': '4',
+        }, caminho='produto/relacionados'),
+        d.widget('woocommerce-product-upsell', {
+            '_title': 'Sugestoes de compra (dinamico)', 'posts_per_page': '4', 'columns': '4',
+        }, caminho='produto/upsell'),
+    ], caminho='produto/secao-relacionados', interno=True)
+
+    ajuda = faixa_ajuda(d, 'Ficou em dúvida no tamanho?',
+                        'Confira o Guia de Medidas ou fale com o ateliê antes de fechar a compra.',
+                        'Ver o Guia de Medidas', PAGINAS['guia'], 'produto/ajuda')
+
+    raiz = d.container('Pagina do produto', {
+        'content_width': 'full', 'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0), 'padding': dimensoes(0, 0, 0, 0),
+    }, [trilha, principal, abas, relacionados, ajuda], caminho='raiz')
+    d.content = [raiz]
+    return d
+
+
 # --------------------------------------------------------------------------
 # 4. ARQUIVOS GLOBAIS (Site Settings)
 # --------------------------------------------------------------------------
@@ -1316,6 +1580,8 @@ FABRICAS = [
     ('01-cabecalho.json', cabecalho),
     ('02-rodape.json', rodape),
     ('03-home.json', home),
+    ('04-loja.json', loja),
+    ('05-produto.json', produto),
 ]
 
 

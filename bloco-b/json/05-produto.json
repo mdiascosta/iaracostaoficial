@@ -1,0 +1,491 @@
+{
+  "content": [
+    {
+      "id": "1aa6ef2",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "0",
+          "column": "0",
+          "isLinked": true,
+          "unit": "px",
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        },
+        "_title": "Pagina do produto"
+      },
+      "elements": [
+        {
+          "id": "9d0564e",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "8",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Trilha do produto"
+          },
+          "elements": [
+            {
+              "id": "7deb15c",
+              "elType": "widget",
+              "widgetType": "woocommerce-breadcrumbs",
+              "settings": {
+                "_title": "Trilha de navegacao"
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "9681640",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "row",
+            "flex_wrap": "wrap",
+            "flex_gap": {
+              "row": "32",
+              "column": "32",
+              "isLinked": true,
+              "unit": "px",
+              "size": 32
+            },
+            "padding": {
+              "unit": "px",
+              "top": "16",
+              "right": "0",
+              "bottom": "40",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Produto"
+          },
+          "elements": [
+            {
+              "id": "3aacf24",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 48,
+                  "sizes": []
+                },
+                "_title": "Galeria do produto"
+              },
+              "elements": [
+                {
+                  "id": "a2bbe1c",
+                  "elType": "widget",
+                  "widgetType": "woocommerce-product-images",
+                  "settings": {
+                    "_title": "Galeria de fotos (dinamica)"
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "07f4feb",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Galeria nativa do WooCommerce, com zoom e lightbox. As fotos são as do cadastro de cada peça.</p>",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-suave",
+                      "typography": "globals/typography?id=iara-texto-micro"
+                    }
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "1a94aae",
+              "elType": "container",
+              "settings": {
+                "flex_direction": "column",
+                "flex_gap": {
+                  "row": "16",
+                  "column": "16",
+                  "isLinked": true,
+                  "unit": "px",
+                  "size": 16
+                },
+                "_flex_size": "custom",
+                "_flex_basis_type": "custom",
+                "_flex_basis": {
+                  "unit": "%",
+                  "size": 48,
+                  "sizes": []
+                },
+                "_title": "Informacoes e compra"
+              },
+              "elements": [
+                {
+                  "id": "ced57f1",
+                  "elType": "widget",
+                  "widgetType": "woocommerce-product-title",
+                  "settings": {
+                    "_title": "Nome da peca (dinamico)",
+                    "header_size": "h1",
+                    "__globals__": {
+                      "title_color": "globals/colors?id=text",
+                      "typography": "globals/typography?id=primary"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "aa2a262",
+                  "elType": "widget",
+                  "widgetType": "woocommerce-product-rating",
+                  "settings": {
+                    "_title": "Avaliacoes (dinamico)"
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "029caf5",
+                  "elType": "widget",
+                  "widgetType": "woocommerce-product-price",
+                  "settings": {
+                    "_title": "Preco (dinamico)",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=text",
+                      "typography": "globals/typography?id=iara-preco"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "d8baed5",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Pix com 5% de desconto, cartão em até 6x sem juros e boleto. Confira no editor se o texto acompanha o que estiver ativo na conta do Mercado Pago.</p>",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-suave",
+                      "typography": "globals/typography?id=iara-texto-micro"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "08c6943",
+                  "elType": "widget",
+                  "widgetType": "woocommerce-product-short-description",
+                  "settings": {
+                    "_title": "Descricao curta (dinamica)",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-suave",
+                      "typography": "globals/typography?id=text"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "1b3c215",
+                  "elType": "widget",
+                  "widgetType": "woocommerce-add-to-cart",
+                  "settings": {
+                    "_title": "Variacoes, quantidade e botao de compra (dinamico)"
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "308b5fd",
+                  "elType": "widget",
+                  "widgetType": "woocommerce-product-stock",
+                  "settings": {
+                    "_title": "Estoque (dinamico)"
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "89951b8",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "_title": "Ver o Guia de Medidas",
+                    "text": "Ver o Guia de Medidas",
+                    "link": {
+                      "url": "/guia-de-medidas/",
+                      "is_external": "",
+                      "nofollow": ""
+                    },
+                    "size": "sm",
+                    "button_type": "text",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=primary",
+                      "typography": "globals/typography?id=iara-rotulo"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "bc747dd",
+                  "elType": "widget",
+                  "widgetType": "woocommerce-product-meta",
+                  "settings": {
+                    "_title": "Codigo e categorias (dinamico)"
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "6396e07",
+                  "elType": "widget",
+                  "widgetType": "icon-list",
+                  "settings": {
+                    "_title": "Garantias da compra",
+                    "icon_list": [
+                      {
+                        "text": "PAC pelos Correios, com frete grátis acima de R$ 299. Postagem em até 2 dias úteis.",
+                        "_id": "76dc8c4"
+                      },
+                      {
+                        "text": "7 dias para desistir da compra (CDC, Art. 49) e 30 dias para trocar de tamanho, com a primeira troca por nossa conta.",
+                        "_id": "b4040fc"
+                      },
+                      {
+                        "text": "Pagamento processado por gateway com antifraude. Não guardamos dados do seu cartão.",
+                        "_id": "4a6d7b3"
+                      }
+                    ],
+                    "space_between": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-suave",
+                      "typography": "globals/typography?id=text"
+                    }
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "fdc86fd",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "40",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Descricao e avaliacoes"
+          },
+          "elements": [
+            {
+              "id": "7fcd638",
+              "elType": "widget",
+              "widgetType": "woocommerce-product-data-tabs",
+              "settings": {
+                "_title": "Abas do produto (dinamicas)"
+              },
+              "elements": []
+            },
+            {
+              "id": "b194edd",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>As abas trazem a descrição, as informações adicionais e as avaliações de cada peça. A tabela de medidas da peça entra nas informações adicionais ou na descrição, com os valores reais do fornecedor.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "typography": "globals/typography?id=iara-texto-micro"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "c890a2f",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "8",
+              "column": "8",
+              "isLinked": true,
+              "unit": "px",
+              "size": 8
+            },
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "56",
+              "left": "0",
+              "isLinked": false
+            },
+            "background_background": "classic",
+            "__globals__": {
+              "background_color": "globals/colors?id=iara-fundo-suave"
+            },
+            "_title": "Combina com"
+          },
+          "elements": [
+            {
+              "id": "2dac7b4",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Combina com",
+                "title": "Combina com",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "3d75382",
+              "elType": "widget",
+              "widgetType": "woocommerce-product-related",
+              "settings": {
+                "_title": "Produtos relacionados (dinamico)",
+                "posts_per_page": "4",
+                "columns": "4"
+              },
+              "elements": []
+            },
+            {
+              "id": "a5b993b",
+              "elType": "widget",
+              "widgetType": "woocommerce-product-upsell",
+              "settings": {
+                "_title": "Sugestoes de compra (dinamico)",
+                "posts_per_page": "4",
+                "columns": "4"
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "6a0da72",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_align_items": "center",
+            "flex_gap": {
+              "row": "16",
+              "column": "16",
+              "isLinked": true,
+              "unit": "px",
+              "size": 16
+            },
+            "padding": {
+              "unit": "px",
+              "top": "48",
+              "right": "0",
+              "bottom": "48",
+              "left": "0",
+              "isLinked": false
+            },
+            "background_background": "classic",
+            "__globals__": {
+              "background_color": "globals/colors?id=secondary"
+            },
+            "_title": "Faixa de ajuda"
+          },
+          "elements": [
+            {
+              "id": "1ecadeb",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Ficou em dúvida no tamanho?",
+                "title": "Ficou em dúvida no tamanho?",
+                "header_size": "h2",
+                "align": "center",
+                "__globals__": {
+                  "title_color": "globals/colors?id=iara-faixa-texto",
+                  "typography": "globals/typography?id=secondary"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "3ebb123",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>Confira o Guia de Medidas ou fale com o ateliê antes de fechar a compra.</p>",
+                "align": "center",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-faixa-texto",
+                  "typography": "globals/typography?id=text"
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "72f78cf",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "_title": "Ver o Guia de Medidas",
+                "text": "Ver o Guia de Medidas",
+                "link": {
+                  "url": "/guia-de-medidas/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "size": "md",
+                "__globals__": {
+                  "typography": "globals/typography?id=accent",
+                  "button_background_color": "globals/colors?id=primary",
+                  "text_color": "globals/colors?id=iara-branco"
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "page_settings": [],
+  "version": "0.4",
+  "title": "Página do produto",
+  "type": "single"
+}

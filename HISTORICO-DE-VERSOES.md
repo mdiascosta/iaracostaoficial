@@ -61,6 +61,31 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.2.2 · 2026-10-16 · Bloco B, parte 3: loja e página do produto
+
+**O que entrou**
+
+| O que | Onde |
+|---|---|
+| Arquivo da loja: cabeçalho, coluna de filtros, grade dinâmica com ordenação e paginação, faixa verde de ajuda | `bloco-b/json/04-loja.json` |
+| Página do produto: trilha, galeria, nome, avaliação, preço, descrição curta, variações e compra, garantias, abas, relacionados e faixa de ajuda | `bloco-b/json/05-produto.json` |
+| Decisão pendente dos filtros da loja, com os três caminhos possíveis | `bloco-b/GUIA-IMPORTACAO.md`, seção 4.4 |
+
+**Decisões**
+
+- **Nada de produto escrito à mão, também aqui.** Nome, preço, foto, estoque,
+  variações e relacionados são widgets dinâmicos do WooCommerce.
+- **Os filtros de preço, cor e tamanho não foram travados no arquivo.** O
+  Elementor Pro não traz filtro por atributo dentro do canvas, então o arquivo
+  marca o que configurar e o guia apresenta os três caminhos (blocos do
+  WooCommerce, plugin aprovado ou links por atributo) para a equipe decidir.
+- **Swatches não são nativos.** O seletor de cor e tamanho em botões, como o do
+  protótipo, depende de plugin aprovado; sem ele, o WooCommerce mostra os
+  seletores padrão.
+
+**Verificado:** `tools/blocob_confere.py` passa nos 5 templates (111 containers,
+145 widgets). **Não verificado:** importação e renderização, sem WordPress.
+
 ### v0.2.1 · 2026-10-16 · Bloco B, parte 2: página inicial
 
 **De onde veio:** a cliente pediu para começar a segunda parte do Bloco B pela
