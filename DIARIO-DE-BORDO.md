@@ -1,5 +1,32 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - CSS do protótipo no geral do Elementor e logotipo (v0.3.9)
+
+### Pedido da cliente
+A faixa entrou igual, mas o menu continua serifado e a sacola com caixa.
+"Veja o CSS do template e aplique, pode colocar o CSS no arquivo geral do
+Elementor" e "pode colocar meu logotipo que já subi na mídia". Duas
+autorizações novas: CSS geral (a regra antiga era não usar CSS livre) e a
+marca volta a ser imagem, agora que existe logotipo.
+
+### O que foi feito (IMPLEMENTADO)
+- `bloco-b/css/iara-cabecalho.css` a partir do header.css aprovado: menu
+  Jost 12px em linha (é a declaração que vence a fonte do tema), sacola sem
+  caixa e sem subtotal, contador em bolha, faixa, barra e ícones. Entra no
+  kit do Bloco C (33 + guias).
+- Cabeçalho com classes `iara-*` nos seis pontos e 3 containers. Marca:
+  widget Logo do site com o logotipo subido, 190px de largura e altura
+  segurada pelo CSS.
+- Guia 4.6 com as duas linhas novas, incluindo a condição do logo definido
+  como logo do site antes de importar.
+
+### O que continua por verificar
+- Colar o CSS, definir o logo, reimportar e capturar. Se algum seletor do
+  widget Pro tiver nome diferente na versão instalada, o ajuste é no CSS
+  (um arquivo só), não mais nos 24 JSONs. Fica registrado também: o menu da
+  captura tinha 4 itens (sem Coleção), o que é do menu no WordPress, não
+  do template.
+
 ## [2026-10-19] - Todos os JSONs alinhados ao protótipo, com menos containers (v0.3.8)
 
 ### Pedido da cliente

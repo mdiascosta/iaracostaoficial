@@ -61,6 +61,32 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.9 · 2026-10-19 · CSS do protótipo no geral do Elementor e logotipo da cliente
+
+**Pedido da cliente:** "veja o CSS do template e aplique; pode colocar o CSS
+no arquivo geral do Elementor" e "pode colocar meu logotipo que já subi na
+mídia".
+
+**O que mudou**
+
+- `bloco-b/css/iara-cabecalho.css` (novo, vai no kit): o CSS do cabeçalho do
+  protótipo adaptado às classes `iara-*` do template. Para colar em
+  Elementor > Configurações do site > CSS personalizado. Força o que o JSON
+  não vence sozinho: menu em Jost 12px em linha com sublinhado, sacola sem
+  caixa e sem valor, contador em bolha terracota, faixa e ícones no traço
+  do protótipo.
+- O cabeçalho ganhou as classes `iara-faixa`, `iara-barra`, `iara-marca`,
+  `iara-menu`, `iara-acoes` e `iara-sacola`, e caiu para **3 containers**
+  (o embrulho da marca saiu no achatamento).
+- A marca volta ao widget **Logo do site**, agora com o logotipo que a
+  cliente subiu (largura 190px, altura segurada pelo CSS em 54px), no lugar
+  da marca em texto das v0.3.5 a v0.3.8. Condição: a imagem precisa estar
+  definida como logo do site, senão o placeholder "Logo." volta (guia 4.6).
+
+**Verificado aqui:** três conferências verdes e a árvore do cabeçalho com
+as classes. **Não verificado:** renderização, cola do CSS e o logo no site
+real, que são da reimportação no staging.
+
 ### v0.3.8 · 2026-10-19 · Todos os JSONs alinhados ao protótipo, com menos containers
 
 **Pedido da cliente:** a imagem 1 (cabeçalho importado) está diferente da

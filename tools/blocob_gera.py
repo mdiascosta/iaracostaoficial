@@ -263,6 +263,7 @@ def cabecalho():
         caminho='faixa/aviso')
 
     faixa = d.container('Faixa de aviso', {
+        'css_classes': 'iara-faixa',
         'content_width': 'full',
         'flex_direction': 'row',
         'flex_justify_content': 'center',
@@ -274,29 +275,31 @@ def cabecalho():
     }, [aviso], caminho='faixa')
 
     # --- barra principal
+    # Marca: o logotipo que a cliente subiu na midia (v0.3.9). O widget Logo
+    # do site puxa a imagem definida como logo do site; sem ela, ele mostra
+    # o placeholder "Logo." (foi o erro da primeira importacao). A classe
+    # iara-marca e o CSS geral (bloco-b/css/iara-cabecalho.css) seguram a
+    # altura maxima para a imagem nunca estourar a barra.
     marca = d.container('Marca', {
-        'flex_direction': 'column',
-        'flex_gap': lacuna(2, 2),
+        'flex_direction': 'row',
+        'flex_align_items': 'center',
         '_flex_size': 'custom',
         '_flex_basis_type': 'custom',
         '_flex_basis': medida(24, '%'),
         '_flex_align_self': 'center',
     }, [
-        d.widget('heading', juntar_globais({
-            '_title': 'IARA COSTA',
-            'title': 'IARA COSTA',
-            'header_size': 'p',
+        d.widget('theme-site-logo', {
+            '_title': 'Logotipo',
+            'css_classes': 'iara-marca',
+            'link_to': 'custom',
             'link': {'url': PAGINAS['home'], 'is_external': '', 'nofollow': ''},
-        }, {'title_color': cor('text'), 'typography': fonte('primary')}), caminho='barra/marca-nome'),
-        d.widget('heading', juntar_globais({
-            '_title': 'Moda e acessorios',
-            'title': 'Moda & Acessórios',
-            'header_size': 'p',
-        }, {'title_color': cor('iara-texto-discreto'), 'typography': fonte('iara-assinatura')}),
-            caminho='barra/marca-tagline'),
+            'align': 'left',
+            'width': medida(190),
+        }, caminho='barra/marca-logo'),
     ], caminho='barra/marca', interno=True)
 
     acoes = d.container('Ações', {
+        'css_classes': 'iara-acoes',
         'flex_direction': 'row',
         'flex_justify_content': 'flex-end',
         'flex_align_items': 'center',
@@ -326,6 +329,7 @@ def cabecalho():
         }, {'primary_color': cor('text')}), caminho='barra/desejos'),
         d.widget('woocommerce-menu-cart', {
             '_title': 'Sacola',
+            'css_classes': 'iara-sacola',
             'menu_cart_icon': {'value': 'fas fa-shopping-bag', 'library': 'fa-solid'},
             'items_indicator': 'bubble',
             'show_subtotal': '',
@@ -334,6 +338,7 @@ def cabecalho():
     ], caminho='barra/acoes', interno=True)
 
     barra = d.container('Barra do cabeçalho', {
+        'css_classes': 'iara-barra',
         'content_width': 'boxed',
         'flex_direction': 'row',
         'flex_align_items': 'center',
@@ -350,6 +355,7 @@ def cabecalho():
             'menu': 'principal',
             'layout': 'horizontal',
             'pointer': 'underline',
+            'css_classes': 'iara-menu',
             '_flex_size': 'grow',
             '_flex_align_self': 'center',
         }, {'menu_item_color': cor('iara-menu')}), caminho='barra/menu'),

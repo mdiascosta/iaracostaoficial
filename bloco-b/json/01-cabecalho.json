@@ -4,6 +4,7 @@
       "id": "fce347a",
       "elType": "container",
       "settings": {
+        "css_classes": "iara-faixa",
         "content_width": "full",
         "flex_direction": "row",
         "flex_justify_content": "center",
@@ -53,6 +54,7 @@
       "id": "123a9f1",
       "elType": "container",
       "settings": {
+        "css_classes": "iara-barra",
         "content_width": "boxed",
         "flex_direction": "row",
         "flex_align_items": "center",
@@ -90,65 +92,34 @@
       },
       "elements": [
         {
-          "id": "b425ae5",
-          "elType": "container",
+          "id": "f000335",
+          "elType": "widget",
+          "widgetType": "theme-site-logo",
           "settings": {
-            "flex_direction": "column",
-            "flex_gap": {
-              "row": "2",
-              "column": "2",
-              "isLinked": true,
+            "_title": "Logotipo",
+            "css_classes": "iara-marca",
+            "link_to": "custom",
+            "link": {
+              "url": "/",
+              "is_external": "",
+              "nofollow": ""
+            },
+            "align": "left",
+            "width": {
               "unit": "px",
-              "size": 2
+              "size": 190,
+              "sizes": []
             },
             "_flex_size": "custom",
-            "_flex_basis_type": "custom",
             "_flex_basis": {
               "unit": "%",
               "size": 24,
               "sizes": []
             },
-            "_flex_align_self": "center",
-            "_title": "Marca"
+            "_flex_basis_type": "custom",
+            "_flex_align_self": "center"
           },
-          "elements": [
-            {
-              "id": "c9a5c5b",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "_title": "IARA COSTA",
-                "title": "IARA COSTA",
-                "header_size": "p",
-                "link": {
-                  "url": "/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=primary"
-                }
-              },
-              "elements": []
-            },
-            {
-              "id": "96172d8",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "_title": "Moda e acessorios",
-                "title": "Moda & Acessórios",
-                "header_size": "p",
-                "__globals__": {
-                  "title_color": "globals/colors?id=iara-texto-discreto",
-                  "typography": "globals/typography?id=iara-assinatura"
-                }
-              },
-              "elements": []
-            }
-          ],
-          "isInner": true
+          "elements": []
         },
         {
           "id": "0c4fa0c",
@@ -159,6 +130,7 @@
             "menu": "principal",
             "layout": "horizontal",
             "pointer": "underline",
+            "css_classes": "iara-menu",
             "_flex_size": "grow",
             "_flex_align_self": "center",
             "__globals__": {
@@ -171,6 +143,7 @@
           "id": "125d32b",
           "elType": "container",
           "settings": {
+            "css_classes": "iara-acoes",
             "flex_direction": "row",
             "flex_justify_content": "flex-end",
             "flex_align_items": "center",
@@ -276,6 +249,7 @@
               "widgetType": "woocommerce-menu-cart",
               "settings": {
                 "_title": "Sacola",
+                "css_classes": "iara-sacola",
                 "menu_cart_icon": {
                   "value": "fas fa-shopping-bag",
                   "library": "fa-solid"
