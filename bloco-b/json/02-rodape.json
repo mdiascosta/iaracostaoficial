@@ -162,7 +162,7 @@
               "settings": {
                 "content_width": "full",
                 "flex_direction": "row",
-                "flex_wrap": "wrap",
+                "flex_wrap": "nowrap",
                 "flex_gap": {
                   "row": "24",
                   "column": "24",
@@ -296,47 +296,67 @@
                           {
                             "text": "Sobre a marca",
                             "link": {
-                              "url": "/sobre/",
+                              "url": "https://oeemax.com.br/iaracosta/sobre/",
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "bbf8cb5"
+                            "_id": "bbf8cb5",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Coleção Terra & Linho",
                             "link": {
-                              "url": "/colecao/",
+                              "url": "https://oeemax.com.br/iaracosta/colecao/",
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "620fd35"
+                            "_id": "620fd35",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Guia de medidas",
                             "link": {
-                              "url": "/guia-de-medidas/",
+                              "url": "https://oeemax.com.br/iaracosta/guia-de-medidas/",
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "ab0046f"
+                            "_id": "ab0046f",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Trocas e devoluções",
                             "link": {
-                              "url": "/trocas-e-devolucoes/",
+                              "url": "https://oeemax.com.br/iaracosta/trocas-e-devolucoes/",
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "1c7676a"
+                            "_id": "1c7676a",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Contato",
                             "link": {
-                              "url": "/contato/",
+                              "url": "https://oeemax.com.br/iaracosta/contato/",
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "ac8ec6c"
+                            "_id": "ac8ec6c",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           }
                         ],
                         "space_between": {
@@ -345,7 +365,8 @@
                           "sizes": []
                         },
                         "__globals__": {
-                          "text_color": "globals/colors?id=iara-texto-suave"
+                          "text_color": "globals/colors?id=iara-texto-suave",
+                          "text_color_hover": "globals/colors?id=accent"
                         }
                       },
                       "elements": []
@@ -400,47 +421,67 @@
                           {
                             "text": "Vestidos",
                             "link": {
-                              "url": "/loja/",
+                              "url": "https://oeemax.com.br/iaracosta/loja/",
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "097c1a1"
+                            "_id": "097c1a1",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Blusas & Camisas",
                             "link": {
-                              "url": "/loja/",
+                              "url": "https://oeemax.com.br/iaracosta/loja/",
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "fc1fccb"
+                            "_id": "fc1fccb",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Saias & Calças",
                             "link": {
-                              "url": "/loja/",
+                              "url": "https://oeemax.com.br/iaracosta/loja/",
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "747c9f7"
+                            "_id": "747c9f7",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Acessórios",
                             "link": {
-                              "url": "/loja/",
+                              "url": "https://oeemax.com.br/iaracosta/loja/",
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "d75d51f"
+                            "_id": "d75d51f",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Ver tudo",
                             "link": {
-                              "url": "/loja/",
+                              "url": "https://oeemax.com.br/iaracosta/loja/",
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "90bccb2"
+                            "_id": "90bccb2",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           }
                         ],
                         "space_between": {
@@ -449,7 +490,8 @@
                           "sizes": []
                         },
                         "__globals__": {
-                          "text_color": "globals/colors?id=iara-texto-suave"
+                          "text_color": "globals/colors?id=iara-texto-suave",
+                          "text_color_hover": "globals/colors?id=accent"
                         }
                       },
                       "elements": []
@@ -508,7 +550,11 @@
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "415069a"
+                            "_id": "415069a",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "(15) 99123-4567",
@@ -517,11 +563,19 @@
                               "is_external": "on",
                               "nofollow": ""
                             },
-                            "_id": "2007f5d"
+                            "_id": "2007f5d",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           },
                           {
                             "text": "Segunda a sexta, das 9h às 18h",
-                            "_id": "31caed5"
+                            "_id": "31caed5",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
                           }
                         ],
                         "space_between": {
@@ -530,7 +584,8 @@
                           "sizes": []
                         },
                         "__globals__": {
-                          "text_color": "globals/colors?id=iara-texto-suave"
+                          "text_color": "globals/colors?id=iara-texto-suave",
+                          "text_color_hover": "globals/colors?id=accent"
                         }
                       },
                       "elements": []
@@ -593,7 +648,8 @@
                           "sizes": []
                         },
                         "__globals__": {
-                          "text_color": "globals/colors?id=iara-texto-suave"
+                          "text_color": "globals/colors?id=iara-texto-suave",
+                          "text_color_hover": "globals/colors?id=accent"
                         }
                       },
                       "elements": []
@@ -646,7 +702,7 @@
                   "settings": {
                     "content_width": "full",
                     "flex_direction": "row",
-                    "flex_wrap": "wrap",
+                    "flex_wrap": "nowrap",
                     "flex_gap": {
                       "row": "20",
                       "column": "20",
@@ -1042,7 +1098,7 @@
                   "settings": {
                     "content_width": "full",
                     "flex_direction": "row",
-                    "flex_wrap": "wrap",
+                    "flex_wrap": "nowrap",
                     "flex_gap": {
                       "row": "24",
                       "column": "24",
@@ -1658,38 +1714,54 @@
                       {
                         "text": "Política de privacidade",
                         "link": {
-                          "url": "/politica-de-privacidade/",
+                          "url": "https://oeemax.com.br/iaracosta/politica-de-privacidade/",
                           "is_external": "",
                           "nofollow": ""
                         },
-                        "_id": "77b5eda"
+                        "_id": "77b5eda",
+                        "selected_icon": {
+                          "value": "",
+                          "library": ""
+                        }
                       },
                       {
                         "text": "Termos de uso",
                         "link": {
-                          "url": "/termos-de-uso/",
+                          "url": "https://oeemax.com.br/iaracosta/termos-de-uso/",
                           "is_external": "",
                           "nofollow": ""
                         },
-                        "_id": "aa475ab"
+                        "_id": "aa475ab",
+                        "selected_icon": {
+                          "value": "",
+                          "library": ""
+                        }
                       },
                       {
                         "text": "Trocas e devoluções",
                         "link": {
-                          "url": "/trocas-e-devolucoes/",
+                          "url": "https://oeemax.com.br/iaracosta/trocas-e-devolucoes/",
                           "is_external": "",
                           "nofollow": ""
                         },
-                        "_id": "b4046d2"
+                        "_id": "b4046d2",
+                        "selected_icon": {
+                          "value": "",
+                          "library": ""
+                        }
                       },
                       {
                         "text": "Cookies",
                         "link": {
-                          "url": "/politica-de-cookies/",
+                          "url": "https://oeemax.com.br/iaracosta/politica-de-cookies/",
                           "is_external": "",
                           "nofollow": ""
                         },
-                        "_id": "e10848b"
+                        "_id": "e10848b",
+                        "selected_icon": {
+                          "value": "",
+                          "library": ""
+                        }
                       }
                     ],
                     "space_between": {
@@ -1698,7 +1770,8 @@
                       "sizes": []
                     },
                     "__globals__": {
-                      "text_color": "globals/colors?id=iara-texto-discreto"
+                      "text_color": "globals/colors?id=iara-texto-discreto",
+                      "text_color_hover": "globals/colors?id=accent"
                     }
                   },
                   "elements": []

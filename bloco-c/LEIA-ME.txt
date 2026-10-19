@@ -20,7 +20,8 @@ O QUE TEM AQUI DENTRO
                       SEO-YOAST, TESTES, DESEMPENHO, EMAIL-SMTP, NFE e
                       GO-LIVE, do zero ao ar com registro de cada etapa
   iara-costa-kit.zip  o pacote completo: os 24 templates do Elementor, as
-                      globais, os guias e os CSVs, prontos para a equipe
+                      globais (incluindo o iara-costa-globais.zip, que importa
+                      as cores e fontes pelo Kit), os guias e os CSVs
 
 
 ORDEM DE TRABALHO

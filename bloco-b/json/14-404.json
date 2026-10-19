@@ -1,184 +1,157 @@
 {
   "content": [
     {
-      "id": "a1faf61",
+      "id": "b866a0d",
       "elType": "container",
       "settings": {
-        "content_width": "full",
+        "content_width": "boxed",
         "flex_direction": "column",
+        "flex_align_items": "center",
         "flex_gap": {
-          "row": "0",
-          "column": "0",
+          "row": "16",
+          "column": "16",
           "isLinked": true,
           "unit": "px",
-          "size": 0
+          "size": 16
         },
         "padding": {
           "unit": "px",
-          "top": "0",
+          "top": "72",
           "right": "0",
-          "bottom": "0",
+          "bottom": "72",
           "left": "0",
-          "isLinked": true
+          "isLinked": false
         },
-        "_title": "Página não encontrada"
+        "_title": "Mensagem"
       },
       "elements": [
         {
-          "id": "b866a0d",
+          "id": "6a8d1e8",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "404",
+            "title": "404",
+            "header_size": "p",
+            "__globals__": {
+              "title_color": "globals/colors?id=primary",
+              "typography": "globals/typography?id=iara-rotulo"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "f9f317c",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Esta página não está mais aqui",
+            "title": "Esta página não está mais aqui",
+            "header_size": "h1",
+            "align": "center",
+            "__globals__": {
+              "title_color": "globals/colors?id=text",
+              "typography": "globals/typography?id=primary"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "9014750",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Talvez o endereço tenha mudado ou a página tenha saído do ar. As peças e os textos continuam por aqui:</p>",
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave",
+              "typography": "globals/typography?id=text"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "fc7c7d1",
           "elType": "container",
           "settings": {
-            "content_width": "boxed",
-            "flex_direction": "column",
-            "flex_align_items": "center",
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_wrap": "wrap",
             "flex_gap": {
-              "row": "16",
-              "column": "16",
+              "row": "12",
+              "column": "12",
               "isLinked": true,
               "unit": "px",
-              "size": 16
+              "size": 12
             },
-            "padding": {
-              "unit": "px",
-              "top": "72",
-              "right": "0",
-              "bottom": "72",
-              "left": "0",
-              "isLinked": false
-            },
-            "_title": "Mensagem"
+            "_title": "Saidas"
           },
           "elements": [
             {
-              "id": "6a8d1e8",
+              "id": "70dabf6",
               "elType": "widget",
-              "widgetType": "heading",
+              "widgetType": "button",
               "settings": {
-                "_title": "404",
-                "title": "404",
-                "header_size": "p",
+                "_title": "Ver a loja",
+                "text": "Ver a loja",
+                "link": {
+                  "url": "https://oeemax.com.br/iaracosta/loja/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "size": "md",
                 "__globals__": {
-                  "title_color": "globals/colors?id=primary",
-                  "typography": "globals/typography?id=iara-rotulo"
+                  "typography": "globals/typography?id=accent",
+                  "button_background_color": "globals/colors?id=primary",
+                  "text_color": "globals/colors?id=iara-branco"
                 }
               },
               "elements": []
             },
             {
-              "id": "f9f317c",
+              "id": "3030fd4",
               "elType": "widget",
-              "widgetType": "heading",
+              "widgetType": "button",
               "settings": {
-                "_title": "Esta página não está mais aqui",
-                "title": "Esta página não está mais aqui",
-                "header_size": "h1",
-                "align": "center",
+                "_title": "Voltar para o início",
+                "text": "Voltar para o início",
+                "link": {
+                  "url": "https://oeemax.com.br/iaracosta/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "size": "md",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=primary"
+                  "typography": "globals/typography?id=accent",
+                  "text_color": "globals/colors?id=text"
                 }
               },
               "elements": []
             },
             {
-              "id": "9014750",
+              "id": "9b324b0",
               "elType": "widget",
-              "widgetType": "text-editor",
+              "widgetType": "button",
               "settings": {
-                "editor": "<p>Talvez o endereço tenha mudado ou a página tenha saído do ar. As peças e os textos continuam por aqui:</p>",
+                "_title": "Falar com o ateliê",
+                "text": "Falar com o ateliê",
+                "link": {
+                  "url": "https://oeemax.com.br/iaracosta/contato/",
+                  "is_external": "",
+                  "nofollow": ""
+                },
+                "size": "md",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "typography": "globals/typography?id=accent",
+                  "text_color": "globals/colors?id=text"
                 }
               },
               "elements": []
-            },
-            {
-              "id": "fc7c7d1",
-              "elType": "container",
-              "settings": {
-                "content_width": "full",
-                "flex_direction": "row",
-                "flex_wrap": "wrap",
-                "flex_gap": {
-                  "row": "12",
-                  "column": "12",
-                  "isLinked": true,
-                  "unit": "px",
-                  "size": 12
-                },
-                "_title": "Saidas"
-              },
-              "elements": [
-                {
-                  "id": "70dabf6",
-                  "elType": "widget",
-                  "widgetType": "button",
-                  "settings": {
-                    "_title": "Ver a loja",
-                    "text": "Ver a loja",
-                    "link": {
-                      "url": "/loja/",
-                      "is_external": "",
-                      "nofollow": ""
-                    },
-                    "size": "md",
-                    "__globals__": {
-                      "typography": "globals/typography?id=accent",
-                      "button_background_color": "globals/colors?id=primary",
-                      "text_color": "globals/colors?id=iara-branco"
-                    }
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "3030fd4",
-                  "elType": "widget",
-                  "widgetType": "button",
-                  "settings": {
-                    "_title": "Voltar para o início",
-                    "text": "Voltar para o início",
-                    "link": {
-                      "url": "/",
-                      "is_external": "",
-                      "nofollow": ""
-                    },
-                    "size": "md",
-                    "__globals__": {
-                      "typography": "globals/typography?id=accent",
-                      "text_color": "globals/colors?id=text"
-                    }
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "9b324b0",
-                  "elType": "widget",
-                  "widgetType": "button",
-                  "settings": {
-                    "_title": "Falar com o ateliê",
-                    "text": "Falar com o ateliê",
-                    "link": {
-                      "url": "/contato/",
-                      "is_external": "",
-                      "nofollow": ""
-                    },
-                    "size": "md",
-                    "__globals__": {
-                      "typography": "globals/typography?id=accent",
-                      "text_color": "globals/colors?id=text"
-                    }
-                  },
-                  "elements": []
-                }
-              ],
-              "isInner": true
             }
           ],
           "isInner": true
         }
       ],
-      "isInner": false
+      "isInner": true
     }
   ],
   "page_settings": [],

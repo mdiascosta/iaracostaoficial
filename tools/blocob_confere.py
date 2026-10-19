@@ -210,6 +210,66 @@ def conferir_arquivo(caminho, cores, fontes, problemas, resumo):
                 problemas.append(f'{nome}: fonte global "{apelido}" nao existe nas globais '
                                  f'(em {caminho_el})')
 
+    # 4b. chaves de estilo por widget (conferidas no codigo-fonte do
+    # Elementor; chave errada = tema impoe a fonte dele, foi a v0.3.11)
+    for caminho_el, el in elementos:
+        if el.get('elType') != 'widget':
+            continue
+        wt = el.get('widgetType', '')
+        globais = (el.get('settings', {}) or {}).get('__globals__', {}) or {}
+        if wt == 'icon-list':
+            if 'typography' in globais:
+                problemas.append(f'{nome}: icon-list com chave "typography" em {caminho_el}; '
+                                 f'a certa e "icon_typography"')
+            for item in (el.get('settings', {}) or {}).get('icon_list', []):
+                if 'selected_icon' not in item:
+                    problemas.append(f'{nome}: item de icon-list sem selected_icon em '
+                                     f'{caminho_el} (o Elementor desenha o check padrao)')
+        if wt in ('icon-box', 'image-box'):
+            for errada in ('typography_title', 'typography_description'):
+                if errada in globais:
+                    problemas.append(f'{nome}: {wt} com chave "{errada}" em {caminho_el}; '
+                                     f'as certas sao title_typography/description_typography')
+
+    # 4c. pente fino de links e imagens (v0.3.13): o site esta em subpasta
+    # (oeemax.com.br/iaracosta/), entao link interno que comeca com "/" cai
+    # fora do site e quebra. Todo link interno precisa nascer de SITE_BASE.
+    SITE_BASE = 'https://oeemax.com.br/iaracosta'
+
+    def url_ok(url):
+        return (url.startswith(SITE_BASE) or url.startswith('#')
+                or url.startswith('mailto:') or url.startswith('tel:')
+                or url.startswith('https://wa.me/')
+                or url == '[PREENCHER]')
+
+    def pente_fino(valor, caminho_el):
+        if isinstance(valor, dict):
+            if isinstance(valor.get('url'), str) and ('is_external' in valor or 'nofollow' in valor):
+                url = valor['url']
+                if not url:
+                    problemas.append(f'{nome}: link sem endereco em {caminho_el}')
+                elif not url_ok(url):
+                    problemas.append(f'{nome}: link "{url}" fora do endereco do site '
+                                     f'em {caminho_el} (site em subpasta: usar {SITE_BASE}/...)')
+            for filho in valor.values():
+                pente_fino(filho, caminho_el)
+        elif isinstance(valor, list):
+            for filho in valor:
+                pente_fino(filho, caminho_el)
+        elif isinstance(valor, str):
+            for url in re.findall(r'href="([^"]+)"', valor):
+                if not url_ok(url):
+                    problemas.append(f'{nome}: link "{url}" dentro de texto em '
+                                     f'{caminho_el} (fora do endereco do site)')
+
+    for caminho_el, el in elementos:
+        pente_fino(el.get('settings', {}) or {}, caminho_el)
+        if el.get('widgetType') in ('image', 'image-box'):
+            url_img = (el.get('settings', {}).get('image') or {}).get('url', '')
+            if not url_img.startswith('http'):
+                problemas.append(f'{nome}: widget de imagem sem foto em {caminho_el} '
+                                 f'(a importacao mostra espaco vazio)')
+
     # 5. nada de link do prototipo
     texto = caminho.read_text(encoding='utf-8')
     if '.html' in texto:
@@ -219,9 +279,104 @@ def conferir_arquivo(caminho, cores, fontes, problemas, resumo):
     return None
 
 
+def conferir_kit_globais(cores, fontes, problemas):
+    """O pacote de importacao das configuracoes (Kit do Elementor)."""
+    import zipfile
+    caminho = PASTA_BLOCO_B / 'globais' / 'iara-costa-globais.zip'
+    if not caminho.exists():
+        problemas.append('globais/iara-costa-globais.zip nao existe (rode tools/blocob_gera_kit_globais.py)')
+        return
+    with zipfile.ZipFile(caminho) as z:
+        nomes = z.namelist()
+        if nomes != ['manifest.json', 'site-settings.json']:
+            problemas.append(f'kit de globais: arquivos {nomes} (esperado manifest.json e site-settings.json)')
+            return
+        manifesto = json.loads(z.read('manifest.json'))
+        settings = json.loads(z.read('site-settings.json')).get('settings', {})
+    if manifesto.get('version') != '2.0':
+        problemas.append('kit de globais: manifest sem version "2.0" (FORMAT_VERSION do Elementor)')
+    ids_cores = {c['_id'] for c in settings.get('system_colors', []) + settings.get('custom_colors', [])}
+    ids_fontes = {f['_id'] for f in settings.get('system_typography', []) + settings.get('custom_typography', [])}
+    if ids_cores != cores:
+        problemas.append('kit de globais: cores diferentes do arquivo de globais')
+    if ids_fontes != fontes:
+        problemas.append('kit de globais: fontes diferentes do arquivo de globais')
+
+
+# Tipos de documento de tema: sem conditions no manifesto, a importacao
+# do kit falha para eles (theme-document.php do Pro le conditions[0]).
+TIPOS_DE_TEMA = {'header', 'footer', 'archive', 'single',
+                 'search-results', 'error-404'}
+
+
+def conferir_kit_completo(problemas):
+    """O kit completo de importacao unica (v0.3.12)."""
+    import zipfile
+    caminho = PASTA_BLOCO_B / 'iara-costa-kit-completo.zip'
+    if not caminho.exists():
+        problemas.append('iara-costa-kit-completo.zip nao existe '
+                         '(rode tools/blocob_gera_kit_completo.py)')
+        return
+    originais = {}
+    for arq in sorted(PASTA_JSON.glob('*.json')):
+        originais[arq.name] = json.loads(arq.read_text(encoding='utf-8'))
+    with zipfile.ZipFile(caminho) as z:
+        nomes = z.namelist()
+        manifesto = json.loads(z.read('manifest.json'))
+        settings = json.loads(z.read('site-settings.json')).get('settings', {})
+        templates = {}
+        for nome in nomes:
+            if nome.startswith('templates/'):
+                doc_id = nome[len('templates/'):-len('.json')]
+                templates[doc_id] = json.loads(z.read(nome))
+    if manifesto.get('version') != '2.0':
+        problemas.append('kit completo: manifest sem version "2.0"')
+    if not settings.get('system_colors') or not settings.get('custom_typography'):
+        problemas.append('kit completo: site-settings sem cores ou fontes')
+    css_kit = settings.get('custom_css', '')
+    if '.iara-menu' not in css_kit or 'elementor-icon-list-item a' not in css_kit:
+        problemas.append('kit completo: site-settings sem o CSS geral do '
+                         'cabecalho (custom_css com as regras de link do menu)')
+    if 'settings-custom-css' not in (manifesto.get('site-settings') or []):
+        problemas.append('kit completo: manifesto sem a aba settings-custom-css')
+    manifest_templates = manifesto.get('templates', {})
+    if len(manifest_templates) != 24 or len(templates) != 24:
+        problemas.append(f'kit completo: {len(manifest_templates)} no manifesto e '
+                         f'{len(templates)} arquivos (esperado 24 e 24)')
+        return
+    if set(manifest_templates) != set(templates):
+        problemas.append('kit completo: ids do manifesto diferentes dos arquivos')
+    titulos_originais = {d['title']: d for d in originais.values()}
+    for doc_id, resumo_tpl in manifest_templates.items():
+        dados = templates[doc_id]
+        original = titulos_originais.get(resumo_tpl.get('title'))
+        if original is None:
+            problemas.append(f'kit completo: template "{resumo_tpl.get("title")}" '
+                             f'sem correspondente em bloco-b/json')
+            continue
+        if resumo_tpl.get('doc_type') != original['type']:
+            problemas.append(f'kit completo: doc_type de "{original["title"]}" '
+                             f'diferente do JSON original')
+        if dados.get('content') != original['content']:
+            problemas.append(f'kit completo: conteudo de "{original["title"]}" '
+                             f'diferente do JSON original')
+        if dados.get('metadata', {}).get('_elementor_template_type') != original['type']:
+            problemas.append(f'kit completo: metadata de "{original["title"]}" '
+                             f'sem _elementor_template_type certo')
+        if original['type'] in TIPOS_DE_TEMA:
+            conds = resumo_tpl.get('conditions') or []
+            if not conds or conds[0].get('type') != 'include' or not conds[0].get('name'):
+                problemas.append(f'kit completo: "{original["title"]}" e documento '
+                                 f'de tema e esta sem conditions (a importacao falha)')
+            if not resumo_tpl.get('location'):
+                problemas.append(f'kit completo: "{original["title"]}" sem location')
+
+
 def main():
     problemas = []
     cores, fontes = carregar_globais(problemas)
+    conferir_kit_globais(cores, fontes, problemas)
+    conferir_kit_completo(problemas)
 
     arquivos = sorted(PASTA_JSON.glob('*.json')) if PASTA_JSON.exists() else []
     if not arquivos:

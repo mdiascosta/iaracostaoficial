@@ -1,5 +1,426 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Menu aponta para o "Menu Principal" da cliente (v0.3.16)
+
+### Pedido da cliente
+"o menu em lista de ícones -> coloca o menu do wordpress que ja fiz,
+chama Menu Principal". O widget já tinha voltado a ser o do WordPress
+na v0.3.15; o que faltava era apontar para o menu dela.
+
+### O que foi feito (IMPLEMENTADO)
+Conferi no código do widget como ele identifica o menu: pelo slug. O
+menu "Menu Principal" tem slug automático `menu-principal`, e o nosso
+apontava para `principal`. Troquei o slug no gerador (uma linha, com o
+motivo comentado), atualizei o guia onde ele citava o slug antigo e
+registrei. Menu em lista de ícones, agora, só onde a lista é fixa por
+desenho (faixa de recados, benefícios, links do rodapé).
+
+### O que continua por verificar
+- O menu aparecer com os itens dela e a linha andando no item ativo,
+  na próxima importação do kit.
+
+## [2026-10-19] - Hero, menu ativo e links do WooCommerce (v0.3.15)
+
+### Relato da cliente
+Links ok. Mas "o layout da home ainda continua errado" (foto do hero
+embaixo do texto) e "o menu ativo, com a linha embaixo, não tem".
+De quebra, a captura da Minha Conta mostra os links do WooCommerce em
+rosa choque, que não são de template nenhum.
+
+### Análise (IMPLEMENTADO)
+Três causas separadas, nenhuma delas "o template inteiro errado":
+o hero quebrava porque 52% + 44% + 40px de respiro estouram a linha com
+`wrap` ligado (a mesma conta morava em mais quatro páginas); o item
+ativo não existia porque texto fixo não sabe a página atual, e eu tinha
+trocado o widget que sabe (o menu do WordPress) pela lista de ícones
+para fugir da fonte do tema, briga que o CSS dentro do kit agora
+resolve; e o rosa é a cor de link do tema nos desenhos do WooCommerce,
+que só CSS alcança.
+
+### O que foi feito
+- `nowrap` automático em linha de colunas cheias, na geração dos 24.
+- Menu volta ao widget do WordPress com slug `principal`; fonte, cores
+  e sublinhado do ativo no CSS do kit. O pré-requisito do menu existir
+  voltou para o guia em destaque, porque sem ele o widget não desenha
+  nada (foi a captura do "cadê o menu" ao contrário).
+- Seção WooCommerce no CSS do kit (conta, carrinho, checkout).
+
+### O que continua por verificar
+- A home lado a lado no staging e o sublinhado andando de item em item
+  conforme a página. Se o menu vier vazio, é o menu `principal` que não
+  existe no WordPress, e a captura confirma em um olhar.
+
+## [2026-10-19] - O CSS do link do menu, verificado (v0.3.14)
+
+### Pergunta da cliente
+"Você chegou a verificar o menu? Não tem nem CSS do link." Direta e
+certa. Eu tinha conferido fonte e cor do texto do menu, mas o link em
+si (hover, sublinhado, respiro) só existia num arquivo CSS que nenhuma
+importação carregava. Verificar era abrir o widget e o código dele:
+o controle de hover da lista de ícones (`text_color_hover`) existia e
+estava vazio nos nossos arquivos.
+
+### O que foi feito (IMPLEMENTADO)
+- Hover pela global de destaque em toda lista de ícones com link,
+  direto na geração.
+- A descoberta maior: o kit completo não levava CSS. Li o módulo
+  custom-css do Pro e a chave é `custom_css` nas configurações do kit;
+  o CSS geral agora viaja dentro do `site-settings.json` do kit
+  completo, com a aba `settings-custom-css` declarada no manifesto.
+  Importar o kit passa a ser, de fato, importar tudo.
+- Regras do link do menu completadas no CSS (respiro, sublinhado,
+  foco visível) e trava na conferência para o CSS não sair do kit.
+
+### O que continua por verificar
+- Passar o mouse no menu depois de importar o kit novo e ver o
+  sublinhado. É o teste de dez segundos que fecha esta rodada.
+
+## [2026-10-19] - Pente fino dos links: o site é subpasta (v0.3.13)
+
+### Relato da cliente
+"Olha, os links estão todos quebrados. O site é
+https://oeemax.com.br/iaracosta/. Verifique, faça um pente fino novamente
+em cada template, pois o site está quebrado ainda." A captura, aliás,
+mostra o salto: cabeçalho igual ao protótipo (menu Jost, ícones, faixa),
+hero com foto, botões e textos certos. O que quebrou foi a navegação.
+
+### Causa raiz
+Uma só, e era endereço: todos os links internos nasciam `/loja/`,
+`/sobre/` (raiz do domínio), mas o WordPress mora em `/iaracosta/`.
+Cada clique saía do site. Ninguém tinha me passado o endereço real até
+hoje; com ele, a correção é central: uma constante `SITE_BASE` no
+gerador, de onde nascem os 61 links internos dos 24 arquivos.
+
+### O que foi feito (IMPLEMENTADO)
+- `SITE_BASE` no gerador e todos os links refeitos; a busca virou `/?s=`
+  (a página `/busca/` não existe; quem responde é o template de
+  resultados).
+- O pente fino virou conferência permanente (seção 4c do
+  `blocob_confere.py`): link fora do endereço, link vazio, link dentro de
+  texto e imagem sem foto reprovam a entrega. Rodei a contagem: 61 links
+  internos no endereço certo, 0 na raiz.
+- Tagline da marca com a fonte declarada no arquivo, já que a global não
+  estava vencendo o tema nas capturas.
+- Kit completo e kit do Bloco C regenerados: a importação continua sendo
+  um arquivo só (e a rotina de apagar os templates antigos antes).
+
+### O que continua por verificar
+- Clicar nos links no site real. Template garante o endereço; a página
+  de destino existir com o slug certo (loja, colecao, sobre, contato...)
+  é o passo de criação de páginas do guia. Se algum destino der 404, é
+  página faltando, não link errado, e a captura diz qual.
+
+## [2026-10-19] - Kit completo de importação única (v0.3.12)
+
+### Pedido da cliente
+"Não tem como criar algo que possa apenas importar? Pois cada alteração
+tenho que ficar fazendo isso." A frustração é legítima: foram seis
+rodadas de "apague, reimporte, capture" no cabeçalho, e cada rodada
+custava importar arquivo solto na mão. O formato certo para isso existe
+no Elementor e a gente ainda não tinha usado para os templates: o Kit.
+
+### O que foi feito (IMPLEMENTADO)
+- `tools/blocob_gera_kit_completo.py` gera o `iara-costa-kit-completo.zip`
+  no formato oficial do Kit (conferido no código-fonte do Elementor e no
+  espelho público do Pro): manifesto 2.0 com a seção de templates,
+  site-settings com as globais e 24 arquivos em `templates/<id>.json`.
+- A parte delicada era a condição do Theme Builder: li o
+  `get_export_summary()`/`import()` do documento de tema no Pro e as
+  classes de condição. Sem `conditions` no manifesto, a importação de
+  header/footer/archive/single quebra em PHP 8; com ela, o cabeçalho já
+  nasce Entire Site. Loja, produto, blog, post, busca e 404 ganharam as
+  condições correspondentes (`product_archive`, `singular/product`,
+  `post_archive`, `singular/post`, `archive/search`,
+  `singular/not_found404`).
+- Conferência nova valida o kit inteiro contra os JSONs; guia ganhou a
+  seção 2.9 (importação única como caminho principal) com o aviso de que
+  kit cria cópias novas a cada importação, então a rotina de correção
+  vira: apagar os templates Iara anteriores e importar o kit novo.
+- De quebra, o "10 fontes" que tinha ficado no gerador do pacote de
+  globais virou 11.
+
+### O que continua por verificar
+- A importação do kit no staging é o primeiro teste real deste formato
+  com os nossos arquivos. O resultado (sucesso por runner ou a mensagem
+  de erro) diz onde ajustar, se precisar: é um arquivo só para corrigir.
+
+## [2026-10-19] - Causa raiz das fontes: chaves de tipografia por widget (v0.3.11)
+
+### Pedido da cliente
+"Analise novamente": menu com check na frente de cada item (e a caixa rosa
+da seleção do editor na captura) e a home com serifadas onde o protótipo é
+Jost. O "cade o menu?" era isso: o menu estava lá, disfarçado de lista de
+checks.
+
+### Análise (IMPLEMENTADO, com fonte conferida)
+Baixei o código dos widgets no repositório do Elementor e li os controles:
+o repetidor da lista de ícones tem `fas fa-check` como ícone padrão de
+item sem ícone, e os grupos de tipografia têm nomes próprios por widget
+(`icon_typography` na lista, `title_typography` nos cartões). O gerador
+usava os nomes genéricos, o Elementor ignorava, e o tema mandava. Isso
+explica também a tagline serifada das capturas anteriores melhor do que a
+hipótese do kit não importado: onde a chave estava certa (títulos), a
+fonte entrava; onde estava errada (listas e cartões), não.
+
+### O que foi feito
+- Ajuste por tipo de widget na geração dos 24 arquivos (renomear chaves e
+  zerar o ícone de item sem ícone), trava nova na conferência, benefícios
+  da home igualados ao CSS do protótipo e "VER TUDO" sem preenchimento.
+- Fica a lição registrada: chave de controle de widget Pro continua não
+  verificável aqui (o Pro é fechado), mas a dos widgets gratuitos agora é
+  conferida na fonte, não de memória.
+
+### O que continua por verificar
+- A mesma reimportação de sempre. Com a chave certa, a fonte global entra
+  mesmo se o tema tentar impor a dele, porque quem manda no seletor é o
+  grupo de tipografia do widget.
+
+## [2026-10-19] - Cabeçalho sem depender de tema, CSS ou mídia; imagens nos templates (v0.3.10)
+
+### Pedido da cliente
+"Está completamente errado, o CSS não pegou, está completamente diferente
+da versão do template. Veja minuciosamente o que está ocorrendo." E mais:
+a home sem imagens, "chegar 100% no HTML das páginas", "na importação já
+quero que importe tudo" e "sempre usar lista de ícones em vez de elemento
+texto ou HTML".
+
+### Análise minuciosa (IMPLEMENTADO o diagnóstico)
+A captura traz três provas: a imagem de montanhas é o placeholder do Logo
+do site (a cliente subiu o arquivo na mídia, mas não o definiu como logo
+do site); o menu serifado prova que o CSS não estava ativo na página
+(com a declaração forçada, a serifada do tema não apareceria); e a caixa
+da sacola é o botão padrão do Carrinho do WooCommerce. O fio comum das
+seis capturas: o cabeçalho dependia de widgets que o tema/WooCommerce
+estilizam e de passos manuais fora do arquivo. Remendo em cima de remendo
+não resolve isso; a estrutura é que tinha que mudar.
+
+### O que foi feito
+- Cabeçalho refeito só com widgets básicos de estilo global: marca em
+  texto (o protótipo é texto), faixa e menu em lista de ícones em linha,
+  quatro ícones de ação com link. Saiu a dependência de menu do WordPress,
+  de logo definido e de CSS colado. O CSS continua no pacote como reforço
+  opcional, reescrito para as classes novas.
+- Imagens: nenhum widget de imagem vazio nos 24 arquivos. Hero,
+  categorias, ocasiões, editorial, coleção e lookbook apontam para as
+  fotos do protótipo no repositório público, e o zip com os 39 arquivos
+  entrou no kit para a mídia local. Limite honesto, registrado para a
+  cliente: JSON de template não embute arquivo de imagem; ou aponta para
+  endereço (o que fizemos) ou a imagem é escolhida na mídia depois.
+- "100% do HTML": o que o template controla (estrutura, fonte, cor,
+  imagem, espaçamento) agora nasce do arquivo. O que é do WordPress
+  (produtos, posts, foto do produto, menu do rodapé transacional) continua
+  dinâmico por natureza, como no Bloco B aprovado.
+
+### O que continua por verificar
+- Reimportar globais e cabeçalho e comparar com a imagem 2. Se a marca em
+  texto e o menu em lista entrarem certos, a mesma receita (só widget
+  básico) vira o padrão para qualquer ajuste futuro.
+
+## [2026-10-19] - CSS do protótipo no geral do Elementor e logotipo (v0.3.9)
+
+### Pedido da cliente
+A faixa entrou igual, mas o menu continua serifado e a sacola com caixa.
+"Veja o CSS do template e aplique, pode colocar o CSS no arquivo geral do
+Elementor" e "pode colocar meu logotipo que já subi na mídia". Duas
+autorizações novas: CSS geral (a regra antiga era não usar CSS livre) e a
+marca volta a ser imagem, agora que existe logotipo.
+
+### O que foi feito (IMPLEMENTADO)
+- `bloco-b/css/iara-cabecalho.css` a partir do header.css aprovado: menu
+  Jost 12px em linha (é a declaração que vence a fonte do tema), sacola sem
+  caixa e sem subtotal, contador em bolha, faixa, barra e ícones. Entra no
+  kit do Bloco C (33 + guias).
+- Cabeçalho com classes `iara-*` nos seis pontos e 3 containers. Marca:
+  widget Logo do site com o logotipo subido, 190px de largura e altura
+  segurada pelo CSS.
+- Guia 4.6 com as duas linhas novas, incluindo a condição do logo definido
+  como logo do site antes de importar.
+
+### O que continua por verificar
+- Colar o CSS, definir o logo, reimportar e capturar. Se algum seletor do
+  widget Pro tiver nome diferente na versão instalada, o ajuste é no CSS
+  (um arquivo só), não mais nos 24 JSONs. Fica registrado também: o menu da
+  captura tinha 4 itens (sem Coleção), o que é do menu no WordPress, não
+  do template.
+
+## [2026-10-19] - Todos os JSONs alinhados ao protótipo, com menos containers (v0.3.8)
+
+### Pedido da cliente
+Duas imagens: a 1 é o cabeçalho importado no WordPress, a 2 é o cabeçalho
+do protótipo que criamos. "Está diferente, preciso que ajuste todos os
+JSONs criados para seguir igual às telas do nosso template criado" e
+"trabalhe com o menor número de containers possível".
+
+### Leitura das imagens (o que estava torto)
+Menu empilhado e serifado (fonte do tema, sem largura na barra), caixa de
+busca aberta onde o protótipo só tem a lupa, sacola com caixa e "R$ 0,00"
+onde o protótipo só tem o ícone com contador, conta e desejos cheios e
+terracota em vez do traço fino, tagline serifada (global não aplicada) e a
+faixa com ícones onde o protótipo é texto em caixa alta com pontos. A
+decisão desta rodada segue a imagem 2: onde a faixa de ícones da v0.3.6
+brigava com o protótipo, o protótipo venceu.
+
+### O que foi feito (IMPLEMENTADO)
+- Cabeçalho refeito nesses pontos (ver histórico de versões), incluindo a
+  fonte global nova "Texto da faixa" (11 fontes no total) e o pacote
+  `iara-costa-globais.zip` regenerado.
+- Achatamento genérico no gerador: container que só embrulha um elemento e
+  não tem fundo, borda, sombra, respiro nem largura em caixa sai da árvore,
+  e a largura dele passa para o elemento de dentro. 216 para 176 containers
+  nos 24 arquivos, sem mudar o desenho. O rodapé ficou com 33 porque ali
+  quase todo container desenha algo (quadros de pagamento com borda, colunas
+  com respiro, faixas com fio).
+- Guia: quatro linhas novas na tabela de diagnóstico (4.6), incluindo o
+  aviso de ordem (globais ANTES do cabeçalho).
+
+### O que continua por verificar
+- A reimportação no staging na ordem certa e a captura lado a lado com o
+  protótipo. Se o menu continuar serifado mesmo com as globais importadas,
+  a causa é a tipografia do widget de menu no tema, e o ajuste é no editor
+  (guia, ajuste 4.3), não no arquivo.
+
+## [2026-10-19] - Cabeçalho com menos containers e espaçamento revisto (v0.3.7)
+
+### Pedido da cliente
+"tente usar menos container, pode ajustar isso também no header e veja
+novamente o espaçamento do logo, menu e outros." É o mesmo espírito do
+round em que ela pediu o header "mais clean" no protótipo: estrutura
+enxuta, respiro definido.
+
+### O que foi feito (IMPLEMENTADO)
+- **7 para 4 containers** no `01-cabecalho.json`: saíram o container raiz
+  (a faixa e a barra viraram os dois blocos de topo do arquivo), o par
+  barra/linha (fundidos num container só, que carrega fundo, fio inferior e
+  a linha) e o embrulho "Navegação principal" (o widget de menu vai direto
+  na barra). Sobraram faixa, barra, marca (que empilha nome e assinatura) e
+  ações (que agrupa os quatro ícones).
+- **Espaçamento com número, não com sorte**: marca `_flex_basis` 24%, ações
+  24% com `flex-end`, menu no meio distribuído pelo `space-between` da
+  barra com `flex_gap` de 24px, 18px entre os ícones das ações e 14px de
+  padding vertical na barra (era 16px numa camada que nem existia sozinha).
+- Guia: linha nova na tabela de diagnóstico (4.6). Kit remontado.
+
+### O que continua por verificar
+- A reimportação no staging com a captura da barra completa: marca, menu
+  central, ícones e a faixa em linha. É essa tela que aprova ou devolve o
+  cabeçalho, como nos rounds do protótipo.
+
+## [2026-10-19] - Faixa verde como lista de ícones em linha (v0.3.6)
+
+### Pedido da cliente
+"no topbar de verde os icones tem que ser uma lista de icones inline". A
+faixa de aviso era um widget de texto com os três recados e separadores; a
+cliente quer o widget de lista de ícones em linha.
+
+### O que foi feito (IMPLEMENTADO)
+- `01-cabecalho.json`: a faixa verde agora é um `icon-list` com
+  `view: 'inline'` (o controle de layout do próprio widget, conferido em
+  `includes/widgets/icon-list.php`: `traditional` ou `inline`), itens com
+  `_id` próprio, ícone Font Awesome em cada recado (caminhão, folha e
+  globo), espaçamento de 18px e cor de texto e de ícone na global
+  `iara-faixa-texto`.
+- Guia: a linha nova entrou na tabela de diagnóstico da seção 4.6.
+- Kit do Bloco C remontado com o cabeçalho novo.
+
+### O que continua por verificar
+- A reimportação no staging (apagar o cabeçalho antigo antes), junto com o
+  teste da v0.3.5: marca em texto, menu `principal` criado e a captura da
+  barra completa.
+
+## [2026-10-19] - Correção do cabeçalho pela primeira importação real (v0.3.5)
+
+### O que aconteceu
+A cliente importou o cabeçalho e mandou a captura: "importei o cabecalho e
+ficou ruim, nada a ver com nosso template". Ela tinha razão. Na tela: a
+faixa verde entrou (as cores globais importadas funcionaram), mas com os
+links em rosa; um retângulo gigante "Logo." ocupava a barra; o menu não
+aparecia; e embaixo havia o rodapé genérico do tema.
+
+### Diagnóstico
+- **"Logo." gigante**: o template usava o widget Site Logo e, sem logo
+  definido no Personalizar, o Elementor desenha o placeholder em tamanho
+  cheio. Defeito de desenho meu: a marca aprovada no protótipo é
+  **tipográfica**, nunca foi uma imagem.
+- **Links rosas**: os widgets de texto com link não definiam a cor do link,
+  que é um controle próprio do widget (`link_color` em
+  `includes/widgets/text-editor.php`, conferido no código-fonte), e o tema
+  pintou com o padrão dele.
+- **Menu ausente**: o widget aponta para o menu de slug `principal`, que
+  ainda não existe no site. Não é defeito do arquivo, mas o guia tratava
+  isso como detalhe e virou item de diagnóstico.
+- **Rodapé genérico**: é o rodapé do tema enquanto o `02-rodape.json` não é
+  importado com condição Entire Site.
+
+### Correções (IMPLEMENTADO)
+- Marca em texto no `01-cabecalho.json`: "IARA COSTA" na fonte de título
+  com link para a home e "Moda & Acessórios" na fonte da assinatura, em
+  coluna, como no rodapé.
+- `link_color` igual à cor do texto na faixa do cabeçalho e no ajudante
+  `paragrafo()` sempre que o texto tiver link (vale para todos os
+  templates, não só o cabeçalho).
+- Guia: seção 2.2 sem a exigência de logo em imagem; ajuste do editor
+  atualizado; **seção 4.6 nova** com a tabela de diagnóstico (sintoma, causa
+  e correção), incluindo apagar o template antigo e reimportar.
+- Kit do Bloco C remontado com o cabeçalho novo.
+
+### O que continua por verificar
+- A reimportação no staging: apagar o template antigo, importar o novo,
+  criar o menu `principal` e conferir a barra completa (marca, menu e os
+  quatro ícones). A captura dessa tela fecha o diagnóstico.
+
+## [2026-10-19] - Correção: pacote para importar cores e fontes (v0.3.4)
+
+### O que aconteceu
+Na primeira importação tentada pela cliente, o `cores-e-fontes.json` foi para
+o importador de Templates e o Elementor respondeu **"Tipo de modelo
+inválido"**. Diagnóstico: o arquivo nunca foi um template, é a referência de
+valores das globais; faltava entregar o arquivo importável de configurações.
+A cliente pediu então para **importar** as configurações em vez de criar cor
+por cor na tela.
+
+### O que foi feito (IMPLEMENTADO)
+- **`bloco-b/globais/iara-costa-globais.zip`**: pacote no formato Kit do
+  Elementor, com `manifest.json` (`version: "2.0"`, o FORMAT_VERSION atual) e
+  `site-settings.json` na raiz, contendo só cores, fontes, largura de
+  conteúdo, espaçamento e fundo do corpo. Nome do site e logo ficam fora de
+  propósito.
+- **`tools/blocob_gera_kit_globais.py`**: gera o pacote da mesma fonte única
+  das cores e fontes (`site_settings()` do gerador do Bloco B).
+- **Formato reconferido no código-fonte do Elementor**:
+  `app/modules/import-export/processes/export.php` (o arquivo entra na raiz
+  do zip como `site-settings.json`), `module.php` (FORMAT_VERSION 2.0) e
+  `runners/import/site-settings.php` (a importação cria kit novo, mistura
+  com o antigo com `array_replace_recursive` e anexa `custom_colors` e
+  `custom_typography` **mantendo o `_id`**). É essa última parte que faz os
+  templates nascerem certos sem o `ajusta-ids.py`.
+- **Guia corrigido**: seção 3.0 nova com o passo a passo (exportar antes por
+  segurança, importar marcando Configurações do site, conferir as 15 cores e
+  10 fontes), o erro "Tipo de modelo inválido" explicado onde ele acontece e
+  a seção 3.3 rebaixada a plano B. `bloco-b/LEIA-ME.txt` com o aviso no nome
+  de cada arquivo.
+- **Kit e conferências**: o pacote entrou no `iara-costa-kit.zip` (40
+  arquivos); `blocob_confere.py` passou a conferir o zip (arquivos,
+  `version` e ids iguais aos das globais) e `blococ_confere.py` ajustou a
+  contagem esperada.
+
+### Decisões tomadas
+- **Recomendado importar em staging novo, sem cores próprias**: a importação
+  acrescenta sem apagar; num site que já tem cores, sobra duplicada para
+  limpar. Está escrito no guia.
+- **O `ajusta-ids.py` não foi aposentado**: é o plano B se a versão do
+  Elementor do staging se comportar diferente do código-fonte conferido.
+
+### O que foi verificado aqui
+- Estrutura do zip (2 arquivos, manifest 2.0, os 11 ids de cor e os 6 de
+  fonte personalizadas iguais aos dos templates).
+- `tools/blocob_confere.py`, `tools/blococ_confere.py` e `tools/check.py`
+  verdes.
+
+### O que não foi verificado
+- **A importação de verdade**: continua sendo o primeiro teste real, feito
+  pela equipe no staging. Se a tela de importação pedir algo diferente do
+  guia, o caso volta para cá com a captura e o guia é corrigido.
+
 ## [2026-10-19] - Bloco C, parte 4 (final): testes, desempenho, e-mail, nota fiscal e go-live (v0.3.3)
 
 ### Pedido da cliente

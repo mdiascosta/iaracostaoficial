@@ -1,144 +1,117 @@
 {
   "content": [
     {
-      "id": "691aa12",
+      "id": "ebb8ce3",
       "elType": "container",
       "settings": {
-        "content_width": "full",
+        "content_width": "boxed",
         "flex_direction": "column",
         "flex_gap": {
-          "row": "0",
-          "column": "0",
+          "row": "12",
+          "column": "12",
           "isLinked": true,
           "unit": "px",
-          "size": 0
+          "size": 12
         },
         "padding": {
           "unit": "px",
-          "top": "0",
+          "top": "40",
           "right": "0",
-          "bottom": "0",
+          "bottom": "8",
           "left": "0",
-          "isLinked": true
+          "isLinked": false
         },
-        "_title": "Minha conta"
+        "_title": "Cabecalho da pagina"
       },
       "elements": [
         {
-          "id": "ebb8ce3",
-          "elType": "container",
+          "id": "7116a53",
+          "elType": "widget",
+          "widgetType": "heading",
           "settings": {
-            "content_width": "boxed",
-            "flex_direction": "column",
-            "flex_gap": {
-              "row": "12",
-              "column": "12",
-              "isLinked": true,
-              "unit": "px",
-              "size": 12
-            },
-            "padding": {
-              "unit": "px",
-              "top": "40",
-              "right": "0",
-              "bottom": "8",
-              "left": "0",
-              "isLinked": false
-            },
-            "_title": "Cabecalho da pagina"
-          },
-          "elements": [
-            {
-              "id": "7116a53",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "_title": "Minha conta",
-                "title": "Minha conta",
-                "header_size": "h1",
-                "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=primary"
-                }
-              },
-              "elements": []
-            },
-            {
-              "id": "be24d3e",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p>Acompanhe os seus pedidos, guarde endereços e atualize os seus dados.</p>",
-                "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
-                }
-              },
-              "elements": []
+            "_title": "Minha conta",
+            "title": "Minha conta",
+            "header_size": "h1",
+            "__globals__": {
+              "title_color": "globals/colors?id=text",
+              "typography": "globals/typography?id=primary"
             }
-          ],
-          "isInner": true
+          },
+          "elements": []
         },
         {
-          "id": "43f4a55",
-          "elType": "container",
+          "id": "be24d3e",
+          "elType": "widget",
+          "widgetType": "text-editor",
           "settings": {
-            "content_width": "boxed",
-            "flex_direction": "column",
-            "flex_gap": {
-              "row": "16",
-              "column": "16",
-              "isLinked": true,
-              "unit": "px",
-              "size": 16
-            },
-            "padding": {
-              "unit": "px",
-              "top": "16",
-              "right": "0",
-              "bottom": "56",
-              "left": "0",
-              "isLinked": false
-            },
-            "_title": "Conteudo da pagina"
-          },
-          "elements": [
-            {
-              "id": "6b5c681",
-              "elType": "widget",
-              "widgetType": "woocommerce-notices",
-              "settings": {
-                "_title": "Avisos do WooCommerce"
-              },
-              "elements": []
-            },
-            {
-              "id": "2be45bc",
-              "elType": "widget",
-              "widgetType": "woocommerce-my-account",
-              "settings": {
-                "_title": "Minha conta (dinâmica)"
-              },
-              "elements": []
-            },
-            {
-              "id": "716ad29",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p>Pedidos, downloads desligados, endereços e detalhes da conta são as telas nativas do WooCommerce. Esta página fica fora do sitemap e com noindex, como pede o dossiê.</p>",
-                "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=iara-texto-micro"
-                }
-              },
-              "elements": []
+            "editor": "<p>Acompanhe os seus pedidos, guarde endereços e atualize os seus dados.</p>",
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave",
+              "typography": "globals/typography?id=text"
             }
-          ],
-          "isInner": true
+          },
+          "elements": []
         }
       ],
-      "isInner": false
+      "isInner": true
+    },
+    {
+      "id": "43f4a55",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "16",
+          "column": "16",
+          "isLinked": true,
+          "unit": "px",
+          "size": 16
+        },
+        "padding": {
+          "unit": "px",
+          "top": "16",
+          "right": "0",
+          "bottom": "56",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "Conteudo da pagina"
+      },
+      "elements": [
+        {
+          "id": "6b5c681",
+          "elType": "widget",
+          "widgetType": "woocommerce-notices",
+          "settings": {
+            "_title": "Avisos do WooCommerce"
+          },
+          "elements": []
+        },
+        {
+          "id": "2be45bc",
+          "elType": "widget",
+          "widgetType": "woocommerce-my-account",
+          "settings": {
+            "_title": "Minha conta (dinâmica)"
+          },
+          "elements": []
+        },
+        {
+          "id": "716ad29",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>Pedidos, downloads desligados, endereços e detalhes da conta são as telas nativas do WooCommerce. Esta página fica fora do sitemap e com noindex, como pede o dossiê.</p>",
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave",
+              "typography": "globals/typography?id=iara-texto-micro"
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": true
     }
   ],
   "page_settings": [],

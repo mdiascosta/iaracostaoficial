@@ -93,7 +93,21 @@ FONTES_CUSTOM = [
     ('iara-texto-micro','Texto miudo',      'Jost', '400', 11, 1.45, 0.06, None),
     ('iara-preco',      'Preco',            'Jost', '400', 18, 1.20, 0.0,  None),
     ('iara-assinatura', 'Assinatura (tagline)', 'Jost', '400', 11, 1.40, 0.2, 'uppercase'),
+    ('iara-faixa',      'Texto da faixa',   'Jost', '400', 12, 1.40, 0.15, 'uppercase'),
 ]
+
+
+# Imagens do prototipo aprovado. O JSON do Elementor nao carrega arquivo de
+# imagem dentro dele: ou a imagem esta na midia do WordPress, ou o template
+# aponta para um endereco. Para a importacao ja nascer com as fotos, os
+# widgets apontam para as imagens do prototipo neste repositorio (publico).
+# O pacote bloco-b/imagens/iara-costa-imagens.zip leva os mesmos arquivos
+# para a equipe subir na midia e, se quiser, trocar o endereco pela midia.
+IMAGENS_BASE = 'https://raw.githubusercontent.com/mdiascosta/iaracostaoficial/main/seu-projeto/assets/img/'
+
+
+def img(nome):
+    return {'url': IMAGENS_BASE + nome, 'id': ''}
 
 
 def cor(apelido):
@@ -220,132 +234,166 @@ LINKS_MENU = [
     ('Contato', '/contato/'),
 ]
 
+# Endereco onde o site esta hoje (confirmado pela cliente em 2026-10-19:
+# https://oeemax.com.br/iaracosta/). TODOS os links internos dos templates
+# nascem daqui. Os arquivos nasciam com "/loja/", "/sobre/" e quebravam
+# todos, porque o site nao esta na raiz do dominio, e sim na subpasta
+# /iaracosta/. Quando o site ganhar dominio proprio, a troca e uma vez so:
+# Elementor > Ferramentas > Substituir URL (deste endereco para o novo),
+# que e a ferramenta oficial do Elementor para migracao.
+SITE_BASE = 'https://oeemax.com.br/iaracosta'
+
 PAGINAS = {
-    'home': '/',
-    'loja': '/loja/',
-    'colecao': '/colecao/',
-    'conta': '/minha-conta/',
-    'desejos': '/lista-de-desejos/',
-    'sacola': '/sacola/',
-    'checkout': '/finalizar-compra/',
-    'pedido': '/pedido-recebido/',
-    'guia': '/guia-de-medidas/',
-    'trocas': '/trocas-e-devolucoes/',
-    'envio': '/envio-e-entrega/',
-    'privacidade': '/politica-de-privacidade/',
-    'termos': '/termos-de-uso/',
-    'cookies': '/politica-de-cookies/',
-    'sobre': '/sobre/',
-    'contato': '/contato/',
-    'blog': '/diario/',
-    'faq': '/perguntas-frequentes/',
-    'guia-medidas': '/guia-de-medidas/',
-    'post': '/diario/',
+    'home': SITE_BASE + '/',
+    'loja': SITE_BASE + '/loja/',
+    'colecao': SITE_BASE + '/colecao/',
+    'conta': SITE_BASE + '/minha-conta/',
+    'desejos': SITE_BASE + '/lista-de-desejos/',
+    'sacola': SITE_BASE + '/sacola/',
+    'checkout': SITE_BASE + '/finalizar-compra/',
+    'pedido': SITE_BASE + '/pedido-recebido/',
+    'guia': SITE_BASE + '/guia-de-medidas/',
+    'trocas': SITE_BASE + '/trocas-e-devolucoes/',
+    'envio': SITE_BASE + '/envio-e-entrega/',
+    'privacidade': SITE_BASE + '/politica-de-privacidade/',
+    'termos': SITE_BASE + '/termos-de-uso/',
+    'cookies': SITE_BASE + '/politica-de-cookies/',
+    'sobre': SITE_BASE + '/sobre/',
+    'contato': SITE_BASE + '/contato/',
+    'blog': SITE_BASE + '/diario/',
+    'faq': SITE_BASE + '/perguntas-frequentes/',
+    'guia-medidas': SITE_BASE + '/guia-de-medidas/',
+    'post': SITE_BASE + '/diario/',
+    # busca do WordPress e /?s= (chama o template 13 de resultados);
+    # /busca/ seria uma pagina que nao existe e o link nasceria quebrado
+    'busca': SITE_BASE + '/?s=',
 }
 
 
 def cabecalho():
-    """01. Cabecalho do site: faixa de aviso, marca, menu e acoes."""
+    """01. Cabecalho: faixa, marca em texto, menu e acoes em lista de icones.
+
+    v0.3.10: saem os widgets que o tema estiliza por conta propria (menu de
+    navegacao, carrinho do WooCommerce e logo do site), que eram a causa de
+    todas as capturas tortas: menu serifado e empilhado, sacola com caixa e
+    valor, logo virando placeholder. Ficam so widgets basicos, cuja fonte e
+    cor vem das globais: titulo (marca), lista de icones (faixa e menu) e
+    icone (busca, conta, desejos, sacola). O logotipo em imagem a cliente
+    troca no editor, se quiser, quando ele estiver definido como logo do
+    site (guia, secao 4.6).
+    """
     d = Documento('Cabeçalho do site', 'header')
 
-    # --- faixa de aviso
-    aviso_texto = (
-        'Frete grátis acima de R$ 299 · <a href="' + PAGINAS['sobre'] + '">Compra consciente</a>'
-        ' · <a href="' + PAGINAS['envio'] + '">Envio para todo o Brasil</a>'
-    )
-    aviso = d.widget('text-editor', juntar_globais({
-        'editor': '<p>' + aviso_texto + '</p>',
-        'align': 'center',
-    }, {'text_color': cor('iara-faixa-texto'), 'typography': fonte('iara-texto-micro')}),
-        caminho='faixa/aviso')
-
+    # faixa: lista de icones em linha (pedido da cliente: lista de icones,
+    # nao elemento de texto)
     faixa = d.container('Faixa de aviso', {
+        'css_classes': 'iara-faixa',
         'content_width': 'full',
         'flex_direction': 'row',
         'flex_justify_content': 'center',
         'flex_align_items': 'center',
-        'flex_gap': lacuna(8, 8),
-        'padding': dimensoes(10, 20, 10, 20),
+        'padding': dimensoes(9, 20, 9, 20),
         'background_background': 'classic',
         '__globals__': {'background_color': cor('secondary')},
-    }, [aviso], caminho='faixa')
+    }, [
+        d.widget('icon-list', juntar_globais({
+            '_title': 'Recados da faixa',
+            'css_classes': 'iara-faixa-lista',
+            'view': 'inline',
+            'icon_list': [
+                d.item({'text': 'FRETE GRÁTIS ACIMA DE R$ 299',
+                        'selected_icon': {'value': 'fas fa-truck', 'library': 'fa-solid'}}, 'faixa/item-1'),
+                d.item({'text': 'COMPRA CONSCIENTE',
+                        'selected_icon': {'value': 'fas fa-leaf', 'library': 'fa-solid'},
+                        'link': {'url': PAGINAS['sobre'], 'is_external': '', 'nofollow': ''}}, 'faixa/item-2'),
+                d.item({'text': 'ENVIO PARA TODO O BRASIL',
+                        'selected_icon': {'value': 'fas fa-globe-americas', 'library': 'fa-solid'},
+                        'link': {'url': PAGINAS['envio'], 'is_external': '', 'nofollow': ''}}, 'faixa/item-3'),
+            ],
+            'space_between': medida(22),
+            'icon_size': medida(12),
+        }, {'text_color': cor('iara-faixa-texto'), 'icon_color': cor('iara-faixa-texto'),
+            'typography': fonte('iara-faixa')}), caminho='faixa/aviso'),
+    ], caminho='faixa')
 
-    # --- barra principal
+    # marca em texto: igual ao prototipo e nao depende de midia nenhuma
     marca = d.container('Marca', {
-        'flex_direction': 'row',
-        'flex_align_items': 'center',
-        'flex_gap': lacuna(12, 12),
-        '_flex_size': 'grow',
+        'flex_direction': 'column',
+        'flex_gap': lacuna(2, 2),
+        '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(24, '%'),
         '_flex_align_self': 'center',
     }, [
-        d.widget('theme-site-logo', {'_title': 'Logo'}, caminho='barra/logo'),
+        d.widget('heading', juntar_globais({
+            '_title': 'IARA COSTA', 'title': 'IARA COSTA', 'header_size': 'p',
+            'css_classes': 'iara-marca-nome',
+            'link': {'url': PAGINAS['home'], 'is_external': '', 'nofollow': ''},
+            **tipografia('Playfair Display', '400', 20, 1.15, 0.105),
+        }, {'title_color': cor('text')}), caminho='barra/marca-nome'),
+        d.widget('heading', juntar_globais({
+            '_title': 'Moda e acessorios', 'title': 'MODA & ACESSÓRIOS', 'header_size': 'p',
+            'css_classes': 'iara-marca-tagline',
+            **tipografia('Jost', '400', 11, 1.40, 0.18, 'uppercase'),
+        }, {'title_color': cor('iara-texto-suave')}),
+            caminho='barra/marca-tagline'),
     ], caminho='barra/marca', interno=True)
 
-    navegacao = d.container('Navegação principal', {
-        'flex_direction': 'row',
-        'flex_align_items': 'center',
-        'flex_justify_content': 'center',
-        'flex_gap': lacuna(28, 28),
-    }, [
-        d.widget('nav-menu', {
-            '_title': 'Menu principal',
-            'menu': 'principal',
-            'layout': 'horizontal',
-        }, caminho='barra/menu'),
-    ], caminho='barra/navegacao', interno=True)
+    # menu: o widget de menu do WordPress (v0.3.15). A lista de icones nao
+    # tem como marcar a pagina atual, e o prototipo tem item ativo com
+    # sublinhado: quem marca o item atual e o WordPress, neste widget.
+    # A fonte Jost e o sublinhado vem do CSS geral que viaja no kit
+    # (classe iara-menu-nav), nao da fonte do tema. O widget identifica o
+    # menu pelo SLUG (conferido no codigo do widget: as opcoes sao
+    # $menu->slug). A cliente criou o menu "Menu Principal" em Aparencia >
+    # Menus, cujo slug automatico e "menu-principal": e para ele que o
+    # widget aponta (v0.3.16).
+    menu = d.widget('nav-menu', {
+        '_title': 'Menu principal',
+        'css_classes': 'iara-menu-nav',
+        'menu': 'menu-principal',
+        'layout': 'horizontal',
+        'pointer': 'underline',
+        '_flex_size': 'grow',
+        '_flex_align_self': 'center',
+    }, caminho='barra/menu')
+
+    def acao(titulo, icone, url, caminho, biblioteca='fa-regular'):
+        return d.widget('icon', juntar_globais({
+            '_title': titulo,
+            'selected_icon': {'value': icone, 'library': biblioteca},
+            'link': {'url': url, 'is_external': '', 'nofollow': ''},
+            'size': medida(20),
+        }, {'primary_color': cor('text')}), caminho=caminho)
 
     acoes = d.container('Ações', {
+        'css_classes': 'iara-acoes',
         'flex_direction': 'row',
         'flex_justify_content': 'flex-end',
         'flex_align_items': 'center',
-        'flex_gap': lacuna(14, 14),
-        '_flex_size': 'grow',
+        'flex_gap': lacuna(18, 18),
+        '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(24, '%'),
         '_flex_align_self': 'center',
     }, [
-        d.widget('search-form', {'_title': 'Busca', 'skin': 'minimal',
-                                 'placeholder': 'O que você procura?'},
-                 caminho='barra/busca'),
-        d.widget('icon', {
-            '_title': 'Minha conta',
-            'selected_icon': {'value': 'fas fa-user', 'library': 'fa-solid'},
-            'link': {'url': PAGINAS['conta'], 'is_external': '', 'nofollow': ''},
-            'size': medida(21),
-        }, caminho='barra/conta'),
-        d.widget('icon', {
-            '_title': 'Lista de desejos',
-            'selected_icon': {'value': 'fas fa-heart', 'library': 'fa-solid'},
-            'link': {'url': PAGINAS['desejos'], 'is_external': '', 'nofollow': ''},
-            'size': medida(21),
-        }, caminho='barra/desejos'),
-        d.widget('woocommerce-menu-cart', {'_title': 'Sacola'}, caminho='barra/sacola'),
+        acao('Busca', 'fas fa-search', PAGINAS['busca'], 'barra/busca', 'fa-solid'),
+        acao('Minha conta', 'far fa-user', PAGINAS['conta'], 'barra/conta'),
+        acao('Lista de desejos', 'far fa-heart', PAGINAS['desejos'], 'barra/desejos'),
+        acao('Sacola', 'fas fa-shopping-bag', PAGINAS['sacola'], 'barra/sacola', 'fa-solid'),
     ], caminho='barra/acoes', interno=True)
 
-    linha = d.container('Linha do cabeçalho', {
+    barra = d.container('Barra do cabeçalho', {
+        'css_classes': 'iara-barra',
         'content_width': 'boxed',
         'flex_direction': 'row',
         'flex_align_items': 'center',
         'flex_justify_content': 'space-between',
         'flex_gap': lacuna(24, 24),
-    }, [marca, navegacao, acoes], caminho='barra/linha', interno=True)
-
-    barra = d.container('Barra do cabeçalho', {
-        'content_width': 'full',
-        'flex_direction': 'column',
-        'padding': dimensoes(16, 0, 16, 0),
+        'padding': dimensoes(13, 0, 13, 0),
         'background_background': 'classic',
         'border_border': 'solid',
         'border_width': {'unit': 'px', 'top': '0', 'right': '0', 'bottom': '1', 'left': '0', 'isLinked': False},
         '__globals__': {'background_color': cor('iara-papel'), 'border_color': cor('iara-fio')},
-    }, [linha], caminho='barra')
+    }, [marca, menu, acoes], caminho='barra')
 
-    raiz = d.container('Cabeçalho', {
-        'content_width': 'full',
-        'flex_direction': 'column',
-        'flex_gap': lacuna(0, 0),
-        'padding': dimensoes(0, 0, 0, 0),
-    }, [faixa, barra], caminho='raiz')
-
-    d.content = [raiz]
+    d.content = [faixa, barra]
     return d
 
 
@@ -743,9 +791,14 @@ def titulo_secao(d, texto, caminho, nivel='h2'):
 
 
 def paragrafo(d, texto, caminho, fonte_apelido='text', cor_apelido='iara-texto-suave'):
+    globais = {'text_color': cor(cor_apelido), 'typography': fonte(fonte_apelido)}
+    if '<a ' in texto:
+        # o Elementor tem controle proprio de cor de link; sem ele, o link
+        # herda a cor padrao do tema (foi o rosa da primeira importacao)
+        globais['link_color'] = cor(cor_apelido)
     return d.widget('text-editor', juntar_globais({
         'editor': '<p>' + texto + '</p>',
-    }, {'text_color': cor(cor_apelido), 'typography': fonte(fonte_apelido)}), caminho=caminho)
+    }, globais), caminho=caminho)
 
 
 def botao(d, texto, url, caminho, estilo='primary'):
@@ -779,12 +832,14 @@ def cabecalho_secao(d, rotulo_texto, titulo, caminho, link_texto=None, link_url=
             'flex_align_items': 'flex-end',
             '_flex_align_self': 'center',
         }, [
-            d.widget('button', juntar_globais({
+            d.widget('icon-list', juntar_globais({
                 '_title': link_texto,
-                'text': link_texto,
-                'link': {'url': link_url, 'is_external': '', 'nofollow': ''},
-                'size': 'sm',
-                'button_type': 'text',
+                'view': 'inline',
+                'icon_list': [
+                    d.item({'text': link_texto,
+                            'link': {'url': link_url, 'is_external': '', 'nofollow': ''}},
+                           caminho + '/link-item'),
+                ],
             }, {'text_color': cor('primary'), 'typography': fonte('iara-rotulo')}),
                 caminho=caminho + '/link'),
         ], caminho=caminho + '/direita', interno=True))
@@ -799,10 +854,17 @@ def cabecalho_secao(d, rotulo_texto, titulo, caminho, link_texto=None, link_url=
     }, filhos, caminho=caminho, interno=True)
 
 
-def cartao_imagem(d, titulo, descricao, caminho, url):
+FOTOS_CATEGORIAS = {'vestidos': 'cat-vestidos.jpg', 'blusas': 'cat-blusas.jpg',
+                    'saias-calcas': 'cat-saias-calcas.jpg', 'acessorios': 'oc-acessorios.jpg'}
+FOTOS_OCASIOES = {'dia-a-dia': 'oc-diadia.jpg', 'trabalho': 'oc-trabalho.jpg',
+                  'festa': 'oc-festa.jpg', 'acessorios': 'oc-acessorios.jpg'}
+
+
+def cartao_imagem(d, titulo, descricao, caminho, url, imagem=None):
     """Cartao de categoria/ocasiao: imagem, titulo e texto, tudo clicavel."""
     return d.widget('image-box', juntar_globais({
         '_title': titulo,
+        'image': img(imagem) if imagem else {'url': '', 'id': ''},
         'title_text': titulo,
         'description_text': descricao,
         'link': {'url': url, 'is_external': '', 'nofollow': ''},
@@ -869,7 +931,7 @@ def home():
     }, [
         d.widget('image', {
             '_title': 'Foto principal (escolher no editor)',
-            'image': {'url': '', 'id': ''},
+            'image': img('hero-editorial.jpg'),
             'image_size': 'full',
             'caption_source': 'none',
             'link_to': 'none',
@@ -902,10 +964,11 @@ def home():
         'flex_direction': 'row',
         'flex_wrap': 'wrap',
         'flex_gap': lacuna(20, 20),
-        'padding': dimensoes(24, 0, 24, 0),
+        'padding': dimensoes(34, 0, 34, 0),
+        'background_background': 'classic',
         'border_border': 'solid',
         'border_width': {'unit': 'px', 'top': '1', 'right': '0', 'bottom': '1', 'left': '0', 'isLinked': False},
-        '__globals__': {'border_color': cor('iara-fio')},
+        '__globals__': {'border_color': cor('iara-fio'), 'background_color': cor('iara-fundo-suave')},
     }, [
         d.container(titulo, {
             'flex_direction': 'column',
@@ -920,12 +983,14 @@ def home():
                 'description_text': texto,
                 'position': 'top',
                 'title_tag': 'p',
+                'text_align': 'center',
+                'icon_size': medida(26),
             }, {
                 'primary_color': cor('primary'),
                 'title_color': cor('text'),
                 'description_color': cor('iara-texto-suave'),
-                'typography_title': fonte('iara-titulo-h3'),
-                'typography_description': fonte('text'),
+                'title_typography': fonte('iara-rotulo'),
+                'description_typography': fonte('text'),
             }), caminho='beneficios/' + str(i)),
         ], caminho='beneficios/caixa-' + str(i), interno=True)
         for i, (titulo, texto, icone) in enumerate(beneficios_itens, 1)
@@ -951,7 +1016,7 @@ def home():
                 '_flex_size': 'custom',
                 '_flex_basis_type': 'custom',
                 '_flex_basis': medida(23, '%'),
-            }, [cartao_imagem(d, titulo, texto, 'categorias/' + slug, PAGINAS['loja'])],
+            }, [cartao_imagem(d, titulo, texto, 'categorias/' + slug, PAGINAS['loja'], FOTOS_CATEGORIAS[slug])],
                 caminho='categorias/caixa-' + slug, interno=True)
             for titulo, texto, slug in [
                 ('Vestidos', 'Midi, longos e curtos, do P ao GG.', 'vestidos'),
@@ -1006,7 +1071,7 @@ def home():
                 '_flex_size': 'custom',
                 '_flex_basis_type': 'custom',
                 '_flex_basis': medida(23, '%'),
-            }, [cartao_imagem(d, titulo, '', 'ocasiões/' + slug, PAGINAS['loja'])],
+            }, [cartao_imagem(d, titulo, '', 'ocasiões/' + slug, PAGINAS['loja'], FOTOS_OCASIOES[slug])],
                 caminho='ocasiões/caixa-' + slug, interno=True)
             for titulo, slug in [
                 ('Dia a dia', 'dia-a-dia'), ('Trabalho', 'trabalho'),
@@ -1038,7 +1103,7 @@ def home():
         }, [
             d.widget('image', {
                 '_title': 'Foto do ateliê (escolher no editor)',
-                'image': {'url': '', 'id': ''},
+                'image': img('tingimento.jpg'),
                 'image_size': 'full',
                 'caption_source': 'none',
                 'link_to': 'none',
@@ -1091,7 +1156,7 @@ def home():
         }, [
             d.widget('image', {
                 '_title': 'Foto da colecao (escolher no editor)',
-                'image': {'url': '', 'id': ''},
+                'image': img('cap-terracota.jpg'),
                 'image_size': 'full',
                 'caption_source': 'none',
                 'link_to': 'none',
@@ -1923,7 +1988,7 @@ def lookbook():
             **({'background_background': 'classic', '__globals__': {'background_color': cor('iara-fundo-suave')}} if i % 2 == 0 else {}),
         }, [
             d.container('Foto do capitulo', {'flex_direction': 'column', '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(48, '%')}, [
-                d.widget('image', {'_title': 'Foto do capítulo (escolher no editor)', 'image': {'url': '', 'id': ''}, 'image_size': 'full', 'caption_source': 'none', 'link_to': 'none'}, caminho='lookbook/foto-' + str(i)),
+                d.widget('image', {'_title': 'Foto do capítulo (escolher no editor)', 'image': img(['cap-terracota.jpg', 'cap-salvia.jpg', 'cap-cru.jpg'][i - 1]), 'image_size': 'full', 'caption_source': 'none', 'link_to': 'none'}, caminho='lookbook/foto-' + str(i)),
             ], caminho='lookbook/midia-' + str(i), interno=True),
             d.container('Texto do capitulo', {'flex_direction': 'column', 'flex_gap': lacuna(12, 12), '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(48, '%'), '_flex_align_self': 'center'}, [
                 rotulo(d, rotulo_cap, 'lookbook/rotulo-' + str(i), 'primary'),
@@ -1987,6 +2052,112 @@ def cookies():
             '1. O que são cookies', '2. Categorias de cookies', '3. Cookies de terceiros',
             '4. Como controlar os cookies', '5. Alterações nesta política', '6. Dúvidas')],
         'cookies', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão. O banner de consentimento é item de aceitação do go-live.')
+
+
+# --------------------------------------------------------------------------
+# 3b. MENOS CONTAINERS (pedido da cliente na v0.3.8)
+# Um container que so embrulha UM elemento e nao tem fundo, borda, sombra,
+# respiro nem largura em caixa nao desenha nada: ele so polui a arvore.
+# Esta passada tira esses embrulhos de todos os arquivos de uma vez, levando
+# junto a largura que o embrulho tinha (_flex_basis e afins), para o desenho
+# nao mudar. Container com 2+ filhos, com fundo/borda/respiro ou com largura
+# em caixa (boxed, que centraliza) continua existindo.
+# --------------------------------------------------------------------------
+
+_CHAVES_VISUAIS = ('background', 'border', 'box_shadow', 'mask', 'css_filter')
+_LARGURAS = ('_flex_size', '_flex_basis', '_flex_basis_type', '_flex_align_self')
+
+
+def _sem_visual(settings):
+    for chave, valor in settings.items():
+        if chave.startswith(_CHAVES_VISUAIS):
+            return False
+        if chave in ('padding', 'margin') and isinstance(valor, dict):
+            if any(str(valor.get(lado, '0')) not in ('0', '') for lado in ('top', 'right', 'bottom', 'left')):
+                return False
+    return True
+
+
+def _embrulho_vazio(el):
+    """True se o container so embrulha um elemento, sem desenhar nada."""
+    if el['elType'] != 'container' or len(el.get('elements', [])) != 1:
+        return False
+    if not _sem_visual(el['settings']):
+        return False
+    # largura em caixa centraliza o conteudo: so tira se o filho tambem for em caixa
+    filho = el['elements'][0]
+    if el['settings'].get('content_width') == 'boxed' and filho['settings'].get('content_width') != 'boxed':
+        return False
+    return True
+
+
+def _achata(el):
+    if el['elType'] != 'container':
+        return el
+    filhos = []
+    for filho in el.get('elements', []):
+        filho = _achata(filho)
+        if _embrulho_vazio(filho):
+            unico = filho['elements'][0]
+            for chave in _LARGURAS:
+                if chave in filho['settings'] and chave not in unico['settings']:
+                    unico['settings'][chave] = filho['settings'][chave]
+            filhos.append(unico)
+        else:
+            filhos.append(filho)
+    el['elements'] = filhos
+    return el
+
+
+def _ajusta_widget(el):
+    if el['elType'] == 'container':
+        st = el['settings']
+        if st.get('flex_direction') == 'row' and st.get('flex_wrap') == 'wrap':
+            soma = 0
+            for filho in el.get('elements', []):
+                base = (filho.get('settings', {}) or {}).get('_flex_basis', {})
+                if base.get('unit') == '%':
+                    soma += base.get('size', 0)
+            if soma >= 88:
+                # colunas que somam ~100% + o respiro estouram a linha e a
+                # segunda coluna cai para baixo (hero da home, v0.3.15)
+                st['flex_wrap'] = 'nowrap'
+        return
+    if el['elType'] != 'widget':
+        return
+    globais = el['settings'].get('__globals__', {})
+    if el['widgetType'] == 'icon-list':
+        if 'typography' in globais:
+            globais['icon_typography'] = globais.pop('typography')
+        # link sem cor de hover nasce "sem CSS de link" (foi a v0.3.14):
+        # o controle text_color_hover do widget recebe a global de destaque
+        if any('link' in item for item in el['settings'].get('icon_list', [])):
+            globais.setdefault('text_color_hover', cor('accent'))
+        for item in el['settings'].get('icon_list', []):
+            if 'selected_icon' not in item:
+                item['selected_icon'] = {'value': '', 'library': ''}
+    if el['widgetType'] in ('icon-box', 'image-box'):
+        if 'typography_title' in globais:
+            globais['title_typography'] = globais.pop('typography_title')
+        if 'typography_description' in globais:
+            globais['description_typography'] = globais.pop('typography_description')
+
+
+def _percorre(el):
+    _ajusta_widget(el)
+    for filho in el.get('elements', []):
+        _percorre(filho)
+
+
+def achata_documento(doc):
+    for el in doc.content:
+        _percorre(el)
+    doc.content = [_achata(el) for el in doc.content]
+    # raiz que so empilha secoes, sem fundo nem respiro, tambem sai
+    while (len(doc.content) == 1 and doc.content[0]['elType'] == 'container'
+           and _sem_visual(doc.content[0]['settings'])
+           and doc.content[0]['settings'].get('content_width') != 'boxed'):
+        doc.content = doc.content[0]['elements']
 
 
 # --------------------------------------------------------------------------
@@ -2071,6 +2242,7 @@ def main():
     total = 0
     for nome, fabrica in FABRICAS:
         doc = fabrica()
+        achata_documento(doc)
         dados = doc.dados()
         if args.lista:
             print(f'  {nome:24s} {doc.titulo:24s} tipo={doc.tipo:14s} {len(json.dumps(dados))} bytes')

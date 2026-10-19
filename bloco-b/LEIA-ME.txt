@@ -37,19 +37,33 @@ O QUE TEM AQUI DENTRO
   json/22-privacidade.json  politica de privacidade (rascunho para o juridico)
   json/23-termos.json       termos de uso (rascunho para o juridico)
   json/24-cookies.json      politica de cookies (rascunho para o juridico)
-  globais/cores-e-fontes.json   as 15 cores e as 10 fontes do site, por nome
+  iara-costa-kit-completo.zip      IMPORTACAO UNICA (recomendado): cores,
+                                   fontes e os 24 templates de uma vez, pelo
+                                   Importar/Exportar Kit (secao 2.9 do guia).
+                                   Nas correcoes futuras, importe este
+                                   arquivo de novo (apague os templates
+                                   antigos antes, pois kit cria copias).
+  globais/iara-costa-globais.zip   pacote so com as 15 cores e as 11 fontes,
+                                   pelo Importar/Exportar Kit (secao 3.0
+                                   do guia). Alternativa ao kit completo.
+  globais/cores-e-fontes.json      referencia dos valores. NAO importar: em
+                                   Templates ele da "Tipo de modelo invalido".
 
 
 ORDEM DE TRABALHO
 
-  1. Criar as cores e as fontes globais no site, seguindo a tabela da secao 3 do
-     GUIA-IMPORTACAO.md.
-  2. Rodar o script que acerta os ids das cores:
-         python3 tools/ajusta-ids.py <site-settings.json exportado do site>
-  3. Conferir:
+  1. Importar TUDO de uma vez com o iara-costa-kit-completo.zip, pelo
+     Importar/Exportar Kit do Elementor (secao 2.9 do GUIA-IMPORTACAO.md).
+     Antes, exportar o kit atual do site como seguranca. Nas correcoes
+     futuras: apagar os templates Iara Costa antigos e importar o kit
+     completo novo (kit cria copias novas, nao atualiza as existentes).
+  2. Conferir em Templates se os 24 templates entraram e no editor se as
+     15 cores e as 11 fontes estao la.
+     (Planos B: importar so as globais pela secao 3.0, criar na mao pelas
+     tabelas 3.1 e 3.2 e rodar o tools/ajusta-ids.py, secao 3.3, ou
+     importar os JSONs um por um, secao 4.)
+  3. Conferir os arquivos:
          python3 tools/blocob_confere.py
-  4. Importar os dois templates e definir a condicao de exibicao
-     (Entire Site, nos dois).
   5. Importar a pagina inicial, criar a pagina Inicio e defini-la como pagina
      inicial do site; depois fazer os ajustes da secao 4.3 do guia.
   6. Importar a loja e a pagina da peca pelo Theme Builder, com as condicoes de

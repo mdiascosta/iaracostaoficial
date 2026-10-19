@@ -54,19 +54,115 @@ Nada de plugin nulo ou pirata, conforme a regra do projeto.
 
 - **Permalink** em "Nome do post" (o endereço com o nome da página, sem número).
 - **Staging com `noindex`** ligado, para nada aparecer no Google antes do go-live.
-- **Logo do site** em Aparência > Personalizar > Identidade do site. O template do
-  cabeçalho usa o widget "Site Logo", que pega o logo dali.
-- Menu **principal** criado em Aparência > Menus, com os itens: Início, Loja,
-  Coleção, Sobre, Contato. O template aponta para o menu de slug `principal`.
-  Se o menu tiver outro slug, troque no editor do cabeçalho (widget Menu).
+- **Marca do cabeçalho**: a marca deste projeto é **texto** ("IARA COSTA" com a
+  assinatura "Moda & Acessórios"), como no protótipo, e já vai escrita no
+  template. Não é preciso subir imagem de logo. Se um dia a empresa tiver um
+  logotipo em imagem, ele substitui a marca em texto no editor.
+- Menu **Menu Principal** criado em Aparência > Menus, com os itens: Início,
+  Loja, Coleção, Sobre, Contato. O widget identifica o menu pelo **slug**:
+  o menu chamado "Menu Principal" tem o slug automático `menu-principal`,
+  e é para ele que o cabeçalho aponta desde a v0.3.16. Se um dia o menu
+  for renomeado, confira o slug (ele aparece na tela de edição do menu)
+  e troque no editor do cabeçalho (widget Menu).
 
 ---
+
+## 2.9 O jeito de uma vez só: o kit completo (recomendado, v0.3.12)
+
+> **Pedido que originou esta seção:** "não tem como criar algo que possa
+> apenas importar, pois cada alteração tenho que ficar fazendo isso".
+> Tem: o `bloco-b/iara-costa-kit-completo.zip` é um **Kit do Elementor**
+> de verdade (o mesmo formato que o botão Exportar Kit gera), com as
+> configurações globais **e os 24 templates de uma vez**, cabeçalho e
+> rodapé já com a condição Entire Site e os templates da loja, do produto,
+> do blog, da busca e do 404 já com as condições deles. Um arquivo, uma
+> importação. Ele também vai dentro do `iara-costa-kit.zip` do Bloco C.
+
+Como importar:
+
+1. **Segurança primeiro:** Elementor > Ferramentas > Importar/Exportar
+   Kit > Exportar (o kit atual inteiro) e guarde o `.zip`.
+2. Na mesma tela, **Importar** e escolha o `iara-costa-kit-completo.zip`.
+3. Marque **Templates** e **Configurações do site** (Settings) e conclua.
+   (Templates de kit pedem Elementor Pro ativo, que é o seu caso.)
+4. Confira em **Templates**: os 24 arquivos da Iara Costa, o cabeçalho já
+   valendo para o site inteiro. Depois siga da seção 5 deste guia em
+   diante (criar as páginas e apontar cada uma para o template dela).
+
+**Nas próximas correções, é este arquivo que você importa de novo.** Um
+aviso honesto sobre como o Elementor funciona com qualquer kit: cada
+importação **cria cópias novas** dos templates, ela não atualiza os
+existentes. Então, antes de importar uma versão nova, apague em Templates
+os 24 templates da Iara Costa da versão anterior (filtre por "Iara" /
+pelos títulos), senão ficam duplicados e a condição Entire Site pode
+continuar apontando para o antigo. Apagar os antigos e importar o kit:
+dois gestos, em vez de 24 importações.
+
+Os caminhos antigos continuam neste guia como alternativa e plano B: o
+pacote só de globais (seção 3.0) e os JSONs um por um (seção 4).
+
+**O CSS geral agora viaja dentro do kit (v0.3.14).** O arquivo
+`bloco-b/css/iara-cabecalho.css` entra no `site-settings.json` do kit
+completo (chave `custom_css` das Configurações do site): importar o kit
+já aplica o CSS no site inteiro, sem colar nada na mão. Era esse o furo
+das rodadas anteriores: o CSS ia num arquivo separado, fora de qualquer
+importação, então "o CSS não pegava". Se um dia precisar mexer no CSS,
+é em Elementor > Configurações do site > CSS personalizado que ele está.
+
+**Endereço dos links (v0.3.13):** o site está em
+`https://oeemax.com.br/iaracosta/` (subpasta). Todos os links internos
+dos templates nascem desse endereço, porque link que começa com `/`
+apontaria para a raiz do domínio, fora do site (foi a causa dos "links
+todos quebrados"). A conferência reprova qualquer link interno fora do
+endereço. Quando o site ganhar o domínio próprio, a troca é uma vez só,
+com a ferramenta oficial: Elementor > Ferramentas > **Substituir URL**
+(de `https://oeemax.com.br/iaracosta` para o domínio novo), e os
+templates seguintes já devem nascer com o endereço novo: avise para
+atualizar o `SITE_BASE` do gerador.
 
 ## 3. Passo 1: cores e fontes globais
 
 Esta é a etapa mais importante do Bloco B. Todo o resto aponta para estas cores e
 fontes pelo **id** do Elementor. Se elas não existirem com o id certo, o estilo do
 template simplesmente não aparece (não quebra a página, mas fica sem cor).
+
+### 3.0 O jeito rápido: importar o pacote de configurações (recomendado)
+
+> **Atenção, erro comum:** o arquivo `cores-e-fontes.json` **não é um template**.
+> Importá-lo em Templates > Importar dá o erro **"Tipo de modelo inválido"**, e é
+> assim mesmo: ele é só a referência dos valores. Quem se importa é o pacote
+> abaixo, e por outro caminho, o Importar/Exportar **Kit**.
+
+O pacote é `bloco-b/globais/iara-costa-globais.zip` (também vai dentro do
+`iara-costa-kit.zip` do Bloco C). Ele foi montado no formato que o Elementor
+espera de um kit, conferido no código-fonte do plugin: `manifest.json` com
+`version: "2.0"` e `site-settings.json` com as configurações.
+
+1. **Antes, exporte o que já existe** (Elementor > Ferramentas > Importar /
+   Exportar Kit > Exportar, só "Configurações do site") e guarde o `.zip`: é o
+   seu caminho de volta. A importação **cria um kit novo e mistura** as
+   configurações antigas com as novas, então isto é a rede de segurança.
+2. Na mesma tela, use **Importar**, escolha o `iara-costa-globais.zip` e avance.
+3. Quando ele perguntar o que importar, marque **Configurações do site**
+   (Settings) e conclua.
+4. Confira: abra uma página no Elementor > Configurações do site > Cores globais.
+   Precisam estar lá as 15 cores (4 do sistema com os valores novos e 11
+   personalizadas, incluindo "Papel" e "Linha") e, em Fontes globais, as 11
+   fontes.
+
+**Por que os templates nascem certos neste caminho:** na importação de kit, o
+Elementor mantém o `_id` de cada cor e fonte personalizada, e neste pacote os
+ids já são `iara-papel`, `iara-linha` e os demais que os 24 templates usam.
+Conferido no código-fonte do plugin; **não testado em site real**. Se depois de
+importar alguma cor não aparecer na lista, ou aparecer duplicada, use o plano B
+da seção 3.3 (criar à mão e rodar o `ajusta-ids.py`).
+
+Faça isso **num site ainda sem cores próprias** (staging novo é o ideal). Se o
+site já tiver cores personalizadas, a importação **acrescenta** as novas sem
+apagar as antigas: sobra cor duplicada para limpar depois.
+
+Se preferir criar à mão, ou se a importação não funcionar na sua versão, as
+tabelas das seções 3.1 e 3.2 são o plano B completo.
 
 ### 3.1 Cores
 
@@ -127,15 +223,16 @@ Observação: as duas famílias são do Google Fonts. A regra do projeto é hosp
 as fontes localmente antes do go-live, pela velocidade e pela privacidade
 (`[CONFERIR]` no Bloco C).
 
-### 3.3 Acertar os ids (script de uma linha)
+### 3.3 Plano B: criar à mão e acertar os ids (script de uma linha)
 
-O Elementor sorteia um id próprio quando a cor é criada na tela. Como os
-arquivos precisam apontar para o id real, existe um script que faz esse
+Este caminho só é necessário se você criou as cores na tela (seções 3.1 e 3.2)
+ou se a importação da seção 3.0 não trouxe os ids certos. Criando na tela, o
+Elementor sorteia um id próprio para cada cor, e o script abaixo faz o
 casamento sozinho:
 
 1. **Exportar** as configurações do site: Elementor > Ferramentas > Importar /
    Exportar Kit > Exportar > marcar **somente** "Configurações do site". Sai um
-   `.zip`; dentro dele está `site-settings/site-settings.json`.
+   `.zip`; dentro dele está o `site-settings.json`.
 2. **Rodar** o script (primeiro em modo de conferência):
 
    ```bash
@@ -148,12 +245,9 @@ O script casa cor por cor pelo **título**, mostra uma tabela do que muda e
 reescreve as referências nos arquivos. Se alguma cor ainda não existir no site,
 ele avisa em vez de adivinhar.
 
-Alternativa, se preferir não rodar o script: o arquivo
-`bloco-b/globais/cores-e-fontes.json` traz as cores e as fontes com os ids já
-escritos (`iara-papel`, `iara-linha`, e assim por diante). Ele pode ser usado como
-referência para criar as cores com calma e depois ajustar os arquivos à mão.
-**Não** recomendamos importar esse arquivo pelo Importar/Exportar Kit sem antes
-testar: a importação de kit substitui as configurações do site.
+O arquivo `bloco-b/globais/cores-e-fontes.json` continua sendo a referência dos
+valores e dos ids (`iara-papel`, `iara-linha`, e assim por diante). Ele **não se
+importa em lugar nenhum**: quem se importa é o pacote da seção 3.0.
 
 ---
 
@@ -189,7 +283,7 @@ monta. São rápidos:
 | Onde | O que ajustar |
 |---|---|
 | Cabeçalho: widget Menu | apontar para o menu `principal`; ligar o menu sanfona no celular e escolher o ponto de quebra (sugestão: 1020px, igual ao protótipo) |
-| Cabeçalho: widget Site Logo | conferir tamanho do logo e o espaço ao lado |
+| Cabeçalho: marca em texto | a marca já vai escrita; trocar por imagem de logotipo só se a empresa tiver um |
 | Cabeçalho: widget Busca | escolher a pele "Minimal" (aparece só a lupa e abre ao clique) |
 | Cabeçalho: widget Sacola | conferir se some o texto e fica só o ícone com o contador |
 | Rodapé: formulário da newsletter | escolher o destino do e-mail e o serviço de newsletter (o campo está como `[PREENCHER]`) |
@@ -247,6 +341,35 @@ Os dois começam na **versão gratuita**, instalada pela equipe no staging:
 Regras de uso: instalar um por vez, testar a loja depois de cada um e medir o
 peso da página antes e depois (meta de desempenho do dossiê). Versão Pro só
 entra se o teste mostrar falta real, com nova aprovação.
+
+### 4.6 Se o cabeçalho importou torto (diagnóstico da primeira importação real)
+
+A primeira importação de verdade mostrou três problemas, já corrigidos na
+v0.3.5. Se você importou uma versão anterior, apague o template antigo e
+importe o `01-cabecalho.json` novo:
+
+| O que aparece | Causa | Correção |
+|---|---|---|
+| Um retângulo gigante escrito "Logo." | versões antigas usavam o widget Site Logo sem logo definido | corrigido: a marca agora é texto, como no protótipo |
+| Links da faixa verde em rosa ou vermelho | a cor do link não estava definida e herdou o padrão do tema | corrigido: `link_color` igual à cor do texto nos widgets de texto com link |
+| Recados da faixa verde como texto corrido | versões até a v0.3.5 usavam um widget de texto | corrigido na v0.3.6: a faixa é uma **lista de ícones em linha** (`view: inline`), um recado ao lado do outro, com ícone em cada um |
+| Cabeçalho com container demais e espaçamento solto | a estrutura tinha 7 containers (raiz, barra, linha e embrulho do menu) | enxugado na v0.3.7 para **4 containers**: faixa, barra, marca e ações. Marca com 24% à esquerda, menu no meio, ações com 24% à direita e 18px entre os ícones |
+| Menu empilhado, em fonte serifada e gigante; tagline "Moda & Acessórios" serifada | o widget de menu e os títulos herdaram a fonte do tema, e o menu não tinha largura para ficar em linha | corrigido na v0.3.8: o menu ocupa o miolo da barra (`grow`), com sublinhado no item atual. **Ordem importa:** importe o pacote de globais (seção 3.0) ANTES do cabeçalho, senão título e tagline caem na fonte do tema |
+| Caixa de busca aberta na barra ("O que você procura?") e sacola com caixa e "R$ 0,00" | o protótipo aprovado não tem nada disso: busca é só a lupa, sacola é só o ícone com o contador | corrigido na v0.3.8: lupa (ícone) que leva à página de busca, conta e desejos em ícone de traço (contorno), sacola sem mostrar o valor (`show_subtotal` desligado). Quem quiser a busca que abre em painel troca o ícone pelo widget Search no editor (ajuste 4.3) |
+| Faixa verde com ícones (caminhão, folha, globo) | a cliente comparou com o protótipo: lá a faixa é texto em caixa alta separado por pontos, sem ícone | corrigido na v0.3.8: texto igual ao do protótipo, com a fonte global nova **Texto da faixa** (Jost 12px, caixa alta). A lista de ícones da v0.3.6 saiu |
+| Containers demais nos outros 23 arquivos | embrulhos de um elemento só, sem fundo, borda nem respiro | a v0.3.8 achata esses embrulhos na geração: de **216 para 176 containers** nos 24 arquivos, sem mudar o desenho (a largura do embrulho passa para o elemento de dentro) |
+| Hero da home com a foto embaixo do texto (e duas colunas quebrando em outras páginas) | as colunas somavam 52% + 44% e, com o respiro de 40px, passavam de 100%: a linha quebrava e a foto caía | corrigido na v0.3.15 na geração: linha de colunas que somam ~100% nasce **sem quebra** (`nowrap`). Vale para hero, editorial, coleção, lookbook e produto |
+| Menu sem a linha embaixo do item atual (página ativa) | menu em lista de ícones não tem como saber em que página a pessoa está; quem marca o item atual é o WordPress | na v0.3.15 o menu voltou a ser o **widget de menu do WordPress** (slug `menu-principal`), com a fonte Jost e o sublinhado do item ativo pelo CSS geral do kit (classe `iara-menu-nav`). Pré-requisito que voltou a valer: o menu **Menu Principal** precisa existir em Aparência > Menus com Início, Loja, Coleção, Sobre, Contato |
+| Links rosas/magenta na Minha Conta (e no carrinho/checkout) | são os links que o WooCommerce desenha, com a cor de link do tema; não passam por nenhum widget nosso | corrigidos no CSS geral que viaja no kit (v0.3.15): navegação da conta sem marcador, links em Terracota Escuro, item atual sublinhado. Se ainda sobrar rosa, é a cor de link do tema falando mais alto: conferir Personalizar > cores do tema |
+| Link do menu sem efeito ao passar o mouse (sem cor de hover nem sublinhado) | o widget de lista de ícones só tinha a cor normal pelas globais; o hover existia só no CSS separado, que nenhuma importação carregava | corrigido na v0.3.14 nas duas pontas: o widget ganhou a cor de hover pela global de destaque (`text_color_hover`) e o CSS geral, com as regras do link do menu, passou a viajar **dentro** do kit completo (chave `custom_css`) |
+| Menu continua serifado e a sacola continua com caixa, mesmo com o JSON novo | a tipografia e o botão do carrinho são do tema/widgets Pro, e o JSON não vence essa briga sozinho | **v0.3.9, com autorização da cliente:** cole o conteúdo de `bloco-b/css/iara-cabecalho.css` em **Elementor > Configurações do site > CSS personalizado** (se a opção não existir, em Personalizar > CSS adicional). É o CSS do protótipo mirando nas classes `iara-*` do cabeçalho: menu em Jost 12px em linha, sacola sem caixa e sem valor, faixa e ícones conferidos |
+| Marca voltou ao retângulo gigante "Logo." | o widget Logo do site está sem imagem definida | na v0.3.9 a marca é o **logotipo que a cliente subiu**: antes de importar, defina essa imagem como logo do site (Personalizar > Identidade do site, ou Elementor > Configurações do site > Logo do site). O CSS limita a altura a 54px, mas sem logo definido o placeholder volta |
+| **Cabeçalho "completamente errado" de novo: imagem genérica no lugar da marca, menu serifado, sacola com caixa, e o CSS "não pegou"** | análise minuciosa da v0.3.10: três provas na captura. (1) A imagem de montanhas é o placeholder do widget Logo do site: o logotipo subido na mídia **não estava definido como logo do site**. (2) Menu serifado mesmo com CSS que força Jost com prioridade: esse CSS **não estava ativo na página** (não colado, não salvo ou cache). (3) A caixa da sacola é o botão padrão do widget de carrinho do WooCommerce. Causa comum: o cabeçalho dependia de widgets que o tema e o WooCommerce estilizam por conta própria | **correção estrutural na v0.3.10, sem depender de CSS nem de mídia:** saem Logo do site, Menu de navegação e Carrinho do WooCommerce. Ficam só widgets básicos com fonte/cor das globais: marca em **texto** (igual ao protótipo, que é texto), faixa e menu em **lista de ícones em linha** (pedido da cliente: lista de ícones em vez de elemento de texto), e busca/conta/desejos/sacola como **ícones** simples com link. O CSS vira reforço opcional (mesmo arquivo, atualizado). Quem quiser o logotipo em imagem troca os dois títulos pelo widget Logo do site no editor, DEPOIS de definir a imagem como logo do site |
+| Menu com um **check (✓) na frente de cada item** e fontes serifadas em títulos de benefícios e cartões | causa raiz achada no código-fonte do Elementor (v0.3.11): (1) item de lista de ícones sem `selected_icon` definido ganha o ícone padrão do Elementor, que é o `fa fa-check`; (2) a tipografia global da lista de ícones se chama **`icon_typography`**, e a dos cartões é **`title_typography`/`description_typography`**. Com a chave errada ("typography", "typography_title"), o Elementor ignora a fonte global e o tema impõe a serifada dele | corrigido no gerador (ajuste automático em todos os arquivos) e **travado na conferência**: nenhum item nasce sem `selected_icon` (vazio quando não tem ícone) e nenhuma chave errada passa. Benefícios da home também igualados ao protótipo (rótulo em caixa alta, ícone 26px, fundo suave) e o "VER TUDO" das seções virou texto puro, sem o preenchimento marrom |
+| Home e outras páginas sem imagem nenhuma | os widgets de imagem estavam com o endereço vazio ("escolher no editor") | na v0.3.10 eles já nascem apontando para as fotos do protótipo (endereço público do repositório), então a importação já mostra hero, categorias, ocasiões, editorial, coleção e capítulos do lookbook. O pacote `bloco-b/imagens/iara-costa-imagens.zip` (no kit) traz os 39 arquivos para subir na Mídia; depois de subir, quem quiser troca o endereço pela mídia, página a página. Produtos, posts e a foto do produto continuam vindo do WooCommerce/Gutenberg, não do template |
+| Menu não aparece | o menu `principal` ainda não existe no site | criar em Aparência > Menus (Início, Loja, Coleção, Sobre, Contato) e conferir o slug |
+| Ícones da direita apertados ou sumidos | com o "Logo." gigante, a linha estourava | some junto com a correção da marca; conferir também em tela estreita |
+| Embaixo do cabeçalho aparece um rodapé genérico do tema | o rodapé do projeto ainda não foi importado ou está sem condição | importar o `02-rodape.json` e definir **Entire Site** no Theme Builder |
 
 ---
 
@@ -343,8 +466,9 @@ Todas conferidas por `python3 tools/blocob_confere.py`:
 ## 8. Ordem recomendada de trabalho
 
 1. Confirmar versões e tema no staging (seção 2).
-2. Criar as cores e as fontes globais (seção 3).
-3. Rodar o `ajusta-ids.py` (seção 3.3) e conferir com o `blocob_confere.py`.
+2. Importar as cores e as fontes globais com o pacote da seção 3.0
+   (`ajusta-ids.py` da seção 3.3 só no plano B) e conferir com o
+   `blocob_confere.py`.
 4. Importar o cabeçalho, definir a condição e ajustar o menu.
 5. Importar o rodapé, definir a condição e ajustar a newsletter.
 6. Conferir o site no navegador: cabeçalho e rodapé aparecendo em todas as páginas.
