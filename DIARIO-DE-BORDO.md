@@ -1,5 +1,36 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - PR #8 mergeado na main (registro)
+
+### O que aconteceu
+- O **PR #8** (branch de trabalho -> `main`) foi **mergeado** em 19/10/2026, às
+  09h00 (horário de Brasília), por Matheus Costa (`mdiascosta`).
+- **Commit de merge: `b450522`.** Entraram os três commits do início do Bloco C:
+  os CSVs de produtos e posts (v0.3.0), a limpeza do parágrafo do README e o
+  conteúdo das páginas com o kit de instalação (v0.3.1).
+- A `main` está com o `VERSION` em 0.3.1 e com a pasta `bloco-c/` completa até
+  aqui: `produtos.csv`, `posts.csv`, `pages-conteudo.md`, `IMPORTACAO-CSV.md`,
+  `LEIA-ME.txt` e `iara-costa-kit.zip`. As etiquetas `v0.3.0` e `v0.3.1`
+  apontam para os commits que entraram.
+
+### Decisões tomadas
+- **Registro sem mudança de versão**, igual aos merges anteriores: é anotação
+  sobre algo que já estava entregue. A versão continua 0.3.1.
+- **O Bloco C continua aberto**: faltam os guias de instalação, segurança,
+  SEO/Yoast, testes, desempenho, e-mail/SMTP, go-live e nota fiscal. Plugin
+  próprio (`plugin-iara-custom.zip`) só entra se for indispensável, e nada
+  até aqui mostrou que seja.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Importação de tudo em staging (templates do Bloco B e CSVs do Bloco C),
+  um arquivo por vez, com a conferência dos guias.
+- Versões do staging e instalação e teste dos plugins aprovados (TI
+  WooCommerce Wishlist e Variation Swatches for WooCommerce).
+- Revisão de textos: empresa nas institucionais, jurídico nas legais.
+- Catálogo real: descrições, fotos, peso, dimensões, estoque e numeração de
+  calçados. Quem assina os 8 posts.
+- Decisão sobre os filtros da loja (guia do Bloco B, seção 4.4).
+
 ## [2026-10-19] - Bloco C, parte 2: conteúdo das páginas e o kit (v0.3.1)
 
 ### Pedido da cliente
