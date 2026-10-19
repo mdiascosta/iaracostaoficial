@@ -1,5 +1,56 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Bloco C, parte 4 (final): testes, desempenho, e-mail, nota fiscal e go-live (v0.3.3)
+
+### Pedido da cliente
+"pode continuar", depois dos guias de instalação, segurança e SEO (PR #9).
+Fechei o Bloco C com os cinco guias restantes.
+
+### O que foi feito (IMPLEMENTADO como instrução)
+- **`GUIA-TESTES.md`**: roteiro por área (navegação, loja, produto, conta,
+  formulários, acessibilidade manual) com o teste central em 8 passos:
+  variação na sacola, BEMVINDO10 aplicado e reaplicado para registrar o
+  comportamento real, frete abaixo e acima de R$ 299, pedido como visitante
+  por meio de teste sem pagamento real, pedido recebido, e-mail, Minha conta
+  e **apagar o pedido de teste**.
+- **`GUIA-DESEMPENHO.md`**: medir no celular, 3 vezes, mediana; antes e
+  depois de cada ajuste; a tabela de registro com LCP, CLS e INP e as metas
+  do dossiê. Sem número medido, o relatório diz "não medido".
+- **`GUIA-EMAIL-SMTP.md`**: endereços da loja a decidir, SPF, DKIM e DMARC
+  em etapas, envio autenticado (plugin novo só com aprovação) e os e-mails
+  do WooCommerce conferidos um por um no pedido de teste.
+- **`GUIA-NFE.md`**: nota fiscal como decisão da empresa com o contador
+  antes do go-live, com dados [PREENCHER], homologação e os dois caminhos
+  de emissão comparados. Sem contador, sem go-live.
+- **`GUIA-GO-LIVE.md`**: a virada em ordem (congelar e copiar, conteúdo e
+  loja, virada técnica com a retirada do `noindex`, primeiras 24 horas e os
+  30 dias), fechando com a avaliação de plugin próprio.
+- **Kit remontado** com os oito guias: 39 arquivos.
+
+### Decisões tomadas
+- **Bloco C completo no papel, nada executado**: instalar, importar, testar
+  e medir são da equipe em staging e produção. Os guias deixam o registro
+  pronto para provar o que foi feito.
+- **Plugin próprio avaliado e dispensado**: WooCommerce, Elementor Pro,
+  Yoast e os dois gratuitos aprovados cobrem o desenho. A avaliação ficou
+  escrita no fim do guia de go-live, para a decisão não virar lenda oral.
+- **Nota fiscal trava o go-live**: vender sem emissão resolvida não é uma
+  opção que este projeto assine.
+
+### O que foi verificado aqui
+- Referências entre os guias e o kit; `tools/blococ_confere.py`,
+  `tools/blocob_confere.py` e `tools/check.py` verdes.
+
+### O que não foi verificado
+- **Absolutamente nada de execução**: nenhuma instalação, importação, teste,
+  medição de desempenho, envio de e-mail ou emissão. É tudo trabalho do
+  staging em diante, com os guias como roteiro.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- A execução inteira: staging, importações, plugins, catálogo real, textos
+  aprovados, jurídico, contador, testes registrados e a virada.
+- Depois disso, o projeto entra na fase de acompanhamento de 30 dias.
+
 ## [2026-10-19] - Bloco C, parte 3: guias de instalação, segurança e SEO (v0.3.2)
 
 ### Pedido da cliente

@@ -61,6 +61,27 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.3 · 2026-10-19 · Bloco C, parte 4 (final): testes, desempenho, e-mail, nota fiscal e go-live
+
+**O que entrou**
+
+| O que | Onde |
+|---|---|
+| Roteiro de testes com o pedido de teste completo (BEMVINDO10, frete, visitante, e-mail, apagar o teste) e a conferência de acessibilidade manual | `bloco-c/guias/GUIA-TESTES.md` |
+| Desempenho medido antes e depois, com as metas LCP 2,5s, CLS 0,1 e INP 200ms e a tabela de registro | `bloco-c/guias/GUIA-DESEMPENHO.md` |
+| E-mail e SMTP: endereços da loja, SPF, DKIM, DMARC e os e-mails do WooCommerce um por um | `bloco-c/guias/GUIA-EMAIL-SMTP.md` |
+| Nota fiscal como decisão com o contador antes do go-live, com homologação | `bloco-c/guias/GUIA-NFE.md` |
+| A virada do go-live em ordem, incluindo tirar o `noindex`, e os 30 dias seguintes | `bloco-c/guias/GUIA-GO-LIVE.md` |
+| Kit remontado com os oito guias (39 arquivos) | `bloco-c/iara-costa-kit.zip` |
+
+**Com isso, o Bloco C está completo** no papel: CSVs, conteúdo das páginas,
+kit e os oito guias. **Avaliação registrada**: nenhum plugin próprio
+(`plugin-iara-custom.zip`) é indispensável para o que foi desenhado; se um
+dia for, nasce como plugin isolado e versionado, com o núcleo intocado.
+
+**O que continua não feito, e é da execução**: instalar, importar, testar,
+medir e publicar. Nada disso foi executado aqui, por falta de acesso.
+
 ### v0.3.2 · 2026-10-19 · Bloco C, parte 3: guias de instalação, segurança e SEO
 
 **O que entrou**
