@@ -297,6 +297,7 @@ importe o `01-cabecalho.json` novo:
 | Um retângulo gigante escrito "Logo." | versões antigas usavam o widget Site Logo sem logo definido | corrigido: a marca agora é texto, como no protótipo |
 | Links da faixa verde em rosa ou vermelho | a cor do link não estava definida e herdou o padrão do tema | corrigido: `link_color` igual à cor do texto nos widgets de texto com link |
 | Recados da faixa verde como texto corrido | versões até a v0.3.5 usavam um widget de texto | corrigido na v0.3.6: a faixa é uma **lista de ícones em linha** (`view: inline`), um recado ao lado do outro, com ícone em cada um |
+| Cabeçalho com container demais e espaçamento solto | a estrutura tinha 7 containers (raiz, barra, linha e embrulho do menu) | enxugado na v0.3.7 para **4 containers**: faixa, barra, marca e ações. Marca com 24% à esquerda, menu no meio, ações com 24% à direita e 18px entre os ícones |
 | Menu não aparece | o menu `principal` ainda não existe no site | criar em Aparência > Menus (Início, Loja, Coleção, Sobre, Contato) e conferir o slug |
 | Ícones da direita apertados ou sumidos | com o "Logo." gigante, a linha estourava | some junto com a correção da marca; conferir também em tela estreita |
 | Embaixo do cabeçalho aparece um rodapé genérico do tema | o rodapé do projeto ainda não foi importado ou está sem condição | importar o `02-rodape.json` e definir **Entire Site** no Theme Builder |

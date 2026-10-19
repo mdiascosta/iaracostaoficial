@@ -286,7 +286,9 @@ def cabecalho():
     marca = d.container('Marca', {
         'flex_direction': 'column',
         'flex_gap': lacuna(2, 2),
-        '_flex_size': 'grow',
+        '_flex_size': 'custom',
+        '_flex_basis_type': 'custom',
+        '_flex_basis': medida(24, '%'),
         '_flex_align_self': 'center',
     }, [
         d.widget('heading', juntar_globais({
@@ -303,25 +305,14 @@ def cabecalho():
             caminho='barra/marca-tagline'),
     ], caminho='barra/marca', interno=True)
 
-    navegacao = d.container('Navegação principal', {
-        'flex_direction': 'row',
-        'flex_align_items': 'center',
-        'flex_justify_content': 'center',
-        'flex_gap': lacuna(28, 28),
-    }, [
-        d.widget('nav-menu', {
-            '_title': 'Menu principal',
-            'menu': 'principal',
-            'layout': 'horizontal',
-        }, caminho='barra/menu'),
-    ], caminho='barra/navegacao', interno=True)
-
     acoes = d.container('Ações', {
         'flex_direction': 'row',
         'flex_justify_content': 'flex-end',
         'flex_align_items': 'center',
-        'flex_gap': lacuna(14, 14),
-        '_flex_size': 'grow',
+        'flex_gap': lacuna(18, 18),
+        '_flex_size': 'custom',
+        '_flex_basis_type': 'custom',
+        '_flex_basis': medida(24, '%'),
         '_flex_align_self': 'center',
     }, [
         d.widget('search-form', {'_title': 'Busca', 'skin': 'minimal',
@@ -342,32 +333,28 @@ def cabecalho():
         d.widget('woocommerce-menu-cart', {'_title': 'Sacola'}, caminho='barra/sacola'),
     ], caminho='barra/acoes', interno=True)
 
-    linha = d.container('Linha do cabeçalho', {
+    barra = d.container('Barra do cabeçalho', {
         'content_width': 'boxed',
         'flex_direction': 'row',
         'flex_align_items': 'center',
         'flex_justify_content': 'space-between',
         'flex_gap': lacuna(24, 24),
-    }, [marca, navegacao, acoes], caminho='barra/linha', interno=True)
-
-    barra = d.container('Barra do cabeçalho', {
-        'content_width': 'full',
-        'flex_direction': 'column',
-        'padding': dimensoes(16, 0, 16, 0),
+        'padding': dimensoes(14, 0, 14, 0),
         'background_background': 'classic',
         'border_border': 'solid',
         'border_width': {'unit': 'px', 'top': '0', 'right': '0', 'bottom': '1', 'left': '0', 'isLinked': False},
         '__globals__': {'background_color': cor('iara-papel'), 'border_color': cor('iara-fio')},
-    }, [linha], caminho='barra')
+    }, [marca,
+        d.widget('nav-menu', {
+            '_title': 'Menu principal',
+            'menu': 'principal',
+            'layout': 'horizontal',
+            '_flex_align_self': 'center',
+        }, caminho='barra/menu'),
+        acoes], caminho='barra')
 
-    raiz = d.container('Cabeçalho', {
-        'content_width': 'full',
-        'flex_direction': 'column',
-        'flex_gap': lacuna(0, 0),
-        'padding': dimensoes(0, 0, 0, 0),
-    }, [faixa, barra], caminho='raiz')
-
-    d.content = [raiz]
+    # Sem container raiz: a faixa e a barra sao os dois blocos do topo.
+    d.content = [faixa, barra]
     return d
 
 

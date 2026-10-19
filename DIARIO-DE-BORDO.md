@@ -1,5 +1,31 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Cabeçalho com menos containers e espaçamento revisto (v0.3.7)
+
+### Pedido da cliente
+"tente usar menos container, pode ajustar isso também no header e veja
+novamente o espaçamento do logo, menu e outros." É o mesmo espírito do
+round em que ela pediu o header "mais clean" no protótipo: estrutura
+enxuta, respiro definido.
+
+### O que foi feito (IMPLEMENTADO)
+- **7 para 4 containers** no `01-cabecalho.json`: saíram o container raiz
+  (a faixa e a barra viraram os dois blocos de topo do arquivo), o par
+  barra/linha (fundidos num container só, que carrega fundo, fio inferior e
+  a linha) e o embrulho "Navegação principal" (o widget de menu vai direto
+  na barra). Sobraram faixa, barra, marca (que empilha nome e assinatura) e
+  ações (que agrupa os quatro ícones).
+- **Espaçamento com número, não com sorte**: marca `_flex_basis` 24%, ações
+  24% com `flex-end`, menu no meio distribuído pelo `space-between` da
+  barra com `flex_gap` de 24px, 18px entre os ícones das ações e 14px de
+  padding vertical na barra (era 16px numa camada que nem existia sozinha).
+- Guia: linha nova na tabela de diagnóstico (4.6). Kit remontado.
+
+### O que continua por verificar
+- A reimportação no staging com a captura da barra completa: marca, menu
+  central, ícones e a faixa em linha. É essa tela que aprova ou devolve o
+  cabeçalho, como nos rounds do protótipo.
+
 ## [2026-10-19] - Faixa verde como lista de ícones em linha (v0.3.6)
 
 ### Pedido da cliente

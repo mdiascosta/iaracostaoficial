@@ -61,6 +61,27 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.7 · 2026-10-19 · Cabeçalho com menos containers e espaçamento revisto
+
+**Pedido da cliente:** "tente usar menos container, pode ajustar isso também
+no header e veja novamente o espaçamento do logo, menu e outros".
+
+**O que mudou no `01-cabecalho.json`**
+
+- De **7 containers para 4**: faixa de aviso, barra, marca e ações. Saíram o
+  container raiz, a separação entre "barra" e "linha" (viraram um só) e o
+  embrulho do menu (o widget vai direto na barra).
+- **Espaçamento definido, não solto**: marca com 24% da largura à esquerda,
+  menu no meio com 24px de respiro de cada vizinho (`space-between`), bloco
+  de ações com 24% à direita, ícones separados por 18px e a barra com 14px
+  de respiro em cima e embaixo.
+- A faixa verde (lista de ícones em linha da v0.3.6) e a marca em texto
+  (v0.3.5) continuam como estavam.
+
+**Verificado aqui:** arquivo regenerado, `blocob_confere.py` verde, e a
+árvore impressa com os 4 containers. **Não verificado:** a renderização,
+que depende de reimportar apagando o template antigo.
+
 ### v0.3.6 · 2026-10-19 · Faixa verde do topo como lista de ícones em linha
 
 **Pedido da cliente:** "no topbar verde os ícones têm que ser uma lista de
