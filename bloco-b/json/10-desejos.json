@@ -108,7 +108,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>[A DEFINIR] Esta página depende do plugin de lista de desejos, que ainda não foi aprovado. Quando ele for escolhido, o bloco de produtos salvos entra aqui, no lugar deste aviso, e o coração do cabeçalho passa a apontar para esta lista.</p>",
+                "editor": "<p>[CONFIGURAR NO EDITOR] Lista gerada pelo plugin TI WooCommerce Wishlist, aprovado para este projeto. Ao instalar, apontar a página da lista para este endereço; o bloco de produtos salvos entra aqui, no lugar deste aviso, e o coração do cabeçalho já aponta para ela.</p>",
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave",
                   "typography": "globals/typography?id=text"

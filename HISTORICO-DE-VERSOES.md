@@ -61,6 +61,25 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.2.4 · 2026-10-16 · Decisão: plugins de desejos e de swatches aprovados
+
+**Decisão da cliente:** instalar, nas versões gratuitas, o **TI WooCommerce
+Wishlist** (lista de desejos) e o **Variation Swatches for WooCommerce**, da
+GetWooPlugins (cor e tamanho em botões). Os dois foram escolhidos pela base
+instalada e pelas avaliações no repositório oficial do WordPress, e porque a
+versão gratuita dos dois cobre o que esta loja precisa: uma lista por cliente
+e variação esgotada tratada até 30 variações por produto.
+
+**O que mudou:** a página de desejos (`10-desejos.json`) deixou de dizer que o
+plugin não foi aprovado e passou a indicar a configuração; o guia ganhou a
+seção 4.5 com a decisão, os limites da versão gratuita e a regra de medir o
+peso da página antes e depois; `PENDENCIAS.md` trocou as duas pendências de
+aprovação pela tarefa de instalar e testar.
+
+**Regra registrada:** versão Pro só entra se o teste no staging mostrar falta
+real, e com nova aprovação. Nada foi instalado: quem instala é a equipe, no
+staging, um plugin por vez.
+
 ### v0.2.3 · 2026-10-16 · Bloco B, parte 4: o funil de compra
 
 **O que entrou**

@@ -128,7 +128,7 @@ estiverem habilitadas na conta do Mercado Pago.
 | Endereço do Instagram e do Pinterest | rodapé, coluna Atendimento | hoje os dois links estão como `[PREENCHER]` |
 | Nome do menu principal | cabeçalho, widget Menu | o template aponta para o menu de slug `principal` |
 | Logo do site | cabeçalho, widget Site Logo | entra em Aparência > Personalizar > Identidade do site |
-| Plugin de lista de desejos | página de desejos e ícone do coração | sem aprovação, a página fica para depois |
+| Página da lista de desejos gerada pelo TI WooCommerce Wishlist | página de desejos e ícone do coração | plugin aprovado; gerar a página em `/lista-de-desejos/` e só publicar depois do teste no staging |
 | Número final de arquivos do Bloco B (24 ou 21) | `bloco-b/GUIA-IMPORTACAO.md`, seção 5.2 | a conta página por página dá 24; juntar as três páginas políticas levaria a 21 |
 
 | Fotos reais da home (hero, editorial, coleção, categorias, ocasiões) | `bloco-b/json/03-home.json` | os widgets de imagem entram vazios de propósito: imagem entra pela biblioteca de mídia |
@@ -136,7 +136,7 @@ estiverem habilitadas na conta do Mercado Pago.
 | Categorias reais do WooCommerce | cartões de categoria e de ocasião da home | hoje todos apontam para `/loja/`; apontar cada um depois do cadastro |
 
 | Caminho dos filtros da loja (preço, cor e tamanho) | `bloco-b/json/04-loja.json`; guia, seção 4.4 | o Elementor não traz filtro de atributo: blocos do WooCommerce, plugin aprovado ou links por atributo |
-| Plugin de swatches (cor e tamanho em botões) | página do produto | sem plugin, o WooCommerce usa o seletor padrão; precisa de aprovação prévia |
+| Instalar e testar os plugins aprovados: TI WooCommerce Wishlist e Variation Swatches for WooCommerce (gratuitos) | lista de desejos, página do produto e grade | aprovados em 16/10/2026; instalar um por vez no staging e medir o peso antes e depois. Pro só com nova aprovação |
 | Widgets de produto do Elementor Pro no staging | `bloco-b/json/05-produto.json` | conferir na instalação se a versão licenciada traz todos os widgets usados |
 
 | Apontar as telas do funil no WooCommerce | sacola, finalizar compra, pedido recebido e minha conta | Configurações > Avançado do WooCommerce, depois de publicar as páginas |

@@ -45,7 +45,8 @@ python3 tools/ajusta-ids.py        # casa os ids das cores com os do site (passo
 | **Elementor** (versão gratuita) | construtor de base | [CONFERIR] |
 | **Elementor Pro** com licença oficial | Theme Builder, widgets de WooCommerce e formulário | decisão D1 |
 | **WooCommerce** | catálogo, sacola, checkout e conta | [CONFERIR] |
-| Plugin de lista de desejos | só se a página de desejos for usada | aguardando aprovação |
+| **TI WooCommerce Wishlist** (gratuito) | lista de desejos | aprovado em 16/10/2026; a equipe instala no staging |
+| **Variation Swatches for WooCommerce**, da GetWooPlugins (gratuito) | seletor de cor e tamanho em botões | aprovado em 16/10/2026; a equipe instala no staging |
 
 Nada de plugin nulo ou pirata, conforme a regra do projeto.
 
@@ -201,7 +202,7 @@ monta. São rápidos:
 | Loja: grade de produtos | 9 peças por página, 3 colunas e as 5 ordenações do protótipo (mais recentes, mais populares, menor preço, maior preço, melhor avaliados) |
 | Loja: filtros de preço, cor e tamanho | ver a decisão abaixo: o Elementor não traz filtro de atributo pronto, e este item precisa de definição da equipe |
 | Produto: galeria | ligar zoom e lightbox nativos do WooCommerce e conferir o corte 1:1 das fotos |
-| Produto: variações | cor e tamanho nascem dos atributos do produto variável; o seletor em botões (swatches) **não** é nativo e depende de plugin aprovado |
+| Produto: variações | cor e tamanho nascem dos atributos globais Cor (tipo cor) e Tamanho (tipo botão); o plugin **Variation Swatches for WooCommerce** (aprovado) troca os seletores padrão pelos botões do protótipo. Conferir esgotado riscado ou esmaecido, como no protótipo |
 | Produto: tabela de medidas | preencher com as medidas reais de cada peça (nada de tabela de exemplo) |
 | Sacola: cupom | deixar o campo de cupom visível: é por ele que entra o BEMVINDO10 |
 | Sacola, checkout e conta: endereços do WooCommerce | em WooCommerce > Configurações > Avançado, apontar cada tela para a página certa (sacola, finalizar compra e minha conta) |
@@ -209,7 +210,7 @@ monta. São rápidos:
 | Checkout: pagamento | conferir Pix, cartão e boleto ativos na conta do Mercado Pago antes de qualquer teste |
 | Pedido recebido | conferir se o resumo aparece depois de um pedido de teste e se o e-mail de confirmação sai com o remetente da loja |
 | Conta, sacola e checkout fora do Google | marcar `noindex` no Yoast nestas três páginas e deixar fora do sitemap |
-| Desejos | não publicar até o plugin de lista de desejos ser aprovado; hoje a página traz só o aviso |
+| Desejos | instalar o **TI WooCommerce Wishlist** (aprovado), gerar a página da lista com o endereço `/lista-de-desejos/` e conferir o contador do coração no cabeçalho; só publicar depois desse teste |
 | Site inteiro: botão do WhatsApp | usar **Floating Elements** do Elementor (Site Settings), com o número (15) 99123-4567 e a entrada depois de rolar a página, como no protótipo |
 
 ### 4.4 Uma decisão pendente: os filtros da loja
@@ -228,6 +229,20 @@ pronto dentro do canvas. Caminhos possíveis, para a equipe decidir:
 
 Nenhum caminho foi escolhido neste arquivo. Enquanto a decisão não sai, a loja
 publica com categoria, ordenação e paginação, que já vêm do WooCommerce.
+
+### 4.5 Plugins aprovados (decisão de 16/10/2026)
+
+Dois plugins foram aprovados para funções que o WooCommerce não traz prontas.
+Os dois começam na **versão gratuita**, instalada pela equipe no staging:
+
+| Função | Plugin | Por que ele | Limite da versão gratuita |
+|---|---|---|---|
+| Lista de desejos | **TI WooCommerce Wishlist** | bem avaliado, lista para visitante e logado, página própria da lista | uma lista por cliente (basta para esta loja); listas múltiplas e analytics são do Premium |
+| Cor e tamanho em botões (swatches) | **Variation Swatches for WooCommerce** (GetWooPlugins) | é o mais usado da categoria, troca o seletor padrão por cor, imagem e botão, e trata variação esgotada | esgotado tratado até 30 variações por produto (basta para o catálogo previsto); swatches na grade da loja são do Pro |
+
+Regras de uso: instalar um por vez, testar a loja depois de cada um e medir o
+peso da página antes e depois (meta de desempenho do dossiê). Versão Pro só
+entra se o teste mostrar falta real, com nova aprovação.
 
 ---
 

@@ -1649,10 +1649,10 @@ def desejos():
             'content_width': 'boxed', 'flex_direction': 'column',
             'flex_gap': lacuna(16, 16), 'padding': dimensoes(16, 0, 56, 0),
         }, [
-            paragrafo(d, ('[A DEFINIR] Esta página depende do plugin de lista de desejos, '
-                          'que ainda não foi aprovado. Quando ele for escolhido, o bloco de '
-                          'produtos salvos entra aqui, no lugar deste aviso, e o coração do '
-                          'cabeçalho passa a apontar para esta lista.'), 'desejos/aviso'),
+            paragrafo(d, ('[CONFIGURAR NO EDITOR] Lista gerada pelo plugin TI WooCommerce '
+                          'Wishlist, aprovado para este projeto. Ao instalar, apontar a página '
+                          'da lista para este endereço; o bloco de produtos salvos entra aqui, '
+                          'no lugar deste aviso, e o coração do cabeçalho já aponta para ela.'), 'desejos/aviso'),
             botao(d, 'Ver a loja', PAGINAS['loja'], 'desejos/botao'),
         ], caminho='desejos/conteudo', interno=True),
     ], caminho='raiz')

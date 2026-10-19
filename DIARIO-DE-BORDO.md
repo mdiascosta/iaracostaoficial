@@ -1,5 +1,42 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Decisão: plugins de desejos e de swatches aprovados (v0.2.4)
+
+### Pedido da cliente
+"lista de desejos e swatches de cor/tamanho, qual plugin instalar?" Apresentei
+a comparação das opções atuais do repositório oficial do WordPress e a cliente
+aprovou as duas indicações na versão gratuita.
+
+### Decisão (APROVADO pela cliente)
+- **TI WooCommerce Wishlist** para a lista de desejos: 100 mil instalações
+  ativas ou mais e nota 4.7 no WordPress.org. A versão gratuita traz uma lista
+  por cliente, lista para visitante e página própria; listas múltiplas e
+  analytics ficam no Premium, que esta loja não precisa agora.
+- **Variation Swatches for WooCommerce** (GetWooPlugins) para cor e tamanho
+  em botões: 300 mil instalações ativas ou mais e nota 4.8. A versão gratuita
+  troca o seletor padrão por cor, imagem e botão, e trata a variação esgotada
+  até 30 variações por produto; o catálogo previsto (4 tamanhos nas cores da
+  peça) fica bem abaixo disso. Swatches na grade da loja são do Pro.
+- A alternativa pesada (YITH) ficou de fora pelo custo anual e pelo peso
+  relatado em comparativos; o WooCommerce novo até traz atributo visual
+  nativo, mas só em tema de blocos, e o tema deste projeto é o Hello
+  Elementor.
+
+### O que mudou nos arquivos
+- `10-desejos.json`: o aviso `[A DEFINIR]` virou `[CONFIGURAR NO EDITOR]` com
+  o nome do plugin aprovado e o endereço da página da lista.
+- `GUIA-IMPORTACAO.md`: seção 4.5 nova com a decisão, os limites da versão
+  gratuita e as regras de instalação; linhas de desejos e de variações
+  atualizadas nas seções 2.1 e 4.3.
+- `PENDENCIAS.md`: as pendências de aprovação viraram tarefa de instalar e
+  testar no staging, um por vez, medindo o peso antes e depois.
+
+### O que não foi feito
+- **Nada foi instalado** (sem acesso ao WordPress): quem instala é a equipe.
+- **Nenhum teste de compatibilidade** com o staging: versões do WordPress e do
+  WooCommerce do ambiente seguem `[CONFERIR]`.
+- Versão Pro dos dois: só com falta real no teste e nova aprovação.
+
 ## [2026-10-16] - Bloco B, parte 4: o funil de compra (v0.2.3)
 
 ### Pedido da cliente
