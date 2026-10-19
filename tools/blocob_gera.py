@@ -248,15 +248,26 @@ def cabecalho():
     """01. Cabecalho do site: faixa de aviso, marca, menu e acoes."""
     d = Documento('Cabeçalho do site', 'header')
 
-    # --- faixa de aviso
-    aviso_texto = (
-        'Frete grátis acima de R$ 299 · <a href="' + PAGINAS['sobre'] + '">Compra consciente</a>'
-        ' · <a href="' + PAGINAS['envio'] + '">Envio para todo o Brasil</a>'
-    )
-    aviso = d.widget('text-editor', juntar_globais({
-        'editor': '<p>' + aviso_texto + '</p>',
-        'align': 'center',
-    }, {'text_color': cor('iara-faixa-texto'), 'link_color': cor('iara-faixa-texto'),
+    # --- faixa de aviso: lista de icones em linha (nao e texto corrido)
+    aviso = d.widget('icon-list', juntar_globais({
+        '_title': 'Recados da faixa',
+        'view': 'inline',
+        'icon_list': [
+            d.item({'text': 'Frete grátis acima de R$ 299',
+                    'selected_icon': {'value': 'fas fa-truck', 'library': 'fa-solid'}},
+                   'faixa/item-1'),
+            d.item({'text': 'Compra consciente',
+                    'selected_icon': {'value': 'fas fa-leaf', 'library': 'fa-solid'},
+                    'link': {'url': PAGINAS['sobre'], 'is_external': '', 'nofollow': ''}},
+                   'faixa/item-2'),
+            d.item({'text': 'Envio para todo o Brasil',
+                    'selected_icon': {'value': 'fas fa-globe-americas', 'library': 'fa-solid'},
+                    'link': {'url': PAGINAS['envio'], 'is_external': '', 'nofollow': ''}},
+                   'faixa/item-3'),
+        ],
+        'space_between': medida(18),
+        'icon_size': medida(13),
+    }, {'text_color': cor('iara-faixa-texto'), 'icon_color': cor('iara-faixa-texto'),
         'typography': fonte('iara-texto-micro')}),
         caminho='faixa/aviso')
 

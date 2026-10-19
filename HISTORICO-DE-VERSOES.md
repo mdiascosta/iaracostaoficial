@@ -61,6 +61,21 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.6 · 2026-10-19 · Faixa verde do topo como lista de ícones em linha
+
+**Pedido da cliente:** "no topbar verde os ícones têm que ser uma lista de
+ícones inline". A faixa de aviso do cabeçalho era um texto corrido com
+separadores; agora é o widget **Lista de ícones** do Elementor com o layout
+`inline` (controle `view`, conferido em `includes/widgets/icon-list.php`),
+um recado ao lado do outro: "Frete grátis acima de R$ 299" com caminhão,
+"Compra consciente" com folha e "Envio para todo o Brasil" com globo, os
+dois últimos com os links de sempre.
+
+**Verificado aqui:** arquivo regenerado e conferido (`blocob_confere.py`
+verde; `view: inline` e os três itens com ícone presentes no JSON).
+**Não verificado:** a renderização; depende de reimportar o cabeçalho
+apagando o antigo, como na v0.3.5.
+
 ### v0.3.5 · 2026-10-19 · Correção do cabeçalho a partir da primeira importação real
 
 **De onde veio:** o cabeçalho foi importado no staging e a captura mostrou

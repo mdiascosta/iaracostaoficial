@@ -1,5 +1,27 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - Faixa verde como lista de ícones em linha (v0.3.6)
+
+### Pedido da cliente
+"no topbar de verde os icones tem que ser uma lista de icones inline". A
+faixa de aviso era um widget de texto com os três recados e separadores; a
+cliente quer o widget de lista de ícones em linha.
+
+### O que foi feito (IMPLEMENTADO)
+- `01-cabecalho.json`: a faixa verde agora é um `icon-list` com
+  `view: 'inline'` (o controle de layout do próprio widget, conferido em
+  `includes/widgets/icon-list.php`: `traditional` ou `inline`), itens com
+  `_id` próprio, ícone Font Awesome em cada recado (caminhão, folha e
+  globo), espaçamento de 18px e cor de texto e de ícone na global
+  `iara-faixa-texto`.
+- Guia: a linha nova entrou na tabela de diagnóstico da seção 4.6.
+- Kit do Bloco C remontado com o cabeçalho novo.
+
+### O que continua por verificar
+- A reimportação no staging (apagar o cabeçalho antigo antes), junto com o
+  teste da v0.3.5: marca em texto, menu `principal` criado e a captura da
+  barra completa.
+
 ## [2026-10-19] - Correção do cabeçalho pela primeira importação real (v0.3.5)
 
 ### O que aconteceu

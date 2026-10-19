@@ -57,13 +57,59 @@
             {
               "id": "c8eb2f2",
               "elType": "widget",
-              "widgetType": "text-editor",
+              "widgetType": "icon-list",
               "settings": {
-                "editor": "<p>Frete grátis acima de R$ 299 · <a href=\"/sobre/\">Compra consciente</a> · <a href=\"/envio-e-entrega/\">Envio para todo o Brasil</a></p>",
-                "align": "center",
+                "_title": "Recados da faixa",
+                "view": "inline",
+                "icon_list": [
+                  {
+                    "text": "Frete grátis acima de R$ 299",
+                    "selected_icon": {
+                      "value": "fas fa-truck",
+                      "library": "fa-solid"
+                    },
+                    "_id": "739539a"
+                  },
+                  {
+                    "text": "Compra consciente",
+                    "selected_icon": {
+                      "value": "fas fa-leaf",
+                      "library": "fa-solid"
+                    },
+                    "link": {
+                      "url": "/sobre/",
+                      "is_external": "",
+                      "nofollow": ""
+                    },
+                    "_id": "55d76bc"
+                  },
+                  {
+                    "text": "Envio para todo o Brasil",
+                    "selected_icon": {
+                      "value": "fas fa-globe-americas",
+                      "library": "fa-solid"
+                    },
+                    "link": {
+                      "url": "/envio-e-entrega/",
+                      "is_external": "",
+                      "nofollow": ""
+                    },
+                    "_id": "26f088d"
+                  }
+                ],
+                "space_between": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "icon_size": {
+                  "unit": "px",
+                  "size": 13,
+                  "sizes": []
+                },
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-faixa-texto",
-                  "link_color": "globals/colors?id=iara-faixa-texto",
+                  "icon_color": "globals/colors?id=iara-faixa-texto",
                   "typography": "globals/typography?id=iara-texto-micro"
                 }
               },
