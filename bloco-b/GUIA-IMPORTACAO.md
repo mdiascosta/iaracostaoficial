@@ -193,27 +193,34 @@ monta. São rápidos:
 | Cabeçalho: widget Sacola | conferir se some o texto e fica só o ícone com o contador |
 | Rodapé: formulário da newsletter | escolher o destino do e-mail e o serviço de newsletter (o campo está como `[PREENCHER]`) |
 | Rodapé: links de redes sociais | trocar os `[PREENCHER]` pelos endereços reais |
+| Home: fotos do hero, do editorial e da coleção | escolher as imagens reais na biblioteca de mídia; a legenda do hero entra sobre a foto no editor, se a equipe quiser manter o selo do protótipo |
+| Home: bloco Em destaque | escolher a fonte de produtos "Em destaque" do WooCommerce, 4 colunas e 1 linha; nenhum produto é escrito à mão no template |
+| Home: bloco Do diário | escolher os 3 posts mais recentes; os textos nascem no Gutenberg, nunca no Elementor |
+| Home: categorias e ocasiões | apontar cada cartão para a categoria certa da loja (hoje todos apontam para `/loja/`) |
+| Home: depoimentos | substituir os 3 depoimentos de exemplo pelos reais, com autorização de uso |
 | Site inteiro: botão do WhatsApp | usar **Floating Elements** do Elementor (Site Settings), com o número (15) 99123-4567 e a entrada depois de rolar a página, como no protótipo |
 
 ---
 
 ## 5. As partes e as páginas
 
-### 5.1 As duas partes do site (prontas nesta parte)
+### 5.1 O que já está pronto
 
 | Arquivo | Título | Tipo | O que é |
 |---|---|---|---|
 | `01-cabecalho.json` | Cabeçalho do site | Header | faixa verde do topo, logo, menu e os quatro ícones (busca, conta, desejos, sacola) |
 | `02-rodape.json` | Rodapé do site | Footer | newsletter, quatro colunas, faixa de segurança e formas de pagamento, base com CNPJ e links de política |
+| `03-home.json` | Página inicial | Página | hero, faixa de benefícios, categorias, produtos em destaque, ocasiões, editorial do ateliê, coleção, depoimentos, posts recentes e perguntas frequentes |
 
 ### 5.2 As páginas (próximas partes)
+
+A página inicial (`03-home.json`) já foi entregue na parte 2. Faltam:
 
 Cada página do protótipo vira um arquivo. Os endereços sugeridos são os mesmos do
 protótipo, para o site nascer com os links certos.
 
 | # | Página | Arquivo previsto | Tipo no Elementor | Endereço |
 |---|---|---|---|---|
-| 03 | Início | `03-home.json` | página | `/` |
 | 04 | Loja | `04-loja.json` | arquivo de produtos | `/loja/` |
 | 05 | Página da peça | `05-produto.json` | produto único | `/produto/<peça>/` |
 | 06 | Sacola | `06-carrinho.json` | página (widget Cart) | `/sacola/` |
@@ -289,7 +296,8 @@ Todas conferidas por `python3 tools/blocob_confere.py`:
 4. Importar o cabeçalho, definir a condição e ajustar o menu.
 5. Importar o rodapé, definir a condição e ajustar a newsletter.
 6. Conferir o site no navegador: cabeçalho e rodapé aparecendo em todas as páginas.
-7. Avisar para seguir para a próxima parte (as páginas de loja e produto).
+7. Importar a página inicial (`03-home.json`), criar a página Início, definir como página inicial do site e fazer os ajustes da seção 4.3.
+8. Conferir a home no celular e no computador antes de seguir.
 
-Quando o cabeçalho e o rodapé estiverem no ar e conferidos, o próximo lote é
-loja, produto e busca, que é onde o WooCommerce entra de verdade.
+Quando a home estiver no ar e conferida, o próximo lote é loja, produto e busca,
+que é onde o WooCommerce entra de verdade.

@@ -1,4 +1,4 @@
-BLOCO B · TEMPLATES DO ELEMENTOR · PARTE 1 · 16/10/2026
+BLOCO B · TEMPLATES DO ELEMENTOR · PARTE 2 · 16/10/2026
 
 
 O QUE E ESTA PASTA
@@ -13,6 +13,8 @@ O QUE TEM AQUI DENTRO
   GUIA-IMPORTACAO.md        leia este primeiro: ordem, cuidados e o que fazer
   json/01-cabecalho.json    cabecalho do site (faixa verde, logo, menu, icones)
   json/02-rodape.json       rodape do site (newsletter, colunas, seguranca, base)
+  json/03-home.json         pagina inicial (hero, categorias, destaques, editorial,
+                            colecao, depoimentos, diario e perguntas frequentes)
   globais/cores-e-fontes.json   as 15 cores e as 10 fontes do site, por nome
 
 
@@ -26,6 +28,8 @@ ORDEM DE TRABALHO
          python3 tools/blocob_confere.py
   4. Importar os dois templates e definir a condicao de exibicao
      (Entire Site, nos dois).
+  5. Importar a pagina inicial, criar a pagina Inicio e defini-la como pagina
+     inicial do site; depois fazer os ajustes da secao 4.3 do guia.
 
 
 AVISO IMPORTANTE

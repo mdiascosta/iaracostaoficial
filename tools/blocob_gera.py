@@ -235,6 +235,10 @@ PAGINAS = {
     'cookies': '/politica-de-cookies/',
     'sobre': '/sobre/',
     'contato': '/contato/',
+    'blog': '/diario/',
+    'faq': '/perguntas-frequentes/',
+    'guia-medidas': '/guia-de-medidas/',
+    'post': '/diario/',
 }
 
 
@@ -715,6 +719,553 @@ def rodape():
     return d
 
 
+
+# --------------------------------------------------------------------------
+# 3.1 PAGINAS DE CONTEUDO
+# --------------------------------------------------------------------------
+
+def rotulo(d, texto, caminho, cor_apelido='iara-texto-discreto'):
+    return d.widget('heading', juntar_globais({
+        '_title': texto,
+        'title': texto,
+        'header_size': 'p',
+    }, {'title_color': cor(cor_apelido), 'typography': fonte('iara-rotulo')}), caminho=caminho)
+
+
+def titulo_secao(d, texto, caminho, nivel='h2'):
+    return d.widget('heading', juntar_globais({
+        '_title': texto,
+        'title': texto,
+        'header_size': nivel,
+    }, {'title_color': cor('text'), 'typography': fonte('secondary')}), caminho=caminho)
+
+
+def paragrafo(d, texto, caminho, fonte_apelido='text', cor_apelido='iara-texto-suave'):
+    return d.widget('text-editor', juntar_globais({
+        'editor': '<p>' + texto + '</p>',
+    }, {'text_color': cor(cor_apelido), 'typography': fonte(fonte_apelido)}), caminho=caminho)
+
+
+def botao(d, texto, url, caminho, estilo='primary'):
+    globais = {'typography': fonte('accent')}
+    if estilo == 'primary':
+        globais['button_background_color'] = cor('primary')
+        globais['text_color'] = cor('iara-branco')
+    else:
+        globais['text_color'] = cor('text')
+    return d.widget('button', juntar_globais({
+        '_title': texto,
+        'text': texto,
+        'link': {'url': url, 'is_external': '', 'nofollow': ''},
+        'size': 'md',
+    }, globais), caminho=caminho)
+
+
+def cabecalho_secao(d, rotulo_texto, titulo, caminho, link_texto=None, link_url=None):
+    esquerda = d.container('Titulo da secao', {
+        'flex_direction': 'column',
+        'flex_gap': lacuna(8, 8),
+        '_flex_size': 'grow',
+    }, [
+        rotulo(d, rotulo_texto, caminho + '/rotulo'),
+        titulo_secao(d, titulo, caminho + '/titulo'),
+    ], caminho=caminho + '/esquerda', interno=True)
+    filhos = [esquerda]
+    if link_texto:
+        filhos.append(d.container('Link da secao', {
+            'flex_direction': 'row',
+            'flex_align_items': 'flex-end',
+            '_flex_align_self': 'center',
+        }, [
+            d.widget('button', juntar_globais({
+                '_title': link_texto,
+                'text': link_texto,
+                'link': {'url': link_url, 'is_external': '', 'nofollow': ''},
+                'size': 'sm',
+                'button_type': 'text',
+            }, {'text_color': cor('primary'), 'typography': fonte('iara-rotulo')}),
+                caminho=caminho + '/link'),
+        ], caminho=caminho + '/direita', interno=True))
+    return d.container('Cabecalho da secao', {
+        'content_width': 'full',
+        'flex_direction': 'row',
+        'flex_wrap': 'wrap',
+        'flex_justify_content': 'space-between',
+        'flex_align_items': 'flex-end',
+        'flex_gap': lacuna(16, 16),
+        'padding': dimensoes(0, 0, 24, 0),
+    }, filhos, caminho=caminho, interno=True)
+
+
+def cartao_imagem(d, titulo, descricao, caminho, url):
+    """Cartao de categoria/ocasiao: imagem, titulo e texto, tudo clicavel."""
+    return d.widget('image-box', juntar_globais({
+        '_title': titulo,
+        'title_text': titulo,
+        'description_text': descricao,
+        'link': {'url': url, 'is_external': '', 'nofollow': ''},
+        'image_size': 'large',
+        'title_tag': 'h3',
+    }, {
+        'title_color': cor('text'),
+        'description_color': cor('iara-texto-suave'),
+        'typography_title': fonte('iara-titulo-h3'),
+        'typography_description': fonte('text'),
+    }), caminho=caminho)
+
+
+def home():
+    """03. Página inicial: hero, beneficios, categorias, destaques, ocasiões,
+    editorial, colecao, depoimentos, diário e perguntas frequentes."""
+    d = Documento('Página inicial', 'page')
+
+    # --- hero
+    hero_texto = d.container('Texto do hero', {
+        'flex_direction': 'column',
+        'flex_gap': lacuna(20, 20),
+        '_flex_size': 'custom',
+        '_flex_basis_type': 'custom',
+        '_flex_basis': medida(52, '%'),
+        '_flex_align_self': 'center',
+    }, [
+        rotulo(d, 'Coleção Terra & Linho', 'hero/rotulo', 'primary'),
+        d.widget('heading', juntar_globais({
+            '_title': 'Vestir o barro, habitar a natureza',
+            'title': 'Vestir o barro, habitar a natureza',
+            'header_size': 'h1',
+        }, {'title_color': cor('text'), 'typography': fonte('primary')}), caminho='hero/titulo'),
+        paragrafo(d, ('Vestuário feminino autoral em linho, algodão egípcio e viscose de alta '
+                      'gramatura. Modelagem, corte e confecção próprios, no ateliê em '
+                      'Cerquilho, no interior de São Paulo.'), 'hero/intro'),
+        d.container('Botões do hero', {
+            'content_width': 'full',
+            'flex_direction': 'row',
+            'flex_wrap': 'wrap',
+            'flex_gap': lacuna(12, 12),
+        }, [
+            botao(d, 'Ver a colecao', PAGINAS['loja'], 'hero/botao-loja'),
+            botao(d, 'Nossa historia', PAGINAS['sobre'], 'hero/botao-sobre', 'outline'),
+        ], caminho='hero/botoes', interno=True),
+        d.widget('icon-list', juntar_globais({
+            '_title': 'Resumo do hero',
+            'icon_list': [
+                d.item({'text': 'Vestidos, blusas e saias'}, 'hero/meta/1'),
+                d.item({'text': 'Do P ao GG'}, 'hero/meta/2'),
+                d.item({'text': 'Troca fácil em 30 dias'}, 'hero/meta/3'),
+            ],
+            'space_between': medida(8),
+        }, {'text_color': cor('iara-texto-discreto'), 'typography': fonte('iara-texto-micro')}),
+            caminho='hero/meta'),
+    ], caminho='hero/texto', interno=True)
+
+    hero_midia = d.container('Foto do hero', {
+        'flex_direction': 'column',
+        'flex_gap': lacuna(8, 8),
+        '_flex_size': 'custom',
+        '_flex_basis_type': 'custom',
+        '_flex_basis': medida(44, '%'),
+    }, [
+        d.widget('image', {
+            '_title': 'Foto principal (escolher no editor)',
+            'image': {'url': '', 'id': ''},
+            'image_size': 'full',
+            'caption_source': 'none',
+            'link_to': 'none',
+        }, caminho='hero/foto'),
+        # Legenda sobre a foto no prototipo. Aqui ela entra abaixo da imagem,
+        # porque sobrepor texto à imagem sem CSS livre não é confiável.
+        paragrafo(d, ('01 · Blusa de Linho Terracota, tingida com argila do Vale do Paraíba. '
+                      'Legenda da foto: conferir posição no editor.'), 'hero/legenda',
+                  'iara-texto-micro', 'iara-numeral'),
+    ], caminho='hero/midia', interno=True)
+
+    hero = d.container('Hero', {
+        'content_width': 'boxed',
+        'flex_direction': 'row',
+        'flex_wrap': 'wrap',
+        'flex_align_items': 'center',
+        'flex_gap': lacuna(40, 40),
+        'padding': dimensoes(56, 0, 56, 0),
+    }, [hero_texto, hero_midia], caminho='hero', interno=True)
+
+    # --- beneficios
+    beneficios_itens = [
+        ('Frete grátis acima de R$ 299', 'Para todo o Brasil, com rastreio.', 'fas fa-truck'),
+        ('Troca fácil em 30 dias', 'Primeira troca com frete nosso, pelo código de postagem dos Correios.', 'fas fa-shield-alt'),
+        ('5% off no Pix e 6x sem juros', 'No cartão, em até 6x; boleto também aceito.', 'fas fa-credit-card'),
+        ('Do P ao GG', 'Guia de medidas por peça, na página de cada produto.', 'fas fa-ruler'),
+    ]
+    beneficios = d.container('Faixa de beneficios', {
+        'content_width': 'boxed',
+        'flex_direction': 'row',
+        'flex_wrap': 'wrap',
+        'flex_gap': lacuna(20, 20),
+        'padding': dimensoes(24, 0, 24, 0),
+        'border_border': 'solid',
+        'border_width': {'unit': 'px', 'top': '1', 'right': '0', 'bottom': '1', 'left': '0', 'isLinked': False},
+        '__globals__': {'border_color': cor('iara-fio')},
+    }, [
+        d.container(titulo, {
+            'flex_direction': 'column',
+            '_flex_size': 'custom',
+            '_flex_basis_type': 'custom',
+            '_flex_basis': medida(23, '%'),
+        }, [
+            d.widget('icon-box', juntar_globais({
+                '_title': titulo,
+                'selected_icon': {'value': icone, 'library': 'fa-solid'},
+                'title_text': titulo,
+                'description_text': texto,
+                'position': 'top',
+                'title_tag': 'p',
+            }, {
+                'primary_color': cor('primary'),
+                'title_color': cor('text'),
+                'description_color': cor('iara-texto-suave'),
+                'typography_title': fonte('iara-titulo-h3'),
+                'typography_description': fonte('text'),
+            }), caminho='beneficios/' + str(i)),
+        ], caminho='beneficios/caixa-' + str(i), interno=True)
+        for i, (titulo, texto, icone) in enumerate(beneficios_itens, 1)
+    ], caminho='beneficios', interno=True)
+
+    # --- categorias
+    categorias = d.container('Categorias', {
+        'content_width': 'boxed',
+        'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0),
+        'padding': dimensoes(56, 0, 56, 0),
+    }, [
+        cabecalho_secao(d, 'Navegue por', 'Categorias', 'categorias/cabecalho',
+                        'Ver tudo', PAGINAS['loja']),
+        d.container('Grade de categorias', {
+            'content_width': 'full',
+            'flex_direction': 'row',
+            'flex_wrap': 'wrap',
+            'flex_gap': lacuna(20, 20),
+        }, [
+            d.container(titulo, {
+                'flex_direction': 'column',
+                '_flex_size': 'custom',
+                '_flex_basis_type': 'custom',
+                '_flex_basis': medida(23, '%'),
+            }, [cartao_imagem(d, titulo, texto, 'categorias/' + slug, PAGINAS['loja'])],
+                caminho='categorias/caixa-' + slug, interno=True)
+            for titulo, texto, slug in [
+                ('Vestidos', 'Midi, longos e curtos, do P ao GG.', 'vestidos'),
+                ('Blusas & Camisas', 'Linho lavado, cropped e tricô de algodão.', 'blusas'),
+                ('Saias & Calças', 'Cintura alta, pregas e alfaiataria leve.', 'saias-calcas'),
+                ('Acessórios', 'Cerâmica, argila e fibras naturais.', 'acessorios'),
+            ]
+        ], caminho='categorias/grade', interno=True),
+    ], caminho='categorias', interno=True)
+
+    # --- em destaque (produtos reais do WooCommerce)
+    destaques = d.container('Em destaque', {
+        'content_width': 'boxed',
+        'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0),
+        'padding': dimensoes(56, 0, 56, 0),
+        'background_background': 'classic',
+        '__globals__': {'background_color': cor('iara-fundo-suave')},
+    }, [
+        cabecalho_secao(d, 'Seleção da semana', 'Em destaque', 'destaques/cabecalho',
+                        'Ver a loja', PAGINAS['loja']),
+        d.widget('woocommerce-products', {
+            '_title': 'Produtos em destaque (configurar no editor)',
+            'columns': '4',
+            'rows': '1',
+            'paginate': 'no',
+            'orderby': 'menu_order',
+            'order': 'ASC',
+        }, caminho='destaques/produtos'),
+        paragrafo(d, ('Bloco dinâmico: no editor, escolher a fonte de produtos '
+                      '"Em destaque" e 4 colunas. Nada de produto escrito à mão aqui.'),
+                  'destaques/nota', 'iara-texto-micro'),
+    ], caminho='destaques', interno=True)
+
+    # --- ocasiões
+    ocasiões = d.container('Compre por ocasião', {
+        'content_width': 'boxed',
+        'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0),
+        'padding': dimensoes(56, 0, 56, 0),
+    }, [
+        cabecalho_secao(d, 'Para cada momento', 'Compre por ocasião', 'ocasiões/cabecalho',
+                        'Ver tudo', PAGINAS['loja']),
+        d.container('Grade de ocasiões', {
+            'content_width': 'full',
+            'flex_direction': 'row',
+            'flex_wrap': 'wrap',
+            'flex_gap': lacuna(20, 20),
+        }, [
+            d.container(titulo, {
+                'flex_direction': 'column',
+                '_flex_size': 'custom',
+                '_flex_basis_type': 'custom',
+                '_flex_basis': medida(23, '%'),
+            }, [cartao_imagem(d, titulo, '', 'ocasiões/' + slug, PAGINAS['loja'])],
+                caminho='ocasiões/caixa-' + slug, interno=True)
+            for titulo, slug in [
+                ('Dia a dia', 'dia-a-dia'), ('Trabalho', 'trabalho'),
+                ('Festa', 'festa'), ('Acessórios', 'acessorios'),
+            ]
+        ], caminho='ocasiões/grade', interno=True),
+    ], caminho='ocasiões', interno=True)
+
+    # --- editorial
+    editorial_itens = [
+        ('01 · Modelagem autoral', 'Desenho, corte e confecção próprios, no ateliê em Cerquilho (SP).'),
+        ('02 · Tecidos de alta gramatura', 'Linho, algodão egípcio e viscose escolhidos pela gramatura e pelo toque.'),
+        ('03 · Compra tranquila', 'Troca em 30 dias, a primeira por nossa conta, e 7 dias para desistir da compra.'),
+    ]
+    editorial = d.container('Editorial do atelie', {
+        'content_width': 'boxed',
+        'flex_direction': 'row',
+        'flex_wrap': 'wrap',
+        'flex_gap': lacuna(40, 40),
+        'padding': dimensoes(56, 0, 56, 0),
+        'background_background': 'classic',
+        '__globals__': {'background_color': cor('iara-terracota-claro')},
+    }, [
+        d.container('Foto do editorial', {
+            'flex_direction': 'column',
+            '_flex_size': 'custom',
+            '_flex_basis_type': 'custom',
+            '_flex_basis': medida(44, '%'),
+        }, [
+            d.widget('image', {
+                '_title': 'Foto do ateliê (escolher no editor)',
+                'image': {'url': '', 'id': ''},
+                'image_size': 'full',
+                'caption_source': 'none',
+                'link_to': 'none',
+            }, caminho='editorial/foto'),
+        ], caminho='editorial/midia', interno=True),
+        d.container('Texto do editorial', {
+            'flex_direction': 'column',
+            'flex_gap': lacuna(16, 16),
+            '_flex_size': 'custom',
+            '_flex_basis_type': 'custom',
+            '_flex_basis': medida(52, '%'),
+        }, [
+            rotulo(d, 'Da terra à peça', 'editorial/rotulo', 'primary'),
+            titulo_secao(d, 'Um ateliê, três gestos', 'editorial/titulo'),
+            paragrafo(d, ('Três coisas sustentam cada peça: modelagem propria, tecidos escolhidos '
+                          'pela gramatura e produção no Brasil.'), 'editorial/intro'),
+            d.widget('icon-list', juntar_globais({
+                '_title': 'Três gestos',
+                'icon_list': [
+                    d.item({'text': titulo + '. ' + texto}, 'editorial/itens/' + str(i))
+                    for i, (titulo, texto) in enumerate(editorial_itens, 1)
+                ],
+                'space_between': medida(12),
+            }, {'text_color': cor('iara-texto-suave'), 'typography': fonte('text')}),
+                caminho='editorial/itens'),
+            d.widget('button', juntar_globais({
+                '_title': 'Conhecer o atelie',
+                'text': 'Conhecer o atelie',
+                'link': {'url': PAGINAS['sobre'], 'is_external': '', 'nofollow': ''},
+                'size': 'sm',
+                'button_type': 'text',
+            }, {'text_color': cor('primary'), 'typography': fonte('iara-rotulo')}),
+                caminho='editorial/botao'),
+        ], caminho='editorial/texto', interno=True),
+    ], caminho='editorial', interno=True)
+
+    # --- colecao
+    colecao = d.container('Coleção Terra e Linho', {
+        'content_width': 'boxed',
+        'flex_direction': 'row',
+        'flex_wrap': 'wrap',
+        'flex_gap': lacuna(40, 40),
+        'padding': dimensoes(56, 0, 56, 0),
+    }, [
+        d.container('Foto da colecao', {
+            'flex_direction': 'column',
+            '_flex_size': 'custom',
+            '_flex_basis_type': 'custom',
+            '_flex_basis': medida(44, '%'),
+        }, [
+            d.widget('image', {
+                '_title': 'Foto da colecao (escolher no editor)',
+                'image': {'url': '', 'id': ''},
+                'image_size': 'full',
+                'caption_source': 'none',
+                'link_to': 'none',
+            }, caminho='colecao/foto'),
+        ], caminho='colecao/midia', interno=True),
+        d.container('Texto da colecao', {
+            'flex_direction': 'column',
+            'flex_gap': lacuna(16, 16),
+            '_flex_size': 'custom',
+            '_flex_basis_type': 'custom',
+            '_flex_basis': medida(52, '%'),
+            '_flex_align_self': 'center',
+        }, [
+            rotulo(d, 'Outono e Inverno 2026', 'colecao/rotulo', 'primary'),
+            titulo_secao(d, 'Coleção Terra & Linho', 'colecao/titulo'),
+            paragrafo(d, ('Três capítulos em doze peças: terracota do barro, sálvia da mata, cru do '
+                          'linho. Veja o editorial completo e monte seus looks com as peças à venda.'),
+                      'colecao/intro'),
+            d.container('Botões da coleção', {
+                'content_width': 'full',
+                'flex_direction': 'row',
+                'flex_wrap': 'wrap',
+                'flex_gap': lacuna(12, 12),
+            }, [
+                botao(d, 'Ver o editorial', PAGINAS['colecao'], 'colecao/botao-editorial'),
+                botao(d, 'Comprar a colecao', PAGINAS['loja'], 'colecao/botao-loja', 'outline'),
+            ], caminho='colecao/botoes', interno=True),
+        ], caminho='colecao/texto', interno=True),
+    ], caminho='colecao', interno=True)
+
+    # --- depoimentos (exemplos do prototipo: substituir pelos reais)
+    depoimentos_textos = [
+        'A blusa de linho é a peça que mais uso. O terracota não desbotou depois de um ano de lavagens.',
+        'Comprei o vestido midi sálvia pelo guia de medidas e acertou. Caiu como se fosse feito para mim.',
+        'Gosto de saber de onde vem o tecido. A etiqueta diz a origem da fibra, e isso faz diferença para mim.',
+    ]
+    depoimentos = d.container('Depoimentos', {
+        'content_width': 'boxed',
+        'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0),
+        'padding': dimensoes(56, 0, 56, 0),
+        'background_background': 'classic',
+        '__globals__': {'background_color': cor('iara-fundo-suave')},
+    }, [
+        cabecalho_secao(d, 'Quem veste', 'Palavras de quem usa', 'depoimentos/cabecalho'),
+        paragrafo(d, 'Depoimentos de exemplo no prototipo. Publicar apenas os reais.',
+                  'depoimentos/nota', 'iara-texto-micro'),
+        d.container('Grade de depoimentos', {
+            'content_width': 'full',
+            'flex_direction': 'row',
+            'flex_wrap': 'wrap',
+            'flex_gap': lacuna(20, 20),
+        }, [
+            d.container('Depoimento de exemplo ' + str(i), {
+                'flex_direction': 'column',
+                '_flex_size': 'custom',
+                '_flex_basis_type': 'custom',
+                '_flex_basis': medida(31, '%'),
+            }, [
+                d.widget('testimonial', juntar_globais({
+                    '_title': 'Depoimento de exemplo ' + str(i) + ' (substituir)',
+                    'testimonial_content': texto,
+                    'testimonial_name': 'Exemplo, substituir',
+                    'testimonial_job': '[PREENCHER: cidade e estado]',
+                }, {'text_color': cor('iara-texto-suave'), 'typography': fonte('text')}),
+                    caminho='depoimentos/' + str(i)),
+            ], caminho='depoimentos/caixa-' + str(i), interno=True)
+            for i, texto in enumerate(depoimentos_textos, 1)
+        ], caminho='depoimentos/grade', interno=True),
+    ], caminho='depoimentos', interno=True)
+
+    # --- diário (posts recentes, dinamico)
+    diário = d.container('Do diário', {
+        'content_width': 'boxed',
+        'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0),
+        'padding': dimensoes(56, 0, 56, 0),
+    }, [
+        cabecalho_secao(d, 'Do diário', 'Cartas do ateliê', 'diário/cabecalho',
+                        'Ver todos os textos', PAGINAS['blog']),
+        d.widget('posts', {
+            '_title': 'Posts recentes (configurar no editor)',
+            'posts_per_page': '3',
+            'columns': '3',
+        }, caminho='diário/posts'),
+        paragrafo(d, ('Bloco dinâmico de posts: no editor, escolher os 3 posts mais recentes. '
+                      'Os textos do blog sao escritos no Gutenberg, nunca no Elementor.'),
+                  'diário/nota', 'iara-texto-micro'),
+    ], caminho='diário', interno=True)
+
+    # --- perguntas frequentes
+    perguntas = [
+        ('Preciso criar conta para comprar?',
+         'Nao. Voce pode comprar como visitante. Criar conta ajuda a acompanhar pedidos e guardar '
+         'enderecos, mas e opcional e nao muda o preco nem o prazo.'),
+        ('As peças vêm com a tabela de medidas?',
+         'Sim, cada página de produto traz a tabela daquela peça. Meça uma peca que ja veste bem e '
+         'compare com a tabela. O passo a passo está no Guia de Medidas. Na duvida entre dois '
+         'tamanhos, fale com o atendimento.'),
+        ('A peça não serviu. Posso trocar?',
+         'Sim. Você tem 7 dias corridos, contando do recebimento, para desistir da compra sem precisar '
+         'justificar, conforme o Art. 49 do Codigo de Defesa do Consumidor. Os prazos e as condicoes '
+         'de troca estao em Trocas e devolucoes.'),
+        ('Vocês entregam em todo o Brasil?',
+         'Sim, enviamos para todo o território nacional. Antes de finalizar, confira o prazo calculado '
+         'para o seu CEP.'),
+        ('Como vocês tratam os meus dados?',
+         'Usamos os seus dados para entregar o pedido, emitir nota fiscal e responder ao seu contato. '
+         'O detalhamento esta na Politica de Privacidade.'),
+    ]
+    faq = d.container('Perguntas frequentes da home', {
+        'content_width': 'boxed',
+        'flex_direction': 'row',
+        'flex_wrap': 'wrap',
+        'flex_gap': lacuna(40, 40),
+        'padding': dimensoes(56, 0, 56, 0),
+        'background_background': 'classic',
+        '__globals__': {'background_color': cor('secondary')},
+    }, [
+        d.container('Introdução das perguntas', {
+            'flex_direction': 'column',
+            'flex_gap': lacuna(16, 16),
+            '_flex_size': 'custom',
+            '_flex_basis_type': 'custom',
+            '_flex_basis': medida(38, '%'),
+        }, [
+            rotulo(d, 'Perguntas frequentes', 'faq/rotulo', 'iara-terracota-claro'),
+            d.widget('heading', juntar_globais({
+                '_title': 'Dúvidas antes de escolher',
+                'title': 'Dúvidas antes de escolher',
+                'header_size': 'h2',
+            }, {'title_color': cor('iara-faixa-texto'), 'typography': fonte('secondary')}),
+                caminho='faq/titulo'),
+            d.widget('text-editor', juntar_globais({
+                'editor': '<p>As perguntas que mais chegam no ateliê, respondidas direto ao ponto.</p>',
+            }, {'text_color': cor('iara-faixa-texto'), 'typography': fonte('text')}),
+                caminho='faq/intro'),
+            d.widget('button', juntar_globais({
+                '_title': 'Ver todas as perguntas',
+                'text': 'Ver todas as perguntas',
+                'link': {'url': PAGINAS['faq'], 'is_external': '', 'nofollow': ''},
+                'size': 'sm',
+                'button_type': 'text',
+            }, {'text_color': cor('iara-faixa-texto'), 'typography': fonte('iara-rotulo')}),
+                caminho='faq/botao'),
+        ], caminho='faq/intro', interno=True),
+        d.container('Sanfona de perguntas', {
+            'flex_direction': 'column',
+            '_flex_size': 'custom',
+            '_flex_basis_type': 'custom',
+            '_flex_basis': medida(56, '%'),
+        }, [
+            d.widget('accordion', juntar_globais({
+                '_title': 'Perguntas e respostas',
+                'tabs': [
+                    d.item({'tab_title': pergunta, 'tab_content': '<p>' + resposta + '</p>'},
+                           'faq/item-' + str(i))
+                    for i, (pergunta, resposta) in enumerate(perguntas, 1)
+                ],
+            }, {'text_color': cor('iara-faixa-texto'), 'typography': fonte('text')}),
+                caminho='faq/sanfona'),
+        ], caminho='faq/sanfona', interno=True),
+    ], caminho='faq', interno=True)
+
+    raiz = d.container('Página inicial', {
+        'content_width': 'full',
+        'flex_direction': 'column',
+        'flex_gap': lacuna(0, 0),
+        'padding': dimensoes(0, 0, 0, 0),
+    }, [hero, beneficios, categorias, destaques, ocasiões, editorial, colecao,
+        depoimentos, diário, faq], caminho='raiz')
+
+    d.content = [raiz]
+    return d
+
+
 # --------------------------------------------------------------------------
 # 4. ARQUIVOS GLOBAIS (Site Settings)
 # --------------------------------------------------------------------------
@@ -764,6 +1315,7 @@ def escrever(caminho, dados):
 FABRICAS = [
     ('01-cabecalho.json', cabecalho),
     ('02-rodape.json', rodape),
+    ('03-home.json', home),
 ]
 
 

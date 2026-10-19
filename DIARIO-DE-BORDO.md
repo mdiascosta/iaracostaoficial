@@ -1,5 +1,56 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-16] - Bloco B, parte 2: página inicial (v0.2.1)
+
+### Pedido da cliente
+"Começar pela home". A parte 1 do Bloco B (cores, fontes, cabeçalho e rodapé)
+entrou na `main` pelo PR #6, e a cliente escolheu a página inicial antes da loja.
+
+### O que foi feito (IMPLEMENTADO)
+- **`bloco-b/json/03-home.json`** (tipo página): as dez seções da home aprovada no
+  protótipo, na mesma ordem: hero, faixa de benefícios, categorias, produtos em
+  destaque, ocasiões, editorial do ateliê, coleção, depoimentos, posts recentes e
+  perguntas frequentes em faixa verde. 53 containers e 59 widgets.
+- **`tools/blocob_gera.py`**: ganhou a fábrica `home()` e os ajudantes de página
+  (`rotulo`, `titulo_secao`, `paragrafo`, `botao`, `cabecalho_secao`,
+  `cartao_imagem`).
+- **`bloco-b/GUIA-IMPORTACAO.md`**: a home entrou na lista do que está pronto
+  (seção 5.1), saiu da lista de páginas futuras (5.2) e ganhou ajustes de editor
+  na seção 4.3; a ordem de trabalho (seção 8) agora inclui importar a home.
+- **`bloco-b/LEIA-ME.txt`**: atualizado para a parte 2.
+
+### Decisões tomadas
+- **Produtos em destaque e posts recentes são blocos dinâmicos** (widgets
+  `woocommerce-products` e `posts`), configurados no editor. Escrever produto à
+  mão na home criaria preço e estoque falsos assim que o catálogo mudasse.
+- **Legenda do hero abaixo da foto**, e não sobreposta: sobrepor sem CSS livre
+  não é confiável no Elementor. Fica como ajuste opcional no editor.
+- **Depoimentos marcados como exemplo** no próprio título do widget, com cidade
+  em `[PREENCHER]`: são os textos de exemplo do protótipo (decisão D5 da fase E0)
+  e só podem ser publicados quando forem reais.
+- Cartões de categoria e de ocasião apontam todos para `/loja/` por enquanto,
+  porque as categorias reais do WooCommerce ainda não existem; o guia manda
+  apontar cada um para a sua categoria depois do cadastro.
+
+### O que foi verificado aqui
+- `python3 tools/blocob_gera.py`: gera os 4 arquivos.
+- `python3 tools/blocob_confere.py`: 3 templates, 93 containers, 105 widgets,
+  15 cores, 10 fontes, "resultado: tudo certo". Nenhum travessão no arquivo gerado.
+
+### O que não foi verificado
+- **Nenhuma importação e nenhuma renderização** (sem WordPress, painel ou banco).
+- **Os nomes de ajuste dos widgets Pro** (`woocommerce-products`, `posts`,
+  `testimonial`) seguem a documentação; nome diferente é ignorado na importação
+  e escolhido no editor.
+- Nenhuma medida de desempenho.
+
+### O que continua em aberto (AGUARDA INFORMAÇÃO)
+- Fotos reais da home (hero, editorial, coleção, categorias e ocasiões).
+- Depoimentos reais, com autorização de uso.
+- Categorias reais do WooCommerce, para apontar os cartões.
+- Todo o resto da lista da parte 1: versões do staging, newsletter, redes
+  sociais, plugin de desejos e o número final de arquivos.
+
 ## [2026-10-16] - Bloco B, parte 1: cores, fontes, cabeçalho e rodapé (v0.2.0)
 
 ### Pedido da cliente

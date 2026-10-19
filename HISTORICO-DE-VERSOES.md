@@ -61,6 +61,35 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.2.1 · 2026-10-16 · Bloco B, parte 2: página inicial
+
+**De onde veio:** a cliente pediu para começar a segunda parte do Bloco B pela
+home, e não pela loja.
+
+**O que entrou**
+
+| O que | Onde |
+|---|---|
+| Página inicial completa: hero, faixa de benefícios, categorias, produtos em destaque, ocasiões, editorial do ateliê, coleção, depoimentos, posts recentes e perguntas frequentes | `bloco-b/json/03-home.json` |
+| Ajustes da home no editor (fotos, produtos em destaque, posts, links de categoria, depoimentos reais) | `bloco-b/GUIA-IMPORTACAO.md`, seção 4.3 |
+| A home sai da lista de páginas futuras e entra na lista do que está pronto | `bloco-b/GUIA-IMPORTACAO.md`, seção 5 |
+
+**Decisões**
+
+- **Produto e post não são escritos à mão.** A seção Em destaque usa o widget de
+  produtos do WooCommerce e a seção Do diário usa o widget de posts: os dois são
+  dinâmicos e nascem do cadastro real.
+- **A legenda do hero não foi sobreposta à foto.** No protótipo ela fica sobre a
+  imagem; no Elementor, sobrepor texto à imagem sem CSS livre não é confiável,
+  então a legenda entra abaixo da foto e a sobreposição fica como ajuste opcional
+  no editor.
+- **Os depoimentos continuam marcados como exemplo**, com o campo de cidade como
+  `[PREENCHER]`, para ninguém publicar depoimento fictício sem perceber.
+
+**Verificado:** `tools/blocob_confere.py` passa nos 3 templates (93 containers,
+105 widgets, 15 cores, 10 fontes). **Não verificado:** importação e renderização,
+sem acesso ao WordPress.
+
 ### v0.2.0 · 2026-10-16 · Bloco B, parte 1: cores, fontes, cabeçalho e rodapé
 
 **De onde veio:** o Bloco A foi fechado e congelado na v0.1.20, e a cliente pediu
