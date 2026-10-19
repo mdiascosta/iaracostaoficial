@@ -1,5 +1,40 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-19] - PR #9 mergeado na main e Bloco C fechado (registro)
+
+### O que aconteceu
+- O **PR #9** (branch de trabalho -> `main`) foi **mergeado** em 19/10/2026, as
+  11h02 (horario de Brasilia), por Matheus Costa (`mdiascosta`).
+- **Commit de merge: `904f9ec`.** Entraram os dois commits da reta final do
+  Bloco C: os guias de instalacao, seguranca e SEO/Yoast (v0.3.2) e os guias de
+  testes, desempenho, e-mail/SMTP, nota fiscal e go-live com o fechamento do
+  bloco (v0.3.3).
+- A `main` esta com o `VERSION` em 0.3.3 e com a pasta `bloco-c/` completa:
+  os dois CSVs, o conteudo das paginas, os oito guias em `bloco-c/guias/`, o
+  `IMPORTACAO-CSV.md`, o `LEIA-ME.txt` e o `iara-costa-kit.zip` com 39
+  arquivos. As etiquetas `v0.3.0` a `v0.3.3` apontam para o que entrou.
+- Com este merge, **os tres blocos de entrega estao fechados na `main`**:
+  Bloco A (prototipo, v0.1.20, congelado), Bloco B (24 templates do
+  Elementor, v0.2.5) e Bloco C (dados, kit e guias, v0.3.3).
+
+### Decisoes tomadas
+- **Registro sem mudanca de versao**, igual aos merges anteriores: anotacao
+  sobre algo que ja estava entregue. A versao continua 0.3.3.
+- O projeto muda de natureza a partir daqui: sai do papel e entra na execucao
+  em staging pela equipe, guiada pelos documentos. Nada foi instalado,
+  importado, testado ou medido neste ambiente (sem WordPress, painel, banco
+  ou servidor).
+
+### O que continua em aberto (AGUARDA INFORMACAO)
+- A execucao inteira em staging: versoes do ambiente, importacoes um arquivo
+  por vez, plugins aprovados (TI Wishlist e Variation Swatches), catalogo
+  real, textos aprovados pela empresa e pelo juridico, contador para a nota
+  fiscal, roteiro de testes registrado com o pedido de teste apagado,
+  desempenho medido e a virada do go-live pela lista.
+- Decisoes pendentes: filtros da loja, quem assina os posts, ferramenta de
+  backup e de duas etapas, analitica e pixels com consentimento.
+- Acompanhamento dos primeiros 30 dias depois do go-live, conforme o guia.
+
 ## [2026-10-19] - Bloco C, parte 4 (final): testes, desempenho, e-mail, nota fiscal e go-live (v0.3.3)
 
 ### Pedido da cliente
