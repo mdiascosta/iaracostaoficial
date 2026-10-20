@@ -179,6 +179,30 @@ testa('listas do rodapé com texto em Jost embutido (icon_typography)',
           for e in com_texto),
       str(len(com_texto)) + ' listas com texto')
 
+print('== rodapé: faixa de segurança e selos (imagem do protótipo) ==')
+seg_titulos = [e for e in percorre(rod['content'])
+               if e.get('widgetType') == 'heading'
+               and e['settings'].get('_title')
+               in ('Pix, cartão e boleto', 'Ambiente protegido',
+                   'Pedido rastreado', '7 dias para desistir')]
+testa('títulos da faixa em Jost 600 caixa alta',
+      len(seg_titulos) == 4 and all(
+          e['settings'].get('typography_font_weight') == '600'
+          and e['settings'].get('typography_text_transform') == 'uppercase'
+          for e in seg_titulos), str(len(seg_titulos)) + ' títulos')
+sociais = [e for e in percorre(rod['content'])
+           if e.get('settings', {}).get('css_classes') == 'iara-sociais']
+testa('sociais em círculos com borda (classe + CSS)',
+      len(sociais) == 1
+      and '.iara-sociais .elementor-icon-list-item a' in css
+      and 'border-radius: 50%' in css)
+testa('divisórias da faixa e linha dos selos no CSS',
+      '.iara-seg-faixa > * + *' in css and '.iara-seg-linha' in css)
+testa('selo com quadradinho escuro no CSS',
+      '.iara-selo-icone' in css and 'background: #2d2925' in css)
+testa('selo dos contadores colado no ícone (topo -4px)',
+      'top: -4px; right: -6px' in css)
+
 print()
 if FALHAS:
     print(f'resultado: {len(FALHAS)} teste(s) falharam')

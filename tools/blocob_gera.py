@@ -412,7 +412,7 @@ def cabecalho():
             'css_classes': 'iara-sacola',
             'icon': 'bag-light',
             'items_indicator': 'bubble',
-            'items_indicator_distance': medida(5),
+            'items_indicator_distance': medida(3),
             'hide_empty_indicator': 'hide',
             'show_subtotal': '',
             'automatically_open_cart': '',
@@ -608,6 +608,7 @@ def rodape():
         }, {'text_color': cor('iara-texto-suave'), 'typography': fonte('iara-texto-micro')}), caminho='colunas/atendimento/contatos'),
         d.widget('icon-list', juntar_globais({
             '_title': 'Redes sociais',
+            'css_classes': 'iara-sociais',
             'view': 'inline',
             'icon_list': [
                 d.item({'text': '', 'selected_icon': {'value': 'fab fa-instagram', 'library': 'fa-brands'},
@@ -663,7 +664,8 @@ def rodape():
             d.container('Texto', {'flex_direction': 'column', 'flex_gap': lacuna(4, 4)}, [
                 d.widget('heading', juntar_globais({
                     'title': titulo, 'header_size': 'p', '_title': titulo,
-                }, {'title_color': cor('text'), 'typography': fonte('iara-texto-micro')}),
+                    **tipografia('Jost', '600', 11, 1.40, 0.14, 'uppercase'),
+                }, {'title_color': cor('text')}),
                     caminho=caminho + '/titulo'),
                 d.widget('text-editor', juntar_globais({
                     'editor': '<p>' + texto + '</p>',
@@ -697,11 +699,11 @@ def rodape():
                 'padding': dimensoes(10, 16, 10, 16),
                 'border_border': 'solid',
                 'border_width': {'unit': 'px', 'top': '1', 'right': '1', 'bottom': '1', 'left': '1', 'isLinked': True},
-                'border_radius': dimensoes(2, 2, 2, 2),
+                'border_radius': dimensoes(6, 6, 6, 6),
             }, [
                 d.widget('text-editor', juntar_globais({
                     'editor': '<p>' + nome + '</p>',
-                }, {'text_color': cor('text'), 'typography': fonte('iara-texto-micro')}),
+                }, {'text_color': cor('text'), 'typography': fonte('text')}),
                     caminho='seg/pag/' + nome + '/texto'),
             ], caminho='seg/pag/' + nome, interno=True)
             for nome in ('Mercado Pago', 'Pix', 'Cartão de crédito', 'Boleto bancário')
@@ -733,17 +735,19 @@ def rodape():
                 'padding': dimensoes(10, 16, 10, 16),
                 'border_border': 'solid',
                 'border_width': {'unit': 'px', 'top': '1', 'right': '1', 'bottom': '1', 'left': '1', 'isLinked': True},
-                'border_radius': dimensoes(2, 2, 2, 2),
+                'border_radius': dimensoes(6, 6, 6, 6),
             }, [
                 d.widget('icon', juntar_globais({
                     'selected_icon': {'value': icone, 'library': 'fa-solid'},
                     'size': medida(18),
+                    'css_classes': 'iara-selo-icone',
                     '_title': 'Ícone',
-                }, {'primary_color': cor('primary')}), caminho='seg/selos/' + nome + '/icone'),
+                }, {'primary_color': cor('iara-branco')}), caminho='seg/selos/' + nome + '/icone'),
                 d.container('Texto', {'flex_direction': 'column', 'flex_gap': lacuna(0, 0)}, [
                     d.widget('heading', juntar_globais({
                         'title': nome, 'header_size': 'p', '_title': nome,
-                    }, {'title_color': cor('text'), 'typography': fonte('iara-texto-micro')}),
+                        **tipografia('Jost', '600', 11, 1.40, 0.12, 'uppercase'),
+                    }, {'title_color': cor('text')}),
                         caminho='seg/selos/' + nome + '/titulo'),
                     d.widget('text-editor', juntar_globais({
                         'editor': '<p>' + sub + '</p>',
@@ -768,12 +772,14 @@ def rodape():
         '__globals__': {'border_color': cor('iara-fio')},
     }, [
         d.container('Faixa de segurança', {
+            'css_classes': 'iara-seg-faixa',
             'content_width': 'full',
             'flex_direction': 'row',
             'flex_wrap': 'wrap',
             'flex_gap': lacuna(20, 20),
         }, caixas, caminho='seg/faixa', interno=True),
         d.container('Pagamento e selos', {
+            'css_classes': 'iara-seg-linha',
             'content_width': 'full',
             'flex_direction': 'row',
             'flex_wrap': 'wrap',

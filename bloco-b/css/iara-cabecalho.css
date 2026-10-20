@@ -80,6 +80,26 @@
   line-height: 0;
 }
 .iara-acoes .elementor-icon svg { width: 17px; height: 17px; display: block; }
+/* Rodape igual ao prototipo: divisorias verticais na faixa de
+   seguranca, linha fina sobre pagamentos/selos, sociais em circulos
+   com borda e o icone do selo no quadradinho escuro. */
+.iara-seg-faixa > * + * { border-left: 1px solid #ded8ce; padding-left: 22px; }
+.iara-seg-linha { border-top: 1px solid #eee9e1; padding-top: 26px; }
+.iara-sociais .elementor-icon-list-item a {
+  width: 44px; height: 44px;
+  border: 1px solid #ded8ce; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #625a52; background: #fffdf9;
+}
+.iara-sociais .elementor-icon-list-item a:hover {
+  color: #a45f43; border-color: #e4cbb5; background: #f7f4ef;
+}
+.iara-selo-icone {
+  background: #2d2925; border-radius: 6px;
+  width: 34px; height: 34px; flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: center;
+}
+
 /* Contadores (selo) da sacola e dos desejos: bolha Terracota com o
    numero em branco, no canto do icone, como no prototipo. A sacola e
    o widget Carrinho do Menu (numero real do WooCommerce); os desejos,
@@ -101,7 +121,7 @@
   font-family: "Jost", sans-serif; font-size: 10px; font-weight: 600;
   min-width: 16px; height: 16px; line-height: 16px;
   border-radius: 50%; text-align: center; display: inline-block;
-  position: absolute; top: -6px; right: -8px;
+  position: absolute; top: -4px; right: -6px;
 }
 .iara-acoes .elementor-icon:hover,
 .iara-acoes .elementor-icon:focus-visible { color: #78452f; }

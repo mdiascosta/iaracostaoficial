@@ -318,7 +318,7 @@
                 "items_indicator": "bubble",
                 "items_indicator_distance": {
                   "unit": "px",
-                  "size": 5,
+                  "size": 3,
                   "sizes": []
                 },
                 "hide_empty_indicator": "hide",
