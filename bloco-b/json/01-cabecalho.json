@@ -295,25 +295,14 @@
             {
               "id": "1a05351",
               "elType": "widget",
-              "widgetType": "icon",
+              "widgetType": "wp-widget-widget_top_wishlist",
               "settings": {
-                "_title": "Lista de desejos",
-                "selected_icon": {
-                  "value": "far fa-heart",
-                  "library": "fa-regular"
-                },
-                "link": {
-                  "url": "https://oeemax.com.br/iaracosta/lista-de-desejos/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "size": {
-                  "unit": "px",
-                  "size": 17,
-                  "sizes": []
-                },
-                "__globals__": {
-                  "primary_color": "globals/colors?id=iara-menu"
+                "_title": "Desejos (contador TI)",
+                "css_classes": "iara-desejos",
+                "wp": {
+                  "show_icon": 1,
+                  "show_text": 0,
+                  "text": ""
                 }
               },
               "elements": []
@@ -321,25 +310,20 @@
             {
               "id": "188d5ad",
               "elType": "widget",
-              "widgetType": "icon",
+              "widgetType": "woocommerce-menu-cart",
               "settings": {
-                "_title": "Sacola",
-                "selected_icon": {
-                  "value": "fas fa-shopping-bag",
-                  "library": "fa-solid"
-                },
-                "link": {
-                  "url": "https://oeemax.com.br/iaracosta/sacola/",
-                  "is_external": "",
-                  "nofollow": ""
-                },
-                "size": {
-                  "unit": "px",
-                  "size": 17,
-                  "sizes": []
-                },
+                "_title": "Sacola (carrinho)",
+                "css_classes": "iara-sacola",
+                "icon": "bag-light",
+                "items_indicator": "bubble",
+                "hide_empty_indicator": "hide",
+                "show_subtotal": "",
+                "automatically_open_cart": "",
                 "__globals__": {
-                  "primary_color": "globals/colors?id=iara-menu"
+                  "toggle_button_icon_color": "globals/colors?id=iara-menu",
+                  "toggle_button_hover_icon_color": "globals/colors?id=accent",
+                  "items_indicator_background_color": "globals/colors?id=primary",
+                  "items_indicator_text_color": "globals/colors?id=iara-branco"
                 }
               },
               "elements": []

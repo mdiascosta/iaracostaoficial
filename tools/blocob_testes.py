@@ -102,10 +102,26 @@ testa('largura do logotipo reforçada no CSS do kit',
 print('== cabeçalho: ícones de ação ==')
 icones = [e for e in percorre(cab['content'])
           if e.get('widgetType') == 'icon']
-testa('são 4 ações (busca, conta, desejos, sacola)', len(icones) == 4,
+testa('busca e conta seguem ícones simples', len(icones) == 2,
       str(len(icones)))
 testa('ícones a 17px declarados no widget',
       all(e['settings']['size'].get('size') == 17 for e in icones))
+sacola = [e for e in percorre(cab['content'])
+          if e.get('widgetType') == 'woocommerce-menu-cart']
+testa('sacola é o Carrinho do Menu, com bolha e traço fino (bag-light)',
+      len(sacola) == 1
+      and sacola[0]['settings'].get('icon') == 'bag-light'
+      and sacola[0]['settings'].get('items_indicator') == 'bubble')
+desejos = [e for e in percorre(cab['content'])
+           if e.get('widgetType') == 'wp-widget-widget_top_wishlist']
+testa('desejos é o contador do plugin TI (ícone, sem texto)',
+      len(desejos) == 1
+      and desejos[0]['settings'].get('wp', {}).get('show_icon') == 1
+      and desejos[0]['settings'].get('wp', {}).get('show_text') == 0)
+testa('selo Terracota dos contadores no CSS do kit',
+      '.elementor-button-icon-qty[data-counter]' in css
+      and '.wishlist_products_counter_number' in css
+      and 'background: #a45f43' in css)
 testa('ícones na cor suave do menu',
       all(e['settings'].get('__globals__', {}).get('primary_color')
           == 'globals/colors?id=iara-menu' for e in icones))

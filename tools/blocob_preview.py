@@ -215,6 +215,24 @@ def widget(el):
                 f'gap:28px;list-style:none;margin:0;padding:0;'
                 f'justify-content:center">{links}</ul></div>')
 
+    if tipo == 'woocommerce-menu-cart':
+        return ('<a class="elementor-icon iara-sacola" href="#" title="Sacola" '
+                'style="position:relative"><i class="fas fa-shopping-bag" '
+                'style="font-size:17px"></i>'
+                '<span style="position:absolute;top:-7px;right:-9px;'
+                'background:#a45f43;color:#fffdf9;font-size:10px;'
+                'font-weight:600;min-width:16px;height:16px;line-height:16px;'
+                'border-radius:50%;text-align:center">2</span></a>')
+
+    if tipo == 'wp-widget-widget_top_wishlist':
+        return ('<a class="elementor-icon iara-desejos" href="#" '
+                'title="Lista de desejos" style="position:relative">'
+                '<i class="far fa-heart" style="font-size:17px"></i>'
+                '<span style="position:absolute;top:-7px;right:-9px;'
+                'background:#a45f43;color:#fffdf9;font-size:10px;'
+                'font-weight:600;min-width:16px;height:16px;line-height:16px;'
+                'border-radius:50%;text-align:center">3</span></a>')
+
     if tipo == 'theme-site-logo':
         link = (st.get('link') or {}).get('url', '#')
         return (f'<a href="{html.escape(link)}" class="{classe}">'

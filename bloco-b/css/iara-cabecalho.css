@@ -80,6 +80,28 @@
   line-height: 0;
 }
 .iara-acoes .elementor-icon svg { width: 17px; height: 17px; display: block; }
+/* Contadores (selo) da sacola e dos desejos: bolha Terracota com o
+   numero em branco, no canto do icone, como no prototipo. A sacola e
+   o widget Carrinho do Menu (numero real do WooCommerce); os desejos,
+   o contador do plugin TI. Bolha vazia nao aparece. */
+.iara-sacola .elementor-menu-cart__toggle { background: none; border: 0; }
+.iara-sacola .elementor-button-icon { position: relative; color: #554f49; }
+.iara-sacola:hover .elementor-button-icon { color: #78452f; }
+.iara-sacola .elementor-button-icon .elementor-button-icon-qty[data-counter] {
+  background: #a45f43; color: #fffdf9;
+  font-family: "Jost", sans-serif; font-size: 10px; font-weight: 600;
+  min-width: 16px; height: 16px; line-height: 16px;
+  border-radius: 50%; text-align: center;
+}
+.iara-desejos .wishlist_products_counter { position: relative; color: #554f49; text-decoration: none; }
+.iara-desejos .wishlist_products_counter:hover { color: #78452f; }
+.iara-desejos .wishlist_products_counter_number {
+  background: #a45f43; color: #fffdf9;
+  font-family: "Jost", sans-serif; font-size: 10px; font-weight: 600;
+  min-width: 16px; height: 16px; line-height: 16px;
+  border-radius: 50%; text-align: center; display: inline-block;
+  position: absolute; top: -6px; right: -8px;
+}
 .iara-acoes .elementor-icon:hover,
 .iara-acoes .elementor-icon:focus-visible { color: #78452f; }
 

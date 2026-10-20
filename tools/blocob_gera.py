@@ -394,8 +394,32 @@ def cabecalho():
     }, [
         acao('Busca', 'fas fa-search', PAGINAS['busca'], 'barra/busca', 'fa-solid'),
         acao('Minha conta', 'far fa-user', PAGINAS['conta'], 'barra/conta'),
-        acao('Lista de desejos', 'far fa-heart', PAGINAS['desejos'], 'barra/desejos'),
-        acao('Sacola', 'fas fa-shopping-bag', PAGINAS['sacola'], 'barra/sacola', 'fa-solid'),
+        # Desejos com contador: o widget de contador do plugin TI
+        # WooCommerce Wishlist (aprovado, gratuito) entra como widget do
+        # WordPress dentro do Elementor; ele desenha o coracao com o
+        # numero real da lista da visitante. Sem o plugin ativo, este
+        # widget nao renderiza: ai volta o icone simples (guia 2.9).
+        d.widget('wp-widget-widget_top_wishlist', {
+            '_title': 'Desejos (contador TI)',
+            'css_classes': 'iara-desejos',
+            'wp': {'show_icon': 1, 'show_text': 0, 'text': ''},
+        }, caminho='barra/desejos'),
+        # Sacola com contador: widget Carrinho do Menu do WooCommerce.
+        # O selo (bolha) mostra a quantidade real da sacola e some com
+        # ela vazia; 'bag-light' e o desenho de traco fino do prototipo.
+        d.widget('woocommerce-menu-cart', juntar_globais({
+            '_title': 'Sacola (carrinho)',
+            'css_classes': 'iara-sacola',
+            'icon': 'bag-light',
+            'items_indicator': 'bubble',
+            'hide_empty_indicator': 'hide',
+            'show_subtotal': '',
+            'automatically_open_cart': '',
+        }, {'toggle_button_icon_color': cor('iara-menu'),
+            'toggle_button_hover_icon_color': cor('accent'),
+            'items_indicator_background_color': cor('primary'),
+            'items_indicator_text_color': cor('iara-branco')}),
+            caminho='barra/sacola'),
     ], caminho='barra/acoes', interno=True)
 
     barra = d.container('Barra do cabeçalho', {
