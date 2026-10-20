@@ -256,7 +256,7 @@
             "css_classes": "iara-menu-nav",
             "menu": "menu-principal",
             "layout": "horizontal",
-            "pointer": "underline",
+            "pointer": "none",
             "_flex_size": "grow",
             "_flex_align_self": "center",
             "menu_typography_typography": "custom",
@@ -276,8 +276,7 @@
             "__globals__": {
               "color_menu_item": "globals/colors?id=iara-menu",
               "color_menu_item_hover": "globals/colors?id=accent",
-              "color_menu_item_active": "globals/colors?id=accent",
-              "pointer_color_menu_item_active": "globals/colors?id=iara-terracota-claro"
+              "color_menu_item_active": "globals/colors?id=accent"
             }
           },
           "elements": []

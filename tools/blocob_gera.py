@@ -351,7 +351,12 @@ def cabecalho():
         'css_classes': 'iara-menu-nav',
         'menu': 'menu-principal',
         'layout': 'horizontal',
-        'pointer': 'underline',
+        # Sem ponteiro do widget ('none'): quem desenha a linha dos
+        # estados e o nosso CSS (classe iara-menu-nav). Com o ponteiro
+        # 'underline', o widget desenha a propria linha por cima e o
+        # hover fica errado (linha dupla, cor dele), foi o relato de
+        # 2026-10-20. Declarado 'none', vale so o CSS do kit.
+        'pointer': 'none',
         '_flex_size': 'grow',
         '_flex_align_self': 'center',
         'menu_typography_typography': 'custom',
@@ -362,8 +367,7 @@ def cabecalho():
         'menu_typography_text_transform': 'uppercase',
     }, {'color_menu_item': cor('iara-menu'),
         'color_menu_item_hover': cor('accent'),
-        'color_menu_item_active': cor('accent'),
-        'pointer_color_menu_item_active': cor('iara-terracota-claro')}),
+        'color_menu_item_active': cor('accent')}),
         caminho='barra/menu')
 
     def acao(titulo, icone, url, caminho, biblioteca='fa-regular'):
@@ -547,7 +551,7 @@ def rodape():
     }, [
         d.widget('heading', juntar_globais({
             'title': 'Atendimento', 'header_size': 'p', '_title': 'Atendimento',
-        }, {'title_color': cor('text'), 'typography': fonte('iara-texto-micro')}),
+        }, {'title_color': cor('text'), 'typography': fonte('iara-rotulo')}),
             caminho='colunas/atendimento/titulo'),
         d.widget('icon-list', juntar_globais({
             '_title': 'Contatos',
@@ -571,7 +575,7 @@ def rodape():
                        'colunas/atendimento/contatos/3'),
             ],
             'space_between': medida(10),
-        }, {'text_color': cor('iara-texto-suave')}), caminho='colunas/atendimento/contatos'),
+        }, {'text_color': cor('iara-texto-suave'), 'typography': fonte('iara-texto-micro')}), caminho='colunas/atendimento/contatos'),
         d.widget('icon-list', juntar_globais({
             '_title': 'Redes sociais',
             'view': 'inline',
@@ -785,7 +789,7 @@ def rodape():
                        'base/links/4'),
             ],
             'space_between': medida(10),
-        }, {'text_color': cor('iara-texto-discreto')}), caminho='base/links'),
+        }, {'text_color': cor('iara-texto-discreto'), 'typography': fonte('iara-texto-micro')}), caminho='base/links'),
     ], caminho='base', interno=True)
 
     miolo = d.container('Conteúdo do rodapé', {
