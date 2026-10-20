@@ -325,18 +325,21 @@ def cabecalho():
         '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(24, '%'),
         '_flex_align_self': 'center',
     }, [
-        d.widget('heading', juntar_globais({
-            '_title': 'IARA COSTA', 'title': 'IARA COSTA', 'header_size': 'p',
-            'css_classes': 'iara-marca-nome',
+        # Logotipo em imagem (pedido de 2026-10-20): a cliente subiu o
+        # logotipo no Elementor dela, entao o widget e o Site Logo, que
+        # le a midia ja definida. A marca em texto saiu: se um dia o
+        # logo sumir da midia, volta-se a ela (historico v0.3.10).
+        # Largura 210px no widget e reforco no CSS do kit: na proporcao
+        # do arquivo (2622x439), sao ~35px de altura, perto da marca em
+        # texto que ele substitui (20px + tagline).
+        d.widget('theme-site-logo', {
+            '_title': 'Logotipo',
+            'css_classes': 'iara-marca-logo',
+            'link_to': 'custom',
             'link': {'url': PAGINAS['home'], 'is_external': '', 'nofollow': ''},
-            **tipografia('Playfair Display', '400', 20, 1.15, 0.105),
-        }, {'title_color': cor('text')}), caminho='barra/marca-nome'),
-        d.widget('heading', juntar_globais({
-            '_title': 'Moda e acessorios', 'title': 'MODA & ACESSÓRIOS', 'header_size': 'p',
-            'css_classes': 'iara-marca-tagline',
-            **tipografia('Jost', '400', 11, 1.40, 0.18, 'uppercase'),
-        }, {'title_color': cor('iara-texto-suave')}),
-            caminho='barra/marca-tagline'),
+            'image_size': 'full',
+            'width': medida(210),
+        }, caminho='barra/marca-logo'),
     ], caminho='barra/marca', interno=True)
 
     # menu: o widget de menu do WordPress (v0.3.15). A lista de icones nao

@@ -215,6 +215,12 @@ def widget(el):
                 f'gap:28px;list-style:none;margin:0;padding:0;'
                 f'justify-content:center">{links}</ul></div>')
 
+    if tipo == 'theme-site-logo':
+        link = (st.get('link') or {}).get('url', '#')
+        return (f'<a href="{html.escape(link)}" class="{classe}">'
+                f'<img src="logotipo.png" alt="Iara Costa" '
+                f'style="width:210px;height:auto;display:block"></a>')
+
     if tipo == 'button':
         estilo = css_tipografia(st, 'typography')
         fundo = cor(st, 'background_color')
@@ -352,6 +358,9 @@ WordPress, ela entra no Menu Principal.</p>
 
     SAIDA.mkdir(exist_ok=True)
     (SAIDA / 'index.html').write_text(doc, encoding='utf-8')
+    logo = RAIZ / 'bloco-b' / 'imagens' / 'iara-costa-logotipo.png'
+    if logo.exists():
+        (SAIDA / 'logotipo.png').write_bytes(logo.read_bytes())
     print(f'previa gerada: preview/index.html '
           f'({len(escolhidos)} templates: {", ".join(escolhidos)})')
 

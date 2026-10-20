@@ -85,6 +85,20 @@ testa('sublinhado no hover da faixa no CSS do kit',
       '.iara-faixa-lista .elementor-icon-list-item a:hover' in css
       and 'text-decoration: underline' in css)
 
+print('== cabeçalho: logotipo ==')
+logo_w = [e for e in percorre(cab['content'])
+          if e.get('widgetType') == 'theme-site-logo']
+testa('marca virou o widget Site Logo (lê a mídia do Elementor)',
+      len(logo_w) == 1, str(len(logo_w)) + ' widget')
+if logo_w:
+    lst = logo_w[0]['settings']
+    testa('logotipo a 210px, link para a home',
+          lst.get('width', {}).get('size') == 210
+          and lst.get('link_to') == 'custom'
+          and lst.get('link', {}).get('url', '').endswith('/iaracosta/'))
+testa('largura do logotipo reforçada no CSS do kit',
+      '.iara-marca-logo img' in css and 'width: 210px' in css)
+
 print('== cabeçalho: ícones de ação ==')
 icones = [e for e in percorre(cab['content'])
           if e.get('widgetType') == 'icon']
