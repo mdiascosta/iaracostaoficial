@@ -84,8 +84,25 @@
               "settings": {
                 "editor": "<p>Galeria nativa do WooCommerce, com zoom e lightbox. As fotos são as do cadastro de cada peça.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=iara-texto-micro"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 11,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.45,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.06,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -123,8 +140,25 @@
                 "_title": "Nome da peca (dinamico)",
                 "header_size": "h1",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=primary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.105,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -145,8 +179,25 @@
               "settings": {
                 "_title": "Preco (dinamico)",
                 "__globals__": {
-                  "text_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=iara-preco"
+                  "text_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -158,8 +209,25 @@
               "settings": {
                 "editor": "<p>Pix com 5% de desconto, cartão em até 6x sem juros e boleto. Confira no editor se o texto acompanha o que estiver ativo na conta do Mercado Pago.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=iara-texto-micro"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 11,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.45,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.06,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -171,8 +239,25 @@
               "settings": {
                 "_title": "Descricao curta (dinamica)",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -210,9 +295,27 @@
                 "size": "sm",
                 "button_type": "text",
                 "__globals__": {
-                  "text_color": "globals/colors?id=primary",
-                  "typography": "globals/typography?id=iara-rotulo"
-                }
+                  "text_color": "globals/colors?id=primary"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "600",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 11,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.4,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.15,
+                  "sizes": []
+                },
+                "typography_text_transform": "uppercase"
               },
               "elements": []
             },
@@ -263,8 +366,25 @@
                   "sizes": []
                 },
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "icon_typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "icon_typography_typography": "custom",
+                "icon_typography_font_family": "Jost",
+                "icon_typography_font_weight": "400",
+                "icon_typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "icon_typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "icon_typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -308,8 +428,25 @@
           "settings": {
             "editor": "<p>As abas trazem a descrição, as informações adicionais e as avaliações de cada peça. A tabela de medidas da peça entra nas informações adicionais ou na descrição, com os valores reais do fornecedor.</p>",
             "__globals__": {
-              "text_color": "globals/colors?id=iara-texto-suave",
-              "typography": "globals/typography?id=iara-texto-micro"
+              "text_color": "globals/colors?id=iara-texto-suave"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 11,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.45,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.06,
+              "sizes": []
             }
           },
           "elements": []
@@ -354,8 +491,25 @@
             "title": "Combina com",
             "header_size": "h2",
             "__globals__": {
-              "title_color": "globals/colors?id=text",
-              "typography": "globals/typography?id=secondary"
+              "title_color": "globals/colors?id=text"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Playfair Display",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 18,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.2,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.02,
+              "sizes": []
             }
           },
           "elements": []
@@ -424,8 +578,25 @@
             "header_size": "h2",
             "align": "center",
             "__globals__": {
-              "title_color": "globals/colors?id=iara-faixa-texto",
-              "typography": "globals/typography?id=secondary"
+              "title_color": "globals/colors?id=iara-faixa-texto"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Playfair Display",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 18,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.2,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.02,
+              "sizes": []
             }
           },
           "elements": []
@@ -438,8 +609,25 @@
             "editor": "<p>Confira o Guia de Medidas ou fale com o ateliê antes de fechar a compra.</p>",
             "align": "center",
             "__globals__": {
-              "text_color": "globals/colors?id=iara-faixa-texto",
-              "typography": "globals/typography?id=text"
+              "text_color": "globals/colors?id=iara-faixa-texto"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 15,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.55,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.0,
+              "sizes": []
             }
           },
           "elements": []
@@ -458,10 +646,28 @@
             },
             "size": "md",
             "__globals__": {
-              "typography": "globals/typography?id=accent",
               "button_background_color": "globals/colors?id=primary",
               "text_color": "globals/colors?id=iara-branco"
-            }
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "600",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 11,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.2,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.15,
+              "sizes": []
+            },
+            "typography_text_transform": "uppercase"
           },
           "elements": []
         }

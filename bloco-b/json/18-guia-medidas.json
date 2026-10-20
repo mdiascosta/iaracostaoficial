@@ -57,8 +57,25 @@
                 "title": "Guia de medidas",
                 "header_size": "h1",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=primary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.105,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -70,8 +87,25 @@
               "settings": {
                 "editor": "<p>Meça uma peça que já veste bem e compare com a tabela de cada produto.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -102,8 +136,25 @@
               "settings": {
                 "editor": "<p>A tabela desta página depende das medidas reais da modelagem [PREENCHER]: não publicar com valores de exemplo.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=iara-texto-micro"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 11,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.45,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.06,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -144,8 +195,25 @@
                 "title": "Como medir em casa",
                 "header_size": "h2",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=secondary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -157,8 +225,25 @@
               "settings": {
                 "editor": "<p>Estique a peça sobre a mesa, sem puxar. Meça busto, cintura, quadril e comprimento com a fita sem apertar, e anote em centímetros.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -199,8 +284,25 @@
                 "title": "Tabela de medidas",
                 "header_size": "h2",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=secondary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -212,8 +314,25 @@
               "settings": {
                 "editor": "<p>[PREENCHER] A tabela geral entra com as medidas reais da modelagem da marca. Cada página de produto traz a tabela daquela peça, que é a que vale na hora de escolher.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -254,8 +373,25 @@
                 "title": "Dúvidas comuns sobre tamanho",
                 "header_size": "h2",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=secondary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -267,8 +403,25 @@
               "settings": {
                 "editor": "<p>Na dúvida entre dois tamanhos, compare as medidas com a peça medida em casa. Se ainda assim ficar em dúvida, fale com o atendimento antes de fechar: a troca de tamanho em 30 dias existe, mas acertar de primeira é melhor.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []

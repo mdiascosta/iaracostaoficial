@@ -80,7 +80,8 @@
   font-family: "Jost", sans-serif !important;
   font-size: 12px;
   font-weight: 400;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: #554f49;
   padding: 6px 0;
   white-space: nowrap;

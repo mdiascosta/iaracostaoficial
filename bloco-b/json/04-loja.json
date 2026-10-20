@@ -42,8 +42,25 @@
             "title": "Todas as peças",
             "header_size": "h1",
             "__globals__": {
-              "title_color": "globals/colors?id=text",
-              "typography": "globals/typography?id=primary"
+              "title_color": "globals/colors?id=text"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Playfair Display",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 24,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.1,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.105,
+              "sizes": []
             }
           },
           "elements": []
@@ -55,8 +72,25 @@
           "settings": {
             "editor": "<p>Vestuário feminino do P ao GG, em linho, algodão egípcio e viscose de alta gramatura. A contagem de peças, a ordenação e a paginação vêm do próprio WooCommerce, conforme os filtros escolhidos.</p>",
             "__globals__": {
-              "text_color": "globals/colors?id=iara-texto-suave",
-              "typography": "globals/typography?id=text"
+              "text_color": "globals/colors?id=iara-texto-suave"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 15,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.55,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.0,
+              "sizes": []
             }
           },
           "elements": []
@@ -76,9 +110,27 @@
             "size": "sm",
             "button_type": "text",
             "__globals__": {
-              "text_color": "globals/colors?id=primary",
-              "typography": "globals/typography?id=iara-rotulo"
-            }
+              "text_color": "globals/colors?id=primary"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "600",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 11,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.4,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.15,
+              "sizes": []
+            },
+            "typography_text_transform": "uppercase"
           },
           "elements": []
         }
@@ -141,8 +193,25 @@
                 "title": "Filtros",
                 "header_size": "h2",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=secondary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -179,9 +248,27 @@
                     "title": "Categorias",
                     "header_size": "p",
                     "__globals__": {
-                      "title_color": "globals/colors?id=text",
-                      "typography": "globals/typography?id=iara-rotulo"
-                    }
+                      "title_color": "globals/colors?id=text"
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Jost",
+                    "typography_font_weight": "600",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 11,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.4,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "em",
+                      "size": 0.15,
+                      "sizes": []
+                    },
+                    "typography_text_transform": "uppercase"
                   },
                   "elements": []
                 },
@@ -241,9 +328,27 @@
                     "title": "Faixa de preço",
                     "header_size": "p",
                     "__globals__": {
-                      "title_color": "globals/colors?id=text",
-                      "typography": "globals/typography?id=iara-rotulo"
-                    }
+                      "title_color": "globals/colors?id=text"
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Jost",
+                    "typography_font_weight": "600",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 11,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.4,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "em",
+                      "size": 0.15,
+                      "sizes": []
+                    },
+                    "typography_text_transform": "uppercase"
                   },
                   "elements": []
                 },
@@ -254,8 +359,25 @@
                   "settings": {
                     "editor": "<p>[CONFIGURAR NO EDITOR] Filtro de preço do WooCommerce, com os valores mínimo e máximo do catálogo real.</p>",
                     "__globals__": {
-                      "text_color": "globals/colors?id=iara-texto-suave",
-                      "typography": "globals/typography?id=iara-texto-micro"
+                      "text_color": "globals/colors?id=iara-texto-suave"
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Jost",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 11,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.45,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "em",
+                      "size": 0.06,
+                      "sizes": []
                     }
                   },
                   "elements": []
@@ -307,9 +429,27 @@
                     "title": "Cor",
                     "header_size": "p",
                     "__globals__": {
-                      "title_color": "globals/colors?id=text",
-                      "typography": "globals/typography?id=iara-rotulo"
-                    }
+                      "title_color": "globals/colors?id=text"
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Jost",
+                    "typography_font_weight": "600",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 11,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.4,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "em",
+                      "size": 0.15,
+                      "sizes": []
+                    },
+                    "typography_text_transform": "uppercase"
                   },
                   "elements": []
                 },
@@ -320,8 +460,25 @@
                   "settings": {
                     "editor": "<p>[CONFIGURAR NO EDITOR] Filtro pelo atributo Cor cadastrado nos produtos (terracota, sálvia, areia, cru e carvão).</p>",
                     "__globals__": {
-                      "text_color": "globals/colors?id=iara-texto-suave",
-                      "typography": "globals/typography?id=iara-texto-micro"
+                      "text_color": "globals/colors?id=iara-texto-suave"
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Jost",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 11,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.45,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "em",
+                      "size": 0.06,
+                      "sizes": []
                     }
                   },
                   "elements": []
@@ -373,9 +530,27 @@
                     "title": "Tamanho",
                     "header_size": "p",
                     "__globals__": {
-                      "title_color": "globals/colors?id=text",
-                      "typography": "globals/typography?id=iara-rotulo"
-                    }
+                      "title_color": "globals/colors?id=text"
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Jost",
+                    "typography_font_weight": "600",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 11,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.4,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "em",
+                      "size": 0.15,
+                      "sizes": []
+                    },
+                    "typography_text_transform": "uppercase"
                   },
                   "elements": []
                 },
@@ -386,8 +561,25 @@
                   "settings": {
                     "editor": "<p>[CONFIGURAR NO EDITOR] Filtro pelo atributo Tamanho cadastrado nos produtos (P, M, G, GG e Único).</p>",
                     "__globals__": {
-                      "text_color": "globals/colors?id=iara-texto-suave",
-                      "typography": "globals/typography?id=iara-texto-micro"
+                      "text_color": "globals/colors?id=iara-texto-suave"
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Jost",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 11,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.45,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "em",
+                      "size": 0.06,
+                      "sizes": []
                     }
                   },
                   "elements": []
@@ -402,8 +594,25 @@
               "settings": {
                 "editor": "<p>Os três filtros de atributo e de preço não foram travados neste arquivo porque dependem dos atributos reais do catálogo. O guia de importação traz as opções e o que precisa de aprovação.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=iara-texto-micro"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 11,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.45,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.06,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -434,8 +643,25 @@
               "settings": {
                 "editor": "<p>Grade dinâmica do WooCommerce: 9 peças por página, com ordenação por mais recentes, mais populares, menor preço, maior preço e melhor avaliados, igual ao protótipo aprovado.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=iara-texto-micro"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 11,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.45,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.06,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -499,8 +725,25 @@
             "header_size": "h2",
             "align": "center",
             "__globals__": {
-              "title_color": "globals/colors?id=iara-faixa-texto",
-              "typography": "globals/typography?id=secondary"
+              "title_color": "globals/colors?id=iara-faixa-texto"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Playfair Display",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 18,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.2,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.02,
+              "sizes": []
             }
           },
           "elements": []
@@ -513,8 +756,25 @@
             "editor": "<p>Fale com o ateliê e a gente indica o tamanho e a peça certa.</p>",
             "align": "center",
             "__globals__": {
-              "text_color": "globals/colors?id=iara-faixa-texto",
-              "typography": "globals/typography?id=text"
+              "text_color": "globals/colors?id=iara-faixa-texto"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 15,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.55,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.0,
+              "sizes": []
             }
           },
           "elements": []
@@ -533,10 +793,28 @@
             },
             "size": "md",
             "__globals__": {
-              "typography": "globals/typography?id=accent",
               "button_background_color": "globals/colors?id=primary",
               "text_color": "globals/colors?id=iara-branco"
-            }
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "600",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 11,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.2,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.15,
+              "sizes": []
+            },
+            "typography_text_transform": "uppercase"
           },
           "elements": []
         }

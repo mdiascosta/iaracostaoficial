@@ -57,8 +57,25 @@
                 "title": "Envio e entrega",
                 "header_size": "h1",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=primary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.105,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -70,8 +87,25 @@
               "settings": {
                 "editor": "<p>Enviamos para todo o Brasil pelos Correios, com rastreio em todos os pedidos.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -112,8 +146,25 @@
                 "title": "Prazos e valores",
                 "header_size": "h2",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=secondary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -125,8 +176,25 @@
               "settings": {
                 "editor": "<p>O prazo e o valor do frete são calculados pelo seu CEP na sacola e no fechamento, antes do pagamento. Postagem em até 2 dias úteis depois da confirmação.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -167,8 +235,25 @@
                 "title": "Frete grátis acima de R$ 299",
                 "header_size": "h2",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=secondary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -180,8 +265,25 @@
               "settings": {
                 "editor": "<p>Pedidos a partir de R$ 299 têm frete grátis no PAC para todo o Brasil.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -222,8 +324,25 @@
                 "title": "Como acompanhar o pedido",
                 "header_size": "h2",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=secondary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -235,8 +354,25 @@
               "settings": {
                 "editor": "<p>Assim que a peça é postada, o código de rastreio vai para o seu e-mail e fica na Minha conta.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -277,8 +413,25 @@
                 "title": "Se algo der errado",
                 "header_size": "h2",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=secondary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -290,8 +443,25 @@
               "settings": {
                 "editor": "<p>Se o pedido atrasar, voltar ou chegar danificado, fale com o atendimento com o número do pedido que a gente resolve com a transportadora.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []

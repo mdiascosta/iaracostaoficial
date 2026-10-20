@@ -61,6 +61,47 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.18 · 2026-10-20 · Padrão de fonte embutido nos widgets; menu em caixa alta
+
+**Relato da cliente (4 capturas):** no site, o cabeçalho ficou "muito
+grande" (menu serifado enorme, ícones pesados) e o rodapé com "fontes
+muito grandes" (títulos em Playfair), comparados às imagens certas do
+protótipo. Pedidos: ícones da direita com "CSS mais clean", fontes do
+menu em maiúsculo e "acertar o padrão da fonte já no nosso kit de
+configuração".
+
+**Causa raiz (confirmada no código do widget de menu)**
+
+O widget Nav Menu declara a global `TYPOGRAPHY_PRIMARY` (Playfair 24)
+como padrão da sua tipografia: sem fonte declarada, o menu nasce
+serifado e gigante, foi a captura. Somando: as fontes personalizadas do
+kit (iara-rotulo, iara-assinatura, iara-texto-micro...) não estão
+mandando no site, então todo widget que só apontava para elas caía no
+padrão do tema ou na Primary. E há o suspeito de sempre: templates
+duplicados de importações seguidas, com a condição apontando para a
+cópia antiga.
+
+**O que mudou**
+
+- A geração agora **embute o padrão de fonte em cada widget** dos 24
+  arquivos: família, peso, tamanho, espaçamento e caixa declarados no
+  próprio widget (valores da mesma tabela das globais, com o prefixo
+  certo de cada widget). A cor continua global, que é o que funcionava.
+  Os templates ficaram autossuficientes em fonte.
+- O menu declara no widget: Jost 12px, **caixa alta** (pedido da
+  cliente), espaçamento 0.08em, cores do item/hover/ativo e a linha do
+  item ativo pelas globais de cor. A fonte global `iara-menu` também
+  virou caixa alta, para o padrão valer onde ela é usada.
+- Ícones da direita mais clean: 18px (eram 20/21), na cor suave do menu
+  (era preto texto) e com respiro de 22px entre eles.
+- Guia: linha nova de diagnóstico com a regra de apagar TODAS as
+  cópias duplicadas antes de importar.
+
+**Verificado aqui:** três conferências verdes e os widgets impressos
+(menu com Jost 12 caixa alta declarada; título de coluna do rodapé com
+Jost 11 caixa alta; listas com Jost 11). **Não verificado:** a
+renderização no staging.
+
 ### v0.3.17 · 2026-10-20 · Cabeçalho e rodapé conferidos contra o protótipo
 
 **Pedido da cliente (retomada do trabalho):** "vamos começar hoje pelo

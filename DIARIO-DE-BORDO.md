@@ -1,5 +1,41 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-20] - Padrão de fonte embutido nos widgets (v0.3.18)
+
+### Relato da cliente
+Quatro capturas: o cabeçalho dela gigante e serifado contra o nosso
+miúdo; o rodapé dela com títulos Playfair grandes contra o nosso
+contido. Pedidos: ícones "mais clean", menu em maiúsculo e "acertar o
+padrão da fonte já no nosso kit de configuração". Traduzindo o último:
+ela não quer depender de importar fonte certa para a fonte sair certa.
+
+### Análise (IMPLEMENTADO)
+O padrão do widget de menu é a global Primary, Playfair 24 (li no
+código dele): menu sem fonte declarada nasce exatamente como a captura
+dela. E as fontes personalizadas do kit não estão mandando naquele
+site, por importação ou por duplicata com condição antiga. Enquanto a
+fonte depender de global personalizada, a briga continua. A saída
+estrutural: declarar a fonte em cada widget, com os valores da nossa
+tabela. Cor continua global porque cor estava funcionando (faixa
+verde, Terracota dos botões).
+
+### O que foi feito
+- Conversor na geração: toda referência de tipografia global vira
+  valores declarados no widget, com o prefixo certo (`icon_typography`,
+  `title_typography` etc.). Vale para os 24 arquivos.
+- Menu: Jost 12 caixa alta declarada no widget + cores pelas globais;
+  a global `iara-menu` também virou caixa alta.
+- Ícones das ações: 18px, cor suave, respiro de 22px.
+- Guia registra a regra das duplicatas: apagar todas as cópias antes
+  de importar, porque condição em cópia antiga é indistinguível de
+  "a correção não pegou".
+
+### O que continua por verificar
+- Importar apagando as duplicatas e capturar header e rodapé. Se a
+  fonte ainda assim vier do tema, o próximo suspeito é cache de CSS do
+  Elementor (Ferramentas > regenerar CSS), que entra na conversa com
+  evidência, não com chute.
+
 ## [2026-10-20] - Header e footer conferidos contra o protótipo (v0.3.17)
 
 ### Pedido da cliente

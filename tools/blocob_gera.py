@@ -89,7 +89,7 @@ FONTES_SISTEMA = [
 FONTES_CUSTOM = [
     ('iara-titulo-h3',  'Titulo terciario', 'Jost', '400', 18, 1.20, 0.01, None),
     ('iara-rotulo',     'Rotulo',           'Jost', '600', 11, 1.40, 0.15, 'uppercase'),
-    ('iara-menu',       'Link do menu',     'Jost', '400', 12, 1.20, 0.06, None),
+    ('iara-menu',       'Link do menu',     'Jost', '400', 12, 1.20, 0.08, 'uppercase'),
     ('iara-texto-micro','Texto miudo',      'Jost', '400', 11, 1.45, 0.06, None),
     ('iara-preco',      'Preco',            'Jost', '400', 18, 1.20, 0.0,  None),
     ('iara-assinatura', 'Assinatura (tagline)', 'Jost', '400', 11, 1.40, 0.2, 'uppercase'),
@@ -346,7 +346,7 @@ def cabecalho():
     # $menu->slug). A cliente criou o menu "Menu Principal" em Aparencia >
     # Menus, cujo slug automatico e "menu-principal": e para ele que o
     # widget aponta (v0.3.16).
-    menu = d.widget('nav-menu', {
+    menu = d.widget('nav-menu', juntar_globais({
         '_title': 'Menu principal',
         'css_classes': 'iara-menu-nav',
         'menu': 'menu-principal',
@@ -354,22 +354,32 @@ def cabecalho():
         'pointer': 'underline',
         '_flex_size': 'grow',
         '_flex_align_self': 'center',
-    }, caminho='barra/menu')
+        'menu_typography_typography': 'custom',
+        'menu_typography_font_family': 'Jost',
+        'menu_typography_font_weight': '400',
+        'menu_typography_font_size': medida(12),
+        'menu_typography_letter_spacing': {'unit': 'em', 'size': 0.08, 'sizes': []},
+        'menu_typography_text_transform': 'uppercase',
+    }, {'color_menu_item': cor('iara-menu'),
+        'color_menu_item_hover': cor('accent'),
+        'color_menu_item_active': cor('accent'),
+        'pointer_color_menu_item_active': cor('iara-terracota-claro')}),
+        caminho='barra/menu')
 
     def acao(titulo, icone, url, caminho, biblioteca='fa-regular'):
         return d.widget('icon', juntar_globais({
             '_title': titulo,
             'selected_icon': {'value': icone, 'library': biblioteca},
             'link': {'url': url, 'is_external': '', 'nofollow': ''},
-            'size': medida(20),
-        }, {'primary_color': cor('text')}), caminho=caminho)
+            'size': medida(18),
+        }, {'primary_color': cor('iara-menu')}), caminho=caminho)
 
     acoes = d.container('Ações', {
         'css_classes': 'iara-acoes',
         'flex_direction': 'row',
         'flex_justify_content': 'flex-end',
         'flex_align_items': 'center',
-        'flex_gap': lacuna(18, 18),
+        'flex_gap': lacuna(22, 22),
         '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(24, '%'),
         '_flex_align_self': 'center',
     }, [
@@ -2137,7 +2147,41 @@ def _achata(el):
     return el
 
 
+FONTES_VALORES = {}
+for _lista in (FONTES_SISTEMA, FONTES_CUSTOM):
+    for _f in _lista:
+        FONTES_VALORES[_f[0]] = _f[2:]
+
+
+def _tipo_com_prefixo(prefixo, apelido):
+    familia, peso, tamanho, entrelinha, espacamento, caixa = FONTES_VALORES[apelido]
+    base = tipografia(familia, peso, tamanho, entrelinha, espacamento, caixa)
+    if prefixo == 'typography':
+        return base
+    return {chave.replace('typography_', prefixo + '_', 1): valor
+            for chave, valor in base.items()}
+
+
+def _embutir_tipografia(el):
+    globais = el['settings'].get('__globals__', {})
+    for controle, referencia in list(globais.items()):
+        if 'typography' not in controle or not isinstance(referencia, str):
+            continue
+        apelido = referencia.split('id=')[-1]
+        if apelido in FONTES_VALORES:
+            prefixo = controle
+            if el['widgetType'] == 'icon-list' and controle == 'typography':
+                prefixo = 'icon_typography'
+            if el['widgetType'] in ('icon-box', 'image-box'):
+                prefixo = {'typography_title': 'title_typography',
+                           'typography_description': 'description_typography'}.get(controle, controle)
+            el['settings'].update(_tipo_com_prefixo(prefixo, apelido))
+            del globais[controle]
+
+
 def _ajusta_widget(el):
+    if el['elType'] == 'widget':
+        _embutir_tipografia(el)
     if el['elType'] == 'container':
         st = el['settings']
         if st.get('flex_direction') == 'row' and st.get('flex_wrap') == 'wrap':
