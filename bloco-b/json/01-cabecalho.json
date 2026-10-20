@@ -81,7 +81,8 @@
             "__globals__": {
               "text_color": "globals/colors?id=iara-faixa-texto",
               "icon_color": "globals/colors?id=iara-faixa-texto",
-              "text_color_hover": "globals/colors?id=accent"
+              "text_color_hover": "globals/colors?id=iara-terracota-claro",
+              "icon_color_hover": "globals/colors?id=iara-terracota-claro"
             },
             "icon_typography_typography": "custom",
             "icon_typography_font_family": "Jost",

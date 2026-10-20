@@ -313,6 +313,8 @@ def cabecalho():
             'space_between': medida(22),
             'icon_size': medida(12),
         }, {'text_color': cor('iara-faixa-texto'), 'icon_color': cor('iara-faixa-texto'),
+            'text_color_hover': cor('iara-terracota-claro'),
+            'icon_color_hover': cor('iara-terracota-claro'),
             'typography': fonte('iara-faixa')}), caminho='faixa/aviso'),
     ], caminho='faixa')
 

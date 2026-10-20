@@ -11,6 +11,12 @@
    ========================================================================== */
 
 /* Faixa verde: caixa alta espaçada, como no prototipo */
+/* Hover da faixa, como no prototipo (.announcement__text a:hover):
+   a cor clara vem do controle de hover do widget; aqui entra a linha. */
+.iara-faixa-lista .elementor-icon-list-item a:hover,
+.iara-faixa-lista .elementor-icon-list-item a:focus-visible {
+  text-decoration: underline;
+}
 .iara-faixa-lista .elementor-icon-list-text {
   font-family: "Jost", sans-serif !important;
   font-size: 12px;

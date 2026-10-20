@@ -72,6 +72,19 @@ testa('menu em caixa alta também no CSS',
 testa('cabeçalho fixo (sticky) no CSS',
       '.elementor-location-header' in css and 'position: sticky' in css)
 
+print('== cabeçalho: faixa (topbar) ==')
+faixa = next(e for e in percorre(cab['content'])
+             if e.get('settings', {}).get('css_classes') == 'iara-faixa-lista')
+fg = faixa['settings'].get('__globals__', {})
+testa('hover da faixa em Terracota claro, texto e ícone',
+      fg.get('text_color_hover') == 'globals/colors?id=iara-terracota-claro'
+      and fg.get('icon_color_hover')
+      == 'globals/colors?id=iara-terracota-claro',
+      'prototipo: accent-soft #e4cbb5 sobre o verde')
+testa('sublinhado no hover da faixa no CSS do kit',
+      '.iara-faixa-lista .elementor-icon-list-item a:hover' in css
+      and 'text-decoration: underline' in css)
+
 print('== cabeçalho: ícones de ação ==')
 icones = [e for e in percorre(cab['content'])
           if e.get('widgetType') == 'icon']
@@ -89,7 +102,9 @@ testa('conta e desejos em contorno (fa-regular)',
                                              'Lista de desejos')))
 testa('alvo de toque e hover dos ícones no CSS',
       '.iara-acoes .elementor-icon' in css and 'padding: 12px' in css
-      and '.iara-acoes .elementor-icon:hover' in css)
+      and '.iara-acoes .elementor-icon:hover' in css
+      and '#78452f' in css.split('.iara-acoes .elementor-icon:hover')[1]
+      .split('}')[0])
 
 print('== tipografia embutida nos widgets (todos os templates) ==')
 sem_fonte = []

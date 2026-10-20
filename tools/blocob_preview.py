@@ -170,7 +170,7 @@ def widget(el):
         tam = medida(st.get('size', {})) or '17px'
         link = (st.get('link') or {}).get('url', '#')
         return (f'<a class="elementor-icon {classe}" href="{html.escape(link)}" '
-                f'title="{titulo}" style="color:{c};">'
+                f'title="{titulo}">'
                 f'{icone_fa(st.get("selected_icon"), tam)}</a>')
 
     if tipo == 'icon-list':
@@ -183,7 +183,7 @@ def widget(el):
             ic = icone_fa(item.get('selected_icon'))
             txt = html.escape(item.get('text', ''))
             link = (item.get('link') or {}).get('url')
-            conteudo = f'<i style="color:{icone_c}">{ic}</i><span>{txt}</span>'
+            conteudo = f'<span class="pv-ic">{ic}</span><span>{txt}</span>'
             if link:
                 conteudo = (f'<a href="{html.escape(link)}" '
                             f'style="color:inherit;text-decoration:none;'
@@ -331,6 +331,11 @@ img {{ max-width:100%; }}
   padding:6px 2px;
 }}
 .pv-folha .iara-barra {{ padding-left:24px !important; padding-right:24px !important; }}
+/* Hover da faixa e dos icones na previa: as cores base entram por regra
+   (nao fixas no elemento), senao o :hover nunca aparece. Os valores sao
+   os mesmos das globais do kit. */
+.iara-acoes .elementor-icon {{ color:#554f49; }}
+.iara-faixa-lista li a:hover {{ color:#e4cbb5 !important; }}
 {css_kit}
 </style></head><body>
 <div class="pv-aviso">
