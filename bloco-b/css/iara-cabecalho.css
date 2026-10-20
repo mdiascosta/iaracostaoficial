@@ -80,6 +80,11 @@
   line-height: 0;
 }
 .iara-acoes .elementor-icon svg { width: 17px; height: 17px; display: block; }
+/* Minha conta, Desejos e Sacola numa linha, separados por ponto */
+.iara-conta-links .elementor-icon-list-item + .elementor-icon-list-item::before {
+  content: "·"; margin-right: 8px; color: #776e64;
+}
+
 /* Nota da newsletter com largura de leitura (76ch do prototipo) */
 .iara-news-nota { max-width: 76ch; margin-top: 14px; }
 /* WhatsApp flutuante do prototipo: pilula Sálvia fixa no canto */

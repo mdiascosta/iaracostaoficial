@@ -212,6 +212,24 @@ soma = (pag['settings']['_flex_basis']['size']
 testa('pagamento e selos na mesma linha (54% + 40% + respiro)',
       soma <= 96 and pag['settings']['_flex_basis']['size'] == 54,
       f'soma {soma}% (antes 96% + gap estourava e a Segurança caía)')
+sem_cor = []
+for arquivo in sorted((RAIZ / 'bloco-b' / 'json').glob('*.json')):
+    dados = json.loads(arquivo.read_text(encoding='utf-8'))
+    for el in percorre(dados['content']):
+        st = el.get('settings', {})
+        if st.get('border_border') == 'solid':
+            tem = ('border_color' in st.get('__globals__', {})
+                   or str(st.get('border_color', '')).startswith('#'))
+            if not tem:
+                sem_cor.append(arquivo.name + ':'
+                               + st.get('_title', '?'))
+testa('todo container com borda tem a cor da borda declarada',
+      not sem_cor, '; '.join(sem_cor[:4]))
+linha = [e for e in percorre(rod['content'])
+         if e.get('settings', {}).get('css_classes') == 'iara-conta-links']
+testa('Minha conta, Desejos e Sacola em uma linha com ponto (CSS)',
+      len(linha) == 1 and len(linha[0]['settings']['icon_list']) == 3
+      and '.iara-conta-links' in css)
 nota = next(e for e in percorre(rod['content'])
             if e.get('settings', {}).get('css_classes') == 'iara-news-nota')
 news_box = next(e for e in percorre(rod['content'])

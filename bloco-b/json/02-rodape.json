@@ -787,13 +787,61 @@
                             }
                           },
                           {
+                            "text": "Segunda a sexta, das 9h às 18h",
+                            "_id": "31caed5",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
+                          }
+                        ],
+                        "space_between": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "__globals__": {
+                          "text_color": "globals/colors?id=iara-texto-suave",
+                          "text_color_hover": "globals/colors?id=accent"
+                        },
+                        "icon_typography_typography": "custom",
+                        "icon_typography_font_family": "Jost",
+                        "icon_typography_font_weight": "400",
+                        "icon_typography_font_size": {
+                          "unit": "px",
+                          "size": 11,
+                          "sizes": []
+                        },
+                        "icon_typography_line_height": {
+                          "unit": "em",
+                          "size": 1.45,
+                          "sizes": []
+                        },
+                        "icon_typography_letter_spacing": {
+                          "unit": "em",
+                          "size": 0.06,
+                          "sizes": []
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "efdc2e8",
+                      "elType": "widget",
+                      "widgetType": "icon-list",
+                      "settings": {
+                        "_title": "Conta, desejos e sacola",
+                        "css_classes": "iara-conta-links",
+                        "view": "inline",
+                        "icon_list": [
+                          {
                             "text": "Minha conta",
                             "link": {
                               "url": "https://oeemax.com.br/iaracosta/minha-conta/",
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "c8896e5",
+                            "_id": "c5a3355",
                             "selected_icon": {
                               "value": "",
                               "library": ""
@@ -806,7 +854,7 @@
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "54a752b",
+                            "_id": "d0bc640",
                             "selected_icon": {
                               "value": "",
                               "library": ""
@@ -819,15 +867,7 @@
                               "is_external": "",
                               "nofollow": ""
                             },
-                            "_id": "59ba565",
-                            "selected_icon": {
-                              "value": "",
-                              "library": ""
-                            }
-                          },
-                          {
-                            "text": "Segunda a sexta, das 9h às 18h",
-                            "_id": "31caed5",
+                            "_id": "f3435e5",
                             "selected_icon": {
                               "value": "",
                               "library": ""
@@ -836,7 +876,7 @@
                         ],
                         "space_between": {
                           "unit": "px",
-                          "size": 10,
+                          "size": 8,
                           "sizes": []
                         },
                         "__globals__": {
@@ -1609,12 +1649,13 @@
                                 "flex_justify_content": "center",
                                 "padding": {
                                   "unit": "px",
-                                  "top": "10",
+                                  "top": "12",
                                   "right": "16",
-                                  "bottom": "10",
+                                  "bottom": "12",
                                   "left": "16",
                                   "isLinked": false
                                 },
+                                "background_background": "classic",
                                 "border_border": "solid",
                                 "border_width": {
                                   "unit": "px",
@@ -1631,6 +1672,10 @@
                                   "bottom": "6",
                                   "left": "6",
                                   "isLinked": true
+                                },
+                                "__globals__": {
+                                  "border_color": "globals/colors?id=iara-linha",
+                                  "background_color": "globals/colors?id=iara-branco"
                                 },
                                 "_title": "Mercado Pago"
                               },
@@ -1677,12 +1722,13 @@
                                 "flex_justify_content": "center",
                                 "padding": {
                                   "unit": "px",
-                                  "top": "10",
+                                  "top": "12",
                                   "right": "16",
-                                  "bottom": "10",
+                                  "bottom": "12",
                                   "left": "16",
                                   "isLinked": false
                                 },
+                                "background_background": "classic",
                                 "border_border": "solid",
                                 "border_width": {
                                   "unit": "px",
@@ -1699,6 +1745,10 @@
                                   "bottom": "6",
                                   "left": "6",
                                   "isLinked": true
+                                },
+                                "__globals__": {
+                                  "border_color": "globals/colors?id=iara-linha",
+                                  "background_color": "globals/colors?id=iara-branco"
                                 },
                                 "_title": "Pix"
                               },
@@ -1745,12 +1795,13 @@
                                 "flex_justify_content": "center",
                                 "padding": {
                                   "unit": "px",
-                                  "top": "10",
+                                  "top": "12",
                                   "right": "16",
-                                  "bottom": "10",
+                                  "bottom": "12",
                                   "left": "16",
                                   "isLinked": false
                                 },
+                                "background_background": "classic",
                                 "border_border": "solid",
                                 "border_width": {
                                   "unit": "px",
@@ -1767,6 +1818,10 @@
                                   "bottom": "6",
                                   "left": "6",
                                   "isLinked": true
+                                },
+                                "__globals__": {
+                                  "border_color": "globals/colors?id=iara-linha",
+                                  "background_color": "globals/colors?id=iara-branco"
                                 },
                                 "_title": "Cartão de crédito"
                               },
@@ -1813,12 +1868,13 @@
                                 "flex_justify_content": "center",
                                 "padding": {
                                   "unit": "px",
-                                  "top": "10",
+                                  "top": "12",
                                   "right": "16",
-                                  "bottom": "10",
+                                  "bottom": "12",
                                   "left": "16",
                                   "isLinked": false
                                 },
+                                "background_background": "classic",
                                 "border_border": "solid",
                                 "border_width": {
                                   "unit": "px",
@@ -1835,6 +1891,10 @@
                                   "bottom": "6",
                                   "left": "6",
                                   "isLinked": true
+                                },
+                                "__globals__": {
+                                  "border_color": "globals/colors?id=iara-linha",
+                                  "background_color": "globals/colors?id=iara-branco"
                                 },
                                 "_title": "Boleto bancário"
                               },
@@ -1971,6 +2031,7 @@
                                   "left": "16",
                                   "isLinked": false
                                 },
+                                "background_background": "classic",
                                 "border_border": "solid",
                                 "border_width": {
                                   "unit": "px",
@@ -1987,6 +2048,10 @@
                                   "bottom": "6",
                                   "left": "6",
                                   "isLinked": true
+                                },
+                                "__globals__": {
+                                  "border_color": "globals/colors?id=iara-linha",
+                                  "background_color": "globals/colors?id=iara-branco"
                                 },
                                 "_title": "Site seguro"
                               },
@@ -2118,6 +2183,7 @@
                                   "left": "16",
                                   "isLinked": false
                                 },
+                                "background_background": "classic",
                                 "border_border": "solid",
                                 "border_width": {
                                   "unit": "px",
@@ -2134,6 +2200,10 @@
                                   "bottom": "6",
                                   "left": "6",
                                   "isLinked": true
+                                },
+                                "__globals__": {
+                                  "border_color": "globals/colors?id=iara-linha",
+                                  "background_color": "globals/colors?id=iara-branco"
                                 },
                                 "_title": "Navegação verificada"
                               },
