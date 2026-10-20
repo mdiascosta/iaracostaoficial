@@ -683,7 +683,7 @@ def rodape():
         'flex_gap': lacuna(12, 12),
         '_flex_size': 'custom',
         '_flex_basis_type': 'custom',
-        '_flex_basis': medida(48, '%'),
+        '_flex_basis': medida(54, '%'),
     }, [
         d.widget('heading', juntar_globais({
             'title': 'Formas de pagamento', 'header_size': 'p', '_title': 'Formas de pagamento',
@@ -719,7 +719,7 @@ def rodape():
         'flex_gap': lacuna(12, 12),
         '_flex_size': 'custom',
         '_flex_basis_type': 'custom',
-        '_flex_basis': medida(48, '%'),
+        '_flex_basis': medida(40, '%'),
     }, [
         d.widget('heading', juntar_globais({
             'title': 'Segurança', 'header_size': 'p', '_title': 'Segurança',
@@ -786,6 +786,7 @@ def rodape():
             'content_width': 'full',
             'flex_direction': 'row',
             'flex_wrap': 'wrap',
+            'flex_align_items': 'flex-start',
             'flex_gap': lacuna(24, 24),
         }, [pagamentos, selos], caminho='seg/linha', interno=True),
         paragrafo(d, ('Durante o protótipo, esta faixa é demonstrativa. O gateway da loja é o '

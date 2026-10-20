@@ -1517,6 +1517,7 @@
                     "content_width": "full",
                     "flex_direction": "row",
                     "flex_wrap": "nowrap",
+                    "flex_align_items": "flex-start",
                     "flex_gap": {
                       "row": "24",
                       "column": "24",
@@ -1544,7 +1545,7 @@
                         "_flex_basis_type": "custom",
                         "_flex_basis": {
                           "unit": "%",
-                          "size": 48,
+                          "size": 54,
                           "sizes": []
                         },
                         "_title": "Formas de pagamento"
@@ -1894,7 +1895,7 @@
                         "_flex_basis_type": "custom",
                         "_flex_basis": {
                           "unit": "%",
-                          "size": 48,
+                          "size": 40,
                           "sizes": []
                         },
                         "_title": "Selos de segurança"

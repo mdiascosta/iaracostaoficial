@@ -203,6 +203,15 @@ testa('selo com quadradinho escuro no CSS',
 testa('selo dos contadores colado no ícone (topo -4px)',
       'top: -4px; right: -6px' in css)
 
+pag = next(e for e in percorre(rod['content'])
+           if e.get('settings', {}).get('_title') == 'Formas de pagamento')
+sel = next(e for e in percorre(rod['content'])
+           if e.get('settings', {}).get('_title') == 'Selos de segurança')
+soma = (pag['settings']['_flex_basis']['size']
+        + sel['settings']['_flex_basis']['size'])
+testa('pagamento e selos na mesma linha (54% + 40% + respiro)',
+      soma <= 96 and pag['settings']['_flex_basis']['size'] == 54,
+      f'soma {soma}% (antes 96% + gap estourava e a Segurança caía)')
 nota = next(e for e in percorre(rod['content'])
             if e.get('settings', {}).get('css_classes') == 'iara-news-nota')
 news_box = next(e for e in percorre(rod['content'])
