@@ -23,7 +23,7 @@
         },
         "background_background": "classic",
         "__globals__": {
-          "background_color": "globals/colors?id=iara-branco"
+          "background_color": "globals/colors?id=iara-papel"
         },
         "_title": "Rodapé"
       },
@@ -49,7 +49,7 @@
               "elType": "container",
               "settings": {
                 "flex_direction": "row",
-                "flex_wrap": "wrap",
+                "flex_wrap": "nowrap",
                 "flex_justify_content": "space-between",
                 "flex_align_items": "center",
                 "flex_gap": {
@@ -150,6 +150,28 @@
                     "button_size": "sm",
                     "email_to": "[CONFERIR: e-mail de destino]",
                     "form_id": "newsletter"
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "1424f5a",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Nota da newsletter",
+                    "editor": "<p>Um e-mail por mês, no máximo. Ao assinar, você confirma que leu a <a href=\"https://oeemax.com.br/iaracosta/politica-de-privacidade/\">Política de Privacidade</a> e pode cancelar quando quiser, em um clique.</p>",
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    },
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-discreto",
+                      "link_color": "globals/colors?id=iara-texto-discreto",
+                      "typography": "globals/typography?id=iara-texto-micro"
+                    }
                   },
                   "elements": []
                 }
@@ -281,7 +303,7 @@
                         "_title": "Institucional",
                         "__globals__": {
                           "title_color": "globals/colors?id=text",
-                          "typography": "globals/typography?id=iara-texto-micro"
+                          "typography": "globals/typography?id=iara-rotulo"
                         }
                       },
                       "elements": []
@@ -366,6 +388,7 @@
                         },
                         "__globals__": {
                           "text_color": "globals/colors?id=iara-texto-suave",
+                          "icon_typography": "globals/typography?id=iara-texto-micro",
                           "text_color_hover": "globals/colors?id=accent"
                         }
                       },
@@ -406,7 +429,7 @@
                         "_title": "Categorias",
                         "__globals__": {
                           "title_color": "globals/colors?id=text",
-                          "typography": "globals/typography?id=iara-texto-micro"
+                          "typography": "globals/typography?id=iara-rotulo"
                         }
                       },
                       "elements": []
@@ -491,6 +514,7 @@
                         },
                         "__globals__": {
                           "text_color": "globals/colors?id=iara-texto-suave",
+                          "icon_typography": "globals/typography?id=iara-texto-micro",
                           "text_color_hover": "globals/colors?id=accent"
                         }
                       },
@@ -557,13 +581,52 @@
                             }
                           },
                           {
-                            "text": "(15) 99123-4567",
+                            "text": "(15) 99123-4567 · telefone e WhatsApp",
                             "link": {
                               "url": "https://wa.me/5515991234567",
                               "is_external": "on",
                               "nofollow": ""
                             },
                             "_id": "2007f5d",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
+                          },
+                          {
+                            "text": "Minha conta",
+                            "link": {
+                              "url": "https://oeemax.com.br/iaracosta/minha-conta/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "c8896e5",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
+                          },
+                          {
+                            "text": "Desejos",
+                            "link": {
+                              "url": "https://oeemax.com.br/iaracosta/lista-de-desejos/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "54a752b",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
+                          },
+                          {
+                            "text": "Sacola",
+                            "link": {
+                              "url": "https://oeemax.com.br/iaracosta/sacola/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "59ba565",
                             "selected_icon": {
                               "value": "",
                               "library": ""
@@ -596,9 +659,10 @@
                       "widgetType": "icon-list",
                       "settings": {
                         "_title": "Redes sociais",
+                        "view": "inline",
                         "icon_list": [
                           {
-                            "text": "Instagram",
+                            "text": "",
                             "selected_icon": {
                               "value": "fab fa-instagram",
                               "library": "fa-brands"
@@ -611,7 +675,7 @@
                             "_id": "3687719"
                           },
                           {
-                            "text": "Pinterest",
+                            "text": "",
                             "selected_icon": {
                               "value": "fab fa-pinterest",
                               "library": "fa-brands"
@@ -624,7 +688,7 @@
                             "_id": "16e84ad"
                           },
                           {
-                            "text": "WhatsApp",
+                            "text": "",
                             "selected_icon": {
                               "value": "fab fa-whatsapp",
                               "library": "fa-brands"
@@ -639,12 +703,12 @@
                         ],
                         "space_between": {
                           "unit": "px",
-                          "size": 10,
+                          "size": 12,
                           "sizes": []
                         },
                         "icon_size": {
                           "unit": "px",
-                          "size": 16,
+                          "size": 18,
                           "sizes": []
                         },
                         "__globals__": {
@@ -1142,7 +1206,7 @@
                             "_title": "Formas de pagamento",
                             "__globals__": {
                               "title_color": "globals/colors?id=text",
-                              "typography": "globals/typography?id=iara-texto-micro"
+                              "typography": "globals/typography?id=secondary"
                             }
                           },
                           "elements": []
@@ -1407,7 +1471,7 @@
                             "_title": "Segurança",
                             "__globals__": {
                               "title_color": "globals/colors?id=text",
-                              "typography": "globals/typography?id=iara-texto-micro"
+                              "typography": "globals/typography?id=secondary"
                             }
                           },
                           "elements": []
@@ -1659,6 +1723,19 @@
                     }
                   ],
                   "isInner": true
+                },
+                {
+                  "id": "1e15e0e",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Durante o protótipo, esta faixa é demonstrativa. O gateway da loja é o Mercado Pago; bandeiras, selos e certificados oficiais entram neste lugar no go-live. [CONFERIR no go-live]</p>",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-suave",
+                      "typography": "globals/typography?id=iara-texto-micro"
+                    }
+                  },
+                  "elements": []
                 }
               ],
               "isInner": true
@@ -1696,7 +1773,7 @@
                   "widgetType": "text-editor",
                   "settings": {
                     "_title": "Direitos e identificação",
-                    "editor": "<p>© 2026 Iara Costa. Todos os direitos reservados.</p><p>Iara Costa Moda Feminina LTDA · CNPJ 12.345.678/0001-90 · Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000</p>",
+                    "editor": "<p>© 2026 Iara Costa. Todos os direitos reservados.</p><p>Iara Costa Moda Feminina LTDA · CNPJ [PREENCHER] · Endereço [PREENCHER]</p>",
                     "__globals__": {
                       "text_color": "globals/colors?id=iara-texto-discreto",
                       "typography": "globals/typography?id=iara-texto-micro"
@@ -1710,6 +1787,7 @@
                   "widgetType": "icon-list",
                   "settings": {
                     "_title": "Links de política",
+                    "view": "inline",
                     "icon_list": [
                       {
                         "text": "Política de privacidade",

@@ -61,6 +61,44 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.17 · 2026-10-20 · Cabeçalho e rodapé conferidos contra o protótipo
+
+**Pedido da cliente (retomada do trabalho):** "vamos começar hoje pelo
+header e footer, verifique nosso template e pode migrar para atualizar
+os JSONs do Elementor".
+
+**Cabeçalho: conferido, estava certo.** Faixa em lista de ícones, marca
+em texto com as fontes declaradas, menu do WordPress no slug
+`menu-principal` (o Menu Principal criado pela cliente) com ativo
+sublinhado pelo CSS do kit, quatro ícones de ação. Um acréscimo: a
+barra do protótipo é fixa no topo (`sticky`), e agora o CSS do kit fixa
+o bloco inteiro do cabeçalho.
+
+**Rodapé: sete diferenças achadas na comparação com o protótipo**
+
+1. Títulos das colunas (Institucional, Categorias, Atendimento) na
+   fonte miúda; o protótipo usa o rótulo Jost 600 em caixa alta.
+2. A nota da newsletter ("Um e-mail por mês... Política de
+   Privacidade...") não existia no JSON. Voltou, sob o formulário.
+3. Atendimento sem a linha Minha conta · Desejos · Sacola, e o telefone
+   sem o "· telefone e WhatsApp". Restaurados.
+4. Redes sociais como lista vertical com nome escrito; o protótipo é
+   só os três ícones em linha. Ajustado (ícone sem texto, em linha).
+5. Subtítulos "Formas de pagamento" e "Segurança" em Jost miúdo; o
+   protótipo usa Playfair 18 (fonte de seção). Corrigidos, e os títulos
+   dos quatro itens de segurança e dos selos viraram rótulo em caixa
+   alta, como no CSS aprovado.
+6. A nota demonstrativa da faixa de segurança ("gateway é o Mercado
+   Pago... [CONFERIR no go-live]") não existia. Voltou.
+7. Fundo branco puro; o protótipo é o papel `#fffdf9`. E a linha de
+   identificação trazia o CNPJ fictício do protótipo: virou
+   `CNPJ [PREENCHER] · Endereço [PREENCHER]`, porque dado legal de
+   mentirinha não vai para o site (regra do projeto).
+
+**Verificado aqui:** três conferências verdes e o conteúdo impresso do
+rodapé (as duas notas presentes). **Não verificado:** a renderização no
+site, que vem na importação do kit novo.
+
 ### v0.3.16 · 2026-10-19 · Menu do cabeçalho aponta para o "Menu Principal" criado
 
 **Pedido da cliente:** trocar o menu em lista de ícones pelo menu do

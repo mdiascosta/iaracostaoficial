@@ -437,6 +437,19 @@ def rodape():
         'form_id': 'newsletter',
     }, caminho='news/formulario')
 
+    # Nota sob o formulario (existe no prototipo e faltava): entra como
+    # terceira peca da linha, ocupando a largura toda.
+    nota_news = d.widget('text-editor', juntar_globais({
+        '_title': 'Nota da newsletter',
+        'editor': ('<p>Um e-mail por mês, no máximo. Ao assinar, você confirma que leu a '
+                   '<a href="' + PAGINAS['privacidade'] + '">Política de Privacidade</a> '
+                   'e pode cancelar quando quiser, em um clique.</p>'),
+        '_flex_size': 'custom',
+        '_flex_basis_type': 'custom',
+        '_flex_basis': medida(100, '%'),
+    }, {'text_color': cor('iara-texto-discreto'), 'link_color': cor('iara-texto-discreto'),
+        'typography': fonte('iara-texto-micro')}), caminho='news/nota')
+
     newsletter = d.container('Newsletter', {
         'flex_direction': 'row',
         'flex_wrap': 'wrap',
@@ -447,7 +460,7 @@ def rodape():
         'border_border': 'solid',
         'border_width': {'unit': 'px', 'top': '0', 'right': '0', 'bottom': '1', 'left': '0', 'isLinked': False},
         '__globals__': {'border_color': cor('iara-fio')},
-    }, [texto_news, formulario], caminho='news', interno=True)
+    }, [texto_news, formulario, nota_news], caminho='news', interno=True)
 
     # --- colunas
     col_marca = d.container('Coluna da marca', {
@@ -484,11 +497,12 @@ def rodape():
                 for indice, (texto, url) in enumerate(itens)
             ],
             'space_between': medida(10),
-            '__globals__': {'text_color': cor('iara-texto-suave')},
+            '__globals__': {'text_color': cor('iara-texto-suave'),
+                            'typography': fonte('iara-texto-micro')},
         }, caminho=caminho + '/lista')
         titulo = d.widget('heading', juntar_globais({
             'title': nome, 'header_size': 'p', '_title': nome,
-        }, {'title_color': cor('text'), 'typography': fonte('iara-texto-micro')}),
+        }, {'title_color': cor('text'), 'typography': fonte('iara-rotulo')}),
             caminho=caminho + '/titulo')
         return d.container(nome, {
             'flex_direction': 'column',
@@ -531,9 +545,18 @@ def rodape():
                 d.item({'text': 'contato@iaracosta.com.br',
                         'link': {'url': 'mailto:contato@iaracosta.com.br', 'is_external': '', 'nofollow': ''}},
                        'colunas/atendimento/contatos/1'),
-                d.item({'text': '(15) 99123-4567',
+                d.item({'text': '(15) 99123-4567 · telefone e WhatsApp',
                         'link': {'url': 'https://wa.me/5515991234567', 'is_external': 'on', 'nofollow': ''}},
                        'colunas/atendimento/contatos/2'),
+                d.item({'text': 'Minha conta',
+                        'link': {'url': PAGINAS['conta'], 'is_external': '', 'nofollow': ''}},
+                       'colunas/atendimento/conta'),
+                d.item({'text': 'Desejos',
+                        'link': {'url': PAGINAS['desejos'], 'is_external': '', 'nofollow': ''}},
+                       'colunas/atendimento/desejos'),
+                d.item({'text': 'Sacola',
+                        'link': {'url': PAGINAS['sacola'], 'is_external': '', 'nofollow': ''}},
+                       'colunas/atendimento/sacola'),
                 d.item({'text': 'Segunda a sexta, das 9h às 18h'},
                        'colunas/atendimento/contatos/3'),
             ],
@@ -541,19 +564,20 @@ def rodape():
         }, {'text_color': cor('iara-texto-suave')}), caminho='colunas/atendimento/contatos'),
         d.widget('icon-list', juntar_globais({
             '_title': 'Redes sociais',
+            'view': 'inline',
             'icon_list': [
-                d.item({'text': 'Instagram', 'selected_icon': {'value': 'fab fa-instagram', 'library': 'fa-brands'},
+                d.item({'text': '', 'selected_icon': {'value': 'fab fa-instagram', 'library': 'fa-brands'},
                         'link': {'url': '[PREENCHER]', 'is_external': 'on', 'nofollow': ''}},
                        'colunas/atendimento/redes/1'),
-                d.item({'text': 'Pinterest', 'selected_icon': {'value': 'fab fa-pinterest', 'library': 'fa-brands'},
+                d.item({'text': '', 'selected_icon': {'value': 'fab fa-pinterest', 'library': 'fa-brands'},
                         'link': {'url': '[PREENCHER]', 'is_external': 'on', 'nofollow': ''}},
                        'colunas/atendimento/redes/2'),
-                d.item({'text': 'WhatsApp', 'selected_icon': {'value': 'fab fa-whatsapp', 'library': 'fa-brands'},
+                d.item({'text': '', 'selected_icon': {'value': 'fab fa-whatsapp', 'library': 'fa-brands'},
                         'link': {'url': 'https://wa.me/5515991234567', 'is_external': 'on', 'nofollow': ''}},
                        'colunas/atendimento/redes/3'),
             ],
-            'space_between': medida(10),
-            'icon_size': medida(16),
+            'space_between': medida(12),
+            'icon_size': medida(18),
         }, {'text_color': cor('iara-texto-suave')}), caminho='colunas/atendimento/redes'),
     ], caminho='colunas/atendimento', interno=True)
 
@@ -614,7 +638,7 @@ def rodape():
     }, [
         d.widget('heading', juntar_globais({
             'title': 'Formas de pagamento', 'header_size': 'p', '_title': 'Formas de pagamento',
-        }, {'title_color': cor('text'), 'typography': fonte('iara-texto-micro')}),
+        }, {'title_color': cor('text'), 'typography': fonte('secondary')}),
             caminho='seg/pag/titulo'),
         d.container('Quadros', {
             'content_width': 'full',
@@ -650,7 +674,7 @@ def rodape():
     }, [
         d.widget('heading', juntar_globais({
             'title': 'Segurança', 'header_size': 'p', '_title': 'Segurança',
-        }, {'title_color': cor('text'), 'typography': fonte('iara-texto-micro')}),
+        }, {'title_color': cor('text'), 'typography': fonte('secondary')}),
             caminho='seg/selos/titulo'),
         d.container('Distintivos', {
             'content_width': 'full',
@@ -711,6 +735,9 @@ def rodape():
             'flex_wrap': 'wrap',
             'flex_gap': lacuna(24, 24),
         }, [pagamentos, selos], caminho='seg/linha', interno=True),
+        paragrafo(d, ('Durante o protótipo, esta faixa é demonstrativa. O gateway da loja é o '
+                      'Mercado Pago; bandeiras, selos e certificados oficiais entram neste '
+                      'lugar no go-live. [CONFERIR no go-live]'), 'seg/nota', 'iara-texto-micro'),
     ], caminho='seg', interno=True)
 
     # --- base
@@ -726,12 +753,13 @@ def rodape():
         d.widget('text-editor', juntar_globais({
             '_title': 'Direitos e identificação',
             'editor': ('<p>© 2026 Iara Costa. Todos os direitos reservados.</p>'
-                       '<p>Iara Costa Moda Feminina LTDA · CNPJ 12.345.678/0001-90 · '
-                       'Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000</p>'),
+                       '<p>Iara Costa Moda Feminina LTDA · CNPJ [PREENCHER] · '
+                       'Endereço [PREENCHER]</p>'),
         }, {'text_color': cor('iara-texto-discreto'), 'typography': fonte('iara-texto-micro')}),
             caminho='base/direitos'),
         d.widget('icon-list', juntar_globais({
             '_title': 'Links de política',
+            'view': 'inline',
             'icon_list': [
                 d.item({'text': 'Política de privacidade',
                         'link': {'url': PAGINAS['privacidade'], 'is_external': '', 'nofollow': ''}},
@@ -762,7 +790,7 @@ def rodape():
         'flex_gap': lacuna(0, 0),
         'padding': dimensoes(0, 0, 0, 0),
         'background_background': 'classic',
-        '__globals__': {'background_color': cor('iara-branco')},
+        '__globals__': {'background_color': cor('iara-papel')},
     }, [miolo], caminho='raiz')
 
     d.content = [raiz]

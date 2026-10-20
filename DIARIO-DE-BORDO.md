@@ -1,5 +1,32 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-20] - Header e footer conferidos contra o protótipo (v0.3.17)
+
+### Pedido da cliente
+Retomada depois do merge do PR #10: "vamos começar hoje pelo header e
+footer, verifique nosso template e pode migrar para atualizar os JSONs
+do Elementor".
+
+### O que foi feito (IMPLEMENTADO)
+- Cabeçalho passado a limpo contra o parcial do protótipo: estava
+  certo (faixa em lista de ícones, marca em texto, menu
+  `menu-principal`, ícones). Ganhou o `sticky` do protótipo pelo CSS
+  que viaja no kit.
+- Rodapé comparado bloco a bloco com `tools/partials/footer.html`:
+  sete diferenças corrigidas (títulos em rótulo, nota da newsletter de
+  volta, linha conta/desejos/sacola, sociais só em ícones, subtítulos
+  em Playfair, nota demonstrativa da segurança de volta, fundo no
+  papel). Bônus de pente fino: o CNPJ fictício do protótipo virou
+  `[PREENCHER]`, porque dado legal inventado não publica.
+- Kit completo regenerado (33 containers no rodapé, 41 widgets) e as
+  três conferências verdes.
+
+### O que continua por verificar
+- A importação do kit novo no staging e as capturas do cabeçalho fixo
+  e do rodapé completo. Depois: o roteiro das páginas (reaplicar a
+  home, criar Coleção/Guia/FAQ, aplicar Sobre e Contato), que ficou de
+  ontem.
+
 ## [2026-10-19] - Menu aponta para o "Menu Principal" da cliente (v0.3.16)
 
 ### Pedido da cliente
