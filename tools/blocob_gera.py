@@ -878,7 +878,7 @@ def rodape():
         'link': {'url': 'https://wa.me/5515991234567', 'is_external': 'on', 'nofollow': ''},
         **tipografia('Jost', '400', 11, 1.40, 0.12, 'uppercase'),
     }, {'background_color': cor('secondary'), 'button_text_color': cor('iara-branco'),
-        'hover_background_color': cor('iara-terracota-escuro')}), caminho='whats')
+        'hover_background_color': cor('accent')}), caminho='whats')
     raiz['elements'].append(whats)
 
     d.content = [raiz]

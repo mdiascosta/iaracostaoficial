@@ -61,6 +61,58 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.20 · 2026-10-20 · Cabeçalho e rodapé fechados e aprovados na prévia
+
+**Fechamento.** Depois das rodadas de correção, o cabeçalho e o rodapé
+foram aprovados pela cliente na prévia local, sem nenhuma alteração a
+mais. Esta versão congela os dois templates exatamente como aprovados
+e entrega os dois JSON finais (`01-cabecalho.json`, `02-rodape.json`,
+também reunidos em `bloco-b/iara-costa-cabecalho-rodape.zip`), com o
+kit completo regenerado junto.
+
+**Como ficou o cabeçalho**
+
+- Faixa verde com hover Terracota claro sublinhado nos dois links;
+- Logotipo em imagem (widget Site Logo, mídia da cliente) a 210px;
+- Menu do WordPress (Menu Principal) em Jost 12px caixa alta, sem o
+  ponteiro do widget: hover com linha escura e item ativo com linha
+  Terracota claro, desenhados pelo CSS do kit;
+- Ícones a 17px em botões de 43px com 4px entre eles (medida do
+  protótipo): busca, conta, desejos e sacola;
+- Selos dinâmicos: sacola pelo widget Carrinho do Menu do WooCommerce
+  (`bag-light`, bolha Terracota que some com a sacola vazia) e desejos
+  pelo contador do plugin TI WooCommerce Wishlist.
+
+**Como ficou o rodapé**
+
+- Newsletter com formulário de 460px, linha fina e nota de privacidade
+  fora da caixa, em largura de leitura;
+- Marca com o logotipo em imagem a 190px e parágrafo a 13px; colunas
+  Institucional e Categorias; Atendimento com "Minha conta · Desejos ·
+  Sacola" em uma linha com pontos e sociais em círculos com borda;
+- Faixa de segurança com títulos Jost 600 caixa alta, textos a 12px,
+  ícones de contorno onde a biblioteca tem e divisórias verticais;
+- Formas de pagamento (54%) e Segurança (40%) na mesma linha: quadros
+  e selos com a cor da borda declarada, fundo branco e o selo com o
+  quadradinho escuro do protótipo;
+- Botão flutuante de WhatsApp (pílula Sálvia fixa, CSS do kit).
+
+**Método novo (ficou).** Os templates passaram a ser conferidos antes
+da entrega, sem importar nada no WordPress: prévia local gerada dos
+próprios JSON (`tools/blocob_preview.py`, com o CSS do kit e as
+classes reais do Elementor) e bateria automática
+(`tools/blocob_testes.py`, 30+ testes). A bateria pegou, entre outros,
+o título Atendimento sem caixa alta, listas sem a fonte embutida e os
+quadros de pagamento sem a cor da borda.
+
+**Dinâmico continua dinâmico:** menu (WordPress), logotipos (mídia do
+site), sacola e desejos (contadores reais) e o formulário. O coração
+com contador pede o plugin TI ativo; sem ele, esse widget não
+renderiza e o restante do cabeçalho fica normal.
+
+**Verificado aqui:** bateria local e as três conferências verdes.
+**Não verificado:** a importação no WordPress da cliente.
+
 ### v0.3.19 · 2026-10-20 · Estados do link do menu e ícones mais leves
 
 **Relato da cliente (captura do cabeçalho atual):** o menu "ainda não

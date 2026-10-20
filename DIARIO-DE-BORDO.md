@@ -1,5 +1,27 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-20] - Cabeçalho e rodapé aprovados e fechados (v0.3.20)
+
+### Relato da cliente
+"O header e footer aprovado pode atualizar os 2 json igual o preview
+sem nenhuma alteração, o que for dinâmico, aí atualizo."
+
+### O que foi feito
+- Nenhuma alteração de desenho: os dois JSON foram regenerados da
+  mesma fonte que alimentou a prévia aprovada, e a entrega reúne os
+  dois arquivos finais (zip próprio) mais o kit completo de sempre.
+- Conferido o inventário de widgets dos dois arquivos: o que é
+  dinâmico ficou dinâmico (menu do WordPress, Site Logo nos dois
+  templates, Carrinho do Menu, contador TI, formulário), o resto é
+  conteúdo fixo do protótipo.
+- Versão 0.3.20 registrada; kits regenerados; conferências verdes.
+
+### O que continua por verificar
+- A importação no site da cliente: apagar as cópias antigas dos dois
+  templates antes, para a condição não ficar apontando para cópia
+  velha. Com o plugin TI desligado, o coração não renderiza (registrado
+  no guia); a sacola abre a gaveta lateral do WooCommerce ao clicar.
+
 ## [2026-10-20] - Estados do link do menu e ícones leves (v0.3.19)
 
 ### Relato da cliente

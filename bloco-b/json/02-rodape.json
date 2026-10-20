@@ -2508,7 +2508,7 @@
             "__globals__": {
               "background_color": "globals/colors?id=secondary",
               "button_text_color": "globals/colors?id=iara-branco",
-              "hover_background_color": "globals/colors?id=iara-terracota-escuro"
+              "hover_background_color": "globals/colors?id=accent"
             }
           },
           "elements": []

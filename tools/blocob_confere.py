@@ -43,7 +43,10 @@ TIPOS = {
 
 # Widgets que podem aparecer nos arquivos do projeto. Lista fechada de proposito:
 # se um arquivo trouxer widget fora dela, a checagem avisa.
+# wp-widget-widget_top_wishlist: contador de desejos do plugin TI
+# WooCommerce Wishlist (widget do WordPress dentro do Elementor).
 WIDGETS_PERMITIDOS = {
+    'wp-widget-widget_top_wishlist',
     # Elementor gratuito
     'heading', 'text-editor', 'image', 'button', 'icon', 'icon-list', 'icon-box',
     'image-box', 'divider', 'spacer', 'accordion', 'toggle', 'tabs', 'counter',
