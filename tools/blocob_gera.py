@@ -388,7 +388,7 @@ def cabecalho():
         'flex_direction': 'row',
         'flex_justify_content': 'flex-end',
         'flex_align_items': 'center',
-        'flex_gap': lacuna(22, 22),
+        'flex_gap': lacuna(4, 4),
         '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(24, '%'),
         '_flex_align_self': 'center',
     }, [
@@ -412,6 +412,7 @@ def cabecalho():
             'css_classes': 'iara-sacola',
             'icon': 'bag-light',
             'items_indicator': 'bubble',
+            'items_indicator_distance': medida(5),
             'hide_empty_indicator': 'hide',
             'show_subtotal': '',
             'automatically_open_cart': '',

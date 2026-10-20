@@ -223,11 +223,11 @@
             "flex_justify_content": "flex-end",
             "flex_align_items": "center",
             "flex_gap": {
-              "row": "22",
-              "column": "22",
+              "row": "4",
+              "column": "4",
               "isLinked": true,
               "unit": "px",
-              "size": 22
+              "size": 4
             },
             "_flex_size": "custom",
             "_flex_basis_type": "custom",
@@ -316,6 +316,11 @@
                 "css_classes": "iara-sacola",
                 "icon": "bag-light",
                 "items_indicator": "bubble",
+                "items_indicator_distance": {
+                  "unit": "px",
+                  "size": 5,
+                  "sizes": []
+                },
                 "hide_empty_indicator": "hide",
                 "show_subtotal": "",
                 "automatically_open_cart": "",

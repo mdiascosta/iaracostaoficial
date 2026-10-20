@@ -118,6 +118,11 @@ testa('desejos é o contador do plugin TI (ícone, sem texto)',
       len(desejos) == 1
       and desejos[0]['settings'].get('wp', {}).get('show_icon') == 1
       and desejos[0]['settings'].get('wp', {}).get('show_text') == 0)
+acoes_st = next(e for e in percorre(cab['content'])
+                if e.get('settings', {}).get('css_classes') == 'iara-acoes')
+testa('distância entre os ícones igual à do protótipo (4px)',
+      (acoes_st['settings'].get('flex_gap') or {}).get('size') == 4,
+      'botões de 43px encostados, como no .header-actions')
 testa('selo Terracota dos contadores no CSS do kit',
       '.elementor-button-icon-qty[data-counter]' in css
       and '.wishlist_products_counter_number' in css
@@ -131,7 +136,7 @@ testa('conta e desejos em contorno (fa-regular)',
           if e['settings'].get('_title') in ('Minha conta',
                                              'Lista de desejos')))
 testa('alvo de toque e hover dos ícones no CSS',
-      '.iara-acoes .elementor-icon' in css and 'padding: 12px' in css
+      '.iara-acoes .elementor-icon' in css and 'padding: 13px' in css
       and '.iara-acoes .elementor-icon:hover' in css
       and '#78452f' in css.split('.iara-acoes .elementor-icon:hover')[1]
       .split('}')[0])
