@@ -371,12 +371,12 @@ def cabecalho():
         'css_classes': 'iara-menu-nav',
         'menu': 'menu-principal',
         'layout': 'horizontal',
-        # Sem ponteiro do widget ('none'): quem desenha a linha dos
-        # estados e o nosso CSS (classe iara-menu-nav). Com o ponteiro
-        # 'underline', o widget desenha a propria linha por cima e o
-        # hover fica errado (linha dupla, cor dele), foi o relato de
-        # 2026-10-20. Declarado 'none', vale so o CSS do kit.
-        'pointer': 'none',
+        # Ponteiro do proprio widget ligado ('underline'): quem desenha
+        # a linha do hover e do ativo e o CSS que o Elementor gera dos
+        # controles abaixo, que funciona em qualquer importacao. O CSS
+        # do kit segue como reforco (as cores sao as mesmas; se os dois
+        # rodarem, a linha e uma so, na mesma cor e posicao).
+        'pointer': 'underline',
         '_flex_size': 'grow',
         '_flex_align_self': 'center',
         'menu_typography_typography': 'custom',
@@ -387,7 +387,9 @@ def cabecalho():
         'menu_typography_text_transform': 'uppercase',
     }, {'color_menu_item': cor('iara-menu'),
         'color_menu_item_hover': cor('accent'),
-        'color_menu_item_active': cor('accent')}),
+        'color_menu_item_active': cor('accent'),
+        'pointer_color_menu_item_hover': cor('accent'),
+        'pointer_color_menu_item_active': cor('iara-terracota-claro')}),
         caminho='barra/menu')
 
     def acao(titulo, icone, url, caminho, biblioteca='fa-regular'):
@@ -431,6 +433,9 @@ def cabecalho():
             'hide_empty_indicator': 'hide',
             'show_subtotal': '',
             'automatically_open_cart': '',
+            'toggle_button_background_color': 'rgba(0,0,0,0)',
+            'toggle_button_hover_background_color': 'rgba(0,0,0,0)',
+            'toggle_button_border_width': medida(0),
         }, {'toggle_button_icon_color': cor('iara-menu'),
             'toggle_button_hover_icon_color': cor('accent'),
             'items_indicator_background_color': cor('primary'),

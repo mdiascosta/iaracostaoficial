@@ -40,10 +40,16 @@ cab = carrega('01-cabecalho.json')
 menu = next(e for e in percorre(cab['content'])
             if e.get('widgetType') == 'nav-menu')
 st = menu['settings']
+globais = st.get('__globals__', {})
 testa('menu usa o Menu Principal (slug menu-principal)',
       st.get('menu') == 'menu-principal', st.get('menu', ''))
-testa('ponteiro do widget desligado (a linha é do nosso CSS)',
-      st.get('pointer') == 'none', st.get('pointer', ''))
+testa('ponteiro do widget ligado (a linha é do CSS dele)',
+      st.get('pointer') == 'underline', st.get('pointer', ''))
+testa('cores da linha: hover escura, ativo clara (controles do widget)',
+      globais.get('pointer_color_menu_item_hover')
+      == 'globals/colors?id=accent'
+      and globais.get('pointer_color_menu_item_active')
+      == 'globals/colors?id=iara-terracota-claro')
 testa('fonte do menu embutida: Jost 12px caixa alta',
       st.get('menu_typography_font_family') == 'Jost'
       and st['menu_typography_font_size'].get('size') == 12
@@ -51,7 +57,6 @@ testa('fonte do menu embutida: Jost 12px caixa alta',
       '%s %spx %s' % (st.get('menu_typography_font_family'),
                       st.get('menu_typography_font_size', {}).get('size'),
                       st.get('menu_typography_text_transform')))
-globais = st.get('__globals__', {})
 testa('cores do item pelas globais (item, hover e ativo)',
       globais.get('color_menu_item') == 'globals/colors?id=iara-menu'
       and globais.get('color_menu_item_hover') == 'globals/colors?id=accent'
@@ -122,6 +127,11 @@ testa('sacola é o Carrinho do Menu, com bolha e traço fino (bag-light)',
       len(sacola) == 1
       and sacola[0]['settings'].get('icon') == 'bag-light'
       and sacola[0]['settings'].get('items_indicator') == 'bubble')
+testa('sacola sem caixa pelos controles (fundo transparente, borda 0)',
+      sacola and sacola[0]['settings'].get(
+          'toggle_button_background_color') == 'rgba(0,0,0,0)'
+      and sacola[0]['settings'].get(
+          'toggle_button_border_width', {}).get('size') == 0)
 desejos = [e for e in percorre(cab['content'])
            if e.get('widgetType') == 'wp-widget-widget_top_wishlist']
 testa('desejos é o contador do plugin TI (ícone, sem texto)',

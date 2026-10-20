@@ -189,7 +189,7 @@
             "css_classes": "iara-menu-nav",
             "menu": "menu-principal",
             "layout": "horizontal",
-            "pointer": "none",
+            "pointer": "underline",
             "_flex_size": "grow",
             "_flex_align_self": "center",
             "menu_typography_typography": "custom",
@@ -209,7 +209,9 @@
             "__globals__": {
               "color_menu_item": "globals/colors?id=iara-menu",
               "color_menu_item_hover": "globals/colors?id=accent",
-              "color_menu_item_active": "globals/colors?id=accent"
+              "color_menu_item_active": "globals/colors?id=accent",
+              "pointer_color_menu_item_hover": "globals/colors?id=accent",
+              "pointer_color_menu_item_active": "globals/colors?id=iara-terracota-claro"
             }
           },
           "elements": []
@@ -324,6 +326,13 @@
                 "hide_empty_indicator": "hide",
                 "show_subtotal": "",
                 "automatically_open_cart": "",
+                "toggle_button_background_color": "rgba(0,0,0,0)",
+                "toggle_button_hover_background_color": "rgba(0,0,0,0)",
+                "toggle_button_border_width": {
+                  "unit": "px",
+                  "size": 0,
+                  "sizes": []
+                },
                 "__globals__": {
                   "toggle_button_icon_color": "globals/colors?id=iara-menu",
                   "toggle_button_hover_icon_color": "globals/colors?id=accent",

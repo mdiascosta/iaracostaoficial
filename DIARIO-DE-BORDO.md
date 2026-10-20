@@ -1,5 +1,27 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-20] - Estados pelos controles dos widgets (v0.3.22)
+
+### Relato da cliente
+"Importei e mesma coisa." A importação avulsa não cria condição de
+exibição (conferido no código do Elementor): o template novo entra
+sem valer, e o site segue mostrando o antigo. Enquanto o estado do
+menu depender de CSS nosso viajando junto, qualquer desencontro de
+importação vira "não pegou".
+
+### Análise
+O desenho que nunca falha é o que o próprio widget gera dos seus
+controles: ponteiro do menu com cor de hover e de ativo, e o botão da
+sacola com fundo e borda controlados. Foi o que entrou, conferido
+controle a controle no código dos dois widgets. O CSS embutido fica
+de reforço, e o kit completo (que cria as condições) volta a ser o
+caminho indicado, com a limpeza dos antigos antes.
+
+### O que continua por verificar
+- Apagar os cabeçalhos/rodapés antigos, importar o kit completo e
+  conferir no Theme Builder um único cabeçalho com condição de site
+  inteiro. Aí o hover se testa no site, não na promessa.
+
 ## [2026-10-20] - CSS dentro dos templates (v0.3.21)
 
 ### Relato da cliente

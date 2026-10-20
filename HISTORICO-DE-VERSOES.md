@@ -61,6 +61,39 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.22 · 2026-10-20 · Estados pelos controles dos próprios widgets
+
+**Relato da cliente:** importou a v0.3.21 e "mesma coisa" (menu sem
+hover/ativo, sacola com caixa, contador solto).
+
+**Causa-raiz do "mesma coisa" (confirmada no código de importação do
+Elementor):** template avulso importado **não recebe condição de
+exibição**. O cabeçalho que o site mostra continua sendo o antigo,
+com a condição "site inteiro"; o novo fica guardado, sem valer. Some
+a isso que estados desenhados só pelo nosso CSS dependem de o CSS ser
+aplicado junto, e a briga acaba.
+
+**Correção estrutural: os estados passam a nascer dos controles dos
+próprios widgets**, cujo CSS o Elementor gera sempre, importe como
+importar (o CSS embutido da v0.3.21 fica como reforço):
+
+- **Menu**: ponteiro `underline` do widget ligado, com as cores da
+  linha pelos controles dele: hover em Terracota escuro
+  (`pointer_color_menu_item_hover`), ativo em Terracota claro
+  (`pointer_color_menu_item_active`), além das cores de texto que já
+  existiam;
+- **Sacola**: fundo transparente e borda zero pelos controles do
+  Carrinho do Menu (`toggle_button_background_color` transparente,
+  `toggle_button_border_width` 0), em vez de depender do nosso CSS
+  para sumir com a caixa do botão;
+- O caminho de importação recomendado volta a ser o **kit completo**
+  depois de apagar os templates antigos, porque o kit é quem cria as
+  condições de exibição automaticamente.
+
+**Verificado aqui:** bateria local (com os testes novos dos
+controles) e as três conferências verdes. **Não verificado:** a
+importação no WordPress da cliente.
+
 ### v0.3.21 · 2026-10-20 · CSS dentro dos dois templates; sacola sem caixa
 
 **Relato da cliente (captura do WordPress dela):** importados os dois
