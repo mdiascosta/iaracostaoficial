@@ -111,6 +111,11 @@ def estilo_container(st):
         partes.append(f"flex:0 0 {base['size']}{base.get('unit', '%')}")
     if st.get('_flex_size') == 'grow':
         partes.append('flex:1 1 auto')
+    if st.get('flex_wrap') == 'wrap':
+        partes.append('flex-wrap:wrap')
+    raio = st.get('border_radius', {}) or {}
+    if raio.get('top'):
+        partes.append(f"border-radius:{raio['top']}px")
     if st.get('content_width') == 'boxed':
         partes.append('max-width:1688px;margin-inline:auto;width:100%')
     bw = st.get('border_width', {}) or {}
@@ -170,7 +175,7 @@ def widget(el):
         tam = medida(st.get('size', {})) or '17px'
         link = (st.get('link') or {}).get('url', '#')
         return (f'<a class="elementor-icon {classe}" href="{html.escape(link)}" '
-                f'title="{titulo}">'
+                f'title="{titulo}" style="--pv-cor:{c}">'
                 f'{icone_fa(st.get("selected_icon"), tam)}</a>')
 
     if tipo == 'icon-list':
@@ -183,14 +188,15 @@ def widget(el):
             ic = icone_fa(item.get('selected_icon'))
             txt = html.escape(item.get('text', ''))
             link = (item.get('link') or {}).get('url')
-            conteudo = f'<span class="pv-ic">{ic}</span><span>{txt}</span>'
+            conteudo = (f'<span class="elementor-icon-list-icon">{ic}</span>'
+                        f'<span class="elementor-icon-list-text">{txt}</span>')
             if link:
                 conteudo = (f'<a href="{html.escape(link)}" '
                             f'style="color:inherit;text-decoration:none;'
                             f'display:inline-flex;gap:6px;align-items:center">'
                             f'{conteudo}</a>')
-            itens.append(f'<li style="{estilo};color:{texto_c}">'
-                         f'{conteudo}</li>')
+            itens.append(f'<li class="elementor-icon-list-item" '
+                         f'style="{estilo};color:{texto_c}">{conteudo}</li>')
         direcao = 'row;flex-wrap:wrap' if inline else 'column'
         return (f'<ul class="pv-lista {classe}" style="display:flex;'
                 f'flex-direction:{direcao};gap:{medida(st.get("space_between", {})) or "8px"};'
@@ -214,6 +220,21 @@ def widget(el):
                 f'<ul class="elementor-nav-menu--main" style="display:flex;'
                 f'gap:28px;list-style:none;margin:0;padding:0;'
                 f'justify-content:center">{links}</ul></div>')
+
+    if tipo == 'form':
+        campo = (st.get('form_fields') or [{}])[0]
+        return (f'<form class="{classe}" style="display:flex;gap:10px;'
+                f'flex:1 1 auto;max-width:520px" onsubmit="return false">'
+                f'<input type="email" required placeholder="'
+                f'{html.escape(campo.get("placeholder", "seu@email.com"))}" '
+                f'style="flex:1;padding:12px 14px;border:1px solid #ded8ce;'
+                f'border-radius:6px;font-family:Jost,sans-serif;'
+                f'font-size:14px;background:#fff">'
+                f'<button style="background:#a45f43;color:#fffdf9;border:0;'
+                f'border-radius:6px;padding:12px 22px;font-family:Jost;'
+                f'font-size:12px;font-weight:600;letter-spacing:.14em;'
+                f'text-transform:uppercase;cursor:pointer">'
+                f'{html.escape(st.get("button_text", "Assinar"))}</button></form>')
 
     if tipo == 'woocommerce-menu-cart':
         return ('<a class="elementor-icon iara-sacola" href="#" title="Sacola" '
@@ -358,6 +379,7 @@ img {{ max-width:100%; }}
 /* Hover da faixa e dos icones na previa: as cores base entram por regra
    (nao fixas no elemento), senao o :hover nunca aparece. Os valores sao
    os mesmos das globais do kit. */
+.elementor-icon {{ color:var(--pv-cor,#2d2925); }}
 .iara-acoes .elementor-icon {{ color:#554f49; }}
 .iara-faixa-lista li a:hover {{ color:#e4cbb5 !important; }}
 {css_kit}
