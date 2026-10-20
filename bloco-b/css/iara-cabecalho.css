@@ -120,8 +120,21 @@
    numero em branco, no canto do icone, como no prototipo. A sacola e
    o widget Carrinho do Menu (numero real do WooCommerce); os desejos,
    o contador do plugin TI. Bolha vazia nao aparece. */
-.iara-sacola .elementor-menu-cart__toggle { background: none; border: 0; padding: 13px; line-height: 0; }
-.iara-desejos .wishlist_products_counter { padding: 13px; display: inline-block; line-height: 0; }
+.iara-sacola .elementor-menu-cart__toggle .elementor-button {
+  background: none; border: 0; box-shadow: none;
+  padding: 13px; line-height: 0; color: #554f49;
+}
+.iara-sacola .elementor-menu-cart__toggle .elementor-button:hover,
+.iara-sacola .elementor-menu-cart__toggle .elementor-button:focus-visible {
+  background: none; color: #78452f;
+}
+.iara-sacola .elementor-menu-cart__toggle .elementor-button svg {
+  width: 19px; height: 19px; display: block;
+}
+.iara-desejos .wishlist_products_counter {
+  padding: 13px; display: inline-block; line-height: 0;
+  position: relative; color: #554f49; text-decoration: none;
+}
 .iara-sacola .elementor-button-icon { position: relative; color: #554f49; }
 .iara-sacola:hover .elementor-button-icon { color: #78452f; }
 .iara-sacola .elementor-button-icon .elementor-button-icon-qty[data-counter] {

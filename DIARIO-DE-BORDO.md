@@ -1,5 +1,26 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-20] - CSS dentro dos templates (v0.3.21)
+
+### Relato da cliente
+A captura do site dela com os dois JSON importados: menu sem hover e
+sem a linha do ativo, sacola dentro de uma caixa com borda e o zero
+dos desejos solto ao lado do coração. Era o retrato exato de "o CSS
+não foi junto".
+
+### Análise
+Importar template avulso não traz o `custom_css` das configurações do
+site, que é onde os estados moram. A correção estrutural é o CSS
+viajar dentro do próprio documento (a configuração `custom_css` do
+template, que o Elementor aplica onde o template é exibido, e
+cabeçalho/rodapé aparecem em todas as páginas). De quebra, o seletor
+da sacola estava no envoltório e não no botão; o código do widget
+mostrou o elemento certo.
+
+### O que continua por verificar
+- Reimportar os dois templates (apagando as cópias anteriores) e
+  passar o mouse no menu; clicar na sacola abre a gaveta lateral.
+
 ## [2026-10-20] - Cabeçalho e rodapé aprovados e fechados (v0.3.20)
 
 ### Relato da cliente

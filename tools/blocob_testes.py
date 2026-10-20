@@ -72,6 +72,16 @@ testa('menu em caixa alta também no CSS',
 testa('cabeçalho fixo (sticky) no CSS',
       '.elementor-location-header' in css and 'position: sticky' in css)
 
+print('== CSS embutido nos templates (vale sem importar o kit) ==')
+for nome in ('01-cabecalho.json', '02-rodape.json'):
+    dados = carrega(nome)
+    embutido = (dados.get('page_settings') or {}).get('custom_css', '')
+    testa(f'{nome}: CSS do kit dentro do template',
+          len(embutido) > 3000
+          and '.elementor-item:hover' in embutido
+          and '.elementor-menu-cart__toggle .elementor-button' in embutido,
+          f'{len(embutido)} caracteres')
+
 print('== cabeçalho: faixa (topbar) ==')
 faixa = next(e for e in percorre(cab['content'])
              if e.get('settings', {}).get('css_classes') == 'iara-faixa-lista')

@@ -61,6 +61,37 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.21 · 2026-10-20 · CSS dentro dos dois templates; sacola sem caixa
+
+**Relato da cliente (captura do WordPress dela):** importados os dois
+JSON, o hover e o ativo do menu não funcionam, a sacola aparece dentro
+de uma caixa com borda e o coração mostra o "0" solto ao lado, sem o
+selo. O resto (faixa, logotipo, menu em caixa alta) entrou certo.
+
+**Causa (duas, confirmadas)**
+
+1. Quem importa só os JSON **não recebe o CSS** das configurações do
+   site: é nele que moram os estados do menu, a sacola sem caixa e os
+   selos. Sem CSS, o Elementor desenha o botão da sacola com o estilo
+   de botão dele (a caixa da captura) e o menu fica só com as cores.
+2. A regra da sacola mirava o envoltório do botão, não o botão: o
+   seletor certo é `.elementor-menu-cart__toggle .elementor-button`
+   (conferido no código do widget).
+
+**O que mudou**
+
+- O CSS geral passa a viajar **dentro dos dois templates**
+  (configuração `custom_css` do documento de cabeçalho e de rodapé),
+  além de seguir no kit completo. Importando só os JSON, o desenho vai
+  junto; importando o kit, vale o mesmo CSS.
+- Seletores da sacola corrigidos para o botão de verdade, com hover
+  em Terracota escuro e o glifo a 19px; contador de desejos com a
+  âncora posicionada para o selo encostar no coração.
+- Bateria ganhou o teste do CSS embutido nos dois arquivos.
+
+**Verificado aqui:** bateria local e as três conferências verdes.
+**Não verificado:** a reimportação no WordPress da cliente.
+
 ### v0.3.20 · 2026-10-20 · Cabeçalho e rodapé fechados e aprovados na prévia
 
 **Fechamento.** Depois das rodadas de correção, o cabeçalho e o rodapé

@@ -270,6 +270,21 @@ PAGINAS = {
 }
 
 
+def _css_geral():
+    """O CSS geral do kit, para embutir nos templates de tema.
+
+    Quem importa so os JSON do cabecalho/rodape (sem o kit) nao recebe
+    o custom_css das configuracoes do site, e era ai que moravam o
+    hover/ativo do menu, a sacola sem caixa e os selos: na captura da
+    v0.3.20 o site dela mostrou exatamente esses tres sintomas. O CSS
+    passa a viajar tambem dentro de cada template (configuracao
+    custom_css do documento), entao o desenho nao depende do caminho
+    de importacao.
+    """
+    caminho = pathlib.Path(__file__).resolve().parent.parent / 'bloco-b' / 'css' / 'iara-cabecalho.css'
+    return caminho.read_text(encoding='utf-8')
+
+
 def cabecalho():
     """01. Cabecalho: faixa, marca em texto, menu e acoes em lista de icones.
 
@@ -438,6 +453,7 @@ def cabecalho():
     }, [marca, menu, acoes], caminho='barra')
 
     d.content = [faixa, barra]
+    d.page_settings = {'custom_css': _css_geral()}
     return d
 
 
@@ -882,6 +898,7 @@ def rodape():
     raiz['elements'].append(whats)
 
     d.content = [raiz]
+    d.page_settings = {'custom_css': _css_geral()}
     return d
 
 
