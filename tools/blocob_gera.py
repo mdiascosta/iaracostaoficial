@@ -516,21 +516,23 @@ def rodape():
         '_flex_basis_type': 'custom',
         '_flex_basis': medida(25, '%'),
     }, [
-        d.widget('heading', juntar_globais({
-            '_title': 'Iara Costa',
-            'title': 'IARA COSTA',
-            'header_size': 'p',
-        }, {'title_color': cor('text'), 'typography': fonte('primary')}), caminho='colunas/marca/marca'),
-        d.widget('heading', juntar_globais({
-            '_title': 'Moda e acessórios',
-            'title': 'Moda & Acessórios',
-            'header_size': 'p',
-        }, {'title_color': cor('iara-texto-discreto'), 'typography': fonte('iara-assinatura')}),
-            caminho='colunas/marca/assinatura'),
+        # Marca do rodape tambem em imagem (pedido de 2026-10-20): o
+        # mesmo logotipo do cabecalho, um pouco menor (190px), porque a
+        # cliente achou a marca em texto grande. O paragrafo desceu de
+        # 15px para 13px pelo mesmo relato.
+        d.widget('theme-site-logo', {
+            '_title': 'Logotipo do rodapé',
+            'css_classes': 'iara-marca-logo-rodape',
+            'link_to': 'custom',
+            'link': {'url': PAGINAS['home'], 'is_external': '', 'nofollow': ''},
+            'image_size': 'full',
+            'width': medida(190),
+        }, caminho='colunas/marca/logo'),
         d.widget('text-editor', juntar_globais({
             'editor': ('<p>Vestuário feminino autoral em linho, algodão egípcio e viscose de alta '
                        'gramatura. Modelagem, corte e confecção próprios, no ateliê em Cerquilho (SP).</p>'),
-        }, {'text_color': cor('iara-texto-suave'), 'typography': fonte('text')}),
+            **tipografia('Jost', '400', 13, 1.55, 0.0),
+        }, {'text_color': cor('iara-texto-suave')}),
             caminho='colunas/marca/sobre'),
     ], caminho='colunas/marca', interno=True)
 

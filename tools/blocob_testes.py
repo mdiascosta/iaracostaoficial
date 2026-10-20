@@ -230,6 +230,17 @@ linha = [e for e in percorre(rod['content'])
 testa('Minha conta, Desejos e Sacola em uma linha com ponto (CSS)',
       len(linha) == 1 and len(linha[0]['settings']['icon_list']) == 3
       and '.iara-conta-links' in css)
+logo_rod = [e for e in percorre(rod['content'])
+            if e.get('widgetType') == 'theme-site-logo']
+testa('rodapé com o logotipo em imagem a 190px (sem marca em texto)',
+      len(logo_rod) == 1
+      and logo_rod[0]['settings'].get('width', {}).get('size') == 190)
+sobre = next(e for e in percorre(rod['content'])
+             if e.get('widgetType') == 'text-editor'
+             and 'Vestuário feminino autoral' in str(
+                 e['settings'].get('editor', '')))
+testa('parágrafo da marca a 13px (era 15px)',
+      sobre['settings'].get('typography_font_size', {}).get('size') == 13)
 nota = next(e for e in percorre(rod['content'])
             if e.get('settings', {}).get('css_classes') == 'iara-news-nota')
 news_box = next(e for e in percorre(rod['content'])

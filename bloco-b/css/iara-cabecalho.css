@@ -152,6 +152,9 @@
   justify-content: center;
   gap: clamp(12px, 1.6vw, 28px);
 }
+/* Logotipo do rodape: o mesmo arquivo, um pouco menor */
+.iara-marca-logo-rodape img { width: 190px; height: auto; display: block; }
+
 /* Logotipo (widget Site Logo): largura travada mesmo se o controle
    de largura do widget mudar; altura automatica pela proporcao. */
 .iara-marca-logo img { width: 210px; height: auto; display: block; }

@@ -256,9 +256,10 @@ def widget(el):
 
     if tipo == 'theme-site-logo':
         link = (st.get('link') or {}).get('url', '#')
+        largura = (st.get('width') or {}).get('size', 210)
         return (f'<a href="{html.escape(link)}" class="{classe}">'
                 f'<img src="logotipo.png" alt="Iara Costa" '
-                f'style="width:210px;height:auto;display:block"></a>')
+                f'style="width:{largura}px;height:auto;display:block"></a>')
 
     if tipo == 'button':
         estilo = css_tipografia(st, 'typography')
