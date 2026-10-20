@@ -205,10 +205,15 @@ def widget(el):
             'style="%s">%s</a></li>'
             % (' elementor-item-active' if ativo else '', estilo, nome)
             for nome, ativo in itens)
-        return (f'<nav class="iara-menu-nav elementor-nav-menu--main {classe}" '
-                f'style="flex:1 1 auto"><ul style="display:flex;gap:28px;'
-                f'list-style:none;margin:0;padding:0;justify-content:center">'
-                f'{links}</ul></nav>')
+        # Estrutura igual a que o Elementor gera: a classe iara-menu-nav
+        # fica no envoltório do widget e a lista .elementor-nav-menu--main
+        # vem DENTRO dele. Sem isso, os seletores do CSS do kit
+        # (.iara-menu-nav .elementor-nav-menu--main .elementor-item) nao
+        # casam e o link fica no padrao azul do navegador, sem hover.
+        return (f'<div class="iara-menu-nav {classe}" style="flex:1 1 auto">'
+                f'<ul class="elementor-nav-menu--main" style="display:flex;'
+                f'gap:28px;list-style:none;margin:0;padding:0;'
+                f'justify-content:center">{links}</ul></div>')
 
     if tipo == 'button':
         estilo = css_tipografia(st, 'typography')
@@ -319,6 +324,13 @@ body {{ margin:0; background:#e9e4db; font-family:'Jost',sans-serif; }}
 .pv-falta {{ border:1px dashed #c9bda9; color:#776e64; padding:10px 14px;
   font-size:13px; background:#f7f4ef; }}
 img {{ max-width:100%; }}
+/* O widget de menu gera a cor base do item a partir da global; aqui ela
+   entra como regra, para o hover/ativo do CSS do kit poderem vencer. */
+.iara-menu-nav .elementor-nav-menu--main .elementor-item {{
+  color:#554f49; text-decoration:none; display:inline-block;
+  padding:6px 2px;
+}}
+.pv-folha .iara-barra {{ padding-left:24px !important; padding-right:24px !important; }}
 {css_kit}
 </style></head><body>
 <div class="pv-aviso">
