@@ -78,14 +78,19 @@ testa('cabeçalho fixo (sticky) no CSS',
       '.elementor-location-header' in css and 'position: sticky' in css)
 
 print('== CSS embutido nos templates (vale sem importar o kit) ==')
-for nome in ('01-cabecalho.json', '02-rodape.json'):
+arquivos = sorted(p.name for p in
+                  (RAIZ / 'bloco-b' / 'json').glob('*.json'))
+sem_css = []
+for nome in arquivos:
     dados = carrega(nome)
     embutido = (dados.get('page_settings') or {}).get('custom_css', '')
-    testa(f'{nome}: CSS do kit dentro do template',
-          len(embutido) > 3000
-          and '.elementor-item:hover' in embutido
-          and '.elementor-menu-cart__toggle .elementor-button' in embutido,
-          f'{len(embutido)} caracteres')
+    if not (len(embutido) > 3000
+            and '.elementor-item:hover' in embutido
+            and '.iara-acoes .elementor-icon' in embutido):
+        sem_css.append(nome)
+testa(f'CSS embutido nos {len(arquivos)} templates',
+      not sem_css, 'sem CSS: ' + ', '.join(sem_css) if sem_css else
+      'estados, selos e WooCommerce dentro de cada JSON')
 
 print('== cabeçalho: faixa (topbar) ==')
 faixa = next(e for e in percorre(cab['content'])

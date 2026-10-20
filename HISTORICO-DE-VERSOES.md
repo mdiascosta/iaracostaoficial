@@ -61,6 +61,35 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.23 · 2026-10-20 · CSS embutido em todos os templates; pacote com as 24 páginas
+
+**Pedido da cliente:** ajustar todos os JSON (todas as páginas) com o
+CSS embutido, para importar tudo, com as páginas o mais prontas
+possível.
+
+**O que mudou**
+
+- O CSS geral (estados do menu e da faixa, selos dos contadores,
+  rodapé, WooCommerce e Minha Conta) agora viaja dentro dos **24
+  templates**, na configuração `custom_css` de cada documento, não só
+  no cabeçalho e no rodapé. Importar qualquer JSON leva os estilos
+  junto; o kit completo segue com o mesmo CSS nas configurações do
+  site.
+- Novo pacote `bloco-b/iara-costa-todos-os-templates.zip` com os 24
+  JSON, para importar tudo em Templates > Importar de uma vez.
+- A bateria passou a exigir o CSS embutido nos 24 arquivos.
+
+**O que "pronta" significa aqui (e o que continua dinâmico):** textos,
+imagens, fontes embutidas e cores viajam nos arquivos; menu, logotipo,
+sacola, desejos (plugin TI), formulário, produtos da loja e preços
+são dinâmicos do WordPress/WooCommerce e aparecem quando o site tem
+esses dados. Templates de página entram na biblioteca; aplicar em
+cada página segue o roteiro do guia (o kit completo já traz os
+templates de tema com condições).
+
+**Verificado aqui:** bateria local e as três conferências verdes.
+**Não verificado:** a importação no WordPress da cliente.
+
 ### v0.3.22 · 2026-10-20 · Estados pelos controles dos próprios widgets
 
 **Relato da cliente:** importou a v0.3.21 e "mesma coisa" (menu sem

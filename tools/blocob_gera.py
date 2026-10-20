@@ -458,7 +458,6 @@ def cabecalho():
     }, [marca, menu, acoes], caminho='barra')
 
     d.content = [faixa, barra]
-    d.page_settings = {'custom_css': _css_geral()}
     return d
 
 
@@ -903,7 +902,6 @@ def rodape():
     raiz['elements'].append(whats)
 
     d.content = [raiz]
-    d.page_settings = {'custom_css': _css_geral()}
     return d
 
 
@@ -2414,6 +2412,10 @@ def main():
     total = 0
     for nome, fabrica in FABRICAS:
         doc = fabrica()
+        # CSS geral dentro de cada template (v0.3.23, pedido da
+        # cliente): importar qualquer JSON ja leva os estilos dos
+        # estados, dos selos e do WooCommerce, sem depender do kit.
+        doc.page_settings = {'custom_css': _css_geral()}
         achata_documento(doc)
         dados = doc.dados()
         if args.lista:

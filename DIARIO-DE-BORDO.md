@@ -1,5 +1,24 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-20] - CSS em todos os templates e pacote único (v0.3.23)
+
+### Pedido da cliente
+"Pode ajustar todos os jsons, ou seja todas as páginas, com os seus
+css embutido para importar tudo, quero todas as páginas e se possível
+já pronta."
+
+### O que foi feito
+- O ponto único de geração passou a gravar o `custom_css` em cada um
+  dos 24 documentos (antes era caso especial de cabeçalho/rodapé).
+- Pacote novo com os 24 JSON para importar tudo numa operação.
+- Registrado no histórico o que "pronta" cobre e o que é dinâmico,
+  para a expectativa ficar honesta: template não cria produto, página
+  publicada nem menu; isso é dado do site.
+
+### O que continua por verificar
+- A importação no site dela e a aplicação dos templates de página
+  (roteiro do guia), começando por reaplicar a página inicial.
+
 ## [2026-10-20] - Estados pelos controles dos widgets (v0.3.22)
 
 ### Relato da cliente
