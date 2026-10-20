@@ -265,10 +265,12 @@ def widget(el):
         fundo = cor(st, 'background_color')
         texto_c = cor(st, 'button_text_color') or cor(st, 'text_color')
         link = (st.get('link') or {}).get('url', '#')
+        ic = icone_fa(st.get('selected_icon'), '16px')
         return (f'<a class="pv-botao {classe}" href="{html.escape(link)}" '
                 f'style="{estilo};background:{fundo};color:{texto_c};'
-                f'display:inline-block;padding:14px 26px;text-decoration:none">'
-                f'{html.escape(st.get("text", "Botão"))}</a>')
+                f'display:inline-flex;gap:8px;align-items:center;'
+                f'padding:14px 26px;text-decoration:none">'
+                f'{html.escape(st.get("text", "Botão"))} {ic}</a>')
 
     if tipo == 'image':
         img = st.get('image') or {}

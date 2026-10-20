@@ -80,6 +80,17 @@
   line-height: 0;
 }
 .iara-acoes .elementor-icon svg { width: 17px; height: 17px; display: block; }
+/* Nota da newsletter com largura de leitura (76ch do prototipo) */
+.iara-news-nota { max-width: 76ch; margin-top: 14px; }
+/* WhatsApp flutuante do prototipo: pilula Sálvia fixa no canto */
+.iara-whats-float {
+  position: fixed; right: 16px; bottom: 16px; z-index: 900;
+}
+.iara-whats-float .elementor-button {
+  border-radius: 999px; padding: 12px 16px;
+  box-shadow: 0 6px 18px rgba(45, 41, 37, 0.18);
+}
+
 /* Rodape igual ao prototipo: divisorias verticais na faixa de
    seguranca, linha fina sobre pagamentos/selos, sociais em circulos
    com borda e o icone do selo no quadradinho escuro. */

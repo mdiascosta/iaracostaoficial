@@ -203,6 +203,29 @@ testa('selo com quadradinho escuro no CSS',
 testa('selo dos contadores colado no ícone (topo -4px)',
       'top: -4px; right: -6px' in css)
 
+nota = next(e for e in percorre(rod['content'])
+            if e.get('settings', {}).get('css_classes') == 'iara-news-nota')
+news_box = next(e for e in percorre(rod['content'])
+                if e.get('settings', {}).get('_title') == 'Newsletter')
+testa('nota da newsletter fora da caixa, com largura de leitura',
+      nota not in list(percorre(news_box.get('elements', [])))
+      and '.iara-news-nota' in css and 'max-width: 76ch' in css)
+seg_textos = [e for e in percorre(rod['content'])
+              if e.get('widgetType') == 'text-editor'
+              and e['settings'].get('typography_font_size', {})
+              .get('size') == 12]
+testa('textos da faixa de segurança a 12px', len(seg_textos) >= 4,
+      str(len(seg_textos)))
+form = next(e for e in percorre(rod['content'])
+            if e.get('widgetType') == 'form')
+testa('formulário da newsletter com 460px (coluna do protótipo)',
+      form['settings'].get('_flex_basis', {}).get('size') == 460)
+whats = [e for e in percorre(rod['content'])
+         if e.get('settings', {}).get('css_classes') == 'iara-whats-float']
+testa('botão flutuante de WhatsApp presente, fixo pelo CSS',
+      len(whats) == 1 and '.iara-whats-float' in css
+      and 'position: fixed' in css)
+
 print()
 if FALHAS:
     print(f'resultado: {len(FALHAS)} teste(s) falharam')

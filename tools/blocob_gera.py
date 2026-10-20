@@ -464,6 +464,9 @@ def rodape():
 
     formulario = d.widget('form', {
         '_title': 'Assinar a newsletter',
+        '_flex_size': 'custom',
+        '_flex_basis_type': 'custom',
+        '_flex_basis': medida(460, 'px'),
         'form_name': 'Newsletter do rodapé',
         'form_fields': [
             d.item({
@@ -481,16 +484,15 @@ def rodape():
         'form_id': 'newsletter',
     }, caminho='news/formulario')
 
-    # Nota sob o formulario (existe no prototipo e faltava): entra como
-    # terceira peca da linha, ocupando a largura toda.
+    # Nota sob o formulario: no prototipo ela fica FORA da caixa da
+    # newsletter (a linha fina separa o formulario da nota) e tem
+    # largura de leitura (76ch). Entra como peca propria do miolo.
     nota_news = d.widget('text-editor', juntar_globais({
         '_title': 'Nota da newsletter',
+        'css_classes': 'iara-news-nota',
         'editor': ('<p>Um e-mail por mês, no máximo. Ao assinar, você confirma que leu a '
                    '<a href="' + PAGINAS['privacidade'] + '">Política de Privacidade</a> '
                    'e pode cancelar quando quiser, em um clique.</p>'),
-        '_flex_size': 'custom',
-        '_flex_basis_type': 'custom',
-        '_flex_basis': medida(100, '%'),
     }, {'text_color': cor('iara-texto-discreto'), 'link_color': cor('iara-texto-discreto'),
         'typography': fonte('iara-texto-micro')}), caminho='news/nota')
 
@@ -504,7 +506,7 @@ def rodape():
         'border_border': 'solid',
         'border_width': {'unit': 'px', 'top': '0', 'right': '0', 'bottom': '1', 'left': '0', 'isLinked': False},
         '__globals__': {'border_color': cor('iara-fio')},
-    }, [texto_news, formulario, nota_news], caminho='news', interno=True)
+    }, [texto_news, formulario], caminho='news', interno=True)
 
     # --- colunas
     col_marca = d.container('Coluna da marca', {
@@ -637,16 +639,16 @@ def rodape():
     # --- seguranca e pagamento
     itens_seguranca = [
         ('Pix, cartão e boleto', 'Pix com 5% de desconto, cartão em até 6x sem juros e boleto pelo Mercado Pago.',
-         'fas fa-credit-card', 'seg/1'),
+         ('far fa-credit-card', 'fa-regular'), 'seg/1'),
         ('Ambiente protegido', 'Seus dados trafegam criptografados e não são compartilhados.',
-         'fas fa-shield-alt', 'seg/2'),
+         ('fas fa-shield-alt', 'fa-solid'), 'seg/2'),
         ('Pedido rastreado', 'Código de rastreio por e-mail assim que a peça é postada.',
-         'fas fa-truck', 'seg/3'),
+         ('fas fa-truck', 'fa-solid'), 'seg/3'),
         ('7 dias para desistir', 'Direito de arrependimento previsto no CDC, Art. 49.',
-         'fas fa-heart', 'seg/4'),
+         ('far fa-heart', 'fa-regular'), 'seg/4'),
     ]
     caixas = []
-    for titulo, texto, icone, caminho in itens_seguranca:
+    for titulo, texto, (icone, biblioteca), caminho in itens_seguranca:
         caixas.append(d.container(titulo, {
             'content_width': 'full',
             'flex_direction': 'row',
@@ -658,8 +660,8 @@ def rodape():
         }, [
             d.widget('icon', juntar_globais({
                 '_title': 'Ícone',
-                'selected_icon': {'value': icone, 'library': 'fa-solid'},
-                'size': medida(20),
+                'selected_icon': {'value': icone, 'library': biblioteca},
+                'size': medida(22),
             }, {'primary_color': cor('primary')}), caminho=caminho + '/icone'),
             d.container('Texto', {'flex_direction': 'column', 'flex_gap': lacuna(4, 4)}, [
                 d.widget('heading', juntar_globais({
@@ -669,7 +671,8 @@ def rodape():
                     caminho=caminho + '/titulo'),
                 d.widget('text-editor', juntar_globais({
                     'editor': '<p>' + texto + '</p>',
-                }, {'text_color': cor('iara-texto-suave'), 'typography': fonte('text')}),
+                    **tipografia('Jost', '400', 12, 1.50, 0.0),
+                }, {'text_color': cor('iara-texto-suave')}),
                     caminho=caminho + '/texto'),
             ], caminho=caminho + '/texto', interno=True),
         ], caminho=caminho, interno=True))
@@ -832,7 +835,7 @@ def rodape():
         'content_width': 'boxed',
         'flex_direction': 'column',
         'flex_gap': lacuna(0, 0),
-    }, [newsletter, colunas, seguranca, base], caminho='miolo', interno=True)
+    }, [newsletter, nota_news, colunas, seguranca, base], caminho='miolo', interno=True)
 
     raiz = d.container('Rodapé', {
         'content_width': 'full',
@@ -842,6 +845,21 @@ def rodape():
         'background_background': 'classic',
         '__globals__': {'background_color': cor('iara-papel')},
     }, [miolo], caminho='raiz')
+
+    # Botao flutuante de WhatsApp: no prototipo ele esta em todas as
+    # paginas (canto inferior direito, pilula Sálvia). A posicao fixa
+    # vem do CSS do kit (classe iara-whats-float).
+    whats = d.widget('button', juntar_globais({
+        '_title': 'WhatsApp flutuante',
+        'css_classes': 'iara-whats-float',
+        'text': 'WhatsApp',
+        'selected_icon': {'value': 'fab fa-whatsapp', 'library': 'fa-brands'},
+        'icon_align': 'right',
+        'link': {'url': 'https://wa.me/5515991234567', 'is_external': 'on', 'nofollow': ''},
+        **tipografia('Jost', '400', 11, 1.40, 0.12, 'uppercase'),
+    }, {'background_color': cor('secondary'), 'button_text_color': cor('iara-branco'),
+        'hover_background_color': cor('iara-terracota-escuro')}), caminho='whats')
+    raiz['elements'].append(whats)
 
     d.content = [raiz]
     return d
