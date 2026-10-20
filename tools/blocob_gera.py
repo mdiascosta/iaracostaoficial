@@ -371,7 +371,7 @@ def cabecalho():
             '_title': titulo,
             'selected_icon': {'value': icone, 'library': biblioteca},
             'link': {'url': url, 'is_external': '', 'nofollow': ''},
-            'size': medida(18),
+            'size': medida(17),
         }, {'primary_color': cor('iara-menu')}), caminho=caminho)
 
     acoes = d.container('Ações', {

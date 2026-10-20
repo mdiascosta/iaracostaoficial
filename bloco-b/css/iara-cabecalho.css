@@ -62,9 +62,20 @@
   border-bottom-color: #e4cbb5;
 }
 
-/* Ícones da direita: carvão, terracota escuro no hover, sem caixa */
-.iara-acoes .elementor-icon { color: #2d2925; background: none; border: 0; }
-.iara-acoes .elementor-icon:hover { color: #78452f; }
+/* Icones da direita, como no prototipo (.icon-btn): sem caixa, sem
+   fundo, alvo de toque confortavel e traco leve. Busca e sacola sao
+   glifos cheios no Font Awesome (nao existe versao de contorno gratis
+   deles), entao o peso visual baixa pelo tamanho (17px) e pela cor. */
+.iara-acoes .elementor-icon {
+  color: #2d2925;
+  background: none;
+  border: 0;
+  padding: 12px;
+  line-height: 0;
+}
+.iara-acoes .elementor-icon svg { width: 17px; height: 17px; display: block; }
+.iara-acoes .elementor-icon:hover,
+.iara-acoes .elementor-icon:focus-visible { color: #78452f; }
 
 /* --- Menu principal (widget de menu do WordPress, classe iara-menu-nav) ---
    A fonte e Jost por este CSS (o widget Pro herda a serifada do tema) e o
@@ -86,7 +97,14 @@
   padding: 6px 0;
   white-space: nowrap;
 }
-.iara-menu-nav .elementor-nav-menu--main .elementor-item:hover { color: #78452f; }
+/* Estados do link, iguais ao prototipo (.main-nav__link):
+   hover = Terracota escuro com a linha escura; ativo (pagina atual) =
+   Terracota escuro com a linha Terracota claro. */
+.iara-menu-nav .elementor-nav-menu--main .elementor-item:hover,
+.iara-menu-nav .elementor-nav-menu--main .elementor-item:focus-visible {
+  color: #78452f;
+  box-shadow: inset 0 -1px 0 #78452f;
+}
 .iara-menu-nav .elementor-nav-menu--main .elementor-item.elementor-item-active {
   color: #78452f;
   box-shadow: inset 0 -1px 0 #e4cbb5;

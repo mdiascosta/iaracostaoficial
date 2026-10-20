@@ -1,5 +1,28 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-20] - Estados do link do menu e ícones leves (v0.3.19)
+
+### Relato da cliente
+A captura mostra o cabeçalho quase lá: faixa, marca, menu em caixa
+alta com a linha no HOME. O que ela cobra agora é acabamento: "os
+estados dos links do meu [menu], active e hover, verifique" e "os
+ícones não estão iguais aos do template, o CSS está diferente".
+
+### Análise (IMPLEMENTADO)
+O ativo estava certo (linha clara, como no protótipo); o hover só
+pintava a letra, sem a linha escura que o `.main-nav__link` aprovado
+tem. Nos ícones, a diferença é de desenho da biblioteca: busca e
+sacola só existem cheios no Font Awesome gratuito, e o protótipo foi
+desenhado em traço fino. Sem trocar a fonte de ícones, o que dá para
+igualar é tamanho, cor, respiro e ausência de caixa, e foi o que
+entrou, no widget e no CSS do kit. O traço idêntico viraria SVG
+próprio na Mídia, troca manual registrada no guia se ela quiser.
+
+### O que continua por verificar
+- Passar o mouse no menu (linha escura) e navegar (linha clara andando
+  para o item da página). E incluir a Coleção no Menu Principal dela,
+  que é item de WordPress, não de template.
+
 ## [2026-10-20] - Padrão de fonte embutido nos widgets (v0.3.18)
 
 ### Relato da cliente

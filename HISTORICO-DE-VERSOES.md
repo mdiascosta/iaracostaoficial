@@ -61,6 +61,34 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.19 · 2026-10-20 · Estados do link do menu e ícones mais leves
+
+**Relato da cliente (captura do cabeçalho atual):** o menu "ainda não
+está igual ao do template" nos **estados do link (active e hover)**, e
+"os ícones não estão iguais aos do template, o CSS está diferente". Na
+captura, o menu já está em Jost caixa alta com a linha no item atual, a
+marca e a faixa estão certas: o que falta é o acabamento.
+
+**O que foi verificado e mudou**
+
+- **Hover do menu**: o CSS do kit só mudava a cor. No protótipo
+  (`.main-nav__link`), hover é Terracota escuro **com a linha escura
+  embaixo**; o ativo é Terracota escuro com a linha Terracota claro.
+  Os dois estados foram completados no CSS que viaja no kit, incluindo
+  o foco pelo teclado.
+- **Ícones da direita**: busca e sacola são glifos **cheios** no Font
+  Awesome gratuito (não existe a versão de contorno deles; conta e
+  coração já são de contorno, como no protótipo). O peso visual baixou
+  do jeito possível sem trocar a biblioteca: 17px declarados no widget,
+  cor carvão, alvo de toque confortável, sem caixa nem fundo. O caminho
+  para o traço idêntico ao desenho (SVGs próprios na Mídia) ficou
+  registrado no guia como troca manual no editor, se a cliente quiser.
+- Fora do template, mas registrado no guia: falta o item **Coleção**
+  no Menu Principal criado no WordPress (hoje são 4 itens).
+
+**Verificado aqui:** três conferências verdes. **Não verificado:** o
+hover no staging (passar o mouse) e a importação do kit novo.
+
 ### v0.3.18 · 2026-10-20 · Padrão de fonte embutido nos widgets; menu em caixa alta
 
 **Relato da cliente (4 capturas):** no site, o cabeçalho ficou "muito
