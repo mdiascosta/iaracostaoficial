@@ -1,5 +1,25 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-21] - Importação de produtos falhou inteira; causa achada no registro (v0.3.26)
+
+### O erro
+Primeira importação dela: "Falha ao importar 68 produtos". O arquivo
+estava íntegro (validado: colunas, órfãs, codificação), então pedi o
+registro. Ele entregou tudo: "Não existe nenhum produto
+correspondente para atualizar" nos pais.
+
+### A causa (nossa)
+A coluna `ID` vazia na frente do CSV. Para o importador do
+WooCommerce, ID presente = pedido de atualização de produto
+existente. Como nenhum existia, os 10 pais caíram e as 56 variações
+foram atrás ("nova variação só para produto variável"). Lição
+registrada no guia: nada de coluna ID em lote de produtos novos, e
+nada de marcar "Atualizar produtos existentes".
+
+### Correção
+Coluna removida, conferências refeitas, versão nova. Ela reimporta
+com o arquivo corrigido e me diz quantos entraram.
+
 ## [2026-10-20] - Texto integral em Sobre, Contato e Coleção (v0.3.25)
 
 ### Continuação autorizada

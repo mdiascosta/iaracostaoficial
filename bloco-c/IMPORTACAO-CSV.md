@@ -27,6 +27,10 @@ revisão.
 ### Como importar
 
 1. WooCommerce > Produtos > Importar, escolher `bloco-c/produtos.csv`.
+   **Não marcar** "Atualizar produtos existentes": o lote é de produtos
+   novos. (A primeira tentativa, em 2026-10-21, falhou inteira porque o
+   arquivo trazia a coluna ID vazia, o que o importador lê como pedido
+   de atualização; a coluna foi removida.)
 2. Conferir o mapeamento de colunas que o importador propõe; não trocar
    Parent, SKU nem os atributos.
 3. Importar e conferir: 12 produtos em rascunho, cada variável com as suas

@@ -61,6 +61,24 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.26 · 2026-10-21 · Produtos: CSV sem a coluna que quebrava a importação
+
+**Erro real dela:** a importação falhou nas 68 linhas. O registro dela
+mostrou "Não existe nenhum produto correspondente para atualizar" nos
+10 produtos pai e, em cascata, "Uma nova variação só pode ser criada
+para um produto principal variável" nas 56 variações.
+
+- **Causa:** o `produtos.csv` abria com a coluna `ID` (vazia). Com ela,
+  o importador trata cada linha como **atualização** de produto
+  existente; como não existia nenhum, recusou o lote inteiro;
+- **Correção:** coluna `ID` removida do CSV (34 colunas); o guia
+  ganhou a nota de não marcar "Atualizar produtos existentes";
+- **Verificado aqui:** estrutura do arquivo revalidada (35→34 colunas,
+  68 linhas, nenhuma variação órfã) e as conferências verdes.
+
+**Verificado no site dela:** a falha e o motivo, pelo registro que
+ela enviou. **Não verificado:** a nova importação (aguardando ela).
+
 ### v0.3.25 · 2026-10-20 · Sobre, Contato e Coleção com o texto integral; extrator sem vazamento
 
 **Continuação do pente-fino (pedido: "pode continuar").**
