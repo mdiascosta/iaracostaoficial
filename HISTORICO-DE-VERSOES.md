@@ -61,6 +61,28 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.25 · 2026-10-20 · Sobre, Contato e Coleção com o texto integral; extrator sem vazamento
+
+**Continuação do pente-fino (pedido: "pode continuar").**
+
+- **Sobre** passou a ser gerado do texto integral do protótipo
+  (inclui a seção "Nossa crença", que o resumo não tinha);
+- **Contato** ganhou a seção "O ateliê no mapa" do protótipo, sem
+  repetir o formulário e os canais que já existiam;
+- **Coleção (lookbook)**: cada capítulo usa o primeiro parágrafo
+  real do protótipo no lugar do resumo (as peças seguem dinâmicas);
+- **Correção importante**: a extração de seções lia a página até o
+  fim e deixou vazar títulos do rodapé ("Institucional", "Sua
+  sacola") como seções das páginas de texto da v0.3.24. O extrator
+  agora corta no `</main>`, as páginas foram regeneradas limpas e a
+  bateria ganhou o teste que reprova esse vazamento;
+- Textos fora dos JSON: 536 → 528 (a inicial é o que resta de
+  montagem por widgets dinâmicos; depoimentos de exemplo do
+  protótipo não entram como avaliação).
+
+**Verificado aqui:** bateria local ampliada e as três conferências
+verdes. **Não verificado:** importação e leitura no WordPress.
+
 ### v0.3.24 · 2026-10-20 · Pente-fino executado: responsivo e textos completos
 
 **Pedido da cliente:** pente-fino em todos os JSON contra as páginas

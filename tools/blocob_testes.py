@@ -321,6 +321,25 @@ testa('páginas legais com o texto integral do protótipo',
       and texto_total('23-termos.json') > 7000,
       'privacidade ' + str(texto_total('22-privacidade.json')) + ' chars')
 
+vazadas = []
+for nome in ('18-guia-medidas.json', '20-trocas.json', '21-envio.json',
+             '22-privacidade.json', '23-termos.json', '24-cookies.json',
+             '15-sobre.json'):
+    titulos = [e['settings'].get('title') for e in todos(nome)
+               if e.get('widgetType') == 'heading']
+    if 'Sua sacola' in titulos or 'Institucional' in titulos:
+        vazadas.append(nome)
+testa('nenhuma seção do rodapé vazou para as páginas de texto',
+      not vazadas, ', '.join(vazadas))
+sobre_titulos = [e['settings'].get('title') for e in todos('15-sobre.json')
+                 if e.get('widgetType') == 'heading']
+testa('Sobre com as seções do protótipo (inclui Nossa crença)',
+      'Nossa crença' in sobre_titulos and 'Como começou' in sobre_titulos)
+contato_titulos = [e['settings'].get('title')
+                   for e in todos('16-contato.json')
+                   if e.get('widgetType') == 'heading']
+testa('Contato com a seção do mapa', 'O ateliê no mapa' in contato_titulos)
+
 print()
 if FALHAS:
     print(f'resultado: {len(FALHAS)} teste(s) falharam')

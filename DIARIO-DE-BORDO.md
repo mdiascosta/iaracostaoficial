@@ -1,5 +1,26 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-20] - Texto integral em Sobre, Contato e Coleção (v0.3.25)
+
+### Continuação autorizada
+Fechar a última frente do pente-fino: as páginas escritas à mão no
+gerador. Sobre virou `pagina_documento` com extração, Contato ganhou
+a seção do mapa e a Coleção trocou o resumo pelo primeiro parágrafo
+real de cada capítulo.
+
+### O achado feio (e a correção)
+Conferindo os títulos gerados, as páginas de texto da v0.3.24
+traziam "Institucional" e "Sua sacola" como seções: o extrator lia
+além do `</main>` e importava o rodapé da página como conteúdo.
+Ninguém tinha importado ainda, então o estrago ficou no papel. Corte
+no `</main>`, regeneração e teste novo contra vazamento.
+
+### O que continua por verificar
+- Importação e leitura das páginas no site dela. A inicial segue
+  montada de widgets (produtos e posts dinâmicos); os depoimentos de
+  exemplo do protótipo continuam fora de propósito, esperando os
+  depoimentos reais.
+
 ## [2026-10-20] - Pente-fino e ajustes: responsivo e texto integral (v0.3.24)
 
 ### Pedido da cliente

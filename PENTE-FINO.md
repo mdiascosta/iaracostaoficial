@@ -14,30 +14,32 @@ colar o CSS cru do HTML não acertaria elemento nenhum: o equivalente
 precisa ser construído por widget, e foi assim que o desenho foi
 transportado.
 
-### 2. O que foi corrigido depois deste pente-fino (v0.3.24)
+### 2. O que foi corrigido depois deste pente-fino (v0.3.24 e v0.3.25)
 
-- **Responsivo**: entraram 42 declarações `_mobile` geradas (colunas
-  largas viram largura cheia no celular, títulos grandes encolhem) e
-  3 blocos `@media` no CSS embutido (faixa de segurança 2 colunas no
-  tablet e 1 no celular, logotipos menores, toques ajustados). Antes:
-  zero dos dois lados. O desenho fino de loja/produto no celular
-  continua sendo o do WooCommerce/Elementor e pede conferência visual.
-- **Textos completos**: guia de medidas, trocas, envio e as três
-  legais agora carregam o **texto integral do protótipo** (extraído
-  do HTML aprovado durante a geração, com os links já convertidos
-  para os endereços do site), e o FAQ virou as **20 perguntas reais
-  em sanfonas por grupo** (antes eram 5 resumos de uma linha). As
-  legais seguem com o aviso de rascunho para o jurídico.
-  Os textos "fora" caíram de 956 para 536; o que resta é dinâmico
-  (produtos, pedidos, posts) e as páginas escritas à mão no gerador
-  (inicial, sobre, contato, coleção), cujo texto integral segue em
-  `bloco-c/pages-conteudo.md`.
+- **Responsivo**: 42 declarações `_mobile` geradas (colunas largas
+  viram largura cheia no celular, títulos grandes encolhem) e 3
+  blocos `@media` no CSS embutido. Antes: zero dos dois lados.
+- **Textos completos**: guia de medidas, trocas, envio, as três
+  legais, **sobre** (com a seção "Nossa crença"), **contato** (com
+  "O ateliê no mapa") e os capítulos da **coleção** agora vêm do
+  texto integral do protótipo, extraído do HTML aprovado na geração,
+  com os links convertidos para o endereço real do site. O FAQ tem
+  as 20 perguntas reais em sanfonas por grupo. As legais seguem com
+  o aviso de rascunho para o jurídico.
+- **Correção do extrator**: a primeira extração deixou vazar seções
+  do rodapé da página ("Institucional", "Sua sacola") para dentro
+  das páginas de texto; o corte no `</main>` e um teste novo na
+  bateria fecham essa porta.
+- Os textos "fora" caíram de **956 para 528**; o que resta é
+  dinâmico (produtos, pedidos, posts) e a página inicial, montada
+  de widgets dinâmicos e depoimentos de exemplo do protótipo
+  (que não entram como avaliação falsa; ver `pages-conteudo.md`).
 
 ### 3. O que é dinâmico (não é falta)
 
 Loja, produto, sacola, checkout, conta, desejos, busca, diário e
-artigo mostram textos e imagens que nascem do WooCommerce e dos posts:
-por isso aparecem como "faltando" e com 0 imagens no JSON.
+artigo mostram textos e imagens que nascem do WooCommerce e dos
+posts: por isso aparecem como "faltando" e com 0 imagens no JSON.
 
 ---
 
@@ -342,53 +344,44 @@ Comparação automática dos 24 JSON do Elementor com as páginas HTML do protó
 
 ## 15-sobre.json  x  seu-projeto/sobre.html
 
-- Widgets: heading (5), text-editor (6)
+- Widgets: heading (7), text-editor (8)
 
-- Textos do protótipo não encontrados no JSON: **32**
-  - “ajustar com as palavras da marca”
-  - “cada peca entra no catalogo depois de conferir tecido costura caimento e comportamento depois de lavar se a pe”
-  - “dias para desistir da compra”
-  - “doze pecas bem escolhidas valem mais que cem pecas iguais”
-  - “e feitos no brasil no atelie de cerquilho sp”
-  - “enquanto a historia nao esta escrita o que da para dizer com seguranca e o que esta nesta pagina como as pecas”
+- Textos do protótipo não encontrados no JSON: **6**
   - “envio para todo o brasil”
-  - “este bloco e seu texto generico de marca nao convence ninguem e o dossie proibe inventar a historia da empresa”
-  - “falar com o atendimento”
   - “faltam r 299 00 para o frete gratis”
   - “frete calculado pelo cep no carrinho impostos incluidos no preco”
-  - “frete gratis a partir deste valor”
-  - “frete gratis acima de r 299”
-  - “imagem de exemplo substituir por foto propria da marca ou da equipe”
-  - … e mais 18
-- Textos do JSON que não estão no protótipo: 6 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+  - “lista de desejos 0”
+  - “pular para o conteudo”
+  - “trocas e devolucoes”
+- Textos do JSON que não estão no protótipo: 7 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 4 | JSON 0
 
 ## 16-contato.json  x  seu-projeto/contato.html
 
-- Widgets: button (1), form (1), heading (3), icon-list (1), text-editor (3)
+- Widgets: button (1), form (1), heading (4), icon-list (1), text-editor (4)
 
-- Textos do protótipo não encontrados no JSON: **53**
+- Textos do protótipo não encontrados no JSON: **47**
   - “a peca nao serviu posso trocar”
   - “a resposta chega no e mail informado em ate 24 horas uteis de segunda a sexta se o assunto for urgente use o w”
   - “acompanhar meu pedido”
   - “ajuda a resolver mais rapido”
   - “as duvidas mais comuns estao respondidas nas perguntas frequentes”
   - “autorizo o uso dos meus dados para responder esta mensagem conforme a”
-  - “cerquilho sp cep 18520 000”
   - “cnpj 12 345 678 0001 90 ie 123 456 789 110”
   - “como uso o cupom de primeira compra”
-  - “conferir visitas somente com agendamento previo se a empresa receber no local”
   - “contato iara costa”
   - “dados pessoais e privacidade”
   - “digite bemvindo10 no campo de cupom na sacola e clique em aplicar o desconto aparece no resumo antes de voce f”
   - “dpo iaracosta com br”
-  - … e mais 39
-- Textos do JSON que não estão no protótipo: 6 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+  - “duvida de tamanho prazo troca ou pedido escolha o canal que for melhor para voce quem responde e gente de verd”
+  - “duvida sobre produto ou tecido”
+  - … e mais 33
+- Textos do JSON que não estão no protótipo: 7 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 0 | JSON 0
 
 ## 17-faq.json  x  seu-projeto/faq.html
 
-- Widgets: accordion (6), button (1), heading (8), text-editor (2)
+- Widgets: accordion (5), button (1), heading (7), text-editor (2)
 
 - Textos do protótipo não encontrados no JSON: **5**
   - “frete calculado pelo cep no carrinho impostos incluidos no preco”
@@ -396,28 +389,33 @@ Comparação automática dos 24 JSON do Elementor com as páginas HTML do protó
   - “manda a pergunta para o atendimento se ela aparecer muito entra aqui nesta pagina”
   - “prototipo dados e textos de exemplo nao publicar”
   - “pular para o conteudo”
-- Textos do JSON que não estão no protótipo: 20 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+- Textos do JSON que não estão no protótipo: 16 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 0 | JSON 0
 
 ## 18-guia-medidas.json  x  seu-projeto/guia-medidas.html
 
-- Widgets: heading (10), text-editor (11)
+- Widgets: heading (5), text-editor (6)
 
-- Textos do protótipo não encontrados no JSON: **4**
+- Textos do protótipo não encontrados no JSON: **9**
   - “comprar sem provar da certo quando voce compara medidas e nao tamanhos o caminho mais confiavel e medir uma pe”
   - “envio para todo o brasil”
+  - “faltam r 299 00 para o frete gratis”
+  - “frete calculado pelo cep no carrinho impostos incluidos no preco”
+  - “frete gratis acima de r 299”
   - “lista de desejos 0”
+  - “prototipo dados e textos de exemplo nao publicar”
   - “pular para o conteudo”
-- Textos do JSON que não estão no protótipo: 12 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+  - “trocas e devolucoes”
+- Textos do JSON que não estão no protótipo: 6 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 0 | JSON 0
 
 ## 19-lookbook.json  x  seu-projeto/lookbook.html
 
 - Widgets: button (4), heading (9), image (3), text-editor (5)
 
-- Textos do protótipo não encontrados no JSON: **34**
+- Textos do protótipo não encontrados no JSON: **31**
   - “a colecao so vai ao ar com as fotos reais das pecas como produzir essas fotos esta no fim desta pagina”
-  - “alfaiataria leve e vestidos midi em verde salvia do escritorio ao jantar sem trocar de roupa”
+  - “abertura de capitulo”
   - “ate 300 kb depois de converter para webp sem perder qualidade visivel”
   - “blusa de linho terracota”
   - “calca pantalona salvia”
@@ -430,79 +428,101 @@ Comparação automática dos 24 JSON do Elementor com as páginas HTML do protó
   - “direitos de imagem”
   - “envio para todo o brasil”
   - “faltam r 299 00 para o frete gratis”
-  - … e mais 20
-- Textos do JSON que não estão no protótipo: 6 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+  - … e mais 17
+- Textos do JSON que não estão no protótipo: 3 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 9 | JSON 3
 
 ## 20-trocas.json  x  seu-projeto/trocas.html
 
-- Widgets: heading (14), text-editor (15)
+- Widgets: heading (9), text-editor (10)
 
-- Textos do protótipo não encontrados no JSON: **7**
+- Textos do protótipo não encontrados no JSON: **10**
   - “envio para todo o brasil”
   - “este texto foi escrito para organizar as informacoes e precisa de revisao do juridico da empresa antes de publ”
+  - “faltam r 299 00 para o frete gratis”
+  - “frete calculado pelo cep no carrinho impostos incluidos no preco”
+  - “frete gratis acima de r 299”
   - “lista de desejos 0”
   - “prototipo dados e textos de exemplo nao publicar”
   - “pular para o conteudo”
   - “rascunho para revisao juridica”
   - “se a peca nao serviu ou voce mudou de ideia tem prazo e processo definidos sem letra miuda e sem precisar just”
-- Textos do JSON que não estão no protótipo: 16 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+- Textos do JSON que não estão no protótipo: 10 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 0 | JSON 0
 
 ## 21-envio.json  x  seu-projeto/envio.html
 
-- Widgets: heading (13), text-editor (13)
+- Widgets: heading (8), text-editor (8)
 
-- Textos do protótipo não encontrados no JSON: **3**
+- Textos do protótipo não encontrados no JSON: **6**
+  - “envio e entrega iara costa”
+  - “frete calculado pelo cep no carrinho impostos incluidos no preco”
   - “lista de desejos 0”
   - “prototipo dados e textos de exemplo nao publicar”
   - “pular para o conteudo”
-- Textos do JSON que não estão no protótipo: 14 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+  - “trocas e devolucoes”
+- Textos do JSON que não estão no protótipo: 8 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 0 | JSON 0
 
 ## 22-privacidade.json  x  seu-projeto/privacidade.html
 
-- Widgets: heading (17), text-editor (18)
+- Widgets: heading (12), text-editor (13)
 
-- Textos do protótipo não encontrados no JSON: **7**
+- Textos do protótipo não encontrados no JSON: **13**
   - “como a iara costa coleta usa guarda e exclui os seus dados pessoais conforme a lei geral de protecao de dados ”
+  - “de revisao do juridico da iara costa antes de ir ao ar todos os campos”
   - “este documento foi escrito para dar estrutura e cobrir os pontos obrigatorios da lgpd ele”
+  - “faltam r 299 00 para o frete gratis”
+  - “frete calculado pelo cep no carrinho impostos incluidos no preco”
+  - “frete gratis acima de r 299”
+  - “lista de desejos 0”
   - “prototipo dados e textos de exemplo nao publicar”
   - “pular para o conteudo”
   - “sao dados que ainda dependem da empresa data da versao aprovada e”
   - “sao decisoes internas”
+  - “trocas e devolucoes”
   - “ultima atualizacao 16 de outubro de 2026”
-- Textos do JSON que não estão no protótipo: 18 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+- Textos do JSON que não estão no protótipo: 12 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 0 | JSON 0
 
 ## 23-termos.json  x  seu-projeto/termos.html
 
-- Widgets: heading (21), text-editor (22)
+- Widgets: heading (16), text-editor (17)
 
-- Textos do protótipo não encontrados no JSON: **8**
+- Textos do protótipo não encontrados no JSON: **12**
   - “as condicoes para usar este site e comprar na iara costa escrito para ser lido nao para esconder informacao”
   - “conferir no go live a data muda quando o juridico aprovar a versao final”
   - “estrutura pronta para revisao do juridico da empresa nenhuma clausula aqui pode reduzir direitos garantidos pe”
+  - “faltam r 299 00 para o frete gratis”
+  - “frete calculado pelo cep no carrinho impostos incluidos no preco”
+  - “frete gratis acima de r 299”
   - “lista de desejos 0”
+  - “prototipo dados e textos de exemplo nao publicar”
   - “pular para o conteudo”
   - “sao dados que ainda dependem da empresa e”
   - “sao decisoes internas”
   - “ultima atualizacao 16 de outubro de 2026”
-- Textos do JSON que não estão no protótipo: 22 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+- Textos do JSON que não estão no protótipo: 16 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 0 | JSON 0
 
 ## 24-cookies.json  x  seu-projeto/cookies.html
 
-- Widgets: heading (14), text-editor (15)
+- Widgets: heading (9), text-editor (10)
 
-- Textos do protótipo não encontrados no JSON: **6**
+- Textos do protótipo não encontrados no JSON: **12**
   - “conferir no go live a data muda quando o juridico aprovar a versao final”
   - “envio para todo o brasil”
   - “esta politica precisa estar alinhada palavra por palavra com o que o banner de cookies realmente faz se o bann”
+  - “faltam r 299 00 para o frete gratis”
+  - “frete calculado pelo cep no carrinho impostos incluidos no preco”
+  - “frete gratis acima de r 299”
   - “lista de desejos 0”
+  - “politica de cookies iara costa”
+  - “prototipo dados e textos de exemplo nao publicar”
   - “pular para o conteudo”
+  - “trocas e devolucoes”
   - “ultima atualizacao 16 de outubro de 2026”
-- Textos do JSON que não estão no protótipo: 15 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+- Textos do JSON que não estão no protótipo: 9 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 0 | JSON 0
 
 ## Auditoria de CSS
@@ -511,4 +531,4 @@ Comparação automática dos 24 JSON do Elementor com as páginas HTML do protó
 - CSS que o Elementor recebe (`iara-cabecalho.css`, embutido nos 24 JSON e no kit): 52 regras, 3 blocos @media, 12 regras :hover.
 - Classes `iara-*` usadas nos JSON: 16; sem nenhuma regra no CSS: 1: iara-barra
 - Ajustes responsivos declarados nos JSON (chaves _tablet/_mobile): 42
-- Total de textos do protótipo não encontrados nos JSON: 536 (detalhe por página acima; parte é texto dinâmico de loja/sistema, parte é conteúdo a conferir)
+- Total de textos do protótipo não encontrados nos JSON: 528 (detalhe por página acima; parte é texto dinâmico de loja/sistema, parte é conteúdo a conferir)

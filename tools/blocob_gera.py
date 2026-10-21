@@ -1918,7 +1918,7 @@ def secoes_do_prototipo(arquivo):
     import re as _re
     caminho = pathlib.Path(__file__).resolve().parent.parent / 'seu-projeto' / arquivo
     html = caminho.read_text(encoding='utf-8')
-    main = html[html.find('<main'):]
+    main = html[html.find('<main'):html.find('</main>')]
     partes = _re.split(r'<h2[^>]*>(.*?)</h2>', main, flags=_re.S)
     secoes = []
     for i in range(1, len(partes) - 1, 2):
@@ -1935,7 +1935,7 @@ def perguntas_do_prototipo():
     import re as _re
     caminho = pathlib.Path(__file__).resolve().parent.parent / 'seu-projeto' / 'faq.html'
     html = caminho.read_text(encoding='utf-8')
-    main = html[html.find('<main'):]
+    main = html[html.find('<main'):html.find('</main>')]
     grupos = []
     partes = _re.split(r'<h2[^>]*>(.*?)</h2>', main, flags=_re.S)
     for i in range(1, len(partes) - 1, 2):
@@ -2090,7 +2090,7 @@ def sobre():
             ('Missão, visão e compromisso', '[PROPOSTA] Missão, visão e compromisso aguardando aprovação da empresa, sem inventar promessa, selo ou garantia.'),
             ('O ateliê e o processo', 'Modelagem, corte e confecção próprios. O processo completo, da escolha do tecido à peça pronta, entra aqui com os detalhes reais do ateliê [PREENCHER].'),
             ('Como escolhemos as peças', 'Tecidos escolhidos pela gramatura e pelo toque, em três famílias: linho, algodão egípcio e viscose de alta gramatura. Do P ao GG, com guia de medidas por peça.'),
-        ], 'sobre',
+        ], 'sobre', arquivo='sobre.html',
         aviso='Página com textos [PROPOSTA] do protótipo: publicar só depois da aprovação da empresa.')
 
 
@@ -2136,6 +2136,13 @@ def contato():
             ], caminho='contato/col-canais', interno=True),
         ], caminho='contato/miolo', interno=True),
     ], caminho='raiz')
+    # Secoes do prototipo que o resumo nao tinha (o atelie no mapa),
+    # sem repetir o formulario e os canais que ja estao acima.
+    for titulo, corpo in secoes_do_prototipo('contato.html'):
+        if titulo == 'O ateliê no mapa':
+            raiz['elements'].append(
+                secao_texto(d, titulo, corpo, 'contato/' +
+                            titulo.lower().replace(' ', '-')))
     d.content = [raiz]
     return d
 
@@ -2199,8 +2206,18 @@ def lookbook():
         ('Capítulo 02', 'Verde que acalma', 'Sálvia em vestidos e pantalona, para o dia inteiro.'),
         ('Capítulo 03', 'O branco que não é básico', 'Cru e areia em camadas leves, com acessórios de cerâmica.'),
     ]
+    # Texto de cada capitulo: o primeiro paragrafo do prototipo,
+    # sem as pecas (que sao dinamicas da loja), no lugar do resumo.
+    import re as _re
+    corpos = dict(secoes_do_prototipo('lookbook.html'))
     filhos = [cab_pagina(d, 'Terra & Linho', 'Três capítulos em doze peças: terracota do barro, sálvia da mata, cru do linho.', 'lookbook/cab', 'Coleção')]
     for i, (rotulo_cap, titulo, texto) in enumerate(capitulos, 1):
+        corpo = corpos.get(titulo, '')
+        m = _re.search(r'<p[^>]*>(.*?)</p>', corpo, flags=_re.S)
+        if m:
+            limpo = _re.sub(r'\s+', ' ', _re.sub(r'<[^>]+>', '', m.group(1))).strip()
+            if len(limpo) >= 60:
+                texto = limpo
         filhos.append(d.container(titulo, {
             'content_width': 'boxed', 'flex_direction': 'row', 'flex_wrap': 'wrap',
             'flex_gap': lacuna(32, 32), 'padding': dimensoes(40, 0, 40, 0),

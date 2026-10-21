@@ -223,7 +223,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>[PROPOSTA] Texto de abertura aguardando a história real da marca. O protótipo aprovado traz a versão de referência: quem escreve o texto final é a empresa.</p>",
+                "editor": "<p><p> <span>[PREENCHER: história real da marca, em dois ou três parágrafos. De onde veio a ideia, quando começou, quem está à frente do negócio.]</span> </p> <p> Enquanto a história não está escrita, o que dá para dizer com segurança é o que está nesta página: como as peças são escolhidas, o que a loja promete e o que ela não faz. </p> <p> Este bloco é seu. Texto genérico de marca não convence ninguém, e o dossiê proíbe inventar a história da empresa. Escreva com as suas palavras, mesmo que fique simples. </p> </div> <figure> <img src=\"assets/img/atelie-bancada.jpg\" alt=\"Ambiente de trabalho com peças da coleção sobre a mesa\" width=\"1408\" height=\"768\"> <figcaption>Imagem de exemplo. Substituir por foto própria da marca ou da equipe.</figcaption> </figure> </div> </div> <!-- ==================================================================== MISSÃO, VISÃO E COMPROMISSO (v0.1.9) — seção nova, pedida pela cliente. Os três textos são [PROPOSTA]: saíram do que já está escrito no site, e cada cartão tem o selo para ninguém publicar sem passar o olho. Missão e visão são a voz da marca, não do fornecedor. ==================================================================== --> <div> <div> <div> <p>No que a gente acredita</p></p>",
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave"
                 },
@@ -312,7 +312,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>[PROPOSTA] Missão, visão e compromisso aguardando aprovação da empresa, sem inventar promessa, selo ou garantia.</p>",
+                "editor": "<p></div> </div> <div> <article> <h3>Missão</h3> <p> Vestir o dia a dia com poucas peças, bem feitas e bem explicadas: medida em centímetros, composição do tecido e cuidado de lavagem antes da compra, para você acertar sem provar. </p> <p><span>[PROPOSTA]</span> ajustar com as palavras da marca</p> </article> <article> <h3>Visão</h3> <p> Ser a loja de moda em que a cliente confia sem ver a peça de perto, porque a informação está toda na página e quem responde é gente. </p> <p><span>[PROPOSTA]</span> ajustar com as palavras da marca</p> </article> <article> <h3>Compromisso</h3> <p> Informação antes da venda, curadoria pequena de propósito e nenhuma pressa artificial. Sem contador de escassez, sem pop-up na sua cara, sem \"últimas unidades\" que nunca acabam. Dúvida de tamanho é resolvida antes da compra, não depois. </p> <p><span>[PROPOSTA]</span> ajustar com as palavras da marca</p> </article> </div> </div> <!-- ==================================================================== FAIXA DE FRASE (v0.1.9) — a frase de posicionamento saiu de dentro do texto corrido e virou faixa com fundo suave, separando os blocos. O texto é o mesmo que já estava na página. ==================================================================== --> <section aria-labelledby=\"crenca-titulo\"> <div></p>",
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave"
                 },
@@ -361,7 +361,7 @@
               "left": "0",
               "isLinked": false
             },
-            "_title": "O ateliê e o processo"
+            "_title": "Nossa crença"
           },
           "elements": [
             {
@@ -369,8 +369,8 @@
               "elType": "widget",
               "widgetType": "heading",
               "settings": {
-                "_title": "O ateliê e o processo",
-                "title": "O ateliê e o processo",
+                "_title": "Nossa crença",
+                "title": "Nossa crença",
                 "header_size": "h2",
                 "__globals__": {
                   "title_color": "globals/colors?id=text"
@@ -401,7 +401,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>Modelagem, corte e confecção próprios. O processo completo, da escolha do tecido à peça pronta, entra aqui com os detalhes reais do ateliê [PREENCHER].</p>",
+                "editor": "<p><figure> <blockquote> <p>Doze peças bem escolhidas valem mais que cem peças iguais.</p> </blockquote> </figure> </div> </section> <!-- FAIXA DE FOTOS DO ATELIÊ (v0.1.9). As três imagens são as previstas para esta página na SPECS-DE-IMAGEM: costura, tingimento e cerâmica. --> <div></p>",
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave"
                 },
@@ -450,11 +450,100 @@
               "left": "0",
               "isLinked": false
             },
-            "_title": "Como escolhemos as peças"
+            "_title": "O ateliê e o processo"
           },
           "elements": [
             {
               "id": "4ef284f",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "O ateliê e o processo",
+                "title": "O ateliê e o processo",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "dbe9d5d",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p><ul aria-labelledby=\"atelie-titulo\"> <li> <figure> <img src=\"assets/img/costura.jpg\" alt=\"Máquina de costura com tecido claro em acabamento\" loading=\"lazy\" width=\"1408\" height=\"768\"> <figcaption>Costura no ateliê.</figcaption> </figure> </li> <li> <figure> <img src=\"assets/img/tingimento.jpg\" alt=\"Tingimento de tecido à mão em tina\" loading=\"lazy\" width=\"768\" height=\"1376\"> <figcaption>Tingimento de tecido à mão.</figcaption> </figure> </li> <li> <figure> <img src=\"assets/img/ceramica-seca.jpg\" alt=\"Peças de cerâmica secando ao ar livre\" loading=\"lazy\" width=\"1408\" height=\"768\"> <figcaption>Peças secando ao ar livre.</figcaption> </figure> </li> </ul> <p> Imagens de exemplo do processo. Substituir pelas fotos reais do ateliê quando a produção das fotos estiver feita (SPECS-DE-IMAGEM.md). </p> </div> <div> <div></p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "b2a9fb8",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Como escolhemos as peças"
+          },
+          "elements": [
+            {
+              "id": "cbbf8c4",
               "elType": "widget",
               "widgetType": "heading",
               "settings": {
@@ -486,13 +575,104 @@
               "elements": []
             },
             {
-              "id": "dbe9d5d",
+              "id": "2066d48",
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>Tecidos escolhidos pela gramatura e pelo toque, em três famílias: linho, algodão egípcio e viscose de alta gramatura. Do P ao GG, com guia de medidas por peça.</p>",
+                "editor": "<p><p> Cada peça entra no catálogo depois de conferir tecido, costura, caimento e comportamento depois de lavar. Se a peça não passa nessa conferência, ela não entra, mesmo que esteja na moda. </p> <p> Os tecidos são nobres: <strong>linho, algodão egípcio e viscose de alta gramatura</strong>. A modelagem, o corte e a confecção são <strong>100% autorais</strong> e feitos no Brasil, no ateliê de Cerquilho - SP. </p> <p> <span>[PREENCHER: detalhe real do processo de compra. Quantas peças são testadas por coleção? Quem aprova?]</span> </p> </div> <!-- NÚMEROS DA LOJA. Todos saem de decisões já tomadas ou de copy que já está no site: 12 peças no catálogo, frete grátis acima de R$ 299, 6x sem juros e 7 dias de arrependimento (CDC Art. 49). Nada foi medido nem inventado: se algum número mudar, atualize aqui. --> <ul aria-label=\"Números da loja\"> <li> <span>12</span> <span>peças na coleção, escolhidas uma a uma</span> </li> <li> <span>R$ 299</span> <span>frete grátis a partir deste valor</span> </li> <li> <span>6x</span> <span>sem juros no cartão de crédito</span> </li> <li> <span>7</span> <span>dias para desistir da compra</span> </li> </ul> <div> <p> <a href=\"https://oeemax.com.br/iaracosta/contato/\">Falar com o atendimento <span aria-hidden=\"true\">→</span></a> </p> </div> </div> <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5) Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o conteúdo do rodapé. O texto fica dentro do container do header. --> <section aria-labelledby=\"banda-rodape-titulo\"> <div></p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave"
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "link_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "ad4f078",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Conheça a coleção"
+          },
+          "elements": [
+            {
+              "id": "a787083",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Conheça a coleção",
+                "title": "Conheça a coleção",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "2bbf90a",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p><p>Todas as peças da coleção estão na loja, com troca em 30 dias.</p> <a href=\"https://oeemax.com.br/iaracosta/loja/\">Ver a loja</a> </div> </section></p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "link_color": "globals/colors?id=iara-texto-suave"
                 },
                 "typography_typography": "custom",
                 "typography_font_family": "Jost",

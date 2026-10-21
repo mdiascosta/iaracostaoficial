@@ -269,7 +269,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>Terracota em linho e algodão, nas peças de abertura da coleção.</p>",
+                "editor": "<p>O terracota abre a coleção, em linho, algodão egípcio e viscose de alta gramatura. Modelagem, corte e confecção autorais, no ateliê de Cerquilho.</p>",
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave"
                 },
@@ -490,7 +490,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>Sálvia em vestidos e pantalona, para o dia inteiro.</p>",
+                "editor": "<p>Alfaiataria leve e vestidos midi em verde sálvia: do escritório ao jantar, sem trocar de roupa.</p>",
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave"
                 },
@@ -707,7 +707,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>Cru e areia em camadas leves, com acessórios de cerâmica.</p>",
+                "editor": "<p>Linho cru e acessórios de cerâmica: base neutra para os outros capítulos, ou o look inteiro para quem é minimalista.</p>",
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave"
                 },
