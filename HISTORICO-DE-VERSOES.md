@@ -61,6 +61,22 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.30 · 2026-10-21 · Fotos por URL completa (nome de arquivo não vinculou no site dela)
+
+O vínculo por nome de arquivo voltou a falhar nas 12 linhas no site
+dela ("Não é possível usar a imagem"), embora o caminho esteja
+confirmado no código do WooCommerce. Sem acesso ao painel para ver
+a Biblioteca de Mídia dela por dentro, trocou-se a estratégia em vez
+de insistir: o `produtos-imagens.csv` agora traz a **URL completa**
+de cada imagem (repositório público do projeto, caminho
+`seu-projeto/assets/img/`), e o importador baixa e anexa sozinho,
+sem depender de upload manual prévio. Primeira foto é a principal;
+as demais, galeria.
+
+**Verificado aqui:** arquivos existem no repositório (API do
+GitHub) e conferências verdes. **Não verificado:** a importação
+deste CSV no site dela.
+
 ### v0.3.29 · 2026-10-21 · Galeria de demonstração dos produtos
 
 A pedido dela, o `produtos-imagens.csv` passou a trazer três imagens

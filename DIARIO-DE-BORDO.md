@@ -1,5 +1,17 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-21] - Nome de arquivo não vinculou; fotos agora por URL (v0.3.30)
+
+Segunda falha idêntica do vínculo por nome ("Não é possível usar a
+imagem" nas 12). Consultei a mídia pública do site por REST: as
+fotos do produto não aparecem lá, mas a consulta pública não prova
+o que há dentro do painel dela (pode haver restrição de
+visibilidade). Em vez de uma terceira tentativa igual, o CSV
+passou a trazer a URL completa de cada imagem no repositório
+público: o importador baixa e anexa, sem upload manual. Se a
+hospedagem bloquear a saída para o GitHub, o plano B é o manual
+produto a produto, já orientado.
+
 ## [2026-10-21] - Galeria de demonstração por produto (v0.3.29)
 
 Pedido dela: além da foto principal, colocar imagens na galeria.
