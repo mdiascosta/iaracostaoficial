@@ -61,6 +61,390 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.30 · 2026-10-21 · Fotos por URL completa (nome de arquivo não vinculou no site dela)
+
+O vínculo por nome de arquivo voltou a falhar nas 12 linhas no site
+dela ("Não é possível usar a imagem"), embora o caminho esteja
+confirmado no código do WooCommerce. Sem acesso ao painel para ver
+a Biblioteca de Mídia dela por dentro, trocou-se a estratégia em vez
+de insistir: o `produtos-imagens.csv` agora traz a **URL completa**
+de cada imagem (repositório público do projeto, caminho
+`seu-projeto/assets/img/`), e o importador baixa e anexa sozinho,
+sem depender de upload manual prévio. Primeira foto é a principal;
+as demais, galeria.
+
+**Verificado aqui:** arquivos existem no repositório (API do
+GitHub) e conferências verdes. **Não verificado:** a importação
+deste CSV no site dela.
+
+### v0.3.29 · 2026-10-21 · Galeria de demonstração dos produtos
+
+A pedido dela, o `produtos-imagens.csv` passou a trazer três imagens
+por produto: a primeira é a foto principal e as seguintes entram na
+galeria. As imagens complementares são detalhes e processo do
+protótipo (botões, costura, tingimento, cerâmica e ateliê), apenas
+para demonstração até chegarem as fotos reais da mesma peça.
+
+**Verificado aqui:** CSV e conferências. **Não verificado:** o vínculo
+no WordPress dela.
+
+### v0.3.28 · 2026-10-21 · Fotos automáticas: CSV de vínculo por SKU
+
+**Produtos importaram** (confirmado por ela). Para as fotos, confirmado
+no código do WooCommerce (`get_attachment_id_from_url`): com só o nome
+do arquivo, o importador procura a imagem na Biblioteca de Mídia e
+liga ao produto; a falha original era as fotos ainda não estarem lá.
+
+- Novo `bloco-c/produtos-imagens.csv`: 12 linhas (SKU + Images), para
+  importar **marcando** "Atualizar produtos existentes" depois de
+  subir as 39 imagens em Mídia > Adicionar nova;
+- Guia atualizado com o caminho automático e o manual.
+
+**Verificado aqui:** conferências verdes. **Verificado no site dela:**
+a importação dos produtos. **Não verificado:** o vínculo das fotos.
+
+### v0.3.27 · 2026-10-21 · Produtos: imagem fora do CSV e visibilidade nas variações
+
+**Segunda tentativa dela:** os produtos pai passaram da etapa de
+atualização e falharam em dois pontos novos, registrados por ela.
+
+- **Imagem**: o CSV trazia só o nome do arquivo; sem endereço
+  completo o importador recusa o produto. Coluna `Images` esvaziada:
+  a foto entra pela biblioteca de mídia, produto a produto (12);
+- **Visibilidade**: as 56 variações estavam com `Visibility in
+  catalog` vazio, que o importador reprova; agora `visible`;
+- **Aprendizado**: importar em lotes pequenos teria mostrado isso na
+  primeira peça. Daqui em diante, arquivo novo se valida por uma
+  amostra antes do lote inteiro.
+
+**Verificado aqui:** CSV corrigido e conferências verdes.
+**Verificado no site dela:** os dois erros, pelo registro enviado.
+**Não verificado:** a terceira importação (aguardando ela).
+
+### v0.3.26 · 2026-10-21 · Produtos: CSV sem a coluna que quebrava a importação
+
+**Erro real dela:** a importação falhou nas 68 linhas. O registro dela
+mostrou "Não existe nenhum produto correspondente para atualizar" nos
+10 produtos pai e, em cascata, "Uma nova variação só pode ser criada
+para um produto principal variável" nas 56 variações.
+
+- **Causa:** o `produtos.csv` abria com a coluna `ID` (vazia). Com ela,
+  o importador trata cada linha como **atualização** de produto
+  existente; como não existia nenhum, recusou o lote inteiro;
+- **Correção:** coluna `ID` removida do CSV (34 colunas); o guia
+  ganhou a nota de não marcar "Atualizar produtos existentes";
+- **Verificado aqui:** estrutura do arquivo revalidada (35→34 colunas,
+  68 linhas, nenhuma variação órfã) e as conferências verdes.
+
+**Verificado no site dela:** a falha e o motivo, pelo registro que
+ela enviou. **Não verificado:** a nova importação (aguardando ela).
+
+### v0.3.25 · 2026-10-20 · Sobre, Contato e Coleção com o texto integral; extrator sem vazamento
+
+**Continuação do pente-fino (pedido: "pode continuar").**
+
+- **Sobre** passou a ser gerado do texto integral do protótipo
+  (inclui a seção "Nossa crença", que o resumo não tinha);
+- **Contato** ganhou a seção "O ateliê no mapa" do protótipo, sem
+  repetir o formulário e os canais que já existiam;
+- **Coleção (lookbook)**: cada capítulo usa o primeiro parágrafo
+  real do protótipo no lugar do resumo (as peças seguem dinâmicas);
+- **Correção importante**: a extração de seções lia a página até o
+  fim e deixou vazar títulos do rodapé ("Institucional", "Sua
+  sacola") como seções das páginas de texto da v0.3.24. O extrator
+  agora corta no `</main>`, as páginas foram regeneradas limpas e a
+  bateria ganhou o teste que reprova esse vazamento;
+- Textos fora dos JSON: 536 → 528 (a inicial é o que resta de
+  montagem por widgets dinâmicos; depoimentos de exemplo do
+  protótipo não entram como avaliação).
+
+**Verificado aqui:** bateria local ampliada e as três conferências
+verdes. **Não verificado:** importação e leitura no WordPress.
+
+### v0.3.24 · 2026-10-20 · Pente-fino executado: responsivo e textos completos
+
+**Pedido da cliente:** pente-fino em todos os JSON contra as páginas
+do protótipo, com a pergunta direta: o CSS do template HTML está
+sendo injetado no CSS do Elementor? E depois: "pode continuar a
+ajustar".
+
+**Resposta registrada (relatório em `PENTE-FINO.md`):** o CSS cru do
+protótipo não é (nem poderia ser) injetado: as classes dele não
+existem na marcação do Elementor. O que viaja é o equivalente por
+widget mais 52 regras reescritas. O pente-fino mediu 897 regras e 74
+@media do protótipo contra 42 regras e 0 @media do nosso lado, 0
+ajustes responsivos declarados e os textos das páginas resumidos
+(legais com ~11% do documento).
+
+**O que foi ajustado nesta versão**
+
+- **Responsivo**: passada automática em todos os documentos (42
+  declarações `_mobile`: coluna larga vira largura cheia no celular,
+  título grande encolhe 30%) e 3 blocos `@media` no CSS embutido.
+- **Textos integrais**: guia de medidas, trocas, envio, privacidade,
+  termos e cookies agora são gerados do texto completo do protótipo
+  (extraído do HTML aprovado, links convertidos para o endereço real
+  do site); o FAQ ganhou as 20 perguntas reais em sanfonas por grupo.
+  Os textos fora dos JSON caíram de 956 para 536 (o restante é
+  dinâmico e as páginas escritas à mão, cujo texto integral segue no
+  `pages-conteudo.md` do Bloco C).
+- As legais mantêm o aviso "RASCUNHO PARA O JURÍDICO".
+
+**Verificado aqui:** bateria local ampliada e as três conferências
+verdes. **Não verificado:** importação e o desenho no celular real.
+
+### v0.3.23 · 2026-10-20 · CSS embutido em todos os templates; pacote com as 24 páginas
+
+**Pedido da cliente:** ajustar todos os JSON (todas as páginas) com o
+CSS embutido, para importar tudo, com as páginas o mais prontas
+possível.
+
+**O que mudou**
+
+- O CSS geral (estados do menu e da faixa, selos dos contadores,
+  rodapé, WooCommerce e Minha Conta) agora viaja dentro dos **24
+  templates**, na configuração `custom_css` de cada documento, não só
+  no cabeçalho e no rodapé. Importar qualquer JSON leva os estilos
+  junto; o kit completo segue com o mesmo CSS nas configurações do
+  site.
+- Novo pacote `bloco-b/iara-costa-todos-os-templates.zip` com os 24
+  JSON, para importar tudo em Templates > Importar de uma vez.
+- A bateria passou a exigir o CSS embutido nos 24 arquivos.
+
+**O que "pronta" significa aqui (e o que continua dinâmico):** textos,
+imagens, fontes embutidas e cores viajam nos arquivos; menu, logotipo,
+sacola, desejos (plugin TI), formulário, produtos da loja e preços
+são dinâmicos do WordPress/WooCommerce e aparecem quando o site tem
+esses dados. Templates de página entram na biblioteca; aplicar em
+cada página segue o roteiro do guia (o kit completo já traz os
+templates de tema com condições).
+
+**Verificado aqui:** bateria local e as três conferências verdes.
+**Não verificado:** a importação no WordPress da cliente.
+
+### v0.3.22 · 2026-10-20 · Estados pelos controles dos próprios widgets
+
+**Relato da cliente:** importou a v0.3.21 e "mesma coisa" (menu sem
+hover/ativo, sacola com caixa, contador solto).
+
+**Causa-raiz do "mesma coisa" (confirmada no código de importação do
+Elementor):** template avulso importado **não recebe condição de
+exibição**. O cabeçalho que o site mostra continua sendo o antigo,
+com a condição "site inteiro"; o novo fica guardado, sem valer. Some
+a isso que estados desenhados só pelo nosso CSS dependem de o CSS ser
+aplicado junto, e a briga acaba.
+
+**Correção estrutural: os estados passam a nascer dos controles dos
+próprios widgets**, cujo CSS o Elementor gera sempre, importe como
+importar (o CSS embutido da v0.3.21 fica como reforço):
+
+- **Menu**: ponteiro `underline` do widget ligado, com as cores da
+  linha pelos controles dele: hover em Terracota escuro
+  (`pointer_color_menu_item_hover`), ativo em Terracota claro
+  (`pointer_color_menu_item_active`), além das cores de texto que já
+  existiam;
+- **Sacola**: fundo transparente e borda zero pelos controles do
+  Carrinho do Menu (`toggle_button_background_color` transparente,
+  `toggle_button_border_width` 0), em vez de depender do nosso CSS
+  para sumir com a caixa do botão;
+- O caminho de importação recomendado volta a ser o **kit completo**
+  depois de apagar os templates antigos, porque o kit é quem cria as
+  condições de exibição automaticamente.
+
+**Verificado aqui:** bateria local (com os testes novos dos
+controles) e as três conferências verdes. **Não verificado:** a
+importação no WordPress da cliente.
+
+### v0.3.21 · 2026-10-20 · CSS dentro dos dois templates; sacola sem caixa
+
+**Relato da cliente (captura do WordPress dela):** importados os dois
+JSON, o hover e o ativo do menu não funcionam, a sacola aparece dentro
+de uma caixa com borda e o coração mostra o "0" solto ao lado, sem o
+selo. O resto (faixa, logotipo, menu em caixa alta) entrou certo.
+
+**Causa (duas, confirmadas)**
+
+1. Quem importa só os JSON **não recebe o CSS** das configurações do
+   site: é nele que moram os estados do menu, a sacola sem caixa e os
+   selos. Sem CSS, o Elementor desenha o botão da sacola com o estilo
+   de botão dele (a caixa da captura) e o menu fica só com as cores.
+2. A regra da sacola mirava o envoltório do botão, não o botão: o
+   seletor certo é `.elementor-menu-cart__toggle .elementor-button`
+   (conferido no código do widget).
+
+**O que mudou**
+
+- O CSS geral passa a viajar **dentro dos dois templates**
+  (configuração `custom_css` do documento de cabeçalho e de rodapé),
+  além de seguir no kit completo. Importando só os JSON, o desenho vai
+  junto; importando o kit, vale o mesmo CSS.
+- Seletores da sacola corrigidos para o botão de verdade, com hover
+  em Terracota escuro e o glifo a 19px; contador de desejos com a
+  âncora posicionada para o selo encostar no coração.
+- Bateria ganhou o teste do CSS embutido nos dois arquivos.
+
+**Verificado aqui:** bateria local e as três conferências verdes.
+**Não verificado:** a reimportação no WordPress da cliente.
+
+### v0.3.20 · 2026-10-20 · Cabeçalho e rodapé fechados e aprovados na prévia
+
+**Fechamento.** Depois das rodadas de correção, o cabeçalho e o rodapé
+foram aprovados pela cliente na prévia local, sem nenhuma alteração a
+mais. Esta versão congela os dois templates exatamente como aprovados
+e entrega os dois JSON finais (`01-cabecalho.json`, `02-rodape.json`,
+também reunidos em `bloco-b/iara-costa-cabecalho-rodape.zip`), com o
+kit completo regenerado junto.
+
+**Como ficou o cabeçalho**
+
+- Faixa verde com hover Terracota claro sublinhado nos dois links;
+- Logotipo em imagem (widget Site Logo, mídia da cliente) a 210px;
+- Menu do WordPress (Menu Principal) em Jost 12px caixa alta, sem o
+  ponteiro do widget: hover com linha escura e item ativo com linha
+  Terracota claro, desenhados pelo CSS do kit;
+- Ícones a 17px em botões de 43px com 4px entre eles (medida do
+  protótipo): busca, conta, desejos e sacola;
+- Selos dinâmicos: sacola pelo widget Carrinho do Menu do WooCommerce
+  (`bag-light`, bolha Terracota que some com a sacola vazia) e desejos
+  pelo contador do plugin TI WooCommerce Wishlist.
+
+**Como ficou o rodapé**
+
+- Newsletter com formulário de 460px, linha fina e nota de privacidade
+  fora da caixa, em largura de leitura;
+- Marca com o logotipo em imagem a 190px e parágrafo a 13px; colunas
+  Institucional e Categorias; Atendimento com "Minha conta · Desejos ·
+  Sacola" em uma linha com pontos e sociais em círculos com borda;
+- Faixa de segurança com títulos Jost 600 caixa alta, textos a 12px,
+  ícones de contorno onde a biblioteca tem e divisórias verticais;
+- Formas de pagamento (54%) e Segurança (40%) na mesma linha: quadros
+  e selos com a cor da borda declarada, fundo branco e o selo com o
+  quadradinho escuro do protótipo;
+- Botão flutuante de WhatsApp (pílula Sálvia fixa, CSS do kit).
+
+**Método novo (ficou).** Os templates passaram a ser conferidos antes
+da entrega, sem importar nada no WordPress: prévia local gerada dos
+próprios JSON (`tools/blocob_preview.py`, com o CSS do kit e as
+classes reais do Elementor) e bateria automática
+(`tools/blocob_testes.py`, 30+ testes). A bateria pegou, entre outros,
+o título Atendimento sem caixa alta, listas sem a fonte embutida e os
+quadros de pagamento sem a cor da borda.
+
+**Dinâmico continua dinâmico:** menu (WordPress), logotipos (mídia do
+site), sacola e desejos (contadores reais) e o formulário. O coração
+com contador pede o plugin TI ativo; sem ele, esse widget não
+renderiza e o restante do cabeçalho fica normal.
+
+**Verificado aqui:** bateria local e as três conferências verdes.
+**Não verificado:** a importação no WordPress da cliente.
+
+### v0.3.19 · 2026-10-20 · Estados do link do menu e ícones mais leves
+
+**Relato da cliente (captura do cabeçalho atual):** o menu "ainda não
+está igual ao do template" nos **estados do link (active e hover)**, e
+"os ícones não estão iguais aos do template, o CSS está diferente". Na
+captura, o menu já está em Jost caixa alta com a linha no item atual, a
+marca e a faixa estão certas: o que falta é o acabamento.
+
+**O que foi verificado e mudou**
+
+- **Hover do menu**: o CSS do kit só mudava a cor. No protótipo
+  (`.main-nav__link`), hover é Terracota escuro **com a linha escura
+  embaixo**; o ativo é Terracota escuro com a linha Terracota claro.
+  Os dois estados foram completados no CSS que viaja no kit, incluindo
+  o foco pelo teclado.
+- **Ícones da direita**: busca e sacola são glifos **cheios** no Font
+  Awesome gratuito (não existe a versão de contorno deles; conta e
+  coração já são de contorno, como no protótipo). O peso visual baixou
+  do jeito possível sem trocar a biblioteca: 17px declarados no widget,
+  cor carvão, alvo de toque confortável, sem caixa nem fundo. O caminho
+  para o traço idêntico ao desenho (SVGs próprios na Mídia) ficou
+  registrado no guia como troca manual no editor, se a cliente quiser.
+- Fora do template, mas registrado no guia: falta o item **Coleção**
+  no Menu Principal criado no WordPress (hoje são 4 itens).
+
+**Verificado aqui:** três conferências verdes. **Não verificado:** o
+hover no staging (passar o mouse) e a importação do kit novo.
+
+### v0.3.18 · 2026-10-20 · Padrão de fonte embutido nos widgets; menu em caixa alta
+
+**Relato da cliente (4 capturas):** no site, o cabeçalho ficou "muito
+grande" (menu serifado enorme, ícones pesados) e o rodapé com "fontes
+muito grandes" (títulos em Playfair), comparados às imagens certas do
+protótipo. Pedidos: ícones da direita com "CSS mais clean", fontes do
+menu em maiúsculo e "acertar o padrão da fonte já no nosso kit de
+configuração".
+
+**Causa raiz (confirmada no código do widget de menu)**
+
+O widget Nav Menu declara a global `TYPOGRAPHY_PRIMARY` (Playfair 24)
+como padrão da sua tipografia: sem fonte declarada, o menu nasce
+serifado e gigante, foi a captura. Somando: as fontes personalizadas do
+kit (iara-rotulo, iara-assinatura, iara-texto-micro...) não estão
+mandando no site, então todo widget que só apontava para elas caía no
+padrão do tema ou na Primary. E há o suspeito de sempre: templates
+duplicados de importações seguidas, com a condição apontando para a
+cópia antiga.
+
+**O que mudou**
+
+- A geração agora **embute o padrão de fonte em cada widget** dos 24
+  arquivos: família, peso, tamanho, espaçamento e caixa declarados no
+  próprio widget (valores da mesma tabela das globais, com o prefixo
+  certo de cada widget). A cor continua global, que é o que funcionava.
+  Os templates ficaram autossuficientes em fonte.
+- O menu declara no widget: Jost 12px, **caixa alta** (pedido da
+  cliente), espaçamento 0.08em, cores do item/hover/ativo e a linha do
+  item ativo pelas globais de cor. A fonte global `iara-menu` também
+  virou caixa alta, para o padrão valer onde ela é usada.
+- Ícones da direita mais clean: 18px (eram 20/21), na cor suave do menu
+  (era preto texto) e com respiro de 22px entre eles.
+- Guia: linha nova de diagnóstico com a regra de apagar TODAS as
+  cópias duplicadas antes de importar.
+
+**Verificado aqui:** três conferências verdes e os widgets impressos
+(menu com Jost 12 caixa alta declarada; título de coluna do rodapé com
+Jost 11 caixa alta; listas com Jost 11). **Não verificado:** a
+renderização no staging.
+
+### v0.3.17 · 2026-10-20 · Cabeçalho e rodapé conferidos contra o protótipo
+
+**Pedido da cliente (retomada do trabalho):** "vamos começar hoje pelo
+header e footer, verifique nosso template e pode migrar para atualizar
+os JSONs do Elementor".
+
+**Cabeçalho: conferido, estava certo.** Faixa em lista de ícones, marca
+em texto com as fontes declaradas, menu do WordPress no slug
+`menu-principal` (o Menu Principal criado pela cliente) com ativo
+sublinhado pelo CSS do kit, quatro ícones de ação. Um acréscimo: a
+barra do protótipo é fixa no topo (`sticky`), e agora o CSS do kit fixa
+o bloco inteiro do cabeçalho.
+
+**Rodapé: sete diferenças achadas na comparação com o protótipo**
+
+1. Títulos das colunas (Institucional, Categorias, Atendimento) na
+   fonte miúda; o protótipo usa o rótulo Jost 600 em caixa alta.
+2. A nota da newsletter ("Um e-mail por mês... Política de
+   Privacidade...") não existia no JSON. Voltou, sob o formulário.
+3. Atendimento sem a linha Minha conta · Desejos · Sacola, e o telefone
+   sem o "· telefone e WhatsApp". Restaurados.
+4. Redes sociais como lista vertical com nome escrito; o protótipo é
+   só os três ícones em linha. Ajustado (ícone sem texto, em linha).
+5. Subtítulos "Formas de pagamento" e "Segurança" em Jost miúdo; o
+   protótipo usa Playfair 18 (fonte de seção). Corrigidos, e os títulos
+   dos quatro itens de segurança e dos selos viraram rótulo em caixa
+   alta, como no CSS aprovado.
+6. A nota demonstrativa da faixa de segurança ("gateway é o Mercado
+   Pago... [CONFERIR no go-live]") não existia. Voltou.
+7. Fundo branco puro; o protótipo é o papel `#fffdf9`. E a linha de
+   identificação trazia o CNPJ fictício do protótipo: virou
+   `CNPJ [PREENCHER] · Endereço [PREENCHER]`, porque dado legal de
+   mentirinha não vai para o site (regra do projeto).
+
+**Verificado aqui:** três conferências verdes e o conteúdo impresso do
+rodapé (as duas notas presentes). **Não verificado:** a renderização no
+site, que vem na importação do kit novo.
+
 ### v0.3.16 · 2026-10-19 · Menu do cabeçalho aponta para o "Menu Principal" criado
 
 **Pedido da cliente:** trocar o menu em lista de ícones pelo menu do

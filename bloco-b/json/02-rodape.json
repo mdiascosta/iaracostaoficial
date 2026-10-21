@@ -23,7 +23,7 @@
         },
         "background_background": "classic",
         "__globals__": {
-          "background_color": "globals/colors?id=iara-branco"
+          "background_color": "globals/colors?id=iara-papel"
         },
         "_title": "Rodapé"
       },
@@ -106,9 +106,27 @@
                         "title": "Newsletter",
                         "header_size": "p",
                         "__globals__": {
-                          "title_color": "globals/colors?id=iara-texto-discreto",
-                          "typography": "globals/typography?id=iara-rotulo"
-                        }
+                          "title_color": "globals/colors?id=iara-texto-discreto"
+                        },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Jost",
+                        "typography_font_weight": "600",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 11,
+                          "sizes": []
+                        },
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.4,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "em",
+                          "size": 0.15,
+                          "sizes": []
+                        },
+                        "typography_text_transform": "uppercase"
                       },
                       "elements": []
                     },
@@ -119,8 +137,25 @@
                       "settings": {
                         "editor": "<p>Cartas do ateliê: lançamentos, guia de medidas e cuidados com o linho.</p>",
                         "__globals__": {
-                          "text_color": "globals/colors?id=iara-texto-suave",
-                          "typography": "globals/typography?id=text"
+                          "text_color": "globals/colors?id=iara-texto-suave"
+                        },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Jost",
+                        "typography_font_weight": "400",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 15,
+                          "sizes": []
+                        },
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.55,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "em",
+                          "size": 0.0,
+                          "sizes": []
                         }
                       },
                       "elements": []
@@ -134,6 +169,13 @@
                   "widgetType": "form",
                   "settings": {
                     "_title": "Assinar a newsletter",
+                    "_flex_size": "custom",
+                    "_flex_basis_type": "custom",
+                    "_flex_basis": {
+                      "unit": "px",
+                      "size": 460,
+                      "sizes": []
+                    },
                     "form_name": "Newsletter do rodapé",
                     "form_fields": [
                       {
@@ -157,6 +199,39 @@
               "isInner": true
             },
             {
+              "id": "1424f5a",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "_title": "Nota da newsletter",
+                "css_classes": "iara-news-nota",
+                "editor": "<p>Um e-mail por mês, no máximo. Ao assinar, você confirma que leu a <a href=\"https://oeemax.com.br/iaracosta/politica-de-privacidade/\">Política de Privacidade</a> e pode cancelar quando quiser, em um clique.</p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-discreto",
+                  "link_color": "globals/colors?id=iara-texto-discreto"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 11,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.45,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.06,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            },
+            {
               "id": "dfc74b9",
               "elType": "container",
               "settings": {
@@ -178,7 +253,8 @@
                   "left": "0",
                   "isLinked": false
                 },
-                "_title": "Colunas do rodapé"
+                "_title": "Colunas do rodapé",
+                "flex_wrap_mobile": "wrap"
               },
               "elements": [
                 {
@@ -200,35 +276,32 @@
                       "size": 25,
                       "sizes": []
                     },
-                    "_title": "Coluna da marca"
+                    "_title": "Coluna da marca",
+                    "_flex_basis_mobile": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    }
                   },
                   "elements": [
                     {
-                      "id": "4f7f92a",
+                      "id": "b202648",
                       "elType": "widget",
-                      "widgetType": "heading",
+                      "widgetType": "theme-site-logo",
                       "settings": {
-                        "_title": "Iara Costa",
-                        "title": "IARA COSTA",
-                        "header_size": "p",
-                        "__globals__": {
-                          "title_color": "globals/colors?id=text",
-                          "typography": "globals/typography?id=primary"
-                        }
-                      },
-                      "elements": []
-                    },
-                    {
-                      "id": "8eb2b9b",
-                      "elType": "widget",
-                      "widgetType": "heading",
-                      "settings": {
-                        "_title": "Moda e acessórios",
-                        "title": "Moda & Acessórios",
-                        "header_size": "p",
-                        "__globals__": {
-                          "title_color": "globals/colors?id=iara-texto-discreto",
-                          "typography": "globals/typography?id=iara-assinatura"
+                        "_title": "Logotipo do rodapé",
+                        "css_classes": "iara-marca-logo-rodape",
+                        "link_to": "custom",
+                        "link": {
+                          "url": "https://oeemax.com.br/iaracosta/",
+                          "is_external": "",
+                          "nofollow": ""
+                        },
+                        "image_size": "full",
+                        "width": {
+                          "unit": "px",
+                          "size": 190,
+                          "sizes": []
                         }
                       },
                       "elements": []
@@ -239,9 +312,26 @@
                       "widgetType": "text-editor",
                       "settings": {
                         "editor": "<p>Vestuário feminino autoral em linho, algodão egípcio e viscose de alta gramatura. Modelagem, corte e confecção próprios, no ateliê em Cerquilho (SP).</p>",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Jost",
+                        "typography_font_weight": "400",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 13,
+                          "sizes": []
+                        },
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.55,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "em",
+                          "size": 0.0,
+                          "sizes": []
+                        },
                         "__globals__": {
-                          "text_color": "globals/colors?id=iara-texto-suave",
-                          "typography": "globals/typography?id=text"
+                          "text_color": "globals/colors?id=iara-texto-suave"
                         }
                       },
                       "elements": []
@@ -268,7 +358,12 @@
                       "size": 21,
                       "sizes": []
                     },
-                    "_title": "Institucional"
+                    "_title": "Institucional",
+                    "_flex_basis_mobile": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    }
                   },
                   "elements": [
                     {
@@ -280,9 +375,27 @@
                         "header_size": "p",
                         "_title": "Institucional",
                         "__globals__": {
-                          "title_color": "globals/colors?id=text",
-                          "typography": "globals/typography?id=iara-texto-micro"
-                        }
+                          "title_color": "globals/colors?id=text"
+                        },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Jost",
+                        "typography_font_weight": "600",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 11,
+                          "sizes": []
+                        },
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.4,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "em",
+                          "size": 0.15,
+                          "sizes": []
+                        },
+                        "typography_text_transform": "uppercase"
                       },
                       "elements": []
                     },
@@ -367,6 +480,24 @@
                         "__globals__": {
                           "text_color": "globals/colors?id=iara-texto-suave",
                           "text_color_hover": "globals/colors?id=accent"
+                        },
+                        "icon_typography_typography": "custom",
+                        "icon_typography_font_family": "Jost",
+                        "icon_typography_font_weight": "400",
+                        "icon_typography_font_size": {
+                          "unit": "px",
+                          "size": 11,
+                          "sizes": []
+                        },
+                        "icon_typography_line_height": {
+                          "unit": "em",
+                          "size": 1.45,
+                          "sizes": []
+                        },
+                        "icon_typography_letter_spacing": {
+                          "unit": "em",
+                          "size": 0.06,
+                          "sizes": []
                         }
                       },
                       "elements": []
@@ -393,7 +524,12 @@
                       "size": 21,
                       "sizes": []
                     },
-                    "_title": "Categorias"
+                    "_title": "Categorias",
+                    "_flex_basis_mobile": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    }
                   },
                   "elements": [
                     {
@@ -405,9 +541,27 @@
                         "header_size": "p",
                         "_title": "Categorias",
                         "__globals__": {
-                          "title_color": "globals/colors?id=text",
-                          "typography": "globals/typography?id=iara-texto-micro"
-                        }
+                          "title_color": "globals/colors?id=text"
+                        },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Jost",
+                        "typography_font_weight": "600",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 11,
+                          "sizes": []
+                        },
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.4,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "em",
+                          "size": 0.15,
+                          "sizes": []
+                        },
+                        "typography_text_transform": "uppercase"
                       },
                       "elements": []
                     },
@@ -492,6 +646,24 @@
                         "__globals__": {
                           "text_color": "globals/colors?id=iara-texto-suave",
                           "text_color_hover": "globals/colors?id=accent"
+                        },
+                        "icon_typography_typography": "custom",
+                        "icon_typography_font_family": "Jost",
+                        "icon_typography_font_weight": "400",
+                        "icon_typography_font_size": {
+                          "unit": "px",
+                          "size": 11,
+                          "sizes": []
+                        },
+                        "icon_typography_line_height": {
+                          "unit": "em",
+                          "size": 1.45,
+                          "sizes": []
+                        },
+                        "icon_typography_letter_spacing": {
+                          "unit": "em",
+                          "size": 0.06,
+                          "sizes": []
                         }
                       },
                       "elements": []
@@ -518,7 +690,12 @@
                       "size": 24,
                       "sizes": []
                     },
-                    "_title": "Atendimento"
+                    "_title": "Atendimento",
+                    "_flex_basis_mobile": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    }
                   },
                   "elements": [
                     {
@@ -530,9 +707,27 @@
                         "header_size": "p",
                         "_title": "Atendimento",
                         "__globals__": {
-                          "title_color": "globals/colors?id=text",
-                          "typography": "globals/typography?id=iara-texto-micro"
-                        }
+                          "title_color": "globals/colors?id=text"
+                        },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Jost",
+                        "typography_font_weight": "600",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 11,
+                          "sizes": []
+                        },
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.4,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "em",
+                          "size": 0.15,
+                          "sizes": []
+                        },
+                        "typography_text_transform": "uppercase"
                       },
                       "elements": []
                     },
@@ -557,7 +752,7 @@
                             }
                           },
                           {
-                            "text": "(15) 99123-4567",
+                            "text": "(15) 99123-4567 · telefone e WhatsApp",
                             "link": {
                               "url": "https://wa.me/5515991234567",
                               "is_external": "on",
@@ -586,6 +781,103 @@
                         "__globals__": {
                           "text_color": "globals/colors?id=iara-texto-suave",
                           "text_color_hover": "globals/colors?id=accent"
+                        },
+                        "icon_typography_typography": "custom",
+                        "icon_typography_font_family": "Jost",
+                        "icon_typography_font_weight": "400",
+                        "icon_typography_font_size": {
+                          "unit": "px",
+                          "size": 11,
+                          "sizes": []
+                        },
+                        "icon_typography_line_height": {
+                          "unit": "em",
+                          "size": 1.45,
+                          "sizes": []
+                        },
+                        "icon_typography_letter_spacing": {
+                          "unit": "em",
+                          "size": 0.06,
+                          "sizes": []
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "efdc2e8",
+                      "elType": "widget",
+                      "widgetType": "icon-list",
+                      "settings": {
+                        "_title": "Conta, desejos e sacola",
+                        "css_classes": "iara-conta-links",
+                        "view": "inline",
+                        "icon_list": [
+                          {
+                            "text": "Minha conta",
+                            "link": {
+                              "url": "https://oeemax.com.br/iaracosta/minha-conta/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "c5a3355",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
+                          },
+                          {
+                            "text": "Desejos",
+                            "link": {
+                              "url": "https://oeemax.com.br/iaracosta/lista-de-desejos/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "d0bc640",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
+                          },
+                          {
+                            "text": "Sacola",
+                            "link": {
+                              "url": "https://oeemax.com.br/iaracosta/sacola/",
+                              "is_external": "",
+                              "nofollow": ""
+                            },
+                            "_id": "f3435e5",
+                            "selected_icon": {
+                              "value": "",
+                              "library": ""
+                            }
+                          }
+                        ],
+                        "space_between": {
+                          "unit": "px",
+                          "size": 8,
+                          "sizes": []
+                        },
+                        "__globals__": {
+                          "text_color": "globals/colors?id=iara-texto-suave",
+                          "text_color_hover": "globals/colors?id=accent"
+                        },
+                        "icon_typography_typography": "custom",
+                        "icon_typography_font_family": "Jost",
+                        "icon_typography_font_weight": "400",
+                        "icon_typography_font_size": {
+                          "unit": "px",
+                          "size": 11,
+                          "sizes": []
+                        },
+                        "icon_typography_line_height": {
+                          "unit": "em",
+                          "size": 1.45,
+                          "sizes": []
+                        },
+                        "icon_typography_letter_spacing": {
+                          "unit": "em",
+                          "size": 0.06,
+                          "sizes": []
                         }
                       },
                       "elements": []
@@ -596,9 +888,11 @@
                       "widgetType": "icon-list",
                       "settings": {
                         "_title": "Redes sociais",
+                        "css_classes": "iara-sociais",
+                        "view": "inline",
                         "icon_list": [
                           {
-                            "text": "Instagram",
+                            "text": "",
                             "selected_icon": {
                               "value": "fab fa-instagram",
                               "library": "fa-brands"
@@ -611,7 +905,7 @@
                             "_id": "3687719"
                           },
                           {
-                            "text": "Pinterest",
+                            "text": "",
                             "selected_icon": {
                               "value": "fab fa-pinterest",
                               "library": "fa-brands"
@@ -624,7 +918,7 @@
                             "_id": "16e84ad"
                           },
                           {
-                            "text": "WhatsApp",
+                            "text": "",
                             "selected_icon": {
                               "value": "fab fa-whatsapp",
                               "library": "fa-brands"
@@ -639,12 +933,12 @@
                         ],
                         "space_between": {
                           "unit": "px",
-                          "size": 10,
+                          "size": 12,
                           "sizes": []
                         },
                         "icon_size": {
                           "unit": "px",
-                          "size": 16,
+                          "size": 18,
                           "sizes": []
                         },
                         "__globals__": {
@@ -700,6 +994,7 @@
                   "id": "ae29c66",
                   "elType": "container",
                   "settings": {
+                    "css_classes": "iara-seg-faixa",
                     "content_width": "full",
                     "flex_direction": "row",
                     "flex_wrap": "nowrap",
@@ -710,7 +1005,8 @@
                       "unit": "px",
                       "size": 20
                     },
-                    "_title": "Faixa de segurança"
+                    "_title": "Faixa de segurança",
+                    "flex_wrap_mobile": "wrap"
                   },
                   "elements": [
                     {
@@ -734,7 +1030,12 @@
                           "size": 23,
                           "sizes": []
                         },
-                        "_title": "Pix, cartão e boleto"
+                        "_title": "Pix, cartão e boleto",
+                        "_flex_basis_mobile": {
+                          "unit": "%",
+                          "size": 100,
+                          "sizes": []
+                        }
                       },
                       "elements": [
                         {
@@ -744,12 +1045,12 @@
                           "settings": {
                             "_title": "Ícone",
                             "selected_icon": {
-                              "value": "fas fa-credit-card",
-                              "library": "fa-solid"
+                              "value": "far fa-credit-card",
+                              "library": "fa-regular"
                             },
                             "size": {
                               "unit": "px",
-                              "size": 20,
+                              "size": 22,
                               "sizes": []
                             },
                             "__globals__": {
@@ -781,9 +1082,27 @@
                                 "title": "Pix, cartão e boleto",
                                 "header_size": "p",
                                 "_title": "Pix, cartão e boleto",
+                                "typography_typography": "custom",
+                                "typography_font_family": "Jost",
+                                "typography_font_weight": "600",
+                                "typography_font_size": {
+                                  "unit": "px",
+                                  "size": 11,
+                                  "sizes": []
+                                },
+                                "typography_line_height": {
+                                  "unit": "em",
+                                  "size": 1.4,
+                                  "sizes": []
+                                },
+                                "typography_letter_spacing": {
+                                  "unit": "em",
+                                  "size": 0.14,
+                                  "sizes": []
+                                },
+                                "typography_text_transform": "uppercase",
                                 "__globals__": {
-                                  "title_color": "globals/colors?id=text",
-                                  "typography": "globals/typography?id=iara-texto-micro"
+                                  "title_color": "globals/colors?id=text"
                                 }
                               },
                               "elements": []
@@ -794,9 +1113,26 @@
                               "widgetType": "text-editor",
                               "settings": {
                                 "editor": "<p>Pix com 5% de desconto, cartão em até 6x sem juros e boleto pelo Mercado Pago.</p>",
+                                "typography_typography": "custom",
+                                "typography_font_family": "Jost",
+                                "typography_font_weight": "400",
+                                "typography_font_size": {
+                                  "unit": "px",
+                                  "size": 12,
+                                  "sizes": []
+                                },
+                                "typography_line_height": {
+                                  "unit": "em",
+                                  "size": 1.5,
+                                  "sizes": []
+                                },
+                                "typography_letter_spacing": {
+                                  "unit": "em",
+                                  "size": 0.0,
+                                  "sizes": []
+                                },
                                 "__globals__": {
-                                  "text_color": "globals/colors?id=iara-texto-suave",
-                                  "typography": "globals/typography?id=text"
+                                  "text_color": "globals/colors?id=iara-texto-suave"
                                 }
                               },
                               "elements": []
@@ -828,7 +1164,12 @@
                           "size": 23,
                           "sizes": []
                         },
-                        "_title": "Ambiente protegido"
+                        "_title": "Ambiente protegido",
+                        "_flex_basis_mobile": {
+                          "unit": "%",
+                          "size": 100,
+                          "sizes": []
+                        }
                       },
                       "elements": [
                         {
@@ -843,7 +1184,7 @@
                             },
                             "size": {
                               "unit": "px",
-                              "size": 20,
+                              "size": 22,
                               "sizes": []
                             },
                             "__globals__": {
@@ -875,9 +1216,27 @@
                                 "title": "Ambiente protegido",
                                 "header_size": "p",
                                 "_title": "Ambiente protegido",
+                                "typography_typography": "custom",
+                                "typography_font_family": "Jost",
+                                "typography_font_weight": "600",
+                                "typography_font_size": {
+                                  "unit": "px",
+                                  "size": 11,
+                                  "sizes": []
+                                },
+                                "typography_line_height": {
+                                  "unit": "em",
+                                  "size": 1.4,
+                                  "sizes": []
+                                },
+                                "typography_letter_spacing": {
+                                  "unit": "em",
+                                  "size": 0.14,
+                                  "sizes": []
+                                },
+                                "typography_text_transform": "uppercase",
                                 "__globals__": {
-                                  "title_color": "globals/colors?id=text",
-                                  "typography": "globals/typography?id=iara-texto-micro"
+                                  "title_color": "globals/colors?id=text"
                                 }
                               },
                               "elements": []
@@ -888,9 +1247,26 @@
                               "widgetType": "text-editor",
                               "settings": {
                                 "editor": "<p>Seus dados trafegam criptografados e não são compartilhados.</p>",
+                                "typography_typography": "custom",
+                                "typography_font_family": "Jost",
+                                "typography_font_weight": "400",
+                                "typography_font_size": {
+                                  "unit": "px",
+                                  "size": 12,
+                                  "sizes": []
+                                },
+                                "typography_line_height": {
+                                  "unit": "em",
+                                  "size": 1.5,
+                                  "sizes": []
+                                },
+                                "typography_letter_spacing": {
+                                  "unit": "em",
+                                  "size": 0.0,
+                                  "sizes": []
+                                },
                                 "__globals__": {
-                                  "text_color": "globals/colors?id=iara-texto-suave",
-                                  "typography": "globals/typography?id=text"
+                                  "text_color": "globals/colors?id=iara-texto-suave"
                                 }
                               },
                               "elements": []
@@ -922,7 +1298,12 @@
                           "size": 23,
                           "sizes": []
                         },
-                        "_title": "Pedido rastreado"
+                        "_title": "Pedido rastreado",
+                        "_flex_basis_mobile": {
+                          "unit": "%",
+                          "size": 100,
+                          "sizes": []
+                        }
                       },
                       "elements": [
                         {
@@ -937,7 +1318,7 @@
                             },
                             "size": {
                               "unit": "px",
-                              "size": 20,
+                              "size": 22,
                               "sizes": []
                             },
                             "__globals__": {
@@ -969,9 +1350,27 @@
                                 "title": "Pedido rastreado",
                                 "header_size": "p",
                                 "_title": "Pedido rastreado",
+                                "typography_typography": "custom",
+                                "typography_font_family": "Jost",
+                                "typography_font_weight": "600",
+                                "typography_font_size": {
+                                  "unit": "px",
+                                  "size": 11,
+                                  "sizes": []
+                                },
+                                "typography_line_height": {
+                                  "unit": "em",
+                                  "size": 1.4,
+                                  "sizes": []
+                                },
+                                "typography_letter_spacing": {
+                                  "unit": "em",
+                                  "size": 0.14,
+                                  "sizes": []
+                                },
+                                "typography_text_transform": "uppercase",
                                 "__globals__": {
-                                  "title_color": "globals/colors?id=text",
-                                  "typography": "globals/typography?id=iara-texto-micro"
+                                  "title_color": "globals/colors?id=text"
                                 }
                               },
                               "elements": []
@@ -982,9 +1381,26 @@
                               "widgetType": "text-editor",
                               "settings": {
                                 "editor": "<p>Código de rastreio por e-mail assim que a peça é postada.</p>",
+                                "typography_typography": "custom",
+                                "typography_font_family": "Jost",
+                                "typography_font_weight": "400",
+                                "typography_font_size": {
+                                  "unit": "px",
+                                  "size": 12,
+                                  "sizes": []
+                                },
+                                "typography_line_height": {
+                                  "unit": "em",
+                                  "size": 1.5,
+                                  "sizes": []
+                                },
+                                "typography_letter_spacing": {
+                                  "unit": "em",
+                                  "size": 0.0,
+                                  "sizes": []
+                                },
                                 "__globals__": {
-                                  "text_color": "globals/colors?id=iara-texto-suave",
-                                  "typography": "globals/typography?id=text"
+                                  "text_color": "globals/colors?id=iara-texto-suave"
                                 }
                               },
                               "elements": []
@@ -1016,7 +1432,12 @@
                           "size": 23,
                           "sizes": []
                         },
-                        "_title": "7 dias para desistir"
+                        "_title": "7 dias para desistir",
+                        "_flex_basis_mobile": {
+                          "unit": "%",
+                          "size": 100,
+                          "sizes": []
+                        }
                       },
                       "elements": [
                         {
@@ -1026,12 +1447,12 @@
                           "settings": {
                             "_title": "Ícone",
                             "selected_icon": {
-                              "value": "fas fa-heart",
-                              "library": "fa-solid"
+                              "value": "far fa-heart",
+                              "library": "fa-regular"
                             },
                             "size": {
                               "unit": "px",
-                              "size": 20,
+                              "size": 22,
                               "sizes": []
                             },
                             "__globals__": {
@@ -1063,9 +1484,27 @@
                                 "title": "7 dias para desistir",
                                 "header_size": "p",
                                 "_title": "7 dias para desistir",
+                                "typography_typography": "custom",
+                                "typography_font_family": "Jost",
+                                "typography_font_weight": "600",
+                                "typography_font_size": {
+                                  "unit": "px",
+                                  "size": 11,
+                                  "sizes": []
+                                },
+                                "typography_line_height": {
+                                  "unit": "em",
+                                  "size": 1.4,
+                                  "sizes": []
+                                },
+                                "typography_letter_spacing": {
+                                  "unit": "em",
+                                  "size": 0.14,
+                                  "sizes": []
+                                },
+                                "typography_text_transform": "uppercase",
                                 "__globals__": {
-                                  "title_color": "globals/colors?id=text",
-                                  "typography": "globals/typography?id=iara-texto-micro"
+                                  "title_color": "globals/colors?id=text"
                                 }
                               },
                               "elements": []
@@ -1076,9 +1515,26 @@
                               "widgetType": "text-editor",
                               "settings": {
                                 "editor": "<p>Direito de arrependimento previsto no CDC, Art. 49.</p>",
+                                "typography_typography": "custom",
+                                "typography_font_family": "Jost",
+                                "typography_font_weight": "400",
+                                "typography_font_size": {
+                                  "unit": "px",
+                                  "size": 12,
+                                  "sizes": []
+                                },
+                                "typography_line_height": {
+                                  "unit": "em",
+                                  "size": 1.5,
+                                  "sizes": []
+                                },
+                                "typography_letter_spacing": {
+                                  "unit": "em",
+                                  "size": 0.0,
+                                  "sizes": []
+                                },
                                 "__globals__": {
-                                  "text_color": "globals/colors?id=iara-texto-suave",
-                                  "typography": "globals/typography?id=text"
+                                  "text_color": "globals/colors?id=iara-texto-suave"
                                 }
                               },
                               "elements": []
@@ -1096,9 +1552,11 @@
                   "id": "cdbced3",
                   "elType": "container",
                   "settings": {
+                    "css_classes": "iara-seg-linha",
                     "content_width": "full",
                     "flex_direction": "row",
                     "flex_wrap": "nowrap",
+                    "flex_align_items": "flex-start",
                     "flex_gap": {
                       "row": "24",
                       "column": "24",
@@ -1106,7 +1564,8 @@
                       "unit": "px",
                       "size": 24
                     },
-                    "_title": "Pagamento e selos"
+                    "_title": "Pagamento e selos",
+                    "flex_wrap_mobile": "wrap"
                   },
                   "elements": [
                     {
@@ -1126,10 +1585,15 @@
                         "_flex_basis_type": "custom",
                         "_flex_basis": {
                           "unit": "%",
-                          "size": 48,
+                          "size": 54,
                           "sizes": []
                         },
-                        "_title": "Formas de pagamento"
+                        "_title": "Formas de pagamento",
+                        "_flex_basis_mobile": {
+                          "unit": "%",
+                          "size": 100,
+                          "sizes": []
+                        }
                       },
                       "elements": [
                         {
@@ -1141,8 +1605,25 @@
                             "header_size": "p",
                             "_title": "Formas de pagamento",
                             "__globals__": {
-                              "title_color": "globals/colors?id=text",
-                              "typography": "globals/typography?id=iara-texto-micro"
+                              "title_color": "globals/colors?id=text"
+                            },
+                            "typography_typography": "custom",
+                            "typography_font_family": "Playfair Display",
+                            "typography_font_weight": "400",
+                            "typography_font_size": {
+                              "unit": "px",
+                              "size": 18,
+                              "sizes": []
+                            },
+                            "typography_line_height": {
+                              "unit": "em",
+                              "size": 1.2,
+                              "sizes": []
+                            },
+                            "typography_letter_spacing": {
+                              "unit": "em",
+                              "size": 0.02,
+                              "sizes": []
                             }
                           },
                           "elements": []
@@ -1173,12 +1654,13 @@
                                 "flex_justify_content": "center",
                                 "padding": {
                                   "unit": "px",
-                                  "top": "10",
+                                  "top": "12",
                                   "right": "16",
-                                  "bottom": "10",
+                                  "bottom": "12",
                                   "left": "16",
                                   "isLinked": false
                                 },
+                                "background_background": "classic",
                                 "border_border": "solid",
                                 "border_width": {
                                   "unit": "px",
@@ -1190,11 +1672,15 @@
                                 },
                                 "border_radius": {
                                   "unit": "px",
-                                  "top": "2",
-                                  "right": "2",
-                                  "bottom": "2",
-                                  "left": "2",
+                                  "top": "6",
+                                  "right": "6",
+                                  "bottom": "6",
+                                  "left": "6",
                                   "isLinked": true
+                                },
+                                "__globals__": {
+                                  "border_color": "globals/colors?id=iara-linha",
+                                  "background_color": "globals/colors?id=iara-branco"
                                 },
                                 "_title": "Mercado Pago"
                               },
@@ -1206,8 +1692,25 @@
                                   "settings": {
                                     "editor": "<p>Mercado Pago</p>",
                                     "__globals__": {
-                                      "text_color": "globals/colors?id=text",
-                                      "typography": "globals/typography?id=iara-texto-micro"
+                                      "text_color": "globals/colors?id=text"
+                                    },
+                                    "typography_typography": "custom",
+                                    "typography_font_family": "Jost",
+                                    "typography_font_weight": "400",
+                                    "typography_font_size": {
+                                      "unit": "px",
+                                      "size": 15,
+                                      "sizes": []
+                                    },
+                                    "typography_line_height": {
+                                      "unit": "em",
+                                      "size": 1.55,
+                                      "sizes": []
+                                    },
+                                    "typography_letter_spacing": {
+                                      "unit": "em",
+                                      "size": 0.0,
+                                      "sizes": []
                                     }
                                   },
                                   "elements": []
@@ -1224,12 +1727,13 @@
                                 "flex_justify_content": "center",
                                 "padding": {
                                   "unit": "px",
-                                  "top": "10",
+                                  "top": "12",
                                   "right": "16",
-                                  "bottom": "10",
+                                  "bottom": "12",
                                   "left": "16",
                                   "isLinked": false
                                 },
+                                "background_background": "classic",
                                 "border_border": "solid",
                                 "border_width": {
                                   "unit": "px",
@@ -1241,11 +1745,15 @@
                                 },
                                 "border_radius": {
                                   "unit": "px",
-                                  "top": "2",
-                                  "right": "2",
-                                  "bottom": "2",
-                                  "left": "2",
+                                  "top": "6",
+                                  "right": "6",
+                                  "bottom": "6",
+                                  "left": "6",
                                   "isLinked": true
+                                },
+                                "__globals__": {
+                                  "border_color": "globals/colors?id=iara-linha",
+                                  "background_color": "globals/colors?id=iara-branco"
                                 },
                                 "_title": "Pix"
                               },
@@ -1257,8 +1765,25 @@
                                   "settings": {
                                     "editor": "<p>Pix</p>",
                                     "__globals__": {
-                                      "text_color": "globals/colors?id=text",
-                                      "typography": "globals/typography?id=iara-texto-micro"
+                                      "text_color": "globals/colors?id=text"
+                                    },
+                                    "typography_typography": "custom",
+                                    "typography_font_family": "Jost",
+                                    "typography_font_weight": "400",
+                                    "typography_font_size": {
+                                      "unit": "px",
+                                      "size": 15,
+                                      "sizes": []
+                                    },
+                                    "typography_line_height": {
+                                      "unit": "em",
+                                      "size": 1.55,
+                                      "sizes": []
+                                    },
+                                    "typography_letter_spacing": {
+                                      "unit": "em",
+                                      "size": 0.0,
+                                      "sizes": []
                                     }
                                   },
                                   "elements": []
@@ -1275,12 +1800,13 @@
                                 "flex_justify_content": "center",
                                 "padding": {
                                   "unit": "px",
-                                  "top": "10",
+                                  "top": "12",
                                   "right": "16",
-                                  "bottom": "10",
+                                  "bottom": "12",
                                   "left": "16",
                                   "isLinked": false
                                 },
+                                "background_background": "classic",
                                 "border_border": "solid",
                                 "border_width": {
                                   "unit": "px",
@@ -1292,11 +1818,15 @@
                                 },
                                 "border_radius": {
                                   "unit": "px",
-                                  "top": "2",
-                                  "right": "2",
-                                  "bottom": "2",
-                                  "left": "2",
+                                  "top": "6",
+                                  "right": "6",
+                                  "bottom": "6",
+                                  "left": "6",
                                   "isLinked": true
+                                },
+                                "__globals__": {
+                                  "border_color": "globals/colors?id=iara-linha",
+                                  "background_color": "globals/colors?id=iara-branco"
                                 },
                                 "_title": "Cartão de crédito"
                               },
@@ -1308,8 +1838,25 @@
                                   "settings": {
                                     "editor": "<p>Cartão de crédito</p>",
                                     "__globals__": {
-                                      "text_color": "globals/colors?id=text",
-                                      "typography": "globals/typography?id=iara-texto-micro"
+                                      "text_color": "globals/colors?id=text"
+                                    },
+                                    "typography_typography": "custom",
+                                    "typography_font_family": "Jost",
+                                    "typography_font_weight": "400",
+                                    "typography_font_size": {
+                                      "unit": "px",
+                                      "size": 15,
+                                      "sizes": []
+                                    },
+                                    "typography_line_height": {
+                                      "unit": "em",
+                                      "size": 1.55,
+                                      "sizes": []
+                                    },
+                                    "typography_letter_spacing": {
+                                      "unit": "em",
+                                      "size": 0.0,
+                                      "sizes": []
                                     }
                                   },
                                   "elements": []
@@ -1326,12 +1873,13 @@
                                 "flex_justify_content": "center",
                                 "padding": {
                                   "unit": "px",
-                                  "top": "10",
+                                  "top": "12",
                                   "right": "16",
-                                  "bottom": "10",
+                                  "bottom": "12",
                                   "left": "16",
                                   "isLinked": false
                                 },
+                                "background_background": "classic",
                                 "border_border": "solid",
                                 "border_width": {
                                   "unit": "px",
@@ -1343,11 +1891,15 @@
                                 },
                                 "border_radius": {
                                   "unit": "px",
-                                  "top": "2",
-                                  "right": "2",
-                                  "bottom": "2",
-                                  "left": "2",
+                                  "top": "6",
+                                  "right": "6",
+                                  "bottom": "6",
+                                  "left": "6",
                                   "isLinked": true
+                                },
+                                "__globals__": {
+                                  "border_color": "globals/colors?id=iara-linha",
+                                  "background_color": "globals/colors?id=iara-branco"
                                 },
                                 "_title": "Boleto bancário"
                               },
@@ -1359,8 +1911,25 @@
                                   "settings": {
                                     "editor": "<p>Boleto bancário</p>",
                                     "__globals__": {
-                                      "text_color": "globals/colors?id=text",
-                                      "typography": "globals/typography?id=iara-texto-micro"
+                                      "text_color": "globals/colors?id=text"
+                                    },
+                                    "typography_typography": "custom",
+                                    "typography_font_family": "Jost",
+                                    "typography_font_weight": "400",
+                                    "typography_font_size": {
+                                      "unit": "px",
+                                      "size": 15,
+                                      "sizes": []
+                                    },
+                                    "typography_line_height": {
+                                      "unit": "em",
+                                      "size": 1.55,
+                                      "sizes": []
+                                    },
+                                    "typography_letter_spacing": {
+                                      "unit": "em",
+                                      "size": 0.0,
+                                      "sizes": []
                                     }
                                   },
                                   "elements": []
@@ -1391,10 +1960,15 @@
                         "_flex_basis_type": "custom",
                         "_flex_basis": {
                           "unit": "%",
-                          "size": 48,
+                          "size": 40,
                           "sizes": []
                         },
-                        "_title": "Selos de segurança"
+                        "_title": "Selos de segurança",
+                        "_flex_basis_mobile": {
+                          "unit": "%",
+                          "size": 100,
+                          "sizes": []
+                        }
                       },
                       "elements": [
                         {
@@ -1406,8 +1980,25 @@
                             "header_size": "p",
                             "_title": "Segurança",
                             "__globals__": {
-                              "title_color": "globals/colors?id=text",
-                              "typography": "globals/typography?id=iara-texto-micro"
+                              "title_color": "globals/colors?id=text"
+                            },
+                            "typography_typography": "custom",
+                            "typography_font_family": "Playfair Display",
+                            "typography_font_weight": "400",
+                            "typography_font_size": {
+                              "unit": "px",
+                              "size": 18,
+                              "sizes": []
+                            },
+                            "typography_line_height": {
+                              "unit": "em",
+                              "size": 1.2,
+                              "sizes": []
+                            },
+                            "typography_letter_spacing": {
+                              "unit": "em",
+                              "size": 0.02,
+                              "sizes": []
                             }
                           },
                           "elements": []
@@ -1450,6 +2041,7 @@
                                   "left": "16",
                                   "isLinked": false
                                 },
+                                "background_background": "classic",
                                 "border_border": "solid",
                                 "border_width": {
                                   "unit": "px",
@@ -1461,11 +2053,15 @@
                                 },
                                 "border_radius": {
                                   "unit": "px",
-                                  "top": "2",
-                                  "right": "2",
-                                  "bottom": "2",
-                                  "left": "2",
+                                  "top": "6",
+                                  "right": "6",
+                                  "bottom": "6",
+                                  "left": "6",
                                   "isLinked": true
+                                },
+                                "__globals__": {
+                                  "border_color": "globals/colors?id=iara-linha",
+                                  "background_color": "globals/colors?id=iara-branco"
                                 },
                                 "_title": "Site seguro"
                               },
@@ -1484,9 +2080,10 @@
                                       "size": 18,
                                       "sizes": []
                                     },
+                                    "css_classes": "iara-selo-icone",
                                     "_title": "Ícone",
                                     "__globals__": {
-                                      "primary_color": "globals/colors?id=primary"
+                                      "primary_color": "globals/colors?id=iara-branco"
                                     }
                                   },
                                   "elements": []
@@ -1514,9 +2111,27 @@
                                         "title": "Site seguro",
                                         "header_size": "p",
                                         "_title": "Site seguro",
+                                        "typography_typography": "custom",
+                                        "typography_font_family": "Jost",
+                                        "typography_font_weight": "600",
+                                        "typography_font_size": {
+                                          "unit": "px",
+                                          "size": 11,
+                                          "sizes": []
+                                        },
+                                        "typography_line_height": {
+                                          "unit": "em",
+                                          "size": 1.4,
+                                          "sizes": []
+                                        },
+                                        "typography_letter_spacing": {
+                                          "unit": "em",
+                                          "size": 0.12,
+                                          "sizes": []
+                                        },
+                                        "typography_text_transform": "uppercase",
                                         "__globals__": {
-                                          "title_color": "globals/colors?id=text",
-                                          "typography": "globals/typography?id=iara-texto-micro"
+                                          "title_color": "globals/colors?id=text"
                                         }
                                       },
                                       "elements": []
@@ -1528,8 +2143,25 @@
                                       "settings": {
                                         "editor": "<p>SSL 256 bits</p>",
                                         "__globals__": {
-                                          "text_color": "globals/colors?id=iara-texto-discreto",
-                                          "typography": "globals/typography?id=iara-texto-micro"
+                                          "text_color": "globals/colors?id=iara-texto-discreto"
+                                        },
+                                        "typography_typography": "custom",
+                                        "typography_font_family": "Jost",
+                                        "typography_font_weight": "400",
+                                        "typography_font_size": {
+                                          "unit": "px",
+                                          "size": 11,
+                                          "sizes": []
+                                        },
+                                        "typography_line_height": {
+                                          "unit": "em",
+                                          "size": 1.45,
+                                          "sizes": []
+                                        },
+                                        "typography_letter_spacing": {
+                                          "unit": "em",
+                                          "size": 0.06,
+                                          "sizes": []
                                         }
                                       },
                                       "elements": []
@@ -1561,6 +2193,7 @@
                                   "left": "16",
                                   "isLinked": false
                                 },
+                                "background_background": "classic",
                                 "border_border": "solid",
                                 "border_width": {
                                   "unit": "px",
@@ -1572,11 +2205,15 @@
                                 },
                                 "border_radius": {
                                   "unit": "px",
-                                  "top": "2",
-                                  "right": "2",
-                                  "bottom": "2",
-                                  "left": "2",
+                                  "top": "6",
+                                  "right": "6",
+                                  "bottom": "6",
+                                  "left": "6",
                                   "isLinked": true
+                                },
+                                "__globals__": {
+                                  "border_color": "globals/colors?id=iara-linha",
+                                  "background_color": "globals/colors?id=iara-branco"
                                 },
                                 "_title": "Navegação verificada"
                               },
@@ -1595,9 +2232,10 @@
                                       "size": 18,
                                       "sizes": []
                                     },
+                                    "css_classes": "iara-selo-icone",
                                     "_title": "Ícone",
                                     "__globals__": {
-                                      "primary_color": "globals/colors?id=primary"
+                                      "primary_color": "globals/colors?id=iara-branco"
                                     }
                                   },
                                   "elements": []
@@ -1625,9 +2263,27 @@
                                         "title": "Navegação verificada",
                                         "header_size": "p",
                                         "_title": "Navegação verificada",
+                                        "typography_typography": "custom",
+                                        "typography_font_family": "Jost",
+                                        "typography_font_weight": "600",
+                                        "typography_font_size": {
+                                          "unit": "px",
+                                          "size": 11,
+                                          "sizes": []
+                                        },
+                                        "typography_line_height": {
+                                          "unit": "em",
+                                          "size": 1.4,
+                                          "sizes": []
+                                        },
+                                        "typography_letter_spacing": {
+                                          "unit": "em",
+                                          "size": 0.12,
+                                          "sizes": []
+                                        },
+                                        "typography_text_transform": "uppercase",
                                         "__globals__": {
-                                          "title_color": "globals/colors?id=text",
-                                          "typography": "globals/typography?id=iara-texto-micro"
+                                          "title_color": "globals/colors?id=text"
                                         }
                                       },
                                       "elements": []
@@ -1639,8 +2295,25 @@
                                       "settings": {
                                         "editor": "<p>Sem páginas suspeitas</p>",
                                         "__globals__": {
-                                          "text_color": "globals/colors?id=iara-texto-discreto",
-                                          "typography": "globals/typography?id=iara-texto-micro"
+                                          "text_color": "globals/colors?id=iara-texto-discreto"
+                                        },
+                                        "typography_typography": "custom",
+                                        "typography_font_family": "Jost",
+                                        "typography_font_weight": "400",
+                                        "typography_font_size": {
+                                          "unit": "px",
+                                          "size": 11,
+                                          "sizes": []
+                                        },
+                                        "typography_line_height": {
+                                          "unit": "em",
+                                          "size": 1.45,
+                                          "sizes": []
+                                        },
+                                        "typography_letter_spacing": {
+                                          "unit": "em",
+                                          "size": 0.06,
+                                          "sizes": []
                                         }
                                       },
                                       "elements": []
@@ -1659,6 +2332,36 @@
                     }
                   ],
                   "isInner": true
+                },
+                {
+                  "id": "1e15e0e",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Durante o protótipo, esta faixa é demonstrativa. O gateway da loja é o Mercado Pago; bandeiras, selos e certificados oficiais entram neste lugar no go-live. [CONFERIR no go-live]</p>",
+                    "__globals__": {
+                      "text_color": "globals/colors?id=iara-texto-suave"
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Jost",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 11,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.45,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "em",
+                      "size": 0.06,
+                      "sizes": []
+                    }
+                  },
+                  "elements": []
                 }
               ],
               "isInner": true
@@ -1696,10 +2399,27 @@
                   "widgetType": "text-editor",
                   "settings": {
                     "_title": "Direitos e identificação",
-                    "editor": "<p>© 2026 Iara Costa. Todos os direitos reservados.</p><p>Iara Costa Moda Feminina LTDA · CNPJ 12.345.678/0001-90 · Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000</p>",
+                    "editor": "<p>© 2026 Iara Costa. Todos os direitos reservados.</p><p>Iara Costa Moda Feminina LTDA · CNPJ [PREENCHER] · Endereço [PREENCHER]</p>",
                     "__globals__": {
-                      "text_color": "globals/colors?id=iara-texto-discreto",
-                      "typography": "globals/typography?id=iara-texto-micro"
+                      "text_color": "globals/colors?id=iara-texto-discreto"
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Jost",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 11,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.45,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "em",
+                      "size": 0.06,
+                      "sizes": []
                     }
                   },
                   "elements": []
@@ -1710,6 +2430,7 @@
                   "widgetType": "icon-list",
                   "settings": {
                     "_title": "Links de política",
+                    "view": "inline",
                     "icon_list": [
                       {
                         "text": "Política de privacidade",
@@ -1772,6 +2493,24 @@
                     "__globals__": {
                       "text_color": "globals/colors?id=iara-texto-discreto",
                       "text_color_hover": "globals/colors?id=accent"
+                    },
+                    "icon_typography_typography": "custom",
+                    "icon_typography_font_family": "Jost",
+                    "icon_typography_font_weight": "400",
+                    "icon_typography_font_size": {
+                      "unit": "px",
+                      "size": 11,
+                      "sizes": []
+                    },
+                    "icon_typography_line_height": {
+                      "unit": "em",
+                      "size": 1.45,
+                      "sizes": []
+                    },
+                    "icon_typography_letter_spacing": {
+                      "unit": "em",
+                      "size": 0.06,
+                      "sizes": []
                     }
                   },
                   "elements": []
@@ -1781,12 +2520,59 @@
             }
           ],
           "isInner": true
+        },
+        {
+          "id": "230474f",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "_title": "WhatsApp flutuante",
+            "css_classes": "iara-whats-float",
+            "text": "WhatsApp",
+            "selected_icon": {
+              "value": "fab fa-whatsapp",
+              "library": "fa-brands"
+            },
+            "icon_align": "right",
+            "link": {
+              "url": "https://wa.me/5515991234567",
+              "is_external": "on",
+              "nofollow": ""
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 11,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.4,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.12,
+              "sizes": []
+            },
+            "typography_text_transform": "uppercase",
+            "__globals__": {
+              "background_color": "globals/colors?id=secondary",
+              "button_text_color": "globals/colors?id=iara-branco",
+              "hover_background_color": "globals/colors?id=accent"
+            }
+          },
+          "elements": []
         }
       ],
       "isInner": false
     }
   ],
-  "page_settings": [],
+  "page_settings": {
+    "custom_css": "/* ==========================================================================\n   IARA COSTA · CSS de reforco do cabecalho (v0.3.10)\n   Fonte: seu-projeto/assets/css/header.css (prototipo aprovado).\n\n   Desde a v0.3.10 o cabecalho NAO depende deste arquivo: ele usa so\n   widgets basicos (titulo, lista de icones e icone) com fonte e cor das\n   globais. Este CSS e um reforco para o caso de o tema tentar impor a\n   fonte dele nos titulos e nas listas: cole em Elementor >\n   Configuracoes do site > CSS personalizado (Elementor Pro) e salve.\n   Mira apenas nas classes iara-* do template 01-cabecalho.json.\n   ========================================================================== */\n\n/* Faixa verde: caixa alta espaçada, como no prototipo */\n/* Hover da faixa, como no prototipo (.announcement__text a:hover):\n   a cor clara vem do controle de hover do widget; aqui entra a linha. */\n.iara-faixa-lista .elementor-icon-list-item a:hover,\n.iara-faixa-lista .elementor-icon-list-item a:focus-visible {\n  text-decoration: underline;\n}\n.iara-faixa-lista .elementor-icon-list-text {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 12px;\n  letter-spacing: 0.15em;\n  text-transform: uppercase;\n}\n\n/* Marca: nome em Playfair, tagline em Jost caixa alta miúda */\n.iara-marca-nome .elementor-heading-title {\n  font-family: \"Playfair Display\", serif !important;\n  font-size: 20px;\n  letter-spacing: 0.105em;\n  line-height: 1.15;\n  color: #2d2925;\n}\n.iara-marca-tagline .elementor-heading-title {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 11px;\n  letter-spacing: 0.18em;\n  text-transform: uppercase;\n  color: #625a52;\n}\n\n/* Menu (lista de icones em linha): Jost 12px, nunca a serifada do tema */\n.iara-menu .elementor-icon-list-text {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 12px;\n  letter-spacing: 0.06em;\n  color: #554f49;\n  white-space: nowrap;\n}\n.iara-menu .elementor-icon-list-item:hover .elementor-icon-list-text {\n  color: #78452f;\n  text-decoration: underline;\n  text-underline-offset: 4px;\n}\n\n/* O link do menu em si (prototipo: .main-nav__link): area de clique com\n   respiro, sublinhado discreto no hover e no foco pelo teclado */\n.iara-menu .elementor-icon-list-item a {\n  color: #554f49;\n  text-decoration: none;\n  padding: 6px 0;\n  border-bottom: 1px solid transparent;\n}\n.iara-menu .elementor-icon-list-item a:hover,\n.iara-menu .elementor-icon-list-item a:focus-visible {\n  color: #78452f;\n  border-bottom-color: #e4cbb5;\n}\n\n/* Icones da direita, como no prototipo (.icon-btn): sem caixa, sem\n   fundo, alvo de toque confortavel e traco leve. Busca e sacola sao\n   glifos cheios no Font Awesome (nao existe versao de contorno gratis\n   deles), entao o peso visual baixa pelo tamanho (17px) e pela cor. */\n.iara-acoes .elementor-icon {\n  color: #2d2925;\n  background: none;\n  border: 0;\n  padding: 13px;\n  line-height: 0;\n}\n.iara-acoes .elementor-icon svg { width: 17px; height: 17px; display: block; }\n/* Minha conta, Desejos e Sacola numa linha, separados por ponto */\n.iara-conta-links .elementor-icon-list-item + .elementor-icon-list-item::before {\n  content: \"·\"; margin-right: 8px; color: #776e64;\n}\n\n/* Nota da newsletter com largura de leitura (76ch do prototipo) */\n.iara-news-nota { max-width: 76ch; margin-top: 14px; }\n/* WhatsApp flutuante do prototipo: pilula Sálvia fixa no canto */\n.iara-whats-float {\n  position: fixed; right: 16px; bottom: 16px; z-index: 900;\n}\n.iara-whats-float .elementor-button {\n  border-radius: 999px; padding: 12px 16px;\n  box-shadow: 0 6px 18px rgba(45, 41, 37, 0.18);\n}\n\n/* Rodape igual ao prototipo: divisorias verticais na faixa de\n   seguranca, linha fina sobre pagamentos/selos, sociais em circulos\n   com borda e o icone do selo no quadradinho escuro. */\n.iara-seg-faixa > * + * { border-left: 1px solid #ded8ce; padding-left: 22px; }\n.iara-seg-linha { border-top: 1px solid #eee9e1; padding-top: 26px; }\n.iara-sociais .elementor-icon-list-item a {\n  width: 44px; height: 44px;\n  border: 1px solid #ded8ce; border-radius: 50%;\n  display: inline-flex; align-items: center; justify-content: center;\n  color: #625a52; background: #fffdf9;\n}\n.iara-sociais .elementor-icon-list-item a:hover {\n  color: #a45f43; border-color: #e4cbb5; background: #f7f4ef;\n}\n.iara-selo-icone {\n  background: #2d2925; border-radius: 6px;\n  width: 34px; height: 34px; flex: 0 0 auto;\n  display: flex; align-items: center; justify-content: center;\n}\n\n/* Contadores (selo) da sacola e dos desejos: bolha Terracota com o\n   numero em branco, no canto do icone, como no prototipo. A sacola e\n   o widget Carrinho do Menu (numero real do WooCommerce); os desejos,\n   o contador do plugin TI. Bolha vazia nao aparece. */\n.iara-sacola .elementor-menu-cart__toggle .elementor-button {\n  background: none; border: 0; box-shadow: none;\n  padding: 13px; line-height: 0; color: #554f49;\n}\n.iara-sacola .elementor-menu-cart__toggle .elementor-button:hover,\n.iara-sacola .elementor-menu-cart__toggle .elementor-button:focus-visible {\n  background: none; color: #78452f;\n}\n.iara-sacola .elementor-menu-cart__toggle .elementor-button svg {\n  width: 19px; height: 19px; display: block;\n}\n.iara-desejos .wishlist_products_counter {\n  padding: 13px; display: inline-block; line-height: 0;\n  position: relative; color: #554f49; text-decoration: none;\n}\n.iara-sacola .elementor-button-icon { position: relative; color: #554f49; }\n.iara-sacola:hover .elementor-button-icon { color: #78452f; }\n.iara-sacola .elementor-button-icon .elementor-button-icon-qty[data-counter] {\n  background: #a45f43; color: #fffdf9;\n  font-family: \"Jost\", sans-serif; font-size: 10px; font-weight: 600;\n  min-width: 16px; height: 16px; line-height: 16px;\n  border-radius: 50%; text-align: center;\n}\n.iara-desejos .wishlist_products_counter { position: relative; color: #554f49; text-decoration: none; }\n.iara-desejos .wishlist_products_counter:hover { color: #78452f; }\n.iara-desejos .wishlist_products_counter_number {\n  background: #a45f43; color: #fffdf9;\n  font-family: \"Jost\", sans-serif; font-size: 10px; font-weight: 600;\n  min-width: 16px; height: 16px; line-height: 16px;\n  border-radius: 50%; text-align: center; display: inline-block;\n  position: absolute; top: -4px; right: -6px;\n}\n.iara-acoes .elementor-icon:hover,\n.iara-acoes .elementor-icon:focus-visible { color: #78452f; }\n\n/* --- Menu principal (widget de menu do WordPress, classe iara-menu-nav) ---\n   A fonte e Jost por este CSS (o widget Pro herda a serifada do tema) e o\n   item da pagina atual ganha o sublinhado do prototipo: quem marca o item\n   atual e o WordPress (classe elementor-item-active), nao o template. */\n.iara-menu-nav .elementor-nav-menu--layout-horizontal .elementor-nav-menu {\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: center;\n  gap: clamp(12px, 1.6vw, 28px);\n}\n/* Logotipo do rodape: o mesmo arquivo, um pouco menor */\n.iara-marca-logo-rodape img { width: 190px; height: auto; display: block; }\n\n/* Logotipo (widget Site Logo): largura travada mesmo se o controle\n   de largura do widget mudar; altura automatica pela proporcao. */\n.iara-marca-logo img { width: 210px; height: auto; display: block; }\n\n.iara-menu-nav .elementor-nav-menu--main .elementor-item {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 12px;\n  font-weight: 400;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n  color: #554f49;\n  padding: 6px 0;\n  white-space: nowrap;\n}\n/* Estados do link, iguais ao prototipo (.main-nav__link):\n   hover = Terracota escuro com a linha escura; ativo (pagina atual) =\n   Terracota escuro com a linha Terracota claro. */\n.iara-menu-nav .elementor-nav-menu--main .elementor-item:hover,\n.iara-menu-nav .elementor-nav-menu--main .elementor-item:focus-visible {\n  color: #78452f;\n  box-shadow: inset 0 -1px 0 #78452f;\n}\n.iara-menu-nav .elementor-nav-menu--main .elementor-item.elementor-item-active {\n  color: #78452f;\n  box-shadow: inset 0 -1px 0 #e4cbb5;\n}\n\n/* --- Minha conta e links do WooCommerce (o rosa da captura e do tema) --- */\n.woocommerce-MyAccount-navigation ul { list-style: none; margin: 0; padding: 0; }\n.woocommerce-MyAccount-navigation li { margin-bottom: 6px; }\n.woocommerce-MyAccount-navigation a,\n.woocommerce-MyAccount-content a,\n.woocommerce-cart-form a,\n.woocommerce-checkout a {\n  color: #78452f;\n  font-family: \"Jost\", sans-serif;\n  text-decoration: none;\n}\n.woocommerce-MyAccount-navigation a:hover,\n.woocommerce-MyAccount-content a:hover { text-decoration: underline; }\n.woocommerce-MyAccount-navigation .is-active a {\n  color: #78452f;\n  font-weight: 600;\n  box-shadow: inset 0 -1px 0 #e4cbb5;\n}\n\n/* --- Cabecalho fixo no topo, como no prototipo (.site-header sticky) ---\n   Vale para o bloco inteiro do Theme Builder (faixa + barra). */\n.elementor-location-header {\n  position: sticky;\n  top: 0;\n  z-index: 999;\n}\n\n/* ---------------------------------------------------------------\n   Responsivo (pente-fino de 2026-10-20): o prototipo tem 74 blocos\n   @media e o Elementor tinha zero. Aqui entram os ajustes das pecas\n   nomeadas (cabecalho e rodape); o empilhamento das colunas vem das\n   declaracoes _mobile geradas em cada template.\n   --------------------------------------------------------------- */\n@media (max-width: 1024px) {\n  .iara-seg-faixa > * { flex: 1 1 46%; }\n  .iara-seg-faixa > * + * { border-left: 0; padding-left: 0; }\n}\n\n@media (max-width: 767px) {\n  .iara-marca-logo img { width: 150px; }\n  .iara-marca-logo-rodape img { width: 140px; }\n  .iara-faixa-lista .elementor-icon-list-item {\n    font-size: 11px; letter-spacing: 0.1em;\n  }\n  .iara-seg-faixa > * { flex-basis: 100%; }\n  .iara-acoes .elementor-icon,\n  .iara-sacola .elementor-menu-cart__toggle .elementor-button,\n  .iara-desejos .wishlist_products_counter { padding: 10px; }\n  .iara-whats-float .elementor-button { padding: 10px 12px; }\n}\n"
+  },
   "version": "0.4",
   "title": "Rodapé do site",
   "type": "footer"

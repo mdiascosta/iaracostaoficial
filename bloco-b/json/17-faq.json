@@ -33,8 +33,25 @@
             "title": "Perguntas frequentes",
             "header_size": "h1",
             "__globals__": {
-              "title_color": "globals/colors?id=text",
-              "typography": "globals/typography?id=primary"
+              "title_color": "globals/colors?id=text"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Playfair Display",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 24,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.1,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.105,
+              "sizes": []
             }
           },
           "elements": []
@@ -46,8 +63,25 @@
           "settings": {
             "editor": "<p>As dúvidas que mais chegam no ateliê, organizadas por assunto.</p>",
             "__globals__": {
-              "text_color": "globals/colors?id=iara-texto-suave",
-              "typography": "globals/typography?id=text"
+              "text_color": "globals/colors?id=iara-texto-suave"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 15,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.55,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.0,
+              "sizes": []
             }
           },
           "elements": []
@@ -56,7 +90,7 @@
       "isInner": true
     },
     {
-      "id": "477b3c1",
+      "id": "8f3c805",
       "elType": "container",
       "settings": {
         "content_width": "boxed",
@@ -72,62 +106,527 @@
           "unit": "px",
           "top": "24",
           "right": "0",
-          "bottom": "40",
+          "bottom": "8",
           "left": "0",
           "isLinked": false
         },
-        "_title": "Grupos de perguntas"
+        "_title": "Pedidos e pagamento"
       },
       "elements": [
         {
-          "id": "a0a292f",
+          "id": "0322d06",
           "elType": "widget",
-          "widgetType": "accordion",
+          "widgetType": "heading",
           "settings": {
-            "_title": "Perguntas por assunto",
-            "tabs": [
-              {
-                "tab_title": "Pedidos e pagamento",
-                "tab_content": "<p>Compra como visitante, Pix com 5% de desconto, cartão em até 6x sem juros e boleto pelo Mercado Pago.</p>",
-                "_id": "d44a61a"
-              },
-              {
-                "tab_title": "Entrega e frete",
-                "tab_content": "<p>Envio para todo o Brasil pelos Correios, frete grátis acima de R$ 299 e código de rastreio por e-mail.</p>",
-                "_id": "d6de978"
-              },
-              {
-                "tab_title": "Trocas e devoluções",
-                "tab_content": "<p>7 dias para desistir (CDC, Art. 49) e 30 dias para trocar de tamanho, com a primeira troca por nossa conta.</p>",
-                "_id": "1c5b853"
-              },
-              {
-                "tab_title": "Produtos e tamanhos",
-                "tab_content": "<p>Cada peça traz a própria tabela de medidas; o Guia de Medidas ensina a medir uma peça sua e comparar.</p>",
-                "_id": "b84f57c"
-              },
-              {
-                "tab_title": "Atendimento e privacidade",
-                "tab_content": "<p>Atendimento de segunda a sexta, das 9h às 18h. Seus dados seguem a Política de Privacidade.</p>",
-                "_id": "f04bcd0"
-              }
-            ],
+            "_title": "Pedidos e pagamento",
+            "title": "Pedidos e pagamento",
+            "header_size": "h2",
             "__globals__": {
-              "text_color": "globals/colors?id=iara-texto-suave",
-              "typography": "globals/typography?id=text"
+              "title_color": "globals/colors?id=text"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Playfair Display",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 18,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.2,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.02,
+              "sizes": []
             }
           },
           "elements": []
         },
         {
-          "id": "b559310",
+          "id": "2f8ee1f",
           "elType": "widget",
-          "widgetType": "text-editor",
+          "widgetType": "accordion",
           "settings": {
-            "editor": "<p>As perguntas e respostas completas, iguais às do protótipo aprovado, entram aba por aba no editor a partir do texto final aprovado. Não inventar prazo, garantia ou política nova aqui.</p>",
+            "_title": "Perguntas: Pedidos e pagamento",
+            "tabs": [
+              {
+                "tab_title": "Quais formas de pagamento vocês aceitam?",
+                "tab_content": "<div> <p> Pix, cartão de crédito e boleto. O Pix tem <strong>5% de desconto</strong> e o cartão pode ser dividido em <strong>até 6x sem juros</strong>, com parcela mínima de R$ 50,00. O boleto vence em 2 dias úteis e o pedido é liberado depois da compensação. O processamento é todo do Mercado Pago, o gateway da loja. </p> <p> Este texto precisa acompanhar o que estiver ativo na conta do gateway no dia da publicação. <span>[CONFERIR antes de publicar]</span> </p> </div> </div> <div>",
+                "_id": "9a26126"
+              },
+              {
+                "tab_title": "Preciso criar conta para comprar?",
+                "tab_content": "<div hidden> <p> Não. Você pode comprar como visitante. Criar conta ajuda a acompanhar pedidos e guardar endereços, mas é opcional e não muda o preço nem o prazo. </p> </div> </div> <div>",
+                "_id": "654eb74"
+              },
+              {
+                "tab_title": "Como uso o cupom de primeira compra?",
+                "tab_content": "<div hidden> <p> Digite <strong>BEMVINDO10</strong> no campo de cupom, na sacola, e clique em Aplicar. O desconto aparece no resumo antes de você finalizar. </p> <p> O cupom vale para <strong>novos clientes, no primeiro pedido</strong>, e não é cumulativo com outras ofertas ativas, cupons de troca ou peças da categoria liquidação. </p> <p> Uso pessoal, no CPF ou CNPJ do próprio cliente; dados falsos para burlar a regra de primeira compra permitem o cancelamento do desconto, conforme os Termos de uso. </p> </div> </div> <div>",
+                "_id": "bd2b262"
+              },
+              {
+                "tab_title": "O pagamento foi recusado. O que acontece com o meu pedido?",
+                "tab_content": "<div hidden> <p> O pedido fica reservado por 60 minutos, contando do momento da compra, e você pode tentar outro método de pagamento sem perder os itens da sacola. </p> <p> Se o prazo passar, o pedido é cancelado e o estoque volta para o catálogo. Nada é cobrado de você nesse caso. </p> </div> </div> </div> </section> <!-- ENTREGA --> <section aria-labelledby=\"faq-entrega\">",
+                "_id": "b123609"
+              }
+            ],
             "__globals__": {
-              "text_color": "globals/colors?id=iara-texto-suave",
-              "typography": "globals/typography?id=iara-texto-micro"
+              "text_color": "globals/colors?id=iara-texto-suave"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 15,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.55,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.0,
+              "sizes": []
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": true
+    },
+    {
+      "id": "d9dac42",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "12",
+          "column": "12",
+          "isLinked": true,
+          "unit": "px",
+          "size": 12
+        },
+        "padding": {
+          "unit": "px",
+          "top": "24",
+          "right": "0",
+          "bottom": "8",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "Entrega e frete"
+      },
+      "elements": [
+        {
+          "id": "51715c1",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Entrega e frete",
+            "title": "Entrega e frete",
+            "header_size": "h2",
+            "__globals__": {
+              "title_color": "globals/colors?id=text"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Playfair Display",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 18,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.2,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.02,
+              "sizes": []
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "5a86f85",
+          "elType": "widget",
+          "widgetType": "accordion",
+          "settings": {
+            "_title": "Perguntas: Entrega e frete",
+            "tabs": [
+              {
+                "tab_title": "Quanto custa o frete e em quanto tempo chega?",
+                "tab_content": "<div hidden> <p> O frete é calculado pelos Correios a partir do seu CEP, na sacola, antes de você finalizar. Acima de R$ 299 o frete é grátis para todo o Brasil. </p> <p> No <strong>Sudeste</strong> (SP, RJ, MG e ES), o PAC fica em R$ 15,00. O SEDEX e as demais regiões saem pelo valor calculado pelos Correios a partir do seu CEP. O frete grátis acima de R$ 299 considera o valor dos produtos depois do cupom. Os detalhes ficam em <a href=\"https://oeemax.com.br/iaracosta/envio-e-entrega/\">Envio e entrega</a>. </p> </div> </div> <div>",
+                "_id": "3e002a5"
+              },
+              {
+                "tab_title": "Como acompanho o meu pedido?",
+                "tab_content": "<div hidden> <p> A postagem sai em até 2 dias úteis depois da confirmação do pagamento (peças sob encomenda levam de 5 a 7 dias úteis de confecção no ateliê). O código de rastreio chega por e-mail quando o pedido é despachado. Você também acompanha em <a href=\"https://oeemax.com.br/iaracosta/minha-conta/\">Minha conta</a>, na seção Meus pedidos. </p> </div> </div> <div>",
+                "_id": "7082b53"
+              },
+              {
+                "tab_title": "Vocês entregam em todo o Brasil?",
+                "tab_content": "<div hidden> <p> Sim, enviamos para todo o território nacional. Antes de finalizar, confira o prazo calculado para o seu CEP. </p> </div> </div> <div>",
+                "_id": "737da58"
+              },
+              {
+                "tab_title": "O pedido vem com nota fiscal?",
+                "tab_content": "<div hidden> <p> Sim, todos os pedidos têm nota fiscal. A emissão será definida com a contabilidade da empresa: <span>[A DEFINIR]</span>. </p> </div> </div> </div> </section> <!-- TROCAS --> <section aria-labelledby=\"faq-trocas\">",
+                "_id": "b8e9080"
+              }
+            ],
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 15,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.55,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.0,
+              "sizes": []
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": true
+    },
+    {
+      "id": "8b54ace",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "12",
+          "column": "12",
+          "isLinked": true,
+          "unit": "px",
+          "size": 12
+        },
+        "padding": {
+          "unit": "px",
+          "top": "24",
+          "right": "0",
+          "bottom": "8",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "Trocas e devoluções"
+      },
+      "elements": [
+        {
+          "id": "48672f9",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Trocas e devoluções",
+            "title": "Trocas e devoluções",
+            "header_size": "h2",
+            "__globals__": {
+              "title_color": "globals/colors?id=text"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Playfair Display",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 18,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.2,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.02,
+              "sizes": []
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "3b8f1fa",
+          "elType": "widget",
+          "widgetType": "accordion",
+          "settings": {
+            "_title": "Perguntas: Trocas e devoluções",
+            "tabs": [
+              {
+                "tab_title": "A peça não serviu. Posso trocar?",
+                "tab_content": "<div hidden> <p> Sim. Você tem 7 dias corridos, contando do recebimento, para desistir da compra sem precisar justificar, conforme o Art. 49 do Código de Defesa do Consumidor. </p> <p> Para troca de tamanho, os prazos e as condições estão em <a href=\"https://oeemax.com.br/iaracosta/trocas-e-devolucoes/\">Trocas e devoluções</a>. </p> </div> </div> <div>",
+                "_id": "c31acfb"
+              },
+              {
+                "tab_title": "Quem paga o frete da devolução?",
+                "tab_content": "<div hidden> <p> <strong>A Iara Costa paga.</strong> Na desistência dentro dos 7 dias (CDC Art. 49) e na primeira troca por tamanho, o envio de volta é por conta da loja, com autorização de postagem nos Correios. Você recebe o código por e-mail e leva a peça em qualquer agência. </p> <p> A segunda troca em diante e a troca por outro modelo seguem a política da página de <a href=\"https://oeemax.com.br/iaracosta/trocas-e-devolucoes/\">Trocas e devoluções</a>. </p> </div> </div> <div>",
+                "_id": "426d75a"
+              },
+              {
+                "tab_title": "Recebi uma peça com defeito. E agora?",
+                "tab_content": "<div hidden> <p> Fale com o atendimento e mande uma foto do defeito. Peça com defeito de fabricação é trocada ou reembolsada, e o custo do envio fica com a loja. </p> </div> </div> </div> </section> <!-- PRODUTOS --> <section aria-labelledby=\"faq-produtos\">",
+                "_id": "48abbf1"
+              }
+            ],
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 15,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.55,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.0,
+              "sizes": []
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": true
+    },
+    {
+      "id": "bae72bd",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "12",
+          "column": "12",
+          "isLinked": true,
+          "unit": "px",
+          "size": 12
+        },
+        "padding": {
+          "unit": "px",
+          "top": "24",
+          "right": "0",
+          "bottom": "8",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "Produtos e tamanhos"
+      },
+      "elements": [
+        {
+          "id": "051c862",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Produtos e tamanhos",
+            "title": "Produtos e tamanhos",
+            "header_size": "h2",
+            "__globals__": {
+              "title_color": "globals/colors?id=text"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Playfair Display",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 18,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.2,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.02,
+              "sizes": []
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "330ae3e",
+          "elType": "widget",
+          "widgetType": "accordion",
+          "settings": {
+            "_title": "Perguntas: Produtos e tamanhos",
+            "tabs": [
+              {
+                "tab_title": "Como escolho o tamanho sem provar?",
+                "tab_content": "<div hidden> <p> Meça uma peça que já veste bem, deite na cama e compare com a tabela de medidas da página do produto. O passo a passo está no <a href=\"https://oeemax.com.br/iaracosta/guia-de-medidas/\">Guia de Medidas</a>. </p> <p> Na dúvida entre dois tamanhos, fale com o atendimento: a gente diz qual costuma ficar melhor naquela peça específica. </p> </div> </div> <div>",
+                "_id": "d8d7a61"
+              },
+              {
+                "tab_title": "As cores das fotos são fiéis?",
+                "tab_content": "<div hidden> <p> A gente fotografa com luz natural para chegar o mais perto possível. Ainda assim, a tela do seu celular ou computador pode alterar a cor. Se ficar em dúvida, peça uma foto extra ao atendimento antes de comprar. </p> </div> </div> <div>",
+                "_id": "97ad7f3"
+              },
+              {
+                "tab_title": "Como cuidar das peças?",
+                "tab_content": "<div hidden> <p> Cada produto traz a etiqueta de composição e as instruções de lavagem na aba Informações adicionais. A regra geral: água fria, pouca centrifugação, secagem na sombra e ferro em temperatura média. </p> </div> </div> <div>",
+                "_id": "b55236d"
+              },
+              {
+                "tab_title": "A peça que eu quero está esgotada. Vocês avisam quando voltar?",
+                "tab_content": "<div hidden> <p> <span>[A DEFINIR]</span> Esta função depende de decisão da empresa sobre mostrar peças esgotadas no catálogo e sobre o aviso de reposição. </p> </div> </div> </div> </section> <!-- ATENDIMENTO --> <section aria-labelledby=\"faq-atendimento\">",
+                "_id": "8f55135"
+              }
+            ],
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 15,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.55,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.0,
+              "sizes": []
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": true
+    },
+    {
+      "id": "473a244",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column",
+        "flex_gap": {
+          "row": "12",
+          "column": "12",
+          "isLinked": true,
+          "unit": "px",
+          "size": 12
+        },
+        "padding": {
+          "unit": "px",
+          "top": "24",
+          "right": "0",
+          "bottom": "8",
+          "left": "0",
+          "isLinked": false
+        },
+        "_title": "Atendimento e privacidade"
+      },
+      "elements": [
+        {
+          "id": "acf34ed",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "_title": "Atendimento e privacidade",
+            "title": "Atendimento e privacidade",
+            "header_size": "h2",
+            "__globals__": {
+              "title_color": "globals/colors?id=text"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Playfair Display",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 18,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.2,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.02,
+              "sizes": []
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "7c6c5c6",
+          "elType": "widget",
+          "widgetType": "accordion",
+          "settings": {
+            "_title": "Perguntas: Atendimento e privacidade",
+            "tabs": [
+              {
+                "tab_title": "Como falo com o atendimento?",
+                "tab_content": "<div hidden> <p> Por WhatsApp ou e-mail, nos horários informados em <a href=\"https://oeemax.com.br/iaracosta/contato/\">Contato</a>. Quem responde é a equipe da loja, não um robô de triagem. </p> </div> </div> <div>",
+                "_id": "21d0a45"
+              },
+              {
+                "tab_title": "Vocês pedem senha ou dados de cartão por mensagem?",
+                "tab_content": "<div hidden> <p> <strong>Nunca.</strong> Não pedimos senha, código de verificação, número completo de cartão nem CVV por WhatsApp, e-mail ou telefone. Se alguém pedir em nome da Iara Costa, não envie e avise a gente. </p> </div> </div> <div>",
+                "_id": "d8db477"
+              },
+              {
+                "tab_title": "Como vocês tratam os meus dados?",
+                "tab_content": "<div hidden> <p> Usamos os seus dados para entregar o pedido, emitir nota fiscal e responder ao seu contato. O detalhamento está na <a href=\"https://oeemax.com.br/iaracosta/politica-de-privacidade/\">Política de Privacidade</a>, e o consentimento de novidades por e-mail é sempre separado e opcional. </p> <p> Para exercer os seus direitos como titular de dados, use o canal <a href=\"mailto:dpo@iaracosta.com.br\">dpo@iaracosta.com.br</a>, do Departamento Jurídico da Iara Costa. Respondemos em até 24 horas úteis, de segunda a sexta. </p> </div> </div> </div> </section> </div> </div> </div> <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5) Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o conteúdo do rodapé. O texto fica dentro do container do header. --> <section aria-labelledby=\"banda-rodape-titulo\"> <div>",
+                "_id": "32b6b5a"
+              }
+            ],
+            "__globals__": {
+              "text_color": "globals/colors?id=iara-texto-suave"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 15,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.55,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.0,
+              "sizes": []
             }
           },
           "elements": []
@@ -174,8 +673,25 @@
             "header_size": "h2",
             "align": "center",
             "__globals__": {
-              "title_color": "globals/colors?id=iara-faixa-texto",
-              "typography": "globals/typography?id=secondary"
+              "title_color": "globals/colors?id=iara-faixa-texto"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Playfair Display",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 18,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.2,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.02,
+              "sizes": []
             }
           },
           "elements": []
@@ -188,8 +704,25 @@
             "editor": "<p>Fale com o ateliê e a gente responde em dias úteis.</p>",
             "align": "center",
             "__globals__": {
-              "text_color": "globals/colors?id=iara-faixa-texto",
-              "typography": "globals/typography?id=text"
+              "text_color": "globals/colors?id=iara-faixa-texto"
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "400",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 15,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.55,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.0,
+              "sizes": []
             }
           },
           "elements": []
@@ -208,10 +741,28 @@
             },
             "size": "md",
             "__globals__": {
-              "typography": "globals/typography?id=accent",
               "button_background_color": "globals/colors?id=primary",
               "text_color": "globals/colors?id=iara-branco"
-            }
+            },
+            "typography_typography": "custom",
+            "typography_font_family": "Jost",
+            "typography_font_weight": "600",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 11,
+              "sizes": []
+            },
+            "typography_line_height": {
+              "unit": "em",
+              "size": 1.2,
+              "sizes": []
+            },
+            "typography_letter_spacing": {
+              "unit": "em",
+              "size": 0.15,
+              "sizes": []
+            },
+            "typography_text_transform": "uppercase"
           },
           "elements": []
         }
@@ -219,7 +770,9 @@
       "isInner": true
     }
   ],
-  "page_settings": [],
+  "page_settings": {
+    "custom_css": "/* ==========================================================================\n   IARA COSTA · CSS de reforco do cabecalho (v0.3.10)\n   Fonte: seu-projeto/assets/css/header.css (prototipo aprovado).\n\n   Desde a v0.3.10 o cabecalho NAO depende deste arquivo: ele usa so\n   widgets basicos (titulo, lista de icones e icone) com fonte e cor das\n   globais. Este CSS e um reforco para o caso de o tema tentar impor a\n   fonte dele nos titulos e nas listas: cole em Elementor >\n   Configuracoes do site > CSS personalizado (Elementor Pro) e salve.\n   Mira apenas nas classes iara-* do template 01-cabecalho.json.\n   ========================================================================== */\n\n/* Faixa verde: caixa alta espaçada, como no prototipo */\n/* Hover da faixa, como no prototipo (.announcement__text a:hover):\n   a cor clara vem do controle de hover do widget; aqui entra a linha. */\n.iara-faixa-lista .elementor-icon-list-item a:hover,\n.iara-faixa-lista .elementor-icon-list-item a:focus-visible {\n  text-decoration: underline;\n}\n.iara-faixa-lista .elementor-icon-list-text {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 12px;\n  letter-spacing: 0.15em;\n  text-transform: uppercase;\n}\n\n/* Marca: nome em Playfair, tagline em Jost caixa alta miúda */\n.iara-marca-nome .elementor-heading-title {\n  font-family: \"Playfair Display\", serif !important;\n  font-size: 20px;\n  letter-spacing: 0.105em;\n  line-height: 1.15;\n  color: #2d2925;\n}\n.iara-marca-tagline .elementor-heading-title {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 11px;\n  letter-spacing: 0.18em;\n  text-transform: uppercase;\n  color: #625a52;\n}\n\n/* Menu (lista de icones em linha): Jost 12px, nunca a serifada do tema */\n.iara-menu .elementor-icon-list-text {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 12px;\n  letter-spacing: 0.06em;\n  color: #554f49;\n  white-space: nowrap;\n}\n.iara-menu .elementor-icon-list-item:hover .elementor-icon-list-text {\n  color: #78452f;\n  text-decoration: underline;\n  text-underline-offset: 4px;\n}\n\n/* O link do menu em si (prototipo: .main-nav__link): area de clique com\n   respiro, sublinhado discreto no hover e no foco pelo teclado */\n.iara-menu .elementor-icon-list-item a {\n  color: #554f49;\n  text-decoration: none;\n  padding: 6px 0;\n  border-bottom: 1px solid transparent;\n}\n.iara-menu .elementor-icon-list-item a:hover,\n.iara-menu .elementor-icon-list-item a:focus-visible {\n  color: #78452f;\n  border-bottom-color: #e4cbb5;\n}\n\n/* Icones da direita, como no prototipo (.icon-btn): sem caixa, sem\n   fundo, alvo de toque confortavel e traco leve. Busca e sacola sao\n   glifos cheios no Font Awesome (nao existe versao de contorno gratis\n   deles), entao o peso visual baixa pelo tamanho (17px) e pela cor. */\n.iara-acoes .elementor-icon {\n  color: #2d2925;\n  background: none;\n  border: 0;\n  padding: 13px;\n  line-height: 0;\n}\n.iara-acoes .elementor-icon svg { width: 17px; height: 17px; display: block; }\n/* Minha conta, Desejos e Sacola numa linha, separados por ponto */\n.iara-conta-links .elementor-icon-list-item + .elementor-icon-list-item::before {\n  content: \"·\"; margin-right: 8px; color: #776e64;\n}\n\n/* Nota da newsletter com largura de leitura (76ch do prototipo) */\n.iara-news-nota { max-width: 76ch; margin-top: 14px; }\n/* WhatsApp flutuante do prototipo: pilula Sálvia fixa no canto */\n.iara-whats-float {\n  position: fixed; right: 16px; bottom: 16px; z-index: 900;\n}\n.iara-whats-float .elementor-button {\n  border-radius: 999px; padding: 12px 16px;\n  box-shadow: 0 6px 18px rgba(45, 41, 37, 0.18);\n}\n\n/* Rodape igual ao prototipo: divisorias verticais na faixa de\n   seguranca, linha fina sobre pagamentos/selos, sociais em circulos\n   com borda e o icone do selo no quadradinho escuro. */\n.iara-seg-faixa > * + * { border-left: 1px solid #ded8ce; padding-left: 22px; }\n.iara-seg-linha { border-top: 1px solid #eee9e1; padding-top: 26px; }\n.iara-sociais .elementor-icon-list-item a {\n  width: 44px; height: 44px;\n  border: 1px solid #ded8ce; border-radius: 50%;\n  display: inline-flex; align-items: center; justify-content: center;\n  color: #625a52; background: #fffdf9;\n}\n.iara-sociais .elementor-icon-list-item a:hover {\n  color: #a45f43; border-color: #e4cbb5; background: #f7f4ef;\n}\n.iara-selo-icone {\n  background: #2d2925; border-radius: 6px;\n  width: 34px; height: 34px; flex: 0 0 auto;\n  display: flex; align-items: center; justify-content: center;\n}\n\n/* Contadores (selo) da sacola e dos desejos: bolha Terracota com o\n   numero em branco, no canto do icone, como no prototipo. A sacola e\n   o widget Carrinho do Menu (numero real do WooCommerce); os desejos,\n   o contador do plugin TI. Bolha vazia nao aparece. */\n.iara-sacola .elementor-menu-cart__toggle .elementor-button {\n  background: none; border: 0; box-shadow: none;\n  padding: 13px; line-height: 0; color: #554f49;\n}\n.iara-sacola .elementor-menu-cart__toggle .elementor-button:hover,\n.iara-sacola .elementor-menu-cart__toggle .elementor-button:focus-visible {\n  background: none; color: #78452f;\n}\n.iara-sacola .elementor-menu-cart__toggle .elementor-button svg {\n  width: 19px; height: 19px; display: block;\n}\n.iara-desejos .wishlist_products_counter {\n  padding: 13px; display: inline-block; line-height: 0;\n  position: relative; color: #554f49; text-decoration: none;\n}\n.iara-sacola .elementor-button-icon { position: relative; color: #554f49; }\n.iara-sacola:hover .elementor-button-icon { color: #78452f; }\n.iara-sacola .elementor-button-icon .elementor-button-icon-qty[data-counter] {\n  background: #a45f43; color: #fffdf9;\n  font-family: \"Jost\", sans-serif; font-size: 10px; font-weight: 600;\n  min-width: 16px; height: 16px; line-height: 16px;\n  border-radius: 50%; text-align: center;\n}\n.iara-desejos .wishlist_products_counter { position: relative; color: #554f49; text-decoration: none; }\n.iara-desejos .wishlist_products_counter:hover { color: #78452f; }\n.iara-desejos .wishlist_products_counter_number {\n  background: #a45f43; color: #fffdf9;\n  font-family: \"Jost\", sans-serif; font-size: 10px; font-weight: 600;\n  min-width: 16px; height: 16px; line-height: 16px;\n  border-radius: 50%; text-align: center; display: inline-block;\n  position: absolute; top: -4px; right: -6px;\n}\n.iara-acoes .elementor-icon:hover,\n.iara-acoes .elementor-icon:focus-visible { color: #78452f; }\n\n/* --- Menu principal (widget de menu do WordPress, classe iara-menu-nav) ---\n   A fonte e Jost por este CSS (o widget Pro herda a serifada do tema) e o\n   item da pagina atual ganha o sublinhado do prototipo: quem marca o item\n   atual e o WordPress (classe elementor-item-active), nao o template. */\n.iara-menu-nav .elementor-nav-menu--layout-horizontal .elementor-nav-menu {\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: center;\n  gap: clamp(12px, 1.6vw, 28px);\n}\n/* Logotipo do rodape: o mesmo arquivo, um pouco menor */\n.iara-marca-logo-rodape img { width: 190px; height: auto; display: block; }\n\n/* Logotipo (widget Site Logo): largura travada mesmo se o controle\n   de largura do widget mudar; altura automatica pela proporcao. */\n.iara-marca-logo img { width: 210px; height: auto; display: block; }\n\n.iara-menu-nav .elementor-nav-menu--main .elementor-item {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 12px;\n  font-weight: 400;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n  color: #554f49;\n  padding: 6px 0;\n  white-space: nowrap;\n}\n/* Estados do link, iguais ao prototipo (.main-nav__link):\n   hover = Terracota escuro com a linha escura; ativo (pagina atual) =\n   Terracota escuro com a linha Terracota claro. */\n.iara-menu-nav .elementor-nav-menu--main .elementor-item:hover,\n.iara-menu-nav .elementor-nav-menu--main .elementor-item:focus-visible {\n  color: #78452f;\n  box-shadow: inset 0 -1px 0 #78452f;\n}\n.iara-menu-nav .elementor-nav-menu--main .elementor-item.elementor-item-active {\n  color: #78452f;\n  box-shadow: inset 0 -1px 0 #e4cbb5;\n}\n\n/* --- Minha conta e links do WooCommerce (o rosa da captura e do tema) --- */\n.woocommerce-MyAccount-navigation ul { list-style: none; margin: 0; padding: 0; }\n.woocommerce-MyAccount-navigation li { margin-bottom: 6px; }\n.woocommerce-MyAccount-navigation a,\n.woocommerce-MyAccount-content a,\n.woocommerce-cart-form a,\n.woocommerce-checkout a {\n  color: #78452f;\n  font-family: \"Jost\", sans-serif;\n  text-decoration: none;\n}\n.woocommerce-MyAccount-navigation a:hover,\n.woocommerce-MyAccount-content a:hover { text-decoration: underline; }\n.woocommerce-MyAccount-navigation .is-active a {\n  color: #78452f;\n  font-weight: 600;\n  box-shadow: inset 0 -1px 0 #e4cbb5;\n}\n\n/* --- Cabecalho fixo no topo, como no prototipo (.site-header sticky) ---\n   Vale para o bloco inteiro do Theme Builder (faixa + barra). */\n.elementor-location-header {\n  position: sticky;\n  top: 0;\n  z-index: 999;\n}\n\n/* ---------------------------------------------------------------\n   Responsivo (pente-fino de 2026-10-20): o prototipo tem 74 blocos\n   @media e o Elementor tinha zero. Aqui entram os ajustes das pecas\n   nomeadas (cabecalho e rodape); o empilhamento das colunas vem das\n   declaracoes _mobile geradas em cada template.\n   --------------------------------------------------------------- */\n@media (max-width: 1024px) {\n  .iara-seg-faixa > * { flex: 1 1 46%; }\n  .iara-seg-faixa > * + * { border-left: 0; padding-left: 0; }\n}\n\n@media (max-width: 767px) {\n  .iara-marca-logo img { width: 150px; }\n  .iara-marca-logo-rodape img { width: 140px; }\n  .iara-faixa-lista .elementor-icon-list-item {\n    font-size: 11px; letter-spacing: 0.1em;\n  }\n  .iara-seg-faixa > * { flex-basis: 100%; }\n  .iara-acoes .elementor-icon,\n  .iara-sacola .elementor-menu-cart__toggle .elementor-button,\n  .iara-desejos .wishlist_products_counter { padding: 10px; }\n  .iara-whats-float .elementor-button { padding: 10px 12px; }\n}\n"
+  },
   "version": "0.4",
   "title": "Perguntas frequentes",
   "type": "page"

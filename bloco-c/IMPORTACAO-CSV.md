@@ -21,17 +21,31 @@ revisão.
 | Publicado | `0` em todas as linhas: importa como **rascunho** |
 | Estoque | `In stock? = 1` e quantidade vazia: a gestão de estoque por variação é ligada com as quantidades reais no cadastro |
 | Peso e dimensões | **vazios de propósito**: são `[PREENCHER]` com peso (kg) e medidas (cm) reais, que o frete usa |
-| Imagem | só o nome do arquivo do protótipo: trocar pelo endereço da imagem real na biblioteca de mídia |
+| Imagem | **fora do CSV** (segunda tentativa, 2026-10-21: só o nome do arquivo fez o importador recusar o produto; anexar pela biblioteca de mídia, produto a produto) |
 | Destaques | os 4 produtos da seção Em destaque da home marcados como `Is featured? = 1` |
 
 ### Como importar
 
 1. WooCommerce > Produtos > Importar, escolher `bloco-c/produtos.csv`.
+   **Não marcar** "Atualizar produtos existentes": o lote é de produtos
+   novos. (A primeira tentativa, em 2026-10-21, falhou inteira porque o
+   arquivo trazia a coluna ID vazia, o que o importador lê como pedido
+   de atualização; a coluna foi removida.)
 2. Conferir o mapeamento de colunas que o importador propõe; não trocar
    Parent, SKU nem os atributos.
 3. Importar e conferir: 12 produtos em rascunho, cada variável com as suas
    variações. Conferir também se os atributos Cor e Tamanho nasceram globais.
-4. Antes de publicar qualquer um: trocar descrição, foto, peso, dimensões e
+4. Fotos automáticas (confirmado no código do importador): subir as
+   imagens antes em Mídia > Adicionar nova e reimportar
+   `bloco-c/produtos-imagens.csv` (SKU + Images; a primeira foto é a principal e as seguintes viram a galeria do produto) **marcando** "Atualizar.
+   Se o vínculo por nome de arquivo falhar no site (aconteceu em
+   2026-10-21, mesmo com o caminho confirmado no código), o mesmo CSV
+   em versão URL traz o endereço completo de cada imagem no
+   repositório público do projeto, e o importador baixa e anexa.
+   produtos existentes"; o importador liga cada foto ao produto pelo
+   nome do arquivo. Vale o contrário do lote de produtos novos: aqui
+   atualizar é justamente o que se quer. Manual, produto a produto,
+   continua funcionando. Antes de publicar qualquer um: trocar descrição, foto, peso, dimensões e
    estoque pelos reais. Sandália com tamanho "Único" é dado do protótipo:
    conferir a numeração real de calçados antes.
 

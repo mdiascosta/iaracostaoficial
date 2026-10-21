@@ -57,8 +57,25 @@
                 "title": "Trocas e devoluções",
                 "header_size": "h1",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=primary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 24,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.105,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -70,8 +87,25 @@
               "settings": {
                 "editor": "<p>Trocar ou devolver uma peça é simples. Os prazos abaixo seguem o Código de Defesa do Consumidor.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -102,8 +136,25 @@
               "settings": {
                 "editor": "<p>Rascunho para revisão: confirmar as regras marcadas antes de publicar.</p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=iara-texto-micro"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 11,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.45,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.06,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -144,8 +195,25 @@
                 "title": "Desistência em 7 dias (direito de arrependimento)",
                 "header_size": "h2",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=secondary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -155,10 +223,27 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>Você tem 7 dias corridos, contando do recebimento, para desistir da compra sem precisar justificar, conforme o Art. 49 do CDC. A peça precisa voltar sem uso, com as etiquetas.</p>",
+                "editor": "<p><p> Compras feitas pela internet têm <strong>7 dias corridos</strong> para desistência, contados a partir do recebimento do produto. É o que garante o <strong>Art. 49 do Código de Defesa do Consumidor</strong>. Você não precisa explicar o motivo. </p> <p> Nesse caso, o valor pago é devolvido integralmente, incluindo o frete, quando houver cobrança. A devolução do produto é obrigatória e o <strong>custo do envio de retorno é da Iara Costa</strong>, por meio de autorização de postagem nos Correios: você recebe o código por e-mail e leva a peça em qualquer agência. </p> <p> Observação: o direito de arrependimento é uma garantia legal e não pode ser reduzido por política interna. O que a empresa decide é a operação: quem paga o frete e qual transportadora usar. </p> </section> <section></p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -199,8 +284,25 @@
                 "title": "Troca por tamanho ou por outra peça",
                 "header_size": "h2",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=secondary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -210,10 +312,27 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>Em até 30 dias do recebimento, a primeira troca de tamanho é por nossa conta, pelo código de postagem dos Correios. [CONFIRMAR COM A EMPRESA: peças de bazar e peças íntimas entram nesta regra?]</p>",
+                "editor": "<p><p> Além do prazo legal, a Iara Costa oferece troca por tamanho ou por outra peça do catálogo em até <strong>30 dias corridos</strong>, contados da entrega do pedido. </p> <ul> <li>A peça precisa estar sem uso, sem lavagem, sem perfume e com a etiqueta original presa.</li> <li>Diferença de preço, para mais ou para menos, é ajustada no momento da troca.</li> <li>Custo do frete na primeira troca: por conta da Iara Costa, com código de postagem reversa dos Correios. O envio e o retorno são gratuitos.</li> <li> Peças de <strong>liquidação e bazar</strong>: a troca é pelo mesmo modelo em outro tamanho, conforme o estoque. Se não houver o tamanho e a compra for devolvida, o cupom de troca vale exatamente o <strong>valor pago</strong> na compra, já com o desconto aplicado. </li> </ul> </section> <section></p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -254,8 +373,25 @@
                 "title": "Peça com defeito de fabricação",
                 "header_size": "h2",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=secondary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -265,10 +401,27 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>Se a peça chegar com defeito, fale com o atendimento com fotos do problema. Defeito de fabricação tem o tratamento previsto no CDC.</p>",
+                "editor": "<p><p> Se a peça chegou com defeito, fale com o atendimento e envie fotos do problema. Peça com defeito de fabricação é trocada ou reembolsada, e o custo do envio fica com a loja. </p> <p> Essa garantia é independente do prazo de arrependimento e segue os prazos legais de reclamação por vício aparente e oculto. <span>[CONFERIR com o jurídico a redação final dos prazos]</span> </p> </section> <section></p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -309,8 +462,25 @@
                 "title": "Como solicitar",
                 "header_size": "h2",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=secondary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -320,10 +490,28 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>Pela Minha conta ou pelo atendimento, informando o número do pedido. Você recebe as instruções e o código de postagem.</p>",
+                "editor": "<p><ol> <li> <span aria-hidden=\"true\">01</span> <div> <p>Fale com o atendimento</p> <p> Informe o número do pedido, a peça e o que você quer: troca por tamanho, troca por outra peça ou devolução. Canais e horários em <a href=\"https://oeemax.com.br/iaracosta/contato/\">Contato</a>. </p> </div> </li> <li> <span aria-hidden=\"true\">02</span> <div> <p>Receba a autorização</p> <p> A gente confirma a solicitação por e-mail, com o passo a passo do envio de volta e o código de postagem quando aplicável. </p> </div> </li> <li> <span aria-hidden=\"true\">03</span> <div> <p>Embale e envie</p> <p> Coloque a peça na embalagem original, com a etiqueta presa. Guarde o comprovante de postagem: ele é a garantia do seu envio. </p> </div> </li> <li> <span aria-hidden=\"true\">04</span> <div> <p>Acompanhe a conclusão</p> <p> Assim que a peça chega e é conferida, a troca é enviada ou o reembolso é processado. Você recebe aviso por e-mail nas duas etapas. </p> </div> </li> </ol> </section> <section></p>",
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "link_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -364,8 +552,25 @@
                 "title": "Reembolso",
                 "header_size": "h2",
                 "__globals__": {
-                  "title_color": "globals/colors?id=text",
-                  "typography": "globals/typography?id=secondary"
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -375,10 +580,295 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>Depois que a peça chega e é conferida, o reembolso segue a forma de pagamento original, nos prazos do gateway.</p>",
+                "editor": "<p><p> O prazo começa depois que a peça chega ao ateliê e é conferida (sem uso, com etiqueta e sem avaria), e segue a forma de pagamento usada na compra: </p> <ul> <li><strong>Pix:</strong> em até <strong>2 dias úteis</strong> depois da conferência, por transferência para os dados do titular do pedido.</li> <li><strong>Cartão de crédito:</strong> o estorno é solicitado à operadora em até <strong>3 dias úteis</strong> depois da conferência. O lançamento na fatura depende da data de fechamento da administradora do cartão, podendo aparecer em até duas faturas.</li> <li><strong>Boleto bancário:</strong> depósito ou Pix em até <strong>3 dias úteis</strong> depois da conferência, na conta do titular do pedido.</li> </ul> <p> Nunca pedimos dados de cartão por mensagem para processar reembolso. Se alguém pedir em nome da loja, não envie e avise a gente. </p> </section> <section></p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "671fc4d",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "O que não pode ser trocado"
+          },
+          "elements": [
+            {
+              "id": "3ee20e1",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "O que não pode ser trocado",
+                "title": "O que não pode ser trocado",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "bfbb514",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p><ul> <li>Peças com sinais de uso, lavagem, perfume, maquiagem ou alteração de costura.</li> <li>Peças sem a etiqueta original.</li> <li>Peças ajustadas por costureira ou alfaiate, o que impede a revenda.</li> <li> Brincos e itens de uso íntimo, por questão de higiene. <span>[CONFIRMAR COM A EMPRESA: exceção válida apenas dentro das regras do CDC]</span> </li> </ul> <p> Fora isso, a limitação de troca não pode contrariar o direito de arrependimento de 7 dias nem a garantia por defeito de fabricação. </p> </section> <section></p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "47d4664",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Resumo dos prazos"
+          },
+          "elements": [
+            {
+              "id": "c51bef7",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Resumo dos prazos",
+                "title": "Resumo dos prazos",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "6a4f7ed",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p><div> <table> <caption>Prazos e custos confirmados pela empresa em 16/10/2026</caption> <thead> <tr> <th scope=\"col\">Situação</th> <th scope=\"col\">Prazo</th> <th scope=\"col\">Quem paga o frete</th> </tr> </thead> <tbody> <tr> <th scope=\"row\">Desistência (CDC Art. 49)</th> <td>7 dias corridos do recebimento</td> <td>Loja, por autorização de postagem nos Correios</td> </tr> <tr> <th scope=\"row\">Troca por tamanho (primeira)</th> <td>30 dias corridos da entrega</td> <td>Loja, com postagem reversa gratuita</td> </tr> <tr> <th scope=\"row\">Peça com defeito</th> <td>Prazos legais de garantia</td> <td>Loja</td> </tr> <tr> <th scope=\"row\">Processar o reembolso</th> <td>Pix em 2 dias úteis · cartão em 3 dias úteis (lançamento depende da operadora) · boleto em 3 dias úteis</td> <td>Não se aplica</td> </tr> </tbody> </table> </div> </section> </div> </div> </div> <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5) Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o conteúdo do rodapé. O texto fica dentro do container do header. --> <section aria-labelledby=\"banda-rodape-titulo\"> <div></p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "85cf286",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Precisa trocar uma peça agora?"
+          },
+          "elements": [
+            {
+              "id": "61f49da",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Precisa trocar uma peça agora?",
+                "title": "Precisa trocar uma peça agora?",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "07d7e41",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p><p>Tenha o número do pedido em mãos e fale com o atendimento.</p> <a href=\"https://oeemax.com.br/iaracosta/contato/\">Solicitar troca</a> </div> </section></p>",
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave",
-                  "typography": "globals/typography?id=text"
+                  "link_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
                 }
               },
               "elements": []
@@ -390,7 +880,9 @@
       "isInner": false
     }
   ],
-  "page_settings": [],
+  "page_settings": {
+    "custom_css": "/* ==========================================================================\n   IARA COSTA · CSS de reforco do cabecalho (v0.3.10)\n   Fonte: seu-projeto/assets/css/header.css (prototipo aprovado).\n\n   Desde a v0.3.10 o cabecalho NAO depende deste arquivo: ele usa so\n   widgets basicos (titulo, lista de icones e icone) com fonte e cor das\n   globais. Este CSS e um reforco para o caso de o tema tentar impor a\n   fonte dele nos titulos e nas listas: cole em Elementor >\n   Configuracoes do site > CSS personalizado (Elementor Pro) e salve.\n   Mira apenas nas classes iara-* do template 01-cabecalho.json.\n   ========================================================================== */\n\n/* Faixa verde: caixa alta espaçada, como no prototipo */\n/* Hover da faixa, como no prototipo (.announcement__text a:hover):\n   a cor clara vem do controle de hover do widget; aqui entra a linha. */\n.iara-faixa-lista .elementor-icon-list-item a:hover,\n.iara-faixa-lista .elementor-icon-list-item a:focus-visible {\n  text-decoration: underline;\n}\n.iara-faixa-lista .elementor-icon-list-text {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 12px;\n  letter-spacing: 0.15em;\n  text-transform: uppercase;\n}\n\n/* Marca: nome em Playfair, tagline em Jost caixa alta miúda */\n.iara-marca-nome .elementor-heading-title {\n  font-family: \"Playfair Display\", serif !important;\n  font-size: 20px;\n  letter-spacing: 0.105em;\n  line-height: 1.15;\n  color: #2d2925;\n}\n.iara-marca-tagline .elementor-heading-title {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 11px;\n  letter-spacing: 0.18em;\n  text-transform: uppercase;\n  color: #625a52;\n}\n\n/* Menu (lista de icones em linha): Jost 12px, nunca a serifada do tema */\n.iara-menu .elementor-icon-list-text {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 12px;\n  letter-spacing: 0.06em;\n  color: #554f49;\n  white-space: nowrap;\n}\n.iara-menu .elementor-icon-list-item:hover .elementor-icon-list-text {\n  color: #78452f;\n  text-decoration: underline;\n  text-underline-offset: 4px;\n}\n\n/* O link do menu em si (prototipo: .main-nav__link): area de clique com\n   respiro, sublinhado discreto no hover e no foco pelo teclado */\n.iara-menu .elementor-icon-list-item a {\n  color: #554f49;\n  text-decoration: none;\n  padding: 6px 0;\n  border-bottom: 1px solid transparent;\n}\n.iara-menu .elementor-icon-list-item a:hover,\n.iara-menu .elementor-icon-list-item a:focus-visible {\n  color: #78452f;\n  border-bottom-color: #e4cbb5;\n}\n\n/* Icones da direita, como no prototipo (.icon-btn): sem caixa, sem\n   fundo, alvo de toque confortavel e traco leve. Busca e sacola sao\n   glifos cheios no Font Awesome (nao existe versao de contorno gratis\n   deles), entao o peso visual baixa pelo tamanho (17px) e pela cor. */\n.iara-acoes .elementor-icon {\n  color: #2d2925;\n  background: none;\n  border: 0;\n  padding: 13px;\n  line-height: 0;\n}\n.iara-acoes .elementor-icon svg { width: 17px; height: 17px; display: block; }\n/* Minha conta, Desejos e Sacola numa linha, separados por ponto */\n.iara-conta-links .elementor-icon-list-item + .elementor-icon-list-item::before {\n  content: \"·\"; margin-right: 8px; color: #776e64;\n}\n\n/* Nota da newsletter com largura de leitura (76ch do prototipo) */\n.iara-news-nota { max-width: 76ch; margin-top: 14px; }\n/* WhatsApp flutuante do prototipo: pilula Sálvia fixa no canto */\n.iara-whats-float {\n  position: fixed; right: 16px; bottom: 16px; z-index: 900;\n}\n.iara-whats-float .elementor-button {\n  border-radius: 999px; padding: 12px 16px;\n  box-shadow: 0 6px 18px rgba(45, 41, 37, 0.18);\n}\n\n/* Rodape igual ao prototipo: divisorias verticais na faixa de\n   seguranca, linha fina sobre pagamentos/selos, sociais em circulos\n   com borda e o icone do selo no quadradinho escuro. */\n.iara-seg-faixa > * + * { border-left: 1px solid #ded8ce; padding-left: 22px; }\n.iara-seg-linha { border-top: 1px solid #eee9e1; padding-top: 26px; }\n.iara-sociais .elementor-icon-list-item a {\n  width: 44px; height: 44px;\n  border: 1px solid #ded8ce; border-radius: 50%;\n  display: inline-flex; align-items: center; justify-content: center;\n  color: #625a52; background: #fffdf9;\n}\n.iara-sociais .elementor-icon-list-item a:hover {\n  color: #a45f43; border-color: #e4cbb5; background: #f7f4ef;\n}\n.iara-selo-icone {\n  background: #2d2925; border-radius: 6px;\n  width: 34px; height: 34px; flex: 0 0 auto;\n  display: flex; align-items: center; justify-content: center;\n}\n\n/* Contadores (selo) da sacola e dos desejos: bolha Terracota com o\n   numero em branco, no canto do icone, como no prototipo. A sacola e\n   o widget Carrinho do Menu (numero real do WooCommerce); os desejos,\n   o contador do plugin TI. Bolha vazia nao aparece. */\n.iara-sacola .elementor-menu-cart__toggle .elementor-button {\n  background: none; border: 0; box-shadow: none;\n  padding: 13px; line-height: 0; color: #554f49;\n}\n.iara-sacola .elementor-menu-cart__toggle .elementor-button:hover,\n.iara-sacola .elementor-menu-cart__toggle .elementor-button:focus-visible {\n  background: none; color: #78452f;\n}\n.iara-sacola .elementor-menu-cart__toggle .elementor-button svg {\n  width: 19px; height: 19px; display: block;\n}\n.iara-desejos .wishlist_products_counter {\n  padding: 13px; display: inline-block; line-height: 0;\n  position: relative; color: #554f49; text-decoration: none;\n}\n.iara-sacola .elementor-button-icon { position: relative; color: #554f49; }\n.iara-sacola:hover .elementor-button-icon { color: #78452f; }\n.iara-sacola .elementor-button-icon .elementor-button-icon-qty[data-counter] {\n  background: #a45f43; color: #fffdf9;\n  font-family: \"Jost\", sans-serif; font-size: 10px; font-weight: 600;\n  min-width: 16px; height: 16px; line-height: 16px;\n  border-radius: 50%; text-align: center;\n}\n.iara-desejos .wishlist_products_counter { position: relative; color: #554f49; text-decoration: none; }\n.iara-desejos .wishlist_products_counter:hover { color: #78452f; }\n.iara-desejos .wishlist_products_counter_number {\n  background: #a45f43; color: #fffdf9;\n  font-family: \"Jost\", sans-serif; font-size: 10px; font-weight: 600;\n  min-width: 16px; height: 16px; line-height: 16px;\n  border-radius: 50%; text-align: center; display: inline-block;\n  position: absolute; top: -4px; right: -6px;\n}\n.iara-acoes .elementor-icon:hover,\n.iara-acoes .elementor-icon:focus-visible { color: #78452f; }\n\n/* --- Menu principal (widget de menu do WordPress, classe iara-menu-nav) ---\n   A fonte e Jost por este CSS (o widget Pro herda a serifada do tema) e o\n   item da pagina atual ganha o sublinhado do prototipo: quem marca o item\n   atual e o WordPress (classe elementor-item-active), nao o template. */\n.iara-menu-nav .elementor-nav-menu--layout-horizontal .elementor-nav-menu {\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: center;\n  gap: clamp(12px, 1.6vw, 28px);\n}\n/* Logotipo do rodape: o mesmo arquivo, um pouco menor */\n.iara-marca-logo-rodape img { width: 190px; height: auto; display: block; }\n\n/* Logotipo (widget Site Logo): largura travada mesmo se o controle\n   de largura do widget mudar; altura automatica pela proporcao. */\n.iara-marca-logo img { width: 210px; height: auto; display: block; }\n\n.iara-menu-nav .elementor-nav-menu--main .elementor-item {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 12px;\n  font-weight: 400;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n  color: #554f49;\n  padding: 6px 0;\n  white-space: nowrap;\n}\n/* Estados do link, iguais ao prototipo (.main-nav__link):\n   hover = Terracota escuro com a linha escura; ativo (pagina atual) =\n   Terracota escuro com a linha Terracota claro. */\n.iara-menu-nav .elementor-nav-menu--main .elementor-item:hover,\n.iara-menu-nav .elementor-nav-menu--main .elementor-item:focus-visible {\n  color: #78452f;\n  box-shadow: inset 0 -1px 0 #78452f;\n}\n.iara-menu-nav .elementor-nav-menu--main .elementor-item.elementor-item-active {\n  color: #78452f;\n  box-shadow: inset 0 -1px 0 #e4cbb5;\n}\n\n/* --- Minha conta e links do WooCommerce (o rosa da captura e do tema) --- */\n.woocommerce-MyAccount-navigation ul { list-style: none; margin: 0; padding: 0; }\n.woocommerce-MyAccount-navigation li { margin-bottom: 6px; }\n.woocommerce-MyAccount-navigation a,\n.woocommerce-MyAccount-content a,\n.woocommerce-cart-form a,\n.woocommerce-checkout a {\n  color: #78452f;\n  font-family: \"Jost\", sans-serif;\n  text-decoration: none;\n}\n.woocommerce-MyAccount-navigation a:hover,\n.woocommerce-MyAccount-content a:hover { text-decoration: underline; }\n.woocommerce-MyAccount-navigation .is-active a {\n  color: #78452f;\n  font-weight: 600;\n  box-shadow: inset 0 -1px 0 #e4cbb5;\n}\n\n/* --- Cabecalho fixo no topo, como no prototipo (.site-header sticky) ---\n   Vale para o bloco inteiro do Theme Builder (faixa + barra). */\n.elementor-location-header {\n  position: sticky;\n  top: 0;\n  z-index: 999;\n}\n\n/* ---------------------------------------------------------------\n   Responsivo (pente-fino de 2026-10-20): o prototipo tem 74 blocos\n   @media e o Elementor tinha zero. Aqui entram os ajustes das pecas\n   nomeadas (cabecalho e rodape); o empilhamento das colunas vem das\n   declaracoes _mobile geradas em cada template.\n   --------------------------------------------------------------- */\n@media (max-width: 1024px) {\n  .iara-seg-faixa > * { flex: 1 1 46%; }\n  .iara-seg-faixa > * + * { border-left: 0; padding-left: 0; }\n}\n\n@media (max-width: 767px) {\n  .iara-marca-logo img { width: 150px; }\n  .iara-marca-logo-rodape img { width: 140px; }\n  .iara-faixa-lista .elementor-icon-list-item {\n    font-size: 11px; letter-spacing: 0.1em;\n  }\n  .iara-seg-faixa > * { flex-basis: 100%; }\n  .iara-acoes .elementor-icon,\n  .iara-sacola .elementor-menu-cart__toggle .elementor-button,\n  .iara-desejos .wishlist_products_counter { padding: 10px; }\n  .iara-whats-float .elementor-button { padding: 10px 12px; }\n}\n"
+  },
   "version": "0.4",
   "title": "Trocas e devoluções",
   "type": "page"

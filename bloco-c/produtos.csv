@@ -1,69 +1,69 @@
-ID,Type,SKU,Name,Published,Is featured?,Visibility in catalog,Short description,Description,Tax status,In stock?,Stock,Backorders allowed?,Sold individually?,Weight (kg),Length (cm),Width (cm),Height (cm),Allow customer reviews?,Regular price,Sale price,Categories,Tags,Images,Attribute 1 name,Attribute 1 value(s),Attribute 1 visible,Attribute 1 global,Attribute 2 name,Attribute 2 value(s),Attribute 2 visible,Attribute 2 global,Parent,Attribute 1 default,Attribute 2 default
-,variable,blusa-linho-terracota,Blusa de Linho Terracota,0,1,visible,"Blusas & Camisas em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Blusas & Camisas,,blusa-terracota.jpg,Cor,Terracota,1,1,Tamanho,"P, M, G, GG",1,1,,Terracota,P
-,variation,blusa-linho-terracota-terracota-p,,0,,,,,,1,,,,,,,,,348.00,,,,,Cor,Terracota,,,Tamanho,P,,,blusa-linho-terracota,,
-,variation,blusa-linho-terracota-terracota-m,,0,,,,,,1,,,,,,,,,348.00,,,,,Cor,Terracota,,,Tamanho,M,,,blusa-linho-terracota,,
-,variation,blusa-linho-terracota-terracota-g,,0,,,,,,1,,,,,,,,,348.00,,,,,Cor,Terracota,,,Tamanho,G,,,blusa-linho-terracota,,
-,variation,blusa-linho-terracota-terracota-gg,,0,,,,,,1,,,,,,,,,348.00,,,,,Cor,Terracota,,,Tamanho,GG,,,blusa-linho-terracota,,
-,variable,vestido-midi-salvia,Vestido Midi Sálvia,0,1,visible,"Vestidos em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Vestidos,,vestido-salvia.jpg,Cor,Sálvia,1,1,Tamanho,"P, M, G, GG",1,1,,Sálvia,P
-,variation,vestido-midi-salvia-salvia-p,,0,,,,,,1,,,,,,,,,596.00,,,,,Cor,Sálvia,,,Tamanho,P,,,vestido-midi-salvia,,
-,variation,vestido-midi-salvia-salvia-m,,0,,,,,,1,,,,,,,,,596.00,,,,,Cor,Sálvia,,,Tamanho,M,,,vestido-midi-salvia,,
-,variation,vestido-midi-salvia-salvia-g,,0,,,,,,1,,,,,,,,,596.00,,,,,Cor,Sálvia,,,Tamanho,G,,,vestido-midi-salvia,,
-,variation,vestido-midi-salvia-salvia-gg,,0,,,,,,1,,,,,,,,,596.00,,,,,Cor,Sálvia,,,Tamanho,GG,,,vestido-midi-salvia,,
-,variable,camisa-linho-branca,Camisa Branca de Linho,0,0,visible,"Blusas & Camisas em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Blusas & Camisas,,camisa-branca.jpg,Cor,"Cru, Carvão",1,1,Tamanho,"P, M, G, GG",1,1,,Cru,P
-,variation,camisa-linho-branca-cru-p,,0,,,,,,1,,,,,,,,,389.00,,,,,Cor,Cru,,,Tamanho,P,,,camisa-linho-branca,,
-,variation,camisa-linho-branca-cru-m,,0,,,,,,1,,,,,,,,,389.00,,,,,Cor,Cru,,,Tamanho,M,,,camisa-linho-branca,,
-,variation,camisa-linho-branca-cru-g,,0,,,,,,1,,,,,,,,,389.00,,,,,Cor,Cru,,,Tamanho,G,,,camisa-linho-branca,,
-,variation,camisa-linho-branca-cru-gg,,0,,,,,,1,,,,,,,,,389.00,,,,,Cor,Cru,,,Tamanho,GG,,,camisa-linho-branca,,
-,variation,camisa-linho-branca-carvao-p,,0,,,,,,1,,,,,,,,,389.00,,,,,Cor,Carvão,,,Tamanho,P,,,camisa-linho-branca,,
-,variation,camisa-linho-branca-carvao-m,,0,,,,,,1,,,,,,,,,389.00,,,,,Cor,Carvão,,,Tamanho,M,,,camisa-linho-branca,,
-,variation,camisa-linho-branca-carvao-g,,0,,,,,,1,,,,,,,,,389.00,,,,,Cor,Carvão,,,Tamanho,G,,,camisa-linho-branca,,
-,variation,camisa-linho-branca-carvao-gg,,0,,,,,,1,,,,,,,,,389.00,,,,,Cor,Carvão,,,Tamanho,GG,,,camisa-linho-branca,,
-,variable,vestido-longo-cerrado,Vestido Longo Cerrado,0,0,visible,"Vestidos em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Vestidos,,vestido-cerrado.jpg,Cor,"Terracota, Carvão",1,1,Tamanho,"P, M, G, GG",1,1,,Terracota,P
-,variation,vestido-longo-cerrado-terracota-p,,0,,,,,,1,,,,,,,,,684.00,,,,,Cor,Terracota,,,Tamanho,P,,,vestido-longo-cerrado,,
-,variation,vestido-longo-cerrado-terracota-m,,0,,,,,,1,,,,,,,,,684.00,,,,,Cor,Terracota,,,Tamanho,M,,,vestido-longo-cerrado,,
-,variation,vestido-longo-cerrado-terracota-g,,0,,,,,,1,,,,,,,,,684.00,,,,,Cor,Terracota,,,Tamanho,G,,,vestido-longo-cerrado,,
-,variation,vestido-longo-cerrado-terracota-gg,,0,,,,,,1,,,,,,,,,684.00,,,,,Cor,Terracota,,,Tamanho,GG,,,vestido-longo-cerrado,,
-,variation,vestido-longo-cerrado-carvao-p,,0,,,,,,1,,,,,,,,,684.00,,,,,Cor,Carvão,,,Tamanho,P,,,vestido-longo-cerrado,,
-,variation,vestido-longo-cerrado-carvao-m,,0,,,,,,1,,,,,,,,,684.00,,,,,Cor,Carvão,,,Tamanho,M,,,vestido-longo-cerrado,,
-,variation,vestido-longo-cerrado-carvao-g,,0,,,,,,1,,,,,,,,,684.00,,,,,Cor,Carvão,,,Tamanho,G,,,vestido-longo-cerrado,,
-,variation,vestido-longo-cerrado-carvao-gg,,0,,,,,,1,,,,,,,,,684.00,,,,,Cor,Carvão,,,Tamanho,GG,,,vestido-longo-cerrado,,
-,variable,cropped-tricot-areia,Cropped de Tricot Areia,0,0,visible,"Blusas & Camisas em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Blusas & Camisas,,cropped-tricot.jpg,Cor,"Areia, Carvão",1,1,Tamanho,"P, M, G, GG",1,1,,Areia,P
-,variation,cropped-tricot-areia-areia-p,,0,,,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Areia,,,Tamanho,P,,,cropped-tricot-areia,,
-,variation,cropped-tricot-areia-areia-m,,0,,,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Areia,,,Tamanho,M,,,cropped-tricot-areia,,
-,variation,cropped-tricot-areia-areia-g,,0,,,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Areia,,,Tamanho,G,,,cropped-tricot-areia,,
-,variation,cropped-tricot-areia-areia-gg,,0,,,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Areia,,,Tamanho,GG,,,cropped-tricot-areia,,
-,variation,cropped-tricot-areia-carvao-p,,0,,,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Carvão,,,Tamanho,P,,,cropped-tricot-areia,,
-,variation,cropped-tricot-areia-carvao-m,,0,,,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Carvão,,,Tamanho,M,,,cropped-tricot-areia,,
-,variation,cropped-tricot-areia-carvao-g,,0,,,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Carvão,,,Tamanho,G,,,cropped-tricot-areia,,
-,variation,cropped-tricot-areia-carvao-gg,,0,,,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Carvão,,,Tamanho,GG,,,cropped-tricot-areia,,
-,variable,saia-linho-cru,Saia Midi de Linho Cru,0,0,visible,"Saias & Calças em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Saias & Calças,,saia-cru.jpg,Cor,"Cru, Areia",1,1,Tamanho,"P, M, G, GG",1,1,,Cru,P
-,variation,saia-linho-cru-cru-p,,0,,,,,,1,,,,,,,,,312.00,,,,,Cor,Cru,,,Tamanho,P,,,saia-linho-cru,,
-,variation,saia-linho-cru-cru-m,,0,,,,,,1,,,,,,,,,312.00,,,,,Cor,Cru,,,Tamanho,M,,,saia-linho-cru,,
-,variation,saia-linho-cru-cru-g,,0,,,,,,1,,,,,,,,,312.00,,,,,Cor,Cru,,,Tamanho,G,,,saia-linho-cru,,
-,variation,saia-linho-cru-cru-gg,,0,,,,,,1,,,,,,,,,312.00,,,,,Cor,Cru,,,Tamanho,GG,,,saia-linho-cru,,
-,variation,saia-linho-cru-areia-p,,0,,,,,,1,,,,,,,,,312.00,,,,,Cor,Areia,,,Tamanho,P,,,saia-linho-cru,,
-,variation,saia-linho-cru-areia-m,,0,,,,,,1,,,,,,,,,312.00,,,,,Cor,Areia,,,Tamanho,M,,,saia-linho-cru,,
-,variation,saia-linho-cru-areia-g,,0,,,,,,1,,,,,,,,,312.00,,,,,Cor,Areia,,,Tamanho,G,,,saia-linho-cru,,
-,variation,saia-linho-cru-areia-gg,,0,,,,,,1,,,,,,,,,312.00,,,,,Cor,Areia,,,Tamanho,GG,,,saia-linho-cru,,
-,variable,calca-pantalona-salvia,Calça Pantalona Sálvia,0,1,visible,"Saias & Calças em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Saias & Calças,,pantalona-salvia.jpg,Cor,Sálvia,1,1,Tamanho,"P, M, G, GG",1,1,,Sálvia,P
-,variation,calca-pantalona-salvia-salvia-p,,0,,,,,,1,,,,,,,,,459.00,,,,,Cor,Sálvia,,,Tamanho,P,,,calca-pantalona-salvia,,
-,variation,calca-pantalona-salvia-salvia-m,,0,,,,,,1,,,,,,,,,459.00,,,,,Cor,Sálvia,,,Tamanho,M,,,calca-pantalona-salvia,,
-,variation,calca-pantalona-salvia-salvia-g,,0,,,,,,1,,,,,,,,,459.00,,,,,Cor,Sálvia,,,Tamanho,G,,,calca-pantalona-salvia,,
-,variation,calca-pantalona-salvia-salvia-gg,,0,,,,,,1,,,,,,,,,459.00,,,,,Cor,Sálvia,,,Tamanho,GG,,,calca-pantalona-salvia,,
-,variable,blazer-linho-areia,Blazer de Linho Areia,0,0,visible,"Terceiras Peças em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Terceiras Peças,,blazer-areia.jpg,Cor,"Areia, Cru",1,1,Tamanho,"P, M, G, GG",1,1,,Areia,P
-,variation,blazer-linho-areia-areia-p,,0,,,,,,1,,,,,,,,,789.00,,,,,Cor,Areia,,,Tamanho,P,,,blazer-linho-areia,,
-,variation,blazer-linho-areia-areia-m,,0,,,,,,1,,,,,,,,,789.00,,,,,Cor,Areia,,,Tamanho,M,,,blazer-linho-areia,,
-,variation,blazer-linho-areia-areia-g,,0,,,,,,1,,,,,,,,,789.00,,,,,Cor,Areia,,,Tamanho,G,,,blazer-linho-areia,,
-,variation,blazer-linho-areia-areia-gg,,0,,,,,,1,,,,,,,,,789.00,,,,,Cor,Areia,,,Tamanho,GG,,,blazer-linho-areia,,
-,variation,blazer-linho-areia-cru-p,,0,,,,,,1,,,,,,,,,789.00,,,,,Cor,Cru,,,Tamanho,P,,,blazer-linho-areia,,
-,variation,blazer-linho-areia-cru-m,,0,,,,,,1,,,,,,,,,789.00,,,,,Cor,Cru,,,Tamanho,M,,,blazer-linho-areia,,
-,variation,blazer-linho-areia-cru-g,,0,,,,,,1,,,,,,,,,789.00,,,,,Cor,Cru,,,Tamanho,G,,,blazer-linho-areia,,
-,variation,blazer-linho-areia-cru-gg,,0,,,,,,1,,,,,,,,,789.00,,,,,Cor,Cru,,,Tamanho,GG,,,blazer-linho-areia,,
-,simple,colar-ceramica,Colar de Cerâmica,0,1,visible,"Acessórios em tecido de alta gramatura, peca unica artesanal. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,189.00,,Acessórios,,colar-ceramica.jpg,Cor,Terracota,1,1,Tamanho,Único,1,1,,Terracota,Único
-,variable,brinco-argila,Brinco de Argila Torneado,0,0,visible,"Acessórios em tecido de alta gramatura, peca unica artesanal. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Acessórios,,brinco-argila.jpg,Cor,"Terracota, Areia",1,1,Tamanho,Único,1,1,,Terracota,Único
-,variation,brinco-argila-terracota-unico,,0,,,,,,1,,,,,,,,,149.00,,,,,Cor,Terracota,,,Tamanho,Único,,,brinco-argila,,
-,variation,brinco-argila-areia-unico,,0,,,,,,1,,,,,,,,,149.00,,,,,Cor,Areia,,,Tamanho,Único,,,brinco-argila,,
-,simple,bolsa-palha,Bolsa Artesanal em Palha,0,0,visible,"Bolsas em tecido de alta gramatura, peca unica artesanal. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,429.00,,Bolsas,,bolsa-palha.jpg,Cor,Areia,1,1,Tamanho,Único,1,1,,Areia,Único
-,variable,sandalia-couro,Sandália de Couro Natural,0,0,visible,"Calçados em tecido de alta gramatura, peca unica artesanal. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Calçados,,sandalia-couro.jpg,Cor,"Carvão, Terracota",1,1,Tamanho,Único,1,1,,Carvão,Único
-,variation,sandalia-couro-carvao-unico,,0,,,,,,1,,,,,,,,,389.00,,,,,Cor,Carvão,,,Tamanho,Único,,,sandalia-couro,,
-,variation,sandalia-couro-terracota-unico,,0,,,,,,1,,,,,,,,,389.00,,,,,Cor,Terracota,,,Tamanho,Único,,,sandalia-couro,,
+Type,SKU,Name,Published,Is featured?,Visibility in catalog,Short description,Description,Tax status,In stock?,Stock,Backorders allowed?,Sold individually?,Weight (kg),Length (cm),Width (cm),Height (cm),Allow customer reviews?,Regular price,Sale price,Categories,Tags,Images,Attribute 1 name,Attribute 1 value(s),Attribute 1 visible,Attribute 1 global,Attribute 2 name,Attribute 2 value(s),Attribute 2 visible,Attribute 2 global,Parent,Attribute 1 default,Attribute 2 default
+variable,blusa-linho-terracota,Blusa de Linho Terracota,0,1,visible,"Blusas & Camisas em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Blusas & Camisas,,,Cor,Terracota,1,1,Tamanho,"P, M, G, GG",1,1,,Terracota,P
+variation,blusa-linho-terracota-terracota-p,,0,,visible,,,,1,,,,,,,,,348.00,,,,,Cor,Terracota,,,Tamanho,P,,,blusa-linho-terracota,,
+variation,blusa-linho-terracota-terracota-m,,0,,visible,,,,1,,,,,,,,,348.00,,,,,Cor,Terracota,,,Tamanho,M,,,blusa-linho-terracota,,
+variation,blusa-linho-terracota-terracota-g,,0,,visible,,,,1,,,,,,,,,348.00,,,,,Cor,Terracota,,,Tamanho,G,,,blusa-linho-terracota,,
+variation,blusa-linho-terracota-terracota-gg,,0,,visible,,,,1,,,,,,,,,348.00,,,,,Cor,Terracota,,,Tamanho,GG,,,blusa-linho-terracota,,
+variable,vestido-midi-salvia,Vestido Midi Sálvia,0,1,visible,"Vestidos em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Vestidos,,,Cor,Sálvia,1,1,Tamanho,"P, M, G, GG",1,1,,Sálvia,P
+variation,vestido-midi-salvia-salvia-p,,0,,visible,,,,1,,,,,,,,,596.00,,,,,Cor,Sálvia,,,Tamanho,P,,,vestido-midi-salvia,,
+variation,vestido-midi-salvia-salvia-m,,0,,visible,,,,1,,,,,,,,,596.00,,,,,Cor,Sálvia,,,Tamanho,M,,,vestido-midi-salvia,,
+variation,vestido-midi-salvia-salvia-g,,0,,visible,,,,1,,,,,,,,,596.00,,,,,Cor,Sálvia,,,Tamanho,G,,,vestido-midi-salvia,,
+variation,vestido-midi-salvia-salvia-gg,,0,,visible,,,,1,,,,,,,,,596.00,,,,,Cor,Sálvia,,,Tamanho,GG,,,vestido-midi-salvia,,
+variable,camisa-linho-branca,Camisa Branca de Linho,0,0,visible,"Blusas & Camisas em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Blusas & Camisas,,,Cor,"Cru, Carvão",1,1,Tamanho,"P, M, G, GG",1,1,,Cru,P
+variation,camisa-linho-branca-cru-p,,0,,visible,,,,1,,,,,,,,,389.00,,,,,Cor,Cru,,,Tamanho,P,,,camisa-linho-branca,,
+variation,camisa-linho-branca-cru-m,,0,,visible,,,,1,,,,,,,,,389.00,,,,,Cor,Cru,,,Tamanho,M,,,camisa-linho-branca,,
+variation,camisa-linho-branca-cru-g,,0,,visible,,,,1,,,,,,,,,389.00,,,,,Cor,Cru,,,Tamanho,G,,,camisa-linho-branca,,
+variation,camisa-linho-branca-cru-gg,,0,,visible,,,,1,,,,,,,,,389.00,,,,,Cor,Cru,,,Tamanho,GG,,,camisa-linho-branca,,
+variation,camisa-linho-branca-carvao-p,,0,,visible,,,,1,,,,,,,,,389.00,,,,,Cor,Carvão,,,Tamanho,P,,,camisa-linho-branca,,
+variation,camisa-linho-branca-carvao-m,,0,,visible,,,,1,,,,,,,,,389.00,,,,,Cor,Carvão,,,Tamanho,M,,,camisa-linho-branca,,
+variation,camisa-linho-branca-carvao-g,,0,,visible,,,,1,,,,,,,,,389.00,,,,,Cor,Carvão,,,Tamanho,G,,,camisa-linho-branca,,
+variation,camisa-linho-branca-carvao-gg,,0,,visible,,,,1,,,,,,,,,389.00,,,,,Cor,Carvão,,,Tamanho,GG,,,camisa-linho-branca,,
+variable,vestido-longo-cerrado,Vestido Longo Cerrado,0,0,visible,"Vestidos em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Vestidos,,,Cor,"Terracota, Carvão",1,1,Tamanho,"P, M, G, GG",1,1,,Terracota,P
+variation,vestido-longo-cerrado-terracota-p,,0,,visible,,,,1,,,,,,,,,684.00,,,,,Cor,Terracota,,,Tamanho,P,,,vestido-longo-cerrado,,
+variation,vestido-longo-cerrado-terracota-m,,0,,visible,,,,1,,,,,,,,,684.00,,,,,Cor,Terracota,,,Tamanho,M,,,vestido-longo-cerrado,,
+variation,vestido-longo-cerrado-terracota-g,,0,,visible,,,,1,,,,,,,,,684.00,,,,,Cor,Terracota,,,Tamanho,G,,,vestido-longo-cerrado,,
+variation,vestido-longo-cerrado-terracota-gg,,0,,visible,,,,1,,,,,,,,,684.00,,,,,Cor,Terracota,,,Tamanho,GG,,,vestido-longo-cerrado,,
+variation,vestido-longo-cerrado-carvao-p,,0,,visible,,,,1,,,,,,,,,684.00,,,,,Cor,Carvão,,,Tamanho,P,,,vestido-longo-cerrado,,
+variation,vestido-longo-cerrado-carvao-m,,0,,visible,,,,1,,,,,,,,,684.00,,,,,Cor,Carvão,,,Tamanho,M,,,vestido-longo-cerrado,,
+variation,vestido-longo-cerrado-carvao-g,,0,,visible,,,,1,,,,,,,,,684.00,,,,,Cor,Carvão,,,Tamanho,G,,,vestido-longo-cerrado,,
+variation,vestido-longo-cerrado-carvao-gg,,0,,visible,,,,1,,,,,,,,,684.00,,,,,Cor,Carvão,,,Tamanho,GG,,,vestido-longo-cerrado,,
+variable,cropped-tricot-areia,Cropped de Tricot Areia,0,0,visible,"Blusas & Camisas em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Blusas & Camisas,,,Cor,"Areia, Carvão",1,1,Tamanho,"P, M, G, GG",1,1,,Areia,P
+variation,cropped-tricot-areia-areia-p,,0,,visible,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Areia,,,Tamanho,P,,,cropped-tricot-areia,,
+variation,cropped-tricot-areia-areia-m,,0,,visible,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Areia,,,Tamanho,M,,,cropped-tricot-areia,,
+variation,cropped-tricot-areia-areia-g,,0,,visible,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Areia,,,Tamanho,G,,,cropped-tricot-areia,,
+variation,cropped-tricot-areia-areia-gg,,0,,visible,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Areia,,,Tamanho,GG,,,cropped-tricot-areia,,
+variation,cropped-tricot-areia-carvao-p,,0,,visible,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Carvão,,,Tamanho,P,,,cropped-tricot-areia,,
+variation,cropped-tricot-areia-carvao-m,,0,,visible,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Carvão,,,Tamanho,M,,,cropped-tricot-areia,,
+variation,cropped-tricot-areia-carvao-g,,0,,visible,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Carvão,,,Tamanho,G,,,cropped-tricot-areia,,
+variation,cropped-tricot-areia-carvao-gg,,0,,visible,,,,1,,,,,,,,,299.00,249.00,,,,Cor,Carvão,,,Tamanho,GG,,,cropped-tricot-areia,,
+variable,saia-linho-cru,Saia Midi de Linho Cru,0,0,visible,"Saias & Calças em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Saias & Calças,,,Cor,"Cru, Areia",1,1,Tamanho,"P, M, G, GG",1,1,,Cru,P
+variation,saia-linho-cru-cru-p,,0,,visible,,,,1,,,,,,,,,312.00,,,,,Cor,Cru,,,Tamanho,P,,,saia-linho-cru,,
+variation,saia-linho-cru-cru-m,,0,,visible,,,,1,,,,,,,,,312.00,,,,,Cor,Cru,,,Tamanho,M,,,saia-linho-cru,,
+variation,saia-linho-cru-cru-g,,0,,visible,,,,1,,,,,,,,,312.00,,,,,Cor,Cru,,,Tamanho,G,,,saia-linho-cru,,
+variation,saia-linho-cru-cru-gg,,0,,visible,,,,1,,,,,,,,,312.00,,,,,Cor,Cru,,,Tamanho,GG,,,saia-linho-cru,,
+variation,saia-linho-cru-areia-p,,0,,visible,,,,1,,,,,,,,,312.00,,,,,Cor,Areia,,,Tamanho,P,,,saia-linho-cru,,
+variation,saia-linho-cru-areia-m,,0,,visible,,,,1,,,,,,,,,312.00,,,,,Cor,Areia,,,Tamanho,M,,,saia-linho-cru,,
+variation,saia-linho-cru-areia-g,,0,,visible,,,,1,,,,,,,,,312.00,,,,,Cor,Areia,,,Tamanho,G,,,saia-linho-cru,,
+variation,saia-linho-cru-areia-gg,,0,,visible,,,,1,,,,,,,,,312.00,,,,,Cor,Areia,,,Tamanho,GG,,,saia-linho-cru,,
+variable,calca-pantalona-salvia,Calça Pantalona Sálvia,0,1,visible,"Saias & Calças em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Saias & Calças,,,Cor,Sálvia,1,1,Tamanho,"P, M, G, GG",1,1,,Sálvia,P
+variation,calca-pantalona-salvia-salvia-p,,0,,visible,,,,1,,,,,,,,,459.00,,,,,Cor,Sálvia,,,Tamanho,P,,,calca-pantalona-salvia,,
+variation,calca-pantalona-salvia-salvia-m,,0,,visible,,,,1,,,,,,,,,459.00,,,,,Cor,Sálvia,,,Tamanho,M,,,calca-pantalona-salvia,,
+variation,calca-pantalona-salvia-salvia-g,,0,,visible,,,,1,,,,,,,,,459.00,,,,,Cor,Sálvia,,,Tamanho,G,,,calca-pantalona-salvia,,
+variation,calca-pantalona-salvia-salvia-gg,,0,,visible,,,,1,,,,,,,,,459.00,,,,,Cor,Sálvia,,,Tamanho,GG,,,calca-pantalona-salvia,,
+variable,blazer-linho-areia,Blazer de Linho Areia,0,0,visible,"Terceiras Peças em tecido de alta gramatura, do P ao GG. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Terceiras Peças,,,Cor,"Areia, Cru",1,1,Tamanho,"P, M, G, GG",1,1,,Areia,P
+variation,blazer-linho-areia-areia-p,,0,,visible,,,,1,,,,,,,,,789.00,,,,,Cor,Areia,,,Tamanho,P,,,blazer-linho-areia,,
+variation,blazer-linho-areia-areia-m,,0,,visible,,,,1,,,,,,,,,789.00,,,,,Cor,Areia,,,Tamanho,M,,,blazer-linho-areia,,
+variation,blazer-linho-areia-areia-g,,0,,visible,,,,1,,,,,,,,,789.00,,,,,Cor,Areia,,,Tamanho,G,,,blazer-linho-areia,,
+variation,blazer-linho-areia-areia-gg,,0,,visible,,,,1,,,,,,,,,789.00,,,,,Cor,Areia,,,Tamanho,GG,,,blazer-linho-areia,,
+variation,blazer-linho-areia-cru-p,,0,,visible,,,,1,,,,,,,,,789.00,,,,,Cor,Cru,,,Tamanho,P,,,blazer-linho-areia,,
+variation,blazer-linho-areia-cru-m,,0,,visible,,,,1,,,,,,,,,789.00,,,,,Cor,Cru,,,Tamanho,M,,,blazer-linho-areia,,
+variation,blazer-linho-areia-cru-g,,0,,visible,,,,1,,,,,,,,,789.00,,,,,Cor,Cru,,,Tamanho,G,,,blazer-linho-areia,,
+variation,blazer-linho-areia-cru-gg,,0,,visible,,,,1,,,,,,,,,789.00,,,,,Cor,Cru,,,Tamanho,GG,,,blazer-linho-areia,,
+simple,colar-ceramica,Colar de Cerâmica,0,1,visible,"Acessórios em tecido de alta gramatura, peca unica artesanal. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,189.00,,Acessórios,,,Cor,Terracota,1,1,Tamanho,Único,1,1,,Terracota,Único
+variable,brinco-argila,Brinco de Argila Torneado,0,0,visible,"Acessórios em tecido de alta gramatura, peca unica artesanal. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Acessórios,,,Cor,"Terracota, Areia",1,1,Tamanho,Único,1,1,,Terracota,Único
+variation,brinco-argila-terracota-unico,,0,,visible,,,,1,,,,,,,,,149.00,,,,,Cor,Terracota,,,Tamanho,Único,,,brinco-argila,,
+variation,brinco-argila-areia-unico,,0,,visible,,,,1,,,,,,,,,149.00,,,,,Cor,Areia,,,Tamanho,Único,,,brinco-argila,,
+simple,bolsa-palha,Bolsa Artesanal em Palha,0,0,visible,"Bolsas em tecido de alta gramatura, peca unica artesanal. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,429.00,,Bolsas,,,Cor,Areia,1,1,Tamanho,Único,1,1,,Areia,Único
+variable,sandalia-couro,Sandália de Couro Natural,0,0,visible,"Calçados em tecido de alta gramatura, peca unica artesanal. Texto de exemplo do prototipo: substituir pela descricao curta real da peca.","Descricao de exemplo do prototipo. A descricao final precisa ser escrita ou aprovada pela Iara Costa, com composicao e medidas reais do fornecedor [PREENCHER].",taxable,1,,,,,,,,1,,,Calçados,,,Cor,"Carvão, Terracota",1,1,Tamanho,Único,1,1,,Carvão,Único
+variation,sandalia-couro-carvao-unico,,0,,visible,,,,1,,,,,,,,,389.00,,,,,Cor,Carvão,,,Tamanho,Único,,,sandalia-couro,,
+variation,sandalia-couro-terracota-unico,,0,,visible,,,,1,,,,,,,,,389.00,,,,,Cor,Terracota,,,Tamanho,Único,,,sandalia-couro,,

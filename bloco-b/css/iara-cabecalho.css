@@ -11,6 +11,12 @@
    ========================================================================== */
 
 /* Faixa verde: caixa alta espaçada, como no prototipo */
+/* Hover da faixa, como no prototipo (.announcement__text a:hover):
+   a cor clara vem do controle de hover do widget; aqui entra a linha. */
+.iara-faixa-lista .elementor-icon-list-item a:hover,
+.iara-faixa-lista .elementor-icon-list-item a:focus-visible {
+  text-decoration: underline;
+}
 .iara-faixa-lista .elementor-icon-list-text {
   font-family: "Jost", sans-serif !important;
   font-size: 12px;
@@ -62,9 +68,92 @@
   border-bottom-color: #e4cbb5;
 }
 
-/* Ícones da direita: carvão, terracota escuro no hover, sem caixa */
-.iara-acoes .elementor-icon { color: #2d2925; background: none; border: 0; }
-.iara-acoes .elementor-icon:hover { color: #78452f; }
+/* Icones da direita, como no prototipo (.icon-btn): sem caixa, sem
+   fundo, alvo de toque confortavel e traco leve. Busca e sacola sao
+   glifos cheios no Font Awesome (nao existe versao de contorno gratis
+   deles), entao o peso visual baixa pelo tamanho (17px) e pela cor. */
+.iara-acoes .elementor-icon {
+  color: #2d2925;
+  background: none;
+  border: 0;
+  padding: 13px;
+  line-height: 0;
+}
+.iara-acoes .elementor-icon svg { width: 17px; height: 17px; display: block; }
+/* Minha conta, Desejos e Sacola numa linha, separados por ponto */
+.iara-conta-links .elementor-icon-list-item + .elementor-icon-list-item::before {
+  content: "·"; margin-right: 8px; color: #776e64;
+}
+
+/* Nota da newsletter com largura de leitura (76ch do prototipo) */
+.iara-news-nota { max-width: 76ch; margin-top: 14px; }
+/* WhatsApp flutuante do prototipo: pilula Sálvia fixa no canto */
+.iara-whats-float {
+  position: fixed; right: 16px; bottom: 16px; z-index: 900;
+}
+.iara-whats-float .elementor-button {
+  border-radius: 999px; padding: 12px 16px;
+  box-shadow: 0 6px 18px rgba(45, 41, 37, 0.18);
+}
+
+/* Rodape igual ao prototipo: divisorias verticais na faixa de
+   seguranca, linha fina sobre pagamentos/selos, sociais em circulos
+   com borda e o icone do selo no quadradinho escuro. */
+.iara-seg-faixa > * + * { border-left: 1px solid #ded8ce; padding-left: 22px; }
+.iara-seg-linha { border-top: 1px solid #eee9e1; padding-top: 26px; }
+.iara-sociais .elementor-icon-list-item a {
+  width: 44px; height: 44px;
+  border: 1px solid #ded8ce; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #625a52; background: #fffdf9;
+}
+.iara-sociais .elementor-icon-list-item a:hover {
+  color: #a45f43; border-color: #e4cbb5; background: #f7f4ef;
+}
+.iara-selo-icone {
+  background: #2d2925; border-radius: 6px;
+  width: 34px; height: 34px; flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Contadores (selo) da sacola e dos desejos: bolha Terracota com o
+   numero em branco, no canto do icone, como no prototipo. A sacola e
+   o widget Carrinho do Menu (numero real do WooCommerce); os desejos,
+   o contador do plugin TI. Bolha vazia nao aparece. */
+.iara-sacola .elementor-menu-cart__toggle .elementor-button {
+  background: none; border: 0; box-shadow: none;
+  padding: 13px; line-height: 0; color: #554f49;
+}
+.iara-sacola .elementor-menu-cart__toggle .elementor-button:hover,
+.iara-sacola .elementor-menu-cart__toggle .elementor-button:focus-visible {
+  background: none; color: #78452f;
+}
+.iara-sacola .elementor-menu-cart__toggle .elementor-button svg {
+  width: 19px; height: 19px; display: block;
+}
+.iara-desejos .wishlist_products_counter {
+  padding: 13px; display: inline-block; line-height: 0;
+  position: relative; color: #554f49; text-decoration: none;
+}
+.iara-sacola .elementor-button-icon { position: relative; color: #554f49; }
+.iara-sacola:hover .elementor-button-icon { color: #78452f; }
+.iara-sacola .elementor-button-icon .elementor-button-icon-qty[data-counter] {
+  background: #a45f43; color: #fffdf9;
+  font-family: "Jost", sans-serif; font-size: 10px; font-weight: 600;
+  min-width: 16px; height: 16px; line-height: 16px;
+  border-radius: 50%; text-align: center;
+}
+.iara-desejos .wishlist_products_counter { position: relative; color: #554f49; text-decoration: none; }
+.iara-desejos .wishlist_products_counter:hover { color: #78452f; }
+.iara-desejos .wishlist_products_counter_number {
+  background: #a45f43; color: #fffdf9;
+  font-family: "Jost", sans-serif; font-size: 10px; font-weight: 600;
+  min-width: 16px; height: 16px; line-height: 16px;
+  border-radius: 50%; text-align: center; display: inline-block;
+  position: absolute; top: -4px; right: -6px;
+}
+.iara-acoes .elementor-icon:hover,
+.iara-acoes .elementor-icon:focus-visible { color: #78452f; }
 
 /* --- Menu principal (widget de menu do WordPress, classe iara-menu-nav) ---
    A fonte e Jost por este CSS (o widget Pro herda a serifada do tema) e o
@@ -76,16 +165,31 @@
   justify-content: center;
   gap: clamp(12px, 1.6vw, 28px);
 }
+/* Logotipo do rodape: o mesmo arquivo, um pouco menor */
+.iara-marca-logo-rodape img { width: 190px; height: auto; display: block; }
+
+/* Logotipo (widget Site Logo): largura travada mesmo se o controle
+   de largura do widget mudar; altura automatica pela proporcao. */
+.iara-marca-logo img { width: 210px; height: auto; display: block; }
+
 .iara-menu-nav .elementor-nav-menu--main .elementor-item {
   font-family: "Jost", sans-serif !important;
   font-size: 12px;
   font-weight: 400;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: #554f49;
   padding: 6px 0;
   white-space: nowrap;
 }
-.iara-menu-nav .elementor-nav-menu--main .elementor-item:hover { color: #78452f; }
+/* Estados do link, iguais ao prototipo (.main-nav__link):
+   hover = Terracota escuro com a linha escura; ativo (pagina atual) =
+   Terracota escuro com a linha Terracota claro. */
+.iara-menu-nav .elementor-nav-menu--main .elementor-item:hover,
+.iara-menu-nav .elementor-nav-menu--main .elementor-item:focus-visible {
+  color: #78452f;
+  box-shadow: inset 0 -1px 0 #78452f;
+}
 .iara-menu-nav .elementor-nav-menu--main .elementor-item.elementor-item-active {
   color: #78452f;
   box-shadow: inset 0 -1px 0 #e4cbb5;
@@ -108,4 +212,36 @@
   color: #78452f;
   font-weight: 600;
   box-shadow: inset 0 -1px 0 #e4cbb5;
+}
+
+/* --- Cabecalho fixo no topo, como no prototipo (.site-header sticky) ---
+   Vale para o bloco inteiro do Theme Builder (faixa + barra). */
+.elementor-location-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* ---------------------------------------------------------------
+   Responsivo (pente-fino de 2026-10-20): o prototipo tem 74 blocos
+   @media e o Elementor tinha zero. Aqui entram os ajustes das pecas
+   nomeadas (cabecalho e rodape); o empilhamento das colunas vem das
+   declaracoes _mobile geradas em cada template.
+   --------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .iara-seg-faixa > * { flex: 1 1 46%; }
+  .iara-seg-faixa > * + * { border-left: 0; padding-left: 0; }
+}
+
+@media (max-width: 767px) {
+  .iara-marca-logo img { width: 150px; }
+  .iara-marca-logo-rodape img { width: 140px; }
+  .iara-faixa-lista .elementor-icon-list-item {
+    font-size: 11px; letter-spacing: 0.1em;
+  }
+  .iara-seg-faixa > * { flex-basis: 100%; }
+  .iara-acoes .elementor-icon,
+  .iara-sacola .elementor-menu-cart__toggle .elementor-button,
+  .iara-desejos .wishlist_products_counter { padding: 10px; }
+  .iara-whats-float .elementor-button { padding: 10px 12px; }
 }

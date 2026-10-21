@@ -235,9 +235,10 @@
         },
         "typography_letter_spacing": {
           "unit": "em",
-          "size": 0.06,
+          "size": 0.08,
           "sizes": []
-        }
+        },
+        "typography_text_transform": "uppercase"
       },
       {
         "_id": "iara-texto-micro",

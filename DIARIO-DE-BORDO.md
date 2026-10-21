@@ -1,5 +1,292 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-21] - Nome de arquivo não vinculou; fotos agora por URL (v0.3.30)
+
+Segunda falha idêntica do vínculo por nome ("Não é possível usar a
+imagem" nas 12). Consultei a mídia pública do site por REST: as
+fotos do produto não aparecem lá, mas a consulta pública não prova
+o que há dentro do painel dela (pode haver restrição de
+visibilidade). Em vez de uma terceira tentativa igual, o CSV
+passou a trazer a URL completa de cada imagem no repositório
+público: o importador baixa e anexa, sem upload manual. Se a
+hospedagem bloquear a saída para o GitHub, o plano B é o manual
+produto a produto, já orientado.
+
+## [2026-10-21] - Galeria de demonstração por produto (v0.3.29)
+
+Pedido dela: além da foto principal, colocar imagens na galeria.
+Atualizei o CSV de vínculo com foto principal + duas imagens de
+detalhe/processo do protótipo para cada um dos 12 produtos. Registro
+claro: são imagens de demonstração, não vistas reais da mesma peça;
+substituir quando as fotos oficiais forem produzidas.
+
+## [2026-10-21] - Produtos importaram; foto automática via CSV de vínculo (v0.3.28)
+
+Confirmação dela: os 12 produtos entraram. A pergunta seguinte era
+se a foto precisava ser produto a produto. Não precisa: conferi no
+código do WooCommerce que o importador aceita só o nome do arquivo e
+busca o anexo na Biblioteca de Mídia. A primeira tentativa falhou
+porque as imagens ainda não tinham sido enviadas.
+
+Entregue o `produtos-imagens.csv` (12 SKUs + nome da foto) para
+reimportar marcando "Atualizar produtos existentes": aqui, ao
+contrário do lote novo, atualizar é o objetivo.
+
+## [2026-10-21] - Segunda tentativa dos produtos: imagem e visibilidade (v0.3.27)
+
+### O erro
+Sem a coluna ID, os pais avançaram e bateram em dois pontos: a
+imagem só com nome de arquivo ("Não é possível usar a imagem") e a
+visibilidade vazia das variações ("Opção de visibilidade do
+catálogo inválida").
+
+### A correção
+Visibilidade `visible` nas 56 variações e coluna de imagem fora da
+importação: foto se anexa na Mídia, produto a produto, que é também
+onde a foto real vai entrar de qualquer jeito.
+
+### Lição de processo
+Arquivo novo devia ter sido validado com UM produto antes do lote
+de 68. Fica a regra: amostra primeiro, lote depois.
+
+## [2026-10-21] - Importação de produtos falhou inteira; causa achada no registro (v0.3.26)
+
+### O erro
+Primeira importação dela: "Falha ao importar 68 produtos". O arquivo
+estava íntegro (validado: colunas, órfãs, codificação), então pedi o
+registro. Ele entregou tudo: "Não existe nenhum produto
+correspondente para atualizar" nos pais.
+
+### A causa (nossa)
+A coluna `ID` vazia na frente do CSV. Para o importador do
+WooCommerce, ID presente = pedido de atualização de produto
+existente. Como nenhum existia, os 10 pais caíram e as 56 variações
+foram atrás ("nova variação só para produto variável"). Lição
+registrada no guia: nada de coluna ID em lote de produtos novos, e
+nada de marcar "Atualizar produtos existentes".
+
+### Correção
+Coluna removida, conferências refeitas, versão nova. Ela reimporta
+com o arquivo corrigido e me diz quantos entraram.
+
+## [2026-10-20] - Texto integral em Sobre, Contato e Coleção (v0.3.25)
+
+### Continuação autorizada
+Fechar a última frente do pente-fino: as páginas escritas à mão no
+gerador. Sobre virou `pagina_documento` com extração, Contato ganhou
+a seção do mapa e a Coleção trocou o resumo pelo primeiro parágrafo
+real de cada capítulo.
+
+### O achado feio (e a correção)
+Conferindo os títulos gerados, as páginas de texto da v0.3.24
+traziam "Institucional" e "Sua sacola" como seções: o extrator lia
+além do `</main>` e importava o rodapé da página como conteúdo.
+Ninguém tinha importado ainda, então o estrago ficou no papel. Corte
+no `</main>`, regeneração e teste novo contra vazamento.
+
+### O que continua por verificar
+- Importação e leitura das páginas no site dela. A inicial segue
+  montada de widgets (produtos e posts dinâmicos); os depoimentos de
+  exemplo do protótipo continuam fora de propósito, esperando os
+  depoimentos reais.
+
+## [2026-10-20] - Pente-fino e ajustes: responsivo e texto integral (v0.3.24)
+
+### Pedido da cliente
+Pente-fino em todos os JSON contra as páginas do template, a
+pergunta sobre o CSS do HTML estar sendo injetado no Elementor, e
+autorização para continuar ajustando.
+
+### O que o pente-fino achou (PENTE-FINO.md)
+O CSS do protótipo não viaja cru (as classes dele não existem no
+Elementor); viaja o equivalente. Faltavam o responsivo (0 @media e 0
+ajustes contra 74 blocos do protótipo) e o texto integral das
+páginas (os JSON tinham resumos; as legais, ~11%).
+
+### O que foi feito
+Passada responsiva automática em todos os documentos, @media no CSS
+embutido, e as páginas de texto e o FAQ passaram a ser gerados do
+HTML aprovado do protótipo, com os links convertidos. A conferência
+pegou os links `.html` que a extração trouxe e o mapa de conversão
+foi completado. Tudo verde de novo, relatório atualizado com o
+antes/depois.
+
+### O que continua por verificar
+- Conferência visual no celular de verdade (loja e produto são do
+  WooCommerce) e a importação no site dela. Sobre, contato, coleção
+  e inicial seguem com o texto do gerador; o integral está no
+  pages-conteudo.md se ela quiser a troca completa depois.
+
+## [2026-10-20] - CSS em todos os templates e pacote único (v0.3.23)
+
+### Pedido da cliente
+"Pode ajustar todos os jsons, ou seja todas as páginas, com os seus
+css embutido para importar tudo, quero todas as páginas e se possível
+já pronta."
+
+### O que foi feito
+- O ponto único de geração passou a gravar o `custom_css` em cada um
+  dos 24 documentos (antes era caso especial de cabeçalho/rodapé).
+- Pacote novo com os 24 JSON para importar tudo numa operação.
+- Registrado no histórico o que "pronta" cobre e o que é dinâmico,
+  para a expectativa ficar honesta: template não cria produto, página
+  publicada nem menu; isso é dado do site.
+
+### O que continua por verificar
+- A importação no site dela e a aplicação dos templates de página
+  (roteiro do guia), começando por reaplicar a página inicial.
+
+## [2026-10-20] - Estados pelos controles dos widgets (v0.3.22)
+
+### Relato da cliente
+"Importei e mesma coisa." A importação avulsa não cria condição de
+exibição (conferido no código do Elementor): o template novo entra
+sem valer, e o site segue mostrando o antigo. Enquanto o estado do
+menu depender de CSS nosso viajando junto, qualquer desencontro de
+importação vira "não pegou".
+
+### Análise
+O desenho que nunca falha é o que o próprio widget gera dos seus
+controles: ponteiro do menu com cor de hover e de ativo, e o botão da
+sacola com fundo e borda controlados. Foi o que entrou, conferido
+controle a controle no código dos dois widgets. O CSS embutido fica
+de reforço, e o kit completo (que cria as condições) volta a ser o
+caminho indicado, com a limpeza dos antigos antes.
+
+### O que continua por verificar
+- Apagar os cabeçalhos/rodapés antigos, importar o kit completo e
+  conferir no Theme Builder um único cabeçalho com condição de site
+  inteiro. Aí o hover se testa no site, não na promessa.
+
+## [2026-10-20] - CSS dentro dos templates (v0.3.21)
+
+### Relato da cliente
+A captura do site dela com os dois JSON importados: menu sem hover e
+sem a linha do ativo, sacola dentro de uma caixa com borda e o zero
+dos desejos solto ao lado do coração. Era o retrato exato de "o CSS
+não foi junto".
+
+### Análise
+Importar template avulso não traz o `custom_css` das configurações do
+site, que é onde os estados moram. A correção estrutural é o CSS
+viajar dentro do próprio documento (a configuração `custom_css` do
+template, que o Elementor aplica onde o template é exibido, e
+cabeçalho/rodapé aparecem em todas as páginas). De quebra, o seletor
+da sacola estava no envoltório e não no botão; o código do widget
+mostrou o elemento certo.
+
+### O que continua por verificar
+- Reimportar os dois templates (apagando as cópias anteriores) e
+  passar o mouse no menu; clicar na sacola abre a gaveta lateral.
+
+## [2026-10-20] - Cabeçalho e rodapé aprovados e fechados (v0.3.20)
+
+### Relato da cliente
+"O header e footer aprovado pode atualizar os 2 json igual o preview
+sem nenhuma alteração, o que for dinâmico, aí atualizo."
+
+### O que foi feito
+- Nenhuma alteração de desenho: os dois JSON foram regenerados da
+  mesma fonte que alimentou a prévia aprovada, e a entrega reúne os
+  dois arquivos finais (zip próprio) mais o kit completo de sempre.
+- Conferido o inventário de widgets dos dois arquivos: o que é
+  dinâmico ficou dinâmico (menu do WordPress, Site Logo nos dois
+  templates, Carrinho do Menu, contador TI, formulário), o resto é
+  conteúdo fixo do protótipo.
+- Versão 0.3.20 registrada; kits regenerados; conferências verdes.
+
+### O que continua por verificar
+- A importação no site da cliente: apagar as cópias antigas dos dois
+  templates antes, para a condição não ficar apontando para cópia
+  velha. Com o plugin TI desligado, o coração não renderiza (registrado
+  no guia); a sacola abre a gaveta lateral do WooCommerce ao clicar.
+
+## [2026-10-20] - Estados do link do menu e ícones leves (v0.3.19)
+
+### Relato da cliente
+A captura mostra o cabeçalho quase lá: faixa, marca, menu em caixa
+alta com a linha no HOME. O que ela cobra agora é acabamento: "os
+estados dos links do meu [menu], active e hover, verifique" e "os
+ícones não estão iguais aos do template, o CSS está diferente".
+
+### Análise (IMPLEMENTADO)
+O ativo estava certo (linha clara, como no protótipo); o hover só
+pintava a letra, sem a linha escura que o `.main-nav__link` aprovado
+tem. Nos ícones, a diferença é de desenho da biblioteca: busca e
+sacola só existem cheios no Font Awesome gratuito, e o protótipo foi
+desenhado em traço fino. Sem trocar a fonte de ícones, o que dá para
+igualar é tamanho, cor, respiro e ausência de caixa, e foi o que
+entrou, no widget e no CSS do kit. O traço idêntico viraria SVG
+próprio na Mídia, troca manual registrada no guia se ela quiser.
+
+### O que continua por verificar
+- Passar o mouse no menu (linha escura) e navegar (linha clara andando
+  para o item da página). E incluir a Coleção no Menu Principal dela,
+  que é item de WordPress, não de template.
+
+## [2026-10-20] - Padrão de fonte embutido nos widgets (v0.3.18)
+
+### Relato da cliente
+Quatro capturas: o cabeçalho dela gigante e serifado contra o nosso
+miúdo; o rodapé dela com títulos Playfair grandes contra o nosso
+contido. Pedidos: ícones "mais clean", menu em maiúsculo e "acertar o
+padrão da fonte já no nosso kit de configuração". Traduzindo o último:
+ela não quer depender de importar fonte certa para a fonte sair certa.
+
+### Análise (IMPLEMENTADO)
+O padrão do widget de menu é a global Primary, Playfair 24 (li no
+código dele): menu sem fonte declarada nasce exatamente como a captura
+dela. E as fontes personalizadas do kit não estão mandando naquele
+site, por importação ou por duplicata com condição antiga. Enquanto a
+fonte depender de global personalizada, a briga continua. A saída
+estrutural: declarar a fonte em cada widget, com os valores da nossa
+tabela. Cor continua global porque cor estava funcionando (faixa
+verde, Terracota dos botões).
+
+### O que foi feito
+- Conversor na geração: toda referência de tipografia global vira
+  valores declarados no widget, com o prefixo certo (`icon_typography`,
+  `title_typography` etc.). Vale para os 24 arquivos.
+- Menu: Jost 12 caixa alta declarada no widget + cores pelas globais;
+  a global `iara-menu` também virou caixa alta.
+- Ícones das ações: 18px, cor suave, respiro de 22px.
+- Guia registra a regra das duplicatas: apagar todas as cópias antes
+  de importar, porque condição em cópia antiga é indistinguível de
+  "a correção não pegou".
+
+### O que continua por verificar
+- Importar apagando as duplicatas e capturar header e rodapé. Se a
+  fonte ainda assim vier do tema, o próximo suspeito é cache de CSS do
+  Elementor (Ferramentas > regenerar CSS), que entra na conversa com
+  evidência, não com chute.
+
+## [2026-10-20] - Header e footer conferidos contra o protótipo (v0.3.17)
+
+### Pedido da cliente
+Retomada depois do merge do PR #10: "vamos começar hoje pelo header e
+footer, verifique nosso template e pode migrar para atualizar os JSONs
+do Elementor".
+
+### O que foi feito (IMPLEMENTADO)
+- Cabeçalho passado a limpo contra o parcial do protótipo: estava
+  certo (faixa em lista de ícones, marca em texto, menu
+  `menu-principal`, ícones). Ganhou o `sticky` do protótipo pelo CSS
+  que viaja no kit.
+- Rodapé comparado bloco a bloco com `tools/partials/footer.html`:
+  sete diferenças corrigidas (títulos em rótulo, nota da newsletter de
+  volta, linha conta/desejos/sacola, sociais só em ícones, subtítulos
+  em Playfair, nota demonstrativa da segurança de volta, fundo no
+  papel). Bônus de pente fino: o CNPJ fictício do protótipo virou
+  `[PREENCHER]`, porque dado legal inventado não publica.
+- Kit completo regenerado (33 containers no rodapé, 41 widgets) e as
+  três conferências verdes.
+
+### O que continua por verificar
+- A importação do kit novo no staging e as capturas do cabeçalho fixo
+  e do rodapé completo. Depois: o roteiro das páginas (reaplicar a
+  home, criar Coleção/Guia/FAQ, aplicar Sobre e Contato), que ficou de
+  ontem.
+
 ## [2026-10-19] - Menu aponta para o "Menu Principal" da cliente (v0.3.16)
 
 ### Pedido da cliente

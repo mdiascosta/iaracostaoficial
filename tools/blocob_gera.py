@@ -89,7 +89,7 @@ FONTES_SISTEMA = [
 FONTES_CUSTOM = [
     ('iara-titulo-h3',  'Titulo terciario', 'Jost', '400', 18, 1.20, 0.01, None),
     ('iara-rotulo',     'Rotulo',           'Jost', '600', 11, 1.40, 0.15, 'uppercase'),
-    ('iara-menu',       'Link do menu',     'Jost', '400', 12, 1.20, 0.06, None),
+    ('iara-menu',       'Link do menu',     'Jost', '400', 12, 1.20, 0.08, 'uppercase'),
     ('iara-texto-micro','Texto miudo',      'Jost', '400', 11, 1.45, 0.06, None),
     ('iara-preco',      'Preco',            'Jost', '400', 18, 1.20, 0.0,  None),
     ('iara-assinatura', 'Assinatura (tagline)', 'Jost', '400', 11, 1.40, 0.2, 'uppercase'),
@@ -270,6 +270,21 @@ PAGINAS = {
 }
 
 
+def _css_geral():
+    """O CSS geral do kit, para embutir nos templates de tema.
+
+    Quem importa so os JSON do cabecalho/rodape (sem o kit) nao recebe
+    o custom_css das configuracoes do site, e era ai que moravam o
+    hover/ativo do menu, a sacola sem caixa e os selos: na captura da
+    v0.3.20 o site dela mostrou exatamente esses tres sintomas. O CSS
+    passa a viajar tambem dentro de cada template (configuracao
+    custom_css do documento), entao o desenho nao depende do caminho
+    de importacao.
+    """
+    caminho = pathlib.Path(__file__).resolve().parent.parent / 'bloco-b' / 'css' / 'iara-cabecalho.css'
+    return caminho.read_text(encoding='utf-8')
+
+
 def cabecalho():
     """01. Cabecalho: faixa, marca em texto, menu e acoes em lista de icones.
 
@@ -313,6 +328,8 @@ def cabecalho():
             'space_between': medida(22),
             'icon_size': medida(12),
         }, {'text_color': cor('iara-faixa-texto'), 'icon_color': cor('iara-faixa-texto'),
+            'text_color_hover': cor('iara-terracota-claro'),
+            'icon_color_hover': cor('iara-terracota-claro'),
             'typography': fonte('iara-faixa')}), caminho='faixa/aviso'),
     ], caminho='faixa')
 
@@ -323,18 +340,21 @@ def cabecalho():
         '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(24, '%'),
         '_flex_align_self': 'center',
     }, [
-        d.widget('heading', juntar_globais({
-            '_title': 'IARA COSTA', 'title': 'IARA COSTA', 'header_size': 'p',
-            'css_classes': 'iara-marca-nome',
+        # Logotipo em imagem (pedido de 2026-10-20): a cliente subiu o
+        # logotipo no Elementor dela, entao o widget e o Site Logo, que
+        # le a midia ja definida. A marca em texto saiu: se um dia o
+        # logo sumir da midia, volta-se a ela (historico v0.3.10).
+        # Largura 210px no widget e reforco no CSS do kit: na proporcao
+        # do arquivo (2622x439), sao ~35px de altura, perto da marca em
+        # texto que ele substitui (20px + tagline).
+        d.widget('theme-site-logo', {
+            '_title': 'Logotipo',
+            'css_classes': 'iara-marca-logo',
+            'link_to': 'custom',
             'link': {'url': PAGINAS['home'], 'is_external': '', 'nofollow': ''},
-            **tipografia('Playfair Display', '400', 20, 1.15, 0.105),
-        }, {'title_color': cor('text')}), caminho='barra/marca-nome'),
-        d.widget('heading', juntar_globais({
-            '_title': 'Moda e acessorios', 'title': 'MODA & ACESSÓRIOS', 'header_size': 'p',
-            'css_classes': 'iara-marca-tagline',
-            **tipografia('Jost', '400', 11, 1.40, 0.18, 'uppercase'),
-        }, {'title_color': cor('iara-texto-suave')}),
-            caminho='barra/marca-tagline'),
+            'image_size': 'full',
+            'width': medida(210),
+        }, caminho='barra/marca-logo'),
     ], caminho='barra/marca', interno=True)
 
     # menu: o widget de menu do WordPress (v0.3.15). A lista de icones nao
@@ -346,37 +366,81 @@ def cabecalho():
     # $menu->slug). A cliente criou o menu "Menu Principal" em Aparencia >
     # Menus, cujo slug automatico e "menu-principal": e para ele que o
     # widget aponta (v0.3.16).
-    menu = d.widget('nav-menu', {
+    menu = d.widget('nav-menu', juntar_globais({
         '_title': 'Menu principal',
         'css_classes': 'iara-menu-nav',
         'menu': 'menu-principal',
         'layout': 'horizontal',
+        # Ponteiro do proprio widget ligado ('underline'): quem desenha
+        # a linha do hover e do ativo e o CSS que o Elementor gera dos
+        # controles abaixo, que funciona em qualquer importacao. O CSS
+        # do kit segue como reforco (as cores sao as mesmas; se os dois
+        # rodarem, a linha e uma so, na mesma cor e posicao).
         'pointer': 'underline',
         '_flex_size': 'grow',
         '_flex_align_self': 'center',
-    }, caminho='barra/menu')
+        'menu_typography_typography': 'custom',
+        'menu_typography_font_family': 'Jost',
+        'menu_typography_font_weight': '400',
+        'menu_typography_font_size': medida(12),
+        'menu_typography_letter_spacing': {'unit': 'em', 'size': 0.08, 'sizes': []},
+        'menu_typography_text_transform': 'uppercase',
+    }, {'color_menu_item': cor('iara-menu'),
+        'color_menu_item_hover': cor('accent'),
+        'color_menu_item_active': cor('accent'),
+        'pointer_color_menu_item_hover': cor('accent'),
+        'pointer_color_menu_item_active': cor('iara-terracota-claro')}),
+        caminho='barra/menu')
 
     def acao(titulo, icone, url, caminho, biblioteca='fa-regular'):
         return d.widget('icon', juntar_globais({
             '_title': titulo,
             'selected_icon': {'value': icone, 'library': biblioteca},
             'link': {'url': url, 'is_external': '', 'nofollow': ''},
-            'size': medida(20),
-        }, {'primary_color': cor('text')}), caminho=caminho)
+            'size': medida(17),
+        }, {'primary_color': cor('iara-menu')}), caminho=caminho)
 
     acoes = d.container('Ações', {
         'css_classes': 'iara-acoes',
         'flex_direction': 'row',
         'flex_justify_content': 'flex-end',
         'flex_align_items': 'center',
-        'flex_gap': lacuna(18, 18),
+        'flex_gap': lacuna(4, 4),
         '_flex_size': 'custom', '_flex_basis_type': 'custom', '_flex_basis': medida(24, '%'),
         '_flex_align_self': 'center',
     }, [
         acao('Busca', 'fas fa-search', PAGINAS['busca'], 'barra/busca', 'fa-solid'),
         acao('Minha conta', 'far fa-user', PAGINAS['conta'], 'barra/conta'),
-        acao('Lista de desejos', 'far fa-heart', PAGINAS['desejos'], 'barra/desejos'),
-        acao('Sacola', 'fas fa-shopping-bag', PAGINAS['sacola'], 'barra/sacola', 'fa-solid'),
+        # Desejos com contador: o widget de contador do plugin TI
+        # WooCommerce Wishlist (aprovado, gratuito) entra como widget do
+        # WordPress dentro do Elementor; ele desenha o coracao com o
+        # numero real da lista da visitante. Sem o plugin ativo, este
+        # widget nao renderiza: ai volta o icone simples (guia 2.9).
+        d.widget('wp-widget-widget_top_wishlist', {
+            '_title': 'Desejos (contador TI)',
+            'css_classes': 'iara-desejos',
+            'wp': {'show_icon': 1, 'show_text': 0, 'text': ''},
+        }, caminho='barra/desejos'),
+        # Sacola com contador: widget Carrinho do Menu do WooCommerce.
+        # O selo (bolha) mostra a quantidade real da sacola e some com
+        # ela vazia; 'bag-light' e o desenho de traco fino do prototipo.
+        d.widget('woocommerce-menu-cart', juntar_globais({
+            '_title': 'Sacola (carrinho)',
+            'css_classes': 'iara-sacola',
+            'icon': 'bag-light',
+            'items_indicator': 'bubble',
+            'items_indicator_distance': medida(3),
+            'hide_empty_indicator': 'hide',
+            'show_subtotal': '',
+            'automatically_open_cart': '',
+            'toggle_button_background_color': 'rgba(0,0,0,0)',
+            'toggle_button_hover_background_color': 'rgba(0,0,0,0)',
+            'toggle_button_border_width': medida(0),
+        }, {'toggle_button_icon_color': cor('iara-menu'),
+            'toggle_button_hover_icon_color': cor('accent'),
+            'items_indicator_background_color': cor('primary'),
+            'items_indicator_text_color': cor('iara-branco')}),
+            caminho='barra/sacola'),
     ], caminho='barra/acoes', interno=True)
 
     barra = d.container('Barra do cabeçalho', {
@@ -420,6 +484,9 @@ def rodape():
 
     formulario = d.widget('form', {
         '_title': 'Assinar a newsletter',
+        '_flex_size': 'custom',
+        '_flex_basis_type': 'custom',
+        '_flex_basis': medida(460, 'px'),
         'form_name': 'Newsletter do rodapé',
         'form_fields': [
             d.item({
@@ -436,6 +503,18 @@ def rodape():
         'email_to': '[CONFERIR: e-mail de destino]',
         'form_id': 'newsletter',
     }, caminho='news/formulario')
+
+    # Nota sob o formulario: no prototipo ela fica FORA da caixa da
+    # newsletter (a linha fina separa o formulario da nota) e tem
+    # largura de leitura (76ch). Entra como peca propria do miolo.
+    nota_news = d.widget('text-editor', juntar_globais({
+        '_title': 'Nota da newsletter',
+        'css_classes': 'iara-news-nota',
+        'editor': ('<p>Um e-mail por mês, no máximo. Ao assinar, você confirma que leu a '
+                   '<a href="' + PAGINAS['privacidade'] + '">Política de Privacidade</a> '
+                   'e pode cancelar quando quiser, em um clique.</p>'),
+    }, {'text_color': cor('iara-texto-discreto'), 'link_color': cor('iara-texto-discreto'),
+        'typography': fonte('iara-texto-micro')}), caminho='news/nota')
 
     newsletter = d.container('Newsletter', {
         'flex_direction': 'row',
@@ -457,21 +536,23 @@ def rodape():
         '_flex_basis_type': 'custom',
         '_flex_basis': medida(25, '%'),
     }, [
-        d.widget('heading', juntar_globais({
-            '_title': 'Iara Costa',
-            'title': 'IARA COSTA',
-            'header_size': 'p',
-        }, {'title_color': cor('text'), 'typography': fonte('primary')}), caminho='colunas/marca/marca'),
-        d.widget('heading', juntar_globais({
-            '_title': 'Moda e acessórios',
-            'title': 'Moda & Acessórios',
-            'header_size': 'p',
-        }, {'title_color': cor('iara-texto-discreto'), 'typography': fonte('iara-assinatura')}),
-            caminho='colunas/marca/assinatura'),
+        # Marca do rodape tambem em imagem (pedido de 2026-10-20): o
+        # mesmo logotipo do cabecalho, um pouco menor (190px), porque a
+        # cliente achou a marca em texto grande. O paragrafo desceu de
+        # 15px para 13px pelo mesmo relato.
+        d.widget('theme-site-logo', {
+            '_title': 'Logotipo do rodapé',
+            'css_classes': 'iara-marca-logo-rodape',
+            'link_to': 'custom',
+            'link': {'url': PAGINAS['home'], 'is_external': '', 'nofollow': ''},
+            'image_size': 'full',
+            'width': medida(190),
+        }, caminho='colunas/marca/logo'),
         d.widget('text-editor', juntar_globais({
             'editor': ('<p>Vestuário feminino autoral em linho, algodão egípcio e viscose de alta '
                        'gramatura. Modelagem, corte e confecção próprios, no ateliê em Cerquilho (SP).</p>'),
-        }, {'text_color': cor('iara-texto-suave'), 'typography': fonte('text')}),
+            **tipografia('Jost', '400', 13, 1.55, 0.0),
+        }, {'text_color': cor('iara-texto-suave')}),
             caminho='colunas/marca/sobre'),
     ], caminho='colunas/marca', interno=True)
 
@@ -484,11 +565,12 @@ def rodape():
                 for indice, (texto, url) in enumerate(itens)
             ],
             'space_between': medida(10),
-            '__globals__': {'text_color': cor('iara-texto-suave')},
+            '__globals__': {'text_color': cor('iara-texto-suave'),
+                            'typography': fonte('iara-texto-micro')},
         }, caminho=caminho + '/lista')
         titulo = d.widget('heading', juntar_globais({
             'title': nome, 'header_size': 'p', '_title': nome,
-        }, {'title_color': cor('text'), 'typography': fonte('iara-texto-micro')}),
+        }, {'title_color': cor('text'), 'typography': fonte('iara-rotulo')}),
             caminho=caminho + '/titulo')
         return d.container(nome, {
             'flex_direction': 'column',
@@ -523,7 +605,7 @@ def rodape():
     }, [
         d.widget('heading', juntar_globais({
             'title': 'Atendimento', 'header_size': 'p', '_title': 'Atendimento',
-        }, {'title_color': cor('text'), 'typography': fonte('iara-texto-micro')}),
+        }, {'title_color': cor('text'), 'typography': fonte('iara-rotulo')}),
             caminho='colunas/atendimento/titulo'),
         d.widget('icon-list', juntar_globais({
             '_title': 'Contatos',
@@ -531,29 +613,51 @@ def rodape():
                 d.item({'text': 'contato@iaracosta.com.br',
                         'link': {'url': 'mailto:contato@iaracosta.com.br', 'is_external': '', 'nofollow': ''}},
                        'colunas/atendimento/contatos/1'),
-                d.item({'text': '(15) 99123-4567',
+                d.item({'text': '(15) 99123-4567 · telefone e WhatsApp',
                         'link': {'url': 'https://wa.me/5515991234567', 'is_external': 'on', 'nofollow': ''}},
                        'colunas/atendimento/contatos/2'),
                 d.item({'text': 'Segunda a sexta, das 9h às 18h'},
                        'colunas/atendimento/contatos/3'),
             ],
             'space_between': medida(10),
-        }, {'text_color': cor('iara-texto-suave')}), caminho='colunas/atendimento/contatos'),
+        }, {'text_color': cor('iara-texto-suave'), 'typography': fonte('iara-texto-micro')}), caminho='colunas/atendimento/contatos'),
+        # Minha conta, Desejos e Sacola numa linha so, separados por
+        # ponto, como no prototipo (o ponto vem do CSS do kit).
+        d.widget('icon-list', juntar_globais({
+            '_title': 'Conta, desejos e sacola',
+            'css_classes': 'iara-conta-links',
+            'view': 'inline',
+            'icon_list': [
+                d.item({'text': 'Minha conta',
+                        'link': {'url': PAGINAS['conta'], 'is_external': '', 'nofollow': ''}},
+                       'colunas/atendimento/linha/conta'),
+                d.item({'text': 'Desejos',
+                        'link': {'url': PAGINAS['desejos'], 'is_external': '', 'nofollow': ''}},
+                       'colunas/atendimento/linha/desejos'),
+                d.item({'text': 'Sacola',
+                        'link': {'url': PAGINAS['sacola'], 'is_external': '', 'nofollow': ''}},
+                       'colunas/atendimento/linha/sacola'),
+            ],
+            'space_between': medida(8),
+        }, {'text_color': cor('iara-texto-suave'), 'typography': fonte('iara-texto-micro')}),
+            caminho='colunas/atendimento/linha'),
         d.widget('icon-list', juntar_globais({
             '_title': 'Redes sociais',
+            'css_classes': 'iara-sociais',
+            'view': 'inline',
             'icon_list': [
-                d.item({'text': 'Instagram', 'selected_icon': {'value': 'fab fa-instagram', 'library': 'fa-brands'},
+                d.item({'text': '', 'selected_icon': {'value': 'fab fa-instagram', 'library': 'fa-brands'},
                         'link': {'url': '[PREENCHER]', 'is_external': 'on', 'nofollow': ''}},
                        'colunas/atendimento/redes/1'),
-                d.item({'text': 'Pinterest', 'selected_icon': {'value': 'fab fa-pinterest', 'library': 'fa-brands'},
+                d.item({'text': '', 'selected_icon': {'value': 'fab fa-pinterest', 'library': 'fa-brands'},
                         'link': {'url': '[PREENCHER]', 'is_external': 'on', 'nofollow': ''}},
                        'colunas/atendimento/redes/2'),
-                d.item({'text': 'WhatsApp', 'selected_icon': {'value': 'fab fa-whatsapp', 'library': 'fa-brands'},
+                d.item({'text': '', 'selected_icon': {'value': 'fab fa-whatsapp', 'library': 'fa-brands'},
                         'link': {'url': 'https://wa.me/5515991234567', 'is_external': 'on', 'nofollow': ''}},
                        'colunas/atendimento/redes/3'),
             ],
-            'space_between': medida(10),
-            'icon_size': medida(16),
+            'space_between': medida(12),
+            'icon_size': medida(18),
         }, {'text_color': cor('iara-texto-suave')}), caminho='colunas/atendimento/redes'),
     ], caminho='colunas/atendimento', interno=True)
 
@@ -568,16 +672,16 @@ def rodape():
     # --- seguranca e pagamento
     itens_seguranca = [
         ('Pix, cartão e boleto', 'Pix com 5% de desconto, cartão em até 6x sem juros e boleto pelo Mercado Pago.',
-         'fas fa-credit-card', 'seg/1'),
+         ('far fa-credit-card', 'fa-regular'), 'seg/1'),
         ('Ambiente protegido', 'Seus dados trafegam criptografados e não são compartilhados.',
-         'fas fa-shield-alt', 'seg/2'),
+         ('fas fa-shield-alt', 'fa-solid'), 'seg/2'),
         ('Pedido rastreado', 'Código de rastreio por e-mail assim que a peça é postada.',
-         'fas fa-truck', 'seg/3'),
+         ('fas fa-truck', 'fa-solid'), 'seg/3'),
         ('7 dias para desistir', 'Direito de arrependimento previsto no CDC, Art. 49.',
-         'fas fa-heart', 'seg/4'),
+         ('far fa-heart', 'fa-regular'), 'seg/4'),
     ]
     caixas = []
-    for titulo, texto, icone, caminho in itens_seguranca:
+    for titulo, texto, (icone, biblioteca), caminho in itens_seguranca:
         caixas.append(d.container(titulo, {
             'content_width': 'full',
             'flex_direction': 'row',
@@ -589,17 +693,19 @@ def rodape():
         }, [
             d.widget('icon', juntar_globais({
                 '_title': 'Ícone',
-                'selected_icon': {'value': icone, 'library': 'fa-solid'},
-                'size': medida(20),
+                'selected_icon': {'value': icone, 'library': biblioteca},
+                'size': medida(22),
             }, {'primary_color': cor('primary')}), caminho=caminho + '/icone'),
             d.container('Texto', {'flex_direction': 'column', 'flex_gap': lacuna(4, 4)}, [
                 d.widget('heading', juntar_globais({
                     'title': titulo, 'header_size': 'p', '_title': titulo,
-                }, {'title_color': cor('text'), 'typography': fonte('iara-texto-micro')}),
+                    **tipografia('Jost', '600', 11, 1.40, 0.14, 'uppercase'),
+                }, {'title_color': cor('text')}),
                     caminho=caminho + '/titulo'),
                 d.widget('text-editor', juntar_globais({
                     'editor': '<p>' + texto + '</p>',
-                }, {'text_color': cor('iara-texto-suave'), 'typography': fonte('text')}),
+                    **tipografia('Jost', '400', 12, 1.50, 0.0),
+                }, {'text_color': cor('iara-texto-suave')}),
                     caminho=caminho + '/texto'),
             ], caminho=caminho + '/texto', interno=True),
         ], caminho=caminho, interno=True))
@@ -610,11 +716,11 @@ def rodape():
         'flex_gap': lacuna(12, 12),
         '_flex_size': 'custom',
         '_flex_basis_type': 'custom',
-        '_flex_basis': medida(48, '%'),
+        '_flex_basis': medida(54, '%'),
     }, [
         d.widget('heading', juntar_globais({
             'title': 'Formas de pagamento', 'header_size': 'p', '_title': 'Formas de pagamento',
-        }, {'title_color': cor('text'), 'typography': fonte('iara-texto-micro')}),
+        }, {'title_color': cor('text'), 'typography': fonte('secondary')}),
             caminho='seg/pag/titulo'),
         d.container('Quadros', {
             'content_width': 'full',
@@ -626,14 +732,17 @@ def rodape():
                 'flex_direction': 'row',
                 'flex_align_items': 'center',
                 'flex_justify_content': 'center',
-                'padding': dimensoes(10, 16, 10, 16),
+                'padding': dimensoes(12, 16, 12, 16),
+                'background_background': 'classic',
                 'border_border': 'solid',
                 'border_width': {'unit': 'px', 'top': '1', 'right': '1', 'bottom': '1', 'left': '1', 'isLinked': True},
-                'border_radius': dimensoes(2, 2, 2, 2),
+                'border_radius': dimensoes(6, 6, 6, 6),
+                '__globals__': {'border_color': cor('iara-linha'),
+                                'background_color': cor('iara-branco')},
             }, [
                 d.widget('text-editor', juntar_globais({
                     'editor': '<p>' + nome + '</p>',
-                }, {'text_color': cor('text'), 'typography': fonte('iara-texto-micro')}),
+                }, {'text_color': cor('text'), 'typography': fonte('text')}),
                     caminho='seg/pag/' + nome + '/texto'),
             ], caminho='seg/pag/' + nome, interno=True)
             for nome in ('Mercado Pago', 'Pix', 'Cartão de crédito', 'Boleto bancário')
@@ -646,11 +755,11 @@ def rodape():
         'flex_gap': lacuna(12, 12),
         '_flex_size': 'custom',
         '_flex_basis_type': 'custom',
-        '_flex_basis': medida(48, '%'),
+        '_flex_basis': medida(40, '%'),
     }, [
         d.widget('heading', juntar_globais({
             'title': 'Segurança', 'header_size': 'p', '_title': 'Segurança',
-        }, {'title_color': cor('text'), 'typography': fonte('iara-texto-micro')}),
+        }, {'title_color': cor('text'), 'typography': fonte('secondary')}),
             caminho='seg/selos/titulo'),
         d.container('Distintivos', {
             'content_width': 'full',
@@ -663,19 +772,24 @@ def rodape():
                 'flex_align_items': 'center',
                 'flex_gap': lacuna(8, 8),
                 'padding': dimensoes(10, 16, 10, 16),
+                'background_background': 'classic',
                 'border_border': 'solid',
                 'border_width': {'unit': 'px', 'top': '1', 'right': '1', 'bottom': '1', 'left': '1', 'isLinked': True},
-                'border_radius': dimensoes(2, 2, 2, 2),
+                'border_radius': dimensoes(6, 6, 6, 6),
+                '__globals__': {'border_color': cor('iara-linha'),
+                                'background_color': cor('iara-branco')},
             }, [
                 d.widget('icon', juntar_globais({
                     'selected_icon': {'value': icone, 'library': 'fa-solid'},
                     'size': medida(18),
+                    'css_classes': 'iara-selo-icone',
                     '_title': 'Ícone',
-                }, {'primary_color': cor('primary')}), caminho='seg/selos/' + nome + '/icone'),
+                }, {'primary_color': cor('iara-branco')}), caminho='seg/selos/' + nome + '/icone'),
                 d.container('Texto', {'flex_direction': 'column', 'flex_gap': lacuna(0, 0)}, [
                     d.widget('heading', juntar_globais({
                         'title': nome, 'header_size': 'p', '_title': nome,
-                    }, {'title_color': cor('text'), 'typography': fonte('iara-texto-micro')}),
+                        **tipografia('Jost', '600', 11, 1.40, 0.12, 'uppercase'),
+                    }, {'title_color': cor('text')}),
                         caminho='seg/selos/' + nome + '/titulo'),
                     d.widget('text-editor', juntar_globais({
                         'editor': '<p>' + sub + '</p>',
@@ -700,17 +814,23 @@ def rodape():
         '__globals__': {'border_color': cor('iara-fio')},
     }, [
         d.container('Faixa de segurança', {
+            'css_classes': 'iara-seg-faixa',
             'content_width': 'full',
             'flex_direction': 'row',
             'flex_wrap': 'wrap',
             'flex_gap': lacuna(20, 20),
         }, caixas, caminho='seg/faixa', interno=True),
         d.container('Pagamento e selos', {
+            'css_classes': 'iara-seg-linha',
             'content_width': 'full',
             'flex_direction': 'row',
             'flex_wrap': 'wrap',
+            'flex_align_items': 'flex-start',
             'flex_gap': lacuna(24, 24),
         }, [pagamentos, selos], caminho='seg/linha', interno=True),
+        paragrafo(d, ('Durante o protótipo, esta faixa é demonstrativa. O gateway da loja é o '
+                      'Mercado Pago; bandeiras, selos e certificados oficiais entram neste '
+                      'lugar no go-live. [CONFERIR no go-live]'), 'seg/nota', 'iara-texto-micro'),
     ], caminho='seg', interno=True)
 
     # --- base
@@ -726,12 +846,13 @@ def rodape():
         d.widget('text-editor', juntar_globais({
             '_title': 'Direitos e identificação',
             'editor': ('<p>© 2026 Iara Costa. Todos os direitos reservados.</p>'
-                       '<p>Iara Costa Moda Feminina LTDA · CNPJ 12.345.678/0001-90 · '
-                       'Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000</p>'),
+                       '<p>Iara Costa Moda Feminina LTDA · CNPJ [PREENCHER] · '
+                       'Endereço [PREENCHER]</p>'),
         }, {'text_color': cor('iara-texto-discreto'), 'typography': fonte('iara-texto-micro')}),
             caminho='base/direitos'),
         d.widget('icon-list', juntar_globais({
             '_title': 'Links de política',
+            'view': 'inline',
             'icon_list': [
                 d.item({'text': 'Política de privacidade',
                         'link': {'url': PAGINAS['privacidade'], 'is_external': '', 'nofollow': ''}},
@@ -747,14 +868,14 @@ def rodape():
                        'base/links/4'),
             ],
             'space_between': medida(10),
-        }, {'text_color': cor('iara-texto-discreto')}), caminho='base/links'),
+        }, {'text_color': cor('iara-texto-discreto'), 'typography': fonte('iara-texto-micro')}), caminho='base/links'),
     ], caminho='base', interno=True)
 
     miolo = d.container('Conteúdo do rodapé', {
         'content_width': 'boxed',
         'flex_direction': 'column',
         'flex_gap': lacuna(0, 0),
-    }, [newsletter, colunas, seguranca, base], caminho='miolo', interno=True)
+    }, [newsletter, nota_news, colunas, seguranca, base], caminho='miolo', interno=True)
 
     raiz = d.container('Rodapé', {
         'content_width': 'full',
@@ -762,8 +883,23 @@ def rodape():
         'flex_gap': lacuna(0, 0),
         'padding': dimensoes(0, 0, 0, 0),
         'background_background': 'classic',
-        '__globals__': {'background_color': cor('iara-branco')},
+        '__globals__': {'background_color': cor('iara-papel')},
     }, [miolo], caminho='raiz')
+
+    # Botao flutuante de WhatsApp: no prototipo ele esta em todas as
+    # paginas (canto inferior direito, pilula Sálvia). A posicao fixa
+    # vem do CSS do kit (classe iara-whats-float).
+    whats = d.widget('button', juntar_globais({
+        '_title': 'WhatsApp flutuante',
+        'css_classes': 'iara-whats-float',
+        'text': 'WhatsApp',
+        'selected_icon': {'value': 'fab fa-whatsapp', 'library': 'fa-brands'},
+        'icon_align': 'right',
+        'link': {'url': 'https://wa.me/5515991234567', 'is_external': 'on', 'nofollow': ''},
+        **tipografia('Jost', '400', 11, 1.40, 0.12, 'uppercase'),
+    }, {'background_color': cor('secondary'), 'button_text_color': cor('iara-branco'),
+        'hover_background_color': cor('accent')}), caminho='whats')
+    raiz['elements'].append(whats)
 
     d.content = [raiz]
     return d
@@ -1751,8 +1887,83 @@ def secao_texto(d, titulo, texto, caminho):
     ], caminho=caminho, interno=True)
 
 
-def pagina_documento(titulo_doc, intro, secoes, caminho, aviso=None):
-    """Pagina de texto longo: titulo e secoes numeradas, texto revisado."""
+def _limpa_html(trecho):
+    """Limpa o HTML de uma secao do prototipo para o text-editor."""
+    import re as _re
+    trecho = _re.sub(r'\s(class|id|style|data-[a-z-]+)="[^"]*"', '', trecho)
+    mapa = {'trocas.html': 'trocas', 'envio.html': 'envio',
+            'privacidade.html': 'privacidade', 'termos.html': 'termos',
+            'cookies.html': 'cookies', 'contato.html': 'contato',
+            'sobre.html': 'sobre', 'loja.html': 'loja',
+            'guia-medidas.html': 'guia', 'faq.html': 'faq',
+            'index.html': 'home', 'conta.html': 'conta',
+            'lookbook.html': 'colecao', 'desejos.html': 'desejos',
+            'carrinho.html': 'sacola', 'checkout.html': 'checkout',
+            'blog.html': 'blog', 'post.html': 'post',
+            'produto.html': 'loja', 'busca.html': 'busca',
+            'pedido-recebido.html': 'pedido', '404.html': 'home'}
+    for arquivo, chave in mapa.items():
+        trecho = trecho.replace(f'href="{arquivo}"',
+                                f'href="{PAGINAS[chave]}"')
+    return _re.sub(r'\s+', ' ', trecho).strip()
+
+
+def secoes_do_prototipo(arquivo):
+    """Le as secoes (h2 + conteudo) de uma pagina do prototipo.
+
+    O texto integral aprovado mora no HTML do prototipo; os JSON
+    tinham resumos (pente-fino: paginas com 7% a 16% do texto). A
+    fonte continua sendo o prototipo, sem inventar uma palavra.
+    """
+    import re as _re
+    caminho = pathlib.Path(__file__).resolve().parent.parent / 'seu-projeto' / arquivo
+    html = caminho.read_text(encoding='utf-8')
+    main = html[html.find('<main'):html.find('</main>')]
+    partes = _re.split(r'<h2[^>]*>(.*?)</h2>', main, flags=_re.S)
+    secoes = []
+    for i in range(1, len(partes) - 1, 2):
+        titulo = _re.sub(r'<[^>]+>', '', partes[i]).strip()
+        corpo = _re.split(r'<h2|</main>|<footer', partes[i + 1])[0]
+        corpo = _limpa_html(corpo)
+        if titulo and corpo:
+            secoes.append((titulo, corpo))
+    return secoes
+
+
+def perguntas_do_prototipo():
+    """Grupos e perguntas do FAQ do prototipo (h2 = grupo, h3 = pergunta)."""
+    import re as _re
+    caminho = pathlib.Path(__file__).resolve().parent.parent / 'seu-projeto' / 'faq.html'
+    html = caminho.read_text(encoding='utf-8')
+    main = html[html.find('<main'):html.find('</main>')]
+    grupos = []
+    partes = _re.split(r'<h2[^>]*>(.*?)</h2>', main, flags=_re.S)
+    for i in range(1, len(partes) - 1, 2):
+        nome = _re.sub(r'<[^>]+>', '', partes[i]).strip()
+        bloco = _re.split(r'<h2|</main>|<footer', partes[i + 1])[0]
+        perguntas = []
+        qpartes = _re.split(r'<h3[^>]*>(.*?)</h3>', bloco, flags=_re.S)
+        for j in range(1, len(qpartes) - 1, 2):
+            pergunta = _re.sub(r'<[^>]+>', '', qpartes[j]).strip()
+            resposta = _limpa_html(_re.split(r'<h3', qpartes[j + 1])[0])
+            if pergunta and resposta:
+                perguntas.append((pergunta, resposta))
+        if nome and perguntas:
+            grupos.append((nome, perguntas))
+    return grupos
+
+
+def pagina_documento(titulo_doc, intro, secoes, caminho, aviso=None,
+                     arquivo=None):
+    """Pagina de texto longo: titulo e secoes numeradas, texto revisado.
+
+    Com `arquivo`, as secoes vem do prototipo aprovado (texto integral);
+    a lista passada vira reserva, para o caso de a leitura falhar.
+    """
+    if arquivo:
+        extraidas = secoes_do_prototipo(arquivo)
+        if extraidas:
+            secoes = extraidas
     d = Documento(titulo_doc, 'page')
     filhos = [cab_pagina(d, titulo_doc, intro, caminho + '/cab')]
     if aviso:
@@ -1879,7 +2090,7 @@ def sobre():
             ('Missão, visão e compromisso', '[PROPOSTA] Missão, visão e compromisso aguardando aprovação da empresa, sem inventar promessa, selo ou garantia.'),
             ('O ateliê e o processo', 'Modelagem, corte e confecção próprios. O processo completo, da escolha do tecido à peça pronta, entra aqui com os detalhes reais do ateliê [PREENCHER].'),
             ('Como escolhemos as peças', 'Tecidos escolhidos pela gramatura e pelo toque, em três famílias: linho, algodão egípcio e viscose de alta gramatura. Do P ao GG, com guia de medidas por peça.'),
-        ], 'sobre',
+        ], 'sobre', arquivo='sobre.html',
         aviso='Página com textos [PROPOSTA] do protótipo: publicar só depois da aprovação da empresa.')
 
 
@@ -1925,37 +2136,52 @@ def contato():
             ], caminho='contato/col-canais', interno=True),
         ], caminho='contato/miolo', interno=True),
     ], caminho='raiz')
+    # Secoes do prototipo que o resumo nao tinha (o atelie no mapa),
+    # sem repetir o formulario e os canais que ja estao acima.
+    for titulo, corpo in secoes_do_prototipo('contato.html'):
+        if titulo == 'O ateliê no mapa':
+            raiz['elements'].append(
+                secao_texto(d, titulo, corpo, 'contato/' +
+                            titulo.lower().replace(' ', '-')))
     d.content = [raiz]
     return d
 
 
 def faq_pagina():
-    """17. Perguntas frequentes completas."""
-    grupos = [
-        ('Pedidos e pagamento', 'Compra como visitante, Pix com 5% de desconto, cartão em até 6x sem juros e boleto pelo Mercado Pago.'),
-        ('Entrega e frete', 'Envio para todo o Brasil pelos Correios, frete grátis acima de R$ 299 e código de rastreio por e-mail.'),
-        ('Trocas e devoluções', '7 dias para desistir (CDC, Art. 49) e 30 dias para trocar de tamanho, com a primeira troca por nossa conta.'),
-        ('Produtos e tamanhos', 'Cada peça traz a própria tabela de medidas; o Guia de Medidas ensina a medir uma peça sua e comparar.'),
-        ('Atendimento e privacidade', 'Atendimento de segunda a sexta, das 9h às 18h. Seus dados seguem a Política de Privacidade.'),
-    ]
+    """17. Perguntas frequentes completas, grupo a grupo.
+
+    As perguntas e respostas vem do prototipo aprovado (antes eram 5
+    resumos de uma linha). Cada grupo vira um rotulo com a sua sanfona.
+    """
+    grupos = perguntas_do_prototipo()
     d = Documento('Perguntas frequentes', 'page')
+    filhos = [cab_pagina(d, 'Perguntas frequentes',
+                         'As dúvidas que mais chegam no ateliê, organizadas por assunto.',
+                         'faq/cab')]
+    for gi, (grupo, perguntas) in enumerate(grupos, 1):
+        filhos.append(d.container(grupo, {
+            'content_width': 'boxed', 'flex_direction': 'column',
+            'flex_gap': lacuna(12, 12), 'padding': dimensoes(24, 0, 8, 0),
+        }, [
+            titulo_secao(d, grupo, f'faq-pagina/g{gi}/titulo'),
+            d.widget('accordion', juntar_globais({
+                '_title': 'Perguntas: ' + grupo,
+                'tabs': [
+                    d.item({'tab_title': pergunta, 'tab_content': resposta},
+                           f'faq-pagina/g{gi}/item-{pi}')
+                    for pi, (pergunta, resposta) in enumerate(perguntas, 1)
+                ]}, {'text_color': cor('iara-texto-suave'),
+                     'typography': fonte('text')}),
+                caminho=f'faq-pagina/g{gi}/sanfona'),
+        ], caminho=f'faq-pagina/g{gi}', interno=True))
+    filhos.append(faixa_ajuda(d, 'Não encontrou a sua dúvida?',
+                              'Fale com o ateliê e a gente responde em dias úteis.',
+                              'Falar com o ateliê', PAGINAS['contato'],
+                              'faq-pagina/ajuda'))
     raiz = d.container('Perguntas frequentes', {
         'content_width': 'full', 'flex_direction': 'column',
         'flex_gap': lacuna(0, 0), 'padding': dimensoes(0, 0, 0, 0),
-    }, [
-        cab_pagina(d, 'Perguntas frequentes', 'As dúvidas que mais chegam no ateliê, organizadas por assunto.', 'faq/cab'),
-        d.container('Grupos de perguntas', {
-            'content_width': 'boxed', 'flex_direction': 'column',
-            'flex_gap': lacuna(12, 12), 'padding': dimensoes(24, 0, 40, 0),
-        }, [
-            d.widget('accordion', juntar_globais({'_title': 'Perguntas por assunto', 'tabs': [
-                d.item({'tab_title': titulo, 'tab_content': '<p>' + texto + '</p>'}, 'faq-pagina/item-' + str(i))
-                for i, (titulo, texto) in enumerate(grupos, 1)
-            ]}, {'text_color': cor('iara-texto-suave'), 'typography': fonte('text')}), caminho='faq-pagina/sanfona'),
-            paragrafo(d, 'As perguntas e respostas completas, iguais às do protótipo aprovado, entram aba por aba no editor a partir do texto final aprovado. Não inventar prazo, garantia ou política nova aqui.', 'faq-pagina/nota', 'iara-texto-micro'),
-        ], caminho='faq-pagina/miolo', interno=True),
-        faixa_ajuda(d, 'Não encontrou a sua dúvida?', 'Fale com o ateliê e a gente responde em dias úteis.', 'Falar com o ateliê', PAGINAS['contato'], 'faq-pagina/ajuda'),
-    ], caminho='raiz')
+    }, filhos, caminho='raiz')
     d.content = [raiz]
     return d
 
@@ -1968,7 +2194,7 @@ def guia_medidas():
             ('Como medir em casa', 'Estique a peça sobre a mesa, sem puxar. Meça busto, cintura, quadril e comprimento com a fita sem apertar, e anote em centímetros.'),
             ('Tabela de medidas', '[PREENCHER] A tabela geral entra com as medidas reais da modelagem da marca. Cada página de produto traz a tabela daquela peça, que é a que vale na hora de escolher.'),
             ('Dúvidas comuns sobre tamanho', 'Na dúvida entre dois tamanhos, compare as medidas com a peça medida em casa. Se ainda assim ficar em dúvida, fale com o atendimento antes de fechar: a troca de tamanho em 30 dias existe, mas acertar de primeira é melhor.'),
-        ], 'guia-medidas',
+        ], 'guia-medidas', arquivo='guia-medidas.html',
         aviso='A tabela desta página depende das medidas reais da modelagem [PREENCHER]: não publicar com valores de exemplo.')
 
 
@@ -1980,8 +2206,18 @@ def lookbook():
         ('Capítulo 02', 'Verde que acalma', 'Sálvia em vestidos e pantalona, para o dia inteiro.'),
         ('Capítulo 03', 'O branco que não é básico', 'Cru e areia em camadas leves, com acessórios de cerâmica.'),
     ]
+    # Texto de cada capitulo: o primeiro paragrafo do prototipo,
+    # sem as pecas (que sao dinamicas da loja), no lugar do resumo.
+    import re as _re
+    corpos = dict(secoes_do_prototipo('lookbook.html'))
     filhos = [cab_pagina(d, 'Terra & Linho', 'Três capítulos em doze peças: terracota do barro, sálvia da mata, cru do linho.', 'lookbook/cab', 'Coleção')]
     for i, (rotulo_cap, titulo, texto) in enumerate(capitulos, 1):
+        corpo = corpos.get(titulo, '')
+        m = _re.search(r'<p[^>]*>(.*?)</p>', corpo, flags=_re.S)
+        if m:
+            limpo = _re.sub(r'\s+', ' ', _re.sub(r'<[^>]+>', '', m.group(1))).strip()
+            if len(limpo) >= 60:
+                texto = limpo
         filhos.append(d.container(titulo, {
             'content_width': 'boxed', 'flex_direction': 'row', 'flex_wrap': 'wrap',
             'flex_gap': lacuna(32, 32), 'padding': dimensoes(40, 0, 40, 0),
@@ -2012,7 +2248,7 @@ def trocas():
             ('Peça com defeito de fabricação', 'Se a peça chegar com defeito, fale com o atendimento com fotos do problema. Defeito de fabricação tem o tratamento previsto no CDC.'),
             ('Como solicitar', 'Pela Minha conta ou pelo atendimento, informando o número do pedido. Você recebe as instruções e o código de postagem.'),
             ('Reembolso', 'Depois que a peça chega e é conferida, o reembolso segue a forma de pagamento original, nos prazos do gateway.'),
-        ], 'trocas', aviso='Rascunho para revisão: confirmar as regras marcadas antes de publicar.')
+        ], 'trocas', arquivo='trocas.html', aviso='Rascunho para revisão: confirmar as regras marcadas antes de publicar.')
 
 
 def envio():
@@ -2023,7 +2259,7 @@ def envio():
             ('Frete grátis acima de R$ 299', 'Pedidos a partir de R$ 299 têm frete grátis no PAC para todo o Brasil.'),
             ('Como acompanhar o pedido', 'Assim que a peça é postada, o código de rastreio vai para o seu e-mail e fica na Minha conta.'),
             ('Se algo der errado', 'Se o pedido atrasar, voltar ou chegar danificado, fale com o atendimento com o número do pedido que a gente resolve com a transportadora.'),
-        ], 'envio')
+        ], 'envio', arquivo='envio.html')
 
 
 def privacidade():
@@ -2033,7 +2269,7 @@ def privacidade():
             '1. Quem é o controlador dos seus dados', '2. Quais dados coletamos', '3. Com quem compartilhamos',
             '4. Transferência internacional', '5. Por quanto tempo guardamos', '6. Seus direitos como titular',
             '7. Segurança', '8. Encarregado e contato')],
-        'privacidade', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão. Os dados da empresa entram como [PREENCHER].')
+        'privacidade', arquivo='privacidade.html', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão. Os dados da empresa entram como [PREENCHER].')
 
 
 def termos():
@@ -2042,7 +2278,7 @@ def termos():
         [(t, '[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão jurídica; o texto final entra aqui antes de publicar.') for t in (
             '1. Aceitação', '2. Identificação da empresa', '3. Uso do site', '4. Cadastro e conta',
             '5. Produtos, preços e disponibilidade', '6. Pagamento', '7. Entrega', '8. Trocas e devoluções')],
-        'termos', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão.')
+        'termos', arquivo='termos.html', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão.')
 
 
 def cookies():
@@ -2051,7 +2287,7 @@ def cookies():
         [(t, '[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão; o banner de cookies da LGPD é configurado no go-live e precisa apontar para esta página.') for t in (
             '1. O que são cookies', '2. Categorias de cookies', '3. Cookies de terceiros',
             '4. Como controlar os cookies', '5. Alterações nesta política', '6. Dúvidas')],
-        'cookies', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão. O banner de consentimento é item de aceitação do go-live.')
+        'cookies', arquivo='cookies.html', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão. O banner de consentimento é item de aceitação do go-live.')
 
 
 # --------------------------------------------------------------------------
@@ -2109,7 +2345,73 @@ def _achata(el):
     return el
 
 
+FONTES_VALORES = {}
+for _lista in (FONTES_SISTEMA, FONTES_CUSTOM):
+    for _f in _lista:
+        FONTES_VALORES[_f[0]] = _f[2:]
+
+
+def _tipo_com_prefixo(prefixo, apelido):
+    familia, peso, tamanho, entrelinha, espacamento, caixa = FONTES_VALORES[apelido]
+    base = tipografia(familia, peso, tamanho, entrelinha, espacamento, caixa)
+    if prefixo == 'typography':
+        return base
+    return {chave.replace('typography_', prefixo + '_', 1): valor
+            for chave, valor in base.items()}
+
+
+def _embutir_tipografia(el):
+    globais = el['settings'].get('__globals__', {})
+    for controle, referencia in list(globais.items()):
+        if 'typography' not in controle or not isinstance(referencia, str):
+            continue
+        apelido = referencia.split('id=')[-1]
+        if apelido in FONTES_VALORES:
+            prefixo = controle
+            if el['widgetType'] == 'icon-list' and controle == 'typography':
+                prefixo = 'icon_typography'
+            if el['widgetType'] in ('icon-box', 'image-box'):
+                prefixo = {'typography_title': 'title_typography',
+                           'typography_description': 'description_typography'}.get(controle, controle)
+            el['settings'].update(_tipo_com_prefixo(prefixo, apelido))
+            del globais[controle]
+
+
+def _responsivo(el):
+    """Passada responsiva (pente-fino de 2026-10-20).
+
+    O prototipo tem 74 blocos @media e os JSON tinham zero ajuste:
+    no celular mandava o padrao do Elementor. A passada declara o
+    basico em todo documento: titulo grande encolhe no celular e
+    coluna de linha larga vira largura cheia no celular, com a linha
+    quebrando (o desenho especifico de cabecalho/rodape esta no CSS).
+    """
+    st = el.get('settings', {})
+    for chave in list(st):
+        if chave.endswith('_font_size') and isinstance(st[chave], dict):
+            tamanho = st[chave].get('size')
+            if isinstance(tamanho, (int, float)) and tamanho >= 26:
+                prefixo = chave[:-len('_font_size')]
+                st[prefixo + '_font_size_mobile'] = {
+                    'unit': st[chave].get('unit', 'px'),
+                    'size': round(tamanho * 0.7), 'sizes': []}
+    if el.get('elType') == 'container' and st.get('flex_direction') == 'row':
+        filhos = el.get('elements', [])
+        bases = [(f.get('settings', {}) or {}).get('_flex_basis', {})
+                 for f in filhos]
+        if any(b.get('unit') == '%' and (b.get('size') or 0) >= 21
+               for b in bases):
+            st['flex_wrap_mobile'] = 'wrap'
+            for filho, base in zip(filhos, bases):
+                if base.get('unit') == '%' and (base.get('size') or 0) >= 21:
+                    filho['settings']['_flex_basis_mobile'] = {
+                        'unit': '%', 'size': 100, 'sizes': []}
+
+
 def _ajusta_widget(el):
+    _responsivo(el)
+    if el['elType'] == 'widget':
+        _embutir_tipografia(el)
     if el['elType'] == 'container':
         st = el['settings']
         if st.get('flex_direction') == 'row' and st.get('flex_wrap') == 'wrap':
@@ -2242,6 +2544,10 @@ def main():
     total = 0
     for nome, fabrica in FABRICAS:
         doc = fabrica()
+        # CSS geral dentro de cada template (v0.3.23, pedido da
+        # cliente): importar qualquer JSON ja leva os estilos dos
+        # estados, dos selos e do WooCommerce, sem depender do kit.
+        doc.page_settings = {'custom_css': _css_geral()}
         achata_documento(doc)
         dados = doc.dados()
         if args.lista:
