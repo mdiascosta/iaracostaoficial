@@ -1,5 +1,22 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-21] - Segunda tentativa dos produtos: imagem e visibilidade (v0.3.27)
+
+### O erro
+Sem a coluna ID, os pais avançaram e bateram em dois pontos: a
+imagem só com nome de arquivo ("Não é possível usar a imagem") e a
+visibilidade vazia das variações ("Opção de visibilidade do
+catálogo inválida").
+
+### A correção
+Visibilidade `visible` nas 56 variações e coluna de imagem fora da
+importação: foto se anexa na Mídia, produto a produto, que é também
+onde a foto real vai entrar de qualquer jeito.
+
+### Lição de processo
+Arquivo novo devia ter sido validado com UM produto antes do lote
+de 68. Fica a regra: amostra primeiro, lote depois.
+
 ## [2026-10-21] - Importação de produtos falhou inteira; causa achada no registro (v0.3.26)
 
 ### O erro

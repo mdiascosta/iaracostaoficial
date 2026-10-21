@@ -61,6 +61,24 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.27 · 2026-10-21 · Produtos: imagem fora do CSV e visibilidade nas variações
+
+**Segunda tentativa dela:** os produtos pai passaram da etapa de
+atualização e falharam em dois pontos novos, registrados por ela.
+
+- **Imagem**: o CSV trazia só o nome do arquivo; sem endereço
+  completo o importador recusa o produto. Coluna `Images` esvaziada:
+  a foto entra pela biblioteca de mídia, produto a produto (12);
+- **Visibilidade**: as 56 variações estavam com `Visibility in
+  catalog` vazio, que o importador reprova; agora `visible`;
+- **Aprendizado**: importar em lotes pequenos teria mostrado isso na
+  primeira peça. Daqui em diante, arquivo novo se valida por uma
+  amostra antes do lote inteiro.
+
+**Verificado aqui:** CSV corrigido e conferências verdes.
+**Verificado no site dela:** os dois erros, pelo registro enviado.
+**Não verificado:** a terceira importação (aguardando ela).
+
 ### v0.3.26 · 2026-10-21 · Produtos: CSV sem a coluna que quebrava a importação
 
 **Erro real dela:** a importação falhou nas 68 linhas. O registro dela

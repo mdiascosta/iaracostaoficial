@@ -21,7 +21,7 @@ revisão.
 | Publicado | `0` em todas as linhas: importa como **rascunho** |
 | Estoque | `In stock? = 1` e quantidade vazia: a gestão de estoque por variação é ligada com as quantidades reais no cadastro |
 | Peso e dimensões | **vazios de propósito**: são `[PREENCHER]` com peso (kg) e medidas (cm) reais, que o frete usa |
-| Imagem | só o nome do arquivo do protótipo: trocar pelo endereço da imagem real na biblioteca de mídia |
+| Imagem | **fora do CSV** (segunda tentativa, 2026-10-21: só o nome do arquivo fez o importador recusar o produto; anexar pela biblioteca de mídia, produto a produto) |
 | Destaques | os 4 produtos da seção Em destaque da home marcados como `Is featured? = 1` |
 
 ### Como importar
@@ -35,7 +35,7 @@ revisão.
    Parent, SKU nem os atributos.
 3. Importar e conferir: 12 produtos em rascunho, cada variável com as suas
    variações. Conferir também se os atributos Cor e Tamanho nasceram globais.
-4. Antes de publicar qualquer um: trocar descrição, foto, peso, dimensões e
+4. Anexar a foto de cada produto pela biblioteca de mídia (ou colar o endereço completo da imagem numa coluna Images e reimportar marcando atualizar). Antes de publicar qualquer um: trocar descrição, foto, peso, dimensões e
    estoque pelos reais. Sandália com tamanho "Único" é dado do protótipo:
    conferir a numeração real de calçados antes.
 
