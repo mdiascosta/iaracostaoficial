@@ -13,7 +13,7 @@ antes de qualquer coisa ir para o WordPress. Ele fica congelado em
 O **Bloco B esta completo na versao 0.2.5**: os 24 templates do
 Elementor em `bloco-b/`, com as cores e as fontes globais do site.
 
-O **Bloco C esta completo na versao 0.3.27**: comeca pelos arquivos que
+O **Bloco C esta completo na versao 0.3.28**: comeca pelos arquivos que
 alimentam a loja e o diario (`bloco-c/produtos.csv` e `bloco-c/posts.csv`),
 o conteudo das paginas em `bloco-c/pages-conteudo.md`, os oito guias da
 equipe em `bloco-c/guias/` e o kit completo em `bloco-c/iara-costa-kit.zip`.

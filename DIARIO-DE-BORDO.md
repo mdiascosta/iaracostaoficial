@@ -1,5 +1,17 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-21] - Produtos importaram; foto automática via CSV de vínculo (v0.3.28)
+
+Confirmação dela: os 12 produtos entraram. A pergunta seguinte era
+se a foto precisava ser produto a produto. Não precisa: conferi no
+código do WooCommerce que o importador aceita só o nome do arquivo e
+busca o anexo na Biblioteca de Mídia. A primeira tentativa falhou
+porque as imagens ainda não tinham sido enviadas.
+
+Entregue o `produtos-imagens.csv` (12 SKUs + nome da foto) para
+reimportar marcando "Atualizar produtos existentes": aqui, ao
+contrário do lote novo, atualizar é o objetivo.
+
 ## [2026-10-21] - Segunda tentativa dos produtos: imagem e visibilidade (v0.3.27)
 
 ### O erro

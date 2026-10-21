@@ -61,6 +61,21 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.28 · 2026-10-21 · Fotos automáticas: CSV de vínculo por SKU
+
+**Produtos importaram** (confirmado por ela). Para as fotos, confirmado
+no código do WooCommerce (`get_attachment_id_from_url`): com só o nome
+do arquivo, o importador procura a imagem na Biblioteca de Mídia e
+liga ao produto; a falha original era as fotos ainda não estarem lá.
+
+- Novo `bloco-c/produtos-imagens.csv`: 12 linhas (SKU + Images), para
+  importar **marcando** "Atualizar produtos existentes" depois de
+  subir as 39 imagens em Mídia > Adicionar nova;
+- Guia atualizado com o caminho automático e o manual.
+
+**Verificado aqui:** conferências verdes. **Verificado no site dela:**
+a importação dos produtos. **Não verificado:** o vínculo das fotos.
+
 ### v0.3.27 · 2026-10-21 · Produtos: imagem fora do CSV e visibilidade nas variações
 
 **Segunda tentativa dela:** os produtos pai passaram da etapa de
