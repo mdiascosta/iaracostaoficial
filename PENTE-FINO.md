@@ -6,7 +6,7 @@
 
 **Não o CSS do protótipo como ele é, e nem poderia.** O protótipo tem
 897 regras em 4 arquivos (style, header, comercio, pages). O Elementor
-recebe **42 regras reescritas** no `iara-cabecalho.css` (embutido nos
+recebe **52 regras reescritas** no `iara-cabecalho.css` (embutido nos
 24 JSON e no kit), mais as cores/fontes globais e os estilos declarados
 widget a widget. As classes do protótipo (`.btn`, `.product-card`,
 `.hero`...) **não existem na marcação que o Elementor gera**, então
@@ -14,51 +14,30 @@ colar o CSS cru do HTML não acertaria elemento nenhum: o equivalente
 precisa ser construído por widget, e foi assim que o desenho foi
 transportado.
 
-**O que falta de verdade dessa equivalência:**
+### 2. O que foi corrigido depois deste pente-fino (v0.3.24)
 
-- **Responsivo**: o protótipo tem 74 blocos `@media`; o CSS do
-  Elementor tem **0**, e os JSON têm **0 ajustes _tablet/_mobile**.
-  No celular, quem manda é o comportamento padrão do Elementor
-  (empilhar, quebrar linha), não o desenho aprovado do protótipo.
-  É a maior diferença estrutural que este pente-fino encontrou.
-- **Estados**: protótipo tem 53 regras `:hover` e 11 de foco; o CSS
-  do Elementor tem 12 de hover. O restante dos estados vem dos
-  controles dos próprios widgets (menu, botões, listas), que o
-  Elementor transforma em CSS dele.
-- A classe `iara-barra` é usada sem regra no CSS (o estilo da barra
-  vem das configurações do container): inofensivo, registrado.
-
-### 2. Conteúdo: as páginas estão resumidas nos JSON
-
-Cabeçalho e rodapé estão praticamente completos (fala 3 e 1 frases,
-de acessibilidade). Nas páginas, o JSON guarda a **estrutura com
-textos curtos**, não o texto integral do protótipo. Medido em
-caracteres de texto (protótipo x JSON): inicial 31%, sobre 16%,
-contato 7%, perguntas 8%, guia de medidas 10%, trocas 12%, envio 7%,
-privacidade 11%, termos 11%, cookies 15%, coleção 10%. O texto
-completo existe e está em `bloco-c/pages-conteudo.md` (foi o desenho
-do Bloco C: template dá a forma, o conteúdo entra pela página), mas
-quem importa o template esperando a página "já pronta" recebe o
-resumo. Nas páginas legais, o protótipo tem o documento completo e o
-JSON tem a síntese.
+- **Responsivo**: entraram 42 declarações `_mobile` geradas (colunas
+  largas viram largura cheia no celular, títulos grandes encolhem) e
+  3 blocos `@media` no CSS embutido (faixa de segurança 2 colunas no
+  tablet e 1 no celular, logotipos menores, toques ajustados). Antes:
+  zero dos dois lados. O desenho fino de loja/produto no celular
+  continua sendo o do WooCommerce/Elementor e pede conferência visual.
+- **Textos completos**: guia de medidas, trocas, envio e as três
+  legais agora carregam o **texto integral do protótipo** (extraído
+  do HTML aprovado durante a geração, com os links já convertidos
+  para os endereços do site), e o FAQ virou as **20 perguntas reais
+  em sanfonas por grupo** (antes eram 5 resumos de uma linha). As
+  legais seguem com o aviso de rascunho para o jurídico.
+  Os textos "fora" caíram de 956 para 536; o que resta é dinâmico
+  (produtos, pedidos, posts) e as páginas escritas à mão no gerador
+  (inicial, sobre, contato, coleção), cujo texto integral segue em
+  `bloco-c/pages-conteudo.md`.
 
 ### 3. O que é dinâmico (não é falta)
 
 Loja, produto, sacola, checkout, conta, desejos, busca, diário e
-artigo mostram textos e imagens que nascem do WooCommerce e dos posts
-(produtos, preços, pedidos, resultados): por isso aparecem como
-"faltando" na comparação e com 0 imagens no JSON. A inicial tem 11
-das 18 imagens; o restante são os produtos dinâmicos.
-
-### 4. Resumo por severidade
-
-| Severidade | Diferença |
-|---|---|
-| Alta | Sem desenho responsivo próprio (0 @media, 0 ajustes tablet/celular) |
-| Alta | Textos das páginas resumidos nos JSON (completo está no `pages-conteudo.md`) |
-| Média | Legais resumidas (~11% do documento do protótipo) |
-| Baixa | Estados hover/foco restantes dependem dos widgets (já configurados) |
-| Baixa | Frases de acessibilidade do cabeçalho (pular para o conteúdo) sem equivalente |
+artigo mostram textos e imagens que nascem do WooCommerce e dos posts:
+por isso aparecem como "faltando" e com 0 imagens no JSON.
 
 ---
 
@@ -409,48 +388,27 @@ Comparação automática dos 24 JSON do Elementor com as páginas HTML do protó
 
 ## 17-faq.json  x  seu-projeto/faq.html
 
-- Widgets: accordion (1), button (1), heading (2), text-editor (3)
+- Widgets: accordion (6), button (1), heading (8), text-editor (2)
 
-- Textos do protótipo não encontrados no JSON: **61**
-  - “a gente fotografa com luz natural para chegar o mais perto possivel ainda assim a tela do seu celular ou compu”
-  - “a peca nao serviu posso trocar”
-  - “a peca que eu quero esta esgotada voces avisam quando voltar”
-  - “a postagem sai em ate 2 dias uteis depois da confirmacao do pagamento pecas sob encomenda levam de 5 a 7 dias ”
-  - “a segunda troca em diante e a troca por outro modelo seguem a politica da pagina de”
-  - “as cores das fotos sao fieis”
-  - “as duvidas que mais chegam no atendimento respondidas de forma direta se a sua nao estiver aqui fale com a gen”
-  - “cada produto traz a etiqueta de composicao e as instrucoes de lavagem na aba informacoes adicionais a regra ge”
-  - “com parcela minima de r 50 00 o boleto vence em 2 dias uteis e o pedido e liberado depois da compensacao o pro”
-  - “como acompanho o meu pedido”
-  - “como cuidar das pecas”
-  - “como escolho o tamanho sem provar”
-  - “como uso o cupom de primeira compra”
-  - “como voces tratam os meus dados”
-  - … e mais 47
-- Textos do JSON que não estão no protótipo: 9 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+- Textos do protótipo não encontrados no JSON: **5**
+  - “frete calculado pelo cep no carrinho impostos incluidos no preco”
+  - “lista de desejos 0”
+  - “manda a pergunta para o atendimento se ela aparecer muito entra aqui nesta pagina”
+  - “prototipo dados e textos de exemplo nao publicar”
+  - “pular para o conteudo”
+- Textos do JSON que não estão no protótipo: 20 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 0 | JSON 0
 
 ## 18-guia-medidas.json  x  seu-projeto/guia-medidas.html
 
-- Widgets: heading (4), text-editor (5)
+- Widgets: heading (10), text-editor (11)
 
-- Textos do protótipo não encontrados no JSON: **39**
-  - “a fita deve encostar no tecido sem esticar nem apertar para medir voce mesma use um espelho de frente fita tor”
-  - “a tabela vale para todas as pecas da loja”
-  - “as medidas desta pagina sao de exemplo para validacao do layout a tabela definitiva vem do fornecedor de cada ”
-  - “cada produto tem a tabela na aba informacoes adicionais use a coluna do seu tamanho habitual como ponto de par”
+- Textos do protótipo não encontrados no JSON: **4**
   - “comprar sem provar da certo quando voce compara medidas e nao tamanhos o caminho mais confiavel e medir uma pe”
-  - “da costura do ombro ate o fim da manga”
-  - “de axila a axila com a peca fechada multiplique por 2”
-  - “depende do tecido tecido sem elastano e modelagem justa pedem o tamanho maior se voce prefere conforto modelag”
-  - “do ombro ate a barra pela lateral”
   - “envio para todo o brasil”
-  - “escolha uma roupa que veste bem em voce deite na cama alise e meca com fita metrica comparar peca com peca e m”
-  - “falar com o atendimento”
-  - “faltam r 299 00 para o frete gratis”
-  - “fiquei entre dois tamanhos qual escolher”
-  - … e mais 25
-- Textos do JSON que não estão no protótipo: 5 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+  - “lista de desejos 0”
+  - “pular para o conteudo”
+- Textos do JSON que não estão no protótipo: 12 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 0 | JSON 0
 
 ## 19-lookbook.json  x  seu-projeto/lookbook.html
@@ -478,123 +436,79 @@ Comparação automática dos 24 JSON do Elementor com as páginas HTML do protó
 
 ## 20-trocas.json  x  seu-projeto/trocas.html
 
-- Widgets: heading (6), text-editor (7)
+- Widgets: heading (14), text-editor (15)
 
-- Textos do protótipo não encontrados no JSON: **53**
-  - “a gente confirma a solicitacao por e mail com o passo a passo do envio de volta e o codigo de postagem quando ”
-  - “a peca precisa estar sem uso sem lavagem sem perfume e com a etiqueta original presa”
-  - “a troca e pelo mesmo modelo em outro tamanho conforme o estoque se nao houver o tamanho e a compra for devolvi”
-  - “acompanhe a conclusao”
-  - “alem do prazo legal a iara costa oferece troca por tamanho ou por outra peca do catalogo em ate”
-  - “assim que a peca chega e e conferida a troca e enviada ou o reembolso e processado voce recebe aviso por e mai”
-  - “brincos e itens de uso intimo por questao de higiene”
-  - “coloque a peca na embalagem original com a etiqueta presa guarde o comprovante de postagem ele e a garantia do”
-  - “compras feitas pela internet tem”
-  - “conferir com o juridico a redacao final dos prazos”
-  - “confirmar com a empresa excecao valida apenas dentro das regras do cdc”
-  - “contados da entrega do pedido”
-  - “custo do envio de retorno e da iara costa”
-  - “custo do frete na primeira troca por conta da iara costa com codigo de postagem reversa dos correios o envio e”
-  - … e mais 39
-- Textos do JSON que não estão no protótipo: 7 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+- Textos do protótipo não encontrados no JSON: **7**
+  - “envio para todo o brasil”
+  - “este texto foi escrito para organizar as informacoes e precisa de revisao do juridico da empresa antes de publ”
+  - “lista de desejos 0”
+  - “prototipo dados e textos de exemplo nao publicar”
+  - “pular para o conteudo”
+  - “rascunho para revisao juridica”
+  - “se a peca nao serviu ou voce mudou de ideia tem prazo e processo definidos sem letra miuda e sem precisar just”
+- Textos do JSON que não estão no protótipo: 16 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 0 | JSON 0
 
 ## 21-envio.json  x  seu-projeto/envio.html
 
-- Widgets: heading (5), text-editor (5)
+- Widgets: heading (13), text-editor (13)
 
-- Textos do protótipo não encontrados no JSON: **57**
-  - “a caixa chegou amassada ou aberta”
-  - “acontece e a responsabilidade e nossa fale com o atendimento a gente envia a peca correta sem custo e recolhe ”
-  - “as entregas saem pelos”
-  - “ativar a conta dos correios no woocommerce e remover qualquer taxa fixa deixada para teste”
-  - “cadastrar a retirada no atelie no checkout segunda a sexta das 10h as 17h e ligar o e mail de pronto para reti”
-  - “cadastrar origem do envio embalagem peso e dimensoes de cada produto no cadastro do woocommerce”
-  - “cadastrar os prazos de producao 2 dias uteis de pronta entrega e 5 a 7 dias uteis sob encomenda”
-  - “calculado pelo cep em todas as regioes”
-  - “como a entrega acontece”
-  - “como funciona cada modalidade valor e prazo saem do calculo dos correios pelo seu cep”
-  - “como o frete e calculado nesta loja”
-  - “conferir no bloco b”
-  - “conferir se os prazos exibidos pelo plugin dos correios sao os mesmos desta pagina para nao haver contradicao”
-  - “configurar a regra de r 15 00 do pac so para sp rj mg e es nas faixas de cep 01000 000 a 39999 999”
-  - … e mais 43
-- Textos do JSON que não estão no protótipo: 5 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+- Textos do protótipo não encontrados no JSON: **3**
+  - “lista de desejos 0”
+  - “prototipo dados e textos de exemplo nao publicar”
+  - “pular para o conteudo”
+- Textos do JSON que não estão no protótipo: 14 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 0 | JSON 0
 
 ## 22-privacidade.json  x  seu-projeto/privacidade.html
 
-- Widgets: heading (9), text-editor (10)
+- Widgets: heading (17), text-editor (18)
 
-- Textos do protótipo não encontrados no JSON: **108**
-  - “8 cookies e tecnologias semelhantes”
-  - “9 alteracoes desta politica”
-  - “a definir conta a ativar antes do go live”
-  - “a equipe deve confirmar em que pais cada servico armazena dados a escolha de hospedar as fontes localmente ja ”
-  - “a iara costa nao coleta dados sensiveis origem racial conviccao religiosa dado de saude biometria se isso muda”
-  - “a loja nao e direcionada a menores de 18 anos e nao coleta dados de criancas de forma intencional”
-  - “acesso administrativo restrito com senha individual e verificacao em duas etapas”
-  - “acesso aos dados que temos sobre voce”
-  - “adotamos medidas tecnicas para proteger os seus dados entre elas”
-  - “alguns servicos podem armazenar dados fora do brasil como ferramentas de e mail hospedagem ou analytics se iss”
-  - “anonimizacao bloqueio ou eliminacao de dados desnecessarios ou excessivos”
-  - “armazena o site e o banco de dados”
-  - “ate voce cancelar a inscricao”
-  - “backups periodicos com teste de restauracao”
-  - … e mais 94
-- Textos do JSON que não estão no protótipo: 4 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+- Textos do protótipo não encontrados no JSON: **7**
+  - “como a iara costa coleta usa guarda e exclui os seus dados pessoais conforme a lei geral de protecao de dados ”
+  - “este documento foi escrito para dar estrutura e cobrir os pontos obrigatorios da lgpd ele”
+  - “prototipo dados e textos de exemplo nao publicar”
+  - “pular para o conteudo”
+  - “sao dados que ainda dependem da empresa data da versao aprovada e”
+  - “sao decisoes internas”
+  - “ultima atualizacao 16 de outubro de 2026”
+- Textos do JSON que não estão no protótipo: 18 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 0 | JSON 0
 
 ## 23-termos.json  x  seu-projeto/termos.html
 
-- Widgets: heading (9), text-editor (10)
+- Widgets: heading (21), text-editor (22)
 
-- Textos do protótipo não encontrados no JSON: **87**
-  - “10 propriedade intelectual”
-  - “11 responsabilidades”
-  - “12 atendimento e solucao de conflitos”
-  - “13 legislacao e foro”
-  - “14 alteracoes destes termos”
-  - “9 cupons e promocoes”
-  - “a compra como visitante e permitida criar conta e opcional e nao altera preco nem prazo”
-  - “a conta pode ser encerrada a qualquer momento pelo cliente pelo atendimento”
-  - “a definir procedimento interno”
-  - “a definir regra de custo”
-  - “a definir se os pedidos do site tambem sao atendidos nesse horario”
-  - “a iara costa responde pela qualidade dos produtos pela entrega no prazo informado e pelo tratamento correto do”
-  - “a identificacao da empresa de forma clara e acessivel e exigencia do decreto 7 962 2013 que trata do comercio ”
-  - “a loja nao armazena numero completo de cartao nem codigo de seguranca”
-  - … e mais 73
-- Textos do JSON que não estão no protótipo: 4 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+- Textos do protótipo não encontrados no JSON: **8**
+  - “as condicoes para usar este site e comprar na iara costa escrito para ser lido nao para esconder informacao”
+  - “conferir no go live a data muda quando o juridico aprovar a versao final”
+  - “estrutura pronta para revisao do juridico da empresa nenhuma clausula aqui pode reduzir direitos garantidos pe”
+  - “lista de desejos 0”
+  - “pular para o conteudo”
+  - “sao dados que ainda dependem da empresa e”
+  - “sao decisoes internas”
+  - “ultima atualizacao 16 de outubro de 2026”
+- Textos do JSON que não estão no protótipo: 22 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 0 | JSON 0
 
 ## 24-cookies.json  x  seu-projeto/cookies.html
 
-- Widgets: heading (7), text-editor (8)
+- Widgets: heading (14), text-editor (15)
 
-- Textos do protótipo não encontrados no JSON: **55**
-  - “a definir ferramenta como google analytics 4”
-  - “a definir se havera pixel de rede social e qual”
-  - “aceite recuse ou escolha por categoria voce pode mudar a escolha depois pelo link preferencias de cookies no r”
-  - “alguns recursos do site sao fornecidos por empresas parceiras e podem gravar cookies proprios entre eles”
-  - “as fontes tipograficas estao hospedadas no proprio servidor justamente para nao enviar o seu endereco ip a ter”
-  - “bloquear os cookies necessarios impede a compra e o login porque a sacola nao consegue ser lembrada”
+- Textos do protótipo não encontrados no JSON: **6**
   - “conferir no go live a data muda quando o juridico aprovar a versao final”
-  - “conferir o rodape precisa desse link depois da instalacao do banner”
-  - “cookies de marketing”
-  - “cookies de medicao”
-  - “cookies necessarios”
-  - “cookies neste site”
-  - “cookies sao pequenos arquivos que o site guarda no seu navegador eles permitem por exemplo manter as pecas na ”
-  - “distingue pessoa de robo no contato e no checkout”
-  - … e mais 41
-- Textos do JSON que não estão no protótipo: 3 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
+  - “envio para todo o brasil”
+  - “esta politica precisa estar alinhada palavra por palavra com o que o banner de cookies realmente faz se o bann”
+  - “lista de desejos 0”
+  - “pular para o conteudo”
+  - “ultima atualizacao 16 de outubro de 2026”
+- Textos do JSON que não estão no protótipo: 15 (dinâmicos, rótulos de acessibilidade e textos de sistema costumam aparecer aqui)
 - Imagens: protótipo 0 | JSON 0
 
 ## Auditoria de CSS
 
 - CSS do protótipo: 897 regras em 4 arquivos, 74 blocos @media, 53 regras :hover, 11 de foco.
-- CSS que o Elementor recebe (`iara-cabecalho.css`, embutido nos 24 JSON e no kit): 42 regras, 0 blocos @media, 12 regras :hover.
+- CSS que o Elementor recebe (`iara-cabecalho.css`, embutido nos 24 JSON e no kit): 52 regras, 3 blocos @media, 12 regras :hover.
 - Classes `iara-*` usadas nos JSON: 16; sem nenhuma regra no CSS: 1: iara-barra
-- Ajustes responsivos declarados nos JSON (chaves _tablet/_mobile): 0
-- Total de textos do protótipo não encontrados nos JSON: 956 (detalhe por página acima; parte é texto dinâmico de loja/sistema, parte é conteúdo a conferir)
+- Ajustes responsivos declarados nos JSON (chaves _tablet/_mobile): 42
+- Total de textos do protótipo não encontrados nos JSON: 536 (detalhe por página acima; parte é texto dinâmico de loja/sistema, parte é conteúdo a conferir)

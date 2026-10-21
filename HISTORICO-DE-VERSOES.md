@@ -61,6 +61,38 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.24 · 2026-10-20 · Pente-fino executado: responsivo e textos completos
+
+**Pedido da cliente:** pente-fino em todos os JSON contra as páginas
+do protótipo, com a pergunta direta: o CSS do template HTML está
+sendo injetado no CSS do Elementor? E depois: "pode continuar a
+ajustar".
+
+**Resposta registrada (relatório em `PENTE-FINO.md`):** o CSS cru do
+protótipo não é (nem poderia ser) injetado: as classes dele não
+existem na marcação do Elementor. O que viaja é o equivalente por
+widget mais 52 regras reescritas. O pente-fino mediu 897 regras e 74
+@media do protótipo contra 42 regras e 0 @media do nosso lado, 0
+ajustes responsivos declarados e os textos das páginas resumidos
+(legais com ~11% do documento).
+
+**O que foi ajustado nesta versão**
+
+- **Responsivo**: passada automática em todos os documentos (42
+  declarações `_mobile`: coluna larga vira largura cheia no celular,
+  título grande encolhe 30%) e 3 blocos `@media` no CSS embutido.
+- **Textos integrais**: guia de medidas, trocas, envio, privacidade,
+  termos e cookies agora são gerados do texto completo do protótipo
+  (extraído do HTML aprovado, links convertidos para o endereço real
+  do site); o FAQ ganhou as 20 perguntas reais em sanfonas por grupo.
+  Os textos fora dos JSON caíram de 956 para 536 (o restante é
+  dinâmico e as páginas escritas à mão, cujo texto integral segue no
+  `pages-conteudo.md` do Bloco C).
+- As legais mantêm o aviso "RASCUNHO PARA O JURÍDICO".
+
+**Verificado aqui:** bateria local ampliada e as três conferências
+verdes. **Não verificado:** importação e o desenho no celular real.
+
 ### v0.3.23 · 2026-10-20 · CSS embutido em todos os templates; pacote com as 24 páginas
 
 **Pedido da cliente:** ajustar todos os JSON (todas as páginas) com o

@@ -1887,8 +1887,83 @@ def secao_texto(d, titulo, texto, caminho):
     ], caminho=caminho, interno=True)
 
 
-def pagina_documento(titulo_doc, intro, secoes, caminho, aviso=None):
-    """Pagina de texto longo: titulo e secoes numeradas, texto revisado."""
+def _limpa_html(trecho):
+    """Limpa o HTML de uma secao do prototipo para o text-editor."""
+    import re as _re
+    trecho = _re.sub(r'\s(class|id|style|data-[a-z-]+)="[^"]*"', '', trecho)
+    mapa = {'trocas.html': 'trocas', 'envio.html': 'envio',
+            'privacidade.html': 'privacidade', 'termos.html': 'termos',
+            'cookies.html': 'cookies', 'contato.html': 'contato',
+            'sobre.html': 'sobre', 'loja.html': 'loja',
+            'guia-medidas.html': 'guia', 'faq.html': 'faq',
+            'index.html': 'home', 'conta.html': 'conta',
+            'lookbook.html': 'colecao', 'desejos.html': 'desejos',
+            'carrinho.html': 'sacola', 'checkout.html': 'checkout',
+            'blog.html': 'blog', 'post.html': 'post',
+            'produto.html': 'loja', 'busca.html': 'busca',
+            'pedido-recebido.html': 'pedido', '404.html': 'home'}
+    for arquivo, chave in mapa.items():
+        trecho = trecho.replace(f'href="{arquivo}"',
+                                f'href="{PAGINAS[chave]}"')
+    return _re.sub(r'\s+', ' ', trecho).strip()
+
+
+def secoes_do_prototipo(arquivo):
+    """Le as secoes (h2 + conteudo) de uma pagina do prototipo.
+
+    O texto integral aprovado mora no HTML do prototipo; os JSON
+    tinham resumos (pente-fino: paginas com 7% a 16% do texto). A
+    fonte continua sendo o prototipo, sem inventar uma palavra.
+    """
+    import re as _re
+    caminho = pathlib.Path(__file__).resolve().parent.parent / 'seu-projeto' / arquivo
+    html = caminho.read_text(encoding='utf-8')
+    main = html[html.find('<main'):]
+    partes = _re.split(r'<h2[^>]*>(.*?)</h2>', main, flags=_re.S)
+    secoes = []
+    for i in range(1, len(partes) - 1, 2):
+        titulo = _re.sub(r'<[^>]+>', '', partes[i]).strip()
+        corpo = _re.split(r'<h2|</main>|<footer', partes[i + 1])[0]
+        corpo = _limpa_html(corpo)
+        if titulo and corpo:
+            secoes.append((titulo, corpo))
+    return secoes
+
+
+def perguntas_do_prototipo():
+    """Grupos e perguntas do FAQ do prototipo (h2 = grupo, h3 = pergunta)."""
+    import re as _re
+    caminho = pathlib.Path(__file__).resolve().parent.parent / 'seu-projeto' / 'faq.html'
+    html = caminho.read_text(encoding='utf-8')
+    main = html[html.find('<main'):]
+    grupos = []
+    partes = _re.split(r'<h2[^>]*>(.*?)</h2>', main, flags=_re.S)
+    for i in range(1, len(partes) - 1, 2):
+        nome = _re.sub(r'<[^>]+>', '', partes[i]).strip()
+        bloco = _re.split(r'<h2|</main>|<footer', partes[i + 1])[0]
+        perguntas = []
+        qpartes = _re.split(r'<h3[^>]*>(.*?)</h3>', bloco, flags=_re.S)
+        for j in range(1, len(qpartes) - 1, 2):
+            pergunta = _re.sub(r'<[^>]+>', '', qpartes[j]).strip()
+            resposta = _limpa_html(_re.split(r'<h3', qpartes[j + 1])[0])
+            if pergunta and resposta:
+                perguntas.append((pergunta, resposta))
+        if nome and perguntas:
+            grupos.append((nome, perguntas))
+    return grupos
+
+
+def pagina_documento(titulo_doc, intro, secoes, caminho, aviso=None,
+                     arquivo=None):
+    """Pagina de texto longo: titulo e secoes numeradas, texto revisado.
+
+    Com `arquivo`, as secoes vem do prototipo aprovado (texto integral);
+    a lista passada vira reserva, para o caso de a leitura falhar.
+    """
+    if arquivo:
+        extraidas = secoes_do_prototipo(arquivo)
+        if extraidas:
+            secoes = extraidas
     d = Documento(titulo_doc, 'page')
     filhos = [cab_pagina(d, titulo_doc, intro, caminho + '/cab')]
     if aviso:
@@ -2066,32 +2141,40 @@ def contato():
 
 
 def faq_pagina():
-    """17. Perguntas frequentes completas."""
-    grupos = [
-        ('Pedidos e pagamento', 'Compra como visitante, Pix com 5% de desconto, cartão em até 6x sem juros e boleto pelo Mercado Pago.'),
-        ('Entrega e frete', 'Envio para todo o Brasil pelos Correios, frete grátis acima de R$ 299 e código de rastreio por e-mail.'),
-        ('Trocas e devoluções', '7 dias para desistir (CDC, Art. 49) e 30 dias para trocar de tamanho, com a primeira troca por nossa conta.'),
-        ('Produtos e tamanhos', 'Cada peça traz a própria tabela de medidas; o Guia de Medidas ensina a medir uma peça sua e comparar.'),
-        ('Atendimento e privacidade', 'Atendimento de segunda a sexta, das 9h às 18h. Seus dados seguem a Política de Privacidade.'),
-    ]
+    """17. Perguntas frequentes completas, grupo a grupo.
+
+    As perguntas e respostas vem do prototipo aprovado (antes eram 5
+    resumos de uma linha). Cada grupo vira um rotulo com a sua sanfona.
+    """
+    grupos = perguntas_do_prototipo()
     d = Documento('Perguntas frequentes', 'page')
+    filhos = [cab_pagina(d, 'Perguntas frequentes',
+                         'As dúvidas que mais chegam no ateliê, organizadas por assunto.',
+                         'faq/cab')]
+    for gi, (grupo, perguntas) in enumerate(grupos, 1):
+        filhos.append(d.container(grupo, {
+            'content_width': 'boxed', 'flex_direction': 'column',
+            'flex_gap': lacuna(12, 12), 'padding': dimensoes(24, 0, 8, 0),
+        }, [
+            titulo_secao(d, grupo, f'faq-pagina/g{gi}/titulo'),
+            d.widget('accordion', juntar_globais({
+                '_title': 'Perguntas: ' + grupo,
+                'tabs': [
+                    d.item({'tab_title': pergunta, 'tab_content': resposta},
+                           f'faq-pagina/g{gi}/item-{pi}')
+                    for pi, (pergunta, resposta) in enumerate(perguntas, 1)
+                ]}, {'text_color': cor('iara-texto-suave'),
+                     'typography': fonte('text')}),
+                caminho=f'faq-pagina/g{gi}/sanfona'),
+        ], caminho=f'faq-pagina/g{gi}', interno=True))
+    filhos.append(faixa_ajuda(d, 'Não encontrou a sua dúvida?',
+                              'Fale com o ateliê e a gente responde em dias úteis.',
+                              'Falar com o ateliê', PAGINAS['contato'],
+                              'faq-pagina/ajuda'))
     raiz = d.container('Perguntas frequentes', {
         'content_width': 'full', 'flex_direction': 'column',
         'flex_gap': lacuna(0, 0), 'padding': dimensoes(0, 0, 0, 0),
-    }, [
-        cab_pagina(d, 'Perguntas frequentes', 'As dúvidas que mais chegam no ateliê, organizadas por assunto.', 'faq/cab'),
-        d.container('Grupos de perguntas', {
-            'content_width': 'boxed', 'flex_direction': 'column',
-            'flex_gap': lacuna(12, 12), 'padding': dimensoes(24, 0, 40, 0),
-        }, [
-            d.widget('accordion', juntar_globais({'_title': 'Perguntas por assunto', 'tabs': [
-                d.item({'tab_title': titulo, 'tab_content': '<p>' + texto + '</p>'}, 'faq-pagina/item-' + str(i))
-                for i, (titulo, texto) in enumerate(grupos, 1)
-            ]}, {'text_color': cor('iara-texto-suave'), 'typography': fonte('text')}), caminho='faq-pagina/sanfona'),
-            paragrafo(d, 'As perguntas e respostas completas, iguais às do protótipo aprovado, entram aba por aba no editor a partir do texto final aprovado. Não inventar prazo, garantia ou política nova aqui.', 'faq-pagina/nota', 'iara-texto-micro'),
-        ], caminho='faq-pagina/miolo', interno=True),
-        faixa_ajuda(d, 'Não encontrou a sua dúvida?', 'Fale com o ateliê e a gente responde em dias úteis.', 'Falar com o ateliê', PAGINAS['contato'], 'faq-pagina/ajuda'),
-    ], caminho='raiz')
+    }, filhos, caminho='raiz')
     d.content = [raiz]
     return d
 
@@ -2104,7 +2187,7 @@ def guia_medidas():
             ('Como medir em casa', 'Estique a peça sobre a mesa, sem puxar. Meça busto, cintura, quadril e comprimento com a fita sem apertar, e anote em centímetros.'),
             ('Tabela de medidas', '[PREENCHER] A tabela geral entra com as medidas reais da modelagem da marca. Cada página de produto traz a tabela daquela peça, que é a que vale na hora de escolher.'),
             ('Dúvidas comuns sobre tamanho', 'Na dúvida entre dois tamanhos, compare as medidas com a peça medida em casa. Se ainda assim ficar em dúvida, fale com o atendimento antes de fechar: a troca de tamanho em 30 dias existe, mas acertar de primeira é melhor.'),
-        ], 'guia-medidas',
+        ], 'guia-medidas', arquivo='guia-medidas.html',
         aviso='A tabela desta página depende das medidas reais da modelagem [PREENCHER]: não publicar com valores de exemplo.')
 
 
@@ -2148,7 +2231,7 @@ def trocas():
             ('Peça com defeito de fabricação', 'Se a peça chegar com defeito, fale com o atendimento com fotos do problema. Defeito de fabricação tem o tratamento previsto no CDC.'),
             ('Como solicitar', 'Pela Minha conta ou pelo atendimento, informando o número do pedido. Você recebe as instruções e o código de postagem.'),
             ('Reembolso', 'Depois que a peça chega e é conferida, o reembolso segue a forma de pagamento original, nos prazos do gateway.'),
-        ], 'trocas', aviso='Rascunho para revisão: confirmar as regras marcadas antes de publicar.')
+        ], 'trocas', arquivo='trocas.html', aviso='Rascunho para revisão: confirmar as regras marcadas antes de publicar.')
 
 
 def envio():
@@ -2159,7 +2242,7 @@ def envio():
             ('Frete grátis acima de R$ 299', 'Pedidos a partir de R$ 299 têm frete grátis no PAC para todo o Brasil.'),
             ('Como acompanhar o pedido', 'Assim que a peça é postada, o código de rastreio vai para o seu e-mail e fica na Minha conta.'),
             ('Se algo der errado', 'Se o pedido atrasar, voltar ou chegar danificado, fale com o atendimento com o número do pedido que a gente resolve com a transportadora.'),
-        ], 'envio')
+        ], 'envio', arquivo='envio.html')
 
 
 def privacidade():
@@ -2169,7 +2252,7 @@ def privacidade():
             '1. Quem é o controlador dos seus dados', '2. Quais dados coletamos', '3. Com quem compartilhamos',
             '4. Transferência internacional', '5. Por quanto tempo guardamos', '6. Seus direitos como titular',
             '7. Segurança', '8. Encarregado e contato')],
-        'privacidade', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão. Os dados da empresa entram como [PREENCHER].')
+        'privacidade', arquivo='privacidade.html', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão. Os dados da empresa entram como [PREENCHER].')
 
 
 def termos():
@@ -2178,7 +2261,7 @@ def termos():
         [(t, '[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão jurídica; o texto final entra aqui antes de publicar.') for t in (
             '1. Aceitação', '2. Identificação da empresa', '3. Uso do site', '4. Cadastro e conta',
             '5. Produtos, preços e disponibilidade', '6. Pagamento', '7. Entrega', '8. Trocas e devoluções')],
-        'termos', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão.')
+        'termos', arquivo='termos.html', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão.')
 
 
 def cookies():
@@ -2187,7 +2270,7 @@ def cookies():
         [(t, '[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão; o banner de cookies da LGPD é configurado no go-live e precisa apontar para esta página.') for t in (
             '1. O que são cookies', '2. Categorias de cookies', '3. Cookies de terceiros',
             '4. Como controlar os cookies', '5. Alterações nesta política', '6. Dúvidas')],
-        'cookies', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão. O banner de consentimento é item de aceitação do go-live.')
+        'cookies', arquivo='cookies.html', aviso='RASCUNHO PARA O JURÍDICO: não publicar sem revisão. O banner de consentimento é item de aceitação do go-live.')
 
 
 # --------------------------------------------------------------------------
@@ -2277,7 +2360,39 @@ def _embutir_tipografia(el):
             del globais[controle]
 
 
+def _responsivo(el):
+    """Passada responsiva (pente-fino de 2026-10-20).
+
+    O prototipo tem 74 blocos @media e os JSON tinham zero ajuste:
+    no celular mandava o padrao do Elementor. A passada declara o
+    basico em todo documento: titulo grande encolhe no celular e
+    coluna de linha larga vira largura cheia no celular, com a linha
+    quebrando (o desenho especifico de cabecalho/rodape esta no CSS).
+    """
+    st = el.get('settings', {})
+    for chave in list(st):
+        if chave.endswith('_font_size') and isinstance(st[chave], dict):
+            tamanho = st[chave].get('size')
+            if isinstance(tamanho, (int, float)) and tamanho >= 26:
+                prefixo = chave[:-len('_font_size')]
+                st[prefixo + '_font_size_mobile'] = {
+                    'unit': st[chave].get('unit', 'px'),
+                    'size': round(tamanho * 0.7), 'sizes': []}
+    if el.get('elType') == 'container' and st.get('flex_direction') == 'row':
+        filhos = el.get('elements', [])
+        bases = [(f.get('settings', {}) or {}).get('_flex_basis', {})
+                 for f in filhos]
+        if any(b.get('unit') == '%' and (b.get('size') or 0) >= 21
+               for b in bases):
+            st['flex_wrap_mobile'] = 'wrap'
+            for filho, base in zip(filhos, bases):
+                if base.get('unit') == '%' and (base.get('size') or 0) >= 21:
+                    filho['settings']['_flex_basis_mobile'] = {
+                        'unit': '%', 'size': 100, 'sizes': []}
+
+
 def _ajusta_widget(el):
+    _responsivo(el)
     if el['elType'] == 'widget':
         _embutir_tipografia(el)
     if el['elType'] == 'container':

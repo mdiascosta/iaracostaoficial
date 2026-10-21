@@ -221,3 +221,27 @@
   top: 0;
   z-index: 999;
 }
+
+/* ---------------------------------------------------------------
+   Responsivo (pente-fino de 2026-10-20): o prototipo tem 74 blocos
+   @media e o Elementor tinha zero. Aqui entram os ajustes das pecas
+   nomeadas (cabecalho e rodape); o empilhamento das colunas vem das
+   declaracoes _mobile geradas em cada template.
+   --------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .iara-seg-faixa > * { flex: 1 1 46%; }
+  .iara-seg-faixa > * + * { border-left: 0; padding-left: 0; }
+}
+
+@media (max-width: 767px) {
+  .iara-marca-logo img { width: 150px; }
+  .iara-marca-logo-rodape img { width: 140px; }
+  .iara-faixa-lista .elementor-icon-list-item {
+    font-size: 11px; letter-spacing: 0.1em;
+  }
+  .iara-seg-faixa > * { flex-basis: 100%; }
+  .iara-acoes .elementor-icon,
+  .iara-sacola .elementor-menu-cart__toggle .elementor-button,
+  .iara-desejos .wishlist_products_counter { padding: 10px; }
+  .iara-whats-float .elementor-button { padding: 10px 12px; }
+}

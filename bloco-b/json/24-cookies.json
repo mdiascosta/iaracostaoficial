@@ -223,7 +223,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão; o banner de cookies da LGPD é configurado no go-live e precisa apontar para esta página.</p>",
+                "editor": "<p><p> Cookies são pequenos arquivos que o site guarda no seu navegador. Eles permitem, por exemplo, manter as peças na sacola enquanto você navega, lembrar que você fez login e entender quais páginas são mais úteis. </p> <p> Usamos também tecnologias semelhantes, como armazenamento local do navegador, que funcionam de modo parecido para as finalidades descritas aqui. </p> </section> <section></p>",
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave"
                 },
@@ -312,7 +312,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão; o banner de cookies da LGPD é configurado no go-live e precisa apontar para esta página.</p>",
+                "editor": "<p><h3>Cookies necessários</h3> <p> Sem eles a loja não funciona. Guardam os itens da sacola, mantêm a sua sessão e protegem o formulário de contato contra envio automatizado. Como são essenciais, não podem ser desativados pelo banner: se você bloquear no navegador, a compra não funciona. </p> <div> <table> <caption>Exemplos. Os nomes reais dependem dos plugins instalados.</caption> <thead> <tr> <th scope=\"col\">Cookie</th> <th scope=\"col\">Para que serve</th> <th scope=\"col\">Duração</th> </tr> </thead> <tbody> <tr> <th scope=\"row\">Sessão da sacola</th> <td>Mantém os itens da sacola e identifica o seu carrinho.</td> <td>Até 2 dias</td> </tr> <tr> <th scope=\"row\">Sessão de login</th> <td>Mantém você conectado na sua conta.</td> <td>Enquanto a sessão durar</td> </tr> <tr> <th scope=\"row\">Segurança do formulário</th> <td>Distingue pessoa de robô no contato e no checkout.</td> <td>Algumas horas</td> </tr> <tr> <th scope=\"row\">Preferência de cookies</th> <td>Registra a escolha que você fez no banner, para não perguntar de novo.</td> <td>Até 12 meses</td> </tr> </tbody> </table> </div> <h3>Cookies de medição</h3> <p> Servem para entender quantas pessoas visitam o site, quais páginas são mais vistas e onde o fluxo de compra trava. Só são ativados com o seu consentimento, e usamos os dados de forma agregada. <span>[A DEFINIR: ferramenta, como Google Analytics 4]</span> </p> <h3>Cookies de marketing</h3> <p> Servem para mostrar anúncios relevantes em outras plataformas e medir o resultado de campanhas. Também dependem do seu consentimento. <span>[A DEFINIR: se haverá pixel de rede social e qual]</span> </p> <p> <strong>Regra do projeto:</strong> scripts de medição e marketing não devem carregar antes do consentimento. Isso vale para o site em produção e precisa ser testado depois de instalar o banner. </p> </section> <section></p>",
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave"
                 },
@@ -401,7 +401,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão; o banner de cookies da LGPD é configurado no go-live e precisa apontar para esta página.</p>",
+                "editor": "<p><p> Alguns recursos do site são fornecidos por empresas parceiras e podem gravar cookies próprios, entre eles: </p> <ul> <li>Gateway de pagamento, durante o checkout: Mercado Pago.</li> <li>Ferramenta de medição de audiência. <span>[A DEFINIR]</span></li> <li>Serviço de proteção contra robôs no formulário e no checkout. <span>[A DEFINIR]</span></li> <li>Recursos de redes sociais, quando você usa botões de compartilhar.</li> </ul> <p> As fontes tipográficas estão hospedadas no próprio servidor justamente para não enviar o seu endereço IP a terceiros sem necessidade. </p> </section> <section></p>",
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave"
                 },
@@ -490,7 +490,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão; o banner de cookies da LGPD é configurado no go-live e precisa apontar para esta página.</p>",
+                "editor": "<p><ul> <li> <strong>No banner do site:</strong> aceite, recuse ou escolha por categoria. Você pode mudar a escolha depois, pelo link \"Preferências de cookies\" no rodapé. <span>[CONFERIR: o rodapé precisa desse link depois da instalação do banner]</span> </li> <li> <strong>No navegador:</strong> é possível bloquear ou apagar cookies nas configurações. Cada navegador tem um caminho diferente, na seção de privacidade. </li> <li> <strong>Atenção:</strong> bloquear os cookies necessários impede a compra e o login, porque a sacola não consegue ser lembrada. </li> </ul> </section> <section></p>",
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave"
                 },
@@ -579,7 +579,7 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão; o banner de cookies da LGPD é configurado no go-live e precisa apontar para esta página.</p>",
+                "editor": "<p><p> Se passarmos a usar uma nova ferramenta que grava cookies, esta página é atualizada antes de a ferramenta entrar no ar, e a data no topo muda. </p> </section> <section></p>",
                 "__globals__": {
                   "text_color": "globals/colors?id=iara-texto-suave"
                 },
@@ -668,9 +668,640 @@
               "elType": "widget",
               "widgetType": "text-editor",
               "settings": {
-                "editor": "<p>[PREENCHER: texto jurídico aprovado] Esqueleto da seção para revisão; o banner de cookies da LGPD é configurado no go-live e precisa apontar para esta página.</p>",
+                "editor": "<p><p> Escreva para <a href=\"mailto:dpo@iaracosta.com.br\">dpo@iaracosta.com.br</a>, do Departamento Jurídico, que responde em até 24 horas úteis. Questões sobre dados pessoais em geral estão na <a href=\"https://oeemax.com.br/iaracosta/politica-de-privacidade/\">Política de Privacidade</a>. </p> </section> </div> <!-- Simulação visual do banner, para a equipe validar a proporção --> <section aria-labelledby=\"banner-preview\"></p>",
                 "__globals__": {
-                  "text_color": "globals/colors?id=iara-texto-suave"
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "link_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "78e7a71",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Referência visual: banner de cookies"
+          },
+          "elements": [
+            {
+              "id": "5673004",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Referência visual: banner de cookies",
+                "title": "Referência visual: banner de cookies",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "e7c4303",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p><p> Prévia do comportamento esperado. Sem contagem regressiva, sem botão escondido e sem bloquear a leitura da página. No site real isto é feito por plugin aprovado (Complianz ou CookieYes). </p> <div> <div> <p>Cookies neste site</p> <p> Usamos cookies necessários para a loja funcionar. Com a sua autorização, usamos também cookies de medição e de marketing. Você pode mudar a escolha quando quiser. <a href=\"https://oeemax.com.br/iaracosta/politica-de-cookies/\">Ver a Política de Cookies</a> </p> </div> <div> <button type=\"button\">Aceitar todos</button> <button type=\"button\">Somente necessários</button> <button type=\"button\">Preferências</button> </div> </div> </section> </div> </div> <!-- FAIXA SÁLVIA ANTES DO RODAPÉ (separador, v0.1.5) Em todas as páginas: a faixa ocupa a largura inteira da tela e separa o conteúdo do rodapé. O texto fica dentro do container do header. --> <section aria-labelledby=\"banda-rodape-titulo\"> <div></p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "link_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "0d931c5",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Ficou alguma dúvida sobre os seus dados?"
+          },
+          "elements": [
+            {
+              "id": "628ec84",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Ficou alguma dúvida sobre os seus dados?",
+                "title": "Ficou alguma dúvida sobre os seus dados?",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "a6168bb",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p><p>Fale com o ateliê pelo formulário de contato.</p> <a href=\"https://oeemax.com.br/iaracosta/contato/\">Falar com o ateliê</a> </div> </section></p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "link_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "31257ac",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Institucional"
+          },
+          "elements": [
+            {
+              "id": "4e3bc60",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Institucional",
+                "title": "Institucional",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "2055dd8",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p><ul> <li><a href=\"https://oeemax.com.br/iaracosta/sobre/\">Sobre a marca</a></li> <li><a href=\"https://oeemax.com.br/iaracosta/colecao/\">Coleção Terra &amp; Linho</a></li> <li><a href=\"https://oeemax.com.br/iaracosta/guia-de-medidas/\">Guia de medidas</a></li> <li><a href=\"https://oeemax.com.br/iaracosta/trocas-e-devolucoes/\">Trocas e devoluções</a></li> <li><a href=\"https://oeemax.com.br/iaracosta/contato/\">Contato</a></li> </ul> </nav> <nav aria-labelledby=\"footer-categorias\"></p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "link_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "a4f7dca",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Categorias"
+          },
+          "elements": [
+            {
+              "id": "56a5221",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Categorias",
+                "title": "Categorias",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "a4bda02",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p><ul> <li><a href=\"https://oeemax.com.br/iaracosta/loja/\">Vestidos</a></li> <li><a href=\"https://oeemax.com.br/iaracosta/loja/\">Blusas &amp; Camisas</a></li> <li><a href=\"https://oeemax.com.br/iaracosta/loja/\">Saias &amp; Calças</a></li> <li><a href=\"https://oeemax.com.br/iaracosta/loja/\">Acessórios</a></li> <li><a href=\"https://oeemax.com.br/iaracosta/loja/\">Ver tudo</a></li> </ul> </nav> <div></p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "link_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "21eeba9",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Atendimento"
+          },
+          "elements": [
+            {
+              "id": "c79c45c",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Atendimento",
+                "title": "Atendimento",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "181f753",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p><ul> <li><a href=\"mailto:contato@iaracosta.com.br\">contato@iaracosta.com.br</a></li> <li><a href=\"tel:+5515991234567\">(15) 99123-4567</a> · telefone e WhatsApp</li> <li>Segunda a sexta, das 9h às 18h</li> <li> <a href=\"https://oeemax.com.br/iaracosta/minha-conta/\">Minha conta</a> · <a href=\"https://oeemax.com.br/iaracosta/lista-de-desejos/\">Desejos</a> · <a href=\"https://oeemax.com.br/iaracosta/sacola/\">Sacola</a> </li> </ul> <ul aria-label=\"Redes sociais da marca\"> <li> <a href=\"#\" aria-label=\"Instagram (endereço a preencher)\"> <svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" aria-hidden=\"true\" focusable=\"false\"> <rect x=\"3.5\" y=\"3.5\" width=\"17\" height=\"17\" rx=\"4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.25\"></rect> <circle cx=\"12\" cy=\"12\" r=\"4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.25\"></circle> <circle cx=\"17\" cy=\"7\" r=\"0.9\" fill=\"currentColor\"></circle> </svg> </a> </li> <li> <a href=\"#\" aria-label=\"Pinterest (endereço a preencher)\"> <svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" aria-hidden=\"true\" focusable=\"false\"> <circle cx=\"12\" cy=\"12\" r=\"8.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.25\"></circle> <path d=\"M10.5 18.5c.6-1.5 1.6-4.3 2-6.2M9.6 10.9c0-1.9 1.3-3.4 3.1-3.4 1.8 0 2.9 1.2 2.9 2.8 0 2-1.1 3.6-2.6 3.6-.9 0-1.6-.7-1.4-1.6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.25\" stroke-linecap=\"round\"></path> </svg> </a> </li> <li> <a href=\"#\" aria-label=\"WhatsApp (número a preencher)\"> <svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" aria-hidden=\"true\" focusable=\"false\"> <path d=\"M20 11.7a8 8 0 0 1-11.8 7.1L4 20l1.3-4.1A8 8 0 1 1 20 11.7Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.25\" stroke-linejoin=\"round\"></path> <path d=\"M9.3 9.4c.3 2 2.1 3.8 4.2 4.2l.9-1.1 1.5.8c-.4 1.1-1.6 1.6-2.8 1.3-1.9-.5-3.6-2.3-4-4.2-.2-1.1.3-2.2 1.4-2.6l.8 1.5-1 .8Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.25\" stroke-linejoin=\"round\"></path> </svg> </a> </li> </ul> </div> </div> <!-- ================================================================== SEGURANÇA E PAGAMENTO (pedido da cliente, v0.1.8) Quatro informações curtas com ícone, e abaixo duas linhas com a mesma linguagem da referência enviada: as formas de pagamento em quadros claros e os selos de segurança em formato de distintivo. Os quadros são ilustrativos e estão escritos em texto, não com as marcas oficiais: bandeira de cartão é marca registrada de terceiro e só pode ser usada pela loja que de fato aceita aquele meio. Os selos oficiais (certificado SSL e Google Safe Browsing, que são baixados dos próprios fornecedores) entram no lugar destes no go-live, junto com o gateway contratado. Mesmo aviso que já aparece embaixo. ================================================================== --> <section aria-labelledby=\"seguranca-titulo\"></p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "link_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "5ac1964",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Segurança e formas de pagamento"
+          },
+          "elements": [
+            {
+              "id": "340c04e",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Segurança e formas de pagamento",
+                "title": "Segurança e formas de pagamento",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "0f82f91",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p><ul> <li> <svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.25\" aria-hidden=\"true\" focusable=\"false\"> <rect x=\"3.5\" y=\"6\" width=\"17\" height=\"12\" rx=\"1.5\"></rect> <path d=\"M3.5 10h17M7 15h4\"></path> </svg> <span> <strong>Pix, cartão e boleto</strong> <span>Pix com 5% de desconto, cartão em até 6x sem juros e boleto pelo Mercado Pago.</span> </span> </li> <li> <svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.25\" aria-hidden=\"true\" focusable=\"false\"> <path d=\"M12 3.5 5 6.5v6c0 4 3 7 7 8.5 4-1.5 7-4.5 7-8.5v-6l-7-3Z\"></path> <path d=\"M9 12l2.2 2.2L15.5 10\"></path> </svg> <span> <strong>Ambiente protegido</strong> <span>Seus dados trafegam criptografados e não são compartilhados.</span> </span> </li> <li> <svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.25\" aria-hidden=\"true\" focusable=\"false\"> <path d=\"M3.5 7.5h11v9h-11zM14.5 10.5h3.5l2.5 3v3h-6z\"></path> <circle cx=\"7\" cy=\"18\" r=\"1.6\"></circle> <circle cx=\"17.5\" cy=\"18\" r=\"1.6\"></circle> </svg> <span> <strong>Pedido rastreado</strong> <span>Código de rastreio por e-mail assim que a peça é postada.</span> </span> </li> <li> <svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.25\" aria-hidden=\"true\" focusable=\"false\"> <path d=\"M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9Z\"></path> </svg> <span> <strong>7 dias para desistir</strong> <span>Direito de arrependimento previsto no <a href=\"https://oeemax.com.br/iaracosta/trocas-e-devolucoes/\">CDC, Art. 49</a>.</span> </span> </li> </ul> <!-- Formas de pagamento e selos: ilustrativos, ver aviso abaixo --> <div> <div> <h3>Formas de pagamento</h3> <ul> <!-- Só o que a empresa confirmou: o gateway Mercado Pago e os três meios de pagamento ativos (boleto incluído em 16/10/2026). Bandeiras de cartão entram aqui quando estiverem ativas na conta do gateway. --> <li>Mercado Pago</li> <li>Pix</li> <li>Cartão de crédito</li> <li>Boleto bancário</li> </ul> </div> <div> <h3>Segurança</h3> <ul> <li> <span aria-hidden=\"true\"> <svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" focusable=\"false\"> <rect x=\"4.5\" y=\"10\" width=\"15\" height=\"10\" rx=\"1.6\"></rect> <path d=\"M8 10V7.5a4 4 0 0 1 8 0V10M12 14v2.5\"></path> </svg> </span> <span> <strong>Site seguro</strong> <span>SSL 256 bits</span> </span> </li> <li> <span aria-hidden=\"true\"> <svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" focusable=\"false\"> <path d=\"M12 3.5 5 6v6c0 4 3 7 7 8.5 4-1.5 7-4.5 7-8.5V6l-7-2.5Z\"></path> <path d=\"M9 12.2l2.2 2.3L15.5 10\"></path> </svg> </span> <span> <strong>Navegação verificada</strong> <span>Sem páginas suspeitas</span> </span> </li> </ul> </div> </div> <p> Durante o protótipo, esta faixa é demonstrativa. O gateway da loja é o Mercado Pago; bandeiras, selos e certificados oficiais entram neste lugar no go-live, quando o certificado de segurança estiver ativo e as bandeiras estiverem habilitadas na conta do gateway. <span>[CONFERIR no go-live]</span> </p> </section> <div> <div> <p> © 2026 Iara Costa. Todos os direitos reservados. </p> <p> Iara Costa Moda Feminina LTDA · CNPJ 12.345.678/0001-90 · Rua das Flores, nº 140, Sala 02, Centro, Cerquilho - SP, CEP 18520-000 </p> </div> <ul> <li><a href=\"https://oeemax.com.br/iaracosta/politica-de-privacidade/\">Política de privacidade</a></li> <li><a href=\"https://oeemax.com.br/iaracosta/termos-de-uso/\">Termos de uso</a></li> <li><a href=\"https://oeemax.com.br/iaracosta/trocas-e-devolucoes/\">Trocas e devoluções</a></li> <li><a href=\"https://oeemax.com.br/iaracosta/politica-de-cookies/\">Cookies</a></li> </ul> </div> </div> </footer> <!-- Botão flutuante de WhatsApp: no Elementor usar Floating Elements (ver 7.10). Número (15) 99123-4567; no protótipo o botão fica ilustrativo e sem link real, porque a conversa só faz sentido com o atendimento montado. --> <div aria-hidden=\"true\"> <span>WhatsApp</span> <svg viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" aria-hidden=\"true\" focusable=\"false\"> <path fill=\"currentColor\" d=\"M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 0 1 0 16.4 8.1 8.1 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8Zm-3 4c-.2 0-.5.1-.7.3-.3.3-.8.9-.8 1.8s.6 1.9 1.5 3c.9 1.1 2 1.9 3.3 2.3 1 .3 1.6.2 2.1 0 .6-.3 1.1-.9 1.2-1.3.1-.4.1-.7 0-.8l-1.7-.8c-.2-.1-.4 0-.6.2l-.5.6c-.1.2-.3.2-.5.1-.5-.2-1.3-.7-1.9-1.5-.4-.5-.6-.9-.7-1.1 0-.2 0-.3.1-.4l.4-.5c.1-.2.2-.3.1-.5l-.7-1.6c-.2-.4-.3-.4-.5-.4h-.1Z\"></path> </svg> </div> <!-- ========================================================================== MINI-SACOLA (drawer) + aviso rápido (toast) Por que existe: quem clica em \"Adicionar à sacola\" precisa de uma confirmação imediata sem sair da página. O drawer mostra o item, o subtotal e, principalmente, quanto falta para o frete grátis, que é o empurrão honesto para completar o pedido (nada de contador falso). No Bloco B isto é o widget \"Menu Cart\" / mini-carrinho do Elementor Pro. Aqui é uma demonstração em HTML, com os valores de exemplo. ======================================================================= --> <div data-drawer-backdrop hidden></div> <aside data-drawer role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"drawer-titulo\" hidden> <div></p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "link_color": "globals/colors?id=iara-texto-suave"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Jost",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 15,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.55,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.0,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "56f26d4",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "flex_direction": "column",
+            "flex_gap": {
+              "row": "10",
+              "column": "10",
+              "isLinked": true,
+              "unit": "px",
+              "size": 10
+            },
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "24",
+              "left": "0",
+              "isLinked": false
+            },
+            "_title": "Sua sacola"
+          },
+          "elements": [
+            {
+              "id": "5f2510c",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "Sua sacola",
+                "title": "Sua sacola",
+                "header_size": "h2",
+                "__globals__": {
+                  "title_color": "globals/colors?id=text"
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 18,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.2,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "em",
+                  "size": 0.02,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "043ddea",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p><button type=\"button\" data-drawer-close aria-label=\"Fechar a sacola\"> <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" aria-hidden=\"true\" focusable=\"false\"> <path d=\"M6 6l12 12M18 6 6 18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"></path> </svg> </button> </div> <div data-drawer-body> <!-- Preenchido pelo loja.js com os itens escolhidos --> </div> <div> <div> <p data-ship-text>Faltam R$ 299,00 para o frete grátis.</p> <div aria-hidden=\"true\"> <span data-ship-fill></span> </div> </div> <div> <span>Subtotal</span> <strong data-drawer-total>R$ 0,00</strong> </div> <a href=\"https://oeemax.com.br/iaracosta/sacola/\">Ver sacola</a> <a href=\"https://oeemax.com.br/iaracosta/finalizar-compra/\">Finalizar compra</a> <p> Frete calculado pelo CEP no carrinho. Impostos incluídos no preço. </p> </div> </aside> <!-- Aviso rápido: usado quando o cliente salva uma peça nos desejos --> <p data-toast role=\"status\" aria-live=\"polite\"></p> <script src=\"assets/js/header.js?v=22305f3f\" defer></script> <script src=\"assets/js/loja.js?v=7f189034\" defer></script> </body> </html></p>",
+                "__globals__": {
+                  "text_color": "globals/colors?id=iara-texto-suave",
+                  "link_color": "globals/colors?id=iara-texto-suave"
                 },
                 "typography_typography": "custom",
                 "typography_font_family": "Jost",
@@ -701,7 +1332,7 @@
     }
   ],
   "page_settings": {
-    "custom_css": "/* ==========================================================================\n   IARA COSTA · CSS de reforco do cabecalho (v0.3.10)\n   Fonte: seu-projeto/assets/css/header.css (prototipo aprovado).\n\n   Desde a v0.3.10 o cabecalho NAO depende deste arquivo: ele usa so\n   widgets basicos (titulo, lista de icones e icone) com fonte e cor das\n   globais. Este CSS e um reforco para o caso de o tema tentar impor a\n   fonte dele nos titulos e nas listas: cole em Elementor >\n   Configuracoes do site > CSS personalizado (Elementor Pro) e salve.\n   Mira apenas nas classes iara-* do template 01-cabecalho.json.\n   ========================================================================== */\n\n/* Faixa verde: caixa alta espaçada, como no prototipo */\n/* Hover da faixa, como no prototipo (.announcement__text a:hover):\n   a cor clara vem do controle de hover do widget; aqui entra a linha. */\n.iara-faixa-lista .elementor-icon-list-item a:hover,\n.iara-faixa-lista .elementor-icon-list-item a:focus-visible {\n  text-decoration: underline;\n}\n.iara-faixa-lista .elementor-icon-list-text {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 12px;\n  letter-spacing: 0.15em;\n  text-transform: uppercase;\n}\n\n/* Marca: nome em Playfair, tagline em Jost caixa alta miúda */\n.iara-marca-nome .elementor-heading-title {\n  font-family: \"Playfair Display\", serif !important;\n  font-size: 20px;\n  letter-spacing: 0.105em;\n  line-height: 1.15;\n  color: #2d2925;\n}\n.iara-marca-tagline .elementor-heading-title {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 11px;\n  letter-spacing: 0.18em;\n  text-transform: uppercase;\n  color: #625a52;\n}\n\n/* Menu (lista de icones em linha): Jost 12px, nunca a serifada do tema */\n.iara-menu .elementor-icon-list-text {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 12px;\n  letter-spacing: 0.06em;\n  color: #554f49;\n  white-space: nowrap;\n}\n.iara-menu .elementor-icon-list-item:hover .elementor-icon-list-text {\n  color: #78452f;\n  text-decoration: underline;\n  text-underline-offset: 4px;\n}\n\n/* O link do menu em si (prototipo: .main-nav__link): area de clique com\n   respiro, sublinhado discreto no hover e no foco pelo teclado */\n.iara-menu .elementor-icon-list-item a {\n  color: #554f49;\n  text-decoration: none;\n  padding: 6px 0;\n  border-bottom: 1px solid transparent;\n}\n.iara-menu .elementor-icon-list-item a:hover,\n.iara-menu .elementor-icon-list-item a:focus-visible {\n  color: #78452f;\n  border-bottom-color: #e4cbb5;\n}\n\n/* Icones da direita, como no prototipo (.icon-btn): sem caixa, sem\n   fundo, alvo de toque confortavel e traco leve. Busca e sacola sao\n   glifos cheios no Font Awesome (nao existe versao de contorno gratis\n   deles), entao o peso visual baixa pelo tamanho (17px) e pela cor. */\n.iara-acoes .elementor-icon {\n  color: #2d2925;\n  background: none;\n  border: 0;\n  padding: 13px;\n  line-height: 0;\n}\n.iara-acoes .elementor-icon svg { width: 17px; height: 17px; display: block; }\n/* Minha conta, Desejos e Sacola numa linha, separados por ponto */\n.iara-conta-links .elementor-icon-list-item + .elementor-icon-list-item::before {\n  content: \"·\"; margin-right: 8px; color: #776e64;\n}\n\n/* Nota da newsletter com largura de leitura (76ch do prototipo) */\n.iara-news-nota { max-width: 76ch; margin-top: 14px; }\n/* WhatsApp flutuante do prototipo: pilula Sálvia fixa no canto */\n.iara-whats-float {\n  position: fixed; right: 16px; bottom: 16px; z-index: 900;\n}\n.iara-whats-float .elementor-button {\n  border-radius: 999px; padding: 12px 16px;\n  box-shadow: 0 6px 18px rgba(45, 41, 37, 0.18);\n}\n\n/* Rodape igual ao prototipo: divisorias verticais na faixa de\n   seguranca, linha fina sobre pagamentos/selos, sociais em circulos\n   com borda e o icone do selo no quadradinho escuro. */\n.iara-seg-faixa > * + * { border-left: 1px solid #ded8ce; padding-left: 22px; }\n.iara-seg-linha { border-top: 1px solid #eee9e1; padding-top: 26px; }\n.iara-sociais .elementor-icon-list-item a {\n  width: 44px; height: 44px;\n  border: 1px solid #ded8ce; border-radius: 50%;\n  display: inline-flex; align-items: center; justify-content: center;\n  color: #625a52; background: #fffdf9;\n}\n.iara-sociais .elementor-icon-list-item a:hover {\n  color: #a45f43; border-color: #e4cbb5; background: #f7f4ef;\n}\n.iara-selo-icone {\n  background: #2d2925; border-radius: 6px;\n  width: 34px; height: 34px; flex: 0 0 auto;\n  display: flex; align-items: center; justify-content: center;\n}\n\n/* Contadores (selo) da sacola e dos desejos: bolha Terracota com o\n   numero em branco, no canto do icone, como no prototipo. A sacola e\n   o widget Carrinho do Menu (numero real do WooCommerce); os desejos,\n   o contador do plugin TI. Bolha vazia nao aparece. */\n.iara-sacola .elementor-menu-cart__toggle .elementor-button {\n  background: none; border: 0; box-shadow: none;\n  padding: 13px; line-height: 0; color: #554f49;\n}\n.iara-sacola .elementor-menu-cart__toggle .elementor-button:hover,\n.iara-sacola .elementor-menu-cart__toggle .elementor-button:focus-visible {\n  background: none; color: #78452f;\n}\n.iara-sacola .elementor-menu-cart__toggle .elementor-button svg {\n  width: 19px; height: 19px; display: block;\n}\n.iara-desejos .wishlist_products_counter {\n  padding: 13px; display: inline-block; line-height: 0;\n  position: relative; color: #554f49; text-decoration: none;\n}\n.iara-sacola .elementor-button-icon { position: relative; color: #554f49; }\n.iara-sacola:hover .elementor-button-icon { color: #78452f; }\n.iara-sacola .elementor-button-icon .elementor-button-icon-qty[data-counter] {\n  background: #a45f43; color: #fffdf9;\n  font-family: \"Jost\", sans-serif; font-size: 10px; font-weight: 600;\n  min-width: 16px; height: 16px; line-height: 16px;\n  border-radius: 50%; text-align: center;\n}\n.iara-desejos .wishlist_products_counter { position: relative; color: #554f49; text-decoration: none; }\n.iara-desejos .wishlist_products_counter:hover { color: #78452f; }\n.iara-desejos .wishlist_products_counter_number {\n  background: #a45f43; color: #fffdf9;\n  font-family: \"Jost\", sans-serif; font-size: 10px; font-weight: 600;\n  min-width: 16px; height: 16px; line-height: 16px;\n  border-radius: 50%; text-align: center; display: inline-block;\n  position: absolute; top: -4px; right: -6px;\n}\n.iara-acoes .elementor-icon:hover,\n.iara-acoes .elementor-icon:focus-visible { color: #78452f; }\n\n/* --- Menu principal (widget de menu do WordPress, classe iara-menu-nav) ---\n   A fonte e Jost por este CSS (o widget Pro herda a serifada do tema) e o\n   item da pagina atual ganha o sublinhado do prototipo: quem marca o item\n   atual e o WordPress (classe elementor-item-active), nao o template. */\n.iara-menu-nav .elementor-nav-menu--layout-horizontal .elementor-nav-menu {\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: center;\n  gap: clamp(12px, 1.6vw, 28px);\n}\n/* Logotipo do rodape: o mesmo arquivo, um pouco menor */\n.iara-marca-logo-rodape img { width: 190px; height: auto; display: block; }\n\n/* Logotipo (widget Site Logo): largura travada mesmo se o controle\n   de largura do widget mudar; altura automatica pela proporcao. */\n.iara-marca-logo img { width: 210px; height: auto; display: block; }\n\n.iara-menu-nav .elementor-nav-menu--main .elementor-item {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 12px;\n  font-weight: 400;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n  color: #554f49;\n  padding: 6px 0;\n  white-space: nowrap;\n}\n/* Estados do link, iguais ao prototipo (.main-nav__link):\n   hover = Terracota escuro com a linha escura; ativo (pagina atual) =\n   Terracota escuro com a linha Terracota claro. */\n.iara-menu-nav .elementor-nav-menu--main .elementor-item:hover,\n.iara-menu-nav .elementor-nav-menu--main .elementor-item:focus-visible {\n  color: #78452f;\n  box-shadow: inset 0 -1px 0 #78452f;\n}\n.iara-menu-nav .elementor-nav-menu--main .elementor-item.elementor-item-active {\n  color: #78452f;\n  box-shadow: inset 0 -1px 0 #e4cbb5;\n}\n\n/* --- Minha conta e links do WooCommerce (o rosa da captura e do tema) --- */\n.woocommerce-MyAccount-navigation ul { list-style: none; margin: 0; padding: 0; }\n.woocommerce-MyAccount-navigation li { margin-bottom: 6px; }\n.woocommerce-MyAccount-navigation a,\n.woocommerce-MyAccount-content a,\n.woocommerce-cart-form a,\n.woocommerce-checkout a {\n  color: #78452f;\n  font-family: \"Jost\", sans-serif;\n  text-decoration: none;\n}\n.woocommerce-MyAccount-navigation a:hover,\n.woocommerce-MyAccount-content a:hover { text-decoration: underline; }\n.woocommerce-MyAccount-navigation .is-active a {\n  color: #78452f;\n  font-weight: 600;\n  box-shadow: inset 0 -1px 0 #e4cbb5;\n}\n\n/* --- Cabecalho fixo no topo, como no prototipo (.site-header sticky) ---\n   Vale para o bloco inteiro do Theme Builder (faixa + barra). */\n.elementor-location-header {\n  position: sticky;\n  top: 0;\n  z-index: 999;\n}\n"
+    "custom_css": "/* ==========================================================================\n   IARA COSTA · CSS de reforco do cabecalho (v0.3.10)\n   Fonte: seu-projeto/assets/css/header.css (prototipo aprovado).\n\n   Desde a v0.3.10 o cabecalho NAO depende deste arquivo: ele usa so\n   widgets basicos (titulo, lista de icones e icone) com fonte e cor das\n   globais. Este CSS e um reforco para o caso de o tema tentar impor a\n   fonte dele nos titulos e nas listas: cole em Elementor >\n   Configuracoes do site > CSS personalizado (Elementor Pro) e salve.\n   Mira apenas nas classes iara-* do template 01-cabecalho.json.\n   ========================================================================== */\n\n/* Faixa verde: caixa alta espaçada, como no prototipo */\n/* Hover da faixa, como no prototipo (.announcement__text a:hover):\n   a cor clara vem do controle de hover do widget; aqui entra a linha. */\n.iara-faixa-lista .elementor-icon-list-item a:hover,\n.iara-faixa-lista .elementor-icon-list-item a:focus-visible {\n  text-decoration: underline;\n}\n.iara-faixa-lista .elementor-icon-list-text {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 12px;\n  letter-spacing: 0.15em;\n  text-transform: uppercase;\n}\n\n/* Marca: nome em Playfair, tagline em Jost caixa alta miúda */\n.iara-marca-nome .elementor-heading-title {\n  font-family: \"Playfair Display\", serif !important;\n  font-size: 20px;\n  letter-spacing: 0.105em;\n  line-height: 1.15;\n  color: #2d2925;\n}\n.iara-marca-tagline .elementor-heading-title {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 11px;\n  letter-spacing: 0.18em;\n  text-transform: uppercase;\n  color: #625a52;\n}\n\n/* Menu (lista de icones em linha): Jost 12px, nunca a serifada do tema */\n.iara-menu .elementor-icon-list-text {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 12px;\n  letter-spacing: 0.06em;\n  color: #554f49;\n  white-space: nowrap;\n}\n.iara-menu .elementor-icon-list-item:hover .elementor-icon-list-text {\n  color: #78452f;\n  text-decoration: underline;\n  text-underline-offset: 4px;\n}\n\n/* O link do menu em si (prototipo: .main-nav__link): area de clique com\n   respiro, sublinhado discreto no hover e no foco pelo teclado */\n.iara-menu .elementor-icon-list-item a {\n  color: #554f49;\n  text-decoration: none;\n  padding: 6px 0;\n  border-bottom: 1px solid transparent;\n}\n.iara-menu .elementor-icon-list-item a:hover,\n.iara-menu .elementor-icon-list-item a:focus-visible {\n  color: #78452f;\n  border-bottom-color: #e4cbb5;\n}\n\n/* Icones da direita, como no prototipo (.icon-btn): sem caixa, sem\n   fundo, alvo de toque confortavel e traco leve. Busca e sacola sao\n   glifos cheios no Font Awesome (nao existe versao de contorno gratis\n   deles), entao o peso visual baixa pelo tamanho (17px) e pela cor. */\n.iara-acoes .elementor-icon {\n  color: #2d2925;\n  background: none;\n  border: 0;\n  padding: 13px;\n  line-height: 0;\n}\n.iara-acoes .elementor-icon svg { width: 17px; height: 17px; display: block; }\n/* Minha conta, Desejos e Sacola numa linha, separados por ponto */\n.iara-conta-links .elementor-icon-list-item + .elementor-icon-list-item::before {\n  content: \"·\"; margin-right: 8px; color: #776e64;\n}\n\n/* Nota da newsletter com largura de leitura (76ch do prototipo) */\n.iara-news-nota { max-width: 76ch; margin-top: 14px; }\n/* WhatsApp flutuante do prototipo: pilula Sálvia fixa no canto */\n.iara-whats-float {\n  position: fixed; right: 16px; bottom: 16px; z-index: 900;\n}\n.iara-whats-float .elementor-button {\n  border-radius: 999px; padding: 12px 16px;\n  box-shadow: 0 6px 18px rgba(45, 41, 37, 0.18);\n}\n\n/* Rodape igual ao prototipo: divisorias verticais na faixa de\n   seguranca, linha fina sobre pagamentos/selos, sociais em circulos\n   com borda e o icone do selo no quadradinho escuro. */\n.iara-seg-faixa > * + * { border-left: 1px solid #ded8ce; padding-left: 22px; }\n.iara-seg-linha { border-top: 1px solid #eee9e1; padding-top: 26px; }\n.iara-sociais .elementor-icon-list-item a {\n  width: 44px; height: 44px;\n  border: 1px solid #ded8ce; border-radius: 50%;\n  display: inline-flex; align-items: center; justify-content: center;\n  color: #625a52; background: #fffdf9;\n}\n.iara-sociais .elementor-icon-list-item a:hover {\n  color: #a45f43; border-color: #e4cbb5; background: #f7f4ef;\n}\n.iara-selo-icone {\n  background: #2d2925; border-radius: 6px;\n  width: 34px; height: 34px; flex: 0 0 auto;\n  display: flex; align-items: center; justify-content: center;\n}\n\n/* Contadores (selo) da sacola e dos desejos: bolha Terracota com o\n   numero em branco, no canto do icone, como no prototipo. A sacola e\n   o widget Carrinho do Menu (numero real do WooCommerce); os desejos,\n   o contador do plugin TI. Bolha vazia nao aparece. */\n.iara-sacola .elementor-menu-cart__toggle .elementor-button {\n  background: none; border: 0; box-shadow: none;\n  padding: 13px; line-height: 0; color: #554f49;\n}\n.iara-sacola .elementor-menu-cart__toggle .elementor-button:hover,\n.iara-sacola .elementor-menu-cart__toggle .elementor-button:focus-visible {\n  background: none; color: #78452f;\n}\n.iara-sacola .elementor-menu-cart__toggle .elementor-button svg {\n  width: 19px; height: 19px; display: block;\n}\n.iara-desejos .wishlist_products_counter {\n  padding: 13px; display: inline-block; line-height: 0;\n  position: relative; color: #554f49; text-decoration: none;\n}\n.iara-sacola .elementor-button-icon { position: relative; color: #554f49; }\n.iara-sacola:hover .elementor-button-icon { color: #78452f; }\n.iara-sacola .elementor-button-icon .elementor-button-icon-qty[data-counter] {\n  background: #a45f43; color: #fffdf9;\n  font-family: \"Jost\", sans-serif; font-size: 10px; font-weight: 600;\n  min-width: 16px; height: 16px; line-height: 16px;\n  border-radius: 50%; text-align: center;\n}\n.iara-desejos .wishlist_products_counter { position: relative; color: #554f49; text-decoration: none; }\n.iara-desejos .wishlist_products_counter:hover { color: #78452f; }\n.iara-desejos .wishlist_products_counter_number {\n  background: #a45f43; color: #fffdf9;\n  font-family: \"Jost\", sans-serif; font-size: 10px; font-weight: 600;\n  min-width: 16px; height: 16px; line-height: 16px;\n  border-radius: 50%; text-align: center; display: inline-block;\n  position: absolute; top: -4px; right: -6px;\n}\n.iara-acoes .elementor-icon:hover,\n.iara-acoes .elementor-icon:focus-visible { color: #78452f; }\n\n/* --- Menu principal (widget de menu do WordPress, classe iara-menu-nav) ---\n   A fonte e Jost por este CSS (o widget Pro herda a serifada do tema) e o\n   item da pagina atual ganha o sublinhado do prototipo: quem marca o item\n   atual e o WordPress (classe elementor-item-active), nao o template. */\n.iara-menu-nav .elementor-nav-menu--layout-horizontal .elementor-nav-menu {\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: center;\n  gap: clamp(12px, 1.6vw, 28px);\n}\n/* Logotipo do rodape: o mesmo arquivo, um pouco menor */\n.iara-marca-logo-rodape img { width: 190px; height: auto; display: block; }\n\n/* Logotipo (widget Site Logo): largura travada mesmo se o controle\n   de largura do widget mudar; altura automatica pela proporcao. */\n.iara-marca-logo img { width: 210px; height: auto; display: block; }\n\n.iara-menu-nav .elementor-nav-menu--main .elementor-item {\n  font-family: \"Jost\", sans-serif !important;\n  font-size: 12px;\n  font-weight: 400;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n  color: #554f49;\n  padding: 6px 0;\n  white-space: nowrap;\n}\n/* Estados do link, iguais ao prototipo (.main-nav__link):\n   hover = Terracota escuro com a linha escura; ativo (pagina atual) =\n   Terracota escuro com a linha Terracota claro. */\n.iara-menu-nav .elementor-nav-menu--main .elementor-item:hover,\n.iara-menu-nav .elementor-nav-menu--main .elementor-item:focus-visible {\n  color: #78452f;\n  box-shadow: inset 0 -1px 0 #78452f;\n}\n.iara-menu-nav .elementor-nav-menu--main .elementor-item.elementor-item-active {\n  color: #78452f;\n  box-shadow: inset 0 -1px 0 #e4cbb5;\n}\n\n/* --- Minha conta e links do WooCommerce (o rosa da captura e do tema) --- */\n.woocommerce-MyAccount-navigation ul { list-style: none; margin: 0; padding: 0; }\n.woocommerce-MyAccount-navigation li { margin-bottom: 6px; }\n.woocommerce-MyAccount-navigation a,\n.woocommerce-MyAccount-content a,\n.woocommerce-cart-form a,\n.woocommerce-checkout a {\n  color: #78452f;\n  font-family: \"Jost\", sans-serif;\n  text-decoration: none;\n}\n.woocommerce-MyAccount-navigation a:hover,\n.woocommerce-MyAccount-content a:hover { text-decoration: underline; }\n.woocommerce-MyAccount-navigation .is-active a {\n  color: #78452f;\n  font-weight: 600;\n  box-shadow: inset 0 -1px 0 #e4cbb5;\n}\n\n/* --- Cabecalho fixo no topo, como no prototipo (.site-header sticky) ---\n   Vale para o bloco inteiro do Theme Builder (faixa + barra). */\n.elementor-location-header {\n  position: sticky;\n  top: 0;\n  z-index: 999;\n}\n\n/* ---------------------------------------------------------------\n   Responsivo (pente-fino de 2026-10-20): o prototipo tem 74 blocos\n   @media e o Elementor tinha zero. Aqui entram os ajustes das pecas\n   nomeadas (cabecalho e rodape); o empilhamento das colunas vem das\n   declaracoes _mobile geradas em cada template.\n   --------------------------------------------------------------- */\n@media (max-width: 1024px) {\n  .iara-seg-faixa > * { flex: 1 1 46%; }\n  .iara-seg-faixa > * + * { border-left: 0; padding-left: 0; }\n}\n\n@media (max-width: 767px) {\n  .iara-marca-logo img { width: 150px; }\n  .iara-marca-logo-rodape img { width: 140px; }\n  .iara-faixa-lista .elementor-icon-list-item {\n    font-size: 11px; letter-spacing: 0.1em;\n  }\n  .iara-seg-faixa > * { flex-basis: 100%; }\n  .iara-acoes .elementor-icon,\n  .iara-sacola .elementor-menu-cart__toggle .elementor-button,\n  .iara-desejos .wishlist_products_counter { padding: 10px; }\n  .iara-whats-float .elementor-button { padding: 10px 12px; }\n}\n"
   },
   "version": "0.4",
   "title": "Política de Cookies",

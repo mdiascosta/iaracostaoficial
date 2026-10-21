@@ -1,5 +1,32 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-20] - Pente-fino e ajustes: responsivo e texto integral (v0.3.24)
+
+### Pedido da cliente
+Pente-fino em todos os JSON contra as páginas do template, a
+pergunta sobre o CSS do HTML estar sendo injetado no Elementor, e
+autorização para continuar ajustando.
+
+### O que o pente-fino achou (PENTE-FINO.md)
+O CSS do protótipo não viaja cru (as classes dele não existem no
+Elementor); viaja o equivalente. Faltavam o responsivo (0 @media e 0
+ajustes contra 74 blocos do protótipo) e o texto integral das
+páginas (os JSON tinham resumos; as legais, ~11%).
+
+### O que foi feito
+Passada responsiva automática em todos os documentos, @media no CSS
+embutido, e as páginas de texto e o FAQ passaram a ser gerados do
+HTML aprovado do protótipo, com os links convertidos. A conferência
+pegou os links `.html` que a extração trouxe e o mapa de conversão
+foi completado. Tudo verde de novo, relatório atualizado com o
+antes/depois.
+
+### O que continua por verificar
+- Conferência visual no celular de verdade (loja e produto são do
+  WooCommerce) e a importação no site dela. Sobre, contato, coleção
+  e inicial seguem com o texto do gerador; o integral está no
+  pages-conteudo.md se ela quiser a troca completa depois.
+
 ## [2026-10-20] - CSS em todos os templates e pacote único (v0.3.23)
 
 ### Pedido da cliente

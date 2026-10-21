@@ -289,6 +289,38 @@ testa('botão flutuante de WhatsApp presente, fixo pelo CSS',
       len(whats) == 1 and '.iara-whats-float' in css
       and 'position: fixed' in css)
 
+print('== responsivo e textos completos (pente-fino) ==')
+def todos(nome):
+    return list(percorre(carrega(nome)['content']))
+com_mobile = sum(1 for nome in
+                 ('01-cabecalho.json', '02-rodape.json', '03-home.json')
+                 for e in todos(nome)
+                 if '_flex_basis_mobile' in e.get('settings', {})
+                 or any(k.endswith('_font_size_mobile')
+                        for k in e.get('settings', {})))
+testa('ajustes de celular declarados (colunas e titulos)', com_mobile >= 8,
+      str(com_mobile) + ' elementos com ajuste _mobile')
+css2 = css
+testa('regras @media no CSS embutido (tablet e celular)',
+      css2.count('@media') >= 2 and 'max-width: 767px' in css2
+      and 'max-width: 1024px' in css2)
+faq_itens = sum(len(e['settings'].get('tabs', []) or [])
+                for e in todos('17-faq.json')
+                if e.get('widgetType') == 'accordion')
+testa('FAQ com as perguntas do protótipo (sanfonas por grupo)',
+      faq_itens >= 18, str(faq_itens) + ' perguntas')
+def texto_total(nome):
+    total = 0
+    for e in todos(nome):
+        st = e.get('settings', {})
+        if st.get('editor'):
+            total += len(st['editor'])
+    return total
+testa('páginas legais com o texto integral do protótipo',
+      texto_total('22-privacidade.json') > 7000
+      and texto_total('23-termos.json') > 7000,
+      'privacidade ' + str(texto_total('22-privacidade.json')) + ' chars')
+
 print()
 if FALHAS:
     print(f'resultado: {len(FALHAS)} teste(s) falharam')
