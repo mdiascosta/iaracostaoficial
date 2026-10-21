@@ -1,5 +1,13 @@
 # Diário de Bordo - Iara Costa E-commerce
 
+## [2026-10-21] - Galeria de demonstração por produto (v0.3.29)
+
+Pedido dela: além da foto principal, colocar imagens na galeria.
+Atualizei o CSV de vínculo com foto principal + duas imagens de
+detalhe/processo do protótipo para cada um dos 12 produtos. Registro
+claro: são imagens de demonstração, não vistas reais da mesma peça;
+substituir quando as fotos oficiais forem produzidas.
+
 ## [2026-10-21] - Produtos importaram; foto automática via CSV de vínculo (v0.3.28)
 
 Confirmação dela: os 12 produtos entraram. A pergunta seguinte era

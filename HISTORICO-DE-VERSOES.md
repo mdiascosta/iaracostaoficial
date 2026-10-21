@@ -61,6 +61,17 @@ apenas mostra os arquivos como estavam naquele momento.
 
 ## Versões registradas
 
+### v0.3.29 · 2026-10-21 · Galeria de demonstração dos produtos
+
+A pedido dela, o `produtos-imagens.csv` passou a trazer três imagens
+por produto: a primeira é a foto principal e as seguintes entram na
+galeria. As imagens complementares são detalhes e processo do
+protótipo (botões, costura, tingimento, cerâmica e ateliê), apenas
+para demonstração até chegarem as fotos reais da mesma peça.
+
+**Verificado aqui:** CSV e conferências. **Não verificado:** o vínculo
+no WordPress dela.
+
 ### v0.3.28 · 2026-10-21 · Fotos automáticas: CSV de vínculo por SKU
 
 **Produtos importaram** (confirmado por ela). Para as fotos, confirmado

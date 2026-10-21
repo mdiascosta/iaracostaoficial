@@ -37,7 +37,7 @@ revisão.
    variações. Conferir também se os atributos Cor e Tamanho nasceram globais.
 4. Fotos automáticas (confirmado no código do importador): subir as
    imagens antes em Mídia > Adicionar nova e reimportar
-   `bloco-c/produtos-imagens.csv` (SKU + Images) **marcando** "Atualizar
+   `bloco-c/produtos-imagens.csv` (SKU + Images; a primeira foto é a principal e as seguintes viram a galeria do produto) **marcando** "Atualizar
    produtos existentes"; o importador liga cada foto ao produto pelo
    nome do arquivo. Vale o contrário do lote de produtos novos: aqui
    atualizar é justamente o que se quer. Manual, produto a produto,
